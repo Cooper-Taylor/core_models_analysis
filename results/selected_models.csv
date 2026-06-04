@@ -1,0 +1,101 @@
+model_id,reason,n_reactions,n_metabolites,n_genes,n_exchanges_open,growth_flux,n_unique_rxns,n_unique_cpds,n_rare_rxns,novel_rxns_added,novel_cpds_added,min_jaccard_to_selected
+GCF_003261575.2,reaction-coverage rank 1: adds 187 previously-uncovered reactions,221,178,347,22,81.095,187,149,0,187,,
+GCF_009688965.1,reaction-coverage rank 2: adds 23 previously-uncovered reactions,179,171,310,19,32.565,148,145,3,23,,
+GCF_000522545.2,reaction-coverage rank 3: adds 12 previously-uncovered reactions,210,180,370,21,83.513,179,152,0,12,,
+GCF_000007845.1,reaction-coverage rank 4: adds 4 previously-uncovered reactions,192,166,216,21,75.345,161,138,0,4,,
+GCF_003441595.1,reaction-coverage rank 5: adds 4 previously-uncovered reactions,182,164,230,19,77.258,153,138,1,4,,
+GCF_000021805.1,reaction-coverage rank 6: adds 3 previously-uncovered reactions,143,138,139,17,32.215,116,114,0,3,,
+GCF_000008525.1,reaction-coverage rank 7: adds 1 previously-uncovered reactions,117,124,94,20,13.7,87,97,0,1,,
+GCF_000011305.1,reaction-coverage rank 8: adds 1 previously-uncovered reactions,161,153,149,19,49.465,132,127,0,1,,
+GCF_000015745.1,reaction-coverage rank 9: adds 1 previously-uncovered reactions,185,161,181,21,60.29,154,133,1,1,,
+GCF_000016745.1,reaction-coverage rank 10: adds 1 previously-uncovered reactions,151,149,202,19,35.323,122,124,1,1,,
+GCF_000025265.1,reaction-coverage rank 11: adds 1 previously-uncovered reactions,170,161,279,19,55.173,141,135,1,1,,
+GCF_000756615.1,reaction-coverage rank 12: adds 1 previously-uncovered reactions,178,166,182,19,62.063,149,140,1,1,,
+GCF_000283635.1,extreme: smallest by reactions,99,110,82,15,29.597,74,88,0,,,
+GCF_000632475.1,extreme: largest by metabolites; largest metabolite fingerprint,212,189,310,19,82.456,181,163,1,,,
+GCF_000014405.1,extreme: smallest by metabolites,100,104,72,17,8.422,73,80,0,,,
+GCF_000599545.1,extreme: largest by genes,197,169,456,20,73.645,167,142,0,,,
+GCF_000014425.1,extreme: smallest by genes,106,108,69,17,29.985,79,85,0,,,
+GCF_000021045.1,extreme: highest growth flux,199,172,270,22,87.211,167,143,0,,,
+GCF_000195855.1,extreme: lowest growth flux (still growing),139,137,108,15,2.03,114,115,0,,,
+GCF_000008165.1,extreme: widest open exchange repertoire,194,167,218,22,81.095,162,138,0,,,
+GCF_000007465.2,extreme: narrowest open exchange repertoire,105,114,92,14,29.597,81,93,0,,,
+GCF_000233715.2,extreme: carries many rare reactions (<1% of growers),156,156,229,18,36.095,126,131,2,,,
+GCF_009688985.1,extreme: carries many rare reactions (<1% of growers),153,158,290,17,64.946,126,135,2,,,
+GCF_000270285.1,farthest-point: min Jaccard distance to already-selected = 0.458,129,128,180,17,27.496,100,104,0,,,0.4583
+GCF_008805035.1,farthest-point: min Jaccard distance to already-selected = 0.447,112,127,72,16,13.597,86,105,0,,,0.4466
+GCF_002022605.1,farthest-point: min Jaccard distance to already-selected = 0.442,111,115,84,14,23.104,87,94,0,,,0.4419
+GCF_012222825.1,farthest-point: min Jaccard distance to already-selected = 0.434,135,136,112,17,42.464,108,112,0,,,0.4336
+GCF_000284095.1,farthest-point: min Jaccard distance to already-selected = 0.427,147,136,134,20,36.947,115,109,0,,,0.4269
+GCF_000024945.1,farthest-point: min Jaccard distance to already-selected = 0.423,132,132,105,20,56.251,102,106,0,,,0.4225
+GCF_002021985.1,farthest-point: min Jaccard distance to already-selected = 0.419,132,137,90,18,16.931,102,112,0,,,0.4189
+GCF_001688905.2,farthest-point: min Jaccard distance to already-selected = 0.413,134,126,126,20,36.723,100,100,0,,,0.4127
+GCF_900186975.1,farthest-point: min Jaccard distance to already-selected = 0.412,130,129,116,18,41.125,102,104,0,,,0.4118
+GCF_000020525.1,farthest-point: min Jaccard distance to already-selected = 0.411,128,132,143,16,34.347,102,110,0,,,0.4113
+GCF_001688725.2,farthest-point: min Jaccard distance to already-selected = 0.406,122,127,117,16,36.465,96,104,0,,,0.4062
+GCF_000023745.1,farthest-point: min Jaccard distance to already-selected = 0.390,138,140,131,17,31.184,111,117,0,,,0.3901
+GCF_001020955.1,farthest-point: min Jaccard distance to already-selected = 0.390,132,135,128,19,23.205,103,109,0,,,0.3899
+GCF_002127965.1,farthest-point: min Jaccard distance to already-selected = 0.385,115,122,99,15,25.954,90,100,0,,,0.3853
+GCF_001880285.1,farthest-point: min Jaccard distance to already-selected = 0.385,146,150,110,19,37.102,117,124,1,,,0.3851
+GCF_000241025.1,farthest-point: min Jaccard distance to already-selected = 0.384,157,151,120,20,53.458,123,125,0,,,0.3841
+GCF_000507245.1,farthest-point: min Jaccard distance to already-selected = 0.382,141,145,116,17,33.964,114,121,1,,,0.3816
+GCF_001262075.1,farthest-point: min Jaccard distance to already-selected = 0.381,139,141,117,18,46.889,111,117,0,,,0.3813
+GCF_001888165.1,farthest-point: min Jaccard distance to already-selected = 0.380,135,145,152,17,24.196,108,122,0,,,0.3796
+GCF_003073475.1,farthest-point: min Jaccard distance to already-selected = 0.380,135,139,108,19,33.713,106,113,0,,,0.3796
+GCF_000020545.1,farthest-point: min Jaccard distance to already-selected = 0.378,140,145,140,18,27.519,112,121,0,,,0.3782
+GCF_000025945.1,farthest-point: min Jaccard distance to already-selected = 0.371,133,134,169,17,33.543,106,110,0,,,0.3714
+GCF_005221305.1,farthest-point: min Jaccard distance to already-selected = 0.371,143,139,130,16,44.538,117,116,0,,,0.3714
+GCF_000253035.1,farthest-point: min Jaccard distance to already-selected = 0.371,147,151,118,18,41.181,119,127,0,,,0.3713
+GCF_001042635.1,farthest-point: min Jaccard distance to already-selected = 0.369,120,127,100,16,15.53,94,104,0,,,0.3689
+GCF_000179915.2,farthest-point: min Jaccard distance to already-selected = 0.368,141,134,125,18,35.018,113,109,0,,,0.3681
+GCF_000194135.1,farthest-point: min Jaccard distance to already-selected = 0.368,120,124,102,14,16.772,96,103,0,,,0.3676
+GCF_001746835.1,farthest-point: min Jaccard distance to already-selected = 0.368,139,138,136,19,33.052,110,113,0,,,0.3676
+GCF_008118345.1,farthest-point: min Jaccard distance to already-selected = 0.367,151,139,139,19,64.906,122,113,0,,,0.3672
+GCF_000266885.1,farthest-point: min Jaccard distance to already-selected = 0.366,147,143,163,16,39.299,121,120,0,,,0.3662
+GCF_000525675.1,farthest-point: min Jaccard distance to already-selected = 0.362,120,135,108,14,13.201,96,114,0,,,0.3615
+GCF_000746585.1,farthest-point: min Jaccard distance to already-selected = 0.361,112,119,80,15,21.756,87,97,0,,,0.3613
+GCF_000599985.1,farthest-point: min Jaccard distance to already-selected = 0.361,149,140,116,17,58.281,120,116,0,,,0.3611
+GCF_004114615.1,farthest-point: min Jaccard distance to already-selected = 0.359,147,151,133,15,28.044,122,129,0,,,0.3592
+GCF_009649955.1,farthest-point: min Jaccard distance to already-selected = 0.356,143,135,133,17,15.052,114,111,0,,,0.3562
+GCF_000298115.2,farthest-point: min Jaccard distance to already-selected = 0.353,122,125,125,17,33.904,95,101,0,,,0.3529
+GCF_000143845.1,farthest-point: min Jaccard distance to already-selected = 0.352,126,133,92,17,23.453,99,109,0,,,0.3524
+GCF_000183405.1,farthest-point: min Jaccard distance to already-selected = 0.351,133,139,119,19,32.453,104,113,0,,,0.3511
+GCF_001659705.1,farthest-point: min Jaccard distance to already-selected = 0.351,130,133,124,15,50.161,105,111,0,,,0.3507
+GCF_001021065.1,farthest-point: min Jaccard distance to already-selected = 0.348,156,138,131,20,76.113,124,111,0,,,0.3484
+GCF_000307165.1,farthest-point: min Jaccard distance to already-selected = 0.346,122,130,94,16,29.597,96,107,0,,,0.3465
+GCF_000284315.1,farthest-point: min Jaccard distance to already-selected = 0.346,127,130,128,18,39.868,99,105,0,,,0.3462
+GCF_003261295.1,farthest-point: min Jaccard distance to already-selected = 0.346,133,136,107,14,21.118,109,116,0,,,0.3459
+GCF_001610875.1,farthest-point: min Jaccard distance to already-selected = 0.345,161,154,137,19,56.556,132,129,0,,,0.3446
+GCF_002302395.1,farthest-point: min Jaccard distance to already-selected = 0.341,131,135,85,19,30.415,102,109,0,,,0.3409
+GCF_003966365.1,farthest-point: min Jaccard distance to already-selected = 0.341,156,142,139,21,51.116,125,114,0,,,0.3409
+GCF_000973725.1,farthest-point: min Jaccard distance to already-selected = 0.340,149,152,185,17,9.583,122,128,0,,,0.3403
+GCF_000196135.1,farthest-point: min Jaccard distance to already-selected = 0.339,126,122,123,18,18.422,94,97,0,,,0.339
+GCF_000196355.1,farthest-point: min Jaccard distance to already-selected = 0.339,128,136,132,15,26.033,103,114,0,,,0.3386
+GCF_000009905.1,farthest-point: min Jaccard distance to already-selected = 0.337,160,156,202,20,40.251,128,130,0,,,0.3373
+GCF_000018865.1,farthest-point: min Jaccard distance to already-selected = 0.336,148,148,169,16,6.828,122,125,0,,,0.3356
+GCF_000014005.1,farthest-point: min Jaccard distance to already-selected = 0.333,162,147,191,18,49.382,134,122,0,,,0.3333
+GCF_002162355.1,farthest-point: min Jaccard distance to already-selected = 0.333,147,141,136,16,17.387,121,118,0,,,0.3333
+GCF_001443605.1,farthest-point: min Jaccard distance to already-selected = 0.331,147,148,132,17,25.956,120,124,0,,,0.331
+GCF_000009985.1,farthest-point: min Jaccard distance to already-selected = 0.330,170,162,222,20,55.581,138,135,0,,,0.3298
+GCF_000025185.1,farthest-point: min Jaccard distance to already-selected = 0.329,158,160,156,16,24.609,132,137,0,,,0.3291
+GCF_000227745.2,farthest-point: min Jaccard distance to already-selected = 0.329,167,157,220,19,46.894,136,131,0,,,0.3287
+GCF_000092365.1,farthest-point: min Jaccard distance to already-selected = 0.328,138,136,106,19,55.135,107,110,0,,,0.328
+GCF_003660165.1,farthest-point: min Jaccard distance to already-selected = 0.327,153,145,189,16,27.636,127,122,0,,,0.3265
+GCF_000183745.1,farthest-point: min Jaccard distance to already-selected = 0.321,153,139,146,17,16.111,124,115,0,,,0.3212
+GCF_004551665.1,farthest-point: min Jaccard distance to already-selected = 0.321,149,148,160,18,33.599,121,124,0,,,0.3212
+GCF_003097575.1,farthest-point: min Jaccard distance to already-selected = 0.320,141,136,126,20,20.711,111,109,0,,,0.3197
+GCF_003143555.1,farthest-point: min Jaccard distance to already-selected = 0.318,154,151,133,17,35.762,127,127,0,,,0.3176
+GCF_000953635.1,farthest-point: min Jaccard distance to already-selected = 0.315,151,146,129,17,33.949,124,123,0,,,0.3154
+GCF_000014285.1,farthest-point: min Jaccard distance to already-selected = 0.315,159,150,143,19,45.35,130,124,0,,,0.3147
+GCF_000177635.2,farthest-point: min Jaccard distance to already-selected = 0.314,144,146,150,20,33.574,114,120,0,,,0.3143
+GCF_001682195.2,farthest-point: min Jaccard distance to already-selected = 0.314,165,161,175,17,29.07,138,137,1,,,0.3137
+GCF_000766665.1,farthest-point: min Jaccard distance to already-selected = 0.313,144,151,112,19,14.938,115,125,0,,,0.3134
+GCF_000006725.1,farthest-point: min Jaccard distance to already-selected = 0.312,128,131,111,16,34.246,102,108,0,,,0.3125
+GCF_009662475.1,farthest-point: min Jaccard distance to already-selected = 0.312,134,137,165,19,17.849,105,112,0,,,0.3125
+GCF_002005425.1,farthest-point: min Jaccard distance to already-selected = 0.312,147,143,106,16,33.255,121,120,0,,,0.3121
+GCF_010669225.1,farthest-point: min Jaccard distance to already-selected = 0.308,137,137,112,17,42.963,110,113,0,,,0.3083
+GCF_000014965.1,farthest-point: min Jaccard distance to already-selected = 0.307,161,163,239,18,52.588,133,139,1,,,0.3072
+GCF_000022565.1,farthest-point: min Jaccard distance to already-selected = 0.305,147,142,157,17,57.085,120,118,0,,,0.3052
+GCF_000725345.1,farthest-point: min Jaccard distance to already-selected = 0.305,180,164,269,22,56.251,146,135,0,,,0.3051
+GCF_000180175.2,farthest-point: min Jaccard distance to already-selected = 0.305,161,154,148,20,53.963,131,127,0,,,0.3046
+GCF_004299785.2,farthest-point: min Jaccard distance to already-selected = 0.304,121,125,104,18,33.809,93,100,0,,,0.3043

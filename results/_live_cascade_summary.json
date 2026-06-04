@@ -1,0 +1,11 @@
+{
+  "n_diff_stored": 0,
+  "n_live": 56012,
+  "n_match_stored": 56012,
+  "n_only_in_live": 0,
+  "n_only_in_stored": 0,
+  "n_stored": 56012,
+  "n_total": 56012,
+  "sample_diffs": [],
+  "transitions_vs_stored": {}
+}

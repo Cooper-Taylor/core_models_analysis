@@ -1,0 +1,14 @@
+# Python 3.12 recommended.
+#
+# KBUtils_Local (`kbutillib`) is *not* listed here — install it from your local
+# clone with `pip install -e /path/to/KBUtils_Local`.  See README.md.
+
+cobra>=0.29
+pandas>=2.0
+numpy>=1.24
+matplotlib>=3.7
+scipy>=1.10
+jupyter>=1.0
+jupyterlab>=4.0
+nbformat>=5.9
+ipykernel>=6.25

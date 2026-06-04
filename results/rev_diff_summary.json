@@ -1,0 +1,12 @@
+{
+  "n_total_reactions_dev": 56012,
+  "n_total_reactions_claude": 56012,
+  "n_common": 56012,
+  "n_changed": 0,
+  "by_transition": {},
+  "only_in_dev_count": 0,
+  "only_in_claude_count": 0,
+  "only_in_dev_sample": [],
+  "only_in_claude_sample": [],
+  "sample_changed": []
+}

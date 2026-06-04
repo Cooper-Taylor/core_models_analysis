@@ -1,0 +1,5 @@
+variant,label,n_panel,n_growers,frac_growers,mean_flux,median_flux,n_status_optimal,mean_overrides_per_model
+kbase_baseline,KBase baseline (on-disk bounds),100,100,1.0,38.39414949539755,33.95659261331622,100,0.0
+gc,Group contribution,100,100,1.0,52.16325353996715,50.92560171918949,100,89.48
+eq,eQuilibrator,100,100,1.0,63.77003624697783,62.38555376187,100,81.65
+dgp,dGPredictor,100,94,0.94,46.123391310358755,48.22899398522985,100,78.06

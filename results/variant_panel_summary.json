@@ -1,0 +1,32 @@
+{
+  "variants": [
+    "on_disk",
+    "msdb_dev",
+    "msdb_claude",
+    "all_reversible",
+    "all_forward",
+    "flip_eq_to_gt",
+    "branch_diff_only"
+  ],
+  "failed_variants": [],
+  "panel_csv_path": "/scratch/ctaylor/core_models_analysis/results/variant_panel_fba.csv",
+  "summary_csv_path": "/scratch/ctaylor/core_models_analysis/results/variant_panel_summary.csv",
+  "grow_counts": {
+    "on_disk": 100,
+    "msdb_dev": 100,
+    "msdb_claude": 100,
+    "all_reversible": 100,
+    "all_forward": 0,
+    "flip_eq_to_gt": 0,
+    "branch_diff_only": 100
+  },
+  "mean_flux": {
+    "on_disk": 38.39414949539755,
+    "msdb_dev": 67.97425360467966,
+    "msdb_claude": 67.97425360467966,
+    "all_reversible": 105.14764286835094,
+    "all_forward": 0.0,
+    "flip_eq_to_gt": 0.0,
+    "branch_diff_only": 67.97425360467966
+  }
+}

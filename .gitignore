@@ -1,0 +1,27 @@
+# Caches and generated artifacts
+.kbcache/
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Runtime logs
+logs/
+*.log
+
+# Data (symlinks to external locations; users provide their own)
+data/
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Local Claude Code settings
+.claude/
+
+# Virtual envs
+.venv/
+venv/
+env/

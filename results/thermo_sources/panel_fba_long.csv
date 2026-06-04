@@ -1,0 +1,401 @@
+variant,label,model_id,status,growth_flux,grows,n_overrides
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000006725.1,optimal,34.245519829870716,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000007465.2,optimal,29.597083799333053,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000007845.1,optimal,75.34505343578829,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000008165.1,optimal,81.09450129376918,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000008525.1,optimal,13.70007896725519,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000009905.1,optimal,40.251329300150104,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000009985.1,optimal,55.58123614521896,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000011305.1,optimal,49.46528031974372,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000014005.1,optimal,49.38232993239977,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000014285.1,optimal,45.35018848672075,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000014405.1,optimal,8.421641259978584,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000014425.1,optimal,29.98487263175728,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000014965.1,optimal,52.58821673357076,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000015745.1,optimal,60.28981313172385,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000016745.1,optimal,35.323144960888676,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000018865.1,optimal,6.828420569251297,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000020525.1,optimal,34.34664523436002,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000020545.1,optimal,27.519260533881535,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000021045.1,optimal,87.21121348365895,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000021805.1,optimal,32.21530130165922,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000022565.1,optimal,57.08479375264013,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000023745.1,optimal,31.184044272328514,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000024945.1,optimal,56.25056250562501,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000025185.1,optimal,24.60944805929893,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000025265.1,optimal,55.17325090449646,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000025945.1,optimal,33.54337073978236,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000092365.1,optimal,55.13520070131959,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000143845.1,optimal,23.453275992679465,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000177635.2,optimal,33.574115699760114,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000179915.2,optimal,35.017981733620246,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000180175.2,optimal,53.96324024074816,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000183405.1,optimal,32.453149821588745,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000183745.1,optimal,16.11055708695354,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000194135.1,optimal,16.77168536989112,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000195855.1,optimal,2.0302441409184695,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000196135.1,optimal,18.42153256097987,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000196355.1,optimal,26.033193732139768,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000227745.2,optimal,46.89435438867447,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000233715.2,optimal,36.09528433157852,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000241025.1,optimal,53.45768779462994,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000253035.1,optimal,41.18107317876724,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000266885.1,optimal,39.29901780526206,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000270285.1,optimal,27.495717541992846,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000283635.1,optimal,29.597083799333557,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000284095.1,optimal,36.946927585869254,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000284315.1,optimal,39.86823781919813,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000298115.2,optimal,33.90356301019561,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000307165.1,optimal,29.597083799333152,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000507245.1,optimal,33.96399951906986,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000522545.2,optimal,83.51304698636713,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000525675.1,optimal,13.200884459258795,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000599545.1,optimal,73.6447510045573,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000599985.1,optimal,58.281284908061146,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000632475.1,optimal,82.455813198258,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000725345.1,optimal,56.2505625056251,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000746585.1,optimal,21.755887561556612,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000756615.1,optimal,62.06297323017077,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000766665.1,optimal,14.937523806678591,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000953635.1,optimal,33.949185707562584,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_000973725.1,optimal,9.583383486373574,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_001020955.1,optimal,23.20493847500626,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_001021065.1,optimal,76.1130583368534,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_001042635.1,optimal,15.530295529876197,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_001262075.1,optimal,46.88909603449544,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_001443605.1,optimal,25.955755818631566,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_001610875.1,optimal,56.556007548687084,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_001659705.1,optimal,50.16084912285391,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_001682195.2,optimal,29.069936453118927,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_001688725.2,optimal,36.465341516155945,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_001688905.2,optimal,36.722650347120876,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_001746835.1,optimal,33.05214223328366,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_001880285.1,optimal,37.1023096187738,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_001888165.1,optimal,24.19581119335488,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_002005425.1,optimal,33.25523894720565,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_002021985.1,optimal,16.93136026548371,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_002022605.1,optimal,23.103830766511074,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_002127965.1,optimal,25.953616993390245,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_002162355.1,optimal,17.386617520494486,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_002302395.1,optimal,30.415364382148343,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_003073475.1,optimal,33.71291263551537,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_003097575.1,optimal,20.710794466075715,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_003143555.1,optimal,35.761861762523424,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_003261295.1,optimal,21.117949024790743,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_003261575.2,optimal,81.09450129376934,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_003441595.1,optimal,77.25766569044005,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_003660165.1,optimal,27.636103127595568,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_003966365.1,optimal,51.11638310774443,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_004114615.1,optimal,28.044381168011075,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_004299785.2,optimal,33.80851196905844,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_004551665.1,optimal,33.598820009441205,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_005221305.1,optimal,44.53799658609074,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_008118345.1,optimal,64.9062996431775,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_008805035.1,optimal,13.596636735937054,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_009649955.1,optimal,15.05244271040308,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_009662475.1,optimal,17.84880127450641,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_009688965.1,optimal,32.564910006871145,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_009688985.1,optimal,64.94584745027868,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_010669225.1,optimal,42.96335440685863,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_012222825.1,optimal,42.463674449691894,True,0
+kbase_baseline,KBase baseline (on-disk bounds),GCF_900186975.1,optimal,41.12477482340449,True,0
+gc,Group contribution,GCF_000006725.1,optimal,34.24551982986827,True,77
+gc,Group contribution,GCF_000007465.2,optimal,30.07730242689987,True,63
+gc,Group contribution,GCF_000007845.1,optimal,90.77354949541238,True,131
+gc,Group contribution,GCF_000008165.1,optimal,98.90435948437953,True,133
+gc,Group contribution,GCF_000008525.1,optimal,14.812124494128938,True,58
+gc,Group contribution,GCF_000009905.1,optimal,50.83940949009099,True,97
+gc,Group contribution,GCF_000009985.1,optimal,71.0713292166112,True,103
+gc,Group contribution,GCF_000011305.1,optimal,85.35938577662294,True,104
+gc,Group contribution,GCF_000014005.1,optimal,81.50158520583261,True,107
+gc,Group contribution,GCF_000014285.1,optimal,69.64669392947813,True,99
+gc,Group contribution,GCF_000014405.1,optimal,8.421641259978639,True,55
+gc,Group contribution,GCF_000014425.1,optimal,31.522671105058766,True,57
+gc,Group contribution,GCF_000014965.1,optimal,57.48012864052784,True,98
+gc,Group contribution,GCF_000015745.1,optimal,81.68614407659821,True,123
+gc,Group contribution,GCF_000016745.1,optimal,55.84132872580324,True,86
+gc,Group contribution,GCF_000018865.1,optimal,46.9325880710423,True,97
+gc,Group contribution,GCF_000020525.1,optimal,57.460888036854655,True,74
+gc,Group contribution,GCF_000020545.1,optimal,41.669990344467564,True,80
+gc,Group contribution,GCF_000021045.1,optimal,97.38506668532897,True,132
+gc,Group contribution,GCF_000021805.1,optimal,37.81754923372145,True,94
+gc,Group contribution,GCF_000022565.1,optimal,57.084793752640174,True,92
+gc,Group contribution,GCF_000023745.1,optimal,48.03992309769103,True,79
+gc,Group contribution,GCF_000024945.1,optimal,77.84862002199777,True,73
+gc,Group contribution,GCF_000025185.1,optimal,34.376192424176104,True,102
+gc,Group contribution,GCF_000025265.1,optimal,87.52157743505195,True,113
+gc,Group contribution,GCF_000025945.1,optimal,57.35705050244271,True,74
+gc,Group contribution,GCF_000092365.1,optimal,59.76536119196036,True,82
+gc,Group contribution,GCF_000143845.1,optimal,31.735616922541578,True,78
+gc,Group contribution,GCF_000177635.2,optimal,50.7652351547223,True,83
+gc,Group contribution,GCF_000179915.2,optimal,62.06297323017087,True,92
+gc,Group contribution,GCF_000180175.2,optimal,68.8100675026763,True,103
+gc,Group contribution,GCF_000183405.1,optimal,61.512991104342916,True,80
+gc,Group contribution,GCF_000183745.1,optimal,18.323240281811383,True,94
+gc,Group contribution,GCF_000194135.1,optimal,19.992043166819215,True,73
+gc,Group contribution,GCF_000195855.1,optimal,14.24832464636709,True,92
+gc,Group contribution,GCF_000196135.1,optimal,19.184100217739587,True,63
+gc,Group contribution,GCF_000196355.1,optimal,42.60221641073927,True,78
+gc,Group contribution,GCF_000227745.2,optimal,70.8021171855953,True,101
+gc,Group contribution,GCF_000233715.2,optimal,39.98408633363926,True,93
+gc,Group contribution,GCF_000241025.1,optimal,59.238898630396776,True,94
+gc,Group contribution,GCF_000253035.1,optimal,59.54976408368455,True,87
+gc,Group contribution,GCF_000266885.1,optimal,41.733904624116754,True,93
+gc,Group contribution,GCF_000270285.1,optimal,30.50505697582028,True,73
+gc,Group contribution,GCF_000283635.1,optimal,29.597083799333273,True,56
+gc,Group contribution,GCF_000284095.1,optimal,55.60615715856997,True,86
+gc,Group contribution,GCF_000284315.1,optimal,64.6982232250447,True,70
+gc,Group contribution,GCF_000298115.2,optimal,42.37945376274404,True,72
+gc,Group contribution,GCF_000307165.1,optimal,35.64463546008517,True,76
+gc,Group contribution,GCF_000507245.1,optimal,45.881989483847924,True,90
+gc,Group contribution,GCF_000522545.2,optimal,120.66656208898839,True,143
+gc,Group contribution,GCF_000525675.1,optimal,14.815275734504366,True,68
+gc,Group contribution,GCF_000599545.1,optimal,105.6052380198058,True,136
+gc,Group contribution,GCF_000599985.1,optimal,63.4798377455347,True,98
+gc,Group contribution,GCF_000632475.1,optimal,94.09373617998301,True,141
+gc,Group contribution,GCF_000725345.1,optimal,77.84862002199779,True,114
+gc,Group contribution,GCF_000746585.1,optimal,24.722490049197745,True,63
+gc,Group contribution,GCF_000756615.1,optimal,73.18401702887545,True,118
+gc,Group contribution,GCF_000766665.1,optimal,15.941310471368663,True,82
+gc,Group contribution,GCF_000953635.1,optimal,51.11173126678395,True,92
+gc,Group contribution,GCF_000973725.1,optimal,42.4246482768214,True,98
+gc,Group contribution,GCF_001020955.1,optimal,54.321133805689875,True,74
+gc,Group contribution,GCF_001021065.1,optimal,84.82022667106051,True,98
+gc,Group contribution,GCF_001042635.1,optimal,50.89479409874861,True,75
+gc,Group contribution,GCF_001262075.1,optimal,61.74294149547616,True,83
+gc,Group contribution,GCF_001443605.1,optimal,52.37376613018249,True,89
+gc,Group contribution,GCF_001610875.1,optimal,67.50531941917039,True,103
+gc,Group contribution,GCF_001659705.1,optimal,64.69549702315588,True,82
+gc,Group contribution,GCF_001682195.2,optimal,43.60490467967837,True,110
+gc,Group contribution,GCF_001688725.2,optimal,36.465341516155966,True,70
+gc,Group contribution,GCF_001688905.2,optimal,73.09250744368842,True,71
+gc,Group contribution,GCF_001746835.1,optimal,41.00954565524368,True,83
+gc,Group contribution,GCF_001880285.1,optimal,37.102309618773795,True,89
+gc,Group contribution,GCF_001888165.1,optimal,29.899956814495788,True,85
+gc,Group contribution,GCF_002005425.1,optimal,35.76186176252338,True,95
+gc,Group contribution,GCF_002021985.1,optimal,18.232670758077994,True,70
+gc,Group contribution,GCF_002022605.1,optimal,23.164924333429322,True,64
+gc,Group contribution,GCF_002127965.1,optimal,40.8296682817155,True,72
+gc,Group contribution,GCF_002162355.1,optimal,19.992043166819727,True,92
+gc,Group contribution,GCF_002302395.1,optimal,32.05954354904283,True,74
+gc,Group contribution,GCF_003073475.1,optimal,42.616254478701975,True,79
+gc,Group contribution,GCF_003097575.1,optimal,52.33338880672553,True,80
+gc,Group contribution,GCF_003143555.1,optimal,36.64648056362291,True,97
+gc,Group contribution,GCF_003261295.1,optimal,52.658688420295896,True,85
+gc,Group contribution,GCF_003261575.2,optimal,125.7168479433774,True,152
+gc,Group contribution,GCF_003441595.1,optimal,78.32071437442517,True,121
+gc,Group contribution,GCF_003660165.1,optimal,35.86654774913497,True,98
+gc,Group contribution,GCF_003966365.1,optimal,52.25324710386411,True,93
+gc,Group contribution,GCF_004114615.1,optimal,35.97902422887465,True,94
+gc,Group contribution,GCF_004299785.2,optimal,34.55508599033155,True,62
+gc,Group contribution,GCF_004551665.1,optimal,40.77671486474364,True,95
+gc,Group contribution,GCF_005221305.1,optimal,78.14580835652211,True,90
+gc,Group contribution,GCF_008118345.1,optimal,86.2033160064667,True,94
+gc,Group contribution,GCF_008805035.1,optimal,33.99784550796181,True,61
+gc,Group contribution,GCF_009649955.1,optimal,17.188096212087373,True,86
+gc,Group contribution,GCF_009662475.1,optimal,43.96242092259539,True,78
+gc,Group contribution,GCF_009688965.1,optimal,52.447185684016176,True,111
+gc,Group contribution,GCF_009688985.1,optimal,76.06736090811472,True,92
+gc,Group contribution,GCF_010669225.1,optimal,54.30302609043191,True,83
+gc,Group contribution,GCF_012222825.1,optimal,50.956409339630355,True,80
+gc,Group contribution,GCF_900186975.1,optimal,53.567514022326925,True,75
+eq,eQuilibrator,GCF_000006725.1,optimal,34.934619858933615,True,71
+eq,eQuilibrator,GCF_000007465.2,optimal,45.11595364034997,True,61
+eq,eQuilibrator,GCF_000007845.1,optimal,107.1120385228453,True,117
+eq,eQuilibrator,GCF_000008165.1,optimal,107.3368781337343,True,117
+eq,eQuilibrator,GCF_000008525.1,optimal,13.700078967255187,True,50
+eq,eQuilibrator,GCF_000009905.1,optimal,76.1105342415855,True,90
+eq,eQuilibrator,GCF_000009985.1,optimal,74.10831486029164,True,93
+eq,eQuilibrator,GCF_000011305.1,optimal,96.13719744428596,True,94
+eq,eQuilibrator,GCF_000014005.1,optimal,83.90546371403379,True,97
+eq,eQuilibrator,GCF_000014285.1,optimal,80.66197595748909,True,89
+eq,eQuilibrator,GCF_000014405.1,optimal,16.258404579017046,True,52
+eq,eQuilibrator,GCF_000014425.1,optimal,44.9773089476342,True,55
+eq,eQuilibrator,GCF_000014965.1,optimal,57.09636438899758,True,87
+eq,eQuilibrator,GCF_000015745.1,optimal,92.76826583162365,True,110
+eq,eQuilibrator,GCF_000016745.1,optimal,72.98930432981656,True,77
+eq,eQuilibrator,GCF_000018865.1,optimal,63.700670501238456,True,92
+eq,eQuilibrator,GCF_000020525.1,optimal,51.519967851539775,True,68
+eq,eQuilibrator,GCF_000020545.1,optimal,53.94702274680993,True,74
+eq,eQuilibrator,GCF_000021045.1,optimal,117.71441650595366,True,117
+eq,eQuilibrator,GCF_000021805.1,optimal,74.46832168601179,True,88
+eq,eQuilibrator,GCF_000022565.1,optimal,79.8684110699073,True,85
+eq,eQuilibrator,GCF_000023745.1,optimal,65.97408537926295,True,74
+eq,eQuilibrator,GCF_000024945.1,optimal,80.50265860030026,True,65
+eq,eQuilibrator,GCF_000025185.1,optimal,81.63358601649323,True,97
+eq,eQuilibrator,GCF_000025265.1,optimal,118.06202416040522,True,104
+eq,eQuilibrator,GCF_000025945.1,optimal,67.04542262580632,True,67
+eq,eQuilibrator,GCF_000092365.1,optimal,55.1352007013198,True,73
+eq,eQuilibrator,GCF_000143845.1,optimal,54.72431064958535,True,74
+eq,eQuilibrator,GCF_000177635.2,optimal,50.361173549639815,True,73
+eq,eQuilibrator,GCF_000179915.2,optimal,43.77247716702529,True,83
+eq,eQuilibrator,GCF_000180175.2,optimal,87.13822387901021,True,93
+eq,eQuilibrator,GCF_000183405.1,optimal,64.90629964317763,True,72
+eq,eQuilibrator,GCF_000183745.1,optimal,61.417139066828085,True,87
+eq,eQuilibrator,GCF_000194135.1,optimal,37.691969914269635,True,70
+eq,eQuilibrator,GCF_000195855.1,optimal,30.315879057832046,True,86
+eq,eQuilibrator,GCF_000196135.1,optimal,37.657195254440246,True,57
+eq,eQuilibrator,GCF_000196355.1,optimal,37.67778673874388,True,74
+eq,eQuilibrator,GCF_000227745.2,optimal,72.116578303253,True,91
+eq,eQuilibrator,GCF_000233715.2,optimal,61.14129841408193,True,86
+eq,eQuilibrator,GCF_000241025.1,optimal,77.01252993862025,True,85
+eq,eQuilibrator,GCF_000253035.1,optimal,57.995856518250655,True,79
+eq,eQuilibrator,GCF_000266885.1,optimal,76.65491948276826,True,86
+eq,eQuilibrator,GCF_000270285.1,optimal,30.505056975820057,True,66
+eq,eQuilibrator,GCF_000283635.1,optimal,29.59708379933336,True,54
+eq,eQuilibrator,GCF_000284095.1,optimal,60.37699395022522,True,78
+eq,eQuilibrator,GCF_000284315.1,optimal,61.481151360129715,True,66
+eq,eQuilibrator,GCF_000298115.2,optimal,35.90370984057996,True,69
+eq,eQuilibrator,GCF_000307165.1,optimal,35.64463546008523,True,73
+eq,eQuilibrator,GCF_000507245.1,optimal,59.851066605857966,True,83
+eq,eQuilibrator,GCF_000522545.2,optimal,117.85602076105668,True,130
+eq,eQuilibrator,GCF_000525675.1,optimal,38.792197182289996,True,65
+eq,eQuilibrator,GCF_000599545.1,optimal,125.11660111741631,True,123
+eq,eQuilibrator,GCF_000599985.1,optimal,58.28128490806122,True,90
+eq,eQuilibrator,GCF_000632475.1,optimal,120.5123423666852,True,128
+eq,eQuilibrator,GCF_000725345.1,optimal,80.50265860030038,True,104
+eq,eQuilibrator,GCF_000746585.1,optimal,21.75588756155661,True,56
+eq,eQuilibrator,GCF_000756615.1,optimal,97.3164170349173,True,108
+eq,eQuilibrator,GCF_000766665.1,optimal,15.779814776534176,True,72
+eq,eQuilibrator,GCF_000953635.1,optimal,49.01746933589697,True,86
+eq,eQuilibrator,GCF_000973725.1,optimal,63.28995616361028,True,91
+eq,eQuilibrator,GCF_001020955.1,optimal,60.63405481239136,True,65
+eq,eQuilibrator,GCF_001021065.1,optimal,100.62832325037532,True,87
+eq,eQuilibrator,GCF_001042635.1,optimal,49.596279582002516,True,70
+eq,eQuilibrator,GCF_001262075.1,optimal,65.70807965321144,True,74
+eq,eQuilibrator,GCF_001443605.1,optimal,84.53481968089089,True,82
+eq,eQuilibrator,GCF_001610875.1,optimal,75.33536360612787,True,93
+eq,eQuilibrator,GCF_001659705.1,optimal,89.79842366790643,True,76
+eq,eQuilibrator,GCF_001682195.2,optimal,77.2076762960081,True,100
+eq,eQuilibrator,GCF_001688725.2,optimal,59.80940493167471,True,65
+eq,eQuilibrator,GCF_001688905.2,optimal,79.43072642404499,True,60
+eq,eQuilibrator,GCF_001746835.1,optimal,53.06392499330416,True,74
+eq,eQuilibrator,GCF_001880285.1,optimal,70.45521998321425,True,77
+eq,eQuilibrator,GCF_001888165.1,optimal,55.6646154856558,True,77
+eq,eQuilibrator,GCF_002005425.1,optimal,63.96034458635649,True,88
+eq,eQuilibrator,GCF_002021985.1,optimal,16.931360265483708,True,63
+eq,eQuilibrator,GCF_002022605.1,optimal,23.16492433342931,True,60
+eq,eQuilibrator,GCF_002127965.1,optimal,38.53390639180441,True,65
+eq,eQuilibrator,GCF_002162355.1,optimal,36.827563221417414,True,87
+eq,eQuilibrator,GCF_002302395.1,optimal,46.452111589120676,True,64
+eq,eQuilibrator,GCF_003073475.1,optimal,39.10385691116678,True,72
+eq,eQuilibrator,GCF_003097575.1,optimal,60.65801818123077,True,71
+eq,eQuilibrator,GCF_003143555.1,optimal,82.22324478039371,True,89
+eq,eQuilibrator,GCF_003261295.1,optimal,39.63199316427384,True,80
+eq,eQuilibrator,GCF_003261575.2,optimal,146.5939061848909,True,136
+eq,eQuilibrator,GCF_003441595.1,optimal,87.76367355163762,True,110
+eq,eQuilibrator,GCF_003660165.1,optimal,65.31100374304681,True,90
+eq,eQuilibrator,GCF_003966365.1,optimal,66.17073868974708,True,83
+eq,eQuilibrator,GCF_004114615.1,optimal,79.14229236258609,True,88
+eq,eQuilibrator,GCF_004299785.2,optimal,34.55508599033161,True,56
+eq,eQuilibrator,GCF_004551665.1,optimal,37.549518427426165,True,86
+eq,eQuilibrator,GCF_005221305.1,optimal,90.93579911981777,True,80
+eq,eQuilibrator,GCF_008118345.1,optimal,79.41997177483238,True,84
+eq,eQuilibrator,GCF_008805035.1,optimal,31.12983051586137,True,55
+eq,eQuilibrator,GCF_009649955.1,optimal,65.66374254082287,True,82
+eq,eQuilibrator,GCF_009662475.1,optimal,43.93960966280535,True,71
+eq,eQuilibrator,GCF_009688965.1,optimal,69.92958091202162,True,100
+eq,eQuilibrator,GCF_009688985.1,optimal,88.09683061486854,True,85
+eq,eQuilibrator,GCF_010669225.1,optimal,64.44503161028818,True,78
+eq,eQuilibrator,GCF_012222825.1,optimal,43.022881523979756,True,73
+eq,eQuilibrator,GCF_900186975.1,optimal,49.03141504050951,True,67
+dgp,dGPredictor,GCF_000006725.1,optimal,23.259474165314344,True,69
+dgp,dGPredictor,GCF_000007465.2,optimal,32.49859342025355,True,59
+dgp,dGPredictor,GCF_000007845.1,optimal,80.50265860030049,True,110
+dgp,dGPredictor,GCF_000008165.1,optimal,80.50265860029978,True,110
+dgp,dGPredictor,GCF_000008525.1,optimal,13.70007896725521,True,54
+dgp,dGPredictor,GCF_000009905.1,optimal,54.36466731541849,True,86
+dgp,dGPredictor,GCF_000009985.1,optimal,45.85935851929306,True,87
+dgp,dGPredictor,GCF_000011305.1,optimal,67.94315847909854,True,89
+dgp,dGPredictor,GCF_000014005.1,optimal,53.284832294870164,True,91
+dgp,dGPredictor,GCF_000014285.1,optimal,68.37894771235383,True,86
+dgp,dGPredictor,GCF_000014405.1,optimal,16.258404579017046,True,50
+dgp,dGPredictor,GCF_000014425.1,optimal,47.28400665758592,True,53
+dgp,dGPredictor,GCF_000014965.1,optimal,55.03123022315153,True,87
+dgp,dGPredictor,GCF_000015745.1,optimal,63.00530252626059,True,105
+dgp,dGPredictor,GCF_000016745.1,optimal,33.88799509301828,True,74
+dgp,dGPredictor,GCF_000018865.1,optimal,52.42569376069628,True,88
+dgp,dGPredictor,GCF_000020525.1,optimal,47.94154008601917,True,66
+dgp,dGPredictor,GCF_000020545.1,optimal,34.477414934237316,True,72
+dgp,dGPredictor,GCF_000021045.1,optimal,100.62832325037589,True,110
+dgp,dGPredictor,GCF_000021805.1,optimal,57.04321080261507,True,83
+dgp,dGPredictor,GCF_000022565.1,optimal,80.5026586003005,True,82
+dgp,dGPredictor,GCF_000023745.1,optimal,51.2338068706469,True,72
+dgp,dGPredictor,GCF_000024945.1,optimal,56.25056250562499,True,63
+dgp,dGPredictor,GCF_000025185.1,optimal,49.82184538454571,True,89
+dgp,dGPredictor,GCF_000025265.1,optimal,97.13547484676872,True,99
+dgp,dGPredictor,GCF_000025945.1,optimal,37.69196991426953,True,68
+dgp,dGPredictor,GCF_000092365.1,optimal,53.38230269900921,True,69
+dgp,dGPredictor,GCF_000143845.1,optimal,39.088793321132364,True,71
+dgp,dGPredictor,GCF_000177635.2,optimal,36.68748681543438,True,69
+dgp,dGPredictor,GCF_000179915.2,optimal,40.614721911803336,True,79
+dgp,dGPredictor,GCF_000180175.2,optimal,52.28293432740637,True,88
+dgp,dGPredictor,GCF_000183405.1,optimal,48.679724732383534,True,68
+dgp,dGPredictor,GCF_000183745.1,optimal,37.69196991426959,True,82
+dgp,dGPredictor,GCF_000194135.1,optimal,18.84598495713487,True,68
+dgp,dGPredictor,GCF_000195855.1,optimal,5.464736940540859,True,80
+dgp,dGPredictor,GCF_000196135.1,optimal,17.44406125656553,True,54
+dgp,dGPredictor,GCF_000196355.1,optimal,0.0,False,72
+dgp,dGPredictor,GCF_000227745.2,optimal,56.42376049693544,True,86
+dgp,dGPredictor,GCF_000233715.2,optimal,38.47426456443267,True,83
+dgp,dGPredictor,GCF_000241025.1,optimal,56.584022558163305,True,77
+dgp,dGPredictor,GCF_000253035.1,optimal,52.89624577711637,True,77
+dgp,dGPredictor,GCF_000266885.1,optimal,50.12574544502276,True,81
+dgp,dGPredictor,GCF_000270285.1,optimal,28.662205872028938,True,61
+dgp,dGPredictor,GCF_000283635.1,optimal,15.96933249387876,True,52
+dgp,dGPredictor,GCF_000284095.1,optimal,40.25132930015008,True,71
+dgp,dGPredictor,GCF_000284315.1,optimal,48.51644788444054,True,65
+dgp,dGPredictor,GCF_000298115.2,optimal,33.07370475103873,True,65
+dgp,dGPredictor,GCF_000307165.1,optimal,31.938664987757537,True,72
+dgp,dGPredictor,GCF_000507245.1,optimal,54.73440131760624,True,80
+dgp,dGPredictor,GCF_000522545.2,optimal,108.04629035529558,True,123
+dgp,dGPredictor,GCF_000525675.1,optimal,24.53955612850866,True,65
+dgp,dGPredictor,GCF_000599545.1,optimal,110.44649571809259,True,118
+dgp,dGPredictor,GCF_000599985.1,optimal,54.3258792190836,True,83
+dgp,dGPredictor,GCF_000632475.1,optimal,95.14132292106751,True,124
+dgp,dGPredictor,GCF_000725345.1,optimal,60.376993950225106,True,101
+dgp,dGPredictor,GCF_000746585.1,optimal,0.0,False,52
+dgp,dGPredictor,GCF_000756615.1,optimal,73.72583362051724,True,101
+dgp,dGPredictor,GCF_000766665.1,optimal,15.77981477653415,True,67
+dgp,dGPredictor,GCF_000953635.1,optimal,0.0,False,82
+dgp,dGPredictor,GCF_000973725.1,optimal,55.02296815899445,True,90
+dgp,dGPredictor,GCF_001020955.1,optimal,28.78496225721357,True,59
+dgp,dGPredictor,GCF_001021065.1,optimal,80.50265860030025,True,78
+dgp,dGPredictor,GCF_001042635.1,optimal,31.938664987757477,True,67
+dgp,dGPredictor,GCF_001262075.1,optimal,0.0,False,71
+dgp,dGPredictor,GCF_001443605.1,optimal,67.16062059398351,True,81
+dgp,dGPredictor,GCF_001610875.1,optimal,68.95161429337946,True,85
+dgp,dGPredictor,GCF_001659705.1,optimal,64.97636455731913,True,75
+dgp,dGPredictor,GCF_001682195.2,optimal,57.9913534891947,True,95
+dgp,dGPredictor,GCF_001688725.2,optimal,37.929399594845066,True,64
+dgp,dGPredictor,GCF_001688905.2,optimal,57.92243799402988,True,56
+dgp,dGPredictor,GCF_001746835.1,optimal,52.36299467893787,True,71
+dgp,dGPredictor,GCF_001880285.1,optimal,47.39923367288976,True,77
+dgp,dGPredictor,GCF_001888165.1,optimal,28.4628915527744,True,76
+dgp,dGPredictor,GCF_002005425.1,optimal,34.549236116389324,True,86
+dgp,dGPredictor,GCF_002021985.1,optimal,16.931360265483764,True,62
+dgp,dGPredictor,GCF_002022605.1,optimal,0.0,False,55
+dgp,dGPredictor,GCF_002127965.1,optimal,21.988774730500058,True,62
+dgp,dGPredictor,GCF_002162355.1,optimal,34.17486080152013,True,86
+dgp,dGPredictor,GCF_002302395.1,optimal,17.274618058194708,True,62
+dgp,dGPredictor,GCF_003073475.1,optimal,39.103856911166645,True,68
+dgp,dGPredictor,GCF_003097575.1,optimal,38.09567347436348,True,69
+dgp,dGPredictor,GCF_003143555.1,optimal,57.58206019398398,True,86
+dgp,dGPredictor,GCF_003261295.1,optimal,16.565095025667617,True,73
+dgp,dGPredictor,GCF_003261575.2,optimal,120.75398790045004,True,130
+dgp,dGPredictor,GCF_003441595.1,optimal,82.0776376986098,True,106
+dgp,dGPredictor,GCF_003660165.1,optimal,47.20864711347382,True,84
+dgp,dGPredictor,GCF_003966365.1,optimal,50.16252658613925,True,75
+dgp,dGPredictor,GCF_004114615.1,optimal,54.79081778948258,True,85
+dgp,dGPredictor,GCF_004299785.2,optimal,17.24640455581022,True,55
+dgp,dGPredictor,GCF_004551665.1,optimal,37.54951842742619,True,83
+dgp,dGPredictor,GCF_005221305.1,optimal,67.7748814549747,True,77
+dgp,dGPredictor,GCF_008118345.1,optimal,66.90469871699096,True,80
+dgp,dGPredictor,GCF_008805035.1,optimal,18.974555392284028,True,55
+dgp,dGPredictor,GCF_009649955.1,optimal,52.62585473159034,True,77
+dgp,dGPredictor,GCF_009662475.1,optimal,20.017317839547804,True,70
+dgp,dGPredictor,GCF_009688965.1,optimal,48.847365010306824,True,96
+dgp,dGPredictor,GCF_009688985.1,optimal,78.13014293525706,True,85
+dgp,dGPredictor,GCF_010669225.1,optimal,39.39590322002438,True,74
+dgp,dGPredictor,GCF_012222825.1,optimal,0.0,False,69
+dgp,dGPredictor,GCF_900186975.1,optimal,53.0782745314516,True,63
