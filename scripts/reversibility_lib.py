@@ -457,9 +457,10 @@ def run_cascade(reactions_dict, db_level: str = "EQ",
 # ---------------------------------------------------------------------------
 # Auxiliary parsers used by the new heuristics.
 # ---------------------------------------------------------------------------
+import os as _os
 _LN_RI_PATH_DEFAULT = (
-    "/scratch/ctaylor/ModelSEEDDatabase/Biochemistry/Thermodynamics/"
-    "eQuilibrator/MetaNetX_Reaction_Energies.tbl"
+    _os.environ.get("MSDB_ROOT", "/scratch/ctaylor/ModelSEEDDatabase")
+    + "/Biochemistry/Thermodynamics/eQuilibrator/MetaNetX_Reaction_Energies.tbl"
 )
 
 

@@ -9,20 +9,21 @@ Writes (in place):
 Mirrors run_variant_panel.py style. No CLI args.
 """
 from __future__ import annotations
+import os
 
 import json
 import sys
 import time
 from pathlib import Path
 
-sys.path.insert(0, "/scratch/ctaylor/core_models_analysis/scripts")
+sys.path.insert(0, str(Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis")) / "scripts"))
 
 import pandas as pd
 
 import direction_pipeline as dp  # noqa: F401  (parity with sibling driver)
 import growth_heuristics as gh
 
-ANALYSIS_DIR = Path("/scratch/ctaylor/core_models_analysis")
+ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 RESULTS_DIR = ANALYSIS_DIR / "results"
 N_WORKERS = 4
 

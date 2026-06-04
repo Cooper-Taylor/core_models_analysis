@@ -15,6 +15,7 @@ Run from anywhere:
 """
 
 from __future__ import annotations
+import os
 
 import json
 import textwrap
@@ -53,7 +54,7 @@ import sys
 
 # Find the project root (parent of notebooks/) so absolute paths work
 # from anywhere the notebook is launched.
-PROJECT_ROOT = Path('/scratch/ctaylor/core_models_analysis')
+PROJECT_ROOT = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 REPORTS = PROJECT_ROOT / 'reports'
 RESULTS = PROJECT_ROOT / 'results'
 LOGS    = PROJECT_ROOT / 'logs'
@@ -135,14 +136,15 @@ def build_index() -> nbf.NotebookNode:
 
         **Quick access to the diverse-panel IDs (descriptive test set):**
         ```python
-        ids = open('/scratch/ctaylor/core_models_analysis/results/selected_ids.txt').read().split()
+        from pathlib import Path
+        ids = Path(os.environ.get('CORE_MODELS_ANALYSIS_DIR', '/scratch/ctaylor/core_models_analysis'), 'results', 'selected_ids.txt').read_text().split()
         # → 100 model IDs spanning the 3,461 growers
         ```
         """),
         code("""
         # Confirm everything resolves
         from pathlib import Path
-        ROOT = Path('/scratch/ctaylor/core_models_analysis')
+        ROOT = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
         for sub in ('data', 'scripts', 'notebooks', 'reports', 'results', 'logs'):
             d = ROOT / sub
             n = sum(1 for _ in d.iterdir()) if d.exists() else 0

@@ -27,9 +27,9 @@ import cobra
 from cobra.io import load_json_model
 
 # --- Paths ------------------------------------------------------------
-ANALYSIS_DIR = Path("/scratch/ctaylor/core_models_analysis")
+ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 MODELS_DIR = ANALYSIS_DIR / "data" / "core_models_kegg2"
-MEDIA_FILE = Path("/scratch/ctaylor/ModelSEEDDatabase/Media/KBaseMedia.cpd")
+MEDIA_FILE = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/ModelSEEDDatabase") + "/Media/KBaseMedia.cpd")
 RESULTS_CSV = ANALYSIS_DIR / "results" / "results.csv"
 FAILURES_LOG = ANALYSIS_DIR / "logs" / "failures.log"
 

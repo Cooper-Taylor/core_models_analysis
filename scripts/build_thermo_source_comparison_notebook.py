@@ -33,13 +33,14 @@ Generated, not hand-edited.  Run this script to rebuild.
 """
 
 from __future__ import annotations
+import os
 
 import textwrap
 from pathlib import Path
 
 import nbformat as nbf
 
-ROOT = Path("/scratch/ctaylor/core_models_analysis")
+ROOT = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 NOTEBOOK_PATH = ROOT / "notebooks" / "10_ThermoSourceComparison.ipynb"
 
 
@@ -106,7 +107,7 @@ from collections import Counter
 
 import pandas as pd
 
-PROJECT_ROOT = Path('/scratch/ctaylor/core_models_analysis')
+PROJECT_ROOT = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 RESULTS      = PROJECT_ROOT / 'results'
 SCRIPTS      = PROJECT_ROOT / 'scripts'
 REPORTS      = PROJECT_ROOT / 'reports'
@@ -140,7 +141,7 @@ PARAMS_CELL = """
 # via `git show <branch>:Biochemistry/reaction_NN.json` so the MSDB
 # working tree is never mutated.
 
-PANEL_IDS_PATH = Path('/scratch/ctaylor/core_models_analysis/results/selected_ids.txt')
+PANEL_IDS_PATH = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis") + "/results/selected_ids.txt")
 
 # MSDB branch that contains PR #263's per-source thermodynamics dicts.
 MSDB_BRANCH    = 'origin/dev'
@@ -154,17 +155,17 @@ SOURCES = [
 ]
 
 # All per-source artifacts (snapshots, coverage, override tables) land here.
-OUTPUT_DIR = Path('/scratch/ctaylor/core_models_analysis/results/thermo_sources/')
+OUTPUT_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis") + "/results/thermo_sources/")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Figures land here.
-FIGURES_DIR = Path('/scratch/ctaylor/core_models_analysis/reports/figures/thermo_sources/')
+FIGURES_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis") + "/reports/figures/thermo_sources/")
 FIGURES_DIR.mkdir(parents=True, exist_ok=True)
 
 # MSDB-dev reversibility snapshot used to classify the "before" bound
 # class in the override-transition tables.  Produced read-only via
 # dp.snapshot_msdb (git show, no working-tree writes).
-MSDB_SNAPSHOT_PATH = Path('/scratch/ctaylor/core_models_analysis/results/rxn_directions_msdb_dev.csv')
+MSDB_SNAPSHOT_PATH = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis") + "/results/rxn_directions_msdb_dev.csv")
 
 # FBA worker count -- keep modest; the pool spawns one process per worker.
 N_WORKERS = 4

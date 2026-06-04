@@ -18,6 +18,7 @@ read is the pre-computed snapshot at
 """
 
 from __future__ import annotations
+import os
 
 import json
 import sys
@@ -26,7 +27,7 @@ from typing import Iterable, Mapping
 
 import pandas as pd
 
-ANALYSIS_DIR = Path("/scratch/ctaylor/core_models_analysis")
+ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 SCRIPTS_DIR = ANALYSIS_DIR / "scripts"
 if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))

@@ -5,8 +5,9 @@ import csv
 from collections import Counter
 from pathlib import Path
 from statistics import mean, median
+import os
 
-ANALYSIS_DIR = Path("/scratch/ctaylor/core_models_analysis")
+ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 RESULTS_CSV = ANALYSIS_DIR / "results" / "results.csv"
 SUMMARY_MD = ANALYSIS_DIR / "reports" / "SUMMARY.md"
 NONGROWERS_CSV = ANALYSIS_DIR / "results" / "non_growers.csv"

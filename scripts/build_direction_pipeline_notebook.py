@@ -8,6 +8,7 @@ several sources of reaction direction:
   (a) directions loaded from a user-specified path (RXN_DIRECTION_SOURCE)
       -- defaults to a local CSV under ``results/`` seeded on first run
       from the dev-branch MSDB snapshot;
+import os
   (b) an editable overlay CSV that the user mutates in-notebook
       (``rxn_directions_overlay.csv``);
   (c) an in-notebook patch function (``patch_directions``) that rewrites
@@ -26,7 +27,7 @@ from pathlib import Path
 
 import nbformat as nbf
 
-ROOT = Path("/scratch/ctaylor/core_models_analysis")
+ROOT = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 NOTEBOOK_PATH = ROOT / "notebooks" / "09_ReactionDirectionPipeline.ipynb"
 
 
@@ -79,7 +80,7 @@ SETUP_CELL = """
 from pathlib import Path
 import sys, json, copy, shutil, time, csv
 
-PROJECT_ROOT = Path('/scratch/ctaylor/core_models_analysis')
+PROJECT_ROOT = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 RESULTS      = PROJECT_ROOT / 'results'
 SCRIPTS      = PROJECT_ROOT / 'scripts'
 
@@ -108,21 +109,21 @@ PARAMS_CELL = """
 # any TSV / CSV / JSON keyed by rxn_id with a `reversibility` (or
 # `direction`) column / key.  On first run, this file is seeded from the
 # MSDB dev-branch snapshot below.
-RXN_DIRECTION_SOURCE = Path('/scratch/ctaylor/core_models_analysis/results/rxn_directions_local.csv')
+RXN_DIRECTION_SOURCE = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis") + "/results/rxn_directions_local.csv")
 
 # Working overlay file -- (b) reads from / writes to this path.
-OVERLAY_PATH         = Path('/scratch/ctaylor/core_models_analysis/results/rxn_directions_overlay.csv')
+OVERLAY_PATH         = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis") + "/results/rxn_directions_overlay.csv")
 
 # (b)'s sample mutation threshold: any reaction with deltag > this value
 # is forced to '<' (reverse-only).
 OVERLAY_DELTAG_THRESHOLD = 5.0
 
 # Panel of model ids to grow.
-PANEL_IDS_PATH       = Path('/scratch/ctaylor/core_models_analysis/results/selected_ids.txt')
+PANEL_IDS_PATH       = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis") + "/results/selected_ids.txt")
 
 # Read-only MSDB checkout -- we only ever invoke `git show <branch>:...`
 # against this path.
-MSDB_ROOT            = Path('/scratch/ctaylor/ModelSEEDDatabase')
+MSDB_ROOT            = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/ModelSEEDDatabase"))
 
 # Snapshot CSVs written by the next cell.
 MSDB_DEV_SNAPSHOT    = RESULTS / 'rxn_directions_msdb_dev.csv'

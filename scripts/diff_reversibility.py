@@ -21,9 +21,10 @@ import subprocess
 import sys
 from collections import Counter
 from pathlib import Path
+import os
 
-REPO = Path("/scratch/ctaylor/ModelSEEDDatabase")
-OUT = Path("/scratch/ctaylor/core_models_analysis/results")
+REPO = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/ModelSEEDDatabase"))
+OUT = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis") + "/results")
 SHARD_FMT = "Biochemistry/reaction_{:02d}.tsv"
 N_SHARDS = 61
 BRANCHES = ("dev", "claude-changes")

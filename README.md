@@ -154,29 +154,25 @@ ln -s /path/to/ModelSEEDDatabase     /scratch/ctaylor/ModelSEEDDatabase  # or ad
 
 ### Adapting paths to your environment
 
-For brevity the scripts and notebooks hardcode two absolute paths:
+Every script reads its two root paths from environment variables and
+falls back to the original defaults if they are unset:
 
-| Constant | Default | Meaning |
+| Env var | Default | Meaning |
 |---|---|---|
-| `ANALYSIS_DIR` / `PROJECT_ROOT` | `/scratch/ctaylor/core_models_analysis` | this repo on disk |
-| `MSDB_ROOT` / `MSDB` | `/scratch/ctaylor/ModelSEEDDatabase` | ModelSEEDDatabase clone |
+| `CORE_MODELS_ANALYSIS_DIR` | `/scratch/ctaylor/core_models_analysis` | this repo on disk |
+| `MSDB_ROOT` | `/scratch/ctaylor/ModelSEEDDatabase` | ModelSEEDDatabase clone |
 
-If you can clone into the same paths you can skip this step. Otherwise
-the path constants are concentrated near the top of:
+If your clones live at the defaults, do nothing. Otherwise export the
+overrides before running anything:
 
-- `scripts/direction_pipeline.py`
-- `scripts/growth_heuristics.py`
-- `scripts/reversibility_lib.py`
-- `scripts/select_diverse_tax.py`
-- `scripts/run_thermo_source_variants.py`
-- `scripts/thermo_source_figures.py`
-- `scripts/build_thermo_source_*.py`
-- `scripts/build_taxonomy_aware_notebook.py`
+```bash
+export CORE_MODELS_ANALYSIS_DIR=/path/to/core_models_analysis
+export MSDB_ROOT=/path/to/ModelSEEDDatabase
+```
 
-A future cleanup pass should lift these to env vars
-(`CORE_MODELS_ANALYSIS_DIR`, `MSDB_ROOT`), but for now the easiest
-on-ramp is to clone the repo at `/scratch/ctaylor/core_models_analysis`
-and MSDB at `/scratch/ctaylor/ModelSEEDDatabase`.
+Add these to your shell profile (or a project-local `.envrc` if you use
+[direnv](https://direnv.net/)) so every shell, notebook kernel, and
+`jupyter execute` invocation inherits them.
 
 ---
 

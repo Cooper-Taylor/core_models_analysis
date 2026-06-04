@@ -20,6 +20,7 @@ All output paths live under
 """
 
 from __future__ import annotations
+import os
 
 import csv
 import io
@@ -35,10 +36,10 @@ import growth_heuristics as gh
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
-ANALYSIS_DIR = Path("/scratch/ctaylor/core_models_analysis")
+ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 RESULTS_DIR = ANALYSIS_DIR / "results"
 PROJECT_ROOT = ANALYSIS_DIR  # alias used by per-source helpers' path guards
-MSDB_DEFAULT_ROOT = Path("/scratch/ctaylor/ModelSEEDDatabase")
+MSDB_DEFAULT_ROOT = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/ModelSEEDDatabase"))
 MSDB_SHARD_FMT = "Biochemistry/reaction_{:02d}.tsv"
 MSDB_JSON_SHARD_FMT = "Biochemistry/reaction_{:02d}.json"
 MSDB_N_SHARDS = 61

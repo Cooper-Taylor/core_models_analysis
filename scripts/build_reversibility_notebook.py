@@ -24,10 +24,11 @@ Generated, not hand-edited -- run this script to rebuild.
 from __future__ import annotations
 import textwrap
 from pathlib import Path
+import os
 
 import nbformat as nbf
 
-ROOT = Path("/scratch/ctaylor/core_models_analysis")
+ROOT = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 NOTEBOOK_PATH = ROOT / "notebooks" / "06_ReactionReversibilityHeuristics.ipynb"
 
 
@@ -43,8 +44,8 @@ SETUP_CELL = """
 from pathlib import Path
 import sys, copy, time, json, csv, hashlib
 
-PROJECT_ROOT = Path('/scratch/ctaylor/core_models_analysis')
-MSDB_ROOT    = Path('/scratch/ctaylor/ModelSEEDDatabase')
+PROJECT_ROOT = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
+MSDB_ROOT    = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/ModelSEEDDatabase"))
 REPORTS      = PROJECT_ROOT / 'reports'
 RESULTS      = PROJECT_ROOT / 'results'
 SCRIPTS      = PROJECT_ROOT / 'scripts'
@@ -108,8 +109,10 @@ print(f'On-disk FBA results loaded for {len(ONDISK_FBA)} models')
 """
 
 
-REPORT_FILE = ("/scratch/ctaylor/ModelSEEDDatabase/Scripts/Thermodynamics/"
-               "Estimated_Reaction_Reversibility_Report_EQ.txt")
+REPORT_FILE = (
+    os.environ.get("MSDB_ROOT", "/scratch/ctaylor/ModelSEEDDatabase")
+    + "/Scripts/Thermodynamics/Estimated_Reaction_Reversibility_Report_EQ.txt"
+)
 
 
 BASELINE_CASCADE_CELL = f"""

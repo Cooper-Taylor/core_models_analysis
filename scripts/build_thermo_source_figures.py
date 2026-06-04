@@ -8,6 +8,7 @@ library; this script just loads inputs and dispatches.
 """
 
 from __future__ import annotations
+import os
 
 import sys
 from pathlib import Path
@@ -21,7 +22,7 @@ if str(SCRIPTS_DIR) not in sys.path:
 
 import thermo_source_figures as tsf  # noqa: E402
 
-ROOT = Path("/scratch/ctaylor/core_models_analysis")
+ROOT = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 IN_DIR = ROOT / "results" / "thermo_sources"
 OUT_DIR = ROOT / "reports" / "figures" / "thermo_sources"
 

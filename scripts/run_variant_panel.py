@@ -6,6 +6,7 @@ Writes:
   - results/variant_panel_summary.json (compact JSON for the harness return)
 """
 from __future__ import annotations
+import os
 
 import csv
 import json
@@ -20,7 +21,7 @@ import pandas as pd
 import direction_pipeline as dp
 import growth_heuristics as gh
 
-ANALYSIS_DIR = Path("/scratch/ctaylor/core_models_analysis")
+ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 RESULTS_DIR = ANALYSIS_DIR / "results"
 N_WORKERS = 4
 

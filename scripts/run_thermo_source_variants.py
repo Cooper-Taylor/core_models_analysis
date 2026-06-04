@@ -15,6 +15,7 @@ Idempotent.  No CLI arguments -- importing or executing this file as
 """
 
 from __future__ import annotations
+import os
 
 import json
 import sys
@@ -30,7 +31,7 @@ if str(SCRIPT_DIR) not in sys.path:
 import direction_pipeline as dp  # noqa: E402
 import growth_heuristics as gh  # noqa: E402
 
-ANALYSIS_DIR = Path("/scratch/ctaylor/core_models_analysis")
+ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 RESULTS_DIR = ANALYSIS_DIR / "results"
 THERMO_DIR = RESULTS_DIR / "thermo_sources"
 SELECTED_IDS_FILE = RESULTS_DIR / "selected_ids.txt"

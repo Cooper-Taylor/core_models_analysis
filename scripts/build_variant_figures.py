@@ -16,8 +16,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-RESULTS_DIR = Path("/scratch/ctaylor/core_models_analysis/results")
-OUT_DIR = Path("/scratch/ctaylor/core_models_analysis/reports/figures")
+RESULTS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis") + "/results")
+OUT_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis") + "/reports/figures")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 PANEL_CSV = RESULTS_DIR / "variant_panel_fba.csv"

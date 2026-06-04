@@ -13,6 +13,7 @@ new panel to the original ``results/selected_*.json`` panel.
 """
 
 from __future__ import annotations
+import os
 
 import textwrap
 from pathlib import Path
@@ -45,7 +46,7 @@ import sys
 
 # Find the project root (parent of notebooks/) so absolute paths work
 # from anywhere the notebook is launched.
-PROJECT_ROOT = Path('/scratch/ctaylor/core_models_analysis')
+PROJECT_ROOT = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 REPORTS = PROJECT_ROOT / 'reports'
 RESULTS = PROJECT_ROOT / 'results'
 LOGS    = PROJECT_ROOT / 'logs'

@@ -61,6 +61,7 @@ can coexist for comparison.
 """
 
 from __future__ import annotations
+import os
 
 import csv
 import json
@@ -68,7 +69,7 @@ import multiprocessing as mp
 from collections import Counter, defaultdict
 from pathlib import Path
 
-ANALYSIS_DIR = Path('/scratch/ctaylor/core_models_analysis')
+ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 MODELS_DIR = ANALYSIS_DIR / 'data' / 'core_models_kegg2'
 RESULTS_CSV = ANALYSIS_DIR / 'results' / 'results.csv'
 TAXONOMY_CSV = ANALYSIS_DIR / 'results' / 'ncbi_taxonomy.csv'

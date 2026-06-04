@@ -8,10 +8,11 @@ import csv
 import json
 from pathlib import Path
 from collections import Counter
+import os
 
-ANALYSIS_DIR = Path("/scratch/ctaylor/core_models_analysis")
+ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 REPORTS_DIR = ANALYSIS_DIR / "reports"
-MSDB = Path("/scratch/ctaylor/ModelSEEDDatabase/Biochemistry")
+MSDB = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/ModelSEEDDatabase") + "/Biochemistry")
 
 def load_lookup(prefix):
     """Load id->name from all <prefix>_NN.tsv shards."""
