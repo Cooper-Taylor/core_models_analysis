@@ -57,9 +57,16 @@ LOW_ENERGY_CPDS_DEFAULT = (
     "cpd00242",  # HCO3
 )
 
-DB_LEVEL_LABEL = {"GC": "Group contribution", "EQ": "eQuilibrator"}
+DB_LEVEL_LABEL = {
+    "GC": "Group contribution",
+    "EQ": "eQuilibrator",
+    "DGP": "dGPredictor",
+}
+# Legacy ``notes`` flags exist for GC + EQ only; DGP is sublist-only.
 DB_LEVEL_NOTE = {"GC": "GCC", "EQ": "EQU"}
-DB_LEVEL_PRIORITY = ("EQ", "GC")
+# Order matters for the unfiltered fallback: prefer EQ over GC over DGP when
+# multiple sublists carry the top-level deltag exactly.  Matches MSDB.
+DB_LEVEL_PRIORITY = ("EQ", "GC", "DGP")
 
 
 # ---------------------------------------------------------------------------
@@ -164,7 +171,10 @@ def _thermo_pair(rxn_entry, label):
 def _is_source_eligible(rxn_entry, level):
     if _thermo_pair(rxn_entry, DB_LEVEL_LABEL[level]) is not None:
         return True
-    return DB_LEVEL_NOTE[level] in rxn_entry["notes"]
+    # DGP has no legacy note -- ``.get`` returns None and the second clause
+    # short-circuits via the ``is not None`` guard.
+    note = DB_LEVEL_NOTE.get(level)
+    return note is not None and note in rxn_entry["notes"]
 
 
 def _energy_for(rxn_entry, db_level):

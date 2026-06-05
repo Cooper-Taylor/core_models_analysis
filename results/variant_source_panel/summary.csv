@@ -1,0 +1,43 @@
+variant,title,source,n_models,n_flux_change,n_grow_flip,n_gained,n_lost,mean_abs_delta_flux
+baseline,ReversibilityConfig() default (matches MSDB),GC,100,98,0,0,0,30.183779703349096
+baseline,ReversibilityConfig() default (matches MSDB),EQ,100,98,0,0,0,30.183779703349096
+baseline,ReversibilityConfig() default (matches MSDB),DGP,100,99,0,0,0,66.68247990449618
+3.1,Persist + use ln(reversibility_index) (Noor 2012),GC,100,100,75,0,75,41.906951446719496
+3.1,Persist + use ln(reversibility_index) (Noor 2012),EQ,100,100,75,0,75,41.906951446719496
+3.1,Persist + use ln(reversibility_index) (Noor 2012),DGP,100,99,0,0,0,66.68247990449616
+3.3,Bennett-2009 per-metabolite concentration ranges,GC,100,91,0,0,0,14.316215129757666
+3.3,Bennett-2009 per-metabolite concentration ranges,EQ,100,91,0,0,0,14.316215129757666
+3.3,Bennett-2009 per-metabolite concentration ranges,DGP,100,99,0,0,0,66.68247990449616
+3.3_wide,"Wider uniform conc window [1e-7, 0.1] M",GC,100,98,0,0,0,30.681258025244645
+3.3_wide,"Wider uniform conc window [1e-7, 0.1] M",EQ,100,98,0,0,0,30.681258025244645
+3.3_wide,"Wider uniform conc window [1e-7, 0.1] M",DGP,100,99,0,0,0,66.68247990449616
+3.5,Per-reaction sigma band: k=1.96 (95%) replaces ±2 kcal,GC,100,98,0,0,0,30.183779703349092
+3.5,Per-reaction sigma band: k=1.96 (95%) replaces ±2 kcal,EQ,100,98,0,0,0,30.183779703349096
+3.5,Per-reaction sigma band: k=1.96 (95%) replaces ±2 kcal,DGP,100,99,0,0,0,66.68247990449616
+3.5_wide,Per-reaction CC bound widening: k=1.96 on stored_bounds,GC,100,98,0,0,0,30.183779703349092
+3.5_wide,Per-reaction CC bound widening: k=1.96 on stored_bounds,EQ,100,98,0,0,0,30.183779703349096
+3.5_wide,Per-reaction CC bound widening: k=1.96 on stored_bounds,DGP,100,99,0,0,0,66.68247990449615
+3.6,Drop the low-energy-compounds list entirely,GC,100,99,0,0,0,62.124935237537
+3.6,Drop the low-energy-compounds list entirely,EQ,100,99,0,0,0,62.124935237537
+3.6,Drop the low-energy-compounds list entirely,DGP,100,99,0,0,0,66.68247990449616
+3.7,Drop the CO2 1e-4 hardcoded concentration override,GC,100,98,0,0,0,30.183779703349092
+3.7,Drop the CO2 1e-4 hardcoded concentration override,EQ,100,98,0,0,0,30.183779703349092
+3.7,Drop the CO2 1e-4 hardcoded concentration override,DGP,100,99,0,0,0,66.68247990449616
+3.10_tight,Tighten mMdeltaG band: ±1 kcal/mol,GC,100,98,0,0,0,30.183779703349092
+3.10_tight,Tighten mMdeltaG band: ±1 kcal/mol,EQ,100,98,0,0,0,30.183779703349096
+3.10_tight,Tighten mMdeltaG band: ±1 kcal/mol,DGP,100,99,0,0,0,66.68247990449616
+3.10_loose,Loosen mMdeltaG band: ±4 kcal/mol,GC,100,98,0,0,0,31.531389226380227
+3.10_loose,Loosen mMdeltaG band: ±4 kcal/mol,EQ,100,98,0,0,0,31.531389226380227
+3.10_loose,Loosen mMdeltaG band: ±4 kcal/mol,DGP,100,99,0,0,0,66.68247990449616
+H1,(NEW) default direction = '?' for unresolved,GC,100,98,0,0,0,30.183779703349096
+H1,(NEW) default direction = '?' for unresolved,EQ,100,98,0,0,0,30.183779703349092
+H1,(NEW) default direction = '?' for unresolved,DGP,100,99,0,0,0,66.68247990449616
+H2,(NEW) repair LOW_LOCAL_CONC shadow bug (O2/H2 at 1e-6 M),GC,100,98,0,0,0,30.183779703349092
+H2,(NEW) repair LOW_LOCAL_CONC shadow bug (O2/H2 at 1e-6 M),EQ,100,98,0,0,0,30.183779703349092
+H2,(NEW) repair LOW_LOCAL_CONC shadow bug (O2/H2 at 1e-6 M),DGP,100,99,0,0,0,66.68247990449616
+H3,(NEW) repair phosphates shadow bug (ABC + low-E phosphate spread),GC,100,99,21,0,21,23.524511942666773
+H3,(NEW) repair phosphates shadow bug (ABC + low-E phosphate spread),EQ,100,99,21,0,21,23.524511942666773
+H3,(NEW) repair phosphates shadow bug (ABC + low-E phosphate spread),DGP,100,99,0,0,0,66.68247990449616
+H4,(NEW) best-evidence composite: 3.1 + 3.5 + Bennett,GC,100,100,65,0,65,34.178081186797655
+H4,(NEW) best-evidence composite: 3.1 + 3.5 + Bennett,EQ,100,100,65,0,65,34.178081186797655
+H4,(NEW) best-evidence composite: 3.1 + 3.5 + Bennett,DGP,100,99,0,0,0,66.68247990449616
