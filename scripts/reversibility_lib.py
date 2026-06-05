@@ -146,6 +146,16 @@ class ReversibilityConfig:
     # become reachable.  The byte-for-byte baseline is ``False``.
     fix_phosphates_shadow: bool = False
 
+    # § 3.6 -- replace the mMdeltaG band + low-energy-points heuristics with a
+    # single posterior-probability rule.  When ``p_forward_threshold`` is not
+    # None, after the bounded MdeltaG / ATPS / ABCT branches the cascade
+    # evaluates ``P(mMdeltaG < 0)`` and ``P(mMdeltaG > 0)`` from
+    # ``ΔG′° ~ N(deltag, deltagerr)`` (treating the concentration term as
+    # fixed).  ``P_forward >= threshold`` forces '>'; ``P_reverse >= threshold``
+    # forces '<'; otherwise the reaction is marked reversible.  None preserves
+    # the legacy mMdeltaG-band + low-energy-points cascade.
+    p_forward_threshold: Optional[float] = None
+
     # Internal: cached RT (kcal / mol).
     @property
     def rt(self) -> float:
@@ -411,6 +421,33 @@ def estimate_one(rxn_entry, db_level: str = "EQ", cfg: Optional[ReversibilityCon
             return f"lnRI: {ln_ri:.2f}", direction, source_label
 
     mMdeltaG = rxn_dg + cfg.rt * terms["rgt_sum"]
+
+    # § 3.6 -- P(forward)/P(reverse) threshold replaces the mMdeltaG band +
+    # low-energy-points heuristic entirely when ``cfg.p_forward_threshold`` is
+    # set.  Computed from the marginal CC normal on ΔG′°; concentration term
+    # is the same ``rgt_sum`` the mMdeltaG step uses (treated as fixed).
+    #
+    # Symmetry note: the legacy heuristic 4 marks `=` whenever
+    # ``|mMdeltaG| <= mm_band`` (default 2 kcal/mol).  For the P-rule to be a
+    # drop-in replacement (not a strictly more aggressive rule), the
+    # "forward" event must be ``mMdeltaG < -mm_band`` and the "reverse"
+    # event must be ``mMdeltaG > +mm_band``.  Then both rules collapse to
+    # the same answer at threshold = 0.5 -- and tightening the threshold
+    # only widens the reversible region, never the directional ones.
+    if cfg.p_forward_threshold is not None:
+        from math import erf, sqrt
+        sigma = max(float(rxn_dge or 0.0), 0.05)
+        band = cfg.mm_band
+        z_f = (-band - mMdeltaG) / sigma  # P(mMdeltaG < -band)
+        z_r = (-band + mMdeltaG) / sigma  # P(mMdeltaG >  +band)
+        p_forward = 0.5 * (1.0 + erf(z_f / sqrt(2.0)))
+        p_reverse = 0.5 * (1.0 + erf(z_r / sqrt(2.0)))
+        thresh = cfg.p_forward_threshold
+        if p_forward >= thresh:
+            return f"P(fwd)={p_forward:.3f}", ">", source_label
+        if p_reverse >= thresh:
+            return f"P(rev)={p_reverse:.3f}", "<", source_label
+        return f"P(fwd|rev)<{thresh:.2f}", "=", source_label
 
     # § 3.5 -- per-reaction tolerance (k * sigma) takes precedence when set.
     if cfg.sigma_band_k is not None:

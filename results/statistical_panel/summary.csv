@@ -1,0 +1,6 @@
+variant,title,n_samples,n_panel_models,n_always_grow,n_never_grow,n_uncertain,mean_p_grows,median_flux_width_ci90,max_flux_width_ci90,n_models_point_in_ci95,n_panel_rxns_with_direction_variance
+baseline,ReversibilityConfig() default (matches MSDB),50,100,100,0,0,1.0,18.801802010796486,47.46647088424521,99,24
+3.5,Per-reaction sigma band: k=1.96 (95%) replaces ±2 kcal,50,100,100,0,0,1.0,18.801802010796486,47.46647088424521,99,24
+H4,(NEW) best-evidence composite: 3.1 + 3.5 + Bennett,50,100,26,53,21,0.35340000000000005,5.929599094221864,118.10307564029583,100,25
+pforward_50,P(direction) >= 0.50 rule (§3.6),50,100,8,71,21,0.1582,35.63616614721016,77.28565445950663,100,58
+pforward_95,P(direction) >= 0.95 rule (§3.6),50,100,13,71,16,0.2662,19.889499730979217,71.32098348240012,100,44

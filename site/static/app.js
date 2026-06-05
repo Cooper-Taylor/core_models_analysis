@@ -285,6 +285,30 @@ function renderReactionDetail(r) {
     `<tr><td>${escapeHtml(c.variant)}</td><td>${revBadge(c.base)}</td><td>${revBadge(c.new)}</td></tr>`
   ).join('');
 
+  // Analytic P(direction) badges for the variants we have it for.
+  const pdir = r.p_direction || {};
+  let pdirHtml = '';
+  if (Object.keys(pdir).length) {
+    const rows = Object.entries(pdir).map(([variant, p]) => {
+      const pct = (x) => `${(100 * x).toFixed(1)}%`;
+      const bar = (color, w) => `<div style="background:${color};width:${(100*w).toFixed(1)}%;height:8px;display:inline-block;vertical-align:middle"></div>`;
+      return `<tr>
+        <td>${escapeHtml(variant)}</td>
+        <td class="num">${pct(p.p_forward)}</td>
+        <td class="num">${pct(p.p_reverse)}</td>
+        <td class="num">${pct(p.p_reversible)}</td>
+        <td style="min-width:200px">${bar('var(--good)', p.p_forward)}${bar('var(--accent-2)', p.p_reversible)}${bar('var(--warn)', p.p_reverse)}</td>
+      </tr>`;
+    }).join('');
+    pdirHtml = `<h3>Analytic P(direction) <span class="hint">— §3.6 of the review</span></h3>
+      <p class="hint">From the marginal CC normal on ΔG′° (treating concentration term as fixed).
+      Green = P(forward), amber = P(reversible), red = P(reverse).</p>
+      <table class="changed-by-table">
+        <thead><tr><th>variant</th><th>P(fwd)</th><th>P(rev)</th><th>P(reversible)</th><th></th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>`;
+  }
+
   pane.innerHTML = `
     <h3>${escapeHtml(r.id)} <span class="hint">— ${escapeHtml(r.name || '(no name)')}</span></h3>
     <dl>
@@ -296,6 +320,7 @@ function renderReactionDetail(r) {
       ${r.pathways && r.pathways.length ? `<dt>pathways</dt><dd>${r.pathways.map(escapeHtml).join(', ')}</dd>` : ''}
       ${r.in_panel !== undefined ? `<dt>in panel</dt><dd>${r.in_panel ? `yes (${r.panel_freq} of 100 models)` : 'no'}</dd>` : ''}
     </dl>
+    ${pdirHtml}
 
     ${stoich ? `<h3>stoichiometry</h3><ul class="stoich-list">${stoich}</ul>` : ''}
 

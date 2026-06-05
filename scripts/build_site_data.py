@@ -43,6 +43,7 @@ THERMO_VARIANTS_DIR = ANALYSIS_ROOT / "thermo_variants"
 SITE_DATA = ANALYSIS_ROOT / "site" / "data"
 MODELS_DIR = ANALYSIS_ROOT / "data" / "core_models_kegg2"
 PANEL_FILE = ANALYSIS_ROOT / "results" / "selected_ids.txt"
+STATS_DIR = ANALYSIS_ROOT / "results" / "statistical_panel"
 
 
 # ---------------------------------------------------------------------------
@@ -290,6 +291,55 @@ def main(argv: Optional[list] = None) -> None:
           f"(panel union: {n_panel}, changed-only: {n_other})")
 
     reactions_panel = {rid: r for rid, r in reactions_index.items() if r["in_panel"]}
+
+    # ---- attach analytic P(direction) per variant where available --------
+    # Pulled from results/statistical_panel/p_direction__{tag}.csv (written by
+    # scripts/run_statistical_panel.py).  We only embed in reactions_panel
+    # because the website's reaction detail loads that file first.
+    if STATS_DIR.exists():
+        import csv
+        for csv_path in sorted(STATS_DIR.glob("p_direction__*.csv")):
+            tag = csv_path.stem.replace("p_direction__", "")
+            with csv_path.open() as fh:
+                reader = csv.DictReader(fh)
+                for row in reader:
+                    rid = row["rxn_id"]
+                    if rid not in reactions_panel:
+                        continue
+                    reactions_panel[rid].setdefault("p_direction", {})[tag] = {
+                        "p_forward":    float(row["p_forward"]),
+                        "p_reverse":    float(row["p_reverse"]),
+                        "p_reversible": float(row["p_reversible"]),
+                    }
+            print(f"  attached P(direction) for variant {tag!r} "
+                  f"to {sum(1 for r in reactions_panel.values() if tag in r.get('p_direction', {}))} rxns")
+
+    # ---- attach per-model flux distributions where available -------------
+    flux_dist = {}
+    if STATS_DIR.exists():
+        import csv
+        for csv_path in sorted(STATS_DIR.glob("panel_distribution__*.csv")):
+            stem = csv_path.stem.replace("panel_distribution__", "")
+            # stem looks like 'baseline__N50' -> split out tag and n_samples
+            if "__N" in stem:
+                tag, n_part = stem.split("__N", 1)
+            else:
+                tag, n_part = stem, "?"
+            with csv_path.open() as fh:
+                for row in csv.DictReader(fh):
+                    mid = row["model_id"]
+                    flux_dist.setdefault(mid, {})[tag] = {
+                        "n_samples":           int(row["n_samples"]),
+                        "mean_flux":           float(row["mean_flux"]),
+                        "q05":                 float(row["q05"]),
+                        "q50":                 float(row["q50"]),
+                        "q95":                 float(row["q95"]),
+                        "p_grows":             float(row["p_grows"]),
+                        "point_estimate_flux": float(row["point_estimate_flux"]),
+                        "point_in_ci95":       bool(int(row["point_in_ci95"])),
+                    }
+            print(f"  attached panel-flux distribution for variant {tag!r} "
+                  f"(N={n_part}) for {len(flux_dist)} models")
     # Compact: keep just the searchable fields and the changed_by list.
     reactions_other = {
         rid: {
@@ -336,6 +386,12 @@ def main(argv: Optional[list] = None) -> None:
     with open(out_root / "reactions_other.json", "w") as fh:
         json.dump(reactions_other, fh, separators=(",", ":"), default=str)
 
+    # Merge flux distributions into panel model rows.
+    if flux_dist:
+        for m in panel_info:
+            d = flux_dist.get(m["model_id"])
+            if d:
+                m["flux_distribution"] = d
     with open(out_root / "panel.json", "w") as fh:
         json.dump({
             "models": panel_info,
