@@ -301,6 +301,85 @@ button.small { padding: 2px 8px; font-size: 12px; }
 .diff-down { color: var(--warn); }
 .diff-zero { color: var(--text-dim); }
 
+/* --- Panel-flux diverging bar chart (variant detail) --- */
+.panel-flux-chart {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin: 4px 0 14px;
+}
+.panel-flux-chart .pfc-legend {
+  padding-bottom: 8px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+.pfc-legend .legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.pfc-legend .swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+.pfc-legend .swatch.pos { background: var(--good); }
+.pfc-legend .swatch.neg { background: var(--warn); }
+.pfc-rows {
+  max-height: 640px;
+  overflow-y: auto;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.pfc-row {
+  display: grid;
+  grid-template-columns: 150px 18px 1fr 80px;
+  gap: 6px;
+  align-items: center;
+  padding: 1px 4px;
+  border-radius: 2px;
+  cursor: default;
+}
+.pfc-row:hover { background: var(--bg-elev-2); }
+.pfc-row.flipped { background: rgba(243, 182, 91, 0.06); }
+.pfc-row.flipped:hover { background: rgba(243, 182, 91, 0.13); }
+.pfc-id {
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pfc-flip { text-align: center; }
+.pfc-flip-icon { font-size: 13px; font-weight: bold; }
+.pfc-flip-icon.up { color: var(--good); }
+.pfc-flip-icon.down { color: var(--warn); }
+.pfc-bar-cell {
+  position: relative;
+  height: 12px;
+  background-image: linear-gradient(to right,
+    transparent calc(50% - 1px),
+    var(--border) calc(50% - 1px),
+    var(--border) calc(50% + 1px),
+    transparent calc(50% + 1px));
+}
+.pfc-bar {
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  border-radius: 1px;
+}
+.pfc-bar.pos { left: 50%; background: var(--good); }
+.pfc-bar.neg { right: 50%; background: var(--warn); }
+.pfc-val { text-align: right; font-variant-numeric: tabular-nums; }
+.pfc-val.pos { color: var(--good); }
+.pfc-val.neg { color: var(--warn); }
+.pfc-val.zero { color: var(--text-dim); }
+
 /* --- mode-aware visibility (static vs live FBA) --- */
 body:not(.static-mode) .static-only { display: none; }
 body.static-mode .live-only { display: none; }

@@ -138,6 +138,57 @@ async function selectVariant(tag, tr) {
   renderVariantDetail(p);
 }
 
+function renderPanelFluxChart(panel_fba) {
+  const sorted = [...(panel_fba || [])].sort((a, b) => b.delta_flux - a.delta_flux);
+  if (!sorted.length) {
+    return '<p class="hint">No panel FBA data for this variant.</p>';
+  }
+  const max_abs = Math.max(...sorted.map((r) => Math.abs(r.delta_flux)));
+  if (max_abs < 1e-6) {
+    return `<p class="hint">All ${sorted.length} panel models have |Δ flux| &lt; 1e-6 under this variant — the heuristic does not change biology in this panel.</p>`;
+  }
+  const n_pos = sorted.filter((r) => r.delta_flux > 1e-6).length;
+  const n_neg = sorted.filter((r) => r.delta_flux < -1e-6).length;
+  const n_zero = sorted.length - n_pos - n_neg;
+  const n_flip = sorted.filter((r) => r.baseline_grows !== r.variant_grows).length;
+  const rows = sorted.map((r) => {
+    const flipped = r.baseline_grows !== r.variant_grows;
+    const sign = r.delta_flux > 1e-6 ? 'pos' : (r.delta_flux < -1e-6 ? 'neg' : 'zero');
+    const halfPct = (Math.abs(r.delta_flux) / max_abs * 50).toFixed(2);
+    const flipIcon = flipped
+      ? (r.variant_grows
+          ? '<span class="pfc-flip-icon up">↑</span>'
+          : '<span class="pfc-flip-icon down">↓</span>')
+      : '';
+    const tooltip =
+      `${r.model_id}\n` +
+      `baseline: ${r.baseline_flux.toFixed(4)} (${r.baseline_grows ? 'grew' : 'no growth'})\n` +
+      `variant:  ${r.variant_flux.toFixed(4)} (${r.variant_grows ? 'grew' : 'no growth'})\n` +
+      `Δ flux:   ${r.delta_flux.toFixed(4)}${flipped ? '   ← grow-status flipped' : ''}`;
+    const bar = sign === 'zero'
+      ? ''
+      : `<span class="pfc-bar ${sign}" style="width:${halfPct}%"></span>`;
+    return `<div class="pfc-row${flipped ? ' flipped' : ''}" title="${escapeHtml(tooltip)}">` +
+           `<span class="pfc-id">${escapeHtml(r.model_id)}</span>` +
+           `<span class="pfc-flip">${flipIcon}</span>` +
+           `<span class="pfc-bar-cell">${bar}</span>` +
+           `<span class="pfc-val ${sign}">${r.delta_flux >= 0 ? '+' : ''}${r.delta_flux.toFixed(3)}</span>` +
+           `</div>`;
+  }).join('');
+  return `
+    <div class="panel-flux-chart">
+      <div class="pfc-legend">
+        <strong>${sorted.length}</strong> panel models &nbsp;·&nbsp;
+        <span class="legend-item"><span class="swatch pos"></span> ${n_pos} gained flux</span> &nbsp;·&nbsp;
+        <span class="legend-item"><span class="swatch neg"></span> ${n_neg} lost flux</span> &nbsp;·&nbsp;
+        ${n_zero} unchanged &nbsp;·&nbsp;
+        ${n_flip} flipped grow-status (↑ became grower, ↓ stopped growing) &nbsp;·&nbsp;
+        bar scale: ±${max_abs.toFixed(2)} flux units
+      </div>
+      <div class="pfc-rows">${rows}</div>
+    </div>`;
+}
+
 function renderVariantDetail(p) {
   const pane = document.getElementById('variant-detail');
   let html = `
@@ -184,22 +235,8 @@ function renderVariantDetail(p) {
       </table>
       ${p.diffs.length > 50 ? `<p class="hint">… ${p.diffs.length - 50} more not shown. Use the Reaction Explorer to browse.</p>` : ''}
 
-      <h3>Models that changed flux (top 25 by |Δ|)</h3>
-      <table class="changed-by-table">
-        <thead><tr><th>model_id</th><th>baseline grows</th><th>variant grows</th><th>baseline flux</th><th>variant flux</th><th>Δ flux</th></tr></thead>
-        <tbody>
-          ${[...(p.panel_fba || [])].filter((r) => Math.abs(r.delta_flux) > 1e-6)
-            .sort((a, b) => Math.abs(b.delta_flux) - Math.abs(a.delta_flux))
-            .slice(0, 25).map((r) =>
-              `<tr><td>${escapeHtml(r.model_id)}</td>
-                   <td>${r.baseline_grows ? '✓' : '✗'}</td>
-                   <td>${r.variant_grows ? '✓' : '✗'}</td>
-                   <td class="num">${r.baseline_flux.toFixed(4)}</td>
-                   <td class="num">${r.variant_flux.toFixed(4)}</td>
-                   <td class="num ${r.delta_flux > 0 ? 'diff-up' : 'diff-down'}">${(r.delta_flux >= 0 ? '+' : '') + r.delta_flux.toFixed(4)}</td></tr>`
-            ).join('')}
-        </tbody>
-      </table>`;
+      <h3>Panel-wide Δ flux <span class="hint">— all ${p.panel_fba.length} models vs baseline, sorted by Δ; hover any row for numbers</span></h3>
+      ${renderPanelFluxChart(p.panel_fba)}`;
   }
 
   pane.innerHTML = html;
