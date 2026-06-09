@@ -5,7 +5,7 @@
   <title>ModelSEED Reaction-Reversibility Heuristics Explorer</title>
   <link rel="stylesheet" href="/static/style.css">
 </head>
-<body>
+<body class="static-mode">
   <header>
     <h1>ModelSEED Reaction-Reversibility Heuristics Explorer</h1>
     <p class="subtitle">
@@ -152,11 +152,18 @@
           All variant reports live under
           <code>core_models_analysis/thermo_variants/{tag}/</code>; all rebinding
           happens in memory.</li>
-      <li><strong>Live FBA</strong>: the Flux Sandbox + the Reaction Explorer's
+      <li class="live-only"><strong>Live FBA</strong>: the Flux Sandbox + the Reaction Explorer's
           "per-mode panel sweep" actually run COBRA FBA via the backend
           (<code>site/serve.py</code> &rarr;
           <code>scripts/growth_heuristics.py</code>).
           Each call takes ~5-30 s depending on panel size.</li>
+      <li class="static-only"><strong>Static mode</strong>: this server was launched
+          without the FBA backend. The Flux Sandbox tab is hidden and the Reaction
+          Explorer's per-mode panel sweep is disabled. Run
+          <code>python3 site/serve.py --live</code> after installing
+          <code>cobra</code> and cloning <code>ModelSEEDDatabase</code> as a sibling
+          of <code>core_models_analysis/</code> to enable live FBA. See the project
+          README for full prerequisites.</li>
     </ul>
   </section>
 

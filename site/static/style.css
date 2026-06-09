@@ -300,3 +300,16 @@ button.small { padding: 2px 8px; font-size: 12px; }
 .diff-up { color: var(--good); }
 .diff-down { color: var(--warn); }
 .diff-zero { color: var(--text-dim); }
+
+/* --- mode-aware visibility (static vs live FBA) --- */
+body:not(.static-mode) .static-only { display: none; }
+body.static-mode .live-only { display: none; }
+body.static-mode nav button[data-tab="sandbox"] { display: none; }
+body.static-mode #tab-sandbox { display: none !important; }
+.static-only-notice {
+  color: var(--text-dim);
+  border-left: 2px solid var(--accent-2);
+  padding: 6px 10px;
+  margin: 8px 0;
+  background: rgba(243, 182, 91, 0.05);
+}

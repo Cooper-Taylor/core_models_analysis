@@ -26,7 +26,25 @@ const STATE = {
   selectedVariant: null,
   selectedRxn: null,
   rxnFilter: 'panel',
+  // updated by fetchHealth() in bootstrap; defaults to true so any race
+  // (handler firing before fetchHealth resolves) lands in static-safe behavior.
+  staticMode: true,
 };
+
+async function fetchHealth() {
+  try {
+    const r = await fetch('/api/health');
+    if (!r.ok) throw new Error('status ' + r.status);
+    const j = await r.json();
+    STATE.staticMode = (j.static_mode === true);
+  } catch (e) {
+    console.warn('health probe failed, assuming static mode:', e);
+    STATE.staticMode = true;
+  }
+  // index.html ships with <body class="static-mode">; strip it only on
+  // confirmed live mode (never add it from JS — keeps the no-flash UX).
+  if (!STATE.staticMode) document.body.classList.remove('static-mode');
+}
 
 // -------------------- tab switching --------------------
 document.querySelectorAll('nav button').forEach((btn) =>
@@ -36,7 +54,7 @@ document.querySelectorAll('nav button').forEach((btn) =>
     btn.classList.add('active');
     document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
     if (btn.dataset.tab === 'reaction' && !STATE.reactionsPanel) loadReactions();
-    if (btn.dataset.tab === 'sandbox') initSandbox();
+    if (btn.dataset.tab === 'sandbox' && !STATE.staticMode) initSandbox();
   })
 );
 
@@ -170,7 +188,7 @@ function renderVariantDetail(p) {
       <table class="changed-by-table">
         <thead><tr><th>model_id</th><th>baseline grows</th><th>variant grows</th><th>baseline flux</th><th>variant flux</th><th>Δ flux</th></tr></thead>
         <tbody>
-          ${[...p.panel_fba].filter((r) => Math.abs(r.delta_flux) > 1e-6)
+          ${[...(p.panel_fba || [])].filter((r) => Math.abs(r.delta_flux) > 1e-6)
             .sort((a, b) => Math.abs(b.delta_flux) - Math.abs(a.delta_flux))
             .slice(0, 25).map((r) =>
               `<tr><td>${escapeHtml(r.model_id)}</td>
@@ -215,6 +233,13 @@ async function ensureReactionsOther() {
 function renderReactionList() {
   const q = document.getElementById('rxn-search').value.toLowerCase().trim();
   const filt = document.getElementById('rxn-filter').value;
+  const needsOther = (filt !== 'panel' && filt !== 'changed_panel');
+  if (needsOther && !STATE.reactionsOther) {
+    document.getElementById('reaction-list').innerHTML =
+      '<li><em class="hint">Loading reactions index (~4 MB)…</em></li>';
+    document.getElementById('rxn-result-count').textContent = '';
+    return;
+  }
   let entries;
   if (filt === 'panel' || filt === 'changed_panel') {
     entries = Object.values(STATE.reactionsPanel);
@@ -263,7 +288,7 @@ async function selectRxn(rxnId) {
     await ensureReactionsOther();
     r = STATE.reactionsOther[rxnId];
   }
-  if (!r) {
+  if (!r && !STATE.staticMode) {
     // last-resort server lookup (rxns not in any index)
     try { r = await API.rxn(rxnId); } catch (e) { /* noop */ }
   }
@@ -309,6 +334,26 @@ function renderReactionDetail(r) {
       </table>`;
   }
 
+  const sweepHtml = STATE.staticMode
+    ? `<h3>Per-mode panel sweep <span class="hint">— live FBA</span></h3>
+       <p class="hint static-only-notice">Per-mode panel sweep requires live FBA.
+       Restart the server with <code>python3 site/serve.py --live</code>
+       (requires cobra + the ModelSEEDDatabase + .kbcache).
+       See README "Enabling live FBA".</p>`
+    : `<h3>Per-mode panel sweep <span class="hint">— live FBA</span></h3>
+       <p class="hint">Run FBA on panel models that contain this reaction under three forced modes:
+         <strong>off</strong> (lb=ub=0), <strong>forward</strong> (lb=0, ub=1000), <strong>reverse</strong> (lb=−1000, ub=0).
+         Comparison is vs the unaltered cascade (baseline by default).
+         First call to a model loads the JSON; expect ~5-20s.</p>
+       <div class="run-row">
+         <label>variant:
+           <select id="rxn-sweep-variant"></select>
+         </label>
+         <button id="rxn-sweep-run" class="primary">Run sweep</button>
+         <span id="rxn-sweep-status" class="hint"></span>
+       </div>
+       <div id="rxn-sweep-results"></div>`;
+
   pane.innerHTML = `
     <h3>${escapeHtml(r.id)} <span class="hint">— ${escapeHtml(r.name || '(no name)')}</span></h3>
     <dl>
@@ -330,57 +375,47 @@ function renderReactionDetail(r) {
         <tbody>${changedRows}</tbody>
       </table>` : `<p class="hint">No variants change this reaction's direction vs baseline.</p>`}
 
-    <h3>Per-mode panel sweep <span class="hint">— live FBA</span></h3>
-    <p class="hint">Run FBA on panel models that contain this reaction under three forced modes:
-      <strong>off</strong> (lb=ub=0), <strong>forward</strong> (lb=0, ub=1000), <strong>reverse</strong> (lb=−1000, ub=0).
-      Comparison is vs the unaltered cascade (baseline by default).
-      First call to a model loads the JSON; expect ~5-20s.</p>
-    <div class="run-row">
-      <label>variant:
-        <select id="rxn-sweep-variant"></select>
-      </label>
-      <button id="rxn-sweep-run" class="primary">Run sweep</button>
-      <span id="rxn-sweep-status" class="hint"></span>
-    </div>
-    <div id="rxn-sweep-results"></div>
+    ${sweepHtml}
   `;
 
-  // Populate variant select.
-  loadManifest().then((m) => {
-    const sel = document.getElementById('rxn-sweep-variant');
-    sel.innerHTML = '';
-    m.variants.forEach((v) => {
-      const o = document.createElement('option');
-      o.value = v.tag;
-      o.textContent = `${v.tag} — ${v.title}`;
-      sel.appendChild(o);
-    });
-  });
-
-  document.getElementById('rxn-sweep-run').addEventListener('click', async () => {
-    const variant = document.getElementById('rxn-sweep-variant').value;
-    const btn = document.getElementById('rxn-sweep-run');
-    const status = document.getElementById('rxn-sweep-status');
-    const out = document.getElementById('rxn-sweep-results');
-    btn.disabled = true;
-    status.textContent = 'running FBA sweep…';
-    out.innerHTML = '';
-    try {
-      const t0 = performance.now();
-      const res = await API.reactionImpact({
-        rxn_id: r.id,
-        variant,
-        modes: ['as_is', 'off', 'forward', 'reverse', 'free'],
+  if (!STATE.staticMode) {
+    // Populate variant select.
+    loadManifest().then((m) => {
+      const sel = document.getElementById('rxn-sweep-variant');
+      sel.innerHTML = '';
+      m.variants.forEach((v) => {
+        const o = document.createElement('option');
+        o.value = v.tag;
+        o.textContent = `${v.tag} — ${v.title}`;
+        sel.appendChild(o);
       });
-      status.textContent = `done in ${(performance.now() - t0) / 1000 | 0}s ` +
-        `(${res.n_models} models, ${(res.elapsed_s).toFixed(1)}s server-side)`;
-      renderSweep(res, out);
-    } catch (exc) {
-      status.textContent = 'error: ' + exc.message;
-    } finally {
-      btn.disabled = false;
-    }
-  });
+    });
+
+    document.getElementById('rxn-sweep-run').addEventListener('click', async () => {
+      const variant = document.getElementById('rxn-sweep-variant').value;
+      const btn = document.getElementById('rxn-sweep-run');
+      const status = document.getElementById('rxn-sweep-status');
+      const out = document.getElementById('rxn-sweep-results');
+      btn.disabled = true;
+      status.textContent = 'running FBA sweep…';
+      out.innerHTML = '';
+      try {
+        const t0 = performance.now();
+        const res = await API.reactionImpact({
+          rxn_id: r.id,
+          variant,
+          modes: ['as_is', 'off', 'forward', 'reverse', 'free'],
+        });
+        status.textContent = `done in ${(performance.now() - t0) / 1000 | 0}s ` +
+          `(${res.n_models} models, ${(res.elapsed_s).toFixed(1)}s server-side)`;
+        renderSweep(res, out);
+      } catch (exc) {
+        status.textContent = 'error: ' + exc.message;
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  }
 }
 
 function renderSweep(res, out) {
@@ -469,6 +504,7 @@ function renderOverrides() {
 }
 
 document.getElementById('ov-add').addEventListener('click', () => {
+  if (STATE.staticMode) return;
   const rxn = document.getElementById('ov-rxn').value.trim();
   const mode = document.getElementById('ov-mode').value;
   if (!rxn) return;
@@ -478,6 +514,7 @@ document.getElementById('ov-add').addEventListener('click', () => {
 });
 
 document.getElementById('sandbox-run').addEventListener('click', async () => {
+  if (STATE.staticMode) return;
   const variant = document.getElementById('sandbox-variant').value;
   const modelsRaw = document.getElementById('sandbox-models').value.trim();
   const models = modelsRaw ? modelsRaw.split(/[,\s]+/).filter(Boolean) : null;
@@ -529,6 +566,7 @@ function renderSandbox(res, out) {
 
 // -------------------- bootstrap --------------------
 (async function init() {
+  await fetchHealth();
   await renderVariants();
-  renderOverrides();
+  if (!STATE.staticMode) renderOverrides();
 })();
