@@ -17,7 +17,12 @@
         "new_rev=<": 1957,
         "new_rev==": 13202,
         "new_rev=?": 31102
-      }
+      },
+      "apt_title": "Default cascade \u2014 reproduces MSDB byte-for-byte (reference)",
+      "description": "Reproduces the upstream ModelSEEDDatabase Estimate_Reaction_Reversibility.py cascade exactly: heuristic 1 (bounded \u0394G\u2032\u00b0 check across the concentration window) \u2192 heuristic 4 (mMdeltaG \u00b12 kcal/mol band) \u2192 heuristic 5 (LOW_ENERGY_CPDS points rule) \u2192 '=' (reversible) default. Every other variant is a one-knob (or few-knob) diff against this reference.",
+      "citations": [
+        "Henry 2007"
+      ]
     },
     {
       "tag": "3.1",
@@ -32,7 +37,12 @@
         "new_rev=>": 8187,
         "new_rev==": 11886,
         "new_rev=?": 31102
-      }
+      },
+      "apt_title": "Use eQuilibrator's reversibility index instead of the points-and-bands heuristics",
+      "description": "Replaces the heuristic reversibility decision with eQuilibrator's reversibility index \u03b3, calling a reaction directional whenever |ln \u03b3| > 6.9 \u2014 i.e. when more than a ~1000-fold concentration shift would be needed to reverse it (cfg knob: ln_ri_by_rxn). \u03b3 is the molecularity-normalized fold-change in the mass-action ratio that flips the sign of \u0394G\u2032, so it is the formal answer to the question the ad-hoc points-and-bands rules approximate.",
+      "citations": [
+        "Noor 2012"
+      ]
     },
     {
       "tag": "3.3",
@@ -47,7 +57,15 @@
         "new_rev=<": 2141,
         "new_rev==": 12142,
         "new_rev=?": 31102
-      }
+      },
+      "apt_title": "Use measured E. coli metabolite concentrations (Bennett 2009)",
+      "description": "Replaces the uniform [10 \u00b5M, 20 mM] concentration prior with per-metabolite ranges and geometric-mean reference points from Bennett 2009's absolute E. coli metabolomics (cfg knobs: per_met_conc_range, per_met_conc), so ATP/glutamate sit at their measured ~10/100 mM levels and rare nucleosides near 0.1 \u00b5M. The real intracellular distribution spans six orders of magnitude with 70% of metabolites below 1 mM, so the uniform prior systematically biases the reference \u0394G used by the directional check.",
+      "citations": [
+        "Bennett 2009",
+        "Park 2016",
+        "Bar-Even 2011",
+        "Salvy 2019"
+      ]
     },
     {
       "tag": "3.3_wide",
@@ -62,7 +80,13 @@
         "new_rev=<": 1533,
         "new_rev==": 14998,
         "new_rev=?": 31102
-      }
+      },
+      "apt_title": "Widen the uniform concentration prior to [0.1 \u00b5M, 0.1 M]",
+      "description": "Widens the baseline three-order [10 \u00b5M, 20 mM] uniform reagent concentration window to a six-order [0.1 \u00b5M, 0.1 M] window (cfg knobs: cell_min, cell_max), covering the observed spread of E. coli metabolomics without committing to per-metabolite measurements. This serves as a measured-data-free fallback that better envelopes Bennett 2009 observations for reactions whose intermediates are unmeasured.",
+      "citations": [
+        "Bennett 2009",
+        "Park 2016"
+      ]
     },
     {
       "tag": "3.5",
@@ -77,7 +101,13 @@
         "new_rev=<": 1951,
         "new_rev==": 13506,
         "new_rev=?": 31102
-      }
+      },
+      "apt_title": "Use a 95% Component Contribution (CC) uncertainty band instead of fixed \u00b12 kcal/mol",
+      "description": "Replaces the fixed \u00b12 kcal/mol reversible-band check (inherited from Henry 2007) with k\u00b7\u03c3_rxn where k=1.96 \u2014 a 95% confidence interval drawn from the Component Contribution method's per-reaction \u0394G uncertainty already on disk (cfg knob: sigma_band_k). The 2 kcal/mol constant conflates \u0394G-estimation error with concentration uncertainty, while CC's per-reaction \u03c3 tightens the band for well-measured reactions and widens it for poorly-constrained ones.",
+      "citations": [
+        "Noor 2013",
+        "Gollub 2021"
+      ]
     },
     {
       "tag": "3.5_wide",
@@ -92,7 +122,13 @@
         "new_rev=<": 1851,
         "new_rev==": 13748,
         "new_rev=?": 31102
-      }
+      },
+      "apt_title": "Widen the bounded-\u0394G check to a 95% CC interval (1.96\u03c3) instead of 1\u03c3",
+      "description": "The directional check requires the \u0394G window \u2014 computed at concentration extremes \u2014 to lie entirely on one side of zero. Baseline uses 1-\u03c3 error bars on the stored Component Contribution bounds; this variant scales them by 1.96 for a 95% confidence interval (cfg knob: sigma_bounds_k). Noor 2013's empirical coverage validation (73%/90%/95%/99% at matching CC intervals) shows that a 1-\u03c3 bound calls reactions directional more aggressively than the data support.",
+      "citations": [
+        "Noor 2013",
+        "Gollub 2021"
+      ]
     },
     {
       "tag": "3.6",
@@ -107,7 +143,13 @@
         "new_rev=>": 6869,
         "new_rev=<": 1769,
         "new_rev=?": 31102
-      }
+      },
+      "apt_title": "Drop the hand-curated low-energy-compounds list (CO\u2082, Pi, PPi, CoA, \u2026)",
+      "description": "Disables the legacy points rule that forced directional calls when reactions consumed hand-curated low-energy sinks (CO\u2082, NH\u2083, ACP, Pi, PPi, CoA, dihydrolipoamide, HCO\u2083\u207b), by emptying the list (cfg knob: low_energy_cpds=()). The frozen MFAToolkit-era compound list is superseded by principled measures like the reversibility index (\u00a73.1) or multiTFA's P(forward). The residual phosphate-spread term in the same rule still runs in principle but stays inert until \u00a7H3 is stacked in.",
+      "citations": [
+        "Noor 2012",
+        "Gollub 2021"
+      ]
     },
     {
       "tag": "3.7",
@@ -122,7 +164,13 @@
         "new_rev=<": 1957,
         "new_rev==": 13202,
         "new_rev=?": 31102
-      }
+      },
+      "apt_title": "Disable the hardcoded 1e-4 M CO\u2082 concentration override",
+      "description": "Baseline declares a 1e-4 M CO\u2082 override (and a 1e-6 M O\u2082/H\u2082 override) but both branches are unreachable due to the shadow bug fixed in \u00a7H3 \u2014 they only fire once H3 is stacked in. This variant turns the gate off (cfg knob: apply_special_conc=False) so that even after the H3 repair, CO\u2082/O\u2082/H\u2082 sit at the 1 mM default. eQuilibrator already models CO\u2082(aq)/HCO\u2083\u207b/CO\u2083\u00b2\u207b speciation as a function of pH, so the override would double-count what the transform handles.",
+      "citations": [
+        "Alberty 2003",
+        "Beber 2022"
+      ]
     },
     {
       "tag": "3.10_tight",
@@ -137,7 +185,10 @@
         "new_rev=<": 1957,
         "new_rev==": 13195,
         "new_rev=?": 31102
-      }
+      },
+      "apt_title": "Tighten the reversible band to \u00b11 kcal/mol",
+      "description": "Halves the reversible-band check from |reference \u0394G| \u2264 2 kcal/mol to \u2264 1 kcal/mol (cfg knob: mm_band=1.0), forcing more reactions into directional calls. The 2 kcal/mol threshold was inherited from Henry 2007 without per-reaction justification; this variant exposes the cascade's sensitivity to that hardcoded threshold by making it a configurable input.",
+      "citations": []
     },
     {
       "tag": "3.10_loose",
@@ -152,7 +203,10 @@
         "new_rev=<": 1875,
         "new_rev==": 13898,
         "new_rev=?": 31102
-      }
+      },
+      "apt_title": "Loosen the reversible band to \u00b14 kcal/mol",
+      "description": "Doubles the reversible-band check from |reference \u0394G| \u2264 2 kcal/mol to \u2264 4 kcal/mol (cfg knob: mm_band=4.0), pulling more reactions out of directional calls into the reversible bucket. As with 3.10_tight, the motivation is to expose the reversibility decision's sensitivity to the Henry 2007 threshold and quantify how many directional calls hinge on the 2 kcal/mol choice alone.",
+      "citations": []
     },
     {
       "tag": "H1",
@@ -167,7 +221,10 @@
         "new_rev=<": 1957,
         "new_rev==": 6680,
         "new_rev=?": 37624
-      }
+      },
+      "apt_title": "Distinguish 'no rule fired' from 'reversible' by returning '?'",
+      "description": "The baseline's final fallthrough returns '=' (reversible) whenever no earlier rule fires, conflating two genuinely different outcomes: heuristics actively agreed the reaction is reversible, versus heuristics had nothing to say. This variant returns '?' (unknown) for the bare default branch (cfg knob: default_direction='?'). 6,522 of 56,012 ModelSEED Database (MSDB) reactions land on this branch, so collapsing them with confidently-reversible reactions discards information a curator would want to triage.",
+      "citations": []
     },
     {
       "tag": "H2",
@@ -182,7 +239,10 @@
         "new_rev=<": 1956,
         "new_rev==": 13203,
         "new_rev=?": 31102
-      }
+      },
+      "apt_title": "Repair the O\u2082/H\u2082 shadow bug so oxidative reactions see 1 \u00b5M, not 1 mM",
+      "description": "Cytoplasmic dissolved O\u2082 sits at 5\u201350 \u00b5M, not the 1 mM default; the original code intended to apply a 1 \u00b5M local concentration override for O\u2082 and H\u2082 but a variable-shadowing bug made the branch unreachable. This variant repairs the bug (cfg knob: fix_low_local_conc=True). The override shifts the reference \u0394G of every O\u2082/H\u2082-coupled reaction by ~4 kcal/mol per unit stoichiometric coefficient, with sign depending on whether the gas appears as reactant or product \u2014 large enough to flip many calls in or out of the \u00b12 kcal reversible bucket.",
+      "citations": []
     },
     {
       "tag": "H3",
@@ -197,7 +257,10 @@
         "new_rev=<": 2079,
         "new_rev==": 12269,
         "new_rev=?": 31102
-      }
+      },
+      "apt_title": "Repair the phosphate-accumulator shadow bug so ABC transporters become directional",
+      "description": "A typo silently disables the ABC-transporter rule that forces ATP-driven uptake reactions to be directional: the accumulator loop checks the wrong field on each reagent row, so the phosphates dict is always empty and the ABC branch is dead code. Repairing it (cfg knob: fix_phosphates_shadow=True) flips 1,989 ModelSEED Database reactions \u2014 1,209 from '=' (reversible) to '>' (forward-only) as ATP-driven uptake is correctly forced forward \u2014 and changes growth status in 21 of 100 panel models.",
+      "citations": []
     },
     {
       "tag": "H4",
@@ -212,7 +275,18 @@
         "new_rev=>": 9800,
         "new_rev==": 11399,
         "new_rev=?": 31102
-      }
+      },
+      "apt_title": "Best-evidence stack: reversibility index + 95% CC band + Bennett concentrations",
+      "description": "Combines three high-impact \u00a73 changes into one 'best available evidence' configuration: eQuilibrator's ln(reversibility index), a 95% Component Contribution per-reaction \u03c3 band in place of the fixed \u00b12 kcal/mol, and Bennett 2009 per-metabolite E. coli concentrations (cfg knobs: ln_ri_by_rxn, sigma_band_k=1.96, per_met_conc_range, per_met_conc). The three interact non-trivially: the CC band pulls many calls into the reversible bucket, the reversibility index re-pushes a subset back to firm directions, and the measured concentrations shift the reference \u0394G of those still in the band.",
+      "citations": [
+        "Noor 2012",
+        "Noor 2013",
+        "Gollub 2021",
+        "Bennett 2009",
+        "Park 2016",
+        "Bar-Even 2011",
+        "Salvy 2019"
+      ]
     }
   ]
 }

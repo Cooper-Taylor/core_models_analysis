@@ -94,7 +94,7 @@ async function renderVariants() {
     tr.innerHTML = `
       <td><span class="tag">${escapeHtml(v.tag)}</span></td>
       <td>${escapeHtml(v.section)}</td>
-      <td>${escapeHtml(v.title)}</td>
+      <td>${escapeHtml(v.apt_title || v.title)}</td>
       <td class="num">${v.n_changed_vs_baseline.toLocaleString()}</td>
       <td class="num">${v.n_models_flux_change}</td>
       <td class="num">${v.n_models_flip}</td>
@@ -113,6 +113,9 @@ async function loadVariant(tag) {
     const payload = {
       tag: 'baseline',
       title: meta.title,
+      apt_title: meta.apt_title,
+      description: meta.description,
+      citations: meta.citations,
       section: meta.section,
       diffs: [],
       transitions: {},
@@ -135,7 +138,31 @@ async function selectVariant(tag, tr) {
   if (tr) tr.classList.add('selected');
   STATE.selectedVariant = tag;
   const p = await loadVariant(tag);
+  // Per-variant JSON files predate the manifest's apt_title/description/citations
+  // fields. Merge them from the manifest (single source of truth) before render.
+  const m = await loadManifest();
+  const meta = m.variants.find((v) => v.tag === tag) || {};
+  if (meta.apt_title && !p.apt_title) p.apt_title = meta.apt_title;
+  if (meta.description && !p.description) p.description = meta.description;
+  if (meta.citations && !p.citations) p.citations = meta.citations;
   renderVariantDetail(p);
+}
+
+function renderVariantChangeCard(p) {
+  const title = p.apt_title || p.title;
+  const desc = p.description ? `<p class="vcc-desc">${escapeHtml(p.description)}</p>` : '';
+  const cites = (p.citations && p.citations.length)
+    ? `<div class="vcc-refs"><span class="vcc-refs-label">References</span>` +
+      p.citations.map((c) => `<span class="vcc-cite">${escapeHtml(c)}</span>`).join('') +
+      `</div>`
+    : '';
+  return `
+    <div class="variant-change-card">
+      <div class="vcc-label">Change</div>
+      <div class="vcc-title">${escapeHtml(title)}</div>
+      ${desc}
+      ${cites}
+    </div>`;
 }
 
 function renderPanelFluxChart(panel_fba) {
@@ -192,8 +219,9 @@ function renderPanelFluxChart(panel_fba) {
 function renderVariantDetail(p) {
   const pane = document.getElementById('variant-detail');
   let html = `
-    <h3>${escapeHtml(p.tag)} — ${escapeHtml(p.title)}</h3>
+    <h3>${escapeHtml(p.tag)} — ${escapeHtml(p.apt_title || p.title)}</h3>
     <p class="hint">${escapeHtml(p.section)}</p>
+    ${renderVariantChangeCard(p)}
     <h3>Reversibility-count snapshot</h3>
     <div class="transition-grid">
       ${Object.entries(p.rev_counts).filter(([k,_]) => k.startsWith('new_rev')).map(([k, v]) => {

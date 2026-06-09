@@ -216,7 +216,11 @@ def main(argv: Optional[list] = None) -> None:
         tag = v["tag"]
         if tag == "baseline":
             summary_rows.append({
-                "tag": "baseline", "title": v["title"], "section": v["section"],
+                "tag": "baseline", "title": v["title"],
+                "apt_title": v.get("apt_title", v["title"]),
+                "description": v.get("description", ""),
+                "citations": v.get("citations", []),
+                "section": v["section"],
                 "n_changed_vs_baseline": 0,
                 "n_models_flip": 0, "n_models_flux_change": 0,
                 "rev_counts": v["counts"]["EQ"],
@@ -273,7 +277,11 @@ def main(argv: Optional[list] = None) -> None:
         }
         variant_payloads[tag] = payload
         summary_rows.append({
-            "tag": tag, "title": v["title"], "section": v["section"],
+            "tag": tag, "title": v["title"],
+            "apt_title": v.get("apt_title", v["title"]),
+            "description": v.get("description", ""),
+            "citations": v.get("citations", []),
+            "section": v["section"],
             "n_changed_vs_baseline": diff["n_changed"],
             "n_models_flip": n_grow,
             "n_models_flux_change": n_flux,

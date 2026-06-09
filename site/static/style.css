@@ -301,6 +301,60 @@ button.small { padding: 2px 8px; font-size: 12px; }
 .diff-down { color: var(--warn); }
 .diff-zero { color: var(--text-dim); }
 
+/* --- Variant "Change" card (technical description + citations) --- */
+.variant-change-card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  padding: 10px 14px 12px;
+  margin: 6px 0 16px;
+}
+.variant-change-card .vcc-label {
+  font-size: 10px;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+.variant-change-card .vcc-title {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+.variant-change-card .vcc-desc {
+  color: var(--text);
+  margin: 0 0 8px;
+  line-height: 1.55;
+}
+.variant-change-card .vcc-refs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding-top: 6px;
+  border-top: 1px dotted var(--border);
+}
+.variant-change-card .vcc-refs-label {
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-right: 4px;
+}
+.variant-change-card .vcc-cite {
+  display: inline-block;
+  background: var(--bg-elev-2);
+  color: var(--accent-2);
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
 /* --- Panel-flux diverging bar chart (variant detail) --- */
 .panel-flux-chart {
   background: var(--bg-elev);
