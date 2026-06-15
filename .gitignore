@@ -9,18 +9,28 @@ __pycache__/
 thermo_variants/
 
 # Site JSON snapshots: ship static-mode files in git, ignore the FBA-only ones.
-# If build_site_data.py grows a new output, decide per-file: add to this list
-# to keep it out of git, or leave it alone to ship it.
+# If build_site_data.py / build_all_models_impact.py grows a new output,
+# decide per-file: add to this list to keep it out of git, or leave it
+# alone to ship it.
 site/data/baseline.json
 site/data/panel.json
-site/data/panel_rxnsets.json
+# all-models full FBA index + per-model rxn lists — large (~9 MB combined),
+# rebuilt by scripts/build_all_models_impact.py in seconds; the summary +
+# per-variant files below are what the static UI actually reads.
+site/data/all_models_baseline_fba.json
+site/data/all_models_rxnsets.json
 # Guard against __pycache__ / .pyc accidentally landing under site/data/
 # (the top-level __pycache__/ rule above also catches these — belt + braces).
 site/data/**/__pycache__/
 site/data/**/*.pyc
 # Files that DO ship (committed by default — no negation needed because
 # nothing above ignores them): manifest.json, reactions_panel.json,
-# reactions_other.json, variants/*.json.
+# reactions_other.json, variants/*.json, panel_rxnsets.json (loaded
+# client-side by the flux-impacted-rxn filter + rxn-instances column),
+# all_models_variants.json (all-DB summary stats per variant),
+# all_models_rxnsets_summary.json (per-model rxn-count for "all models" scope),
+# all_models_variant_fba__{tag}.json (per-variant all-DB FBA rows used by
+# the Variant Browser's "top movers" table in all-models scope).
 
 # Runtime logs
 logs/
