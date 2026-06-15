@@ -30,9 +30,17 @@
     <p class="hint">
       Each row is a single-knob change to <code>ReversibilityConfig()</code>.
       Numbers are computed against the byte-for-byte MSDB cascade baseline.
-      <strong>flip</strong> = panel models that switch between grower and non-grower;
-      <strong>flux change</strong> = panel models whose biomass flux moves more than 1e-6.
+      <strong>flip</strong> = models that switch between grower and non-grower;
+      <strong>flux change</strong> = models whose biomass flux moves more than 1e-6;
+      <strong>rxn instances impacted</strong> = summed (model, reaction) pairs in scope where the variant changes the reaction's direction.
     </p>
+
+    <div class="scope-toggle">
+      <span class="scope-label">Model scope:</span>
+      <button data-scope="panel" class="active">Panel only (100)</button>
+      <button data-scope="all">All models (<span id="scope-all-count">…</span>)</button>
+      <span id="scope-status" class="hint"></span>
+    </div>
 
     <table id="variants-table" class="data-table">
       <thead>
@@ -41,11 +49,12 @@
           <th>Section</th>
           <th>Title</th>
           <th class="num">rxns changed vs baseline</th>
-          <th class="num">panel models flux change</th>
-          <th class="num">panel models grow-flip</th>
+          <th class="num" id="col-rxn-instances">rxn instances impacted (panel)</th>
+          <th class="num" id="col-flux-change">models flux change (panel)</th>
+          <th class="num" id="col-grow-flip">models grow-flip (panel)</th>
         </tr>
       </thead>
-      <tbody><tr><td colspan="6" class="loading">loading…</td></tr></tbody>
+      <tbody><tr><td colspan="7" class="loading">loading…</td></tr></tbody>
     </table>
 
     <div id="variant-detail" class="detail-panel">
@@ -72,6 +81,14 @@
         <option value="changed">changed by ≥1 variant</option>
         <option value="changed_panel">changed AND in panel</option>
       </select>
+      <select id="rxn-variant-filter" title="Filter to reactions changed by a specific variant">
+        <option value="any" selected>any variant (no filter)</option>
+        <option value="none" disabled>───────────────</option>
+      </select>
+      <label class="rxn-flux-filter-label" title="Only show reactions that change biomass flux in at least one panel model containing them">
+        <input id="rxn-flux-impacted-only" type="checkbox" disabled>
+        flux-impacted only
+      </label>
       <span id="rxn-result-count" class="hint"></span>
     </div>
 
@@ -136,9 +153,11 @@
           ported into <code>core_models_analysis/scripts/reversibility_lib.py</code>
           behind a <code>ReversibilityConfig</code> knob-set.  Defaults reproduce the
           upstream cascade byte-for-byte.</li>
-      <li><strong>Heuristics review</strong>: <code>Reaction_Reversibility_Heuristics_Review.md</code>
+      <li><strong>Heuristics review</strong>: <code>reports/REACTION_REVERSIBILITY_HEURISTICS_REVIEW.md</code>
           (revision 2026-06-01, §§ 2.1 / 3.1 / 3.2 / 3.3 / 3.4 / 3.5 / 3.6 / 3.7 / 3.8 / 3.9 / 3.10 + H1–H5).
-          Each variant tag in the browser points at one section.</li>
+          Each variant tag in the browser points at one section. The companion
+          <code>reports/REVERSIBILITY_HEURISTICS_IMPACT.md</code> rolls up the
+          panel + all-models impact data shown here.</li>
       <li><strong>Panel</strong>: 100 descriptive growers from
           <code>core_models_analysis/results/selected_ids.txt</code>.</li>
       <li><strong>FBA reference</strong>: variants are compared to the
@@ -153,10 +172,23 @@
           <code>core_models_analysis/thermo_variants/{tag}/</code>; all rebinding
           happens in memory.</li>
       <li class="live-only"><strong>Live FBA</strong>: the Flux Sandbox + the Reaction Explorer's
-          "per-mode panel sweep" actually run COBRA FBA via the backend
+          "per-variant panel sweep" actually run COBRA FBA via the backend
           (<code>site/serve.py</code> &rarr;
           <code>scripts/growth_heuristics.py</code>).
-          Each call takes ~5-30 s depending on panel size.</li>
+          Each call takes ~5-30 s depending on panel size.
+          The Reaction Explorer's sweep automatically uses the selected variant's
+          new direction for the reaction (no mode picker) and compares against the
+          baseline cascade — one column per panel model containing the reaction.</li>
+      <li><strong>Model scope toggle</strong> (Variant Browser): switch between
+          the 100-model descriptive panel and the full 5,683-model
+          <code>core_models_kegg2/</code> database. The all-models scope shows
+          mean / median / std biomass flux, largest gainer / loser models, and
+          how many models flip in either direction. Built by
+          <code>scripts/build_all_models_impact.py</code>.</li>
+      <li><strong>Reaction Explorer filters</strong>: filter to reactions changed
+          by a specific variant, with an optional subfilter restricting to
+          reactions whose direction change actually shifts biomass flux in at
+          least one panel model containing them.</li>
       <li class="static-only"><strong>Static mode</strong>: this server was launched
           without the FBA backend. The Flux Sandbox tab is hidden and the Reaction
           Explorer's per-mode panel sweep is disabled. Run

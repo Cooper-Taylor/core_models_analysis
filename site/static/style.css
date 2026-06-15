@@ -434,6 +434,105 @@ button.small { padding: 2px 8px; font-size: 12px; }
 .pfc-val.neg { color: var(--warn); }
 .pfc-val.zero { color: var(--text-dim); }
 
+/* --- Scope toggle (variant browser: panel vs all models) --- */
+.scope-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  padding: 6px 10px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.scope-toggle .scope-label {
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  margin-right: 6px;
+}
+.scope-toggle button {
+  background: var(--bg-elev-2);
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 4px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+.scope-toggle button.active {
+  background: var(--accent);
+  color: #0f1218;
+  border-color: var(--accent);
+  font-weight: 600;
+}
+.scope-toggle button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.scope-toggle button:not(.active):not(:disabled):hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+#scope-status {
+  margin-left: 8px;
+}
+
+/* --- All-models stats card (variant detail) --- */
+.all-models-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 6px 0 14px;
+}
+.all-models-stats-grid .ams-card {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 10px 12px;
+}
+.all-models-stats-grid .ams-card.ams-card-wide {
+  grid-column: span 1;
+}
+.all-models-stats-grid .ams-card h4 {
+  margin: 0 0 4px;
+  font-size: 12px;
+  color: var(--accent-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.all-models-stats-grid .ams-card .stat {
+  font-family: var(--mono);
+  font-size: 16px;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.all-models-stats-grid .ams-card .stat-sub {
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+/* Reaction explorer: variant filter + flux-impacted-only checkbox */
+.rxn-flux-filter-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-dim);
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+.rxn-flux-filter-label input[type="checkbox"]:disabled + * {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.changed-by-table tr.flipped {
+  background: rgba(243, 182, 91, 0.06);
+}
+
 /* --- mode-aware visibility (static vs live FBA) --- */
 body:not(.static-mode) .static-only { display: none; }
 body.static-mode .live-only { display: none; }
