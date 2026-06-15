@@ -345,12 +345,26 @@ def build_04_reaction_prevalence() -> nbf.NotebookNode:
         df['grows'] = df['grows'].astype(str).str.lower() == 'true'
         MODELS = DATA / 'core_models_kegg2'
 
+        # NOTE: ``rxnsets_by_model`` keys must be canonical bare MSDB ids.
+        # 17 cobra reactions across these models carry a stray ``_c``
+        # suffix on their ``seed.reaction`` annotation (e.g. ``rxn11322_c``)
+        # — see reports/DUPLICATE_REACTIONS_INVESTIGATION.md. The inlined
+        # normalizer below mirrors ``scripts/seed_annotation.normalize_seed_id``;
+        # it lives here because this string is concatenated into the notebook
+        # source and the notebook cell cannot import sibling modules.
+        import re as _re
+        _SEED_CSUFFIX = _re.compile(r"_[a-z]$")
+
         def extract(mid):
             with open(MODELS / f'{mid}.json') as f:
                 m = json.load(f)
-            return mid, {r['annotation'].get('seed.reaction')
-                         for r in m['reactions']
-                         if r.get('annotation', {}).get('seed.reaction')}
+            out = set()
+            for r in m['reactions']:
+                sr = r.get('annotation', {}).get('seed.reaction')
+                if not sr:
+                    continue
+                out.add(_SEED_CSUFFIX.sub("", sr))
+            return mid, out
 
         # Reuse cache if we ran this before
         try:

@@ -30,6 +30,7 @@ if str(SCRIPT_DIR) not in sys.path:
 
 import direction_pipeline as dp  # noqa: E402
 import growth_heuristics as gh  # noqa: E402
+from seed_annotation import normalize_seed_id  # noqa: E402 — strips _c-suffix bug
 
 ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 RESULTS_DIR = ANALYSIS_DIR / "results"
@@ -121,6 +122,7 @@ def _model_overrides_expected(model_id: str, source_map: dict) -> int:
         seed = anno.get("seed.reaction")
         if isinstance(seed, list):
             seed = seed[0] if seed else None
+        seed = normalize_seed_id(seed)
         if seed and seed in source_map:
             n += 1
     return n

@@ -73,6 +73,8 @@ MSDB_ROOT = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/ModelSEEDDatabase
 sys.path.insert(0, str(SCRIPTS))
 sys.path.insert(0, str(MSDB_ROOT / "Libs" / "Python"))
 
+from seed_annotation import seed_id  # normalizes the _c-suffix bug
+
 
 # ---------------------------------------------------------------------------
 def list_model_ids() -> list:
@@ -88,14 +90,20 @@ def _extract_rxnset(model_id: str) -> "tuple[str, list]":
     Raw JSON only — cobra-free for speed (the heuristic baseline FBA
     below loads via cobra anyway, but the rxnset lookup is the
     bottleneck if we use cobra for it too).
+
+    Uses ``seed_annotation.seed_id`` to canonicalize annotations — a
+    small set of cobra reactions carry a stray ``_c`` suffix on the
+    seed.reaction value (e.g. ``rxn11322_c``) that does not exist as
+    an MSDB id; the helper strips it so all downstream intersections
+    work against the canonical bare id.
     """
     p = MODELS_DIR / f"{model_id}.json"
     d = json.loads(p.read_text())
     seeds = set()
     for r in d.get("reactions", []):
-        anno = (r.get("annotation") or {}).get("seed.reaction")
-        if anno:
-            seeds.add(anno)
+        s = seed_id(r)
+        if s:
+            seeds.add(s)
     return model_id, sorted(seeds)
 
 

@@ -22,6 +22,10 @@ import os
 import cobra
 from cobra.io import load_json_model
 
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from seed_annotation import normalize_seed_id  # strips the _c-suffix bug
+
 ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 MODELS_DIR = ANALYSIS_DIR / "data" / "core_models_kegg2"
 MEDIA_FILE = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/ModelSEEDDatabase") + "/Media/KBaseMedia.cpd")
@@ -207,14 +211,19 @@ def part2_gap_analysis(rows, reports_dir, results_dir=None):
 # ---------------------------------------------------------------------
 # Part 3: reaction prevalence (growers vs non-growers)
 def extract_reactions_one(path_str):
-    """Return (model_id, set of seed.reaction IDs)."""
+    """Return (model_id, set of canonical seed.reaction IDs).
+
+    Strips the stray ``_c`` suffix that 17 transport-reaction
+    annotations carry, so prevalence counts are not artificially split
+    between e.g. ``rxn05466`` and ``rxn05466_c`` (same MSDB reaction).
+    """
     path = Path(path_str)
     try:
         with open(path) as f:
             m = json.load(f)
         rxns = set()
         for r in m["reactions"]:
-            sr = r.get("annotation", {}).get("seed.reaction")
+            sr = normalize_seed_id(r.get("annotation", {}).get("seed.reaction"))
             if sr:
                 rxns.add(sr)
         return path.stem, rxns

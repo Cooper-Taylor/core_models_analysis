@@ -26,8 +26,12 @@ import csv
 import io
 import json
 import subprocess
+import sys
 from pathlib import Path
 from typing import Iterable, Mapping, Optional
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from seed_annotation import normalize_seed_id  # strips the _c-suffix bug
 
 import pandas as pd
 
@@ -665,6 +669,7 @@ def override_transitions(
             seed = anno.get("seed.reaction")
             if isinstance(seed, list):
                 seed = seed[0] if seed else None
+            seed = normalize_seed_id(seed)
             if not seed:
                 continue
             new_op = source_map.get(seed)
@@ -735,6 +740,7 @@ def source_coverage(
             # KBase models sometimes store a list under the annotation key.
             if isinstance(seed, list):
                 seed = seed[0] if seed else None
+            seed = normalize_seed_id(seed)
             if not seed:
                 continue
             n_anno += 1

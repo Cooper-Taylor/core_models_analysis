@@ -158,12 +158,20 @@ def build_08_taxonomy_aware_selection() -> nbf.NotebookNode:
         # also cache the cpd sets here so this notebook is self-contained.
         MODELS = DATA / 'core_models_kegg2'
 
+        # Strip the stray _c suffix from seed.reaction annotations — see
+        # reports/DUPLICATE_REACTIONS_INVESTIGATION.md. This regex is
+        # inlined because the notebook cell cannot import sibling modules.
+        import re as _re
+        _SEED_CSUFFIX = _re.compile(r"_[a-z]$")
+
         def _extract(mid):
             with open(MODELS / f'{mid}.json') as f:
                 m = json.load(f)
-            rxns = {r['annotation'].get('seed.reaction')
-                    for r in m['reactions']
-                    if r.get('annotation', {}).get('seed.reaction')}
+            rxns = set()
+            for r in m['reactions']:
+                sr = r.get('annotation', {}).get('seed.reaction')
+                if sr:
+                    rxns.add(_SEED_CSUFFIX.sub("", sr))
             cpds = {met['id'].split('_')[0] for met in m['metabolites']}
             return mid, sorted(rxns), sorted(cpds)
 

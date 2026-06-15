@@ -66,8 +66,12 @@ import os
 import csv
 import json
 import multiprocessing as mp
+import sys
 from collections import Counter, defaultdict
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from seed_annotation import normalize_seed_id  # strips the _c-suffix bug
 
 ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 MODELS_DIR = ANALYSIS_DIR / 'data' / 'core_models_kegg2'
@@ -160,7 +164,7 @@ def _extract_one(mid):
         m = json.load(f)
     rxns = set()
     for r in m['reactions']:
-        sr = r.get('annotation', {}).get('seed.reaction')
+        sr = normalize_seed_id(r.get('annotation', {}).get('seed.reaction'))
         if sr:
             rxns.add(sr)
     cpds = {met['id'].split('_')[0] for met in m['metabolites']}

@@ -33,6 +33,7 @@ if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))
 
 import direction_pipeline as dp  # noqa: E402
+from seed_annotation import normalize_seed_id  # noqa: E402 — strips _c-suffix bug
 
 RESULTS_DIR = ANALYSIS_DIR / "results"
 THERMO_DIR = RESULTS_DIR / "thermo_sources"
@@ -106,6 +107,7 @@ def _coverage_rows(panel_ids: list, source_csv: Path, msdb_map: dict) -> list:
                 seed = anno.get("seed.reaction")
                 if isinstance(seed, list):
                     seed = seed[0] if seed else None
+                seed = normalize_seed_id(seed)
                 if seed and seed in msdb_map:
                     n_in_msdb += 1
         rows.append({

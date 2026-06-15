@@ -128,6 +128,7 @@ import direction_pipeline as dp
 import growth_heuristics as gh
 import thermo_source_figures as tsf
 import run_thermo_source_variants as rtv  # shared VARIANT_ORDER / column lists
+from seed_annotation import normalize_seed_id  # strips _c-suffix bug
 """
 
 PARAMS_CELL = """
@@ -394,6 +395,7 @@ def _coverage_rows_for_source(panel_ids, source_csv, msdb_map):
                 seed = anno.get('seed.reaction')
                 if isinstance(seed, list):
                     seed = seed[0] if seed else None
+                seed = normalize_seed_id(seed)
                 if seed and seed in msdb_map:
                     n_in_msdb += 1
         rows.append({

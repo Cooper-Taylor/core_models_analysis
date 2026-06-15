@@ -39,6 +39,8 @@ MSDB_ROOT = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/ModelSEEDDatabase
 sys.path.insert(0, str(SCRIPTS))
 sys.path.insert(0, str(MSDB_ROOT / "Libs" / "Python"))
 
+from seed_annotation import normalize_seed_id  # strips the _c-suffix bug
+
 THERMO_VARIANTS_DIR = ANALYSIS_ROOT / "thermo_variants"
 SITE_DATA = ANALYSIS_ROOT / "site" / "data"
 MODELS_DIR = ANALYSIS_ROOT / "data" / "core_models_kegg2"
@@ -192,7 +194,23 @@ def main(argv: Optional[list] = None) -> None:
     s = load_session()
     msdb_rxns = s.cache.load("msdb_reactions_v1")
     print(f"  {len(msdb_rxns)} reactions")
-    panel_rxn_sets = s.cache.load("rxnsets_by_model")
+    panel_rxn_sets_raw = s.cache.load("rxnsets_by_model")
+    # The cache was populated before the _c-suffix bug was understood,
+    # so it stores annotations verbatim (including ``rxn11322_c`` for
+    # the 17 affected transport reactions). Normalize on read so the
+    # site_data emitted from here uses canonical bare MSDB ids — same
+    # convention as the cascade output and the variant-diff lists.
+    panel_rxn_sets = {
+        mid: sorted({normalize_seed_id(r) for r in rxs if r})
+        for mid, rxs in panel_rxn_sets_raw.items()
+    }
+    n_normalized = sum(
+        1 for mid in panel_rxn_sets
+        if set(panel_rxn_sets[mid]) != set(panel_rxn_sets_raw[mid])
+    )
+    if n_normalized:
+        print(f"  normalized seed.reaction _c-suffix in {n_normalized} models "
+              f"(see reports/DUPLICATE_REACTIONS_INVESTIGATION.md)")
     print(f"  {len(panel_rxn_sets)} model rxn-sets")
 
     panel_ids = PANEL_FILE.read_text().split()

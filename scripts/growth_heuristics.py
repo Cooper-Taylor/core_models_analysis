@@ -23,6 +23,8 @@ from typing import Optional
 import cobra
 from cobra.io import load_json_model
 
+from seed_annotation import seed_id  # normalizes the _c-suffix bug
+
 ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
 MODELS_DIR = ANALYSIS_DIR / "data" / "core_models_kegg2"
 MEDIA_FILE = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/ModelSEEDDatabase") + "/Media/KBaseMedia.cpd")
@@ -102,6 +104,12 @@ def override_bounds(model: cobra.Model, reversibility_map: dict,
     get touched -- exchange reactions, sinks, and the biomass reaction are
     left alone so the media-application step stays valid.
 
+    SEED ids are normalized via ``seed_annotation.seed_id`` so that the
+    17 cobra reactions whose annotation carries a stray ``_c`` suffix
+    (e.g. ``rxn11322_c``) are correctly matched against the cascade's
+    bare ``rxn11322`` key. Without the normalization, those overrides
+    were silently skipped.
+
     If ``only_changed_vs_msdb`` is supplied (the *baseline* reversibility map
     that the on-disk model bounds already reflect), only reactions whose new
     flag differs from the baseline are rewritten.  This minimizes the FBA
@@ -113,7 +121,7 @@ def override_bounds(model: cobra.Model, reversibility_map: dict,
     unchanged = 0
     no_anno = 0
     for rxn in model.reactions:
-        seed = rxn.annotation.get("seed.reaction") if rxn.annotation else None
+        seed = seed_id(rxn)
         if not seed:
             no_anno += 1
             continue
