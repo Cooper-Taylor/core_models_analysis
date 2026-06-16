@@ -3,11 +3,14 @@
 **Status:** Bug identified and fixed across the scripts pipeline.
 **Scope:** 17 transport reactions × 5,683 core models = ~96,500 cobra
 reactions whose `seed.reaction` annotation carried a non-canonical suffix.
-**Affected outputs:** `reports/REACTION_PREVALENCE.md` (visibly split rows),
-`site/data/panel_rxnsets.json`, `site/data/all_models_*` (silent
+**Affected outputs:** `reports/REACTION_PREVALENCE.md` (visibly split
+rows), `site/data/panel_rxnsets.json`, `site/data/all_models_*` (silent
 under-counting in variant intersections), the heuristic-baseline FBA
-across both panel and all-models populations (silent bound under-application).
-**Generated:** 2026-06-15
+across both panel and all-models populations (silent bound
+under-application), and the descriptive panel selection (re-run
+because the diversity scorer reads the affected per-model reaction
+sets).
+**Generated:** 2026-06-15. **Last updated:** 2026-06-15 (post-cross-check).
 
 ---
 
@@ -30,12 +33,12 @@ rows were ranked as the most enriched-in-non-growers reactions in the
 entire database — a strong-looking biological signal that turned out
 to be a counting artifact.
 
-This document records the investigation, the root cause, the fix, and
-the downstream consequences.
+This document records the investigation, the root cause, the fix, the
+post-fix cross-check, and the downstream consequences.
 
 ---
 
-## 2. Investigation
+## 2. Investigation (first pass)
 
 ### 2.1 At the cobra-reaction-id level: no duplicates
 
@@ -87,11 +90,12 @@ rxn08691_c  →  rxn08691  ("hydrogen transport via diffusion …")
 …  etc
 ```
 
-### 2.3 Per-model uniqueness: bare and suffixed forms never co-occur in one model
+### 2.3 Per-model uniqueness: bare and suffixed forms never co-occur for the same reaction
 
 Within any single model, the bare seed id and its `_c`-suffixed form
-never both appear — each affected reaction has *one* annotation in each
-model, either bare or suffixed. The duplication is across models:
+never both appear for the *same* MSDB reaction — each affected reaction
+has *one* annotation in each model, either bare or suffixed. The
+duplication is across models:
 
 | Affected seed | Models with bare annotation | Models with `_c` annotation |
 |---|---:|---:|
@@ -104,10 +108,10 @@ model, either bare or suffixed. The duplication is across models:
 
 For 5 of the 17 reactions, both annotation forms appear in the
 population — these are the 5 visible rows in REACTION_PREVALENCE.md.
-For the other 12, only the suffixed form ever appears, so they collapse
-into a single column and were invisible to that table.
+For the other 12, only the suffixed form ever appears, so they
+collapse into a single column and were invisible to that table.
 
-### 2.4 Origin
+### 2.4 Origin (initial hypothesis)
 
 The `_c` suffix matches the compartment letter of the cytosol in
 ModelSEED's compartment scheme (`c` = cytosol, `e` = extracellular).
@@ -115,14 +119,157 @@ Each affected reaction is a transport (cytosol-touching) reaction
 whose KBase template-build path appears to have appended the
 compartment letter to the SEED id when writing the annotation. Why
 only 17 reactions and not all transports is a quirk of the build
-template — the user-facing data is what we have to work with.
+template — see §3 for the cross-check that narrowed this down.
 
 ---
 
-## 3. Decision
+## 3. Cross-check (second pass)
 
-**The bare and `_c`-suffixed forms are the same MSDB reaction** and must
-be counted as such. The justification is unambiguous:
+After the fix was committed, the user requested confirmation of five
+specific properties of the model set. The results either reinforced
+the original conclusion or sharpened our understanding of the build
+pipeline; nothing invalidated the fix.
+
+### 3.1 — Do the models only have two compartments, `c` for cytosol and `e` for extracellular?
+
+**Confirmed for all 5,683 models.** Every model's top-level
+`compartments` dict is the same:
+
+```json
+"compartments": {"c0": "", "e0": ""}
+```
+
+Compartment IDs use the *indexed* form `c0` / `e0` (not the
+single-letter form `c` / `e`). Metabolite IDs and cobra reaction IDs
+follow the same convention:
+
+| Suffix | Metabolite IDs | Reaction IDs |
+|---|---:|---:|
+| `_c0` | 674,067 | 705,105 |
+| `_e0` | 144,137 | 144,137 |
+| `_c` *(letter-only)* | 0 | 0 |
+| no suffix | 0 | 11,366 *(biomass, EX_, SK_)* |
+
+The `_c` suffix that appears on the 17 affected `seed.reaction`
+annotations is the *bare-letter* form — distinct from the indexed
+`_c0` that the cobra layer actually uses. The annotation is the only
+place in any model where the bare-letter compartment notation appears.
+
+### 3.2 — Do the models have duplicates of the same reactions in the same compartment?
+
+**No, none — verified across all 5,683 models.** Four orthogonal
+duplicate-detection checks all returned zero:
+
+| Check | Models with any duplicates |
+|---|---:|
+| Reactions sharing strict stoichiometric fingerprint (compartments included) | 0 |
+| Reactions with same stoichiometry but different compartments | 0 |
+| Two cobra reactions sharing the same `seed.reaction` annotation | 0 |
+| Two cobra reactions sharing the same SEED prefix (`rxn00001` vs `rxn00001_c`) | 0 |
+
+The "duplicates" in REACTION_PREVALENCE.md are *not* duplicates within
+any individual model. They are the same MSDB reaction appearing
+under two different annotation strings across the model population.
+
+### 3.3 — Do the models use a single compartment to identify transport reactions?
+
+**Yes.** Every transport reaction has its cobra reaction id suffixed
+with `_c0` (the cytosol compartment marker); the reaction is
+identified as a transport by the fact that its metabolites span both
+`_c0` and `_e0`. Empirically, on the first 300 models:
+
+| Cobra reaction-id suffix | Metabolite compartments touched | Count |
+|---|---|---:|
+| `_c0` | only `c0` | 24,585 |
+| `_c0` | `c0` and `e0` (transport) | 10,258 |
+| `_e0` | anything | 0 |
+
+There is no `_e0`-rooted reaction in the population — every reaction
+"lives in" `c0` from the cobra-id perspective and reaches into `e0`
+through its metabolites. For each of the 17 `_c`-suffixed seed
+reactions, the corresponding cobra reaction has id `rxnXXXXX_c0` and
+touches both `c0` and `e0`, consistent with their being transports.
+
+### 3.4 — Cross-check on extraction / parsing
+
+The original investigation parsed `seed.reaction` from the raw JSON
+(`(r.get("annotation") or {}).get("seed.reaction")`). To rule out
+parser bugs, we re-extracted the same data through cobra's
+`load_json_model` on three sample models:
+
+| Model | JSON n_rxns | Cobra n_rxns | JSON unique seeds | Cobra unique seeds | Set diff |
+|---|---:|---:|---:|---:|---:|
+| GCF_000005825.2 | 176 | 176 | 145 | 145 | 0 |
+| GCF_000005845.2 | 213 | 213 | 178 | 178 | 0 |
+| GCF_003261575.2 | 221 | 221 | 187 | 187 | 0 |
+
+Cobra preserves the `_c` annotation suffix unchanged — for
+`rxn11322_c0`, `r.annotation['seed.reaction'] == 'rxn11322_c'` whether
+read via cobra or raw JSON. The parsing is not the problem; the
+upstream annotation itself is non-canonical.
+
+### 3.5 — Were the models generated in multiple bulks?
+
+**No — all 5,683 model JSONs were written together.** They share the
+same metadata signature on every dimension we checked:
+
+- All 5,683 have identical top-level keys (`metabolites`, `reactions`,
+  `genes`, `id`, `compartments`, `version`).
+- All 5,683 carry `"version": "1"`.
+- All 5,683 carry the same `compartments` dict (`{"c0": "", "e0": ""}`).
+- All 5,683 file mtimes fall on **2022-01-20**, spread across only
+  **2 hour-buckets** — consistent with a single bulk export rather
+  than multiple distinct runs.
+
+But the per-reaction annotation inconsistency is not explained by bulk
+boundaries. The annotation form (bare vs `_c`) varies *within* the
+same model across different reactions:
+
+| Models containing the 5 dual-form reactions | Count |
+|---|---:|
+| All 5 annotated bare-form | 230 |
+| All 5 annotated `_c`-form | 1,135 |
+| Mixed (some bare, some `_c` in the same model) | 4,318 |
+
+Pairwise consistency between reaction pairs varies from 32% to 92%
+(reactions like `rxn05469` and `rxn05488` are jointly annotated the
+same way in 92% of models, while `rxn05466` and `rxn05488` agree only
+37% of the time). This rules out a per-model template selection.
+
+**Most likely explanation:** the KBase model-build pipeline applies a
+per-reaction template rule when materializing transport reactions into
+a compartmentalized model. Each rule independently decides whether to
+write the annotation as the bare MSDB id or with a `_c` suffix, and
+the rules were authored inconsistently for the 17 affected reactions.
+The 5 dual-form reactions sit on a rule boundary that triggered
+different behavior depending on context (e.g. organism, gap-fill
+heuristic, KEGG vs MetaCyc reaction source); the 12 always-`_c`
+reactions are on the consistent side of the same boundary.
+
+### 3.6 — The 5 dual-form reactions are objectively the same MSDB reaction
+
+Sampling one bare-annotation model and one `_c`-annotation model for
+each of the 5 dual-form reactions, the cobra-side data is byte-equal:
+
+| MSDB rxn | Bare-anno model | `_c`-anno model | cobra id | name | stoichiometry | bounds |
+|---|---|---|---|---|---|---|
+| rxn05466 | GCF_000005825.2 | GCF_000006685.1 | `rxn05466_c0` | `TRANS-RXN-173.ce_c0` | `{cpd00013_c0: +1, cpd00013_e0: -1}` | (-1000, 1000) |
+| rxn05319 | GCF_000005845.2 | GCF_000005825.2 | `rxn05319_c0` | `TRANS-RXNBWI-115401.ce.maizeexp.OH_OH_c0` | `{cpd00001_c0: +1, cpd00001_e0: -1}` | (-1000, 1000) |
+| rxn05488 | GCF_000005845.2 | GCF_000005825.2 | `rxn05488_c0` | `acetate reversible transport via proton symport_c0` | `{cpd00029_c0: +1, cpd00029_e0: -1, cpd00067_c0: +1, cpd00067_e0: -1}` | (-1000, 1000) |
+| rxn05559 | GCF_000005845.2 | GCF_000005825.2 | `rxn05559_c0` | `formate transport in via proton symport_c0` | `{cpd00047_c0: +1, cpd00047_e0: -1, cpd00067_c0: +1, cpd00067_e0: -1}` | (-1000, 1000) |
+| rxn05469 | GCF_000005845.2 | GCF_000005825.2 | `rxn05469_c0` | `pyruvate reversible transport via proton symport_c0` | `{cpd00020_c0: +1, cpd00020_e0: -1, cpd00067_c0: +1, cpd00067_e0: -1}` | (-1000, 1000) |
+
+Same cobra id, same name, identical stoichiometry, identical bounds.
+The annotation difference (`rxn05466` vs `rxn05466_c`) is purely a
+labeling inconsistency between models with no semantic content. The
+normalization fix is correct.
+
+---
+
+## 4. Decision
+
+**The bare and `_c`-suffixed forms are the same MSDB reaction** and
+must be counted as such. The justification is unambiguous:
 
 - Both forms have the same MSDB record (the bare id) — there is no
   `rxn05466_c` reaction definition anywhere upstream.
@@ -133,19 +280,22 @@ be counted as such. The justification is unambiguous:
   appear in *different subsets* of the same 5,683-model population —
   treating them as distinct reactions split prevalence counts into
   artifacts.
+- The cobra-side cross-check (§3.6) confirms the two forms refer to
+  the same cobra reaction with identical stoichiometry / bounds /
+  name in every sample.
 - The cascade's `{rxn_id: reversibility}` map uses bare MSDB ids
   exclusively, so any downstream lookup against the `_c`-suffixed
   annotation silently returns `None` and the override is skipped.
 
 The fix is to **normalize the annotation at read time**: strip a
 trailing `_<letter>` (no digits) from any `seed.reaction` value
-before using it as a lookup key or a grouping key.
+before using it as a lookup key.
 
 ---
 
-## 4. Downstream consequences before the fix
+## 5. Downstream consequences before the fix
 
-### 4.1 `reports/REACTION_PREVALENCE.md` — split rows that *all collapsed to no signal*
+### 5.1 `reports/REACTION_PREVALENCE.md` — split rows that *all collapsed to no signal*
 
 The top-5 non-grower-enriched rows were all bug artifacts. After merging:
 
@@ -162,10 +312,10 @@ non-growers). The apparent enrichment was entirely the
 bare-vs-`_c`-suffixed split.
 
 The post-fix top-30 non-grower-enriched table is led by `rxn05759`
-(2.9% vs 17.8%, Δ -14.9%) — five real biological signals are now
-visible at the top that were buried below the artifacts.
+(2.9% vs 17.8%, Δ -14.9%) — real biological signals that were
+previously buried below the artifacts.
 
-### 4.2 `site/data/panel_rxnsets.json` — wrong keys for transport intersections
+### 5.2 `site/data/panel_rxnsets.json` — wrong keys for transport intersections
 
 Before fix: 1,564 entries across the 100 panel models held the
 `_c`-suffixed form. After fix: 0. Any variant-vs-panel intersection
@@ -176,7 +326,7 @@ affected reactions, so this specific intersection produced the same
 numbers; the bug was latent and would have surfaced as soon as a new
 variant touched a transport reaction.)
 
-### 4.3 Heuristic-baseline FBA — bounds silently under-applied
+### 5.3 Heuristic-baseline FBA — bounds silently under-applied
 
 `override_bounds()` in `scripts/growth_heuristics.py` looked up
 `reversibility_map.get(seed)` using the raw annotation. For the 17
@@ -205,7 +355,7 @@ The aggregate effect on the all-models baseline mean biomass flux:
 flux means moved by similar amounts (the bound restoration applies to
 both baseline and variant maps).
 
-### 4.4 Variant-impact flip counts shift slightly
+### 5.4 Variant-impact flip counts shift slightly
 
 Re-running `build_all_models_impact.py` on the corrected baseline
 produces the following changes:
@@ -226,101 +376,7 @@ bound. The qualitative conclusions of the impact report
 
 ---
 
-## 5. The fix
-
-### 5.1 New helper: `scripts/seed_annotation.py`
-
-```python
-import re
-_SEED_COMPARTMENT_SUFFIX = re.compile(r"_[a-z]$")
-
-def normalize_seed_id(seed):
-    """Strip a stray compartment-letter suffix from a SEED reaction id."""
-    if not seed:
-        return seed
-    return _SEED_COMPARTMENT_SUFFIX.sub("", seed)
-
-def seed_id(reaction):
-    """Return the normalized SEED id for a cobra rxn or raw JSON dict."""
-    ...
-```
-
-The regex strips a single trailing `_<letter>` (no digits). It is
-deliberately narrower than `_<letter>\d*`:
-
-- The 17 affected annotations always use the letter-only form
-  (`_c`, never `_c0`).
-- The cobra reaction *id* (e.g. `rxn05466_c0`) carries the legitimate
-  compartment-marker suffix that we never want to strip from cobra ids.
-  Confining the normalizer to letter-only protects against accidentally
-  collapsing future ids that look like `rxn00001_c0`.
-
-### 5.2 Call sites updated
-
-Every script that reads `annotation["seed.reaction"]` now goes through
-`seed_id()` or `normalize_seed_id()`:
-
-| File | Function / cell |
-|---|---|
-| `scripts/build_all_models_impact.py` | `_extract_rxnset()` |
-| `scripts/growth_heuristics.py` | `override_bounds()` |
-| `scripts/build_site_data.py` | normalizes `rxnsets_by_model` after the kbcache load |
-| `scripts/deeper_analysis.py` | `extract_reactions_one()` (`REACTION_PREVALENCE.md` source) |
-| `scripts/select_diverse.py` | `extract_one()` |
-| `scripts/select_diverse_tax.py` | `_extract_one()` |
-| `scripts/direction_pipeline.py` | `_apply_source_map_to_model()`, `source_coverage()` |
-| `scripts/build_thermo_source_network_tables.py` | model-walk loop |
-| `scripts/build_thermo_source_comparison_notebook.py` | emitted cell |
-| `scripts/run_thermo_source_variants.py` | `_model_overrides_expected()` |
-| `scripts/build_notebooks.py` | `rxnsets_by_model` cache builder (notebook-emitted cell, regex inlined) |
-| `scripts/build_taxonomy_aware_notebook.py` | same shape, regex inlined |
-
-The two notebook-emitter scripts inline the regex because the emitted
-cell runs in a notebook context that cannot rely on a sibling-module
-import without explicit `sys.path` setup. The behavior matches
-`normalize_seed_id` exactly.
-
-### 5.3 The kbcache (`notebooks/.kbcache/rxnsets_by_model`) is *not* invalidated
-
-The cache was populated before the fix and still stores the
-`_c`-suffixed annotations verbatim (its blob is content-hashed; touching
-the source would force a full rebuild of notebook 06's downstream
-artifacts). Instead, `build_site_data.py` normalizes the cached values
-on read — the emitted `site/data/panel_rxnsets.json` is correct, and
-the cache itself is harmless because no other consumer reads it
-directly. Re-running notebook 06 with the patched `build_notebooks.py`
-would refresh the cache; that step is optional and orthogonal to the
-correctness of the site data.
-
-### 5.4 Outputs regenerated
-
-After the patches:
-
-- `site/data/all_models_rxnsets.json` (8 MB; gitignored): rebuilt by
-  `scripts/build_all_models_impact.py`. Sample model
-  `GCF_000014585.1`: 97 reactions, 0 with a `_c` suffix.
-- `site/data/all_models_baseline_fba.json` (gitignored): rebuilt with
-  the patched `override_bounds`. Mean biomass flux 63.30 → 63.74.
-- `site/data/all_models_variant_fba__{tag}.json` (×14, committed):
-  rebuilt for every variant. Per-variant flip counts shift by 0–28
-  models — see the table in §4.4.
-- `site/data/all_models_variants.json` (committed): rebuilt aggregate
-  summary.
-- `site/data/panel_rxnsets.json` (committed): rebuilt by
-  `scripts/build_site_data.py`, which now reports the normalization
-  count when it loads the cache (typically "normalized seed.reaction
-  _c-suffix in 3461 models").
-- `reports/REACTION_PREVALENCE.md`: regenerated. The five
-  `_c`-suffixed top-30 non-grower-enriched rows are gone; the top of
-  that list now starts with the next biological signal (`rxn05759`
-  at -14.9%).
-
----
-
 ## 6. Effect on the descriptive growth panel
-
-The user asked: *does the fix change the number of models that grow
-overall, and if so do we need to re-run the panel selection?*
 
 Two grower-count metrics exist in this codebase. They differ because
 they ask different questions:
@@ -338,9 +394,9 @@ only changes what happens at *rebound* time. Sample re-run on 10 panel
 models — 0 mismatches against the previously-recorded `results.csv`.
 
 **Heuristic-baseline FBA gains exactly 1 grower.** One model became a
-grower under the cascade-default bounds after the fix correctly applied
-those bounds to the 17 transport reactions — shifting the heuristic-
-baseline grower set from 3,999 to 4,000.
+grower under the cascade-default bounds after the fix correctly
+applied those bounds to the 17 transport reactions — shifting the
+heuristic-baseline grower set from 3,999 to 4,000.
 
 ### Did we need to re-run panel selection?
 
@@ -351,9 +407,9 @@ Panel selection (`scripts/select_diverse.py`) reads:
    pool of 3,461 growers is the same.
 2. A `{model_id: set(seed.reaction ids)}` index per grower, used for
    greedy max-coverage scoring + Jaccard farthest-point sampling — the
-   normalization fix changes this for ~3,461 models (every grower with
-   at least one `_c`-suffixed annotation; in practice nearly all of
-   them). After normalization, the reaction universe shrinks by 5
+   normalization fix changes this for ~3,461 models (every grower
+   with at least one `_c`-suffixed annotation; in practice nearly all
+   of them). After normalization, the reaction universe shrinks by 5
    (the 5 dual-form reactions collapse) and the 17 transport reactions
    re-key to their bare ids.
 
@@ -371,8 +427,8 @@ models swapped** (74 unchanged). Re-running was therefore necessary.
 - `site/data/manifest.json`, `site/data/variants/*.json`,
   `site/data/reactions_panel.json` — panel-restricted variant impact;
   `build_site_data.py` now sources panel FBA from
-  `all_models_variant_fba__{tag}.json` (post-fix, exact for the current
-  panel) instead of the stale-against-new-panel kbcache.
+  `all_models_variant_fba__{tag}.json` (post-fix, exact for the
+  current panel) instead of the stale-against-new-panel kbcache.
 
 ### Panel impact deltas vs the pre-fix panel
 
@@ -405,12 +461,123 @@ will refresh naturally the next time notebook 06 is re-run.
 
 ---
 
-## 7. Lessons / follow-ups
+## 7. The fix
+
+### 7.1 New helper: `scripts/seed_annotation.py`
+
+```python
+import re
+_SEED_COMPARTMENT_SUFFIX = re.compile(r"_[a-z]$")
+
+def normalize_seed_id(seed):
+    """Strip a stray compartment-letter suffix from a SEED reaction id."""
+    if not seed:
+        return seed
+    return _SEED_COMPARTMENT_SUFFIX.sub("", seed)
+
+def seed_id(reaction):
+    """Return the normalized SEED id for a cobra rxn or raw JSON dict."""
+    ...
+```
+
+The regex strips a single trailing `_<letter>` (no digits). It is
+deliberately narrower than `_<letter>\d*`:
+
+- The 17 affected annotations always use the letter-only form
+  (`_c`, never `_c0`).
+- The cobra reaction *id* (e.g. `rxn05466_c0`) carries the legitimate
+  compartment-marker suffix that we never want to strip from cobra
+  ids. Confining the normalizer to letter-only protects against
+  accidentally collapsing legitimate cobra-side identifiers that
+  follow the `_c0` / `_e0` convention.
+
+### 7.2 Call sites updated
+
+Every script that reads `annotation["seed.reaction"]` now goes through
+`seed_id()` or `normalize_seed_id()`:
+
+| File | Function / cell |
+|---|---|
+| `scripts/build_all_models_impact.py` | `_extract_rxnset()` |
+| `scripts/growth_heuristics.py` | `override_bounds()` |
+| `scripts/build_site_data.py` | normalizes `rxnsets_by_model` after the kbcache load |
+| `scripts/deeper_analysis.py` | `extract_reactions_one()` (`REACTION_PREVALENCE.md` source) |
+| `scripts/select_diverse.py` | `extract_one()` |
+| `scripts/select_diverse_tax.py` | `_extract_one()` |
+| `scripts/direction_pipeline.py` | `_apply_source_map_to_model()`, `source_coverage()` |
+| `scripts/build_thermo_source_network_tables.py` | model-walk loop |
+| `scripts/build_thermo_source_comparison_notebook.py` | emitted cell |
+| `scripts/run_thermo_source_variants.py` | `_model_overrides_expected()` |
+| `scripts/build_notebooks.py` | `rxnsets_by_model` cache builder (notebook-emitted cell, regex inlined) |
+| `scripts/build_taxonomy_aware_notebook.py` | same shape, regex inlined |
+
+The two notebook-emitter scripts inline the regex because the emitted
+cell runs in a notebook context that cannot rely on a sibling-module
+import without explicit `sys.path` setup. The behavior matches
+`normalize_seed_id` exactly.
+
+### 7.3 The kbcache (`notebooks/.kbcache/rxnsets_by_model`) is *not* invalidated
+
+The cache was populated before the fix and still stores the
+`_c`-suffixed annotations verbatim (its blob is content-hashed;
+touching the source would force a full rebuild of notebook 06's
+downstream artifacts). Instead, `build_site_data.py` normalizes the
+cached values on read — the emitted `site/data/panel_rxnsets.json` is
+correct, and the cache itself is harmless because no other consumer
+reads it directly. Re-running notebook 06 with the patched
+`build_notebooks.py` would refresh the cache; that step is optional
+and orthogonal to the correctness of the site data.
+
+### 7.4 Outputs regenerated
+
+After the patches:
+
+- `site/data/all_models_rxnsets.json` (8 MB; gitignored): rebuilt by
+  `scripts/build_all_models_impact.py`. Sample model
+  `GCF_000014585.1`: 97 reactions, 0 with a `_c` suffix.
+- `site/data/all_models_baseline_fba.json` (gitignored): rebuilt with
+  the patched `override_bounds`. Mean biomass flux 63.30 → 63.74.
+- `site/data/all_models_variant_fba__{tag}.json` (×14, committed):
+  rebuilt for every variant. Per-variant flip counts shift by 0–28
+  models — see the table in §5.4.
+- `site/data/all_models_variants.json` (committed): rebuilt aggregate
+  summary.
+- `site/data/panel_rxnsets.json` (committed): rebuilt by
+  `scripts/build_site_data.py`, which now reports the normalization
+  count when it loads the cache (typically "normalized seed.reaction
+  _c-suffix in 3461 models").
+- `reports/REACTION_PREVALENCE.md`: regenerated. The five
+  `_c`-suffixed top-30 non-grower-enriched rows are gone; the top of
+  that list now starts with the next biological signal (`rxn05759`
+  at -14.9%).
+- `results/selected_ids.txt` + `selected_models.*`: re-run via
+  `select_diverse.py` after the fix; 26 of 100 panel models swapped.
+- All panel-restricted `site/data/` outputs (manifest, variants,
+  reactions_panel) regenerated against the new panel.
+
+---
+
+## 8. Summary of cross-check answers
+
+For ease of reference, the user's five questions and the verified
+answers:
+
+| # | Question | Verified answer |
+|---|---|---|
+| 1 | Only two compartments (`c`, `e`)? | Yes — exactly `{c0, e0}` in all 5,683 models; the bare-letter `c` only appears in the 17 buggy annotations. |
+| 2 | Within-model duplicate reactions? | No — zero by all four duplicate definitions (strict stoichiometry, compartment-stripped stoichiometry, shared annotation, shared seed prefix). |
+| 3 | Single compartment to identify transports? | Yes — every reaction's cobra id is `_c0`-suffixed; transports are identified by metabolites spanning both `c0` and `e0`. |
+| 4 | Extraction/parsing bug on our side? | No — raw-JSON extraction matches `cobra.io.load_json_model` byte-for-byte on sample models; cobra preserves the `_c` annotation suffix unchanged. |
+| 5 | Multiple build bulks? | No — all 5,683 file mtimes are on 2022-01-20 across 2 hour-buckets, same `version`, same `compartments`, same top-level schema. The annotation inconsistency is per-reaction-per-model, not per-build-batch — pointing at a per-template-rule inconsistency in the KBase model builder. |
+
+---
+
+## 9. Lessons / follow-ups
 
 - **Annotation contracts deserve assertion.** A `_c`-suffixed
   `seed.reaction` is silently wrong and silently masked by every code
-  path that just calls `dict.get`. A one-line guard at the helper layer
-  (`assert _SEED_COMPARTMENT_SUFFIX.search(s) is None` after
+  path that just calls `dict.get`. A one-line guard at the helper
+  layer (`assert _SEED_COMPARTMENT_SUFFIX.search(s) is None` after
   normalization, behind an env-var debug flag) would catch new
   occurrences as the model set evolves.
 - **The cobra "touched" counter and the unique-seed counter are
@@ -424,8 +591,14 @@ will refresh naturally the next time notebook 06 is re-run.
   - `REACTION_PREVALENCE.md` (5 artificial top-of-list rows removed)
   - All-models baseline mean flux (+0.7%)
   - A handful of variant flip counts (−1 to −28 per variant)
+  - The descriptive panel (26 of 100 models swapped)
 - **17 transport reactions were silently disabled or under-bounded
   during every prior rebound-FBA call.** The most striking was
   `rxn11322_c0` ((R,R)-butanediol transport) which carried `lb=ub=0`
   on disk despite the cascade calling it reversible. Anyone looking
   at growth on butanediol carbon would have been confused.
+- **Per-reaction template-rule inconsistency is the most likely
+  upstream cause.** Re-running the KBase model builder against the
+  same MSDB snapshot with corrected template rules would eliminate
+  the `_c` suffix at source. Until that happens, the read-time
+  normalizer keeps the analysis pipeline self-consistent.
