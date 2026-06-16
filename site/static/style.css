@@ -121,16 +121,37 @@ h3 { color: var(--text); font-size: 14px; font-weight: 600; margin: 12px 0 6px; 
   gap: 6px 12px;
   margin: 8px 0;
 }
+/* Transition cells carry two pills + an arrow + the count, so they need
+   a wider track than the single-pill rev-count snapshot above them.
+   Without this the count was pushed out of the 160px cell and clipped. */
+.transition-grid.transition-grid-wide {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
 .transition-grid .t-cell {
   background: var(--bg-elev-2);
   padding: 4px 8px;
   border-radius: 3px;
   font-family: var(--mono);
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: 8px;
 }
 .transition-grid .t-cell.up { color: var(--good); }
 .transition-grid .t-cell.down { color: var(--warn); }
+/* Keep the "from → to" group together and let the count stay visible:
+   the count never shrinks and is pinned to the right edge of the cell. */
+.transition-grid .t-cell .t-trans {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  min-width: 0;
+}
+.transition-grid .t-cell .t-count {
+  flex-shrink: 0;
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
 
 .tag-pill {
   display: inline-block;
@@ -525,9 +546,11 @@ button.small { padding: 2px 8px; font-size: 12px; }
   cursor: pointer;
   user-select: none;
 }
-.rxn-flux-filter-label input[type="checkbox"]:disabled + * {
-  opacity: 0.5;
-  cursor: not-allowed;
+/* The label is shown only once a specific variant is selected. The class
+   selector above would otherwise win the specificity tie against the UA
+   `[hidden]{display:none}` rule, so re-assert it explicitly here. */
+.rxn-flux-filter-label[hidden] {
+  display: none;
 }
 .changed-by-table tr.flipped {
   background: rgba(243, 182, 91, 0.06);

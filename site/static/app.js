@@ -222,7 +222,9 @@ async function renderVariants() {
     const st = statsForVariant(v, STATE.scope);
     const fmt = (x) => (x == null ? '—' : x.toLocaleString());
     const fmtInst = (inst && inst.count != null)
-      ? `${fmt(inst.count)} <span class="hint" style="font-size:11px">(${fmt(inst.n_models_with_change)} models)</span>`
+      ? `${fmt(inst.count)} <span class="hint" style="font-size:11px" ` +
+        `title="${fmt(inst.n_models_with_change)} models in scope contain at least one reaction this variant changes">` +
+        `(${fmt(inst.n_models_with_change)} models)</span>`
       : '—';
     tr.innerHTML = `
       <td><span class="tag">${escapeHtml(v.tag)}</span></td>
@@ -454,12 +456,14 @@ function renderVariantDetail(p, allFbaRows = null) {
   if (p.tag !== 'baseline') {
     html += `
       <h3>Transitions vs baseline (${p.n_changed.toLocaleString()} rxns changed)</h3>
-      <div class="transition-grid">
+      <div class="transition-grid transition-grid-wide">
         ${Object.entries(p.transitions || {}).sort().map(([k, v]) => {
           const [from, to] = k.split('->');
           const dir = (to === '>' || to === '<') && (from === '=' || from === '?') ? 'up'
                       : (from === '>' || from === '<') && (to === '=' || to === '?') ? 'down' : '';
-          return `<div class="t-cell ${dir}">${revBadge(from)} → ${revBadge(to)}<span>${v}</span></div>`;
+          return `<div class="t-cell ${dir}">` +
+                 `<span class="t-trans">${revBadge(from)} → ${revBadge(to)}</span>` +
+                 `<span class="t-count">${Number(v).toLocaleString()}</span></div>`;
         }).join('')}
       </div>`;
 
@@ -861,11 +865,13 @@ document.getElementById('rxn-filter').addEventListener('change', (e) => {
 });
 document.getElementById('rxn-variant-filter').addEventListener('change', (e) => {
   STATE.rxnVariantFilter = e.target.value;
-  // Disable the flux-impacted-only subfilter when "any/none" is selected
-  // (it only makes sense for a specific variant).
+  // Hide the flux-impacted-only subfilter entirely until a specific
+  // variant is selected — it has no meaning without one, and showing it
+  // greyed-out reads as confusing.
   const sub = document.getElementById('rxn-flux-impacted-only');
+  const label = document.querySelector('.rxn-flux-filter-label');
   const subEnabled = !(e.target.value === 'any' || e.target.value === 'none');
-  sub.disabled = !subEnabled;
+  label.hidden = !subEnabled;
   if (!subEnabled) sub.checked = false;
   STATE.rxnFluxImpactedOnly = sub.checked;
   renderReactionList();

@@ -32,7 +32,9 @@
       Numbers are computed against the byte-for-byte MSDB cascade baseline.
       <strong>flip</strong> = models that switch between grower and non-grower;
       <strong>flux change</strong> = models whose biomass flux moves more than 1e-6;
-      <strong>rxn instances impacted</strong> = summed (model, reaction) pairs in scope where the variant changes the reaction's direction.
+      <strong>rxn instances impacted</strong> = summed (model, reaction) pairs in scope where the variant changes the reaction's direction;
+      the parenthetical <strong>(N models)</strong> is how many models in scope contain <em>at least one</em> reaction this variant changes
+      (not that every reaction changed in every one of those models).
     </p>
 
     <div class="scope-toggle">
@@ -85,8 +87,8 @@
         <option value="any" selected>any variant (no filter)</option>
         <option value="none" disabled>───────────────</option>
       </select>
-      <label class="rxn-flux-filter-label" title="Only show reactions that change biomass flux in at least one panel model containing them">
-        <input id="rxn-flux-impacted-only" type="checkbox" disabled>
+      <label class="rxn-flux-filter-label" title="Only show reactions that change biomass flux in at least one panel model containing them" hidden>
+        <input id="rxn-flux-impacted-only" type="checkbox">
         flux-impacted only
       </label>
       <span id="rxn-result-count" class="hint"></span>
