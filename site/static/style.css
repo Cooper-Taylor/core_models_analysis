@@ -115,41 +115,40 @@ h3 { color: var(--text); font-size: 14px; font-weight: 600; margin: 12px 0 6px; 
   margin-bottom: 18px;
 }
 .detail-panel h3 { margin-top: 0; }
+/* Both transition grids (rev-count snapshot + transitions-vs-baseline) lay
+   out as content-sized chips that wrap. Using flex-wrap with content-width
+   cells — rather than a fixed-track grid with `1fr` — keeps the count tight
+   against its label in every chip and scales dynamically: no over-stretched
+   last cell, no clipped count, no awkward gap. */
 .transition-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 6px 12px;
   margin: 8px 0;
 }
-/* Transition cells carry two pills + an arrow + the count, so they need
-   a wider track than the single-pill rev-count snapshot above them.
-   Without this the count was pushed out of the 160px cell and clipped. */
-.transition-grid.transition-grid-wide {
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-}
+/* .transition-grid-wide is retained as a marker class on the
+   transitions-vs-baseline grid; both grids now share the flex layout. */
 .transition-grid .t-cell {
   background: var(--bg-elev-2);
-  padding: 4px 8px;
+  padding: 4px 10px;
   border-radius: 3px;
   font-family: var(--mono);
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  gap: 10px;            /* the only space between label and count */
+  flex: 0 0 auto;       /* width = content; wrap to next line as needed */
+  max-width: 100%;
 }
 .transition-grid .t-cell.up { color: var(--good); }
 .transition-grid .t-cell.down { color: var(--warn); }
-/* Keep the "from → to" group together and let the count stay visible:
-   the count never shrinks and is pinned to the right edge of the cell. */
+/* Keep the "from → to" pills on one line; never wrap mid-transition. */
 .transition-grid .t-cell .t-trans {
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  min-width: 0;
 }
 .transition-grid .t-cell .t-count {
   flex-shrink: 0;
-  margin-left: auto;
   font-variant-numeric: tabular-nums;
 }
 
