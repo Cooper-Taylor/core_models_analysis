@@ -1,113 +1,21 @@
 {
   "baseline_growers": 4000,
-  "full_broken": 2377,
-  "full_rescued": 59,
-  "rescued_models": [
-    "GCF_000006685.1",
-    "GCF_000007205.1",
-    "GCF_000007605.1",
-    "GCF_000008725.1",
-    "GCF_000008745.1",
-    "GCF_000009945.1",
-    "GCF_000012125.1",
-    "GCF_000024145.1",
-    "GCF_000026025.1",
-    "GCF_000026925.1",
-    "GCF_000091085.2",
-    "GCF_000092485.1",
-    "GCF_000092665.1",
-    "GCF_000092685.1",
-    "GCF_000092705.1",
-    "GCF_000092725.1",
-    "GCF_000092745.1",
-    "GCF_000092805.1",
-    "GCF_000093005.1",
-    "GCF_000148665.1",
-    "GCF_000189295.2",
-    "GCF_000191925.1",
-    "GCF_000192335.1",
-    "GCF_000204135.1",
-    "GCF_000204255.1",
-    "GCF_000210495.1",
-    "GCF_000270385.1",
-    "GCF_000270405.1",
-    "GCF_000270425.1",
-    "GCF_000298415.1",
-    "GCF_000298435.2",
-    "GCF_000298475.2",
-    "GCF_000298495.2",
-    "GCF_000298555.2",
-    "GCF_000304495.1",
-    "GCF_000304515.1",
-    "GCF_000304535.1",
-    "GCF_000318645.1",
-    "GCF_000318765.1",
-    "GCF_000318785.1",
-    "GCF_000338695.1",
-    "GCF_000441635.1",
-    "GCF_000441715.1",
-    "GCF_000441775.1",
-    "GCF_000470765.1",
-    "GCF_000470805.1",
-    "GCF_000470825.1",
-    "GCF_000471025.2",
-    "GCF_000507225.1",
-    "GCF_000590635.1",
-    "GCF_000709455.1",
-    "GCF_000767405.1",
-    "GCF_000767445.1",
-    "GCF_000772145.1",
-    "GCF_000830945.1",
-    "GCF_000830965.1",
-    "GCF_000952935.1",
-    "GCF_001563225.1",
-    "GCF_900116045.1"
-  ],
+  "full_broken": 44,
+  "full_rescued": 0,
+  "rescued_models": [],
   "candidates": [
-    {
-      "rxn": "rxn00001",
-      "base": ">",
-      "new": "<",
-      "n_models_with_rxn": 5419,
-      "n_growers_with_rxn": 3929,
-      "n_break": 45
-    },
-    {
-      "rxn": "rxn05145",
-      "base": ">",
-      "new": "<",
-      "n_models_with_rxn": 5410,
-      "n_growers_with_rxn": 3906,
-      "n_break": 453
-    },
     {
       "rxn": "rxn00763",
       "base": "=",
-      "new": ">",
+      "new": "<",
       "n_models_with_rxn": 4650,
       "n_growers_with_rxn": 3639,
       "n_break": 0
     },
     {
-      "rxn": "rxn00256",
-      "base": "<",
-      "new": ">",
-      "n_models_with_rxn": 4602,
-      "n_growers_with_rxn": 3906,
-      "n_break": 2038
-    },
-    {
-      "rxn": "rxn00199",
-      "base": ">",
-      "new": "<",
-      "n_models_with_rxn": 4535,
-      "n_growers_with_rxn": 3905,
-      "n_break": 2139
-    },
-    {
       "rxn": "rxn08976",
       "base": "=",
-      "new": "<",
+      "new": ">",
       "n_models_with_rxn": 4222,
       "n_growers_with_rxn": 3384,
       "n_break": 0
@@ -115,23 +23,23 @@
     {
       "rxn": "rxn01476",
       "base": "=",
-      "new": "<",
+      "new": ">",
       "n_models_with_rxn": 3839,
       "n_growers_with_rxn": 3177,
-      "n_break": 42
+      "n_break": 43
     },
     {
       "rxn": "rxn10122",
       "base": "=",
-      "new": "<",
+      "new": ">",
       "n_models_with_rxn": 3692,
       "n_growers_with_rxn": 2916,
-      "n_break": 62
+      "n_break": 0
     },
     {
       "rxn": "rxn00506",
       "base": "=",
-      "new": "<",
+      "new": ">",
       "n_models_with_rxn": 3655,
       "n_growers_with_rxn": 3166,
       "n_break": 0
@@ -139,23 +47,23 @@
     {
       "rxn": "rxn08527",
       "base": "=",
-      "new": "<",
+      "new": ">",
       "n_models_with_rxn": 3469,
       "n_growers_with_rxn": 2951,
-      "n_break": 1
+      "n_break": 0
     },
     {
       "rxn": "rxn00251",
       "base": "=",
-      "new": ">",
+      "new": "<",
       "n_models_with_rxn": 3190,
       "n_growers_with_rxn": 2723,
-      "n_break": 194
+      "n_break": 1
     },
     {
       "rxn": "rxn00507",
       "base": "=",
-      "new": "<",
+      "new": ">",
       "n_models_with_rxn": 2492,
       "n_growers_with_rxn": 2278,
       "n_break": 0
@@ -163,7 +71,7 @@
     {
       "rxn": "rxn00623",
       "base": "=",
-      "new": ">",
+      "new": "<",
       "n_models_with_rxn": 2469,
       "n_growers_with_rxn": 2296,
       "n_break": 0
@@ -171,7 +79,7 @@
     {
       "rxn": "rxn00668",
       "base": "=",
-      "new": "<",
+      "new": ">",
       "n_models_with_rxn": 2095,
       "n_growers_with_rxn": 1887,
       "n_break": 0
@@ -179,7 +87,7 @@
     {
       "rxn": "rxn00324",
       "base": "=",
-      "new": ">",
+      "new": "<",
       "n_models_with_rxn": 1887,
       "n_growers_with_rxn": 1586,
       "n_break": 0
@@ -187,7 +95,7 @@
     {
       "rxn": "rxn00512",
       "base": "=",
-      "new": ">",
+      "new": "<",
       "n_models_with_rxn": 1887,
       "n_growers_with_rxn": 1586,
       "n_break": 0
@@ -195,39 +103,15 @@
     {
       "rxn": "rxn00868",
       "base": "=",
-      "new": ">",
+      "new": "<",
       "n_models_with_rxn": 1542,
       "n_growers_with_rxn": 1331,
       "n_break": 0
     },
     {
-      "rxn": "rxn15383",
-      "base": ">",
-      "new": "<",
-      "n_models_with_rxn": 1088,
-      "n_growers_with_rxn": 806,
-      "n_break": 0
-    },
-    {
-      "rxn": "rxn00162",
-      "base": ">",
-      "new": "<",
-      "n_models_with_rxn": 710,
-      "n_growers_with_rxn": 462,
-      "n_break": 0
-    },
-    {
-      "rxn": "rxn00995",
-      "base": ">",
-      "new": "<",
-      "n_models_with_rxn": 377,
-      "n_growers_with_rxn": 346,
-      "n_break": 0
-    },
-    {
       "rxn": "rxn03126",
       "base": "=",
-      "new": "<",
+      "new": ">",
       "n_models_with_rxn": 142,
       "n_growers_with_rxn": 26,
       "n_break": 0
@@ -235,7 +119,7 @@
     {
       "rxn": "rxn00779",
       "base": "=",
-      "new": "<",
+      "new": ">",
       "n_models_with_rxn": 14,
       "n_growers_with_rxn": 3,
       "n_break": 0
@@ -243,32 +127,17 @@
   ],
   "greedy_cover": [
     {
-      "rxn": "rxn00199",
-      "marginal": 2138,
-      "cumulative": 2138
-    },
-    {
-      "rxn": "rxn05145",
-      "marginal": 154,
-      "cumulative": 2292
-    },
-    {
-      "rxn": "rxn00256",
-      "marginal": 40,
-      "cumulative": 2332
+      "rxn": "rxn01476",
+      "marginal": 43,
+      "cumulative": 43
     },
     {
       "rxn": "rxn00251",
-      "marginal": 8,
-      "cumulative": 2340
-    },
-    {
-      "rxn": "rxn01476",
-      "marginal": 3,
-      "cumulative": 2343
+      "marginal": 1,
+      "cumulative": 44
     }
   ],
-  "explained_by_singles": 2343,
-  "unexplained": 34,
-  "elapsed_s": 105.6
+  "explained_by_singles": 44,
+  "unexplained": 0,
+  "elapsed_s": 77.6
 }

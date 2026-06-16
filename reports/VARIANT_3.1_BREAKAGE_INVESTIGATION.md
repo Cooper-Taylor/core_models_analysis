@@ -52,25 +52,81 @@ MSDB baseline direction): rxn00199 → `>`, rxn00256 → `<`, rxn05145 → `>`, 
 they no longer flip and the catastrophic breakage is expected to largely
 disappear.
 
-**Status:** the one-line fix is applied in `scripts/reversibility_lib.py`.
-The shipped variant-3.1 data artifacts (`site/data/variants/3.1.json`,
-`site/data/all_models_variant_fba__3.1.json`, the all-models summary, and the
-panel selection that depends on them) were generated **before** the fix and
-are **stale** — they still reflect the buggy direction. Regenerating them
-(re-run `export_thermo_variants.py` → `build_site_data.py` →
-`build_all_models_impact.py`, and re-run this analysis) is the next step to
-make the artifacts consistent with the corrected code; that re-run has **not**
-yet been done. The numbers below should be read as a record of the bug's
-impact until then.
+**Status: RE-RUN COMPLETE (2026-06-16).** The one-line fix is applied in
+`scripts/reversibility_lib.py` and the whole pipeline was regenerated
+(`export_thermo_variants.py` → `build_site_data.py` →
+`build_all_models_impact.py` → `build_site_data.py`, then this analysis).
+All shipped artifacts now reflect the corrected sign. The corrected results
+are summarized in **§Post-fix results** immediately below; the original
+Q1–Q3 analysis that follows is retained, clearly marked, as the record of
+what the bug did.
 
 Note: variant **H4** (the "best-evidence" stack) also sets `ln_ri_by_rxn`, so
-it inherited the same inversion and will change when regenerated. The default
-`ReversibilityConfig()` does **not** set `ln_ri_by_rxn`, so the byte-for-byte
-MSDB baseline parity is unaffected by the fix.
+it inherited the same inversion; it was regenerated too (see Post-fix
+results). The default `ReversibilityConfig()` does **not** set `ln_ri_by_rxn`,
+so the byte-for-byte MSDB baseline parity is unaffected by the fix.
 
 ---
 
-## TL;DR
+## Post-fix results (corrected sign) — what variant 3.1 *actually* does
+
+With the sign corrected, **3.1 is a mild, well-behaved thermodynamic
+constraint, not a model-breaker.** Reference is the same heuristic baseline
+(4,000 / 5,683 models grow; mean biomass flux 63.74).
+
+| metric | buggy 3.1 | **corrected 3.1** |
+|---|---:|---:|
+| reactions changed vs baseline | 3,256 | **1,316** |
+| transition types | `>`→`<` (1,874), `=`→dir (1,316), `<`→`>` (66) | **only `=`→`>` (1,072) and `=`→`<` (244)** |
+| growers lost (grew→not), all 5,683 | 2,377 | **44** |
+| non-growers rescued (→grew) | 59 | **0** |
+| grow-status flips, panel (of 100) | 73 | **0** |
+| grow-status flips, all (of 5,683) | 2,436 | **44** |
+| growers under 3.1 (of baseline 4,000) | 1,682 | **3,956** |
+| mean biomass flux | 40.57 | **48.15** |
+
+**The corrected variant never flips an already-directional reaction.** Every
+one of the 1,316 changes is a reaction MSDB left **reversible** (`=`) that the
+reversibility index now resolves to a confident direction — exactly the
+intended use of the index. The three reactions that drove the buggy breakage
+(rxn00199 the IDH decarboxylation, rxn00256 citrate synthase, rxn05145 the
+phosphate-ATPase) **no longer change at all**: their index agrees with their
+existing `>`/`<`/`<` directions, so they stay put.
+
+**Q1 (corrected) — which reactions still break anything?** Only two, and they
+break very few. Single-reaction knock-ins over the corrected change set:
+
+| reaction | base→new | breaks | name |
+|---|---|---:|---|
+| rxn01476 | `=`→`>` | 43 / 3,177 | 6-phospho-D-glucono-1,5-lactone lactonohydrolase |
+| rxn00251 | `=`→`<` | 1 / 2,723 | phosphate:oxaloacetate carboxy-lyase (PEPCK) |
+
+These account for **44/44 = 100%** of the (now tiny) breakage. They are
+*legitimate* directional calls on reactions MSDB had left reversible — a real
+modeling choice to evaluate, not an artifact. (rxn01476 forcing the
+gluconolactonase forward removes a small reverse flux a few dozen models had
+been relying on; worth a look, but it is 1.1% of growers, not 59%.)
+
+**Q2 (corrected) — break-rate across the grower population.** 44 / 4,000 =
+**1.1%** of all heuristic-baseline growers; **0 / 100** on the panel. The
+"75%" was entirely the sign bug. (The earlier selection-bias analysis is now
+moot — there is barely any breakage to be biased about.)
+
+**Q3 (corrected) — non-grower rescues.** **0.** The 59 "rescues" in the buggy
+run were the rxn05145 reversal artifact; with the correct sign rxn05145 stays
+forward and nothing is spuriously rescued.
+
+**Caveat — flux still drops without growth loss.** Corrected 3.1 changes
+biomass *flux* in 3,590 of 5,683 models and lowers the mean from 63.74 to
+48.15, with **no** model gaining flux (max Δ = +0.00). That is expected and
+correct: adding directionality to 1,316 previously-reversible reactions can
+only shrink the feasible space, trimming flux, but it rarely removes the last
+path to biomass. So 3.1 is a genuine, defensible constraint with modest
+biological cost — the opposite of the catastrophe the buggy run reported.
+
+---
+
+## TL;DR *(historical — describes the BUGGY run; see Post-fix results above for the corrected picture)*
 
 - **One reaction explains 90% of the breakage.** Forcing **rxn00199**
   (oxalosuccinate → CO₂ + 2-oxoglutarate; the decarboxylation half of
@@ -91,6 +147,11 @@ MSDB baseline parity is unaffected by the fix.
   reversing it frees ATP for biomass.
 
 ---
+
+> **The four sections below (Method, Q1, Q2, Q3) describe the BUGGY run**
+> (sign-inverted variant 3.1). They are kept verbatim as the diagnostic
+> record of what the bug did and how it was traced to rxn00199. For what
+> corrected 3.1 actually does, see **§Post-fix results** above.
 
 ## Method
 
@@ -239,24 +300,27 @@ is not purely destructive.
 
 ---
 
-## Implications for adopting 3.1
+## Implications for adopting 3.1 *(updated post-fix)*
 
-- The headline "3.1 changes 3,256 reactions and breaks 75% of models" is
-  misleading on two counts: only 22 of those reactions touch any core model,
-  and the breakage is dominated by **one reaction** (rxn00199).
-- Before adopting the reversibility index as a default, the **rxn00199
-  call must be audited**: a ΔG′° = −3.33 kcal/mol decarboxylation being
-  labeled reverse-only is almost certainly a reversibility-index artifact
-  (likely the CO₂/molecularity normalization at the 1 mM reference, or a
-  sign/curation issue in the stored `ln γ`). Fixing or overriding rxn00199
-  alone would recover ~90% of the lost growers.
-- rxn05145 is genuinely **double-edged** (breaks 453, rescues 54). Its
-  forward-direction futile-cycle behavior in some models is a modeling
-  artifact worth flagging independent of 3.1.
-- The panel remains useful for *detecting* sensitive reactions but
-  **over-estimates population-level growth impact**; report DB-wide rates
-  (the "all models" scope in the site's Variant Browser) alongside panel
-  rates whenever a magnitude is quoted.
+- **The "breaks 75% of models" headline was a sign bug, now fixed.** The
+  rxn00199 "audit" this section originally called for resolved to the
+  one-line sign inversion in §Correction; rxn00199 was never really called
+  reverse by the index — our code read the index backwards. With the fix,
+  rxn00199/rxn00256/rxn05145 don't change, and 3.1 breaks **1.1%** of
+  growers (44/4,000), not ~59–75%.
+- **Corrected 3.1 is adoptable as a mild constraint.** It only adds
+  directionality to reactions MSDB left reversible (1,316 `=`→`>`/`<`),
+  costs growth in 44 models, and rescues none. The two reactions behind the
+  residual 44 (rxn01476, rxn00251) are legitimate `=`→directional calls
+  worth a curation look, not artifacts.
+- **It does trim flux broadly without killing growth** (mean 63.74→48.15;
+  flux changes in 3,590 models; no model gains flux). That is the expected
+  signature of a thermodynamic directionality constraint and is the real
+  cost/benefit to weigh — far smaller than the buggy run implied.
+- **Process lesson:** the panel's buggy "73/100 flip" looked like a strong
+  biological signal; it was a code bug amplified by selection bias. Always
+  sanity-check a directional call against ΔG′° sign (the cascade's own
+  MdeltaG rule is the reference) before trusting a large impact number.
 
 ---
 
