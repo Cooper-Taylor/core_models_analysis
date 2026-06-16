@@ -113,6 +113,50 @@ function rxnModelCount(rxn, scope) {
   return (v === null || v === undefined) ? null : v;
 }
 
+// Strip the simple inline HTML markup MetaCyc embeds in pathway names
+// (CO<sub>2</sub>, <i>N</i>-acetyl…, etc.) so they don't show as literal
+// tags after escaping. We render plain text only.
+function stripInlineTags(s) {
+  return String(s || '').replace(/<\/?(?:sub|sup|i|b|em|strong)>/gi, '');
+}
+
+// Render the pathways field: a list of "Source: pwy (desc); pwy2 (desc2); …"
+// strings. Group by source, strip inline tags, and lay out each pathway as a
+// compact chip so the (often 40+) entries are scannable instead of one blob.
+function renderPathways(pathways) {
+  const groups = (pathways || []).map((line) => {
+    const idx = String(line).indexOf(': ');
+    let src = '', body = String(line);
+    if (idx > 0) { src = line.slice(0, idx); body = line.slice(idx + 2); }
+    const items = body.split(';').map((x) => stripInlineTags(x).trim()).filter(Boolean);
+    return { src, items };
+  }).filter((g) => g.items.length);
+  if (!groups.length) return '';
+  return `<div class="pathways">` + groups.map((g) =>
+    `<div class="pw-group">` +
+    (g.src ? `<span class="pw-source">${escapeHtml(g.src)}</span>` : '') +
+    `<div class="pw-items">` +
+    g.items.map((it) => `<span class="pw-item">${escapeHtml(it)}</span>`).join('') +
+    `</div></div>`
+  ).join('') + `</div>`;
+}
+
+// "in panel" prevalence line. Uses reaction_model_counts.json so the panel
+// count is out of the 100 descriptive panel models (the old `panel_freq`
+// field counts over the ~3,461 growers and was mislabeled "of 100 models").
+function renderPrevalence(r) {
+  const pc = rxnModelCount(r.id, 'panel');   // of 100 descriptive panel models
+  const ac = rxnModelCount(r.id, 'all');     // of 5,683 core models
+  const allTxt = (ac != null) ? ` &nbsp;·&nbsp; ${ac.toLocaleString()} of 5,683 core models` : '';
+  if (pc != null) {
+    return pc > 0
+      ? `yes — ${pc} of 100 panel models${allTxt}`
+      : `no${ac ? ` — present in ${ac.toLocaleString()} of 5,683 core models` : ''}`;
+  }
+  // Fallback if reaction_model_counts isn't loaded for this rxn.
+  return r.in_panel ? 'yes' : 'no';
+}
+
 // -------------------- generic sortable table --------------------
 // Render a sortable table into `mount`. Re-renders in place on header click.
 //   cols: [{ key, label, numeric?, defaultDir?, thClass?, tdClass?,
@@ -685,6 +729,9 @@ async function loadReactions() {
   }
   // Pre-load panel rxnsets so the flux-impacted-only subfilter works.
   loadPanelRxnsets().catch(() => {});
+  // Pre-load per-reaction model counts so the "in panel" prevalence line
+  // uses the true 100-panel / 5,683-DB denominators.
+  loadRxnModelCounts().catch(() => {});
   renderReactionList();
 }
 
@@ -802,6 +849,8 @@ async function selectRxn(rxnId) {
     pane.innerHTML = `<p class="hint">No data for <code>${escapeHtml(rxnId)}</code>.</p>`;
     return;
   }
+  // Ensure per-reaction model counts are available for the prevalence line.
+  await loadRxnModelCounts();
   renderReactionDetail(r);
 }
 
@@ -875,8 +924,8 @@ function renderReactionDetail(r) {
       <dt>is_transport</dt><dd>${r.is_transport ? 'yes' : 'no'}</dd>
       <dt>ΔG′° (kcal/mol)</dt><dd>${r.deltag != null ? r.deltag.toFixed(2) : '—'} ± ${r.deltagerr != null ? r.deltagerr.toFixed(2) : '—'}</dd>
       ${r.ec_numbers && r.ec_numbers.length ? `<dt>EC numbers</dt><dd>${r.ec_numbers.map(escapeHtml).join(', ')}</dd>` : ''}
-      ${r.pathways && r.pathways.length ? `<dt>pathways</dt><dd>${r.pathways.map(escapeHtml).join(', ')}</dd>` : ''}
-      ${r.in_panel !== undefined ? `<dt>in panel</dt><dd>${r.in_panel ? `yes (${r.panel_freq} of 100 models)` : 'no'}</dd>` : ''}
+      ${r.pathways && r.pathways.length ? `<dt>pathways</dt><dd>${renderPathways(r.pathways)}</dd>` : ''}
+      ${r.in_panel !== undefined ? `<dt>in panel</dt><dd>${renderPrevalence(r)}</dd>` : ''}
     </dl>
     ${pdirHtml}
 

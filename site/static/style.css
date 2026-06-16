@@ -217,7 +217,38 @@ h3 { color: var(--text); font-size: 14px; font-weight: 600; margin: 12px 0 6px; 
 }
 .reaction-detail-pane dl { margin: 8px 0; display: grid; grid-template-columns: 140px 1fr; gap: 4px 12px; }
 .reaction-detail-pane dt { color: var(--text-dim); font-size: 12px; }
-.reaction-detail-pane dd { margin: 0; }
+.reaction-detail-pane dd { margin: 0; min-width: 0; }
+
+/* Pathways: grouped by source (MetaCyc / KEGG / …), each pathway a compact
+   chip. Scrolls if a reaction has dozens of pathways. */
+.pathways {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.pathways .pw-source {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-2);
+  margin-bottom: 3px;
+}
+.pathways .pw-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.pathways .pw-item {
+  background: var(--bg-elev-2);
+  border-radius: 3px;
+  padding: 1px 7px;
+  font-size: 11px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
 
 .stoich-list { list-style: none; padding: 0; margin: 0; }
 .stoich-list li { font-family: var(--mono); font-size: 12px; padding: 1px 0; }
