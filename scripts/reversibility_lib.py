@@ -417,7 +417,14 @@ def estimate_one(rxn_entry, db_level: str = "EQ", cfg: Optional[ReversibilityCon
     if cfg.ln_ri_by_rxn is not None:
         ln_ri = cfg.ln_ri_by_rxn.get(rxn_entry["id"])
         if ln_ri is not None and abs(ln_ri) > cfg.ln_ri_threshold:
-            direction = ">" if ln_ri > 0 else "<"
+            # eQuilibrator's ln(reversibility index) carries the SAME sign as
+            # ΔG′° (Noor 2012: ln γ̂ = (2/N)·ΔG′ₘ/RT), so a NEGATIVE index means
+            # forward-favorable -- matching the MdeltaG rule above (stored_max<0
+            # → ">"). A previous version had this comparison inverted
+            # (`ln_ri > 0`), which flipped every strongly-directional reaction
+            # to the wrong direction. See
+            # reports/VARIANT_3.1_BREAKAGE_INVESTIGATION.md §"Correction".
+            direction = ">" if ln_ri < 0 else "<"
             return f"lnRI: {ln_ri:.2f}", direction, source_label
 
     mMdeltaG = rxn_dg + cfg.rt * terms["rgt_sum"]

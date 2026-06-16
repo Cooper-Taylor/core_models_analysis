@@ -14,6 +14,62 @@ knock-ins. No on-disk model JSON or MSDB file was modified.
 
 ---
 
+## ⚠ Correction (2026-06-16): the breakage was caused by a sign bug in our code, now fixed
+
+After this investigation, a follow-up question — *is the rxn00199 flip even
+biochemically viable?* — exposed the actual root cause: a **sign-inversion bug
+in our cascade**, not a real property of the reversibility index.
+
+`scripts/reversibility_lib.py` mapped the eQuilibrator `ln(reversibility_index)`
+to a direction with the comparison **backwards**:
+
+```python
+direction = ">" if ln_ri > 0 else "<"      # WRONG
+direction = ">" if ln_ri < 0 else "<"      # FIXED (2026-06-16)
+```
+
+eQuilibrator's `ln(reversibility_index)` carries the **same sign as ΔG′°**
+(Noor 2012: ln γ̂ = (2/N)·ΔG′ₘ/RT), so a **negative** index means
+forward-favorable — the same convention the cascade's own MdeltaG rule uses
+(`stored_max < 0 → ">"`). Verified end-to-end:
+
+- The upstream table `MetaNetX_Reaction_Energies.tbl` stores eQuilibrator's
+  raw output faithfully (retrieval script applies no negation, same reaction
+  orientation as the MSDB equation). The MSDB data is **correct**.
+- Across all 16,742 reactions, `sign(ln_RI) == sign(ΔG′°)` for **96.8%**.
+- Among the 9,076 strongly-directional reactions (|ln_RI| > 6.9), the buggy
+  mapping agreed with the ΔG′° sign in **1** of them — i.e. it inverted
+  **9,075 / 9,076**.
+- rxn00199: ΔG′° = −3.33 kcal/mol, ln_RI = −8.40 (matches the hand-computed
+  (2/N)·ΔG′ₘ/RT ≈ −8.3). Negative ⟹ forward. The buggy code called it reverse.
+
+**What this means for the numbers below.** Everything in this report
+(§Q1–Q3, the 2,377 broken growers, the rxn00199/rxn05145/rxn00256 culprits)
+describes the **buggy** variant 3.1. It is a faithful diagnosis of *what the
+bug did*, not a property of the reversibility-index method. With the sign
+corrected, the strongly-directional reactions now match their ΔG′° (and the
+MSDB baseline direction): rxn00199 → `>`, rxn00256 → `<`, rxn05145 → `>`, so
+they no longer flip and the catastrophic breakage is expected to largely
+disappear.
+
+**Status:** the one-line fix is applied in `scripts/reversibility_lib.py`.
+The shipped variant-3.1 data artifacts (`site/data/variants/3.1.json`,
+`site/data/all_models_variant_fba__3.1.json`, the all-models summary, and the
+panel selection that depends on them) were generated **before** the fix and
+are **stale** — they still reflect the buggy direction. Regenerating them
+(re-run `export_thermo_variants.py` → `build_site_data.py` →
+`build_all_models_impact.py`, and re-run this analysis) is the next step to
+make the artifacts consistent with the corrected code; that re-run has **not**
+yet been done. The numbers below should be read as a record of the bug's
+impact until then.
+
+Note: variant **H4** (the "best-evidence" stack) also sets `ln_ri_by_rxn`, so
+it inherited the same inversion and will change when regenerated. The default
+`ReversibilityConfig()` does **not** set `ln_ri_by_rxn`, so the byte-for-byte
+MSDB baseline parity is unaffected by the fix.
+
+---
+
 ## TL;DR
 
 - **One reaction explains 90% of the breakage.** Forcing **rxn00199**
