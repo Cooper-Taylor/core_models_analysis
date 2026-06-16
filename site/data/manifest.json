@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T19:33:53Z",
+  "generated_at": "2026-06-15T19:49:56Z",
   "panel_size": 100,
   "n_msdb_rxns": 56012,
   "n_panel_rxns": 12002,
@@ -30,7 +30,7 @@
       "citations": [],
       "section": "\u00a7 2.1 / 3.1",
       "n_changed_vs_baseline": 3256,
-      "n_models_flip": 75,
+      "n_models_flip": 73,
       "n_models_flux_change": 100,
       "rev_counts": {
         "total": 56012,
@@ -67,7 +67,7 @@
       "section": "\u00a7 3.3 (fallback)",
       "n_changed_vs_baseline": 1796,
       "n_models_flip": 0,
-      "n_models_flux_change": 12,
+      "n_models_flux_change": 9,
       "rev_counts": {
         "total": 56012,
         "new_rev=>": 8379,
@@ -175,7 +175,7 @@
       "section": "\u00a7 3.10",
       "n_changed_vs_baseline": 696,
       "n_models_flip": 0,
-      "n_models_flux_change": 30,
+      "n_models_flux_change": 32,
       "rev_counts": {
         "total": 56012,
         "new_rev=>": 9137,
@@ -228,7 +228,7 @@
       "citations": [],
       "section": "\u00a7 H3",
       "n_changed_vs_baseline": 1989,
-      "n_models_flip": 21,
+      "n_models_flip": 14,
       "n_models_flux_change": 100,
       "rev_counts": {
         "total": 56012,
@@ -246,8 +246,8 @@
       "citations": [],
       "section": "\u00a7 H4",
       "n_changed_vs_baseline": 3317,
-      "n_models_flip": 65,
-      "n_models_flux_change": 99,
+      "n_models_flip": 63,
+      "n_models_flux_change": 100,
       "rev_counts": {
         "total": 56012,
         "new_rev=<": 3711,

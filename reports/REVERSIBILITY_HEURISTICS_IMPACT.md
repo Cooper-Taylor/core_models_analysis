@@ -153,37 +153,42 @@ grower/non-grower status flips (`flip`); both are evaluated against the
 heuristic-baseline FBA (panel models rebound to the baseline cascade) so
 that the comparison isolates the variant's effect.
 
+All panel-side numbers below are evaluated on the post-fix panel (see
+`reports/DUPLICATE_REACTIONS_INVESTIGATION.md` for the seed.reaction
+`_c`-suffix fix; the panel was re-selected because the fix changes the
+per-model reaction-set used by the diversity scorer).
+
 | Variant | Panel flip (of 100) | Panel flux-Δ (of 100) | All-DB flip (of 5,683) | All-DB flux-Δ (of 5,683) | All-DB grew→not | All-DB →grew |
 |---|---:|---:|---:|---:|---:|---:|
-| 3.1 | **75** | 100 | **2,464** | 4,055 | 2,405 | 59 |
-| 3.3 | 0 | 83 | 213 | 3,743 | 161 | 52 |
-| 3.3_wide | 0 | 12 | 30 | 580 | 0 | 30 |
+| 3.1 | **73** | 100 | **2,436** | 4,055 | 2,377 | 59 |
+| 3.3 | 0 | 83 | 213 | 3,738 | 161 | 52 |
+| 3.3_wide | 0 | 9 | 30 | 566 | 0 | 30 |
 | 3.5 | 0 | 0 | 0 | 0 | 0 | 0 |
 | 3.5_wide | 0 | 0 | 0 | 0 | 0 | 0 |
-| 3.6 | 0 | 96 | 161 | 4,043 | 0 | 161 |
+| 3.6 | 0 | 96 | 161 | 4,042 | 0 | 161 |
 | 3.7 | 0 | 0 | 0 | 0 | 0 | 0 |
 | 3.10_tight | 0 | 0 | 0 | 0 | 0 | 0 |
-| 3.10_loose | 0 | 30 | 89 | 1,268 | 0 | 89 |
+| 3.10_loose | 0 | 32 | 89 | 1,211 | 0 | 89 |
 | H1 | 0 | 0 | 0 | 0 | 0 | 0 |
 | H2 | 0 | 0 | 0 | 0 | 0 | 0 |
-| H3 | **21** | 100 | **621** | 3,999 | 621 | 0 |
-| H4 | **65** | 99 | **1,246** | 3,971 | 1,198 | 48 |
+| H3 | **14** | 100 | **607** | 4,000 | 607 | 0 |
+| H4 | **63** | 100 | **1,245** | 3,968 | 1,197 | 48 |
 
 The all-DB column tracks per-variant mean biomass flux too (median, std,
 and per-variant largest gainers / losers are in
 `site/data/all_models_variants.json` and visible in the Variant Browser's
 "all models" scope):
 
-| Variant | All-DB mean flux | vs baseline (63.30) | All-DB median flux | All-DB std flux | All-DB n_grow (of 5683) | Largest gainer (Δ flux, model) | Largest loser (Δ flux, model) |
+| Variant | All-DB mean flux | vs baseline (63.74) | All-DB median flux | All-DB std flux | All-DB n_grow (of 5683) | Largest gainer (Δ flux, model) | Largest loser (Δ flux, model) |
 |---|---:|---|---:|---:|---:|---|---|
-| baseline | 63.30 | — | 73.18 | 48.80 | 3,999 | — | — |
-| 3.1 | 40.23 | **-23.07** | 0.00 | 66.81 | 1,653 | +114.50 (GCF_900116045.1) | -144.81 (GCF_002902865.1) |
-| 3.3 | 49.49 | -13.81 | 52.32 | 40.58 | 3,890 | +94.48 (GCF_002849775.1) | -116.38 (GCF_002313045.1) |
-| 3.3_wide | 64.08 | +0.78 | 74.18 | 48.75 | 4,029 | +120.16 (GCF_000767465.1) |  0.00 |
-| 3.6 | **94.92** | **+31.62** | 111.99 | 68.72 | 4,160 | +177.28 (GCF_000022025.1) |  0.00 |
-| 3.10_loose | 65.25 | +1.95 | 74.69 | 48.90 | 4,088 | +107.42 (GCF_001577265.1) |  0.00 |
-| H3 | **15.18** | **-48.12** | 14.79 | 15.60 | 3,378 |  0.00 | -121.90 (GCF_003261575.2) |
-| H4 | 52.70 | -10.60 | 22.12 | 56.56 | 2,849 | +122.49 (GCF_000264455.2) | -143.72 (GCF_002356295.1) |
+| baseline | 63.74 | — | 73.18 | 49.09 | 4,000 | — | — |
+| 3.1 | 40.57 | **-23.17** | 0.00 | 67.20 | 1,682 | +114.50 (GCF_900116045.1) | -147.51 (GCF_002356295.1) |
+| 3.3 | 49.72 | -14.03 | 52.97 | 40.67 | 3,891 | +94.48 (GCF_002849775.1) | -116.38 (GCF_002313045.1) |
+| 3.3_wide | 64.53 | +0.78 | 74.69 | 49.04 | 4,030 | +120.16 (GCF_000767465.1) |  0.00 |
+| 3.6 | **95.26** | **+31.51** | 113.08 | 68.91 | 4,161 | +177.28 (GCF_000022025.1) |  0.00 |
+| 3.10_loose | 65.61 | +1.87 | 74.81 | 49.12 | 4,089 | +107.42 (GCF_001577265.1) |  0.00 |
+| H3 | **15.36** | **-48.38** | 15.70 | 15.64 | 3,393 |  0.00 | -121.90 (GCF_003261575.2) |
+| H4 | 52.80 | -10.94 | 22.12 | 56.62 | 2,851 | +122.49 (GCF_000264455.2) | -147.51 (GCF_002356295.1) |
 
 (Variants with all-DB flip = 0 omitted — they match baseline exactly.)
 
