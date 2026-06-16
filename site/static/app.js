@@ -27,6 +27,7 @@ const STATE = {
   allModelsRxnsets: null, // {model_id: [seed_rxn,...]} for the full 5,683 DB
   allModelsSummary: null, // {generated_at, n_all_models, variants: {tag: {...}}}
   allModelsVariantRows: {}, // tag -> [{model_id, baseline_flux, variant_flux, delta_flux, ...}]
+  rxnModelCounts: null, // {rxn: {panel: n, all: m}} — backs the "models" sort column
   selectedVariant: null,
   selectedRxn: null,
   rxnFilter: 'panel',
@@ -90,6 +91,104 @@ async function loadAllModelsVariantFba(tag) {
     STATE.allModelsVariantRows[tag] = [];
   }
   return STATE.allModelsVariantRows[tag];
+}
+
+async function loadRxnModelCounts() {
+  if (STATE.rxnModelCounts) return STATE.rxnModelCounts;
+  try {
+    STATE.rxnModelCounts = await API.data('reaction_model_counts.json');
+  } catch (e) {
+    STATE.rxnModelCounts = {};
+  }
+  return STATE.rxnModelCounts;
+}
+
+// Number of models (in the given scope) that contain reaction `rxn`.
+// Returns null when the count is unavailable for that scope (e.g. the
+// all-models counts weren't built), so callers can render an em-dash.
+function rxnModelCount(rxn, scope) {
+  const e = STATE.rxnModelCounts && STATE.rxnModelCounts[rxn];
+  if (!e) return null;
+  const v = e[scope];
+  return (v === null || v === undefined) ? null : v;
+}
+
+// -------------------- generic sortable table --------------------
+// Render a sortable table into `mount`. Re-renders in place on header click.
+//   cols: [{ key, label, numeric?, defaultDir?, thClass?, tdClass?,
+//            render(row)->html, sortVal(row)->comparable }]
+//   rows: array of row objects
+//   state: { key, dir } — mutated in place so sort survives re-renders
+//   opts: { limit?, moreNote(hiddenCount)->html, onRender(mount) }
+function renderSortableTable(mount, cols, rows, state, opts = {}) {
+  if (!cols.some((c) => c.key === state.key)) {
+    state.key = cols[0].key;
+    state.dir = cols[0].defaultDir || 'asc';
+  }
+  const col = cols.find((c) => c.key === state.key);
+  const dir = state.dir === 'asc' ? 1 : -1;
+  const valOf = (c, r) => (c.sortVal ? c.sortVal(r) : r[c.key]);
+  const sorted = [...rows].sort((a, b) => {
+    let va = valOf(col, a), vb = valOf(col, b);
+    // nulls always sort to the bottom regardless of direction
+    const na = va === null || va === undefined, nb = vb === null || vb === undefined;
+    if (na && nb) return 0;
+    if (na) return 1;
+    if (nb) return -1;
+    if (typeof va === 'string' && typeof vb === 'string') return va.localeCompare(vb) * dir;
+    return ((va > vb) - (va < vb)) * dir;
+  });
+  const limit = opts.limit || sorted.length;
+  const shown = sorted.slice(0, limit);
+  const arrow = (c) => (c.key === state.key
+    ? `<span class="sort-arrow">${state.dir === 'asc' ? '▲' : '▼'}</span>`
+    : '<span class="sort-arrow dim">↕</span>');
+  const thead = `<thead><tr>${cols.map((c) =>
+    `<th class="sortable ${c.thClass || ''}${c.key === state.key ? ' sorted' : ''}" data-key="${escapeHtml(c.key)}">` +
+    `${escapeHtml(c.label)} ${arrow(c)}</th>`
+  ).join('')}</tr></thead>`;
+  const tbody = `<tbody>${shown.map((r) =>
+    `<tr>${cols.map((c) =>
+      `<td class="${c.tdClass || ''}">${c.render ? c.render(r) : escapeHtml(r[c.key])}</td>`
+    ).join('')}</tr>`
+  ).join('')}</tbody>`;
+  const hidden = sorted.length - shown.length;
+  const more = hidden > 0
+    ? (opts.moreNote ? opts.moreNote(hidden)
+       : `<p class="hint">… ${hidden.toLocaleString()} more not shown.</p>`)
+    : '';
+  mount.innerHTML = `<table class="changed-by-table sortable-table">${thead}${tbody}</table>${more}`;
+  mount.querySelectorAll('th.sortable').forEach((th) =>
+    th.addEventListener('click', () => {
+      const k = th.dataset.key;
+      if (state.key === k) {
+        state.dir = state.dir === 'asc' ? 'desc' : 'asc';
+      } else {
+        state.key = k;
+        state.dir = (cols.find((c) => c.key === k) || {}).defaultDir || 'desc';
+      }
+      renderSortableTable(mount, cols, rows, state, opts);
+    }));
+  if (opts.onRender) opts.onRender(mount);
+}
+
+// Wire any `.collapsible-header` inside `root` to toggle its section, with
+// the animation driven by the [data-collapsed] attribute (see style.css).
+function bindCollapsibles(root) {
+  root.querySelectorAll('.collapsible-header').forEach((hdr) => {
+    const sec = hdr.closest('.collapsible');
+    if (!sec || hdr.dataset.bound) return;
+    hdr.dataset.bound = '1';
+    const toggle = () => {
+      const collapsed = sec.getAttribute('data-collapsed') === 'true';
+      sec.setAttribute('data-collapsed', collapsed ? 'false' : 'true');
+      hdr.setAttribute('aria-expanded', collapsed ? 'true' : 'false');
+    };
+    hdr.addEventListener('click', toggle);
+    hdr.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
 }
 
 // -------------------- tab switching --------------------
@@ -291,6 +390,9 @@ async function selectVariant(tag, tr) {
   if (meta.apt_title && !p.apt_title) p.apt_title = meta.apt_title;
   if (meta.description && !p.description) p.description = meta.description;
   if (meta.citations && !p.citations) p.citations = meta.citations;
+  // Per-reaction model counts back the "models" column in the changed-
+  // reactions table (and its default sort) — load once, lazily.
+  await loadRxnModelCounts();
   // For all-models scope, the per-variant FBA rows are useful — load lazily.
   let allFbaRows = null;
   if (STATE.scope === 'all' && tag !== 'baseline') {
@@ -482,20 +584,19 @@ function renderVariantDetail(p, allFbaRows = null) {
         ${renderAllModelsStatsCard(p, allFbaRows)}`;
     }
 
+    const scopeLabel = STATE.scope === 'all' ? 'all models' : 'panel';
     html += `
-      <h3>Top reactions changed (first 50)</h3>
-      <table class="changed-by-table">
-        <thead><tr><th>rxn</th><th>base</th><th>new</th><th></th></tr></thead>
-        <tbody>
-          ${p.diffs.slice(0, 50).map((d) =>
-            `<tr><td><a href="#" class="rxn-link" data-rxn="${escapeHtml(d.rxn)}">${escapeHtml(d.rxn)}</a></td>
-                 <td>${revBadge(d.base)}</td>
-                 <td>${revBadge(d.new)}</td>
-                 <td></td></tr>`
-          ).join('')}
-        </tbody>
-      </table>
-      ${p.diffs.length > 50 ? `<p class="hint">… ${p.diffs.length - 50} more not shown. Use the Reaction Explorer to browse.</p>` : ''}`;
+      <div class="collapsible" id="changed-rxn-collapsible" data-collapsed="false">
+        <div class="collapsible-header" role="button" tabindex="0" aria-expanded="true">
+          <span class="collapse-caret">▾</span>
+          <h3>Top reactions changed
+            <span class="hint">— top 50 by models (${escapeHtml(scopeLabel)}); click a column to sort</span>
+          </h3>
+        </div>
+        <div class="collapsible-body"><div class="collapsible-inner">
+          <div id="changed-rxn-table-mount"></div>
+        </div></div>
+      </div>`;
 
     if (STATE.scope === 'panel') {
       html += `
@@ -510,13 +611,57 @@ function renderVariantDetail(p, allFbaRows = null) {
 
   pane.innerHTML = html;
 
-  // Cross-link rxn IDs in the variant view → reaction explorer
-  pane.querySelectorAll('.rxn-link').forEach((a) =>
+  // Animated collapsible sections (the "Top reactions changed" dropdown).
+  bindCollapsibles(pane);
+
+  // Sortable "Top reactions changed" table — default sort by model count
+  // (descending), in the active scope. Re-binds rxn cross-links on each
+  // re-render via onRender.
+  const mount = document.getElementById('changed-rxn-table-mount');
+  if (mount && p.tag !== 'baseline') {
+    const scope = STATE.scope;
+    const rows = (p.diffs || []).map((d) => ({
+      rxn: d.rxn, base: d.base, new: d.new,
+      models: rxnModelCount(d.rxn, scope),
+    }));
+    const modelsLabel = `models (${scope === 'all' ? 'all' : 'panel'})`;
+    const cols = [
+      { key: 'rxn', label: 'rxn', defaultDir: 'asc',
+        render: (r) => `<a href="#" class="rxn-link" data-rxn="${escapeHtml(r.rxn)}">${escapeHtml(r.rxn)}</a>`,
+        sortVal: (r) => r.rxn },
+      { key: 'base', label: 'base', defaultDir: 'asc',
+        render: (r) => revBadge(r.base), sortVal: (r) => r.base },
+      { key: 'new', label: 'new', defaultDir: 'asc',
+        render: (r) => revBadge(r.new), sortVal: (r) => r.new },
+      { key: 'models', label: modelsLabel, numeric: true, defaultDir: 'desc',
+        thClass: 'num', tdClass: 'num',
+        render: (r) => (r.models == null ? '—' : r.models.toLocaleString()),
+        sortVal: (r) => r.models },
+    ];
+    const sortState = { key: 'models', dir: 'desc' };
+    renderSortableTable(mount, cols, rows, sortState, {
+      limit: 50,
+      moreNote: (hidden) =>
+        `<p class="hint">… ${hidden.toLocaleString()} more not shown. Use the Reaction Explorer to browse.</p>`,
+      onRender: bindRxnLinks,
+    });
+  }
+
+  // Cross-link any remaining rxn IDs in the variant view → reaction explorer
+  bindRxnLinks(pane);
+}
+
+// Bind every `.rxn-link` inside `root` to jump to the Reaction Explorer.
+function bindRxnLinks(root) {
+  root.querySelectorAll('.rxn-link').forEach((a) => {
+    if (a.dataset.bound) return;
+    a.dataset.bound = '1';
     a.addEventListener('click', (e) => {
       e.preventDefault();
       document.querySelector('nav button[data-tab="reaction"]').click();
       setTimeout(() => selectRxn(a.dataset.rxn), 30);
-    }));
+    });
+  });
 }
 
 // -------------------- reaction explorer --------------------
@@ -798,31 +943,26 @@ function renderSweepSimple(res, out, opts) {
   const modeRows = res.by_mode[mode] || {};
   const mids = Object.keys(res.baseline).sort();
   let nGrewBefore = 0, nGrewAfter = 0, nFlipped = 0, nFluxChanged = 0;
-  const rowsHtml = mids.map((mid) => {
+  // Build structured rows for the sortable table.
+  const rows = mids.map((mid) => {
     const b = res.baseline[mid];
     const v = modeRows[mid];
-    const baseF = b.growth_flux;
     if (b.grows) nGrewBefore += 1;
-    if (!v) {
-      return `<tr><td><code>${escapeHtml(mid)}</code></td>
-        <td class="num">${baseF.toFixed(4)}${b.grows ? '' : ' ✗'}</td>
-        <td class="num">—</td>
-        <td class="num">—</td></tr>`;
-    }
-    const newF = v.growth_flux;
-    if (v.grows) nGrewAfter += 1;
-    const flipped = v.grows !== b.grows;
+    if (v && v.grows) nGrewAfter += 1;
+    const flipped = v ? (v.grows !== b.grows) : false;
     if (flipped) nFlipped += 1;
-    if (Math.abs(v.delta_flux) > 1e-6) nFluxChanged += 1;
-    const flag = flipped ? (v.grows ? ' ↑' : ' ↓') : '';
-    const cls = v.delta_flux > 0 ? 'diff-up' : (v.delta_flux < 0 ? 'diff-down' : 'diff-zero');
-    return `<tr${flipped ? ' class="flipped"' : ''}>
-      <td><code>${escapeHtml(mid)}</code></td>
-      <td class="num">${baseF.toFixed(4)}${b.grows ? '' : ' ✗'}</td>
-      <td class="num ${cls}">${newF.toFixed(4)}${flag}</td>
-      <td class="num ${cls}">${v.delta_flux >= 0 ? '+' : ''}${v.delta_flux.toFixed(4)}</td>
-    </tr>`;
-  }).join('');
+    if (v && Math.abs(v.delta_flux) > 1e-6) nFluxChanged += 1;
+    return {
+      model_id: mid,
+      base_flux: b.growth_flux,
+      base_grows: b.grows,
+      variant_flux: v ? v.growth_flux : null,
+      delta_flux: v ? v.delta_flux : null,
+      variant_grows: v ? v.grows : null,
+      flipped,
+      has_variant: !!v,
+    };
+  });
 
   out.innerHTML = `
     <div class="flux-impact-grid">
@@ -842,18 +982,39 @@ function renderSweepSimple(res, out, opts) {
         <div class="stat-sub">containing this reaction</div>
       </div>
     </div>
-    <h4>Per-model growth flux</h4>
-    <table class="changed-by-table">
-      <thead><tr>
-        <th>model_id</th>
-        <th>default flux</th>
-        <th>variant flux (${escapeHtml(newRev)})</th>
-        <th>Δ flux</th>
-      </tr></thead>
-      <tbody>${rowsHtml}</tbody>
-    </table>
+    <h4>Per-model growth flux <span class="hint">— click a column to sort (asc/desc)</span></h4>
+    <div id="sweep-table-mount"></div>
     <p class="hint">"↑" = model became a grower under the variant's new direction for this reaction; "↓" = model stopped growing. "✗" = was not a grower in the baseline.</p>
   `;
+
+  const fluxCls = (d) => (d == null ? '' : (d > 0 ? 'diff-up' : (d < 0 ? 'diff-down' : 'diff-zero')));
+  const cols = [
+    { key: 'model_id', label: 'model_id', defaultDir: 'asc',
+      render: (r) => `<code>${escapeHtml(r.model_id)}</code>`, sortVal: (r) => r.model_id },
+    { key: 'base_flux', label: 'default flux', numeric: true, defaultDir: 'desc',
+      thClass: 'num', tdClass: 'num',
+      render: (r) => `${r.base_flux.toFixed(4)}${r.base_grows ? '' : ' ✗'}`,
+      sortVal: (r) => r.base_flux },
+    { key: 'variant_flux', label: `variant flux (${newRev})`, numeric: true, defaultDir: 'desc',
+      thClass: 'num',
+      tdClass: 'num',
+      render: (r) => {
+        if (!r.has_variant) return '—';
+        const flag = r.flipped ? (r.variant_grows ? ' ↑' : ' ↓') : '';
+        return `<span class="${fluxCls(r.delta_flux)}">${r.variant_flux.toFixed(4)}${flag}</span>`;
+      },
+      sortVal: (r) => r.variant_flux },
+    { key: 'delta_flux', label: 'Δ flux', numeric: true, defaultDir: 'desc',
+      thClass: 'num', tdClass: 'num',
+      render: (r) => {
+        if (!r.has_variant) return '—';
+        return `<span class="${fluxCls(r.delta_flux)}">${r.delta_flux >= 0 ? '+' : ''}${r.delta_flux.toFixed(4)}</span>`;
+      },
+      sortVal: (r) => r.delta_flux },
+  ];
+  // Default: largest |Δ flux| first — most-impacted models on top.
+  const sortState = { key: 'delta_flux', dir: 'desc' };
+  renderSortableTable(document.getElementById('sweep-table-mount'), cols, rows, sortState);
 }
 
 // Search wiring

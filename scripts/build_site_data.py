@@ -29,6 +29,7 @@ import json
 import os
 import sys
 import time
+from collections import Counter
 from pathlib import Path
 from typing import Optional
 
@@ -516,6 +517,41 @@ def main(argv: Optional[list] = None) -> None:
     with open(out_root / "panel_rxnsets.json", "w") as fh:
         json.dump({mid: sorted(panel_rxn_sets.get(mid, []))
                    for mid in panel_ids}, fh, separators=(",", ":"))
+
+    # ---- per-reaction model counts (backs the site's "models" sort column)
+    # Two scope-consistent counts per reaction:
+    #   panel = how many of the 100 descriptive panel models contain it
+    #   all   = how many of the 5,683 core models contain it
+    # The site sorts the "Top reactions changed" table by these. Shipped as
+    # a small committed file so the column is exact in both static and live
+    # deployments (the 8 MB all_models_rxnsets.json is gitignored).
+    panel_set = set(panel_ids)
+    panel_counts: Counter = Counter()
+    for mid in panel_ids:
+        for rxn in panel_rxn_sets.get(mid, []):
+            panel_counts[rxn] += 1
+    all_counts: Optional[Counter] = None
+    all_rxnsets_path = out_root / "all_models_rxnsets.json"
+    if all_rxnsets_path.exists():
+        all_counts = Counter()
+        am = json.loads(all_rxnsets_path.read_text())
+        for rxns in am.values():
+            for rxn in rxns:
+                all_counts[rxn] += 1
+        print(f"  reaction_model_counts: 'all' from {len(am)} models")
+    else:
+        print("  reaction_model_counts: all_models_rxnsets.json missing — "
+              "'all' counts will be null (run build_all_models_impact.py first)")
+    reaction_model_counts = {
+        rxn: {
+            "panel": int(panel_counts.get(rxn, 0)),
+            "all": (int(all_counts.get(rxn, 0)) if all_counts is not None else None),
+        }
+        for rxn in reactions_index
+    }
+    with open(out_root / "reaction_model_counts.json", "w") as fh:
+        json.dump(reaction_model_counts, fh, separators=(",", ":"))
+    print(f"  wrote reaction_model_counts.json ({len(reaction_model_counts)} reactions)")
 
     print("done.")
 

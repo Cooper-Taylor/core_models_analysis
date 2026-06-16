@@ -232,6 +232,54 @@ h3 { color: var(--text); font-size: 14px; font-weight: 600; margin: 12px 0 6px; 
 }
 .changed-by-table th { color: var(--text-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
 
+/* --- Sortable tables (changed-reactions, live sweep results) --- */
+.sortable-table th.sortable {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: color 0.1s, background 0.1s;
+}
+.sortable-table th.sortable:hover { color: var(--text); background: rgba(95, 216, 184, 0.08); }
+.sortable-table th.sortable.sorted { color: var(--accent); }
+.sortable-table th .sort-arrow { font-size: 10px; opacity: 0.9; }
+.sortable-table th .sort-arrow.dim { opacity: 0.3; }
+.sortable-table th.sortable:hover .sort-arrow.dim { opacity: 0.6; }
+
+/* --- Collapsible sections (animated show/hide) --- */
+.collapsible { margin: 12px 0 6px; }
+.collapsible-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 3px;
+  transition: background 0.1s;
+}
+.collapsible-header:hover { background: rgba(95, 216, 184, 0.05); }
+.collapsible-header:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.collapsible-header h3 { margin: 6px 0; }
+.collapse-caret {
+  color: var(--accent);
+  font-size: 13px;
+  line-height: 1;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.collapsible[data-collapsed="true"] .collapse-caret { transform: rotate(-90deg); }
+/* The grid-rows 1fr→0fr trick animates height without measuring content. */
+.collapsible-body {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.collapsible[data-collapsed="true"] .collapsible-body { grid-template-rows: 0fr; }
+.collapsible-inner {
+  overflow: hidden;
+  min-height: 0;
+  transition: opacity 0.25s ease;
+}
+.collapsible[data-collapsed="true"] .collapsible-inner { opacity: 0; }
+
 .flux-impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 6px 0; }
 .flux-impact-grid .card {
   background: var(--bg-elev-2);
