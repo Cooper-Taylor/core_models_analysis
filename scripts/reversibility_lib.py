@@ -9,14 +9,16 @@ the notebook can re-run with different threshold values / new heuristics
 without forking the upstream code.
 
 With the default ``ReversibilityConfig()`` and the unmodified MSDB JSON
-input, ``estimate_one`` reproduces the upstream cascade byte-for-byte (modulo
-the small set of reactions whose stored ΔG′° has been updated in MSDB after
-``Estimated_Reaction_Reversibility_Report_EQ.txt`` was last regenerated --
-see ``compute_baseline_drift`` below).
+input, ``estimate_one`` reproduces the upstream cascade byte-for-byte. The
+baseline now incorporates Heuristics-Review fixes H2 and H3 -- two coupled
+shadow-bug repairs in ``_walk_stoichiometry`` that are also applied upstream
+in ``Estimate_Reaction_Reversibility.py`` -- so "baseline" here means the
+*fixed* upstream cascade, not the historical buggy one. H1 (return ``?`` for
+the bare default) was evaluated and rejected, so the fall-through stays ``=``.
 
-The new knobs that the Heuristics-Review notebook exercises are documented at
-the bottom of ``ReversibilityConfig`` -- each maps to one section of
-``Reaction_Reversibility_Heuristics_Review.md``.
+The remaining knobs that the Heuristics-Review notebook exercises are
+documented inside ``ReversibilityConfig`` -- each maps to one section (§ 3.x)
+of ``Reaction_Reversibility_Heuristics_Review.md``.
 """
 
 from __future__ import annotations
@@ -130,21 +132,14 @@ class ReversibilityConfig:
     per_met_conc_range: Optional[dict] = None
     per_met_conc: Optional[dict] = None
 
-    # NEW (added to the Heuristics Review while building the notebook):
-    # § H1 -- when no rule fires, return ``?`` ("unknown") instead of ``=``
-    # ("reversible").  Caller can decide what to do with unknowns.
-    default_direction: str = "="
-
-    # § H2 -- restore the ``LOW_LOCAL_CONC`` overrides (O2, H2 -> 1e-6 M) the
-    # upstream module *intends* to apply but never reaches because of the
-    # ``cpd`` shadow bug.  ``True`` here repairs the bug; the byte-for-byte
-    # baseline is ``False``.
-    fix_low_local_conc: bool = False
-
-    # § H3 -- repair the ``phosphates`` shadow bug so the ABC-transporter
-    # branch and the phosphate-spread term of the low-energy heuristic
-    # become reachable.  The byte-for-byte baseline is ``False``.
-    fix_phosphates_shadow: bool = False
+    # § H2 + § H3 are NOT knobs: the two shadow-bug repairs they describe are
+    # now the cascade's canonical behaviour (baked into ``_walk_stoichiometry``
+    # to match the fixed upstream Estimate_Reaction_Reversibility.py), so the
+    # ABC-transporter rule, the phosphate-spread term, and the CO2 / O2 / H2
+    # concentration overrides all fire by default.  § H1 (return ``?`` for the
+    # bare default) was evaluated and rejected as contrary to the cascade's
+    # design, so there is no ``default_direction`` knob -- the fall-through is
+    # always ``=`` (reversible), matching upstream.
 
     # § 3.6 -- replace the mMdeltaG band + low-energy-points heuristics with a
     # single posterior-probability rule.  When ``p_forward_threshold`` is not
@@ -264,30 +259,26 @@ def _walk_stoichiometry(stoichiometry, cfg: ReversibilityConfig):
         if cpd == PROTON:
             proton_cpts[cpt] = 1
 
-        if cfg.fix_phosphates_shadow:
-            # § H3 -- correct phosphate accumulator: test compound id, not the
-            # row's dict keys.  Disabled by default for byte-for-byte parity.
-            if cpd in PHOSPHATE_IDS:
-                phosphates.setdefault(cpd, 0.0)
-                phosphates[cpd] += coeff
-            local_cpd = cpd
-        else:
-            # Verbatim reproduction of the upstream shadow bug: tests
-            # ``cpd in rgt`` (always False) and shadows ``cpd`` to
-            # PHOSPHATE_IDS[-1] (cpd00012, PPi) after the loop.  Kept so the
-            # baseline output is bit-identical.
-            for cpd in PHOSPHATE_IDS:
-                if cpd in rgt:
-                    phosphates.setdefault(cpd, 0.0)
-                    phosphates[cpd] += coeff
-            local_cpd = cpd  # PHOSPHATE_IDS[-1] thanks to the loop shadow
+        # H2 + H3 (now baseline): accumulate phosphate-bearing reagents by
+        # compound id.  Upstream this block carried two coupled typos -- the
+        # accumulator tested ``cpd in rgt`` (the row's dict keys, never a
+        # compound id) and reused ``cpd`` as a loop variable, shadowing the
+        # reagent id with PHOSPHATE_IDS[-1] (PPi).  Together they left
+        # ``phosphates`` empty (ABCT + phosphate-spread dead, H3) and made the
+        # PROTON_WATER skip and the CO2 / O2 / H2 concentration overrides
+        # unreachable (the O2/H2 override is H2).  Both fixes are repaired
+        # upstream in Estimate_Reaction_Reversibility.py and are the cascade's
+        # canonical behaviour, so this port bakes them in too.
+        if cpd in PHOSPHATE_IDS:
+            phosphates.setdefault(cpd, 0.0)
+            phosphates[cpd] += coeff
 
-        if local_cpd in PROTON_WATER:
+        if cpd in PROTON_WATER:
             continue
 
         # Per-metabolite range overrides (§ 3.3).
-        if cfg.per_met_conc_range is not None and rgt["compound"] in cfg.per_met_conc_range:
-            cmin, cmax = cfg.per_met_conc_range[rgt["compound"]]
+        if cfg.per_met_conc_range is not None and cpd in cfg.per_met_conc_range:
+            cmin, cmax = cfg.per_met_conc_range[cpd]
         else:
             cmin, cmax = cell_min, cell_max
 
@@ -298,17 +289,17 @@ def _walk_stoichiometry(stoichiometry, cfg: ReversibilityConfig):
             pdt_min += coeff * log(cmin)
             pdt_max += coeff * log(cmax)
 
-        # mMdeltaG concentration override.
-        if cfg.per_met_conc is not None and rgt["compound"] in cfg.per_met_conc:
-            local_conc = cfg.per_met_conc[rgt["compound"]]
+        # mMdeltaG concentration override.  CO2 ~0.1 mM and dissolved O2/H2
+        # ~1 µM rather than the 1 mM default.  ``apply_special_conc`` (§ 3.7)
+        # still gates both so that variant can disable them.
+        if cfg.per_met_conc is not None and cpd in cfg.per_met_conc:
+            local_conc = cfg.per_met_conc[cpd]
         else:
             local_conc = cell_conc
             if cfg.apply_special_conc:
-                if local_cpd == CO2:
+                if cpd == CO2:
                     local_conc = cfg.co2_local_conc
-                elif cfg.fix_low_local_conc and rgt["compound"] in LOW_LOCAL_CONC:
-                    # § H2 -- the upstream module intends 1e-6 M for O2/H2 but
-                    # never reaches this branch due to the shadow bug above.
+                elif cpd in LOW_LOCAL_CONC:
                     local_conc = 1e-6
         rgt_sum += coeff * log(local_conc)
 
@@ -472,7 +463,7 @@ def estimate_one(rxn_entry, db_level: str = "EQ", cfg: Optional[ReversibilityCon
         if mMdeltaG > 0:
             return ("lowE: {0:.2f}".format(mMdeltaG) + ":" + str(points), "<", source_label)
 
-    return "default", cfg.default_direction, source_label
+    return "default", "=", source_label
 
 
 def run_cascade(reactions_dict, db_level: str = "EQ",

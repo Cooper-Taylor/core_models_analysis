@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-06-16T18:36:45Z",
+  "generated_at": "2026-06-19T18:41:33Z",
   "panel_size": 100,
   "n_msdb_rxns": 56012,
-  "n_panel_rxns": 12002,
+  "n_panel_rxns": 4821,
   "variants": [
     {
       "tag": "baseline",
       "title": "ReversibilityConfig() default (matches MSDB)",
-      "apt_title": "Default cascade \u2014 reproduces MSDB byte-for-byte (reference)",
-      "description": "Reproduces the upstream ModelSEEDDatabase Estimate_Reaction_Reversibility.py cascade exactly: heuristic 1 (bounded \u0394G\u2032\u00b0 check across the concentration window) \u2192 heuristic 4 (mMdeltaG \u00b12 kcal/mol band) \u2192 heuristic 5 (LOW_ENERGY_CPDS points rule) \u2192 '=' (reversible) default. Every other variant is a one-knob (or few-knob) diff against this reference.",
+      "apt_title": "Default cascade \u2014 reproduces the fixed MSDB byte-for-byte (reference)",
+      "description": "Reproduces the upstream ModelSEEDDatabase Estimate_Reaction_Reversibility.py cascade exactly: heuristic 1 (bounded \u0394G\u2032\u00b0 check across the concentration window) \u2192 ATP-synthase \u2192 ABC-transporter \u2192 heuristic 4 (mMdeltaG \u00b12 kcal/mol band) \u2192 heuristic 5 (LOW_ENERGY_CPDS points rule) \u2192 '=' (reversible) default. This baseline now includes the two shadow-bug repairs H2 and H3 (adopted upstream): the phosphate accumulator, the ABC-transporter rule, the phosphate-spread term, and the CO\u2082/O\u2082/H\u2082 concentration overrides all fire as intended. Every other variant is a one-knob (or few-knob) diff against this reference.",
       "citations": [
         "Henry 2007"
       ],
@@ -18,9 +18,9 @@
       "n_models_flux_change": 0,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 9751,
-        "new_rev=<": 1957,
-        "new_rev==": 13202,
+        "new_rev=>": 10564,
+        "new_rev=<": 2078,
+        "new_rev==": 12268,
         "new_rev=?": 31102
       }
     },
@@ -33,14 +33,14 @@
         "Noor 2012"
       ],
       "section": "\u00a7 2.1 / 3.1",
-      "n_changed_vs_baseline": 1316,
-      "n_models_flip": 0,
-      "n_models_flux_change": 79,
+      "n_changed_vs_baseline": 537,
+      "n_models_flip": 2,
+      "n_models_flux_change": 24,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 10823,
-        "new_rev=<": 2201,
-        "new_rev==": 11886,
+        "new_rev=>": 10972,
+        "new_rev=<": 2207,
+        "new_rev==": 11731,
         "new_rev=?": 31102
       }
     },
@@ -56,14 +56,14 @@
         "Salvy 2019"
       ],
       "section": "\u00a7 3.3",
-      "n_changed_vs_baseline": 1316,
-      "n_models_flip": 0,
-      "n_models_flux_change": 83,
+      "n_changed_vs_baseline": 1188,
+      "n_models_flip": 57,
+      "n_models_flux_change": 95,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 10627,
-        "new_rev=<": 2141,
-        "new_rev==": 12142,
+        "new_rev=>": 11327,
+        "new_rev=<": 2399,
+        "new_rev==": 11184,
         "new_rev=?": 31102
       }
     },
@@ -77,14 +77,14 @@
         "Park 2016"
       ],
       "section": "\u00a7 3.3 (fallback)",
-      "n_changed_vs_baseline": 1796,
+      "n_changed_vs_baseline": 1767,
       "n_models_flip": 0,
-      "n_models_flux_change": 9,
+      "n_models_flux_change": 95,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 8379,
-        "new_rev=<": 1533,
-        "new_rev==": 14998,
+        "new_rev=>": 9182,
+        "new_rev=<": 1693,
+        "new_rev==": 14035,
         "new_rev=?": 31102
       }
     },
@@ -98,14 +98,14 @@
         "Gollub 2021"
       ],
       "section": "\u00a7 3.5",
-      "n_changed_vs_baseline": 304,
+      "n_changed_vs_baseline": 246,
       "n_models_flip": 0,
       "n_models_flux_change": 0,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 9453,
-        "new_rev=<": 1951,
-        "new_rev==": 13506,
+        "new_rev=>": 10340,
+        "new_rev=<": 2066,
+        "new_rev==": 12504,
         "new_rev=?": 31102
       }
     },
@@ -119,14 +119,14 @@
         "Gollub 2021"
       ],
       "section": "\u00a7 3.5 / \u00a7 2.5",
-      "n_changed_vs_baseline": 546,
+      "n_changed_vs_baseline": 575,
       "n_models_flip": 0,
       "n_models_flux_change": 0,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 9311,
-        "new_rev=<": 1851,
-        "new_rev==": 13748,
+        "new_rev=>": 10105,
+        "new_rev=<": 1962,
+        "new_rev==": 12843,
         "new_rev=?": 31102
       }
     },
@@ -134,20 +134,20 @@
       "tag": "3.6",
       "title": "Drop the low-energy-compounds list entirely",
       "apt_title": "Drop the hand-curated low-energy-compounds list (CO\u2082, Pi, PPi, CoA, \u2026)",
-      "description": "Disables the legacy points rule that forced directional calls when reactions consumed hand-curated low-energy sinks (CO\u2082, NH\u2083, ACP, Pi, PPi, CoA, dihydrolipoamide, HCO\u2083\u207b), by emptying the list (cfg knob: low_energy_cpds=()). The frozen MFAToolkit-era compound list is superseded by principled measures like the reversibility index (\u00a73.1) or multiTFA's P(forward). The residual phosphate-spread term in the same rule still runs in principle but stays inert until \u00a7H3 is stacked in.",
+      "description": "Disables the legacy points rule that forced directional calls when reactions consumed hand-curated low-energy sinks (CO\u2082, NH\u2083, ACP, Pi, PPi, CoA, dihydrolipoamide, HCO\u2083\u207b), by emptying the list (cfg knob: low_energy_cpds=()). The frozen MFAToolkit-era compound list is superseded by principled measures like the reversibility index (\u00a73.1) or multiTFA's P(forward). The residual phosphate-spread term in the same rule is left in place \u2014 with the H3 repair now in the baseline it is live, so this variant isolates the LOW_ENERGY_CPDS contribution specifically.",
       "citations": [
         "Noor 2012",
         "Gollub 2021"
       ],
       "section": "\u00a7 3.6",
-      "n_changed_vs_baseline": 3070,
+      "n_changed_vs_baseline": 1295,
       "n_models_flip": 0,
-      "n_models_flux_change": 96,
+      "n_models_flux_change": 95,
       "rev_counts": {
         "total": 56012,
-        "new_rev==": 16272,
-        "new_rev=>": 6869,
-        "new_rev=<": 1769,
+        "new_rev=>": 9433,
+        "new_rev==": 13563,
+        "new_rev=<": 1914,
         "new_rev=?": 31102
       }
     },
@@ -155,20 +155,20 @@
       "tag": "3.7",
       "title": "Drop the CO2 1e-4 hardcoded concentration override",
       "apt_title": "Disable the hardcoded 1e-4 M CO\u2082 concentration override",
-      "description": "Baseline declares a 1e-4 M CO\u2082 override (and a 1e-6 M O\u2082/H\u2082 override) but both branches are unreachable due to the shadow bug fixed in \u00a7H3 \u2014 they only fire once H3 is stacked in. This variant turns the gate off (cfg knob: apply_special_conc=False) so that even after the H3 repair, CO\u2082/O\u2082/H\u2082 sit at the 1 mM default. eQuilibrator already models CO\u2082(aq)/HCO\u2083\u207b/CO\u2083\u00b2\u207b speciation as a function of pH, so the override would double-count what the transform handles.",
+      "description": "The baseline applies a 1e-4 M CO\u2082 override and a 1e-6 M O\u2082/H\u2082 override during the mMdeltaG walk (both now live, since the H2/H3 shadow-bug repairs are in the baseline). This variant turns the gate off (cfg knob: apply_special_conc=False) so CO\u2082/O\u2082/H\u2082 sit at the 1 mM default instead. eQuilibrator already models CO\u2082(aq)/HCO\u2083\u207b/CO\u2083\u00b2\u207b speciation as a function of pH, so the override would double-count what the transform handles.",
       "citations": [
         "Alberty 2003",
         "Beber 2022"
       ],
       "section": "\u00a7 3.7",
-      "n_changed_vs_baseline": 0,
+      "n_changed_vs_baseline": 58,
       "n_models_flip": 0,
-      "n_models_flux_change": 0,
+      "n_models_flux_change": 62,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 9751,
-        "new_rev=<": 1957,
-        "new_rev==": 13202,
+        "new_rev=>": 10513,
+        "new_rev=<": 2079,
+        "new_rev==": 12318,
         "new_rev=?": 31102
       }
     },
@@ -179,14 +179,14 @@
       "description": "Halves the reversible-band check from |reference \u0394G| \u2264 2 kcal/mol to \u2264 1 kcal/mol (cfg knob: mm_band=1.0), forcing more reactions into directional calls. The 2 kcal/mol threshold was inherited from Henry 2007 without per-reaction justification; this variant exposes the cascade's sensitivity to that hardcoded threshold by making it a configurable input.",
       "citations": [],
       "section": "\u00a7 3.10",
-      "n_changed_vs_baseline": 7,
+      "n_changed_vs_baseline": 15,
       "n_models_flip": 0,
       "n_models_flux_change": 0,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 9758,
-        "new_rev=<": 1957,
-        "new_rev==": 13195,
+        "new_rev=>": 10579,
+        "new_rev=<": 2078,
+        "new_rev==": 12253,
         "new_rev=?": 31102
       }
     },
@@ -197,68 +197,14 @@
       "description": "Doubles the reversible-band check from |reference \u0394G| \u2264 2 kcal/mol to \u2264 4 kcal/mol (cfg knob: mm_band=4.0), pulling more reactions out of directional calls into the reversible bucket. As with 3.10_tight, the motivation is to expose the reversibility decision's sensitivity to the Henry 2007 threshold and quantify how many directional calls hinge on the 2 kcal/mol choice alone.",
       "citations": [],
       "section": "\u00a7 3.10",
-      "n_changed_vs_baseline": 696,
+      "n_changed_vs_baseline": 456,
       "n_models_flip": 0,
-      "n_models_flux_change": 32,
+      "n_models_flux_change": 75,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 9137,
-        "new_rev=<": 1875,
-        "new_rev==": 13898,
-        "new_rev=?": 31102
-      }
-    },
-    {
-      "tag": "H1",
-      "title": "(NEW) default direction = '?' for unresolved",
-      "apt_title": "Distinguish 'no rule fired' from 'reversible' by returning '?'",
-      "description": "The baseline's final fallthrough returns '=' (reversible) whenever no earlier rule fires, conflating two genuinely different outcomes: heuristics actively agreed the reaction is reversible, versus heuristics had nothing to say. This variant returns '?' (unknown) for the bare default branch (cfg knob: default_direction='?'). 6,522 of 56,012 ModelSEED Database (MSDB) reactions land on this branch, so collapsing them with confidently-reversible reactions discards information a curator would want to triage.",
-      "citations": [],
-      "section": "\u00a7 H1",
-      "n_changed_vs_baseline": 6522,
-      "n_models_flip": 0,
-      "n_models_flux_change": 0,
-      "rev_counts": {
-        "total": 56012,
-        "new_rev=>": 9751,
-        "new_rev=<": 1957,
-        "new_rev==": 6680,
-        "new_rev=?": 37624
-      }
-    },
-    {
-      "tag": "H2",
-      "title": "(NEW) repair LOW_LOCAL_CONC shadow bug (O2/H2 at 1e-6 M)",
-      "apt_title": "Repair the O\u2082/H\u2082 shadow bug so oxidative reactions see 1 \u00b5M, not 1 mM",
-      "description": "Cytoplasmic dissolved O\u2082 sits at 5\u201350 \u00b5M, not the 1 mM default; the original code intended to apply a 1 \u00b5M local concentration override for O\u2082 and H\u2082 but a variable-shadowing bug made the branch unreachable. This variant repairs the bug (cfg knob: fix_low_local_conc=True). The override shifts the reference \u0394G of every O\u2082/H\u2082-coupled reaction by ~4 kcal/mol per unit stoichiometric coefficient, with sign depending on whether the gas appears as reactant or product \u2014 large enough to flip many calls in or out of the \u00b12 kcal reversible bucket.",
-      "citations": [],
-      "section": "\u00a7 H2",
-      "n_changed_vs_baseline": 1,
-      "n_models_flip": 0,
-      "n_models_flux_change": 0,
-      "rev_counts": {
-        "total": 56012,
-        "new_rev=>": 9751,
-        "new_rev=<": 1956,
-        "new_rev==": 13203,
-        "new_rev=?": 31102
-      }
-    },
-    {
-      "tag": "H3",
-      "title": "(NEW) repair phosphates shadow bug (ABC + low-E phosphate spread)",
-      "apt_title": "Repair the phosphate-accumulator shadow bug so ABC transporters become directional",
-      "description": "A typo silently disables the ABC-transporter rule that forces ATP-driven uptake reactions to be directional: the accumulator loop checks the wrong field on each reagent row, so the phosphates dict is always empty and the ABC branch is dead code. Repairing it (cfg knob: fix_phosphates_shadow=True) flips 1,989 ModelSEED Database reactions \u2014 1,209 from '=' (reversible) to '>' (forward-only) as ATP-driven uptake is correctly forced forward \u2014 and changes growth status in 21 of 100 panel models.",
-      "citations": [],
-      "section": "\u00a7 H3",
-      "n_changed_vs_baseline": 1989,
-      "n_models_flip": 14,
-      "n_models_flux_change": 100,
-      "rev_counts": {
-        "total": 56012,
-        "new_rev=>": 10562,
-        "new_rev=<": 2079,
-        "new_rev==": 12269,
+        "new_rev=>": 10180,
+        "new_rev=<": 2006,
+        "new_rev==": 12724,
         "new_rev=?": 31102
       }
     },
@@ -277,14 +223,14 @@
         "Salvy 2019"
       ],
       "section": "\u00a7 H4",
-      "n_changed_vs_baseline": 2413,
-      "n_models_flip": 0,
-      "n_models_flux_change": 88,
+      "n_changed_vs_baseline": 1624,
+      "n_models_flip": 60,
+      "n_models_flux_change": 97,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 11220,
-        "new_rev=<": 2291,
-        "new_rev==": 11399,
+        "new_rev=>": 11292,
+        "new_rev=<": 2468,
+        "new_rev==": 11150,
         "new_rev=?": 31102
       }
     }

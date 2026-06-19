@@ -75,18 +75,6 @@ def _v310l_cfg() -> lib.ReversibilityConfig:
     return lib.ReversibilityConfig(mm_band=4.0)
 
 
-def _H1_cfg() -> lib.ReversibilityConfig:
-    return lib.ReversibilityConfig(default_direction="?")
-
-
-def _H2_cfg() -> lib.ReversibilityConfig:
-    return lib.ReversibilityConfig(fix_low_local_conc=True)
-
-
-def _H3_cfg() -> lib.ReversibilityConfig:
-    return lib.ReversibilityConfig(fix_phosphates_shadow=True)
-
-
 def _H4_cfg() -> lib.ReversibilityConfig:
     return lib.ReversibilityConfig(
         ln_ri_by_rxn=lib.load_ln_reversibility_index(),
@@ -100,14 +88,18 @@ VARIANTS: list[dict] = [
     {
         "tag": "baseline",
         "title": "ReversibilityConfig() default (matches MSDB)",
-        "apt_title": "Default cascade — reproduces MSDB byte-for-byte (reference)",
+        "apt_title": "Default cascade — reproduces the fixed MSDB byte-for-byte (reference)",
         "description": (
             "Reproduces the upstream ModelSEEDDatabase "
             "Estimate_Reaction_Reversibility.py cascade exactly: heuristic 1 "
-            "(bounded ΔG′° check across the concentration window) "
-            "→ heuristic 4 (mMdeltaG ±2 kcal/mol band) → heuristic 5 "
-            "(LOW_ENERGY_CPDS points rule) → '=' (reversible) default. "
-            "Every other variant is a one-knob (or few-knob) diff against this reference."
+            "(bounded ΔG′° check across the concentration window) → ATP-synthase "
+            "→ ABC-transporter → heuristic 4 (mMdeltaG ±2 kcal/mol band) → "
+            "heuristic 5 (LOW_ENERGY_CPDS points rule) → '=' (reversible) default. "
+            "This baseline now includes the two shadow-bug repairs H2 and H3 "
+            "(adopted upstream): the phosphate accumulator, the ABC-transporter "
+            "rule, the phosphate-spread term, and the CO₂/O₂/H₂ concentration "
+            "overrides all fire as intended. Every other variant is a one-knob "
+            "(or few-knob) diff against this reference."
         ),
         "citations": ["Henry 2007"],
         "section": "(reference)",
@@ -210,8 +202,9 @@ VARIANTS: list[dict] = [
             "(cfg knob: low_energy_cpds=()). The frozen MFAToolkit-era compound list "
             "is superseded by principled measures like the reversibility index "
             "(§3.1) or multiTFA's P(forward). The residual phosphate-spread term "
-            "in the same rule still runs in principle but stays inert until "
-            "§H3 is stacked in."
+            "in the same rule is left in place — with the H3 repair now in the "
+            "baseline it is live, so this variant isolates the LOW_ENERGY_CPDS "
+            "contribution specifically."
         ),
         "citations": ["Noor 2012", "Gollub 2021"],
         "section": "§ 3.6",
@@ -222,12 +215,11 @@ VARIANTS: list[dict] = [
         "title": "Drop the CO2 1e-4 hardcoded concentration override",
         "apt_title": "Disable the hardcoded 1e-4 M CO₂ concentration override",
         "description": (
-            "Baseline declares a 1e-4 M CO₂ override (and a 1e-6 M O₂/H₂ "
-            "override) but both branches are unreachable due to the shadow bug "
-            "fixed in §H3 — they only fire once H3 is stacked in. This variant "
-            "turns the gate off (cfg knob: apply_special_conc=False) so that even "
-            "after the H3 repair, CO₂/O₂/H₂ sit at the 1 mM default. "
-            "eQuilibrator already models CO₂(aq)/HCO₃⁻/CO₃²⁻ "
+            "The baseline applies a 1e-4 M CO₂ override and a 1e-6 M O₂/H₂ "
+            "override during the mMdeltaG walk (both now live, since the H2/H3 "
+            "shadow-bug repairs are in the baseline). This variant turns the gate "
+            "off (cfg knob: apply_special_conc=False) so CO₂/O₂/H₂ sit at the "
+            "1 mM default instead. eQuilibrator already models CO₂(aq)/HCO₃⁻/CO₃²⁻ "
             "speciation as a function of pH, so the override would double-count "
             "what the transform handles."
         ),
@@ -266,61 +258,6 @@ VARIANTS: list[dict] = [
         "citations": [],
         "section": "§ 3.10",
         "cfg": _v310l_cfg,
-    },
-    {
-        "tag": "H1",
-        "title": "(NEW) default direction = '?' for unresolved",
-        "apt_title": "Distinguish 'no rule fired' from 'reversible' by returning '?'",
-        "description": (
-            "The baseline's final fallthrough returns '=' (reversible) whenever "
-            "no earlier rule fires, conflating two genuinely different outcomes: "
-            "heuristics actively agreed the reaction is reversible, versus "
-            "heuristics had nothing to say. This variant returns '?' (unknown) "
-            "for the bare default branch (cfg knob: default_direction='?'). "
-            "6,522 of 56,012 ModelSEED Database (MSDB) reactions land on this "
-            "branch, so collapsing them with confidently-reversible reactions "
-            "discards information a curator would want to triage."
-        ),
-        "citations": [],
-        "section": "§ H1",
-        "cfg": _H1_cfg,
-    },
-    {
-        "tag": "H2",
-        "title": "(NEW) repair LOW_LOCAL_CONC shadow bug (O2/H2 at 1e-6 M)",
-        "apt_title": "Repair the O₂/H₂ shadow bug so oxidative reactions see 1 µM, not 1 mM",
-        "description": (
-            "Cytoplasmic dissolved O₂ sits at 5–50 µM, not the 1 mM default; "
-            "the original code intended to apply a 1 µM local concentration "
-            "override for O₂ and H₂ but a variable-shadowing bug made the "
-            "branch unreachable. This variant repairs the bug "
-            "(cfg knob: fix_low_local_conc=True). The override shifts the reference "
-            "ΔG of every O₂/H₂-coupled reaction by ~4 kcal/mol per unit "
-            "stoichiometric coefficient, with sign depending on whether the gas "
-            "appears as reactant or product — large enough to flip many calls in "
-            "or out of the ±2 kcal reversible bucket."
-        ),
-        "citations": [],
-        "section": "§ H2",
-        "cfg": _H2_cfg,
-    },
-    {
-        "tag": "H3",
-        "title": "(NEW) repair phosphates shadow bug (ABC + low-E phosphate spread)",
-        "apt_title": "Repair the phosphate-accumulator shadow bug so ABC transporters become directional",
-        "description": (
-            "A typo silently disables the ABC-transporter rule that forces "
-            "ATP-driven uptake reactions to be directional: the accumulator loop "
-            "checks the wrong field on each reagent row, so the phosphates dict "
-            "is always empty and the ABC branch is dead code. Repairing it "
-            "(cfg knob: fix_phosphates_shadow=True) flips 1,989 ModelSEED Database "
-            "reactions — 1,209 from '=' (reversible) to '>' (forward-only) as "
-            "ATP-driven uptake is correctly forced forward — and changes growth "
-            "status in 21 of 100 panel models."
-        ),
-        "citations": [],
-        "section": "§ H3",
-        "cfg": _H3_cfg,
     },
     {
         "tag": "H4",

@@ -171,9 +171,12 @@ if disagree:
 
 FBA_BASELINES_CELL = """
 # --- Two FBA baselines --------------------------------------------------
-# 1) on-disk FBA: bounds untouched, matches results.csv byte-for-byte.
+# 1) on-disk FBA: bounds untouched -- a control (the template-time bounds the
+#    model JSONs ship with, not synced to any current cascade).
 # 2) heuristic-baseline FBA: rebind every panel model to BASELINE_MAP
-#    (= MSDB cascade defaults) -- the reference point for variant heuristics.
+#    (= fixed MSDB cascade defaults, H2+H3) -- the reference point for variant
+#    heuristics.  results/results.csv is now regenerated this way, so it
+#    reproduces THIS baseline (not the on-disk control above).
 
 CACHE_KEY_ONDISK = 'fba_ondisk_v1'
 CACHE_KEY_HEURBASE = 'fba_heuristic_baseline_v1'
@@ -362,30 +365,6 @@ VARIANTS = [
         ),
     },
     {
-        "tag": "H1",
-        "title": "(NEW) default direction = '?' instead of '=' for unresolved",
-        "section": "§ H1 (added by notebook)",
-        "cfg_body": (
-            "return lib.ReversibilityConfig(default_direction='?')"
-        ),
-    },
-    {
-        "tag": "H2",
-        "title": "(NEW) repair LOW_LOCAL_CONC shadow bug (O2/H2 at 1e-6 M)",
-        "section": "§ H2 (added by notebook)",
-        "cfg_body": (
-            "return lib.ReversibilityConfig(fix_low_local_conc=True)"
-        ),
-    },
-    {
-        "tag": "H3",
-        "title": "(NEW) repair phosphates shadow bug (ABC + low-E phosphate spread)",
-        "section": "§ H3 (added by notebook)",
-        "cfg_body": (
-            "return lib.ReversibilityConfig(fix_phosphates_shadow=True)"
-        ),
-    },
-    {
         "tag": "H4",
         "title": "(NEW) stack 3.1 + 3.5 + Bennett: 'best-evidence' composite",
         "section": "§ H4 (added by notebook)",
@@ -487,11 +466,13 @@ def build_notebook() -> nbf.NotebookNode:
         md("""
         ## 3. Two FBA baselines on the 100-model panel
 
-        - **On-disk FBA** -- bounds untouched.  Should reproduce
-          `results/results.csv` byte-for-byte (modulo solver jitter
-          well below 1e-6).
+        - **On-disk FBA** -- bounds untouched.  A control: the
+          template-time bounds the model JSONs ship with (not synced
+          to any current cascade).
         - **Heuristic-baseline FBA** -- panel models rebound to the
-          cascade's baseline reversibility map.  Diverges from on-disk
+          cascade's baseline reversibility map (fixed H2+H3 cascade).
+          `results/results.csv` is now regenerated this way, so it
+          reproduces this baseline.  Diverges from on-disk
           wherever the model JSON was built from a different
           reversibility (template-time curation, pre-EQ heuristics,
           ...).  This is the reference point all variants are compared

@@ -258,7 +258,15 @@ the band.
 
 ## 6. Recommendations by impact tier
 
-### Adopt as code fix (no design choice)
+> **Status (decision made):** H2 + H3 were **adopted** as the canonical cascade
+> (baked into `Estimate_Reaction_Reversibility.py` on `claude-changes` and into
+> the `reversibility_lib` baseline); **H1 was rejected and removed entirely**;
+> the §3.x heuristics remain opt-in. The panel was re-derived under the fixed
+> cascade. See [`REVERSIBILITY_DEFAULTS_DECISION.md`](REVERSIBILITY_DEFAULTS_DECISION.md)
+> for the decision record and post-fix numbers. The tiers below are the original
+> recommendation that informed that decision.
+
+### Adopt as code fix (no design choice) — ✅ DONE
 
 - **H3** — `phosphates` shadow-bug repair. The cascade documentation
   itself describes this as latent-bug-preserved; the repair restores
@@ -286,11 +294,15 @@ the band.
   mainly by its 3.5 σ-band + Bennett components; review against
   experimental panels before adoption.
 
-### Adopt as curation surface
+### Rejected
 
 - **H1** — Distinguish "no rule fired" (`?`) from "agreed reversible"
-  (`=`). Zero biology effect; large curation signal. Ship it as a
-  metadata column rather than a bound override.
+  (`=`). **Rejected and removed.** It carries zero biology effect (`?`
+  and `=` map to identical FBA bounds) and runs against the cascade's
+  design intent, where the fall-through *is* "reversible". The
+  `default_direction` knob and the H1 variant were deleted everywhere.
+  (If a curation signal for the "no rule fired" bucket is wanted later,
+  surface it as a separate report column, not as a cascade direction.)
 
 ### Evaluate against a wider model population
 
@@ -307,8 +319,10 @@ the band.
   shift (161 new growers, no losses) because relaxing forced direction
   opens cofactor flow. Pairs naturally with 3.1 (which restores principled
   directionality where it's warranted).
-- **3.7** — disable CO₂ override. Currently a no-op (gated by H3).
-  Re-evaluate after H3 lands.
+- **3.7** — disable CO₂/O₂/H₂ override. Now **live** post-H3: against the
+  fixed baseline it changes 58 reactions and shifts flux in 353 of 5,683
+  models (0 panel grow-flips). A defensible alternative once eQuilibrator's
+  pH-dependent CO₂ speciation is trusted to subsume the override.
 - **3.10_tight / 3.10_loose** — band-width sensitivity. Educational
   knobs rather than recommendations.
 
