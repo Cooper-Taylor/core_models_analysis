@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-19T18:41:33Z",
+  "generated_at": "2026-06-23T05:24:25Z",
   "panel_size": 100,
   "n_msdb_rxns": 56012,
-  "n_panel_rxns": 4821,
+  "n_panel_rxns": 42074,
   "variants": [
     {
       "tag": "baseline",
@@ -232,6 +232,26 @@
         "new_rev=<": 2468,
         "new_rev==": 11150,
         "new_rev=?": 31102
+      }
+    },
+    {
+      "tag": "ai_opus48",
+      "title": "AI-predicted directions (Claude Opus 4.8)",
+      "apt_title": "Reaction directions predicted by Claude Opus 4.8 (via Argo), overlaid on the MSDB baseline",
+      "description": "Reaction directions predicted by the Claude Opus 4.8 model (through the Argo gateway) from each reaction's stoichiometry. Applied as an overlay on the baseline cascade: a reaction keeps its baseline direction unless the AI expressed an opinion, so the diff and FBA effect isolate the AI's calls. forward->'>', reverse->'<', reversible->'=', uncertain->'?'.",
+      "citations": [
+        "Claude Opus 4.8 (Anthropic), via the Argo gateway"
+      ],
+      "section": "AI / LLM",
+      "n_changed_vs_baseline": 39027,
+      "n_models_flip": 41,
+      "n_models_flux_change": 100,
+      "rev_counts": {
+        "total": 56012,
+        "new_rev=>": 41838,
+        "new_rev==": 8193,
+        "new_rev=<": 1434,
+        "new_rev=?": 4547
       }
     }
   ]
