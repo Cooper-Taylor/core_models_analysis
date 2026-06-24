@@ -1,0 +1,13 @@
+reactions in file (union): 55918
+
+Jankowski_2008   non-NA:  25812  dist: {'=': 16693, '>': 7476, '<': 1643}
+Flamholz_2012    non-NA:  16742  dist: {'>': 7634, '<': 1442, '=': 7666}
+Beber_2022       non-NA:  19624  dist: {'>': 8681, '=': 9369, '<': 1574}
+LLM_Opus_4.8     non-NA:  55878  dist: {'>': 41909, '=': 8178, '<': 1428, '?': 4363}
+
+Jankowski_2008   vs Flamholz_2012   :  11447/ 16195 agree (70.7%)
+Jankowski_2008   vs Beber_2022      :  10242/ 15263 agree (67.1%)
+Jankowski_2008   vs LLM_Opus_4.8    :  12016/ 25789 agree (46.6%)
+Flamholz_2012    vs Beber_2022      :  11695/ 12016 agree (97.3%)
+Flamholz_2012    vs LLM_Opus_4.8    :   9871/ 16725 agree (59.0%)
+Beber_2022       vs LLM_Opus_4.8    :  11336/ 19610 agree (57.8%)
