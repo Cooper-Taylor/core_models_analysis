@@ -1,12 +1,12 @@
 """
 Growth pipeline that re-bounds each panel model's reactions using a chosen
-reversibility map, then runs FBA on the biomass reaction.
+reversibility map, then runs FBA maximizing ATP production.
 
 This complements ``analyze_growth.py``.  That script reads the on-disk
 ``lower_bound`` / ``upper_bound`` of every reaction as-is.  This module lets
 the notebook overlay a fresh ``{rxn_id: reversibility}`` map (e.g. the output
 of ``reversibility_lib.run_cascade(cfg=...)``) so we can quantify how each
-heuristic change moves model growth.
+heuristic change moves model ATP production.
 
 We never write back to ``core_models_kegg2/*.json`` -- all overrides live in
 memory.
@@ -237,6 +237,77 @@ def fba_one(model_id: str, reversibility_map: Optional[dict] = None,
     except Exception as e:
         res["error"] = f"{type(e).__name__}: {e}"
     return res
+
+
+def rxn_pipeline_one(model_id: str, baseline_map: dict, changed_dirs: dict) -> dict:
+    """Decompose a variant's ATP-flux effect on one model into per-reaction parts.
+
+    Rebinds the model to ``baseline_map`` (the heuristic-baseline cascade), then,
+    for each reaction in ``changed_dirs`` (``{seed_rxn_id: variant_direction}``)
+    that is present in the model:
+
+      * **single** -- flip only that reaction to its variant direction, solve, and
+        record ``delta = ATP_flux - base_flux`` (then restore the baseline bounds);
+      * **cumulative** -- after sorting the single-reaction deltas by ``|delta|``
+        descending, re-apply them in that order *without* reverting, solving after
+        each, to show how the direction changes compound.
+
+    The model JSON is loaded once; all perturbations happen in memory. Returns
+    ``{model_id, base_flux, singles:[{rxn,delta}...], cumulative:[{rxn,delta}...]}``
+    with ``singles`` and ``cumulative`` in the same (|delta|-descending) reaction
+    order, or ``{model_id, error}`` on failure. ``cumulative[-1]`` (all changes
+    applied) equals the variant's whole-model delta -- a built-in cross-check."""
+    try:
+        model = load_json_model(str(MODELS_DIR / f"{model_id}.json"))
+        override_bounds(model, baseline_map)
+        apply_media(model)
+        atp_rxn = ensure_atp_objective(model)
+        if atp_rxn is None:
+            return {"model_id": model_id, "error": "no_atp_metabolites"}
+        model.objective = atp_rxn
+
+        def _flux():
+            sol = model.optimize()
+            if sol.status == "optimal" and sol.objective_value is not None:
+                return float(sol.objective_value)
+            return 0.0
+
+        base_flux = _flux()
+
+        # seed reaction id -> the model reaction(s) carrying that SEED annotation
+        seed_rxns: dict = {}
+        for rxn in model.reactions:
+            s = seed_id(rxn)
+            if s in changed_dirs:
+                seed_rxns.setdefault(s, []).append(rxn)
+
+        singles = []
+        for seed, new_dir in changed_dirs.items():
+            rs = seed_rxns.get(seed)
+            if not rs:
+                continue  # reaction not actually present in this model
+            backup = [(r, r.lower_bound, r.upper_bound) for r in rs]
+            lb, ub = _bounds_for_rev(new_dir)
+            for r in rs:
+                r.lower_bound, r.upper_bound = lb, ub
+            singles.append({"rxn": seed, "delta": _flux() - base_flux})
+            for r, lo, hi in backup:
+                r.lower_bound, r.upper_bound = lo, hi
+
+        singles.sort(key=lambda d: (-abs(d["delta"]), d["rxn"]))
+
+        cumulative = []
+        for d in singles:
+            seed = d["rxn"]
+            lb, ub = _bounds_for_rev(changed_dirs[seed])
+            for r in seed_rxns.get(seed, []):
+                r.lower_bound, r.upper_bound = lb, ub
+            cumulative.append({"rxn": seed, "delta": _flux() - base_flux})
+
+        return {"model_id": model_id, "base_flux": base_flux,
+                "singles": singles, "cumulative": cumulative}
+    except Exception as e:
+        return {"model_id": model_id, "error": f"{type(e).__name__}: {e}"}
 
 
 _worker_kwargs_cache: dict = {}
