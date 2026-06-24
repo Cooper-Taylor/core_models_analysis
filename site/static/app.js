@@ -42,6 +42,8 @@ const STATE = {
   pmFluxFilter: 'any',
   pmOverrides: {},             // {rxn: mode} for the per-model live override panel
   baselineMap: null,           // {rxn: dir} from baseline.json (live-only; informational)
+  pmCompareTag: null,          // variant whose directions sit beside baseline in the per-model table
+  pmCompareDiffs: {},          // {rxn: new_dir} for pmCompareTag
   // updated by fetchHealth() in bootstrap; defaults to true so any race
   // (handler firing before fetchHealth resolves) lands in static-safe behavior.
   staticMode: true,
@@ -1412,11 +1414,13 @@ function renderPanelModelDetail(mid) {
 
   const liveHtml = `
     <div class="live-only">
-      <h3>Manual reaction-direction override <span class="hint">— live FBA on ${escapeHtml(mid)}</span></h3>
-      <p class="hint">Pick a starting variant, set one or more of this model's reactions to a forced
-        direction (or disable them), then run FBA on this single model to see the overall growth effect.</p>
+      <h3>Reaction directions &amp; manual override <span class="hint">— live FBA on ${escapeHtml(mid)}</span></h3>
+      <p class="hint">Every unique reaction in this model: its <strong>default</strong> (baseline) direction,
+        the selected variant's direction (changes highlighted), and a dropdown to set your own. Then run FBA
+        on this model to see the growth effect of your overrides vs baseline.</p>
       <div class="sandbox-controls">
-        <label>Starting variant: <select id="pm-ov-variant"></select></label>
+        <label>Compare to variant: <select id="pm-ov-variant"></select></label>
+        <button id="pm-ov-apply" class="small">set overrides = this variant's changes</button>
       </div>
       <div id="pm-overrides" class="overrides-box"></div>
       <div class="search-row">
@@ -1493,23 +1497,59 @@ async function initPmOverride(mid) {
   if (vsel) {
     vsel.innerHTML = '';
     (await loadManifest()).variants.forEach((v) => {
+      if (v.tag === 'baseline') return;
       const o = document.createElement('option');
       o.value = v.tag; o.textContent = `${v.tag} — ${v.title}`;
       vsel.appendChild(o);
     });
-    vsel.value = 'baseline';
+    // Default the comparison to the variant selected in the top filter (if any),
+    // else the variant with the biggest flux impact on this model.
+    let def = (STATE.pmVariantFilter && STATE.pmVariantFilter !== 'any') ? STATE.pmVariantFilter : null;
+    if (!def) { const best = pmMaxAbs(mid); def = best ? best.tag : (vsel.options[0] && vsel.options[0].value); }
+    if (def) vsel.value = def;
   }
   if (!STATE.baselineMap) {
     try { STATE.baselineMap = (await API.data('baseline.json')).map; }
     catch (e) { STATE.baselineMap = {}; }
   }
   STATE.pmOverrides = {};
+  await loadCompareVariant(vsel ? vsel.value : null);
   renderPmOverrides();
   renderPmOvRxnList(mid);
+  if (vsel) vsel.onchange = async () => {
+    await loadCompareVariant(vsel.value);
+    renderPmOvRxnList(STATE.selectedModel);
+  };
   const search = document.getElementById('pm-ov-search');
   if (search) search.oninput = () => renderPmOvRxnList(STATE.selectedModel);
   const runBtn = document.getElementById('pm-ov-run');
   if (runBtn) runBtn.onclick = () => runPmOverride(mid);
+  const applyBtn = document.getElementById('pm-ov-apply');
+  if (applyBtn) applyBtn.onclick = () => applyVariantOverrides(mid);
+}
+
+// Load the {rxn: new_dir} diff map for the variant being compared against baseline.
+async function loadCompareVariant(tag) {
+  STATE.pmCompareTag = tag;
+  STATE.pmCompareDiffs = {};
+  if (!tag || tag === 'baseline') return;
+  const p = await loadVariant(tag);
+  for (const d of (p.diffs || [])) STATE.pmCompareDiffs[d.rxn] = d.new;
+}
+
+// Pre-fill the override dropdowns with the compared variant's direction for every
+// reaction it changes in this model (so you can run that heuristic, then tweak).
+function applyVariantOverrides(mid) {
+  const REV_TO_MODE = { '>': 'forward', '<': 'reverse', '=': 'free' };
+  const base = STATE.baselineMap || {};
+  const inModel = new Set(STATE.panelRxnsets[mid] || []);
+  for (const [rxn, nv] of Object.entries(STATE.pmCompareDiffs || {})) {
+    if (inModel.has(rxn) && nv !== base[rxn] && REV_TO_MODE[nv]) {
+      STATE.pmOverrides[rxn] = REV_TO_MODE[nv];
+    }
+  }
+  renderPmOverrides();
+  renderPmOvRxnList(mid);
 }
 
 function renderPmOverrides() {
@@ -1539,19 +1579,35 @@ function renderPmOvRxnList(mid) {
   if (q) rxns = rxns.filter((id) =>
     id.toLowerCase().includes(q) ||
     ((STATE.reactionsPanel[id]?.name || '').toLowerCase().includes(q)));
+  const base = STATE.baselineMap || {};
+  const diffs = STATE.pmCompareDiffs || {};
+  const tag = STATE.pmCompareTag;
+  const varDir = (id) => (id in diffs ? diffs[id] : base[id]);
+  const nChanged = rxns.filter((id) => varDir(id) !== base[id]).length;
   const count = document.getElementById('pm-ov-rxn-count');
-  if (count) count.textContent = `${rxns.length} reactions`;
+  if (count) count.textContent =
+    `${rxns.length} reactions${tag ? ` · ${nChanged} changed by ${tag}` : ''}`;
   const modes = ['as_is', 'forward', 'reverse', 'free', 'off'];
-  wrap.innerHTML = rxns.slice(0, 200).map((id) => {
-    const cur = STATE.baselineMap ? STATE.baselineMap[id] : null;
+  const varHdr = tag ? escapeHtml(tag) : 'variant';
+  const rowsHtml = rxns.slice(0, 200).map((id) => {
+    const d = base[id] || '?';
+    const v = varDir(id) || d;
+    const changed = v !== d;
     const sel = STATE.pmOverrides[id] || 'as_is';
     const name = STATE.reactionsPanel[id]?.name || '';
-    return `<div class="pm-ov-rxn-row${sel !== 'as_is' ? ' active' : ''}">
-      <code>${escapeHtml(id)}</code>${cur ? revBadge(cur) : ''}
-      <select data-rxn="${escapeHtml(id)}">${modes.map((mm) =>
-        `<option value="${mm}"${mm === sel ? ' selected' : ''}>${mm}</option>`).join('')}</select>
-      <span class="pm-ov-name">${escapeHtml(name)}</span></div>`;
-  }).join('') + (rxns.length > 200 ? `<p class="hint">… ${rxns.length - 200} more (filter to narrow)</p>` : '');
+    return `<tr class="pm-ov-rxn-row${changed ? ' pm-changed' : ''}${sel !== 'as_is' ? ' active' : ''}">
+      <td><a href="#" class="rxn-link" data-rxn="${escapeHtml(id)}">${escapeHtml(id)}</a></td>
+      <td class="pm-ov-name" title="${escapeHtml(name)}">${escapeHtml(name)}</td>
+      <td>${revBadge(d)}</td>
+      <td>${revBadge(v)}${changed ? ' <span class="pm-chg" title="changed by this variant">●</span>' : ''}</td>
+      <td><select data-rxn="${escapeHtml(id)}">${modes.map((mm) =>
+        `<option value="${mm}"${mm === sel ? ' selected' : ''}>${mm}</option>`).join('')}</select></td>
+    </tr>`;
+  }).join('');
+  wrap.innerHTML = `<table class="changed-by-table pm-ov-table">
+      <thead><tr><th>reaction</th><th>name</th><th>default</th><th>${varHdr}</th><th>override</th></tr></thead>
+      <tbody>${rowsHtml}</tbody></table>` +
+    (rxns.length > 200 ? `<p class="hint">… ${rxns.length - 200} more (filter to narrow)</p>` : '');
   wrap.querySelectorAll('select').forEach((s) =>
     s.addEventListener('change', () => {
       const rxn = s.dataset.rxn;
@@ -1560,20 +1616,27 @@ function renderPmOvRxnList(mid) {
       renderPmOverrides();
       s.closest('.pm-ov-rxn-row').classList.toggle('active', s.value !== 'as_is');
     }));
+  bindRxnLinks(wrap);
 }
 
 async function runPmOverride(mid) {
-  const variant = document.getElementById('pm-ov-variant').value || 'baseline';
   const overrides = { ...STATE.pmOverrides };
   const btn = document.getElementById('pm-ov-run');
   const status = document.getElementById('pm-ov-status');
   const out = document.getElementById('pm-ov-results');
+  if (!Object.keys(overrides).length) {
+    out.innerHTML = '<p class="hint">Set at least one reaction’s override (or use '
+      + '“set overrides = this variant’s changes”) before running.</p>';
+    return;
+  }
   btn.disabled = true; status.textContent = 'running FBA…'; out.innerHTML = '';
   try {
     const t0 = performance.now();
+    // Always referenced to the baseline cascade so it matches the "default"
+    // column; the variant selector only drives the comparison column above.
     const [base, mod] = await Promise.all([
-      API.panelFba({ variant, overrides: {}, models: [mid], n_workers: 1 }),
-      API.panelFba({ variant, overrides, models: [mid], n_workers: 1 }),
+      API.panelFba({ variant: 'baseline', overrides: {}, models: [mid], n_workers: 1 }),
+      API.panelFba({ variant: 'baseline', overrides, models: [mid], n_workers: 1 }),
     ]);
     const b = (base.results || [])[0] || {};
     const v = (mod.results || [])[0] || {};
@@ -1582,7 +1645,7 @@ async function runPmOverride(mid) {
     status.textContent = `done in ${((performance.now() - t0) / 1000) | 0}s`;
     out.innerHTML = `
       <div class="flux-impact-grid">
-        <div class="card"><h4>baseline (${escapeHtml(variant)})</h4>
+        <div class="card"><h4>baseline</h4>
           <div class="stat">${(b.growth_flux || 0).toFixed(4)}</div>
           <div class="stat-sub">${b.grows ? 'grows' : 'no growth'}</div></div>
         <div class="card"><h4>with ${Object.keys(overrides).length} override(s)</h4>
@@ -1597,8 +1660,69 @@ async function runPmOverride(mid) {
   } finally { btn.disabled = false; }
 }
 
+// -------------------- resizable / collapsible list panes --------------------
+// Insert a drag handle between each .reaction-grid's list pane and detail pane so
+// the sidebar can be resized with the cursor (and double-click to collapse/expand).
+// Width persists across tabs/reloads via localStorage.
+function enhanceResizableGrids() {
+  const KEY = 'reaction-grid-list-w';
+  const saved = localStorage.getItem(KEY);
+  document.querySelectorAll('.reaction-grid').forEach((grid) => {
+    if (grid.dataset.resizable) return;
+    grid.dataset.resizable = '1';
+    const listPane = grid.children[0];
+    const detailPane = grid.children[1];
+    if (!listPane || !detailPane) return;
+    if (saved) grid.style.setProperty('--list-w', saved);
+
+    const resizer = document.createElement('div');
+    resizer.className = 'grid-resizer';
+    resizer.title = 'Drag to resize · double-click to collapse/expand';
+    resizer.innerHTML = '<span class="grid-resizer-grip"></span>';
+    grid.insertBefore(resizer, detailPane);
+
+    const curW = () => getComputedStyle(grid).getPropertyValue('--list-w').trim() || '360px';
+    let dragging = false, startX = 0, startW = 0;
+    const onMove = (e) => {
+      if (!dragging) return;
+      const w = Math.max(0, Math.min(startW + (e.clientX - startX), grid.clientWidth - 200));
+      grid.style.setProperty('--list-w', w + 'px');
+      grid.classList.toggle('list-collapsed', w < 8);
+    };
+    const onUp = () => {
+      if (!dragging) return;
+      dragging = false;
+      document.body.style.userSelect = '';
+      localStorage.setItem(KEY, curW());
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+    };
+    resizer.addEventListener('mousedown', (e) => {
+      dragging = true;
+      startX = e.clientX;
+      startW = listPane.getBoundingClientRect().width;
+      document.body.style.userSelect = 'none';
+      window.addEventListener('mousemove', onMove);
+      window.addEventListener('mouseup', onUp);
+      e.preventDefault();
+    });
+    resizer.addEventListener('dblclick', () => {
+      const nowCollapsed = grid.classList.toggle('list-collapsed');
+      if (nowCollapsed) {
+        const w = curW();
+        grid._prevListW = (w && w !== '0px') ? w : '360px';
+        grid.style.setProperty('--list-w', '0px');
+      } else {
+        grid.style.setProperty('--list-w', grid._prevListW || '360px');
+      }
+      localStorage.setItem(KEY, curW());
+    });
+  });
+}
+
 // -------------------- bootstrap --------------------
 (async function init() {
+  enhanceResizableGrids();
   await fetchHealth();
   await renderVariants();
   if (!STATE.staticMode) renderOverrides();

@@ -184,11 +184,35 @@ h3 { color: var(--text); font-size: 14px; font-weight: 600; margin: 12px 0 6px; 
 
 .reaction-grid {
   display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: 12px;
+  /* 2-track fallback before the resizer JS runs (or if it doesn't). */
+  grid-template-columns: var(--list-w, 360px) 1fr;
+  gap: 8px;
   height: calc(100vh - 280px);
   min-height: 400px;
 }
+/* Once the drag handle is injected: list pane | handle | detail pane. */
+.reaction-grid[data-resizable] {
+  grid-template-columns: var(--list-w, 360px) 6px 1fr;
+}
+.reaction-grid[data-resizable].list-collapsed { grid-template-columns: 0 6px 1fr; }
+/* Drag handle between the panes (resize with cursor; double-click to collapse). */
+.grid-resizer {
+  align-self: stretch;
+  background: var(--border);
+  border-radius: 2px;
+  cursor: col-resize;
+  position: relative;
+}
+.grid-resizer:hover { background: var(--accent); }
+.grid-resizer-grip {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px; height: 30px;
+  background: var(--text-dim);
+  border-radius: 1px;
+}
+.grid-resizer:hover .grid-resizer-grip { background: #0f1218; }
 .reaction-list-pane {
   background: var(--bg-elev);
   border: 1px solid var(--border);
@@ -676,17 +700,20 @@ body.static-mode #tab-sandbox { display: none !important; }
   background: var(--bg-elev);
   margin-bottom: 8px;
 }
-.pm-ov-rxn-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 3px 8px;
-  border-bottom: 1px solid var(--border);
-  font-family: var(--mono);
-  font-size: 12px;
+/* Per-model reaction table: reaction | name | default | variant | override */
+.pm-ov-table { margin: 0; }
+.pm-ov-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--bg-elev-2);
+  z-index: 1;
 }
-.pm-ov-rxn-row.active { background: rgba(243, 182, 91, 0.08); }
-.pm-ov-rxn-row select {
+.pm-ov-table td { vertical-align: middle; }
+.pm-ov-table tr.pm-changed { background: rgba(243, 182, 91, 0.08); }  /* variant changed this dir */
+.pm-ov-table tr.active { background: rgba(95, 216, 184, 0.10); }      /* user set an override */
+.pm-ov-table tr.pm-changed.active { background: rgba(95, 216, 184, 0.16); }
+.pm-ov-table .pm-chg { color: var(--accent-2); font-size: 10px; }
+.pm-ov-table select {
   background: var(--bg-elev-2);
   color: var(--text);
   border: 1px solid var(--border);
@@ -695,8 +722,10 @@ body.static-mode #tab-sandbox { display: none !important; }
   font-size: 11px;
   padding: 1px 4px;
 }
-.pm-ov-rxn-row .pm-ov-name {
+.pm-ov-table tr.active select { border-color: var(--accent); }
+.pm-ov-table .pm-ov-name {
   color: var(--text-dim);
+  max-width: 240px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
