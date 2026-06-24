@@ -1,9 +1,11 @@
 # Reaction-Reversibility Heuristics Explorer
 
 Web UI for browsing every `ReversibilityConfig` variant from notebook
-06 against the 100-model descriptive growth panel, drilling into
+06 against the 100-model descriptive ATP-production panel, drilling into
 individual reactions, and (optionally) sandboxing per-reaction FBA
-effects.
+effects. FBA maximizes ATP production (an in-memory `DM_atp_c0`
+ATP-hydrolysis demand reaction, media uptake capped at -1 mmol/gDW/h),
+not biomass growth.
 
 ## Quickstart (one command, no install)
 
@@ -159,7 +161,7 @@ python3 scripts/build_site_data.py               # ~20s
 
 1. **Variant Browser** — one row per `ReversibilityConfig` variant
    with: reactions changed vs MSDB baseline, panel models that flip
-   grower/non-grower, panel models whose biomass flux moved.  Clicking
+   ATP producer/non-producer, panel models whose ATP-production flux moved.  Clicking
    a row shows the transition matrix (`> -> =`, `= -> <`, ...) and the
    top changed reactions; clicking a rxn ID jumps to the Reaction
    Explorer.

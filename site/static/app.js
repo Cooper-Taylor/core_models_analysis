@@ -401,7 +401,7 @@ function updateScopeColumnLabels() {
   document.getElementById('col-flux-change').textContent =
     `models flux change (${tag})`;
   document.getElementById('col-grow-flip').textContent =
-    `models grow-flip (${tag})`;
+    `models ATP-flip (${tag})`;
 }
 
 async function loadVariant(tag) {
@@ -497,9 +497,9 @@ function renderPanelFluxChart(panel_fba) {
       : '';
     const tooltip =
       `${r.model_id}\n` +
-      `baseline: ${r.baseline_flux.toFixed(4)} (${r.baseline_grows ? 'grew' : 'no growth'})\n` +
-      `variant:  ${r.variant_flux.toFixed(4)} (${r.variant_grows ? 'grew' : 'no growth'})\n` +
-      `Δ flux:   ${r.delta_flux.toFixed(4)}${flipped ? '   ← grow-status flipped' : ''}`;
+      `baseline: ${r.baseline_flux.toFixed(4)} (${r.baseline_grows ? 'produces ATP' : 'no ATP'})\n` +
+      `variant:  ${r.variant_flux.toFixed(4)} (${r.variant_grows ? 'produces ATP' : 'no ATP'})\n` +
+      `Δ ATP flux: ${r.delta_flux.toFixed(4)}${flipped ? '   ← ATP-status flipped' : ''}`;
     const bar = sign === 'zero'
       ? ''
       : `<span class="pfc-bar ${sign}" style="width:${halfPct}%"></span>`;
@@ -517,8 +517,8 @@ function renderPanelFluxChart(panel_fba) {
         <span class="legend-item"><span class="swatch pos"></span> ${n_pos} gained flux</span> &nbsp;·&nbsp;
         <span class="legend-item"><span class="swatch neg"></span> ${n_neg} lost flux</span> &nbsp;·&nbsp;
         ${n_zero} unchanged &nbsp;·&nbsp;
-        ${n_flip} flipped grow-status (↑ became grower, ↓ stopped growing) &nbsp;·&nbsp;
-        bar scale: ±${max_abs.toFixed(2)} flux units
+        ${n_flip} flipped ATP-status (↑ gained ATP production, ↓ lost ATP production) &nbsp;·&nbsp;
+        bar scale: ±${max_abs.toFixed(2)} ATP flux units
       </div>
       <div class="pfc-rows">${rows}</div>
     </div>`;
@@ -542,10 +542,10 @@ function renderAllModelsStatsCard(p, allFbaRows) {
         <div class="stat-sub">${summary.n_models_containing_changed_rxn.toLocaleString()} contain ≥1 changed rxn</div>
       </div>
       <div class="ams-card">
-        <h4>growth status</h4>
-        <div class="stat">${summary.n_models_grow.toLocaleString()}<span class="stat-sub"> grow under variant</span></div>
-        <div class="stat-sub"><span class="diff-down">${summary.n_grew_default_now_not.toLocaleString()}</span> grew in default → don't now</div>
-        <div class="stat-sub"><span class="diff-up">${summary.n_not_default_now_grew.toLocaleString()}</span> didn't grow → now do</div>
+        <h4>ATP-production status</h4>
+        <div class="stat">${summary.n_models_grow.toLocaleString()}<span class="stat-sub"> produce ATP under variant</span></div>
+        <div class="stat-sub"><span class="diff-down">${summary.n_grew_default_now_not.toLocaleString()}</span> produced ATP in default → don't now</div>
+        <div class="stat-sub"><span class="diff-up">${summary.n_not_default_now_grew.toLocaleString()}</span> no ATP in default → now do</div>
       </div>
       <div class="ams-card">
         <h4>flux distribution (variant)</h4>
@@ -591,7 +591,7 @@ function renderTopMoversTable(rows, maxRows = 100) {
     : '';
   return `
     <table class="changed-by-table">
-      <thead><tr><th>model_id</th><th>baseline flux</th><th>variant flux</th><th>Δ flux</th><th>grow base → variant</th></tr></thead>
+      <thead><tr><th>model_id</th><th>baseline ATP flux</th><th>variant ATP flux</th><th>Δ ATP flux</th><th>ATP base → variant</th></tr></thead>
       <tbody>${tbody}</tbody>
     </table>${note}`;
 }
@@ -629,8 +629,8 @@ function renderVariantDetail(p, allFbaRows = null) {
         <h3>Panel FBA impact</h3>
         <div class="flux-impact-grid">
           <div class="card"><h4>panel size</h4><div class="stat">${p.panel_fba.length}</div></div>
-          <div class="card"><h4>models grow-status flipped</h4><div class="stat">${p.n_models_flip}</div></div>
-          <div class="card"><h4>models with flux Δ &gt; 1e-6</h4><div class="stat">${p.n_models_flux_change}</div></div>
+          <div class="card"><h4>models ATP-status flipped</h4><div class="stat">${p.n_models_flip}</div></div>
+          <div class="card"><h4>models with ATP flux Δ &gt; 1e-6</h4><div class="stat">${p.n_models_flux_change}</div></div>
         </div>`;
     } else {
       const sm = STATE.allModelsSummary?.variants?.[p.tag];
@@ -747,7 +747,7 @@ async function loadReactions() {
 }
 
 // Cache: tag -> Set of rxn_ids whose direction-change has a downstream
-// effect on biomass flux in at least one panel model containing it.
+// effect on ATP-production flux in at least one panel model containing it.
 const _FLUX_IMPACTED_CACHE = {};
 async function fluxImpactedRxnsFor(tag) {
   if (_FLUX_IMPACTED_CACHE[tag]) return _FLUX_IMPACTED_CACHE[tag];
@@ -1032,9 +1032,9 @@ function renderSweepSimple(res, out, opts) {
         <div class="stat-sub">new direction = ${escapeHtml(newRev)} (mode: ${escapeHtml(mode)})</div>
       </div>
       <div class="card">
-        <h4>panel grow-status</h4>
+        <h4>panel ATP-production status</h4>
         <div class="stat">${nGrewBefore} → ${nGrewAfter}</div>
-        <div class="stat-sub">${nFlipped} flipped, ${nFluxChanged} flux Δ</div>
+        <div class="stat-sub">${nFlipped} flipped, ${nFluxChanged} ATP flux Δ</div>
       </div>
       <div class="card">
         <h4>panel models</h4>
@@ -1042,20 +1042,20 @@ function renderSweepSimple(res, out, opts) {
         <div class="stat-sub">containing this reaction</div>
       </div>
     </div>
-    <h4>Per-model growth flux <span class="hint">— click a column to sort (asc/desc)</span></h4>
+    <h4>Per-model ATP-production flux <span class="hint">— click a column to sort (asc/desc)</span></h4>
     <div id="sweep-table-mount"></div>
-    <p class="hint">"↑" = model became a grower under the variant's new direction for this reaction; "↓" = model stopped growing. "✗" = was not a grower in the baseline.</p>
+    <p class="hint">"↑" = model gained ATP production under the variant's new direction for this reaction; "↓" = model lost ATP production. "✗" = produced no ATP in the baseline.</p>
   `;
 
   const fluxCls = (d) => (d == null ? '' : (d > 0 ? 'diff-up' : (d < 0 ? 'diff-down' : 'diff-zero')));
   const cols = [
     { key: 'model_id', label: 'model_id', defaultDir: 'asc',
       render: (r) => `<code>${escapeHtml(r.model_id)}</code>`, sortVal: (r) => r.model_id },
-    { key: 'base_flux', label: 'default flux', numeric: true, defaultDir: 'desc',
+    { key: 'base_flux', label: 'default ATP flux', numeric: true, defaultDir: 'desc',
       thClass: 'num', tdClass: 'num',
       render: (r) => `${r.base_flux.toFixed(4)}${r.base_grows ? '' : ' ✗'}`,
       sortVal: (r) => r.base_flux },
-    { key: 'variant_flux', label: `variant flux (${newRev})`, numeric: true, defaultDir: 'desc',
+    { key: 'variant_flux', label: `variant ATP flux (${newRev})`, numeric: true, defaultDir: 'desc',
       thClass: 'num',
       tdClass: 'num',
       render: (r) => {
@@ -1064,7 +1064,7 @@ function renderSweepSimple(res, out, opts) {
         return `<span class="${fluxCls(r.delta_flux)}">${r.variant_flux.toFixed(4)}${flag}</span>`;
       },
       sortVal: (r) => r.variant_flux },
-    { key: 'delta_flux', label: 'Δ flux', numeric: true, defaultDir: 'desc',
+    { key: 'delta_flux', label: 'Δ ATP flux', numeric: true, defaultDir: 'desc',
       thClass: 'num', tdClass: 'num',
       render: (r) => {
         if (!r.has_variant) return '—';
@@ -1204,12 +1204,12 @@ function renderSandbox(res, out) {
       <div class="badges">
         <div class="badge">variant: <span class="n">${escapeHtml(res.variant)}</span></div>
         <div class="badge">overrides: <span class="n">${res.n_overrides}</span></div>
-        <div class="badge">grew: <span class="n">${nGrow}/${rs.length}</span></div>
-        <div class="badge">mean flux: <span class="n">${mean.toFixed(4)}</span></div>
+        <div class="badge">produce ATP: <span class="n">${nGrow}/${rs.length}</span></div>
+        <div class="badge">mean ATP flux: <span class="n">${mean.toFixed(4)}</span></div>
       </div>
     </div>
     <table class="changed-by-table">
-      <thead><tr><th>model_id</th><th>status</th><th>grows</th><th>growth_flux</th><th>n overrides applied</th></tr></thead>
+      <thead><tr><th>model_id</th><th>status</th><th>produces ATP</th><th>ATP flux</th><th>n overrides applied</th></tr></thead>
       <tbody>${rs.sort((a, b) => b.growth_flux - a.growth_flux).map((r) =>
         `<tr><td>${escapeHtml(r.model_id)}</td>
               <td>${escapeHtml(r.status)}</td>
@@ -1344,7 +1344,7 @@ function renderModelVariantChart(rows) {
   const data = rows.filter((e) => e.delta_flux != null);
   const maxAbs = data.length ? Math.max(...data.map((e) => Math.abs(e.delta_flux))) : 0;
   if (!data.length || maxAbs < 1e-6) {
-    return `<p class="hint">No variant changes this model's biomass flux (all |Δ| &lt; 1e-6).</p>`;
+    return `<p class="hint">No variant changes this model's ATP-production flux (all |Δ| &lt; 1e-6).</p>`;
   }
   const sorted = [...data].sort((a, b) => b.delta_flux - a.delta_flux);
   const rowsHtml = sorted.map((e) => {
@@ -1354,7 +1354,7 @@ function renderModelVariantChart(rows) {
     const flip = (e.baseline_grows != null && e.baseline_grows !== e.variant_grows);
     const icon = flip ? (e.variant_grows ? '<span class="pfc-flip-icon up">↑</span>'
                                          : '<span class="pfc-flip-icon down">↓</span>') : '';
-    const tip = `${e.tag}\nΔ flux: ${e.delta_flux.toFixed(4)}${flip ? '   ← grow-status flipped' : ''}`;
+    const tip = `${e.tag}\nΔ ATP flux: ${e.delta_flux.toFixed(4)}${flip ? '   ← ATP-status flipped' : ''}`;
     return `<div class="pfc-row${flip ? ' flipped' : ''}" title="${escapeHtml(tip)}">` +
       `<span class="pfc-id">${escapeHtml(e.tag)}</span>` +
       `<span class="pfc-flip">${icon}</span>` +
@@ -1362,7 +1362,7 @@ function renderModelVariantChart(rows) {
       `<span class="pfc-val ${sign}">${e.delta_flux >= 0 ? '+' : ''}${e.delta_flux.toFixed(3)}</span></div>`;
   }).join('');
   return `<div class="panel-flux-chart">
-    <div class="pfc-legend">${sorted.length} variants &nbsp;·&nbsp; bar scale ±${maxAbs.toFixed(2)} flux units</div>
+    <div class="pfc-legend">${sorted.length} variants &nbsp;·&nbsp; bar scale ±${maxAbs.toFixed(2)} ATP flux units</div>
     <div class="pfc-rows">${rowsHtml}</div></div>`;
 }
 
@@ -1386,7 +1386,7 @@ function renderPanelModelDetail(mid) {
         <dt>metabolites</dt><dd>${fmt(desc.n_metabolites)}</dd>
         <dt>genes</dt><dd>${fmt(desc.n_genes)}</dd>
         <dt>open exchanges</dt><dd>${fmt(desc.n_exchanges_open)}</dd>
-        <dt>baseline growth flux</dt><dd>${fmtFlux(desc.growth_flux)}</dd>
+        <dt>baseline ATP flux</dt><dd>${fmtFlux(desc.growth_flux)}</dd>
         <dt>NCBI tax id</dt><dd>${escapeHtml(desc.tax_id || '—')}</dd>
       </dl>
       ${desc.reason ? `<div class="vcc-refs"><span class="vcc-refs-label">in panel because</span><span>${escapeHtml(desc.reason)}</span></div>` : ''}
@@ -1394,7 +1394,7 @@ function renderPanelModelDetail(mid) {
 
   const impactTable = impactRows.length ? `
     <table class="changed-by-table pm-impact-table">
-      <thead><tr><th>variant</th><th class="num">Δ flux</th><th>grow base→var</th><th class="num">rxns changed in model</th></tr></thead>
+      <thead><tr><th>variant</th><th class="num">Δ ATP flux</th><th>ATP base→var</th><th class="num">rxns changed in model</th></tr></thead>
       <tbody>${impactRows.map((e) => {
         const sign = e.delta_flux > 1e-6 ? 'pos' : (e.delta_flux < -1e-6 ? 'neg' : 'zero');
         const flip = (e.baseline_grows != null && e.baseline_grows !== e.variant_grows);
@@ -1417,7 +1417,7 @@ function renderPanelModelDetail(mid) {
       <h3>Reaction directions &amp; manual override <span class="hint">— live FBA on ${escapeHtml(mid)}</span></h3>
       <p class="hint">Every unique reaction in this model: its <strong>default</strong> (baseline) direction,
         the selected variant's direction (changes highlighted), and a dropdown to set your own. Then run FBA
-        on this model to see the growth effect of your overrides vs baseline.</p>
+        on this model to see the ATP-production effect of your overrides vs baseline.</p>
       <div class="sandbox-controls">
         <label>Compare to variant: <select id="pm-ov-variant"></select></label>
         <button id="pm-ov-apply" class="small">set overrides = this variant's changes</button>
@@ -1443,11 +1443,11 @@ function renderPanelModelDetail(mid) {
     <div class="flux-impact-grid">
       <div class="card"><h4>unique reactions</h4><div class="stat">${nRxn.toLocaleString()}</div></div>
       <div class="card"><h4>variants changing ≥1 rxn here</h4><div class="stat">${impactRows.filter((e) => e.n_changed > 0).length}</div></div>
-      <div class="card"><h4>variants that move flux</h4><div class="stat">${impactRows.filter((e) => Math.abs(e.delta_flux) > 1e-6).length}</div></div>
+      <div class="card"><h4>variants that move ATP flux</h4><div class="stat">${impactRows.filter((e) => Math.abs(e.delta_flux) > 1e-6).length}</div></div>
     </div>
-    <h3>Per-variant impact on this model <span class="hint">— Δ biomass flux vs baseline; click a row for the changed reactions</span></h3>
+    <h3>Per-variant impact on this model <span class="hint">— Δ ATP-production flux vs baseline; click a row for the changed reactions</span></h3>
     ${impactTable}
-    <h3>Δ flux by variant <span class="hint">— this model, each variant vs the baseline cascade</span></h3>
+    <h3>Δ ATP flux by variant <span class="hint">— this model, each variant vs the baseline cascade</span></h3>
     ${renderModelVariantChart(impactRows)}
     ${liveHtml}`;
 
@@ -1647,13 +1647,13 @@ async function runPmOverride(mid) {
       <div class="flux-impact-grid">
         <div class="card"><h4>baseline</h4>
           <div class="stat">${(b.growth_flux || 0).toFixed(4)}</div>
-          <div class="stat-sub">${b.grows ? 'grows' : 'no growth'}</div></div>
+          <div class="stat-sub">${b.grows ? 'produces ATP' : 'no ATP'}</div></div>
         <div class="card"><h4>with ${Object.keys(overrides).length} override(s)</h4>
           <div class="stat">${(v.growth_flux || 0).toFixed(4)}</div>
-          <div class="stat-sub">${v.grows ? 'grows' : 'no growth'}${v.status ? ` · ${escapeHtml(v.status)}` : ''}</div></div>
-        <div class="card"><h4>Δ flux</h4>
+          <div class="stat-sub">${v.grows ? 'produces ATP' : 'no ATP'}${v.status ? ` · ${escapeHtml(v.status)}` : ''}</div></div>
+        <div class="card"><h4>Δ ATP flux</h4>
           <div class="stat pfc-val ${sign}">${d >= 0 ? '+' : ''}${d.toFixed(4)}</div>
-          <div class="stat-sub">${b.grows !== v.grows ? (v.grows ? 'became grower ↑' : 'stopped growing ↓') : 'grow-status unchanged'}</div></div>
+          <div class="stat-sub">${b.grows !== v.grows ? (v.grows ? 'gained ATP production ↑' : 'lost ATP production ↓') : 'ATP-status unchanged'}</div></div>
       </div>`;
   } catch (exc) {
     status.textContent = 'error: ' + exc.message;
