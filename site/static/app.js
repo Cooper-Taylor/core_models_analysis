@@ -37,6 +37,7 @@ const STATE = {
   // ----- panel models tab -----
   panelModels: null,           // {model_id: {organism_name, taxonomy, size stats, ...}}
   panelModelVariants: null,    // {model_id: {tag: {delta_flux, ..., n_changed}}}
+  panelPipeline: null,         // {model_id: {tag: {base_flux, singles[], cumulative[]}}}
   selectedModel: null,
   pmVariantFilter: 'any',
   pmFluxFilter: 'any',
@@ -1232,6 +1233,9 @@ async function loadPanelModelData() {
   await loadPanelRxnsets();
   if (!STATE.reactionsPanel) STATE.reactionsPanel = await API.data('reactions_panel.json');
   await loadManifest();
+  // Per-reaction perturbation pipeline (precomputed; optional — tolerate absence).
+  try { STATE.panelPipeline = await API.data('panel_model_rxn_pipeline.json'); }
+  catch (e) { STATE.panelPipeline = null; }
 }
 
 function pmEntry(mid, tag) {
@@ -1449,7 +1453,13 @@ function renderPanelModelDetail(mid) {
     ${impactTable}
     <h3>Δ ATP flux by variant <span class="hint">— this model, each variant vs the baseline cascade</span></h3>
     ${renderModelVariantChart(impactRows)}
-    ${liveHtml}`;
+    ${liveHtml}
+    <h3>Heuristic perturbation pipeline <span class="hint">— single-reaction &amp; cumulative ATP-flux effect of one heuristic, vs baseline</span></h3>
+    <div class="pm-pipe-controls">
+      <label>Heuristic: <select id="pm-pipe-variant"></select></label>
+      <span id="pm-pipe-note" class="hint"></span>
+    </div>
+    <div id="pm-pipe-charts"></div>`;
 
   pane.querySelectorAll('.pm-impact-row').forEach((tr) =>
     tr.addEventListener('click', () => {
@@ -1459,6 +1469,7 @@ function renderPanelModelDetail(mid) {
     }));
 
   if (!STATE.staticMode) initPmOverride(mid);
+  initPmPipeline(mid);  // precomputed (static) data — render in both modes
 }
 
 async function showModelVariantRxns(mid, tag) {
@@ -1489,6 +1500,125 @@ async function showModelVariantRxns(mid, tag) {
              <td>${escapeHtml(rxnName(d.rxn))}</td></tr>`).join('')}</tbody>
     </table>`;
   bindRxnLinks(out);
+}
+
+// ----- per-reaction perturbation pipeline (precomputed; both modes) -----
+// For one model + one heuristic: each variant-changed reaction flipped alone vs
+// baseline (marginal), then applied cumulatively in |Δ| order. Data precomputed
+// in site/data/panel_model_rxn_pipeline.json by scripts/build_panel_rxn_pipeline.py.
+function initPmPipeline(mid) {
+  const sel = document.getElementById('pm-pipe-variant');
+  const charts = document.getElementById('pm-pipe-charts');
+  if (!sel || !charts) return;
+  const data = (STATE.panelPipeline || {})[mid] || {};
+  const tags = Object.keys(data);
+  if (!tags.length) {
+    sel.innerHTML = '';
+    sel.disabled = true;
+    charts.innerHTML = STATE.panelPipeline
+      ? `<p class="hint">No heuristic changes the direction of any reaction in this model, so there is nothing to perturb.</p>`
+      : `<p class="hint">Perturbation pipeline data not available (run <code>scripts/build_panel_rxn_pipeline.py</code>).</p>`;
+    const note = document.getElementById('pm-pipe-note');
+    if (note) note.textContent = '';
+    return;
+  }
+  // Order the dropdown by |full Δ| (cumulative endpoint) descending.
+  const fullDelta = (t) => {
+    const c = data[t].cumulative;
+    return c.length ? Math.abs(c[c.length - 1].delta) : 0;
+  };
+  tags.sort((a, b) => fullDelta(b) - fullDelta(a));
+  const titles = (STATE.manifest && STATE.manifest.variants || [])
+    .reduce((m, v) => { m[v.tag] = v.title; return m; }, {});
+  sel.disabled = false;
+  sel.innerHTML = tags.map((t) =>
+    `<option value="${escapeHtml(t)}">${escapeHtml(t)}${titles[t] ? ' — ' + escapeHtml(titles[t]) : ''}</option>`
+  ).join('');
+  // Default: the top-filter variant if it has data here, else the biggest mover.
+  let def = (STATE.pmVariantFilter && STATE.pmVariantFilter !== 'any' && data[STATE.pmVariantFilter])
+    ? STATE.pmVariantFilter : tags[0];
+  sel.value = def;
+  sel.onchange = () => renderPmPipeline(mid, sel.value);
+  renderPmPipeline(mid, def);
+}
+
+function renderPmPipeline(mid, tag) {
+  const charts = document.getElementById('pm-pipe-charts');
+  if (!charts) return;
+  const d = ((STATE.panelPipeline || {})[mid] || {})[tag];
+  if (!d) { charts.innerHTML = `<p class="hint">No perturbation data for this variant.</p>`; return; }
+  const note = document.getElementById('pm-pipe-note');
+  if (note) {
+    note.textContent =
+      `baseline ATP flux ${Number(d.base_flux).toFixed(3)} · ` +
+      `${d.singles.length} reaction${d.singles.length === 1 ? '' : 's'} changed in this model`;
+  }
+  charts.innerHTML = `
+    <h4>Single-reaction Δ ATP flux <span class="hint">— each changed reaction applied alone vs baseline, sorted by |Δ|</span></h4>
+    ${renderPmMarginalChart(d.singles)}
+    <h4>Cumulative Δ ATP flux <span class="hint">— the ranked changes applied 1, then 1+2, … vs baseline</span></h4>
+    ${renderPmCumulativeChart(d.cumulative)}`;
+  bindRxnLinks(charts);
+}
+
+// Sorted diverging bar chart of single-reaction Δ ATP flux (reuses pfc-* styles).
+function renderPmMarginalChart(singles) {
+  if (!singles || !singles.length) return '<p class="hint">No changed reactions.</p>';
+  const maxAbs = Math.max(...singles.map((s) => Math.abs(s.delta)), 1e-9);
+  const rxnName = (id) => (STATE.reactionsPanel[id] && STATE.reactionsPanel[id].name) || '';
+  const rows = singles.map((s) => {
+    const sign = s.delta > 1e-6 ? 'pos' : (s.delta < -1e-6 ? 'neg' : 'zero');
+    const halfPct = (Math.abs(s.delta) / maxAbs * 50).toFixed(2);
+    const bar = sign === 'zero' ? '' : `<span class="pfc-bar ${sign}" style="width:${halfPct}%"></span>`;
+    const tip = `${s.rxn}${rxnName(s.rxn) ? ' — ' + rxnName(s.rxn) : ''}\n` +
+      `single-change Δ ATP flux: ${s.delta >= 0 ? '+' : ''}${Number(s.delta).toFixed(3)}`;
+    return `<div class="pfc-row" title="${escapeHtml(tip)}">` +
+      `<span class="pfc-id"><a href="#" class="rxn-link" data-rxn="${escapeHtml(s.rxn)}">${escapeHtml(s.rxn)}</a></span>` +
+      `<span class="pfc-flip"></span>` +
+      `<span class="pfc-bar-cell">${bar}</span>` +
+      `<span class="pfc-val ${sign}">${s.delta >= 0 ? '+' : ''}${Number(s.delta).toFixed(3)}</span></div>`;
+  }).join('');
+  const nNonzero = singles.filter((s) => Math.abs(s.delta) > 1e-6).length;
+  return `<div class="panel-flux-chart">
+    <div class="pfc-legend">${singles.length} changed reaction${singles.length === 1 ? '' : 's'} &nbsp;·&nbsp;
+      ${nNonzero} individually move ATP flux &nbsp;·&nbsp; bar scale ±${maxAbs.toFixed(2)} ATP flux units</div>
+    <div class="pfc-rows">${rows}</div></div>`;
+}
+
+// Inline SVG line chart of cumulative Δ ATP flux as ranked changes are applied.
+function renderPmCumulativeChart(cumulative) {
+  const n = (cumulative || []).length;
+  if (!n) return '<p class="hint">No changed reactions.</p>';
+  const W = 600, H = 210, padL = 60, padR = 18, padT = 14, padB = 30;
+  const xs = (i) => padL + (n === 1 ? (W - padL - padR) / 2 : (i / (n - 1)) * (W - padL - padR));
+  const deltas = cumulative.map((c) => c.delta);
+  let lo = Math.min(0, ...deltas), hi = Math.max(0, ...deltas);
+  if (hi === lo) { hi += 1; lo -= 1; }
+  const ys = (v) => padT + (1 - (v - lo) / (hi - lo)) * (H - padT - padB);
+  const y0 = ys(0);
+  const pts = cumulative.map((c, i) => `${xs(i).toFixed(1)},${ys(c.delta).toFixed(1)}`).join(' ');
+  const dots = cumulative.map((c, i) => {
+    const sign = c.delta > 1e-6 ? 'pos' : (c.delta < -1e-6 ? 'neg' : 'zero');
+    const tip = `after ${i + 1} reaction${i ? 's' : ''} (＋${c.rxn}): Δ ${c.delta >= 0 ? '+' : ''}${Number(c.delta).toFixed(3)}`;
+    return `<circle class="pm-cum-dot ${sign}" cx="${xs(i).toFixed(1)}" cy="${ys(c.delta).toFixed(1)}" r="2.6"><title>${escapeHtml(tip)}</title></circle>`;
+  }).join('');
+  const last = cumulative[n - 1];
+  const lsign = last.delta > 1e-6 ? 'pos' : (last.delta < -1e-6 ? 'neg' : 'zero');
+  return `<div class="pm-cum-chart">
+    <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="cumulative delta ATP flux">
+      <line class="pm-cum-axis" x1="${padL}" y1="${y0.toFixed(1)}" x2="${(W - padR).toFixed(1)}" y2="${y0.toFixed(1)}"/>
+      <text class="pm-cum-lbl" x="${padL - 7}" y="${(ys(hi) + 4).toFixed(1)}" text-anchor="end">${hi.toFixed(1)}</text>
+      <text class="pm-cum-lbl" x="${padL - 7}" y="${(y0 + 4).toFixed(1)}" text-anchor="end">0</text>
+      <text class="pm-cum-lbl" x="${padL - 7}" y="${(ys(lo) + 4).toFixed(1)}" text-anchor="end">${lo.toFixed(1)}</text>
+      <polyline class="pm-cum-line" points="${pts}"/>
+      ${dots}
+      <text class="pm-cum-lbl" x="${padL}" y="${H - 9}" text-anchor="start">1</text>
+      <text class="pm-cum-lbl" x="${(W - padR).toFixed(1)}" y="${H - 9}" text-anchor="end">${n}</text>
+      <text class="pm-cum-axtitle" x="${((padL + W - padR) / 2).toFixed(1)}" y="${H - 9}" text-anchor="middle"># reactions applied (in |Δ| rank order)</text>
+    </svg>
+    <div class="pfc-legend">cumulative Δ ATP flux vs baseline as the top-ranked changes are applied; endpoint = full variant Δ =
+      <span class="pfc-val ${lsign}">${last.delta >= 0 ? '+' : ''}${Number(last.delta).toFixed(3)}</span></div>
+  </div>`;
 }
 
 // ----- per-model live override panel (live mode only) -----

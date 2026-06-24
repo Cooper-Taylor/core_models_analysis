@@ -732,3 +732,36 @@ body.static-mode #tab-sandbox { display: none !important; }
 }
 /* panel-model list Δflux badge (reuses pfc-val colours) */
 #panel-model-list .pfc-val { font-family: var(--mono); font-size: 11px; }
+
+/* --- Heuristic perturbation pipeline (Panel Models) --- */
+.pm-pipe-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 8px 0 10px;
+}
+.pm-pipe-controls select {
+  background: var(--bg-elev);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+#pm-pipe-charts h4 { margin: 14px 0 4px; }
+.pm-cum-chart {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-elev);
+  padding: 8px 10px 6px;
+}
+.pm-cum-chart svg { width: 100%; height: auto; display: block; }
+.pm-cum-line { fill: none; stroke: var(--accent); stroke-width: 1.8; }
+.pm-cum-axis { stroke: var(--border); stroke-width: 1; stroke-dasharray: 4 3; }
+.pm-cum-lbl, .pm-cum-axtitle { fill: var(--text-dim); font-family: var(--mono); font-size: 10px; }
+.pm-cum-dot { fill: var(--accent); }
+.pm-cum-dot.pos { fill: var(--good); }
+.pm-cum-dot.neg { fill: var(--warn); }
+.pm-cum-dot.zero { fill: var(--text-dim); }
+.pm-cum-chart .pfc-legend { border: 0; padding: 6px 0 0; }
