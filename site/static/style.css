@@ -646,3 +646,60 @@ body.static-mode #tab-sandbox { display: none !important; }
   margin: 8px 0;
   background: rgba(243, 182, 91, 0.05);
 }
+
+/* --- Panel Models tab --- */
+.tax-chips { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 8px; }
+.tax-chip {
+  background: var(--bg-elev-2);
+  color: var(--text-dim);
+  border-radius: 10px;
+  padding: 1px 8px;
+  font-size: 11px;
+}
+.pm-desc-dl {
+  margin: 8px 0 4px;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 2px 12px;
+}
+.pm-desc-dl dt { color: var(--text-dim); font-size: 12px; }
+.pm-desc-dl dd { margin: 0; font-family: var(--mono); font-size: 12px; }
+.pm-impact-table tbody tr { cursor: pointer; }
+.pm-impact-table tbody tr:hover { background: rgba(95, 216, 184, 0.06); }
+.pm-impact-table tbody tr.selected { background: rgba(95, 216, 184, 0.13); }
+.pm-variant-rxns-head { margin: 8px 0 4px; color: var(--text-dim); }
+.pm-ov-rxnlist {
+  max-height: 320px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-elev);
+  margin-bottom: 8px;
+}
+.pm-ov-rxn-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 8px;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.pm-ov-rxn-row.active { background: rgba(243, 182, 91, 0.08); }
+.pm-ov-rxn-row select {
+  background: var(--bg-elev-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font: inherit;
+  font-size: 11px;
+  padding: 1px 4px;
+}
+.pm-ov-rxn-row .pm-ov-name {
+  color: var(--text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* panel-model list Δflux badge (reuses pfc-val colours) */
+#panel-model-list .pfc-val { font-family: var(--mono); font-size: 11px; }

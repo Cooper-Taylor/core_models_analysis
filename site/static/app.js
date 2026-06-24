@@ -34,6 +34,14 @@ const STATE = {
   rxnVariantFilter: 'any',     // 'any' / 'none' / specific tag
   rxnFluxImpactedOnly: false,  // subfilter for §3c
   scope: 'panel',              // 'panel' | 'all'
+  // ----- panel models tab -----
+  panelModels: null,           // {model_id: {organism_name, taxonomy, size stats, ...}}
+  panelModelVariants: null,    // {model_id: {tag: {delta_flux, ..., n_changed}}}
+  selectedModel: null,
+  pmVariantFilter: 'any',
+  pmFluxFilter: 'any',
+  pmOverrides: {},             // {rxn: mode} for the per-model live override panel
+  baselineMap: null,           // {rxn: dir} from baseline.json (live-only; informational)
   // updated by fetchHealth() in bootstrap; defaults to true so any race
   // (handler firing before fetchHealth resolves) lands in static-safe behavior.
   staticMode: true,
@@ -244,6 +252,7 @@ document.querySelectorAll('nav button').forEach((btn) =>
     document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
     if (btn.dataset.tab === 'reaction' && !STATE.reactionsPanel) loadReactions();
     if (btn.dataset.tab === 'sandbox' && !STATE.staticMode) initSandbox();
+    if (btn.dataset.tab === 'panel-models' && !STATE.panelModels) initPanelModels();
   })
 );
 
@@ -1207,6 +1216,385 @@ function renderSandbox(res, out) {
               <td class="num">${r.n_overrides}</td></tr>`
       ).join('')}</tbody>
     </table>`;
+}
+
+// -------------------- panel models --------------------
+async function loadPanelModelData() {
+  if (STATE.panelModels && STATE.panelModelVariants) return;
+  const [desc, pmv] = await Promise.all([
+    API.data('panel_model_descriptions.json'),
+    API.data('panel_model_variants.json'),
+  ]);
+  STATE.panelModels = desc;
+  STATE.panelModelVariants = pmv;
+  await loadPanelRxnsets();
+  if (!STATE.reactionsPanel) STATE.reactionsPanel = await API.data('reactions_panel.json');
+  await loadManifest();
+}
+
+function pmEntry(mid, tag) {
+  return (STATE.panelModelVariants[mid] || {})[tag] || null;
+}
+// variant with the largest |Δ flux| for a model -> {tag, e, d} or null
+function pmMaxAbs(mid) {
+  const m = STATE.panelModelVariants[mid] || {};
+  let best = null;
+  for (const [tag, e] of Object.entries(m)) {
+    const d = Math.abs(e.delta_flux || 0);
+    if (!best || d > best.d) best = { tag, e, d };
+  }
+  return best;
+}
+
+async function initPanelModels() {
+  const list = document.getElementById('panel-model-list');
+  list.innerHTML = '<li><em class="hint">Loading panel models…</em></li>';
+  await loadPanelModelData();
+  const vsel = document.getElementById('pm-variant');
+  if (vsel.options.length <= 1) {
+    (await loadManifest()).variants.forEach((v) => {
+      if (v.tag === 'baseline') return;
+      const o = document.createElement('option');
+      o.value = v.tag; o.textContent = `${v.tag} — ${v.title}`;
+      vsel.appendChild(o);
+    });
+  }
+  if (!STATE._pmWired) {
+    STATE._pmWired = true;
+    document.getElementById('pm-search').addEventListener('input', renderPanelModelList);
+    document.getElementById('pm-variant').addEventListener('change', (e) => {
+      STATE.pmVariantFilter = e.target.value; renderPanelModelList();
+    });
+    document.getElementById('pm-flux-filter').addEventListener('change', (e) => {
+      STATE.pmFluxFilter = e.target.value; renderPanelModelList();
+    });
+  }
+  renderPanelModelList();
+}
+
+function renderPanelModelList() {
+  const q = (document.getElementById('pm-search').value || '').toLowerCase().trim();
+  const varFilt = STATE.pmVariantFilter;
+  const fluxFilt = STATE.pmFluxFilter;
+  const rows = [];
+  for (const mid of Object.keys(STATE.panelModels || {})) {
+    const desc = STATE.panelModels[mid] || {};
+    let e = null;
+    if (varFilt === 'any') { const best = pmMaxAbs(mid); if (best) e = best.e; }
+    else e = pmEntry(mid, varFilt);
+    const d = e ? (e.delta_flux || 0) : 0;
+    const grew = e ? (e.baseline_grows === false && e.variant_grows === true) : false;
+    const died = e ? (e.baseline_grows === true && e.variant_grows === false) : false;
+    let pass = true;
+    if (fluxFilt === 'changed') pass = Math.abs(d) > 1e-6;
+    else if (fluxFilt === 'up') pass = d > 1e-6;
+    else if (fluxFilt === 'down') pass = d < -1e-6;
+    else if (fluxFilt === 'grew') pass = grew;
+    else if (fluxFilt === 'died') pass = died;
+    if (fluxFilt !== 'any' && !e) pass = false;
+    if (!pass) continue;
+    if (q && !`${mid} ${desc.organism_name || ''}`.toLowerCase().includes(q)) continue;
+    rows.push({ mid, desc, e, d });
+  }
+  const fluxActive = (varFilt !== 'any') || (fluxFilt !== 'any');
+  rows.sort((a, b) => fluxActive ? (Math.abs(b.d) - Math.abs(a.d)) : a.mid.localeCompare(b.mid));
+  document.getElementById('pm-result-count').textContent =
+    `${rows.length} model${rows.length === 1 ? '' : 's'}` +
+    (varFilt !== 'any' ? ` · variant ${varFilt}` : '');
+  const ul = document.getElementById('panel-model-list');
+  ul.innerHTML = '';
+  rows.slice(0, 200).forEach(({ mid, desc, e, d }) => {
+    const li = document.createElement('li');
+    li.dataset.mid = mid;
+    if (mid === STATE.selectedModel) li.classList.add('selected');
+    const badge = (e && Math.abs(d) > 1e-6)
+      ? ` <span class="pfc-val ${d > 0 ? 'pos' : 'neg'}">${d > 0 ? '+' : ''}${d.toFixed(2)}</span>` : '';
+    li.innerHTML = `<strong>${escapeHtml(mid)}</strong>${badge}` +
+      `<span class="rxn-name">${escapeHtml(desc.organism_name || '(organism unknown)')}</span>`;
+    li.addEventListener('click', () => selectModel(mid));
+    ul.appendChild(li);
+  });
+  if (rows.length > 200) {
+    const li = document.createElement('li');
+    li.innerHTML = `<em class="hint">… ${rows.length - 200} more (narrow with search)</em>`;
+    ul.appendChild(li);
+  }
+}
+
+function selectModel(mid) {
+  STATE.selectedModel = mid;
+  STATE.pmOverrides = {};
+  document.querySelectorAll('#panel-model-list li').forEach((li) =>
+    li.classList.toggle('selected', li.dataset.mid === mid));
+  renderPanelModelDetail(mid);
+}
+
+function pmTaxChips(desc) {
+  const ranks = ['superkingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
+  const chips = ranks.map((r) => desc[r]).filter(Boolean)
+    .map((v) => `<span class="tax-chip">${escapeHtml(v)}</span>`).join('');
+  return chips ? `<div class="tax-chips">${chips}</div>`
+               : '<p class="hint">taxonomy unavailable for this assembly</p>';
+}
+
+// Diverging Δ-flux bar chart for one model, one row per variant (reuses pfc-* css).
+function renderModelVariantChart(rows) {
+  const data = rows.filter((e) => e.delta_flux != null);
+  const maxAbs = data.length ? Math.max(...data.map((e) => Math.abs(e.delta_flux))) : 0;
+  if (!data.length || maxAbs < 1e-6) {
+    return `<p class="hint">No variant changes this model's biomass flux (all |Δ| &lt; 1e-6).</p>`;
+  }
+  const sorted = [...data].sort((a, b) => b.delta_flux - a.delta_flux);
+  const rowsHtml = sorted.map((e) => {
+    const sign = e.delta_flux > 1e-6 ? 'pos' : (e.delta_flux < -1e-6 ? 'neg' : 'zero');
+    const half = (Math.abs(e.delta_flux) / maxAbs * 50).toFixed(2);
+    const bar = sign === 'zero' ? '' : `<span class="pfc-bar ${sign}" style="width:${half}%"></span>`;
+    const flip = (e.baseline_grows != null && e.baseline_grows !== e.variant_grows);
+    const icon = flip ? (e.variant_grows ? '<span class="pfc-flip-icon up">↑</span>'
+                                         : '<span class="pfc-flip-icon down">↓</span>') : '';
+    const tip = `${e.tag}\nΔ flux: ${e.delta_flux.toFixed(4)}${flip ? '   ← grow-status flipped' : ''}`;
+    return `<div class="pfc-row${flip ? ' flipped' : ''}" title="${escapeHtml(tip)}">` +
+      `<span class="pfc-id">${escapeHtml(e.tag)}</span>` +
+      `<span class="pfc-flip">${icon}</span>` +
+      `<span class="pfc-bar-cell">${bar}</span>` +
+      `<span class="pfc-val ${sign}">${e.delta_flux >= 0 ? '+' : ''}${e.delta_flux.toFixed(3)}</span></div>`;
+  }).join('');
+  return `<div class="panel-flux-chart">
+    <div class="pfc-legend">${sorted.length} variants &nbsp;·&nbsp; bar scale ±${maxAbs.toFixed(2)} flux units</div>
+    <div class="pfc-rows">${rowsHtml}</div></div>`;
+}
+
+function renderPanelModelDetail(mid) {
+  const pane = document.getElementById('panel-model-detail');
+  const desc = STATE.panelModels[mid] || {};
+  const nRxn = (STATE.panelRxnsets[mid] || []).length;
+  const impactRows = Object.entries(STATE.panelModelVariants[mid] || {})
+    .map(([tag, e]) => ({ tag, ...e }))
+    .sort((a, b) => Math.abs(b.delta_flux || 0) - Math.abs(a.delta_flux || 0));
+  const fmt = (x) => (x == null ? '—' : Number(x).toLocaleString());
+  const fmtFlux = (x) => (x == null ? '—' : Number(x).toFixed(3));
+
+  const descCard = `
+    <div class="variant-change-card">
+      <div class="vcc-label">Organism</div>
+      <div class="vcc-title">${escapeHtml(desc.organism_name || '(organism unknown)')}</div>
+      ${pmTaxChips(desc)}
+      <dl class="pm-desc-dl">
+        <dt>reactions</dt><dd>${fmt(desc.n_reactions)}</dd>
+        <dt>metabolites</dt><dd>${fmt(desc.n_metabolites)}</dd>
+        <dt>genes</dt><dd>${fmt(desc.n_genes)}</dd>
+        <dt>open exchanges</dt><dd>${fmt(desc.n_exchanges_open)}</dd>
+        <dt>baseline growth flux</dt><dd>${fmtFlux(desc.growth_flux)}</dd>
+        <dt>NCBI tax id</dt><dd>${escapeHtml(desc.tax_id || '—')}</dd>
+      </dl>
+      ${desc.reason ? `<div class="vcc-refs"><span class="vcc-refs-label">in panel because</span><span>${escapeHtml(desc.reason)}</span></div>` : ''}
+    </div>`;
+
+  const impactTable = impactRows.length ? `
+    <table class="changed-by-table pm-impact-table">
+      <thead><tr><th>variant</th><th class="num">Δ flux</th><th>grow base→var</th><th class="num">rxns changed in model</th></tr></thead>
+      <tbody>${impactRows.map((e) => {
+        const sign = e.delta_flux > 1e-6 ? 'pos' : (e.delta_flux < -1e-6 ? 'neg' : 'zero');
+        const flip = (e.baseline_grows != null && e.baseline_grows !== e.variant_grows);
+        const flag = flip ? (e.variant_grows ? ' ↑' : ' ↓') : '';
+        const gb = e.baseline_grows == null ? '—' : (e.baseline_grows ? '✓' : '✗');
+        const gv = e.variant_grows == null ? '—' : (e.variant_grows ? '✓' : '✗');
+        return `<tr class="pm-impact-row${flip ? ' flipped' : ''}" data-tag="${escapeHtml(e.tag)}">
+          <td><span class="tag">${escapeHtml(e.tag)}</span></td>
+          <td class="num pfc-val ${sign}">${e.delta_flux >= 0 ? '+' : ''}${Number(e.delta_flux).toFixed(3)}</td>
+          <td>${gb} → ${gv}${flag}</td>
+          <td class="num">${fmt(e.n_changed)}</td></tr>`;
+      }).join('')}</tbody>
+    </table>
+    <p class="hint">Click a variant row to list the reactions it changes in this model.</p>
+    <div id="pm-variant-rxns"></div>`
+    : '<p class="hint">No variant changes any reaction present in this model.</p>';
+
+  const liveHtml = `
+    <div class="live-only">
+      <h3>Manual reaction-direction override <span class="hint">— live FBA on ${escapeHtml(mid)}</span></h3>
+      <p class="hint">Pick a starting variant, set one or more of this model's reactions to a forced
+        direction (or disable them), then run FBA on this single model to see the overall growth effect.</p>
+      <div class="sandbox-controls">
+        <label>Starting variant: <select id="pm-ov-variant"></select></label>
+      </div>
+      <div id="pm-overrides" class="overrides-box"></div>
+      <div class="search-row">
+        <input id="pm-ov-search" type="text" placeholder="filter this model's reactions…" autocomplete="off">
+        <span id="pm-ov-rxn-count" class="hint"></span>
+      </div>
+      <div id="pm-ov-rxnlist" class="pm-ov-rxnlist"></div>
+      <div class="run-row">
+        <button id="pm-ov-run" class="primary">Run FBA on this model</button>
+        <span id="pm-ov-status" class="hint"></span>
+      </div>
+      <div id="pm-ov-results"></div>
+    </div>
+    <p class="hint static-only">Manual per-model FBA requires live mode (<code>python3 site/serve.py --live</code>).</p>`;
+
+  pane.innerHTML = `
+    <h3>${escapeHtml(mid)} <span class="hint">— ${escapeHtml(desc.organism_name || '(organism unknown)')}</span></h3>
+    ${descCard}
+    <h3>Reactions &amp; impact</h3>
+    <div class="flux-impact-grid">
+      <div class="card"><h4>unique reactions</h4><div class="stat">${nRxn.toLocaleString()}</div></div>
+      <div class="card"><h4>variants changing ≥1 rxn here</h4><div class="stat">${impactRows.filter((e) => e.n_changed > 0).length}</div></div>
+      <div class="card"><h4>variants that move flux</h4><div class="stat">${impactRows.filter((e) => Math.abs(e.delta_flux) > 1e-6).length}</div></div>
+    </div>
+    <h3>Per-variant impact on this model <span class="hint">— Δ biomass flux vs baseline; click a row for the changed reactions</span></h3>
+    ${impactTable}
+    <h3>Δ flux by variant <span class="hint">— this model, each variant vs the baseline cascade</span></h3>
+    ${renderModelVariantChart(impactRows)}
+    ${liveHtml}`;
+
+  pane.querySelectorAll('.pm-impact-row').forEach((tr) =>
+    tr.addEventListener('click', () => {
+      pane.querySelectorAll('.pm-impact-row').forEach((r) => r.classList.remove('selected'));
+      tr.classList.add('selected');
+      showModelVariantRxns(mid, tr.dataset.tag);
+    }));
+
+  if (!STATE.staticMode) initPmOverride(mid);
+}
+
+async function showModelVariantRxns(mid, tag) {
+  const out = document.getElementById('pm-variant-rxns');
+  out.innerHTML = '<p class="loading">loading…</p>';
+  const p = await loadVariant(tag);
+  const modelRxns = new Set(STATE.panelRxnsets[mid] || []);
+  const changed = (p.diffs || []).filter((d) => modelRxns.has(d.rxn))
+    .sort((a, b) => a.rxn.localeCompare(b.rxn));
+  const e = pmEntry(mid, tag) || {};
+  if (!changed.length) {
+    out.innerHTML = `<p class="hint">Variant <span class="tag">${escapeHtml(tag)}</span> changes no reaction present in this model.</p>`;
+    return;
+  }
+  const rxnName = (id) => (STATE.reactionsPanel[id] && STATE.reactionsPanel[id].name) || '';
+  const dsign = e.delta_flux > 1e-6 ? 'pos' : (e.delta_flux < -1e-6 ? 'neg' : 'zero');
+  out.innerHTML = `
+    <div class="pm-variant-rxns-head">
+      <span class="tag">${escapeHtml(tag)}</span> changes <strong>${changed.length}</strong>
+      reaction${changed.length === 1 ? '' : 's'} in this model &nbsp;·&nbsp; model Δ flux
+      <span class="pfc-val ${dsign}">${(e.delta_flux || 0) >= 0 ? '+' : ''}${Number(e.delta_flux || 0).toFixed(3)}</span>
+    </div>
+    <table class="changed-by-table">
+      <thead><tr><th>rxn</th><th>baseline</th><th>variant</th><th>name</th></tr></thead>
+      <tbody>${changed.map((d) =>
+        `<tr><td><a href="#" class="rxn-link" data-rxn="${escapeHtml(d.rxn)}">${escapeHtml(d.rxn)}</a></td>
+             <td>${revBadge(d.base)}</td><td>${revBadge(d.new)}</td>
+             <td>${escapeHtml(rxnName(d.rxn))}</td></tr>`).join('')}</tbody>
+    </table>`;
+  bindRxnLinks(out);
+}
+
+// ----- per-model live override panel (live mode only) -----
+async function initPmOverride(mid) {
+  const vsel = document.getElementById('pm-ov-variant');
+  if (vsel) {
+    vsel.innerHTML = '';
+    (await loadManifest()).variants.forEach((v) => {
+      const o = document.createElement('option');
+      o.value = v.tag; o.textContent = `${v.tag} — ${v.title}`;
+      vsel.appendChild(o);
+    });
+    vsel.value = 'baseline';
+  }
+  if (!STATE.baselineMap) {
+    try { STATE.baselineMap = (await API.data('baseline.json')).map; }
+    catch (e) { STATE.baselineMap = {}; }
+  }
+  STATE.pmOverrides = {};
+  renderPmOverrides();
+  renderPmOvRxnList(mid);
+  const search = document.getElementById('pm-ov-search');
+  if (search) search.oninput = () => renderPmOvRxnList(STATE.selectedModel);
+  const runBtn = document.getElementById('pm-ov-run');
+  if (runBtn) runBtn.onclick = () => runPmOverride(mid);
+}
+
+function renderPmOverrides() {
+  const div = document.getElementById('pm-overrides');
+  if (!div) return;
+  const keys = Object.keys(STATE.pmOverrides || {});
+  if (!keys.length) {
+    div.innerHTML = '<p class="hint">No overrides set — choose reaction directions below.</p>';
+    return;
+  }
+  div.innerHTML = keys.map((rxn) =>
+    `<div class="ov-row"><code>${escapeHtml(rxn)}</code> → <strong>${escapeHtml(STATE.pmOverrides[rxn])}</strong>
+       <button class="small" data-rxn="${escapeHtml(rxn)}">remove</button></div>`).join('');
+  div.querySelectorAll('button').forEach((b) =>
+    b.addEventListener('click', () => {
+      delete STATE.pmOverrides[b.dataset.rxn];
+      renderPmOverrides();
+      renderPmOvRxnList(STATE.selectedModel);
+    }));
+}
+
+function renderPmOvRxnList(mid) {
+  const wrap = document.getElementById('pm-ov-rxnlist');
+  if (!wrap) return;
+  const q = (document.getElementById('pm-ov-search').value || '').toLowerCase().trim();
+  let rxns = STATE.panelRxnsets[mid] || [];
+  if (q) rxns = rxns.filter((id) =>
+    id.toLowerCase().includes(q) ||
+    ((STATE.reactionsPanel[id]?.name || '').toLowerCase().includes(q)));
+  const count = document.getElementById('pm-ov-rxn-count');
+  if (count) count.textContent = `${rxns.length} reactions`;
+  const modes = ['as_is', 'forward', 'reverse', 'free', 'off'];
+  wrap.innerHTML = rxns.slice(0, 200).map((id) => {
+    const cur = STATE.baselineMap ? STATE.baselineMap[id] : null;
+    const sel = STATE.pmOverrides[id] || 'as_is';
+    const name = STATE.reactionsPanel[id]?.name || '';
+    return `<div class="pm-ov-rxn-row${sel !== 'as_is' ? ' active' : ''}">
+      <code>${escapeHtml(id)}</code>${cur ? revBadge(cur) : ''}
+      <select data-rxn="${escapeHtml(id)}">${modes.map((mm) =>
+        `<option value="${mm}"${mm === sel ? ' selected' : ''}>${mm}</option>`).join('')}</select>
+      <span class="pm-ov-name">${escapeHtml(name)}</span></div>`;
+  }).join('') + (rxns.length > 200 ? `<p class="hint">… ${rxns.length - 200} more (filter to narrow)</p>` : '');
+  wrap.querySelectorAll('select').forEach((s) =>
+    s.addEventListener('change', () => {
+      const rxn = s.dataset.rxn;
+      if (s.value === 'as_is') delete STATE.pmOverrides[rxn];
+      else STATE.pmOverrides[rxn] = s.value;
+      renderPmOverrides();
+      s.closest('.pm-ov-rxn-row').classList.toggle('active', s.value !== 'as_is');
+    }));
+}
+
+async function runPmOverride(mid) {
+  const variant = document.getElementById('pm-ov-variant').value || 'baseline';
+  const overrides = { ...STATE.pmOverrides };
+  const btn = document.getElementById('pm-ov-run');
+  const status = document.getElementById('pm-ov-status');
+  const out = document.getElementById('pm-ov-results');
+  btn.disabled = true; status.textContent = 'running FBA…'; out.innerHTML = '';
+  try {
+    const t0 = performance.now();
+    const [base, mod] = await Promise.all([
+      API.panelFba({ variant, overrides: {}, models: [mid], n_workers: 1 }),
+      API.panelFba({ variant, overrides, models: [mid], n_workers: 1 }),
+    ]);
+    const b = (base.results || [])[0] || {};
+    const v = (mod.results || [])[0] || {};
+    const d = (v.growth_flux || 0) - (b.growth_flux || 0);
+    const sign = d > 1e-6 ? 'pos' : (d < -1e-6 ? 'neg' : 'zero');
+    status.textContent = `done in ${((performance.now() - t0) / 1000) | 0}s`;
+    out.innerHTML = `
+      <div class="flux-impact-grid">
+        <div class="card"><h4>baseline (${escapeHtml(variant)})</h4>
+          <div class="stat">${(b.growth_flux || 0).toFixed(4)}</div>
+          <div class="stat-sub">${b.grows ? 'grows' : 'no growth'}</div></div>
+        <div class="card"><h4>with ${Object.keys(overrides).length} override(s)</h4>
+          <div class="stat">${(v.growth_flux || 0).toFixed(4)}</div>
+          <div class="stat-sub">${v.grows ? 'grows' : 'no growth'}${v.status ? ` · ${escapeHtml(v.status)}` : ''}</div></div>
+        <div class="card"><h4>Δ flux</h4>
+          <div class="stat pfc-val ${sign}">${d >= 0 ? '+' : ''}${d.toFixed(4)}</div>
+          <div class="stat-sub">${b.grows !== v.grows ? (v.grows ? 'became grower ↑' : 'stopped growing ↓') : 'grow-status unchanged'}</div></div>
+      </div>`;
+  } catch (exc) {
+    status.textContent = 'error: ' + exc.message;
+  } finally { btn.disabled = false; }
 }
 
 // -------------------- bootstrap --------------------

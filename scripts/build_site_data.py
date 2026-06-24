@@ -518,6 +518,86 @@ def main(argv: Optional[list] = None) -> None:
         json.dump({mid: sorted(panel_rxn_sets.get(mid, []))
                    for mid in panel_ids}, fh, separators=(",", ":"))
 
+    # ---- per-panel-model descriptions + per-variant flux impact (Panel Models tab)
+    # Descriptions: organism/taxonomy (results/ncbi_taxonomy.csv) + selection
+    # record (results/selected_models.json) — the model-level analogue of the
+    # per-reaction metadata in reactions_panel.json.
+    import csv as _csv_pm
+    tax_by_id = {}
+    tax_path = ANALYSIS_ROOT / "results" / "ncbi_taxonomy.csv"
+    if tax_path.exists():
+        with open(tax_path) as fh:
+            for row in _csv_pm.DictReader(fh):
+                tax_by_id[row.get("assembly_accession", "")] = row
+    sel_by_id = {}
+    sel_path = ANALYSIS_ROOT / "results" / "selected_models.json"
+    if sel_path.exists():
+        for rec in json.loads(sel_path.read_text()).get("records", []):
+            sel_by_id[rec.get("model_id", "")] = rec
+    panel_model_descriptions = {}
+    for mid in panel_ids:
+        tax = tax_by_id.get(mid, {})
+        sel = sel_by_id.get(mid, {})
+        panel_model_descriptions[mid] = {
+            "organism_name": tax.get("organism_name"),
+            "tax_id": tax.get("tax_id"),
+            "status": (tax.get("status") if tax else "missing"),
+            "superkingdom": tax.get("superkingdom"),
+            "phylum": tax.get("phylum"),
+            "class": tax.get("class"),
+            "order": tax.get("order"),
+            "family": tax.get("family"),
+            "genus": tax.get("genus"),
+            "species": tax.get("species"),
+            "assembly_name": tax.get("assembly_name"),
+            "reason": sel.get("reason"),
+            "n_reactions": sel.get("n_reactions"),
+            "n_metabolites": sel.get("n_metabolites"),
+            "n_genes": sel.get("n_genes"),
+            "n_exchanges_open": sel.get("n_exchanges_open"),
+            "growth_flux": sel.get("growth_flux"),
+            "n_unique_rxns": sel.get("n_unique_rxns"),
+            "n_rare_rxns": sel.get("n_rare_rxns"),
+            "n_panel_rxns": len(panel_rxn_sets.get(mid, [])),
+        }
+    with open(out_root / "panel_model_descriptions.json", "w") as fh:
+        json.dump(panel_model_descriptions, fh, indent=2, default=str)
+    print(f"  wrote panel_model_descriptions.json ({len(panel_model_descriptions)} models)")
+
+    # Per (model, variant) flux + #changed-in-model — drives the Panel Models
+    # filter + per-variant impact table. Derived from variant_payloads
+    # (panel_fba rows + diffs) intersected with panel_rxn_sets. Excludes
+    # baseline (no diff vs itself).
+    variant_changed_sets = {
+        tag: {d["rxn"] for d in (pl.get("diffs") or [])}
+        for tag, pl in variant_payloads.items()
+    }
+    variant_fba_by_model = {
+        tag: {r["model_id"]: r for r in (pl.get("panel_fba") or [])}
+        for tag, pl in variant_payloads.items()
+    }
+    panel_model_variants = {}
+    for mid in panel_ids:
+        model_rxns = set(panel_rxn_sets.get(mid, []))
+        per = {}
+        for tag in variant_payloads:
+            fba = variant_fba_by_model[tag].get(mid)
+            n_changed = len(variant_changed_sets[tag] & model_rxns)
+            if fba is None and n_changed == 0:
+                continue
+            per[tag] = {
+                "delta_flux": float(fba["delta_flux"]) if fba else 0.0,
+                "baseline_flux": float(fba["baseline_flux"]) if fba else None,
+                "variant_flux": float(fba["variant_flux"]) if fba else None,
+                "baseline_grows": bool(fba["baseline_grows"]) if fba else None,
+                "variant_grows": bool(fba["variant_grows"]) if fba else None,
+                "n_changed": n_changed,
+            }
+        panel_model_variants[mid] = per
+    with open(out_root / "panel_model_variants.json", "w") as fh:
+        json.dump(panel_model_variants, fh, separators=(",", ":"), default=str)
+    print(f"  wrote panel_model_variants.json ({len(panel_model_variants)} models)")
+
     # ---- per-reaction model counts (backs the site's "models" sort column)
     # Two scope-consistent counts per reaction:
     #   panel = how many of the 100 descriptive panel models contain it

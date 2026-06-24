@@ -17,6 +17,7 @@
     <nav>
       <button data-tab="variants" class="active">Variant Browser</button>
       <button data-tab="reaction">Reaction Explorer</button>
+      <button data-tab="panel-models">Panel Models</button>
       <button data-tab="sandbox">Flux Sandbox</button>
       <button data-tab="about">About</button>
     </nav>
@@ -100,6 +101,44 @@
       </div>
       <div id="reaction-detail" class="reaction-detail-pane">
         <p class="hint">Click a reaction to inspect.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PANEL MODELS ===================== -->
+  <section id="tab-panel-models" class="tab">
+    <h2>Panel Models</h2>
+    <p class="hint">
+      Browse the 100 descriptive panel models. Filter by the biomass-flux change a
+      variant induces (and by which variant caused it); select a model to see its
+      organism description, its unique reactions, exactly which reactions a variant
+      changed (and to which direction) with the resulting flux change, and
+      <span class="live-only">a manual reaction-direction sandbox that re-runs FBA on just this model.</span>
+      <span class="static-only">— manual per-model FBA requires <code>python3 site/serve.py --live</code>.</span>
+    </p>
+
+    <div class="search-row">
+      <input id="pm-search" type="text" placeholder="search model id / organism…" autocomplete="off">
+      <select id="pm-variant" title="Score/filter models by this variant's flux effect">
+        <option value="any" selected>any variant (max |Δ flux|)</option>
+      </select>
+      <select id="pm-flux-filter" title="Filter models by the selected variant's flux effect">
+        <option value="any" selected>any flux change</option>
+        <option value="changed">flux changed (|Δ| &gt; 1e-6)</option>
+        <option value="up">flux increased</option>
+        <option value="down">flux decreased</option>
+        <option value="grew">became grower</option>
+        <option value="died">stopped growing</option>
+      </select>
+      <span id="pm-result-count" class="hint"></span>
+    </div>
+
+    <div class="reaction-grid">
+      <div class="reaction-list-pane">
+        <ul id="panel-model-list"></ul>
+      </div>
+      <div id="panel-model-detail" class="reaction-detail-pane">
+        <p class="hint">Click a model to inspect.</p>
       </div>
     </div>
   </section>
