@@ -1,0 +1,68 @@
+rxn_id,directionality,confidence,name
+rxn02231,forward,high,S-adenosyl-L-methionine:sterigmatocystin 8-O-methyltransferase
+rxn03572,forward,high,"cytochrome P450, CYP711 clan  [SP:A8ITR3_CHLRE]"
+rxn04359,forward,high,R06498
+rxn10727,forward,medium,fucose rhamnose rhamnose phenol phthiocerol dimycocerosate synthesis
+rxn11607,forward,medium,"Variant-surface-glycoprotein-1,2-didecanoyl-sn-phosphatidyl-inositol inositolphosphohydrolase"
+rxn13961,forward,medium,"Parathion,reduced-flavoprotein:oxygen oxidoreductase"
+rxn14251,forward,medium,parathion oxidoreductase
+rxn16244,forward,high,R09407
+rxn16245,forward,high,R09408
+rxn16248,forward,medium,R09411
+rxn16670,forward,high,tuberculosinyl diphosphate diphosphohydrolase (isotuberculosinol forming)
+rxn16692,forward,medium,R09851
+rxn16698,forward,low,UDP-glucose:N-demethylansamitocin-P-3 beta-D-glucosyltransferase
+rxn18085,forward,medium,equine arterivirus serine peptidase
+rxn18124,forward,high,picornain 3C
+rxn18154,forward,high,tentoxilysin
+rxn18591,forward,medium,oligopeptide-transporting ATPase
+rxn21433,forward,high,severe acute respiratory syndrome coronavirus main protease
+rxn22728,reversible,medium,aminopentol aminotransferase
+rxn25621,forward,medium,RXN-9494.c
+rxn25623,forward,low,RXN-9495.v
+rxn25628,forward,medium,RXN-9499.c
+rxn37421,forward,medium,RXN-9480.c.metaexp.NADP_NADPH
+rxn40144,forward,high,S-adenosyl-L-methionine:dihydrosterigmatocystin 8-O-methyltransferase
+rxn40211,forward,medium,versiconal hydro-lyase (versicolorin-B forming)
+rxn40270,forward,medium,
+rxn40651,forward,medium,
+rxn40902,forward,medium,
+rxn40951,forward,medium,
+rxn42132,forward,medium,
+rxn42211,forward,medium,
+rxn42735,forward,high,
+rxn42912,forward,low,
+rxn44370,forward,medium,
+rxn44523,forward,medium,
+rxn44839,uncertain,low,
+rxn45567,forward,medium,
+rxn46181,reverse,low,
+rxn46562,forward,medium,
+rxn47266,forward,high,
+rxn47377,forward,medium,
+rxn48482,uncertain,medium,
+rxn52197,forward,high,46000
+rxn54925,forward,medium,60756
+rxn55228,forward,medium,62272
+rxn55395,forward,medium,63092
+rxn55574,forward,low,63972
+rxn56479,forward,medium,68172
+rxn57034,forward,high,
+rxn57083,forward,medium,
+rxn57156,forward,medium,
+rxn57718,forward,low,
+rxn57880,forward,low,
+rxn57919,forward,high,
+rxn57944,forward,low,
+rxn58052,forward,medium,
+rxn58082,forward,medium,
+rxn58106,forward,medium,
+rxn58140,forward,low,
+rxn58195,forward,medium,
+rxn58663,forward,medium,
+rxn58793,forward,high,
+rxn59444,forward,medium,glucosylation to form Salmonella enterica O:28ac O antigen
+rxn60194,forward,medium,
+rxn60228,forward,high,
+rxn60356,forward,medium,
+rxn60693,forward,medium,

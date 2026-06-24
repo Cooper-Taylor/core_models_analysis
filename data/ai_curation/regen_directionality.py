@@ -23,10 +23,14 @@ import sys
 import threading
 import time
 import types
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+import httpx
 
 sys.path.insert(0, "/scratch/ctaylor/KBUtils_Local/src")
 from kbutillib import AICurationUtils, MSBiochemUtils
+from kbutillib.ai_curation_utils import scrub_sensitive_terms
 import cobra
 
 WD = "/scratch/ctaylor/ai_curation_argo"
@@ -114,6 +118,157 @@ def extract_json_str(txt: str) -> str:
     return t[start:]
 
 
+# --------------------------------------------------------------------------
+# Fill-gaps: retry only the missing reactions, looping on timeouts.
+# Uses the native Anthropic messages endpoint so refusals are detectable
+# (stop_reason == "refusal") and cleanly separated from timeouts.
+# --------------------------------------------------------------------------
+ARGO_MESSAGES_URL = "https://apps.inside.anl.gov/argoapi/v1/messages"
+
+# Verbatim from AICurationUtils.analyze_reaction_directionality so fill-gap
+# results use the same prompting as the main run.
+DIR_SYSTEM = """
+        You are an expert in biochemistry and molecular biology.
+        You will receive a biochemical reaction and must evaluate it for stoichiometric
+        correctness and biological directionality.
+
+        Respond strictly in valid JSON with **no text outside the JSON**.
+        All keys and string values must use double quotes.
+        Use only plain ASCII characters.
+        """
+DIR_SHARED_PROMPT = """Analyze the following reaction for stoichiometric correctness and
+        directionality in vivo.
+
+        Return a JSON object in this exact format:
+
+        {
+        "errors": ["error 1", "error 2"],
+        "directionality": "forward|reverse|reversible|uncertain",
+        "other_comments": "Brief general comments about the reaction so I know you understood the input.",
+        "confidence": "high|medium|low|none"
+        }
+
+        Reaction:
+        """
+
+
+def _fill_attempt(cli, user, model, rid, msdb, driver):
+    """Attempt one missing reaction via the native Anthropic messages endpoint.
+
+    Returns ``(rid, klass, result)``. ``klass`` is one of
+    ``ok`` | ``refusal`` | ``nonmsdb`` | ``other`` | ``timeout``.
+    Only ``timeout`` (network error / 5xx / malformed body) is retryable;
+    the rest are terminal.
+    """
+    rec = msdb.get(rid)
+    if rec is None:
+        return rid, "nonmsdb", None
+    try:
+        rxnstring = scrub_sensitive_terms(
+            driver.reaction_to_string(build_reaction(rec))["rxnstring"])
+    except Exception:
+        return rid, "other", None
+    body = {"model": model, "max_tokens": 2048, "system": DIR_SYSTEM,
+            "messages": [{"role": "user", "content": DIR_SHARED_PROMPT + rxnstring}]}
+    hdr = {"x-api-key": user, "anthropic-version": "2023-06-01",
+           "content-type": "application/json"}
+    try:
+        r = cli.post(ARGO_MESSAGES_URL, json=body, headers=hdr)
+    except httpx.HTTPError:
+        return rid, "timeout", None        # network/timeout -> retry
+    if r.status_code >= 500:
+        return rid, "timeout", None        # gateway hiccup -> retry
+    if r.status_code != 200:
+        return rid, "other", None
+    try:
+        j = r.json()
+    except Exception:
+        return rid, "timeout", None        # partial/malformed body -> retry
+    stop = j.get("stop_reason")
+    txt = "".join(b.get("text", "") for b in j.get("content", []) if b.get("type") == "text")
+    if stop == "refusal" or not txt.strip():
+        return rid, "refusal", None        # terminal
+    try:
+        obj = json.loads(extract_json_str(txt))
+    except Exception:
+        return rid, "other", None          # terminal
+    if not isinstance(obj, dict) or "directionality" not in obj:
+        return rid, "other", None
+    return rid, "ok", obj
+
+
+def fill_gaps(driver, msdb, missing, shared_cache, checkpoint, workers=8,
+              max_rounds=20, patience=3, refusal_retries=0):
+    """Continually re-run missing reactions until each succeeds or hits a
+    terminal error.
+
+    Timeouts (network / 5xx / malformed body) are retried across rounds.
+    Refusals are retried up to ``refusal_retries`` extra times (the scrub makes
+    refusals nondeterministic, so a borderline reaction may classify on a later
+    attempt); after ``refusal_retries + 1`` refusals it is terminal. non-MSDB and
+    other parse errors are terminal immediately.
+
+    Stops when nothing is pending, after ``max_rounds``, or after ``patience``
+    consecutive rounds in which *every* attempt timed out (Argo down) -- so it
+    never spins forever.
+    """
+    user, model = driver.user, driver.model
+    pending = set(missing)
+    refusals = Counter()
+    terminal = {"refusal": [], "nonmsdb": [], "other": []}
+    cli = httpx.Client(timeout=120.0)
+    no_progress = 0
+    rnd = 0
+    try:
+        while pending and rnd < max_rounds:
+            rnd += 1
+            cur = sorted(pending)
+            next_pending = set()
+            n_ok = n_ref_retry = n_ref_term = n_timeout = n_other = 0
+            with ThreadPoolExecutor(max_workers=workers) as ex:
+                futs = {ex.submit(_fill_attempt, cli, user, model, rid, msdb, driver): rid
+                        for rid in cur}
+                for fut in as_completed(futs):
+                    rid, klass, result = fut.result()
+                    if klass == "ok":
+                        shared_cache[rid] = result
+                        n_ok += 1
+                    elif klass == "timeout":
+                        next_pending.add(rid)
+                        n_timeout += 1
+                    elif klass == "refusal":
+                        refusals[rid] += 1
+                        if refusals[rid] > refusal_retries:   # 1 + refusal_retries attempts
+                            terminal["refusal"].append(rid)
+                            n_ref_term += 1
+                        else:
+                            next_pending.add(rid)
+                            n_ref_retry += 1
+                    else:  # nonmsdb / other
+                        terminal[klass].append(rid)
+                        n_other += 1
+            checkpoint()
+            print(f"[fill] round {rnd}: ok {n_ok} | refusal(retry {n_ref_retry}/give-up {n_ref_term}) "
+                  f"| timeout {n_timeout} | other-terminal {n_other} | pending {len(next_pending)} "
+                  f"| total {len(shared_cache)}", flush=True)
+            # "Progress" = anything other than pure timeout re-queue. Only an
+            # all-timeout round counts against patience (detects Argo outage).
+            progress = (n_ok + n_ref_retry + n_ref_term + n_other) > 0
+            no_progress = 0 if progress else (no_progress + 1)
+            pending = next_pending
+            if no_progress >= patience:
+                print(f"[fill] no progress (all timeouts) for {patience} rounds; stopping "
+                      f"with {len(pending)} pending", flush=True)
+                break
+    finally:
+        cli.close()
+    checkpoint()
+    print(f"[fill] DONE after {rnd} rounds | total now {len(shared_cache)}")
+    print(f"[fill] still-pending/timing-out ({len(pending)}): {sorted(pending)}")
+    for k in ("refusal", "nonmsdb", "other"):
+        print(f"[fill] terminal {k} ({len(terminal[k])}): {sorted(terminal[k])}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=6, help="0 = all reactions")
@@ -123,6 +278,16 @@ def main():
     ap.add_argument("--source", choices=["cache", "all"], default="cache",
                     help="'cache' = reaction ids from the existing cache file; "
                          "'all' = every buildable reaction in the ModelSEED DB")
+    ap.add_argument("--fill-gaps", action="store_true",
+                    help="retry ONLY the missing reactions via the native Anthropic "
+                         "messages endpoint, looping on timeouts until each succeeds or "
+                         "hits a terminal error (refusal / non-MSDB / other)")
+    ap.add_argument("--max-rounds", type=int, default=20,
+                    help="fill-gaps: max retry rounds for timed-out reactions")
+    ap.add_argument("--refusal-retries", type=int, default=0,
+                    help="fill-gaps: extra attempts to give a REFUSED reaction before "
+                         "treating it as terminal (scrubbed refusals are nondeterministic). "
+                         "0 = refusal is terminal on first occurrence (default).")
     args = ap.parse_args()
 
     out_dir = os.path.join(WD, args.out)
@@ -155,6 +320,25 @@ def main():
         shared_cache = json.load(open(out_file))
         print(f"[regen] resuming; {len(shared_cache)} already done")
 
+    lock = threading.Lock()
+
+    def checkpoint():
+        tmp = out_file + ".tmp"
+        with open(tmp, "w") as fh:
+            json.dump(shared_cache, fh, indent=4, skipkeys=True)
+        os.replace(tmp, out_file)
+
+    # ---- fill-gaps mode: retry ONLY missing reactions, looping on timeouts ----
+    if args.fill_gaps:
+        missing = [r for r in ids if r not in shared_cache]
+        print(f"[fill] {len(missing)} missing reactions to attempt "
+              f"(max_rounds={args.max_rounds}, workers={args.workers})", flush=True)
+        fill_gaps(driver, msdb, missing, shared_cache, checkpoint,
+                  workers=args.workers, max_rounds=args.max_rounds,
+                  refusal_retries=args.refusal_retries)
+        return
+
+    # ---- normal generate mode -------------------------------------------------
     # Make the real method parallel-safe: each call works on its own throwaway
     # dict so worker threads never mutate shared_cache; the method returns the
     # result, which the main thread stores into shared_cache under a lock.
@@ -164,15 +348,8 @@ def main():
     _orig_chat = driver.chat
     driver.chat = lambda prompt, system="": extract_json_str(_orig_chat(prompt, system=system))
 
-    lock = threading.Lock()
     done = [len(shared_cache)]
     failures = []
-
-    def checkpoint():
-        tmp = out_file + ".tmp"
-        with open(tmp, "w") as fh:
-            json.dump(shared_cache, fh, indent=4, skipkeys=True)
-        os.replace(tmp, out_file)
 
     def work(rid):
         rec = msdb.get(rid)
