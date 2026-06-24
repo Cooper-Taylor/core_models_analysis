@@ -29,6 +29,11 @@ ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor
 MODELS_DIR = ANALYSIS_DIR / "data" / "core_models_kegg2"
 MEDIA_FILE = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/ModelSEEDDatabase") + "/Media/KBaseMedia.cpd")
 GROWTH_THRESHOLD = 1e-6
+# Uniform uptake cap (mmol/gDW/h) on every open media exchange. The objective is
+# ATP production (see ``ensure_atp_objective``); without a finite uptake cap the
+# ATP-hydrolysis demand saturates at its own upper bound for every model, so the
+# metric is reported per unit substrate uptake ("ATP per unit total uptake").
+UPTAKE_BOUND = 1.0
 
 
 def load_media_compounds(path: Path = MEDIA_FILE) -> set:
@@ -49,7 +54,12 @@ def _media_cpds() -> set:
 
 
 def apply_media(model: cobra.Model, media_cpds: Optional[set] = None) -> int:
-    """Mirror of ``analyze_growth.apply_media`` -- restrict uptake to media."""
+    """Restrict uptake to the media compounds, each capped at ``-UPTAKE_BOUND``.
+
+    Open media exchanges get a finite uptake lower bound (``-UPTAKE_BOUND``)
+    rather than the usual ``-1000`` so the ATP-production objective yields a
+    finite, comparable number per unit substrate uptake (see ``UPTAKE_BOUND``);
+    secretion (upper bound) stays open at ``1000``."""
     if media_cpds is None:
         media_cpds = _media_cpds()
     open_count = 0
@@ -61,7 +71,7 @@ def apply_media(model: cobra.Model, media_cpds: Optional[set] = None) -> int:
             continue
         cpd_id = mets[0].id.split("_")[0]
         if cpd_id in media_cpds:
-            rxn.lower_bound = -1000.0
+            rxn.lower_bound = -UPTAKE_BOUND
             open_count += 1
         else:
             rxn.lower_bound = 0.0
@@ -81,6 +91,42 @@ def find_biomass_reaction(model: cobra.Model):
         if r.id.lower().startswith("bio") and not r.id.startswith("SK_"):
             return r
     return None
+
+
+# ATP-production objective. These core models are scored on their capacity to
+# PRODUCE ATP (not biomass): we add an ATP-hydrolysis demand reaction and
+# maximize it (the standard MSATPCorrection-style "max ATP production" test):
+#   ATP[c] + H2O[c] -> ADP[c] + Pi[c] + H+[c]
+# The max flux is the network's ATP-regeneration rate on the applied media.
+ATP_DEMAND_RXN = "DM_atp_c0"
+_ATP_STOICH = {
+    "cpd00002_c0": -1.0,  # ATP
+    "cpd00001_c0": -1.0,  # H2O
+    "cpd00008_c0": 1.0,   # ADP
+    "cpd00009_c0": 1.0,   # Pi
+    "cpd00067_c0": 1.0,   # H+
+}
+
+
+def ensure_atp_objective(model: cobra.Model):
+    """Add (once) the ATP-hydrolysis demand reaction ``DM_atp_c0`` and return it.
+
+    The ``DM_`` prefix keeps it out of the ``ignore_bounds`` rebinder and
+    ``override_bounds`` (no seed id), so reversibility variants still apply only
+    to internal reactions. Returns ``None`` if the model lacks any of the five
+    ATP-test metabolites (then it can't be scored for ATP production)."""
+    if ATP_DEMAND_RXN in model.reactions:
+        return model.reactions.get_by_id(ATP_DEMAND_RXN)
+    mets = {}
+    for cid, coef in _ATP_STOICH.items():
+        if cid not in model.metabolites:
+            return None
+        mets[model.metabolites.get_by_id(cid)] = coef
+    rxn = cobra.Reaction(ATP_DEMAND_RXN, name="ATP production (hydrolysis demand)",
+                         lower_bound=0.0, upper_bound=1000.0)
+    rxn.add_metabolites(mets)
+    model.add_reactions([rxn])
+    return rxn
 
 
 def _bounds_for_rev(rev: str, default_bound: float = 1000.0):
@@ -143,7 +189,7 @@ def override_bounds(model: cobra.Model, reversibility_map: dict,
 def fba_one(model_id: str, reversibility_map: Optional[dict] = None,
             baseline_map: Optional[dict] = None,
             ignore_bounds: bool = False) -> dict:
-    """Apply media, optionally rebound, run FBA on biomass.
+    """Apply media, optionally rebound, run FBA maximizing ATP production.
 
     - ``reversibility_map`` is ``None``  -- keep the on-disk bounds.
     - ``reversibility_map`` is a dict   -- rewrite bounds before solving.
@@ -177,17 +223,17 @@ def fba_one(model_id: str, reversibility_map: Optional[dict] = None,
             res["n_unchanged_vs_baseline"] = stats["unchanged"]
 
         apply_media(model)
-        bio_rxn = find_biomass_reaction(model)
-        if bio_rxn is None:
-            res["status"] = "no_biomass"
+        atp_rxn = ensure_atp_objective(model)
+        if atp_rxn is None:
+            res["status"] = "no_atp_metabolites"
             return res
-        res["biomass_rxn"] = bio_rxn.id
-        model.objective = bio_rxn
+        res["biomass_rxn"] = atp_rxn.id  # objective reaction (key kept for compatibility)
+        model.objective = atp_rxn
         sol = model.optimize()
         res["status"] = sol.status
         flux = float(sol.objective_value) if sol.objective_value is not None else 0.0
-        res["growth_flux"] = flux
-        res["grows"] = (sol.status == "optimal") and (flux > GROWTH_THRESHOLD)
+        res["growth_flux"] = flux  # now ATP-production flux
+        res["grows"] = (sol.status == "optimal") and (flux > GROWTH_THRESHOLD)  # produces ATP
     except Exception as e:
         res["error"] = f"{type(e).__name__}: {e}"
     return res

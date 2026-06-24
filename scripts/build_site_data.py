@@ -534,10 +534,15 @@ def main(argv: Optional[list] = None) -> None:
     if sel_path.exists():
         for rec in json.loads(sel_path.read_text()).get("records", []):
             sel_by_id[rec.get("model_id", "")] = rec
+    # ATP-production flux for the "baseline ATP flux" card: use the regenerated
+    # heuristic-baseline FBA (all_models_baseline_fba.json, now ATP) rather than
+    # the selection-time value in selected_models.json (which was biomass).
+    hb_by_id = {r["model_id"]: r for r in heur_baseline_fba}
     panel_model_descriptions = {}
     for mid in panel_ids:
         tax = tax_by_id.get(mid, {})
         sel = sel_by_id.get(mid, {})
+        hb = hb_by_id.get(mid, {})
         panel_model_descriptions[mid] = {
             "organism_name": tax.get("organism_name"),
             "tax_id": tax.get("tax_id"),
@@ -555,7 +560,7 @@ def main(argv: Optional[list] = None) -> None:
             "n_metabolites": sel.get("n_metabolites"),
             "n_genes": sel.get("n_genes"),
             "n_exchanges_open": sel.get("n_exchanges_open"),
-            "growth_flux": sel.get("growth_flux"),
+            "growth_flux": hb.get("growth_flux", sel.get("growth_flux")),
             "n_unique_rxns": sel.get("n_unique_rxns"),
             "n_rare_rxns": sel.get("n_rare_rxns"),
             "n_panel_rxns": len(panel_rxn_sets.get(mid, [])),
