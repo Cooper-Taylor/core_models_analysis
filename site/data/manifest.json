@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T02:57:23Z",
+  "generated_at": "2026-06-25T03:28:09Z",
   "panel_size": 100,
   "n_msdb_rxns": 56012,
   "n_panel_rxns": 46633,
@@ -358,6 +358,28 @@
         "new_rev=<": 4563,
         "new_rev==": 10233,
         "new_rev=?": 26039
+      }
+    },
+    {
+      "tag": "consensus_thermo",
+      "title": "Consensus of GC + eQuilibrator-3.0 + dGPredictor",
+      "apt_title": "High-confidence consensus: majority vote of three \u0394G\u2032 estimators",
+      "description": "Majority vote across three independent reaction-\u0394G\u2032 direction estimates: the group-contribution baseline, eQuilibrator-3.0 component contribution (Beber 2022), and dGPredictor (Wang 2021). A reaction is called directional only when at least two of the three agree; single votes that disagree collapse to reversible. This keeps the baseline direction unless the two newer estimators outvote group contribution, yielding a conservative, high-confidence direction set.",
+      "citations": [
+        "Beber 2022",
+        "Wang 2021",
+        "Noor 2012"
+      ],
+      "section": "\u00a7 New \u2014 consensus ensemble",
+      "n_changed_vs_baseline": 13097,
+      "n_models_flip": 0,
+      "n_models_flux_change": 19,
+      "rev_counts": {
+        "total": 56012,
+        "new_rev=>": 15402,
+        "new_rev=<": 3666,
+        "new_rev==": 18229,
+        "new_rev=?": 18715
       }
     }
   ]

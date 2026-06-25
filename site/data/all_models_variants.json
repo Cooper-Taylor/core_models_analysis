@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T02:51:56Z",
+  "generated_at": "2026-06-25T03:22:17Z",
   "n_all_models": 5683,
   "variants": {
     "baseline": {
@@ -497,6 +497,36 @@
       "n_not_default_now_grew": 0,
       "n_models_flip": 1082,
       "n_models_flux_change": 3134
+    },
+    "consensus_thermo": {
+      "tag": "consensus_thermo",
+      "n_all_models": 5683,
+      "n_models_containing_changed_rxn": 5665,
+      "n_rxn_instances_touched": 29504,
+      "max_increase": {
+        "model_id": "GCF_000237065.1",
+        "baseline_flux": 21.99136179308758,
+        "variant_flux": 40.63372355252516,
+        "delta_flux": 18.64236175943758,
+        "baseline_grows": true,
+        "variant_grows": true
+      },
+      "max_decrease": {
+        "model_id": "GCF_000023645.1",
+        "baseline_flux": 30.34926259494426,
+        "variant_flux": 22.146759190905076,
+        "delta_flux": -8.202503404039184,
+        "baseline_grows": true,
+        "variant_grows": true
+      },
+      "mean_flux": 15.325526713021718,
+      "median_flux": 14.787212019045954,
+      "std_flux": 15.907855397246118,
+      "n_models_grow": 3393,
+      "n_grew_default_now_not": 1,
+      "n_not_default_now_grew": 1,
+      "n_models_flip": 2,
+      "n_models_flux_change": 543
     }
   }
 }
