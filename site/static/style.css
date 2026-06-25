@@ -806,3 +806,14 @@ body.static-mode #tab-sandbox { display: none !important; }
 .an-htitle { font-family: var(--mono); font-size: 12px; margin-bottom: 2px; }
 .an-twocol { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.4fr); gap: 20px; align-items: start; }
 @media (max-width: 760px) { .an-twocol { grid-template-columns: 1fr; } }
+/* grow-flip tornado */
+.an-tor { display: flex; flex-direction: column; gap: 3px; }
+.an-torrow { display: grid; grid-template-columns: 120px 36px 1fr 1fr 36px; align-items: center; gap: 6px; }
+.an-torlbl { font-family: var(--mono); font-size: 11px; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.an-torbarL, .an-torbarR { display: flex; height: 15px; background: var(--bg-elev); border-radius: 3px; overflow: hidden; }
+.an-torbarL { justify-content: flex-end; }
+.an-torneg { height: 100%; background: var(--warn); }
+.an-torpos { height: 100%; background: var(--good); }
+.an-tornum { font-family: var(--mono); font-size: 11px; }
+.an-tornum.neg { text-align: right; color: var(--warn); }
+.an-tornum.pos { text-align: left; color: var(--good); }

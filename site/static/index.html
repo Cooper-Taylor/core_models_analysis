@@ -156,17 +156,26 @@
     <h3>Variant agreement <span class="hint">— pairwise fraction of reactions with the same direction, over reactions both variants call (excludes shared "?")</span></h3>
     <div id="an-agreement" class="an-block"></div>
 
+    <h3>Effect correlation <span class="hint">— similarity of variants by their per-model Δ growth effect (not by direction call)</span></h3>
+    <div id="an-effectcorr" class="an-block"></div>
+
     <h3>Reaction-direction makeup <span class="hint">— share of forward / reverse / reversible / unknown per variant</span></h3>
     <div id="an-dirdist" class="an-block"></div>
 
     <h3>Impact landscape <span class="hint">— how many models each variant perturbs vs how many flip grow-status (bubble = reactions changed)</span></h3>
     <div id="an-impact" class="an-block"></div>
 
+    <h3>Growth break vs restore <span class="hint">— per variant, models that lose growth (left) vs gain growth (right) vs baseline</span></h3>
+    <div id="an-tornado" class="an-block"></div>
+
     <h3>Panel growth heatmap <span class="hint">— Δ growth flux of each panel model (rows) under each variant (cols); green = gains, red = loses</span></h3>
     <div id="an-heatmap" class="an-block"></div>
 
-    <h3>Δ growth-flux distributions <span class="hint">— spread of growth perturbation across the 5,683 models each variant moves</span></h3>
+    <h3>Δ growth-flux distributions <span class="hint">— spread of growth perturbation across the models each variant moves</span></h3>
     <div id="an-deltahist" class="an-block"></div>
+
+    <h3>Enzyme-class rewrites <span class="hint">— how many panel reactions of each EC class a variant re-directs</span></h3>
+    <div id="an-ecclass" class="an-block"></div>
 
     <h3>Reaction criticality <span class="hint">— reactions whose direction change disrupts growth in the most panel models (from the key-reaction sweep)</span></h3>
     <div id="an-criticality" class="an-block"></div>
