@@ -39,6 +39,7 @@ const STATE = {
   panelModelVariants: null,    // {model_id: {tag: {delta_flux, ..., n_changed}}}
   panelPipeline: null,         // {model_id: {tag: {base_flux, singles[], cumulative[]}}}
   panelKeyReactions: null,     // {models: {model_id: {base_flux, reactions[]}}, global: [...]}
+  panelGrowthControl: null,    // {models: {model_id: {base_flux, n_essential, reactions[]}}, global: [...]}
   analytics: null,             // variant_analytics.json (agreement, dir-dist, delta hists)
   analyticsInit: false,        // analytics tab rendered once
   selectedModel: null,
@@ -1243,6 +1244,9 @@ async function loadPanelModelData() {
   // Key-reaction direction-sensitivity (precomputed; optional).
   try { STATE.panelKeyReactions = await API.data('panel_key_reactions.json'); }
   catch (e) { STATE.panelKeyReactions = null; }
+  // Growth-control knockout essentiality (precomputed; optional).
+  try { STATE.panelGrowthControl = await API.data('panel_growth_control.json'); }
+  catch (e) { STATE.panelGrowthControl = null; }
 }
 
 function pmEntry(mid, tag) {
@@ -1468,7 +1472,9 @@ function renderPanelModelDetail(mid) {
     </div>
     <div id="pm-pipe-charts"></div>
     <h3>Key reactions — direction sensitivity <span class="hint">— reactions whose direction change most disrupts this model's growth (every reaction probed in all directions vs baseline)</span></h3>
-    <div id="pm-key-charts"></div>`;
+    <div id="pm-key-charts"></div>
+    <h3>Growth control — knockout essentiality <span class="hint">— blocking each reaction (FBA reaction deletion): which reactions keep growth high (essential) or low (limiting)</span></h3>
+    <div id="pm-gc-charts"></div>`;
 
   pane.querySelectorAll('.pm-impact-row').forEach((tr) =>
     tr.addEventListener('click', () => {
@@ -1478,8 +1484,9 @@ function renderPanelModelDetail(mid) {
     }));
 
   if (!STATE.staticMode) initPmOverride(mid);
-  initPmPipeline(mid);     // precomputed (static) data — render in both modes
+  initPmPipeline(mid);        // precomputed (static) data — render in both modes
   renderPmKeyReactions(mid);  // precomputed direction-sensitivity — both modes
+  renderPmGrowthControl(mid); // precomputed knockout essentiality — both modes
 }
 
 // ----- key reactions: per-reaction direction sensitivity (precomputed) -----
@@ -1697,6 +1704,84 @@ function renderPmCumulativeChart(cumulative) {
     <div class="pfc-legend">cumulative Δ growth flux vs baseline as the top-ranked changes are applied; endpoint = full variant Δ =
       <span class="pfc-val ${lsign}">${last.delta >= 0 ? '+' : ''}${Number(last.delta).toFixed(3)}</span></div>
   </div>`;
+}
+
+// ----- growth control: knockout essentiality + flux at optimum (precomputed) -----
+function renderPmGrowthControl(mid) {
+  const host = document.getElementById('pm-gc-charts');
+  if (!host) return;
+  const gc = STATE.panelGrowthControl;
+  const m = (gc && gc.models) ? gc.models[mid] : null;
+  if (!m) {
+    host.innerHTML = `<p class="hint">Growth-control data not available (run <code>scripts/build_growth_control.py</code>).</p>`;
+    return;
+  }
+  const rx = m.reactions || [];
+  if (!rx.length) {
+    host.innerHTML = `<p class="hint">No single reaction knockout changes this model's growth.</p>`;
+    return;
+  }
+  host.innerHTML = `
+    <p class="hint">baseline growth flux ${Number(m.base_flux).toFixed(3)} &nbsp;·&nbsp; ${m.n_tested} reactions knocked out &nbsp;·&nbsp;
+      <span class="pfc-val neg">${m.n_essential}</span> essential (KO collapses growth) &nbsp;·&nbsp;
+      <span class="pfc-val pos">${m.n_limiting}</span> growth-limiting (KO raises growth)</p>
+    <h4>Knockout impact <span class="hint">— Δ growth when each reaction is blocked, top by magnitude</span></h4>
+    ${renderGcBars(rx.slice(0, 40))}
+    <h4>Flux vs essentiality <span class="hint">— flux carried at the growth optimum vs knockout Δ growth (each reaction)</span></h4>
+    ${renderGcScatter(rx)}`;
+  bindRxnLinks(host);
+}
+
+function renderGcBars(rx) {
+  const maxAbs = Math.max(...rx.map((r) => Math.abs(r.ko_delta)), 1e-9);
+  const rxnName = (id) => (STATE.reactionsPanel[id] && STATE.reactionsPanel[id].name) || '';
+  const rows = rx.map((r) => {
+    const d = r.ko_delta;
+    const sign = d < -1e-6 ? 'neg' : (d > 1e-6 ? 'pos' : 'zero');
+    const half = (Math.abs(d) / maxAbs * 50).toFixed(2);
+    const bar = `<span class="pfc-bar ${sign}" style="width:${half}%"></span>`;
+    const tip = `${r.rxn}${rxnName(r.rxn) ? ' — ' + rxnName(r.rxn) : ''}\n` +
+      `knockout Δ growth: ${d >= 0 ? '+' : ''}${Number(d).toFixed(3)} (${r.kind})\n` +
+      `flux at optimum: ${Number(r.flux_opt).toFixed(2)}   reduced cost: ${Number(r.reduced_cost).toFixed(3)}`;
+    return `<div class="pfc-row" title="${escapeHtml(tip)}">` +
+      `<span class="pfc-id"><a href="#" class="rxn-link" data-rxn="${escapeHtml(r.rxn)}">${escapeHtml(r.rxn)}</a></span>` +
+      `<span class="pfc-keydir">${r.kind === 'essential' ? '⛔' : r.kind === 'limiting' ? '▲' : '·'}</span>` +
+      `<span class="pfc-bar-cell">${bar}</span>` +
+      `<span class="pfc-val ${sign}">${d >= 0 ? '+' : ''}${Number(d).toFixed(3)}</span></div>`;
+  }).join('');
+  return `<div class="panel-flux-chart key-rxn-chart">
+    <div class="pfc-legend"><span class="pfc-val neg">red ⛔</span> = essential (blocking collapses growth) &nbsp;·&nbsp; <span class="pfc-val pos">green ▲</span> = growth-limiting (blocking raises growth) &nbsp;·&nbsp; bar = |Δ growth|</div>
+    <div class="pfc-rows">${rows}</div></div>`;
+}
+
+function renderGcScatter(rx) {
+  const W = 720, H = 380, padL = 64, padB = 46, padT = 16, padR = 18;
+  const fmax = Math.max(...rx.map((r) => Math.abs(r.flux_opt)), 1);
+  const ys = rx.map((r) => r.ko_delta);
+  let lo = Math.min(0, ...ys), hi = Math.max(0, ...ys);
+  if (hi <= lo) hi = lo + 1;
+  const X = (f) => padL + Math.sqrt(f / fmax) * (W - padL - padR);  // sqrt: flux spans 0..~1000
+  const Y = (v) => padT + (1 - (v - lo) / (hi - lo)) * (H - padT - padB);
+  const col = (k) => k === 'essential' ? _rgba(_C_WARN, 0.75) : k === 'limiting' ? _rgba(_C_GOOD, 0.75) : _rgba(_C_ACC, 0.4);
+  const rxnName = (id) => (STATE.reactionsPanel[id] && STATE.reactionsPanel[id].name) || '';
+  const y0 = Y(0);
+  const dots = rx.map((r) => {
+    const tip = `${r.rxn}${rxnName(r.rxn) ? ' — ' + rxnName(r.rxn) : ''}: flux ${Number(r.flux_opt).toFixed(1)}, KO Δ ${r.ko_delta >= 0 ? '+' : ''}${Number(r.ko_delta).toFixed(2)} (${r.kind})`;
+    return `<circle cx="${X(Math.abs(r.flux_opt)).toFixed(1)}" cy="${Y(r.ko_delta).toFixed(1)}" r="3.5" fill="${col(r.kind)}" stroke="rgba(0,0,0,0.25)" stroke-width="0.5"><title>${escapeHtml(tip)}</title></circle>`;
+  }).join('');
+  const xt = [0, 0.25, 0.5, 1].map((f) => {
+    const fv = f * fmax;
+    return `<text class="an-lbl" x="${X(fv).toFixed(1)}" y="${H - padB + 14}" text-anchor="middle">${Math.round(fv)}</text>`;
+  }).join('');
+  return `<div class="an-scroll"><svg viewBox="0 0 ${W} ${H}" class="an-svg" style="max-width:${W}px">
+    <line class="an-grid" x1="${padL}" y1="${y0.toFixed(1)}" x2="${W - padR}" y2="${y0.toFixed(1)}"/>
+    <text class="an-lbl" x="${padL - 6}" y="${(Y(hi) + 3).toFixed(1)}" text-anchor="end">${hi.toFixed(1)}</text>
+    <text class="an-lbl" x="${padL - 6}" y="${(y0 + 3).toFixed(1)}" text-anchor="end">0</text>
+    <text class="an-lbl" x="${padL - 6}" y="${(Y(lo) + 3).toFixed(1)}" text-anchor="end">${lo.toFixed(1)}</text>
+    ${xt}${dots}
+    <text class="an-axt" x="${(padL + W - padR) / 2}" y="${H - 4}" text-anchor="middle">|flux| carried at growth optimum (√ scale)</text>
+    <text class="an-axt" transform="translate(15,${(padT + H - padB) / 2}) rotate(-90)" text-anchor="middle">knockout Δ growth</text></svg></div>
+    <p class="hint">Bottom-left/red (very negative Δ) = essential bottlenecks; bottom-right/red = high-flux essential backbone; on the zero line = dispensable; above zero/green = growth-limiting.</p>`;
 }
 
 // ----- per-model live override panel (live mode only) -----
@@ -1946,6 +2031,7 @@ async function initAnalytics() {
   try { STATE.analytics = await API.data('variant_analytics.json'); } catch (e) { STATE.analytics = null; }
   if (!STATE.panelModelVariants) { try { STATE.panelModelVariants = await API.data('panel_model_variants.json'); } catch (e) {} }
   if (!STATE.panelKeyReactions) { try { STATE.panelKeyReactions = await API.data('panel_key_reactions.json'); } catch (e) {} }
+  if (!STATE.panelGrowthControl) { try { STATE.panelGrowthControl = await API.data('panel_growth_control.json'); } catch (e) {} }
   if (!STATE.reactionsPanel) { try { STATE.reactionsPanel = await API.data('reactions_panel.json'); } catch (e) {} }
 
   const an = STATE.analytics;
@@ -1962,6 +2048,43 @@ async function initAnalytics() {
   renderModelVariantHeatmap(document.getElementById('an-heatmap'));
   renderECClassHeatmap(document.getElementById('an-ecclass'));
   renderKeyCriticality(document.getElementById('an-criticality'));
+  renderEssentialityGlobal(document.getElementById('an-essential'));
+}
+
+// 10. Essential reactions across the panel (knockout): frequency bars + per-model count histogram.
+function renderEssentialityGlobal(host) {
+  if (!host) return;
+  const gc = STATE.panelGrowthControl;
+  if (!gc || !gc.global || !gc.global.length) { host.innerHTML = '<p class="hint">Growth-control data unavailable (run build_growth_control.py).</p>'; return; }
+  const rxnName = (id) => (STATE.reactionsPanel && STATE.reactionsPanel[id] && STATE.reactionsPanel[id].name) || '';
+  const top = gc.global.slice(0, 20);
+  const nmax = Math.max(...top.map((x) => x.n_essential_models), 1);
+  const bars = top.map((x) =>
+    `<div class="an-distrow"><span class="an-distlbl"><a href="#" class="rxn-link" data-rxn="${escapeHtml(x.rxn)}">${escapeHtml(x.rxn)}</a></span>` +
+    `<span class="an-distbar"><span class="an-seg" style="width:${(x.n_essential_models / nmax * 100).toFixed(1)}%;background:var(--warn)" title="${escapeHtml(x.rxn)}${rxnName(x.rxn) ? ' — ' + rxnName(x.rxn) : ''}: essential in ${x.n_essential_models} models, max |KO Δ| ${x.max_abs_ko}"></span></span>` +
+    `<span class="an-distn">${x.n_essential_models}</span></div>`).join('');
+  // histogram: # essential reactions per model
+  const counts = Object.values(gc.models).map((m) => m.n_essential || 0);
+  const hmax = Math.max(...counts, 1), nb = 20, bw = Math.ceil((hmax + 1) / nb);
+  const bins = new Array(nb).fill(0);
+  counts.forEach((c) => { bins[Math.min(nb - 1, Math.floor(c / bw))]++; });
+  const bmax = Math.max(...bins, 1);
+  const W = 460, H = 240, padL = 40, padB = 34, padT = 12, padR = 10;
+  const barw = (W - padL - padR) / nb;
+  const hbars = bins.map((c, i) => {
+    const bh = (c / bmax) * (H - padT - padB);
+    return `<rect x="${(padL + i * barw).toFixed(1)}" y="${(H - padB - bh).toFixed(1)}" width="${(barw - 1).toFixed(1)}" height="${bh.toFixed(1)}" fill="${_rgba(_C_WARN, 0.8)}"><title>${i * bw}–${(i + 1) * bw - 1} essential rxns: ${c} models</title></rect>`;
+  }).join('');
+  host.innerHTML = `<div class="an-twocol">
+    <div><h4>Essential in the most models (top 20)</h4><div class="an-distwrap an-crit">${bars}</div></div>
+    <div><h4># essential reactions per model</h4><div class="an-scroll"><svg viewBox="0 0 ${W} ${H}" class="an-svg" style="max-width:${W}px">
+      <text class="an-lbl" x="${padL - 4}" y="${padT + 6}" text-anchor="end">${bmax}</text>
+      <text class="an-lbl" x="${padL}" y="${H - 6}" text-anchor="start">0</text>
+      <text class="an-lbl" x="${W - padR}" y="${H - 6}" text-anchor="end">${hmax}</text>
+      ${hbars}
+      <text class="an-axt" x="${(padL + W - padR) / 2}" y="${H - 4}" text-anchor="middle"># essential reactions in a model</text></svg></div></div>
+  </div>`;
+  bindRxnLinks(host);
 }
 
 // 1. Variant x variant directional-agreement heatmap (SVG).

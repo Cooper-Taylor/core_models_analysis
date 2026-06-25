@@ -179,6 +179,9 @@
 
     <h3>Reaction criticality <span class="hint">— reactions whose direction change disrupts growth in the most panel models (from the key-reaction sweep)</span></h3>
     <div id="an-criticality" class="an-block"></div>
+
+    <h3>Essential reactions <span class="hint">— reactions essential to growth (knockout collapses it) across the most panel models</span></h3>
+    <div id="an-essential" class="an-block"></div>
   </section>
 
   <!-- ===================== FLUX SANDBOX ===================== -->
@@ -244,6 +247,16 @@
           exchange allows up to <code>-1000</code> mmol/gDW/h uptake; secretion is
           unrestricted. JSON keys <code>growth_flux</code>/<code>grows</code> hold the
           biomass flux and growth status.</li>
+      <li><strong>Growth-key reactions</strong>: the Panel Models tab finds the
+          reactions that control each model's growth — <em>direction sensitivity</em>
+          (flip each reaction's direction, measure Δ growth) and <em>knockout
+          essentiality</em> (block each reaction: essential reactions keep growth
+          high, growth-limiting reactions keep it low), plus flux carried at the
+          optimum and LP reduced cost. Methods + citations (Edwards &amp; Palsson
+          2000; Mahadevan &amp; Schilling 2003; Burgard 2004; Reznik 2013; Noor
+          2014) in <code>reports/GROWTH_KEY_REACTIONS_REVIEW.md</code>; produced by
+          <code>scripts/build_key_reactions.py</code> +
+          <code>scripts/build_growth_control.py</code>.</li>
       <li><strong>FBA reference</strong>: variants are compared to the
           <em>heuristic baseline</em> -- panel models fully rebound to
           the MSDB cascade's defaults.  This isolates "what does the heuristic

@@ -339,6 +339,88 @@ def key_reactions_one(model_id: str, baseline_map: dict, top_n: int = 75) -> dic
         return {"model_id": model_id, "error": f"{type(e).__name__}: {e}"}
 
 
+def growth_control_one(model_id: str, baseline_map: dict, top_n: int = 90) -> dict:
+    """Per-reaction *growth control*: single-reaction knockout Δgrowth + flux
+    carried at the growth optimum + LP reduced cost.
+
+    The classic FBA reaction-deletion analysis (Edwards & Palsson 2000): rebind
+    the model to the cascade baseline + media, solve biomass once (capturing the
+    optimal flux distribution and reduced costs), then BLOCK each SEED reaction
+    (lb=ub=0) in turn and re-solve. A reaction is **essential** when blocking
+    collapses growth (ko_delta < 0) and **growth-limiting** when blocking raises
+    growth (ko_delta > 0, the reaction was siphoning flux away from biomass);
+    ``flux_opt`` is the net flux it carries at the optimum and ``reduced_cost``
+    its LP marginal. Model loaded once; ~one extra LP per reaction.
+
+    Returns ``{model_id, base_flux, n_tested, n_essential, n_limiting,
+    reactions:[{rxn, ko_delta, flux_opt, reduced_cost, kind}...]}`` sorted by
+    ``|ko_delta|`` then ``|flux_opt|`` (capped at ``top_n``), or ``{model_id, error}``."""
+    try:
+        model = load_json_model(str(MODELS_DIR / f"{model_id}.json"))
+        override_bounds(model, baseline_map)
+        apply_media(model)
+        bio_rxn = find_biomass_reaction(model)
+        if bio_rxn is None:
+            return {"model_id": model_id, "error": "no_biomass"}
+        model.objective = bio_rxn
+
+        sol = model.optimize()
+        ok = sol.status == "optimal" and sol.objective_value is not None
+        base_flux = float(sol.objective_value) if ok else 0.0
+        fluxes = sol.fluxes if ok else None
+        rcosts = getattr(sol, "reduced_costs", None) if ok else None
+
+        def _flux():
+            so = model.optimize()
+            if so.status == "optimal" and so.objective_value is not None:
+                return float(so.objective_value)
+            return 0.0
+
+        seed_rxns: dict = {}
+        for rxn in model.reactions:
+            s = seed_id(rxn)
+            if s:
+                seed_rxns.setdefault(s, []).append(rxn)
+
+        results = []
+        for seed, rs in seed_rxns.items():
+            backup = [(r, r.lower_bound, r.upper_bound) for r in rs]
+            for r in rs:
+                r.lower_bound, r.upper_bound = 0.0, 0.0
+            ko_delta = _flux() - base_flux
+            for r, lo, hi in backup:
+                r.lower_bound, r.upper_bound = lo, hi
+            flux_opt, rc = 0.0, 0.0
+            if fluxes is not None:
+                for r in rs:
+                    try:
+                        flux_opt += float(fluxes[r.id])
+                    except Exception:
+                        pass
+                    if rcosts is not None:
+                        try:
+                            v = float(rcosts[r.id])
+                            if abs(v) > abs(rc):
+                                rc = v
+                        except Exception:
+                            pass
+            kind = ("essential" if ko_delta < -GROWTH_THRESHOLD
+                    else "limiting" if ko_delta > GROWTH_THRESHOLD else "neutral")
+            results.append({"rxn": seed, "ko_delta": ko_delta, "flux_opt": flux_opt,
+                            "reduced_cost": rc, "kind": kind})
+
+        n_tested = len(results)
+        n_ess = sum(1 for d in results if d["kind"] == "essential")
+        n_lim = sum(1 for d in results if d["kind"] == "limiting")
+        results.sort(key=lambda d: (-abs(d["ko_delta"]), -abs(d["flux_opt"]), d["rxn"]))
+        keep = [d for d in results
+                if abs(d["ko_delta"]) > GROWTH_THRESHOLD or abs(d["flux_opt"]) > 1e-6][:top_n]
+        return {"model_id": model_id, "base_flux": base_flux, "n_tested": n_tested,
+                "n_essential": n_ess, "n_limiting": n_lim, "reactions": keep}
+    except Exception as e:
+        return {"model_id": model_id, "error": f"{type(e).__name__}: {e}"}
+
+
 _worker_kwargs_cache: dict = {}
 
 
