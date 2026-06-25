@@ -10,8 +10,8 @@
     <h1>ModelSEED Reaction-Reversibility Heuristics Explorer</h1>
     <p class="subtitle">
       Compare every <code>ReversibilityConfig</code> variant from notebook 06 against
-      the 100-model descriptive ATP-production panel, drill into individual reactions, and
-      sandbox per-reaction effects on ATP production.
+      the 100-model descriptive growth panel, drill into individual reactions, and
+      sandbox per-reaction flux effects.
       <span id="manifest-meta"></span>
     </p>
     <nav>
@@ -31,8 +31,8 @@
     <p class="hint">
       Each row is a single-knob change to <code>ReversibilityConfig()</code>.
       Numbers are computed against the byte-for-byte MSDB cascade baseline.
-      <strong>flip</strong> = models that switch between producing ATP and not;
-      <strong>flux change</strong> = models whose ATP-production flux moves more than 1e-6;
+      <strong>flip</strong> = models that switch between grower and non-grower;
+      <strong>flux change</strong> = models whose growth flux moves more than 1e-6;
       <strong>rxn instances impacted</strong> = summed (model, reaction) pairs in scope where the variant changes the reaction's direction;
       the parenthetical <strong>(N models)</strong> is how many models in scope contain <em>at least one</em> reaction this variant changes
       (not that every reaction changed in every one of those models).
@@ -54,7 +54,7 @@
           <th class="num">rxns changed vs baseline</th>
           <th class="num" id="col-rxn-instances">rxn instances impacted (panel)</th>
           <th class="num" id="col-flux-change">models flux change (panel)</th>
-          <th class="num" id="col-grow-flip">models ATP-flip (panel)</th>
+          <th class="num" id="col-grow-flip">models grow-flip (panel)</th>
         </tr>
       </thead>
       <tbody><tr><td colspan="7" class="loading">loading…</td></tr></tbody>
@@ -88,7 +88,7 @@
         <option value="any" selected>any variant (no filter)</option>
         <option value="none" disabled>───────────────</option>
       </select>
-      <label class="rxn-flux-filter-label" title="Only show reactions that change ATP-production flux in at least one panel model containing them" hidden>
+      <label class="rxn-flux-filter-label" title="Only show reactions that change growth flux in at least one panel model containing them" hidden>
         <input id="rxn-flux-impacted-only" type="checkbox">
         flux-impacted only
       </label>
@@ -109,10 +109,10 @@
   <section id="tab-panel-models" class="tab">
     <h2>Panel Models</h2>
     <p class="hint">
-      Browse the 100 descriptive panel models. Filter by the ATP-flux change a
+      Browse the 100 descriptive panel models. Filter by the growth-flux change a
       variant induces (and by which variant caused it); select a model to see its
       organism description, its unique reactions, exactly which reactions a variant
-      changed (and to which direction) with the resulting ATP-flux change, and
+      changed (and to which direction) with the resulting growth-flux change, and
       <span class="live-only">a manual reaction-direction sandbox that re-runs FBA on just this model.</span>
       <span class="static-only">— manual per-model FBA requires <code>python3 site/serve.py --live</code>.</span>
     </p>
@@ -127,8 +127,8 @@
         <option value="changed">flux changed (|Δ| &gt; 1e-6)</option>
         <option value="up">flux increased</option>
         <option value="down">flux decreased</option>
-        <option value="grew">gained ATP production</option>
-        <option value="died">lost ATP production</option>
+        <option value="grew">became grower</option>
+        <option value="died">stopped growing</option>
       </select>
       <span id="pm-result-count" class="hint"></span>
     </div>
@@ -201,15 +201,11 @@
           panel + all-models impact data shown here.</li>
       <li><strong>Panel</strong>: 100 descriptive panel models from
           <code>core_models_analysis/results/selected_ids.txt</code>.</li>
-      <li><strong>Metric — ATP production</strong>: every FBA maximizes an in-memory
-          ATP-hydrolysis demand reaction
-          (<code>cpd00002 + cpd00001 &rarr; cpd00008 + cpd00009 + cpd00067</code>,
-          added as <code>DM_atp_c0</code>) rather than biomass. Each open
-          <code>KBaseMedia</code> exchange is capped at <code>-1</code> mmol/gDW/h, so the
-          reported flux is ATP produced per unit substrate uptake (without a finite
-          uptake cap the demand reaction saturates at its bound for every model).
-          Internal JSON keys are still named <code>growth_flux</code>/<code>grows</code>
-          for back-compat, but they now hold ATP-production values.</li>
+      <li><strong>Metric — growth (biomass)</strong>: every FBA maximizes the
+          model's biomass reaction (bio1/bio2). Each open <code>KBaseMedia</code>
+          exchange allows up to <code>-1000</code> mmol/gDW/h uptake; secretion is
+          unrestricted. JSON keys <code>growth_flux</code>/<code>grows</code> hold the
+          biomass flux and growth status.</li>
       <li><strong>FBA reference</strong>: variants are compared to the
           <em>heuristic baseline</em> -- panel models fully rebound to
           the MSDB cascade's defaults.  This isolates "what does the heuristic
@@ -232,12 +228,12 @@
       <li><strong>Model scope toggle</strong> (Variant Browser): switch between
           the 100-model descriptive panel and the full 5,683-model
           <code>core_models_kegg2/</code> database. The all-models scope shows
-          mean / median / std ATP-production flux, largest gainer / loser models, and
+          mean / median / std growth flux, largest gainer / loser models, and
           how many models flip in either direction. Built by
           <code>scripts/build_all_models_impact.py</code>.</li>
       <li><strong>Reaction Explorer filters</strong>: filter to reactions changed
           by a specific variant, with an optional subfilter restricting to
-          reactions whose direction change actually shifts ATP-production flux in at
+          reactions whose direction change actually shifts growth flux in at
           least one panel model containing them.</li>
       <li class="static-only"><strong>Static mode</strong>: this server was launched
           without the FBA backend. The Flux Sandbox tab is hidden and the Reaction

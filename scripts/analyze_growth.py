@@ -1,19 +1,16 @@
 #!/usr/bin/env python3
 """
-Analyze ATP-production potential of core_models_kegg2 metabolic models.
+Analyze biological growth potential of core_models_kegg2 metabolic models.
 
 For each .json model:
 - Load with cobrapy
 - Constrain EX_ exchange reactions so uptake (negative flux) is only allowed
-  for compounds listed in the ModelSEEDDatabase KBaseMedia.cpd complete media,
-  each capped at -UPTAKE_BOUND mmol/gDW/h so ATP yield is finite/comparable
-- Run FBA maximizing ATP production (an in-memory ``DM_atp_c0`` ATP-hydrolysis
-  demand reaction; see ``growth_heuristics.ensure_atp_objective``)
-- Record ATP-production flux, status, and the objective reaction
+  for compounds listed in the ModelSEEDDatabase KBaseMedia.cpd complete media
+- Run FBA on the biomass reaction (bio1)
+- Record growth flux, status, and active biomass reaction
 
 Outputs:
-- results.csv  : per-model ATP-production summary (the ``growth_flux``/``grows``
-  columns now hold ATP-production values; column names kept for back-compat)
+- results.csv  : per-model growth summary
 - failures.log : per-model errors / non-optimal solutions
 """
 
@@ -28,8 +25,6 @@ from pathlib import Path
 
 import cobra
 from cobra.io import load_json_model
-
-from growth_heuristics import UPTAKE_BOUND, ensure_atp_objective
 
 # --- Paths ------------------------------------------------------------
 ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
@@ -50,9 +45,8 @@ GROWTH_THRESHOLD = 1e-6  # flux below this is treated as no growth
 def apply_media(model: cobra.Model, media_cpds: set) -> int:
     """
     Restrict uptake: for every EX_ reaction, only allow negative (uptake) flux
-    if the underlying compound id is in the media list, capped at -UPTAKE_BOUND
-    so the ATP-production objective stays finite. Secretion (positive flux) is
-    always allowed.
+    if the underlying compound id is in the media list. Secretion (positive flux)
+    is always allowed.
     Returns the number of exchanges left open for uptake.
     """
     open_count = 0
@@ -68,7 +62,7 @@ def apply_media(model: cobra.Model, media_cpds: set) -> int:
         # e.g. cpd00067_e0 -> cpd00067
         cpd_id = met.id.split("_")[0]
         if cpd_id in media_cpds:
-            rxn.lower_bound = -UPTAKE_BOUND
+            rxn.lower_bound = -1000.0
             open_count += 1
         else:
             rxn.lower_bound = 0.0
@@ -115,13 +109,13 @@ def analyze_one(path_str: str) -> dict:
 
         res["n_exchanges_open"] = apply_media(model, MEDIA_COMPOUNDS)
 
-        atp_rxn = ensure_atp_objective(model)
-        if atp_rxn is None:
-            res["status"] = "no_atp_metabolites"
+        bio_rxn = find_biomass_reaction(model)
+        if bio_rxn is None:
+            res["status"] = "no_biomass"
             return res
-        res["biomass_rxn"] = atp_rxn.id  # objective reaction (column kept for back-compat)
+        res["biomass_rxn"] = bio_rxn.id
 
-        model.objective = atp_rxn
+        model.objective = bio_rxn
         sol = model.optimize()
         res["status"] = sol.status
         flux = float(sol.objective_value) if sol.objective_value is not None else 0.0
@@ -182,7 +176,7 @@ def main():
                 print(f"  progress: {done}/{len(model_paths)}  growing: {grew}",
                       flush=True)
 
-    print(f"\nDone. {done} models analyzed; {grew} produce ATP above threshold {GROWTH_THRESHOLD}.")
+    print(f"\nDone. {done} models analyzed; {grew} grow above threshold {GROWTH_THRESHOLD}.")
     print(f"Results: {RESULTS_CSV}")
     print(f"Failures log: {FAILURES_LOG}")
 
