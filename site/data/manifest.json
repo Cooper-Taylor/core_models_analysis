@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-24T18:14:23Z",
+  "generated_at": "2026-06-25T02:57:23Z",
   "panel_size": 100,
   "n_msdb_rxns": 56012,
-  "n_panel_rxns": 42074,
+  "n_panel_rxns": 46633,
   "variants": [
     {
       "tag": "baseline",
@@ -35,7 +35,7 @@
       "section": "\u00a7 2.1 / 3.1",
       "n_changed_vs_baseline": 537,
       "n_models_flip": 2,
-      "n_models_flux_change": 22,
+      "n_models_flux_change": 24,
       "rev_counts": {
         "total": 56012,
         "new_rev=>": 10972,
@@ -57,8 +57,8 @@
       ],
       "section": "\u00a7 3.3",
       "n_changed_vs_baseline": 1188,
-      "n_models_flip": 21,
-      "n_models_flux_change": 59,
+      "n_models_flip": 57,
+      "n_models_flux_change": 95,
       "rev_counts": {
         "total": 56012,
         "new_rev=>": 11327,
@@ -142,7 +142,7 @@
       "section": "\u00a7 3.6",
       "n_changed_vs_baseline": 1295,
       "n_models_flip": 0,
-      "n_models_flux_change": 93,
+      "n_models_flux_change": 95,
       "rev_counts": {
         "total": 56012,
         "new_rev=>": 9433,
@@ -163,7 +163,7 @@
       "section": "\u00a7 3.7",
       "n_changed_vs_baseline": 58,
       "n_models_flip": 0,
-      "n_models_flux_change": 50,
+      "n_models_flux_change": 62,
       "rev_counts": {
         "total": 56012,
         "new_rev=>": 10513,
@@ -199,7 +199,7 @@
       "section": "\u00a7 3.10",
       "n_changed_vs_baseline": 456,
       "n_models_flip": 0,
-      "n_models_flux_change": 67,
+      "n_models_flux_change": 75,
       "rev_counts": {
         "total": 56012,
         "new_rev=>": 10180,
@@ -224,14 +224,76 @@
       ],
       "section": "\u00a7 H4",
       "n_changed_vs_baseline": 1624,
-      "n_models_flip": 21,
-      "n_models_flux_change": 59,
+      "n_models_flip": 60,
+      "n_models_flux_change": 97,
       "rev_counts": {
         "total": 56012,
         "new_rev=>": 11292,
         "new_rev=<": 2468,
         "new_rev==": 11150,
         "new_rev=?": 31102
+      }
+    },
+    {
+      "tag": "ri_gamma1",
+      "title": "Reversibility index, |log10 gamma| = 1 (aggressive)",
+      "apt_title": "eQuilibrator reversibility index at a 10-fold cutoff (Noor 2012/2013)",
+      "description": "Same reversibility-index rule as 3.1 but with an aggressive cutoff: a reaction is called directional whenever |ln gamma| > ln(10), i.e. when only a ~10-fold concentration shift would reverse it (|log10 gamma| = 1, vs 3.1's |log10 gamma| = 3). gamma is the molecularity-normalized fold-change in the mass-action ratio that flips the sign of \u0394G\u2032 (Noor 2012). This pulls a large set of near-equilibrium reactions out of the reversible bucket into firm '>'/'<' calls (cfg: ln_ri_by_rxn, ln_ri_threshold=ln 10).",
+      "citations": [
+        "Noor 2012",
+        "Noor 2013"
+      ],
+      "section": "\u00a7 New \u2014 reversibility-index sweep",
+      "n_changed_vs_baseline": 3947,
+      "n_models_flip": 91,
+      "n_models_flux_change": 99,
+      "rev_counts": {
+        "total": 56012,
+        "new_rev=>": 12944,
+        "new_rev=<": 3645,
+        "new_rev==": 8321,
+        "new_rev=?": 31102
+      }
+    },
+    {
+      "tag": "ri_gamma2",
+      "title": "Reversibility index, |log10 gamma| = 2 (mid)",
+      "apt_title": "eQuilibrator reversibility index at a 100-fold cutoff (Noor 2012/2013)",
+      "description": "The reversibility-index rule at |ln gamma| > ln(100) (|log10 gamma| = 2): a reaction is directional when a ~100-fold concentration shift would be needed to reverse it. Together with 3.1 (|log10 gamma| = 3) and ri_gamma1 (= 1) this spans the full Noor reversibility-index threshold sweep (cfg: ln_ri_by_rxn, ln_ri_threshold=ln 100).",
+      "citations": [
+        "Noor 2012",
+        "Noor 2013"
+      ],
+      "section": "\u00a7 New \u2014 reversibility-index sweep",
+      "n_changed_vs_baseline": 1653,
+      "n_models_flip": 52,
+      "n_models_flux_change": 89,
+      "rev_counts": {
+        "total": 56012,
+        "new_rev=>": 11691,
+        "new_rev=<": 2604,
+        "new_rev==": 10615,
+        "new_rev=?": 31102
+      }
+    },
+    {
+      "tag": "dgpredictor",
+      "title": "dGPredictor reaction energies (Wang 2021)",
+      "apt_title": "Swap the \u0394G\u2032\u00b0 estimator to dGPredictor's molecular-fingerprint model",
+      "description": "Runs the full baseline cascade but replaces each reaction's stored group-contribution \u0394G\u2032\u00b0 with the dGPredictor estimate (Wang, Upadhyay & Maranas 2021) for the ~27.7k reactions dGPredictor covers. dGPredictor learns standard reaction energies from automated atom-centered molecular fingerprints rather than a fixed set of manually curated functional groups, so it handles isomerases and unusual transferases the group-contribution method struggles with. This isolates the effect of the energy estimator: the heuristics are unchanged, only the \u0394G\u2032\u00b0 feeding them differs (cfg: energy_override_by_rxn).",
+      "citations": [
+        "Wang 2021"
+      ],
+      "section": "\u00a7 New \u2014 dGPredictor energies",
+      "n_changed_vs_baseline": 15685,
+      "n_models_flip": 1,
+      "n_models_flux_change": 98,
+      "rev_counts": {
+        "total": 56012,
+        "new_rev=>": 15461,
+        "new_rev=<": 3839,
+        "new_rev==": 14347,
+        "new_rev=?": 22365
       }
     },
     {
@@ -243,15 +305,59 @@
         "Claude Opus 4.8 (Anthropic), via the Argo gateway"
       ],
       "section": "AI / LLM",
-      "n_changed_vs_baseline": 39027,
-      "n_models_flip": 1,
+      "n_changed_vs_baseline": 39122,
+      "n_models_flip": 41,
+      "n_models_flux_change": 100,
+      "rev_counts": {
+        "total": 56012,
+        "new_rev=>": 41925,
+        "new_rev==": 8181,
+        "new_rev=<": 1431,
+        "new_rev=?": 4475
+      }
+    },
+    {
+      "tag": "eq3_beber2022",
+      "title": "eQuilibrator 3.0 directions (Beber 2022)",
+      "apt_title": "eQuilibrator-3.0 component-contribution directionality (Beber 2022), |log10 gamma| = 3",
+      "description": "Reaction directions from eQuilibrator 3.0's component-contribution energies (Beber 2022) using its reversibility index at the standard |log10 gamma| = 3 cutoff (Noor 2012/2013). eQuilibrator 3.0 is the current state-of-the-art \u0394G\u2032 estimator (full covariance, Mg2+/pH corrections), so this swaps the baseline's bundled group-contribution energies for the newest data. Overlaid on baseline.",
+      "citations": [
+        "Beber 2022",
+        "Noor 2012",
+        "Noor 2013"
+      ],
+      "section": "\u00a7 New \u2014 eQuilibrator 3.0",
+      "n_changed_vs_baseline": 7633,
+      "n_models_flip": 0,
       "n_models_flux_change": 95,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 41838,
-        "new_rev==": 8193,
-        "new_rev=<": 1434,
-        "new_rev=?": 4547
+        "new_rev=>": 12086,
+        "new_rev==": 14953,
+        "new_rev=<": 2934,
+        "new_rev=?": 26039
+      }
+    },
+    {
+      "tag": "eq3_gamma1",
+      "title": "eQuilibrator 3.0 directions, |log10 gamma| = 1 (aggressive)",
+      "apt_title": "eQuilibrator-3.0 energies at an aggressive 10-fold cutoff (Beber 2022 + Noor 2013)",
+      "description": "The same eQuilibrator-3.0 component-contribution energies as eq3_beber2022, but with an aggressive reversibility-index cutoff |log10 gamma| = 1 (a reaction is directional once a ~10-fold concentration shift would reverse it). Combines the newest energy data with the most aggressive threshold, so it makes the largest direction change of the new set. Overlaid on baseline.",
+      "citations": [
+        "Beber 2022",
+        "Noor 2012",
+        "Noor 2013"
+      ],
+      "section": "\u00a7 New \u2014 eQuilibrator 3.0",
+      "n_changed_vs_baseline": 9572,
+      "n_models_flip": 83,
+      "n_models_flux_change": 98,
+      "rev_counts": {
+        "total": 56012,
+        "new_rev=>": 15177,
+        "new_rev=<": 4563,
+        "new_rev==": 10233,
+        "new_rev=?": 26039
       }
     }
   ]

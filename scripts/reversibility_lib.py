@@ -151,6 +151,16 @@ class ReversibilityConfig:
     # the legacy mMdeltaG-band + low-energy-points cascade.
     p_forward_threshold: Optional[float] = None
 
+    # Energy-source override -- plug a different ΔG′° estimator into the *full*
+    # cascade. When ``energy_override_by_rxn`` is set, any reaction present in it
+    # uses the supplied ``(ΔG′°, σ)`` pair (kcal/mol) instead of the stored
+    # top-level energy, so the entire cascade (bounded-ΔG window, mMdeltaG band,
+    # low-energy points rule) is evaluated on the alternative source. Reactions
+    # absent from the map fall back to the normal ``_energy_for`` lookup. Used by
+    # the dGPredictor variant (Wang 2021) -- see load_dgpredictor_energies().
+    energy_override_by_rxn: Optional[dict] = None
+    energy_override_label: str = "override"
+
     # Internal: cached RT (kcal / mol).
     @property
     def rt(self) -> float:
@@ -383,7 +393,14 @@ def estimate_one(rxn_entry, db_level: str = "EQ", cfg: Optional[ReversibilityCon
     if rxn_entry["status"] == "EMPTY":
         return "Empty", "?", None
 
-    rxn_dg, rxn_dge, source_label = _energy_for(rxn_entry, db_level)
+    if cfg.energy_override_by_rxn is not None:
+        ov = cfg.energy_override_by_rxn.get(rxn_entry["id"])
+        if ov is not None:
+            rxn_dg, rxn_dge, source_label = float(ov[0]), float(ov[1]), cfg.energy_override_label
+        else:
+            rxn_dg, rxn_dge, source_label = _energy_for(rxn_entry, db_level)
+    else:
+        rxn_dg, rxn_dge, source_label = _energy_for(rxn_entry, db_level)
     if rxn_dg is None:
         status, thermoreversibility = _incomplete_decision(rxn_entry, db_level)
         return status, thermoreversibility, None
@@ -537,6 +554,46 @@ def load_ln_reversibility_index(path: str = _LN_RI_PATH_DEFAULT) -> dict:
                 out[rxn_id] = float(m.group(1))
             except ValueError:
                 continue
+    return out
+
+
+_MSDB_BIOCHEM_DEFAULT = (
+    _os.environ.get("MSDB_ROOT", "/scratch/ctaylor/ModelSEEDDatabase") + "/Biochemistry"
+)
+
+
+def load_dgpredictor_energies(biochem_dir: str = _MSDB_BIOCHEM_DEFAULT) -> dict:
+    """Return ``{rxn_id: (ΔG′°, σ)}`` from MSDB ``thermodynamics['dGPredictor']``.
+
+    dGPredictor (Wang, Upadhyay & Maranas 2021) standard transformed Gibbs
+    energies of reaction, in kcal/mol (same units as the stored
+    Group-contribution / eQuilibrator energies). Feeds the ``dgpredictor``
+    variant via ``ReversibilityConfig.energy_override_by_rxn``. Reactions with
+    no usable dGPredictor value (None / sentinel) are omitted.
+    """
+    import glob as _glob
+    import json as _json
+    out: dict = {}
+    for f in sorted(_glob.glob(_os.path.join(biochem_dir, "reaction_*.json"))):
+        with open(f) as fh:
+            for r in _json.load(fh):
+                thermo = r.get("thermodynamics")
+                if not isinstance(thermo, dict):
+                    continue
+                pair = thermo.get("dGPredictor")
+                if not pair or pair[0] is None:
+                    continue
+                try:
+                    dg = float(pair[0])
+                except (TypeError, ValueError):
+                    continue
+                if dg == SENTINEL_DG:
+                    continue
+                try:
+                    dge = float(pair[1])
+                except (TypeError, ValueError, IndexError):
+                    dge = 0.0
+                out[r["id"]] = (dg, dge)
     return out
 
 

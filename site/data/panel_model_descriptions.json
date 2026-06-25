@@ -16,7 +16,7 @@
     "n_metabolites": 178,
     "n_genes": 347,
     "n_exchanges_open": 22,
-    "growth_flux": 8.0,
+    "growth_flux": 40.63372355252427,
     "n_unique_rxns": 187,
     "n_rare_rxns": 0,
     "n_panel_rxns": 187
@@ -38,7 +38,7 @@
     "n_metabolites": 189,
     "n_genes": 310,
     "n_exchanges_open": 19,
-    "growth_flux": 8.999999999999998,
+    "growth_flux": 61.50174972477949,
     "n_unique_rxns": 181,
     "n_rare_rxns": 1,
     "n_panel_rxns": 181
@@ -60,7 +60,7 @@
     "n_metabolites": 163,
     "n_genes": 185,
     "n_exchanges_open": 19,
-    "growth_flux": 5.5,
+    "growth_flux": 32.85248249783978,
     "n_unique_rxns": 158,
     "n_rare_rxns": 0,
     "n_panel_rxns": 158
@@ -82,7 +82,7 @@
     "n_metabolites": 171,
     "n_genes": 310,
     "n_exchanges_open": 19,
-    "growth_flux": 1.4109589041095811,
+    "growth_flux": 19.979880260577715,
     "n_unique_rxns": 148,
     "n_rare_rxns": 3,
     "n_panel_rxns": 148
@@ -104,7 +104,7 @@
     "n_metabolites": 164,
     "n_genes": 230,
     "n_exchanges_open": 19,
-    "growth_flux": 3.5000000000000018,
+    "growth_flux": 27.024488916243556,
     "n_unique_rxns": 153,
     "n_rare_rxns": 1,
     "n_panel_rxns": 153
@@ -126,7 +126,7 @@
     "n_metabolites": 140,
     "n_genes": 148,
     "n_exchanges_open": 18,
-    "growth_flux": 1.9090909090909096,
+    "growth_flux": 16.907571379539423,
     "n_unique_rxns": 116,
     "n_rare_rxns": 0,
     "n_panel_rxns": 116
@@ -148,7 +148,7 @@
     "n_metabolites": 153,
     "n_genes": 149,
     "n_exchanges_open": 19,
-    "growth_flux": 3.0000000000000004,
+    "growth_flux": 19.46358363501845,
     "n_unique_rxns": 132,
     "n_rare_rxns": 0,
     "n_panel_rxns": 132
@@ -170,7 +170,7 @@
     "n_metabolites": 161,
     "n_genes": 181,
     "n_exchanges_open": 21,
-    "growth_flux": 2.999999999999999,
+    "growth_flux": 20.096604377241498,
     "n_unique_rxns": 154,
     "n_rare_rxns": 1,
     "n_panel_rxns": 154
@@ -192,7 +192,7 @@
     "n_metabolites": 149,
     "n_genes": 202,
     "n_exchanges_open": 19,
-    "growth_flux": 1.9999999999999958,
+    "growth_flux": 18.595707924653947,
     "n_unique_rxns": 122,
     "n_rare_rxns": 1,
     "n_panel_rxns": 122
@@ -214,7 +214,7 @@
     "n_metabolites": 161,
     "n_genes": 279,
     "n_exchanges_open": 19,
-    "growth_flux": 7.000000000000003,
+    "growth_flux": 33.81638918064934,
     "n_unique_rxns": 141,
     "n_rare_rxns": 1,
     "n_panel_rxns": 141
@@ -236,7 +236,7 @@
     "n_metabolites": 133,
     "n_genes": 99,
     "n_exchanges_open": 21,
-    "growth_flux": 2.000000000000003,
+    "growth_flux": 20.3168617762626,
     "n_unique_rxns": 102,
     "n_rare_rxns": 1,
     "n_panel_rxns": 102
@@ -258,7 +258,7 @@
     "n_metabolites": 166,
     "n_genes": 182,
     "n_exchanges_open": 19,
-    "growth_flux": 2.9999999999999987,
+    "growth_flux": 29.647484003456363,
     "n_unique_rxns": 149,
     "n_rare_rxns": 1,
     "n_panel_rxns": 149
@@ -280,7 +280,7 @@
     "n_metabolites": 110,
     "n_genes": 82,
     "n_exchanges_open": 15,
-    "growth_flux": 1.0000000000000002,
+    "growth_flux": 14.275247470336932,
     "n_unique_rxns": 74,
     "n_rare_rxns": 0,
     "n_panel_rxns": 74
@@ -302,7 +302,7 @@
     "n_metabolites": 104,
     "n_genes": 72,
     "n_exchanges_open": 17,
-    "growth_flux": 1.0000000000000009,
+    "growth_flux": 8.680954939767227,
     "n_unique_rxns": 73,
     "n_rare_rxns": 0,
     "n_panel_rxns": 73
@@ -324,7 +324,7 @@
     "n_metabolites": 169,
     "n_genes": 456,
     "n_exchanges_open": 20,
-    "growth_flux": 9.000000000000023,
+    "growth_flux": 57.355366971109,
     "n_unique_rxns": 167,
     "n_rare_rxns": 0,
     "n_panel_rxns": 167
@@ -346,7 +346,7 @@
     "n_metabolites": 108,
     "n_genes": 69,
     "n_exchanges_open": 17,
-    "growth_flux": 0.5000000000000011,
+    "growth_flux": 8.656704531092302,
     "n_unique_rxns": 79,
     "n_rare_rxns": 0,
     "n_panel_rxns": 79
@@ -368,7 +368,7 @@
     "n_metabolites": 161,
     "n_genes": 334,
     "n_exchanges_open": 21,
-    "growth_flux": 11.499999999999991,
+    "growth_flux": 62.06297323017112,
     "n_unique_rxns": 160,
     "n_rare_rxns": 0,
     "n_panel_rxns": 160
@@ -390,7 +390,7 @@
     "n_metabolites": 119,
     "n_genes": 80,
     "n_exchanges_open": 15,
-    "growth_flux": 0.6666666666666671,
+    "growth_flux": 1.6735298124274232,
     "n_unique_rxns": 87,
     "n_rare_rxns": 0,
     "n_panel_rxns": 87
@@ -412,7 +412,7 @@
     "n_metabolites": 167,
     "n_genes": 218,
     "n_exchanges_open": 22,
-    "growth_flux": 5.000000000000006,
+    "growth_flux": 40.633723552525105,
     "n_unique_rxns": 162,
     "n_rare_rxns": 0,
     "n_panel_rxns": 162
@@ -434,7 +434,7 @@
     "n_metabolites": 141,
     "n_genes": 128,
     "n_exchanges_open": 13,
-    "growth_flux": 0.3333333333333342,
+    "growth_flux": 2.901522051423504,
     "n_unique_rxns": 114,
     "n_rare_rxns": 0,
     "n_panel_rxns": 0
@@ -456,7 +456,7 @@
     "n_metabolites": 146,
     "n_genes": 176,
     "n_exchanges_open": 16,
-    "growth_flux": 1.0000000000000002,
+    "growth_flux": 17.801925100180362,
     "n_unique_rxns": 112,
     "n_rare_rxns": 2,
     "n_panel_rxns": 0
@@ -478,7 +478,7 @@
     "n_metabolites": 156,
     "n_genes": 229,
     "n_exchanges_open": 18,
-    "growth_flux": 1.8928571428571506,
+    "growth_flux": 26.203413606035205,
     "n_unique_rxns": 126,
     "n_rare_rxns": 2,
     "n_panel_rxns": 126
@@ -500,7 +500,7 @@
     "n_metabolites": 127,
     "n_genes": 117,
     "n_exchanges_open": 16,
-    "growth_flux": 0.9999999999999998,
+    "growth_flux": 17.730276397278733,
     "n_unique_rxns": 96,
     "n_rare_rxns": 0,
     "n_panel_rxns": 96
@@ -522,7 +522,7 @@
     "n_metabolites": 128,
     "n_genes": 180,
     "n_exchanges_open": 17,
-    "growth_flux": 0.9999999999999996,
+    "growth_flux": 15.252528487910089,
     "n_unique_rxns": 100,
     "n_rare_rxns": 0,
     "n_panel_rxns": 100
@@ -544,7 +544,7 @@
     "n_metabolites": 127,
     "n_genes": 72,
     "n_exchanges_open": 16,
-    "growth_flux": 1.0,
+    "growth_flux": 14.207360691500607,
     "n_unique_rxns": 86,
     "n_rare_rxns": 0,
     "n_panel_rxns": 86
@@ -566,7 +566,7 @@
     "n_metabolites": 129,
     "n_genes": 84,
     "n_exchanges_open": 18,
-    "growth_flux": 3.4999999999999996,
+    "growth_flux": 30.73579522027067,
     "n_unique_rxns": 102,
     "n_rare_rxns": 0,
     "n_panel_rxns": 0
@@ -588,7 +588,7 @@
     "n_metabolites": 125,
     "n_genes": 101,
     "n_exchanges_open": 19,
-    "growth_flux": 1.1818181818181817,
+    "growth_flux": 21.99136179308766,
     "n_unique_rxns": 96,
     "n_rare_rxns": 0,
     "n_panel_rxns": 96
@@ -610,7 +610,7 @@
     "n_metabolites": 129,
     "n_genes": 99,
     "n_exchanges_open": 16,
-    "growth_flux": 0.33333333333333853,
+    "growth_flux": 4.853299615843551,
     "n_unique_rxns": 99,
     "n_rare_rxns": 0,
     "n_panel_rxns": 99
@@ -632,7 +632,7 @@
     "n_metabolites": 129,
     "n_genes": 116,
     "n_exchanges_open": 18,
-    "growth_flux": 0.33333333333332993,
+    "growth_flux": 5.84452181802665,
     "n_unique_rxns": 102,
     "n_rare_rxns": 0,
     "n_panel_rxns": 102
@@ -654,7 +654,7 @@
     "n_metabolites": 126,
     "n_genes": 126,
     "n_exchanges_open": 20,
-    "growth_flux": 2.9999999999999996,
+    "growth_flux": 18.361325173560406,
     "n_unique_rxns": 100,
     "n_rare_rxns": 0,
     "n_panel_rxns": 100
@@ -676,7 +676,7 @@
     "n_metabolites": 141,
     "n_genes": 117,
     "n_exchanges_open": 18,
-    "growth_flux": 0.5,
+    "growth_flux": 9.717603998405284,
     "n_unique_rxns": 111,
     "n_rare_rxns": 0,
     "n_panel_rxns": 111
@@ -698,7 +698,7 @@
     "n_metabolites": 135,
     "n_genes": 128,
     "n_exchanges_open": 19,
-    "growth_flux": 0.9999999999999996,
+    "growth_flux": 6.61664045374275,
     "n_unique_rxns": 103,
     "n_rare_rxns": 0,
     "n_panel_rxns": 103
@@ -720,7 +720,7 @@
     "n_metabolites": 136,
     "n_genes": 134,
     "n_exchanges_open": 20,
-    "growth_flux": 1.0000000000000002,
+    "growth_flux": 21.143928837993144,
     "n_unique_rxns": 115,
     "n_rare_rxns": 0,
     "n_panel_rxns": 115
@@ -742,7 +742,7 @@
     "n_metabolites": 132,
     "n_genes": 130,
     "n_exchanges_open": 15,
-    "growth_flux": 2.2999999999999927,
+    "growth_flux": 9.755319880784768,
     "n_unique_rxns": 104,
     "n_rare_rxns": 0,
     "n_panel_rxns": 104
@@ -764,7 +764,7 @@
     "n_metabolites": 144,
     "n_genes": 200,
     "n_exchanges_open": 18,
-    "growth_flux": 0.9999999999999986,
+    "growth_flux": 16.42624124891996,
     "n_unique_rxns": 116,
     "n_rare_rxns": 1,
     "n_panel_rxns": 0
@@ -786,7 +786,7 @@
     "n_metabolites": 138,
     "n_genes": 95,
     "n_exchanges_open": 17,
-    "growth_flux": 3.0000000000000013,
+    "growth_flux": 31.952823867677992,
     "n_unique_rxns": 108,
     "n_rare_rxns": 0,
     "n_panel_rxns": 0
@@ -808,7 +808,7 @@
     "n_metabolites": 138,
     "n_genes": 136,
     "n_exchanges_open": 19,
-    "growth_flux": 0.9999999999999998,
+    "growth_flux": 18.78361092379676,
     "n_unique_rxns": 110,
     "n_rare_rxns": 0,
     "n_panel_rxns": 110
@@ -830,7 +830,7 @@
     "n_metabolites": 135,
     "n_genes": 123,
     "n_exchanges_open": 14,
-    "growth_flux": 0.888888888888889,
+    "growth_flux": 11.932481679572781,
     "n_unique_rxns": 103,
     "n_rare_rxns": 0,
     "n_panel_rxns": 0
@@ -852,7 +852,7 @@
     "n_metabolites": 133,
     "n_genes": 124,
     "n_exchanges_open": 15,
-    "growth_flux": 3.499999999999999,
+    "growth_flux": 20.37423392880427,
     "n_unique_rxns": 105,
     "n_rare_rxns": 0,
     "n_panel_rxns": 105
@@ -874,7 +874,7 @@
     "n_metabolites": 126,
     "n_genes": 115,
     "n_exchanges_open": 17,
-    "growth_flux": 1.9999999999999973,
+    "growth_flux": 16.80758425431891,
     "n_unique_rxns": 100,
     "n_rare_rxns": 0,
     "n_panel_rxns": 100
@@ -896,7 +896,7 @@
     "n_metabolites": 134,
     "n_genes": 125,
     "n_exchanges_open": 18,
-    "growth_flux": 1.4999999999999998,
+    "growth_flux": 20.6876577433903,
     "n_unique_rxns": 113,
     "n_rare_rxns": 0,
     "n_panel_rxns": 113
@@ -918,7 +918,7 @@
     "n_metabolites": 139,
     "n_genes": 139,
     "n_exchanges_open": 19,
-    "growth_flux": 3.4999999999999996,
+    "growth_flux": 40.633723552525225,
     "n_unique_rxns": 122,
     "n_rare_rxns": 0,
     "n_panel_rxns": 122
@@ -940,7 +940,7 @@
     "n_metabolites": 133,
     "n_genes": 176,
     "n_exchanges_open": 18,
-    "growth_flux": 2.0000000000000044,
+    "growth_flux": 21.481677203429353,
     "n_unique_rxns": 114,
     "n_rare_rxns": 0,
     "n_panel_rxns": 114
@@ -962,7 +962,7 @@
     "n_metabolites": 145,
     "n_genes": 116,
     "n_exchanges_open": 17,
-    "growth_flux": 0.9999999999999993,
+    "growth_flux": 16.05654472791384,
     "n_unique_rxns": 114,
     "n_rare_rxns": 1,
     "n_panel_rxns": 114
@@ -984,7 +984,7 @@
     "n_metabolites": 130,
     "n_genes": 128,
     "n_exchanges_open": 18,
-    "growth_flux": 0.9999999999999963,
+    "growth_flux": 5.3915186020870705,
     "n_unique_rxns": 99,
     "n_rare_rxns": 0,
     "n_panel_rxns": 99
@@ -1006,7 +1006,7 @@
     "n_metabolites": 145,
     "n_genes": 122,
     "n_exchanges_open": 18,
-    "growth_flux": 0.2849162011173201,
+    "growth_flux": 5.9689857818875565,
     "n_unique_rxns": 106,
     "n_rare_rxns": 0,
     "n_panel_rxns": 0
@@ -1028,7 +1028,7 @@
     "n_metabolites": 135,
     "n_genes": 133,
     "n_exchanges_open": 17,
-    "growth_flux": 1.0000000000000002,
+    "growth_flux": 13.919550565551345,
     "n_unique_rxns": 114,
     "n_rare_rxns": 0,
     "n_panel_rxns": 114
@@ -1050,7 +1050,7 @@
     "n_metabolites": 148,
     "n_genes": 162,
     "n_exchanges_open": 18,
-    "growth_flux": 1.9999999999999991,
+    "growth_flux": 17.145791522605457,
     "n_unique_rxns": 117,
     "n_rare_rxns": 0,
     "n_panel_rxns": 0
@@ -1072,7 +1072,7 @@
     "n_metabolites": 145,
     "n_genes": 152,
     "n_exchanges_open": 17,
-    "growth_flux": 0.9999999999999998,
+    "growth_flux": 16.426241248919975,
     "n_unique_rxns": 108,
     "n_rare_rxns": 0,
     "n_panel_rxns": 108
@@ -1094,7 +1094,7 @@
     "n_metabolites": 119,
     "n_genes": 85,
     "n_exchanges_open": 16,
-    "growth_flux": 3.0000000000000004,
+    "growth_flux": 18.67167814508078,
     "n_unique_rxns": 89,
     "n_rare_rxns": 0,
     "n_panel_rxns": 0
@@ -1116,7 +1116,7 @@
     "n_metabolites": 142,
     "n_genes": 139,
     "n_exchanges_open": 21,
-    "growth_flux": 3.9999999999999964,
+    "growth_flux": 18.50522217369741,
     "n_unique_rxns": 125,
     "n_rare_rxns": 0,
     "n_panel_rxns": 125
@@ -1138,7 +1138,7 @@
     "n_metabolites": 152,
     "n_genes": 169,
     "n_exchanges_open": 18,
-    "growth_flux": 2.499999999999994,
+    "growth_flux": 22.55336619797348,
     "n_unique_rxns": 124,
     "n_rare_rxns": 0,
     "n_panel_rxns": 124
@@ -1160,7 +1160,7 @@
     "n_metabolites": 154,
     "n_genes": 143,
     "n_exchanges_open": 18,
-    "growth_flux": 2.2500000000000053,
+    "growth_flux": 13.124324097308994,
     "n_unique_rxns": 123,
     "n_rare_rxns": 0,
     "n_panel_rxns": 123
@@ -1182,7 +1182,7 @@
     "n_metabolites": 136,
     "n_genes": 132,
     "n_exchanges_open": 15,
-    "growth_flux": 0.16666666666666613,
+    "growth_flux": 2.387906305242706,
     "n_unique_rxns": 103,
     "n_rare_rxns": 0,
     "n_panel_rxns": 103
@@ -1204,7 +1204,7 @@
     "n_metabolites": 125,
     "n_genes": 91,
     "n_exchanges_open": 16,
-    "growth_flux": 0.9999999999999998,
+    "growth_flux": 15.040986688726775,
     "n_unique_rxns": 92,
     "n_rare_rxns": 0,
     "n_panel_rxns": 0
@@ -1226,7 +1226,7 @@
     "n_metabolites": 150,
     "n_genes": 143,
     "n_exchanges_open": 19,
-    "growth_flux": 3.4285714285714333,
+    "growth_flux": 19.4635836350189,
     "n_unique_rxns": 130,
     "n_rare_rxns": 0,
     "n_panel_rxns": 130
@@ -1248,7 +1248,7 @@
     "n_metabolites": 151,
     "n_genes": 176,
     "n_exchanges_open": 18,
-    "growth_flux": 0.9999999999999888,
+    "growth_flux": 6.128318407813911,
     "n_unique_rxns": 128,
     "n_rare_rxns": 0,
     "n_panel_rxns": 128
@@ -1270,7 +1270,7 @@
     "n_metabolites": 125,
     "n_genes": 125,
     "n_exchanges_open": 17,
-    "growth_flux": 2.0,
+    "growth_flux": 17.296123030781033,
     "n_unique_rxns": 95,
     "n_rare_rxns": 0,
     "n_panel_rxns": 95
@@ -1292,7 +1292,7 @@
     "n_metabolites": 122,
     "n_genes": 99,
     "n_exchanges_open": 15,
-    "growth_flux": 1.9999999999999982,
+    "growth_flux": 12.714269208439804,
     "n_unique_rxns": 90,
     "n_rare_rxns": 0,
     "n_panel_rxns": 90
@@ -1314,7 +1314,7 @@
     "n_metabolites": 140,
     "n_genes": 116,
     "n_exchanges_open": 17,
-    "growth_flux": 1.0,
+    "growth_flux": 17.348611677350515,
     "n_unique_rxns": 120,
     "n_rare_rxns": 0,
     "n_panel_rxns": 120
@@ -1336,7 +1336,7 @@
     "n_metabolites": 133,
     "n_genes": 92,
     "n_exchanges_open": 17,
-    "growth_flux": 1.0,
+    "growth_flux": 15.603940775242801,
     "n_unique_rxns": 99,
     "n_rare_rxns": 0,
     "n_panel_rxns": 99
@@ -1358,7 +1358,7 @@
     "n_metabolites": 143,
     "n_genes": 122,
     "n_exchanges_open": 19,
-    "growth_flux": 4.0,
+    "growth_flux": 19.46358363501893,
     "n_unique_rxns": 117,
     "n_rare_rxns": 0,
     "n_panel_rxns": 117
@@ -1380,7 +1380,7 @@
     "n_metabolites": 146,
     "n_genes": 124,
     "n_exchanges_open": 20,
-    "growth_flux": 1.9999999999999996,
+    "growth_flux": 19.9017252805645,
     "n_unique_rxns": 123,
     "n_rare_rxns": 0,
     "n_panel_rxns": 0
@@ -1402,7 +1402,7 @@
     "n_metabolites": 143,
     "n_genes": 163,
     "n_exchanges_open": 16,
-    "growth_flux": 0.9999999999999977,
+    "growth_flux": 16.426241248919997,
     "n_unique_rxns": 121,
     "n_rare_rxns": 0,
     "n_panel_rxns": 121
@@ -1424,7 +1424,7 @@
     "n_metabolites": 154,
     "n_genes": 137,
     "n_exchanges_open": 19,
-    "growth_flux": 2.4999999999999987,
+    "growth_flux": 27.01716941116088,
     "n_unique_rxns": 132,
     "n_rare_rxns": 0,
     "n_panel_rxns": 132
@@ -1446,7 +1446,7 @@
     "n_metabolites": 139,
     "n_genes": 127,
     "n_exchanges_open": 17,
-    "growth_flux": 1.499999999999999,
+    "growth_flux": 16.97025343302671,
     "n_unique_rxns": 117,
     "n_rare_rxns": 0,
     "n_panel_rxns": 117
@@ -1468,7 +1468,7 @@
     "n_metabolites": 147,
     "n_genes": 139,
     "n_exchanges_open": 16,
-    "growth_flux": 1.0000000000000004,
+    "growth_flux": 8.864093065885925,
     "n_unique_rxns": 120,
     "n_rare_rxns": 0,
     "n_panel_rxns": 0
@@ -1490,7 +1490,7 @@
     "n_metabolites": 160,
     "n_genes": 156,
     "n_exchanges_open": 16,
-    "growth_flux": 1.0000000000000009,
+    "growth_flux": 13.919550565551324,
     "n_unique_rxns": 132,
     "n_rare_rxns": 0,
     "n_panel_rxns": 132
@@ -1512,7 +1512,7 @@
     "n_metabolites": 142,
     "n_genes": 107,
     "n_exchanges_open": 17,
-    "growth_flux": 1.5000000000000027,
+    "growth_flux": 13.134920148442012,
     "n_unique_rxns": 114,
     "n_rare_rxns": 0,
     "n_panel_rxns": 114
@@ -1534,7 +1534,7 @@
     "n_metabolites": 136,
     "n_genes": 99,
     "n_exchanges_open": 19,
-    "growth_flux": 1.9999999999999996,
+    "growth_flux": 21.99136179308771,
     "n_unique_rxns": 113,
     "n_rare_rxns": 0,
     "n_panel_rxns": 0
@@ -1556,7 +1556,7 @@
     "n_metabolites": 156,
     "n_genes": 202,
     "n_exchanges_open": 20,
-    "growth_flux": 2.6615384615384636,
+    "growth_flux": 29.60427959465835,
     "n_unique_rxns": 128,
     "n_rare_rxns": 0,
     "n_panel_rxns": 128
@@ -1578,7 +1578,7 @@
     "n_metabolites": 125,
     "n_genes": 98,
     "n_exchanges_open": 14,
-    "growth_flux": 0.4999999999999998,
+    "growth_flux": 7.442021074315232,
     "n_unique_rxns": 94,
     "n_rare_rxns": 0,
     "n_panel_rxns": 0
@@ -1600,7 +1600,7 @@
     "n_metabolites": 151,
     "n_genes": 133,
     "n_exchanges_open": 15,
-    "growth_flux": 0.40000000000000135,
+    "growth_flux": 3.7702202912295695,
     "n_unique_rxns": 122,
     "n_rare_rxns": 0,
     "n_panel_rxns": 122
@@ -1622,7 +1622,7 @@
     "n_metabolites": 152,
     "n_genes": 185,
     "n_exchanges_open": 17,
-    "growth_flux": 0.5000000000000009,
+    "growth_flux": 9.654681023820993,
     "n_unique_rxns": 122,
     "n_rare_rxns": 0,
     "n_panel_rxns": 122
@@ -1644,7 +1644,7 @@
     "n_metabolites": 130,
     "n_genes": 94,
     "n_exchanges_open": 16,
-    "growth_flux": 0.9999999999999993,
+    "growth_flux": 14.275247470336932,
     "n_unique_rxns": 96,
     "n_rare_rxns": 0,
     "n_panel_rxns": 96
@@ -1666,7 +1666,7 @@
     "n_metabolites": 133,
     "n_genes": 122,
     "n_exchanges_open": 17,
-    "growth_flux": 1.0000000000000007,
+    "growth_flux": 15.026950836324941,
     "n_unique_rxns": 111,
     "n_rare_rxns": 0,
     "n_panel_rxns": 0
@@ -1688,7 +1688,7 @@
     "n_metabolites": 149,
     "n_genes": 169,
     "n_exchanges_open": 16,
-    "growth_flux": 1.0000000000000007,
+    "growth_flux": 10.848581466609062,
     "n_unique_rxns": 124,
     "n_rare_rxns": 0,
     "n_panel_rxns": 124
@@ -1710,7 +1710,7 @@
     "n_metabolites": 148,
     "n_genes": 132,
     "n_exchanges_open": 17,
-    "growth_flux": 2.0000000000000004,
+    "growth_flux": 23.43138806886844,
     "n_unique_rxns": 120,
     "n_rare_rxns": 0,
     "n_panel_rxns": 120
@@ -1732,7 +1732,7 @@
     "n_metabolites": 136,
     "n_genes": 106,
     "n_exchanges_open": 19,
-    "growth_flux": 2.4999999999999996,
+    "growth_flux": 25.622428849317657,
     "n_unique_rxns": 107,
     "n_rare_rxns": 0,
     "n_panel_rxns": 107
@@ -1754,7 +1754,7 @@
     "n_metabolites": 116,
     "n_genes": 86,
     "n_exchanges_open": 15,
-    "growth_flux": 0.16666666666666188,
+    "growth_flux": 2.8785701105975354,
     "n_unique_rxns": 85,
     "n_rare_rxns": 0,
     "n_panel_rxns": 85
@@ -1776,7 +1776,7 @@
     "n_metabolites": 162,
     "n_genes": 193,
     "n_exchanges_open": 19,
-    "growth_flux": 3.6666666666666656,
+    "growth_flux": 24.335856231548846,
     "n_unique_rxns": 134,
     "n_rare_rxns": 0,
     "n_panel_rxns": 134
@@ -1798,7 +1798,7 @@
     "n_metabolites": 138,
     "n_genes": 131,
     "n_exchanges_open": 20,
-    "growth_flux": 8.500000000000004,
+    "growth_flux": 38.056529168426785,
     "n_unique_rxns": 124,
     "n_rare_rxns": 0,
     "n_panel_rxns": 124
@@ -1820,7 +1820,7 @@
     "n_metabolites": 143,
     "n_genes": 106,
     "n_exchanges_open": 16,
-    "growth_flux": 0.7058823529411781,
+    "growth_flux": 9.283379930098473,
     "n_unique_rxns": 121,
     "n_rare_rxns": 0,
     "n_panel_rxns": 121
@@ -1842,7 +1842,7 @@
     "n_metabolites": 138,
     "n_genes": 153,
     "n_exchanges_open": 16,
-    "growth_flux": 0.166666666666667,
+    "growth_flux": 3.232536122581011,
     "n_unique_rxns": 122,
     "n_rare_rxns": 0,
     "n_panel_rxns": 0
@@ -1864,7 +1864,7 @@
     "n_metabolites": 155,
     "n_genes": 155,
     "n_exchanges_open": 19,
-    "growth_flux": 4.000000000000004,
+    "growth_flux": 18.598526624720773,
     "n_unique_rxns": 137,
     "n_rare_rxns": 0,
     "n_panel_rxns": 137
@@ -1886,7 +1886,7 @@
     "n_metabolites": 166,
     "n_genes": 147,
     "n_exchanges_open": 21,
-    "growth_flux": 2.9999999999999996,
+    "growth_flux": 38.92716727003894,
     "n_unique_rxns": 136,
     "n_rare_rxns": 0,
     "n_panel_rxns": 136
@@ -1908,7 +1908,7 @@
     "n_metabolites": 132,
     "n_genes": 129,
     "n_exchanges_open": 15,
-    "growth_flux": 0.9999999999999998,
+    "growth_flux": 11.086354665234959,
     "n_unique_rxns": 110,
     "n_rare_rxns": 0,
     "n_panel_rxns": 110
@@ -1930,7 +1930,7 @@
     "n_metabolites": 154,
     "n_genes": 178,
     "n_exchanges_open": 18,
-    "growth_flux": 2.999999999999985,
+    "growth_flux": 22.799681146459356,
     "n_unique_rxns": 128,
     "n_rare_rxns": 1,
     "n_panel_rxns": 128
@@ -1952,7 +1952,7 @@
     "n_metabolites": 147,
     "n_genes": 166,
     "n_exchanges_open": 18,
-    "growth_flux": 0.49999999999999917,
+    "growth_flux": 10.03101464340066,
     "n_unique_rxns": 115,
     "n_rare_rxns": 0,
     "n_panel_rxns": 115
@@ -1974,7 +1974,7 @@
     "n_metabolites": 151,
     "n_genes": 118,
     "n_exchanges_open": 18,
-    "growth_flux": 1.0000000000000009,
+    "growth_flux": 16.852564496870905,
     "n_unique_rxns": 119,
     "n_rare_rxns": 0,
     "n_panel_rxns": 119
@@ -1996,7 +1996,7 @@
     "n_metabolites": 130,
     "n_genes": 85,
     "n_exchanges_open": 19,
-    "growth_flux": 2.428571428571413,
+    "growth_flux": 18.26420635630907,
     "n_unique_rxns": 104,
     "n_rare_rxns": 0,
     "n_panel_rxns": 104
@@ -2018,7 +2018,7 @@
     "n_metabolites": 149,
     "n_genes": 198,
     "n_exchanges_open": 16,
-    "growth_flux": 1.0,
+    "growth_flux": 18.790672263311798,
     "n_unique_rxns": 129,
     "n_rare_rxns": 0,
     "n_panel_rxns": 129
@@ -2040,7 +2040,7 @@
     "n_metabolites": 151,
     "n_genes": 138,
     "n_exchanges_open": 17,
-    "growth_flux": 1.8333333333333457,
+    "growth_flux": 6.754292352790182,
     "n_unique_rxns": 130,
     "n_rare_rxns": 0,
     "n_panel_rxns": 0
@@ -2062,7 +2062,7 @@
     "n_metabolites": 152,
     "n_genes": 147,
     "n_exchanges_open": 16,
-    "growth_flux": 0.9999999999999996,
+    "growth_flux": 18.6454804287713,
     "n_unique_rxns": 121,
     "n_rare_rxns": 0,
     "n_panel_rxns": 121
@@ -2084,7 +2084,7 @@
     "n_metabolites": 138,
     "n_genes": 146,
     "n_exchanges_open": 20,
-    "growth_flux": 2.5000000000000004,
+    "growth_flux": 20.31686177626251,
     "n_unique_rxns": 123,
     "n_rare_rxns": 0,
     "n_panel_rxns": 123
@@ -2106,7 +2106,7 @@
     "n_metabolites": 148,
     "n_genes": 138,
     "n_exchanges_open": 17,
-    "growth_flux": 2.000000000000002,
+    "growth_flux": 6.8774419217223235,
     "n_unique_rxns": 131,
     "n_rare_rxns": 0,
     "n_panel_rxns": 131
@@ -2128,7 +2128,7 @@
     "n_metabolites": 160,
     "n_genes": 180,
     "n_exchanges_open": 18,
-    "growth_flux": 2.0000000000000018,
+    "growth_flux": 17.117996920472144,
     "n_unique_rxns": 136,
     "n_rare_rxns": 0,
     "n_panel_rxns": 136
@@ -2150,7 +2150,7 @@
     "n_metabolites": 138,
     "n_genes": 111,
     "n_exchanges_open": 21,
-    "growth_flux": 2.999999999999999,
+    "growth_flux": 20.3168617762626,
     "n_unique_rxns": 119,
     "n_rare_rxns": 0,
     "n_panel_rxns": 119
@@ -2172,7 +2172,7 @@
     "n_metabolites": 165,
     "n_genes": 188,
     "n_exchanges_open": 20,
-    "growth_flux": 3.000000000000009,
+    "growth_flux": 20.316861776262485,
     "n_unique_rxns": 137,
     "n_rare_rxns": 1,
     "n_panel_rxns": 137
@@ -2194,7 +2194,7 @@
     "n_metabolites": 143,
     "n_genes": 168,
     "n_exchanges_open": 17,
-    "growth_flux": 1.0,
+    "growth_flux": 15.530590993344296,
     "n_unique_rxns": 126,
     "n_rare_rxns": 0,
     "n_panel_rxns": 126

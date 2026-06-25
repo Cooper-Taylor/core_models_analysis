@@ -84,6 +84,36 @@ def _H4_cfg() -> lib.ReversibilityConfig:
     )
 
 
+# --- New literature-grounded variants (large direction changes) ---
+
+# Reversibility-index threshold sweep (Noor 2012/2013). Existing 3.1 uses the
+# Noor "rule of thumb" |log10 gamma| = 3 (ln_ri_threshold = ln 1000 = 6.91).
+# These two tighten the cutoff to |log10 gamma| = 1 and 2, calling far more
+# near-equilibrium reactions directional (aggressive -> large changes).
+def _ri_gamma1_cfg() -> lib.ReversibilityConfig:
+    return lib.ReversibilityConfig(
+        ln_ri_by_rxn=lib.load_ln_reversibility_index(),
+        ln_ri_threshold=2.302585,  # ln(10) -> |log10 gamma| = 1
+    )
+
+
+def _ri_gamma2_cfg() -> lib.ReversibilityConfig:
+    return lib.ReversibilityConfig(
+        ln_ri_by_rxn=lib.load_ln_reversibility_index(),
+        ln_ri_threshold=4.605170,  # ln(100) -> |log10 gamma| = 2
+    )
+
+
+# dGPredictor (Wang, Upadhyay & Maranas 2021): swap the reaction ΔG′° estimator
+# from group-contribution to dGPredictor's fingerprint model for the ~27.7k
+# reactions it covers, run through the full baseline cascade (energy override).
+def _dgpredictor_cfg() -> lib.ReversibilityConfig:
+    return lib.ReversibilityConfig(
+        energy_override_by_rxn=lib.load_dgpredictor_energies(),
+        energy_override_label="dGPredictor",
+    )
+
+
 VARIANTS: list[dict] = [
     {
         "tag": "baseline",
@@ -281,6 +311,60 @@ VARIANTS: list[dict] = [
         ],
         "section": "§ H4",
         "cfg": _H4_cfg,
+    },
+    {
+        "tag": "ri_gamma1",
+        "title": "Reversibility index, |log10 gamma| = 1 (aggressive)",
+        "apt_title": "eQuilibrator reversibility index at a 10-fold cutoff (Noor 2012/2013)",
+        "description": (
+            "Same reversibility-index rule as 3.1 but with an aggressive cutoff: "
+            "a reaction is called directional whenever |ln gamma| > ln(10), i.e. "
+            "when only a ~10-fold concentration shift would reverse it "
+            "(|log10 gamma| = 1, vs 3.1's |log10 gamma| = 3). gamma is the "
+            "molecularity-normalized fold-change in the mass-action ratio that "
+            "flips the sign of ΔG′ (Noor 2012). This pulls a large set of "
+            "near-equilibrium reactions out of the reversible bucket into firm "
+            "'>'/'<' calls (cfg: ln_ri_by_rxn, ln_ri_threshold=ln 10)."
+        ),
+        "citations": ["Noor 2012", "Noor 2013"],
+        "section": "§ New — reversibility-index sweep",
+        "cfg": _ri_gamma1_cfg,
+    },
+    {
+        "tag": "ri_gamma2",
+        "title": "Reversibility index, |log10 gamma| = 2 (mid)",
+        "apt_title": "eQuilibrator reversibility index at a 100-fold cutoff (Noor 2012/2013)",
+        "description": (
+            "The reversibility-index rule at |ln gamma| > ln(100) "
+            "(|log10 gamma| = 2): a reaction is directional when a ~100-fold "
+            "concentration shift would be needed to reverse it. Together with 3.1 "
+            "(|log10 gamma| = 3) and ri_gamma1 (= 1) this spans the full Noor "
+            "reversibility-index threshold sweep (cfg: ln_ri_by_rxn, "
+            "ln_ri_threshold=ln 100)."
+        ),
+        "citations": ["Noor 2012", "Noor 2013"],
+        "section": "§ New — reversibility-index sweep",
+        "cfg": _ri_gamma2_cfg,
+    },
+    {
+        "tag": "dgpredictor",
+        "title": "dGPredictor reaction energies (Wang 2021)",
+        "apt_title": "Swap the ΔG′° estimator to dGPredictor's molecular-fingerprint model",
+        "description": (
+            "Runs the full baseline cascade but replaces each reaction's stored "
+            "group-contribution ΔG′° with the dGPredictor estimate (Wang, Upadhyay "
+            "& Maranas 2021) for the ~27.7k reactions dGPredictor covers. "
+            "dGPredictor learns standard reaction energies from automated "
+            "atom-centered molecular fingerprints rather than a fixed set of "
+            "manually curated functional groups, so it handles isomerases and "
+            "unusual transferases the group-contribution method struggles with. "
+            "This isolates the effect of the energy estimator: the heuristics are "
+            "unchanged, only the ΔG′° feeding them differs (cfg: "
+            "energy_override_by_rxn)."
+        ),
+        "citations": ["Wang 2021"],
+        "section": "§ New — dGPredictor energies",
+        "cfg": _dgpredictor_cfg,
     },
 ]
 

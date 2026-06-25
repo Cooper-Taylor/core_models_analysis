@@ -1,0 +1,38 @@
+[
+  {
+    "key": "fig1",
+    "file": "fig1.html",
+    "title": "Impact tornado \u2014 ATP/growth-flux change per variant",
+    "caption": "Net effect of each thermodynamic-heuristic variant on panel growth flux (a proxy for ATP-generating capacity). Permissive variants that relax directionality (3.3_wide, 3.6, 3.10_loose, 3.7, ai_opus48) inflate flux toward the solver bound (~1000) \u2014 biologically implausible \u2014 while the principled composite (H4) and tighter bands (3.5, 3.10_tight) leave it essentially unchanged or slightly reduced."
+  },
+  {
+    "key": "fig2",
+    "file": "fig2.html",
+    "title": "Leverage \u2014 reactions changed vs models flipped",
+    "caption": "Each variant placed by how many reactions it changes (x) against how many panel models flip between growing and non-growing (y). Variants in the upper-left change few reactions yet move biology the most \u2014 the high-leverage reactions worth curating by hand."
+  },
+  {
+    "key": "fig3",
+    "file": "fig3.html",
+    "title": "Variant \u00d7 model \u0394-flux heatmap",
+    "caption": "Per-model change in growth flux for every variant. Colour is signed-log so both small shifts and order-1000 blow-ups are visible. Horizontal bands of colour are models that are thermodynamically sensitive across many variants; grey/white rows are inert."
+  },
+  {
+    "key": "fig4",
+    "file": "fig4.html",
+    "title": "Monte-Carlo growth-flux under \u0394G\u2032\u00b0 uncertainty",
+    "caption": "Growth flux when \u0394G\u2032\u00b0 is resampled from its uncertainty and pushed through the whole cascade + FBA (50 Monte-Carlo draws). Each point is a model's median flux with its 90% credible interval; colour is the probability the model grows at all. Composite/probabilistic variants (H4, pforward_*) show many models dropping to P(grows) \u2248 0 once uncertainty is honoured."
+  },
+  {
+    "key": "fig5",
+    "file": "fig5.html",
+    "title": "P(direction) vs the cascade's deterministic call",
+    "caption": "Where the cascade's hard direction call sits relative to the analytic P(forward). The marginal posterior almost never supports 'reversible', so the many reactions the cascade marks '=' that pile up near P(forward)=0 or 1 are directions the heuristic left on the table. 186 reactions have an analytic P(direction). The cascade marks 142 of them reversible (=), yet 95 of those are statistically confident (P(forward) \u2265 0.95 or \u2264 0.05). 0 reactions are called > or < despite 0.05 < P(forward) < 0.95."
+  },
+  {
+    "key": "fig6",
+    "file": "fig6.html",
+    "title": "Reversibility cascade Sankey",
+    "caption": "Every reaction flows from the full set, through the heuristic stage that resolved it, to its assigned direction. Two thirds fall to 'incomplete thermo' and end up unknown (?), showing how much directionality is still gated on missing thermodynamic data rather than on the heuristics themselves."
+  }
+]
