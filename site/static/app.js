@@ -39,6 +39,8 @@ const STATE = {
   panelModelVariants: null,    // {model_id: {tag: {delta_flux, ..., n_changed}}}
   panelPipeline: null,         // {model_id: {tag: {base_flux, singles[], cumulative[]}}}
   panelKeyReactions: null,     // {models: {model_id: {base_flux, reactions[]}}, global: [...]}
+  analytics: null,             // variant_analytics.json (agreement, dir-dist, delta hists)
+  analyticsInit: false,        // analytics tab rendered once
   selectedModel: null,
   pmVariantFilter: 'any',
   pmFluxFilter: 'any',
@@ -257,6 +259,7 @@ document.querySelectorAll('nav button').forEach((btn) =>
     if (btn.dataset.tab === 'reaction' && !STATE.reactionsPanel) loadReactions();
     if (btn.dataset.tab === 'sandbox' && !STATE.staticMode) initSandbox();
     if (btn.dataset.tab === 'panel-models' && !STATE.panelModels) initPanelModels();
+    if (btn.dataset.tab === 'analytics' && !STATE.analyticsInit) initAnalytics();
   })
 );
 
@@ -1923,6 +1926,208 @@ function enhanceResizableGrids() {
       localStorage.setItem(KEY, curW());
     });
   });
+}
+
+// -------------------- analytics tab --------------------
+const _C_GOOD = [106, 209, 122], _C_WARN = [239, 111, 108], _C_ACC = [95, 216, 184];
+const _rgba = (c, a) => `rgba(${c[0]},${c[1]},${c[2]},${Math.max(0, Math.min(1, a)).toFixed(3)})`;
+const _seq = (t) => _rgba(_C_ACC, Math.max(0, Math.min(1, t)) * 0.9 + 0.07);
+const _div = (v, max) => {
+  if (!max) return 'transparent';
+  const a = Math.min(1, Math.abs(v) / max) * 0.88 + 0.06;
+  return v >= 0 ? _rgba(_C_GOOD, a) : _rgba(_C_WARN, a);
+};
+const _vmeta = (t) => ((STATE.manifest && STATE.manifest.variants) || []).find((v) => v.tag === t) || {};
+
+async function initAnalytics() {
+  STATE.analyticsInit = true;
+  await loadManifest();
+  await loadAllModelsSummary();
+  try { STATE.analytics = await API.data('variant_analytics.json'); } catch (e) { STATE.analytics = null; }
+  if (!STATE.panelModelVariants) { try { STATE.panelModelVariants = await API.data('panel_model_variants.json'); } catch (e) {} }
+  if (!STATE.panelKeyReactions) { try { STATE.panelKeyReactions = await API.data('panel_key_reactions.json'); } catch (e) {} }
+  if (!STATE.reactionsPanel) { try { STATE.reactionsPanel = await API.data('reactions_panel.json'); } catch (e) {} }
+
+  const an = STATE.analytics;
+  const nv = document.getElementById('an-nvariants');
+  if (nv && an) nv.textContent = an.tags.length;
+  if (an) {
+    renderAgreementHeatmap(an, document.getElementById('an-agreement'));
+    renderDirDistBars(an, document.getElementById('an-dirdist'));
+    renderDeltaHistograms(an, document.getElementById('an-deltahist'));
+  }
+  renderImpactScatter(document.getElementById('an-impact'));
+  renderModelVariantHeatmap(document.getElementById('an-heatmap'));
+  renderKeyCriticality(document.getElementById('an-criticality'));
+}
+
+// 1. Variant x variant directional-agreement heatmap (SVG).
+function renderAgreementHeatmap(an, host) {
+  if (!host) return;
+  const tags = an.tags, n = tags.length, A = an.agreement, N = an.agreement_n;
+  let amin = 1;
+  for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) if (i !== j) amin = Math.min(amin, A[i][j]);
+  const resc = (a) => (1 - amin > 1e-6 ? (a - amin) / (1 - amin) : 1);
+  const cs = 26, padL = 116, padT = 116, W = padL + n * cs + 8, H = padT + n * cs + 8;
+  let cells = '', rowlbl = '', collbl = '';
+  for (let i = 0; i < n; i++) {
+    const y = padT + i * cs;
+    rowlbl += `<text class="an-lbl" x="${padL - 6}" y="${y + cs / 2 + 3}" text-anchor="end">${escapeHtml(tags[i])}</text>`;
+    collbl += `<text class="an-lbl" transform="translate(${padL + i * cs + cs / 2},${padT - 6}) rotate(-55)" text-anchor="start">${escapeHtml(tags[i])}</text>`;
+    for (let j = 0; j < n; j++) {
+      const a = A[i][j], x = padL + j * cs;
+      const tip = `${tags[i]} vs ${tags[j]}: ${(a * 100).toFixed(1)}% agree over ${N[i][j].toLocaleString()} co-decided reactions`;
+      cells += `<rect x="${x}" y="${y}" width="${cs - 1}" height="${cs - 1}" fill="${i === j ? _rgba(_C_ACC, 1) : _seq(resc(a))}"><title>${escapeHtml(tip)}</title></rect>`;
+      if (cs >= 24) cells += `<text class="an-cell" x="${x + cs / 2}" y="${y + cs / 2 + 3}" text-anchor="middle" fill="${a > (amin + 1) / 2 ? '#10141a' : '#cdd6e2'}">${Math.round(a * 100)}</text>`;
+    }
+  }
+  host.innerHTML = `<div class="an-scroll"><svg viewBox="0 0 ${W} ${H}" class="an-svg" style="max-width:${W}px">${collbl}${rowlbl}${cells}</svg></div>
+    <p class="hint">Teal intensity = agreement (rescaled ${(amin * 100).toFixed(0)}–100%). Tight clusters share a method family; off-diagonal blocks reveal where estimators diverge.</p>`;
+}
+
+// 2. Per-variant direction makeup: 100% stacked bars (HTML).
+function renderDirDistBars(an, host) {
+  if (!host) return;
+  const seg = { '>': ['var(--good)', 'forward'], '<': ['var(--warn)', 'reverse'], '=': ['var(--accent-2)', 'reversible'], '?': ['var(--border)', 'unknown'] };
+  const rows = an.tags.map((t) => {
+    const d = an.direction_dist[t];
+    const tot = (d['>'] + d['<'] + d['='] + d['?']) || 1;
+    const bars = ['>', '<', '=', '?'].map((k) => {
+      const pct = d[k] / tot * 100;
+      if (pct < 0.01) return '';
+      return `<span class="an-seg" style="width:${pct.toFixed(2)}%;background:${seg[k][0]}" title="${escapeHtml(t)} ${seg[k][1]}: ${d[k].toLocaleString()} (${pct.toFixed(1)}%)"></span>`;
+    }).join('');
+    return `<div class="an-distrow"><span class="an-distlbl">${escapeHtml(t)}</span><span class="an-distbar">${bars}</span></div>`;
+  }).join('');
+  const legend = Object.entries(seg).map(([k, v]) =>
+    `<span class="an-legitem"><span class="an-sw" style="background:${v[0]}"></span>${v[1]} (${k})</span>`).join('');
+  host.innerHTML = `<div class="an-legend">${legend}</div><div class="an-distwrap">${rows}</div>`;
+}
+
+// 3. Impact landscape scatter: x = models with flux change, y = grow-flips, r ~ rxn instances changed (SVG).
+function renderImpactScatter(host) {
+  if (!host) return;
+  const sm = STATE.allModelsSummary && STATE.allModelsSummary.variants;
+  if (!sm) { host.innerHTML = '<p class="hint">All-models summary unavailable.</p>'; return; }
+  const pts = Object.values(sm).filter((v) => v.tag !== 'baseline').map((v) => ({
+    tag: v.tag, x: v.n_models_flux_change || 0, y: v.n_models_flip || 0,
+    r: v.n_rxn_instances_touched || 0,
+  }));
+  if (!pts.length) { host.innerHTML = '<p class="hint">No variant impact data.</p>'; return; }
+  const W = 720, H = 420, padL = 60, padB = 48, padT = 14, padR = 130;
+  const xmax = Math.max(...pts.map((p) => p.x), 1), ymax = Math.max(...pts.map((p) => p.y), 1);
+  const rmax = Math.max(...pts.map((p) => p.r), 1);
+  const X = (x) => padL + (x / xmax) * (W - padL - padR);
+  const Y = (y) => H - padB - (y / ymax) * (H - padB - padT);
+  const R = (r) => 4 + Math.sqrt(r / rmax) * 22;
+  const grid = [0, 0.25, 0.5, 0.75, 1].map((f) => {
+    const x = padL + f * (W - padL - padR), y = H - padB - f * (H - padB - padT);
+    return `<line class="an-grid" x1="${padL}" y1="${y.toFixed(1)}" x2="${W - padR}" y2="${y.toFixed(1)}"/>` +
+      `<text class="an-lbl" x="${padL - 6}" y="${(y + 3).toFixed(1)}" text-anchor="end">${Math.round(f * ymax)}</text>` +
+      `<text class="an-lbl" x="${x.toFixed(1)}" y="${H - padB + 14}" text-anchor="middle">${Math.round(f * xmax)}</text>`;
+  }).join('');
+  const dots = pts.map((p) => {
+    const cx = X(p.x), cy = Y(p.y);
+    return `<circle class="an-bub" cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${R(p.r).toFixed(1)}"><title>${escapeHtml(p.tag)}: ${p.x.toLocaleString()} models flux-changed, ${p.y.toLocaleString()} grow-flips, ${p.r.toLocaleString()} reaction-instances changed</title></circle>` +
+      `<text class="an-cell" x="${(cx + 0).toFixed(1)}" y="${(cy - R(p.r) - 2).toFixed(1)}" text-anchor="middle" fill="#cdd6e2">${escapeHtml(p.tag)}</text>`;
+  }).join('');
+  host.innerHTML = `<div class="an-scroll"><svg viewBox="0 0 ${W} ${H}" class="an-svg" style="max-width:${W}px">${grid}${dots}
+    <text class="an-axt" x="${(padL + (W - padR)) / 2}" y="${H - 6}" text-anchor="middle"># models with growth-flux change</text>
+    <text class="an-axt" transform="translate(16,${(H - padB) / 2}) rotate(-90)" text-anchor="middle"># models grow-status flipped</text></svg></div>
+    <p class="hint">Bubble area ∝ reaction-instances changed. Top-right = heuristics that perturb growth most; large low bubbles change many directions but rarely break growth.</p>`;
+}
+
+// 4. Panel models x variants Δ-growth heatmap (SVG).
+function renderModelVariantHeatmap(host) {
+  if (!host) return;
+  const pmv = STATE.panelModelVariants;
+  const tags = (STATE.analytics ? STATE.analytics.tags : []).filter((t) => t !== 'baseline');
+  if (!pmv || !tags.length) { host.innerHTML = '<p class="hint">Panel/variant data unavailable.</p>'; return; }
+  const mids = Object.keys(pmv);
+  const tot = (mid) => tags.reduce((s, t) => s + Math.abs((pmv[mid][t] || {}).delta_flux || 0), 0);
+  mids.sort((a, b) => tot(b) - tot(a));
+  let dmax = 1e-9;
+  for (const mid of mids) for (const t of tags) dmax = Math.max(dmax, Math.abs((pmv[mid][t] || {}).delta_flux || 0));
+  const cw = 30, rh = 9, padL = 132, padT = 116;
+  const W = padL + tags.length * cw + 8, H = padT + mids.length * rh + 8;
+  const collbl = tags.map((t, j) =>
+    `<text class="an-lbl" transform="translate(${padL + j * cw + cw / 2},${padT - 6}) rotate(-55)" text-anchor="start">${escapeHtml(t)}</text>`).join('');
+  let cells = '', rowlbl = '';
+  mids.forEach((mid, i) => {
+    const y = padT + i * rh;
+    if (rh >= 8) rowlbl += `<text class="an-lbl an-tiny" x="${padL - 5}" y="${y + rh - 1}" text-anchor="end">${escapeHtml(mid)}</text>`;
+    tags.forEach((t, j) => {
+      const e = pmv[mid][t] || {};
+      const d = e.delta_flux || 0;
+      const flip = e.baseline_grows != null && e.baseline_grows !== e.variant_grows;
+      const tip = `${mid} · ${t}: Δ growth ${d >= 0 ? '+' : ''}${Number(d).toFixed(3)}${flip ? ' (grow-flip)' : ''}`;
+      cells += `<rect x="${padL + j * cw}" y="${y}" width="${cw - 1}" height="${rh - 1}" fill="${_div(d, dmax)}"${flip ? ' stroke="#cdd6e2" stroke-width="0.6"' : ''}><title>${escapeHtml(tip)}</title></rect>`;
+    });
+  });
+  host.innerHTML = `<div class="an-scroll an-tall"><svg viewBox="0 0 ${W} ${H}" class="an-svg" style="max-width:${W}px">${collbl}${rowlbl}${cells}</svg></div>
+    <p class="hint">${mids.length} models (rows, most-perturbed on top) × ${tags.length} variants. <span class="pfc-val pos">green</span> = gains growth, <span class="pfc-val neg">red</span> = loses; outlined cell = grow-status flip. Scale ±${dmax.toFixed(1)}.</p>`;
+}
+
+// 5. Per-variant Δ-growth distribution small-multiples (SVG).
+function renderDeltaHistograms(an, host) {
+  if (!host || !an.delta_hist) return;
+  const tags = an.tags.filter((t) => an.delta_hist[t]);
+  const charts = tags.map((t) => {
+    const h = an.delta_hist[t], bins = h.bins, counts = h.counts;
+    const w = 200, ht = 96, pad = 4, n = counts.length;
+    const cmax = Math.max(...counts, 1);
+    const bw = (w - 2 * pad) / n;
+    const zeroX = pad + ((0 - bins[0]) / (bins[n] - bins[0])) * (w - 2 * pad);
+    const bars = counts.map((c, i) => {
+      const bh = (c / cmax) * (ht - 16);
+      const mid = (bins[i] + bins[i + 1]) / 2;
+      const col = mid >= 0 ? _rgba(_C_GOOD, 0.85) : _rgba(_C_WARN, 0.85);
+      return `<rect x="${(pad + i * bw).toFixed(1)}" y="${(ht - 12 - bh).toFixed(1)}" width="${Math.max(0.6, bw - 0.4).toFixed(1)}" height="${bh.toFixed(1)}" fill="${col}"><title>Δ ${bins[i].toFixed(1)}…${bins[i + 1].toFixed(1)}: ${c} models</title></rect>`;
+    }).join('');
+    return `<div class="an-hcell"><div class="an-htitle">${escapeHtml(t)} <span class="hint">n=${h.n_moved.toLocaleString()}</span></div>
+      <svg viewBox="0 0 ${w} ${ht}" class="an-svg">
+        <line class="an-grid" x1="${zeroX.toFixed(1)}" y1="2" x2="${zeroX.toFixed(1)}" y2="${ht - 12}"/>
+        ${bars}
+        <text class="an-tiny" x="${pad}" y="${ht - 2}" text-anchor="start">${bins[0]}</text>
+        <text class="an-tiny" x="${w - pad}" y="${ht - 2}" text-anchor="end">+${bins[n]}</text>
+      </svg></div>`;
+  }).join('');
+  host.innerHTML = `<div class="an-hgrid">${charts}</div>
+    <p class="hint">Each panel: distribution of Δ growth flux across the models that variant moves (|Δ|&gt;1e-6), green right of zero = growth gained, red left = lost.</p>`;
+}
+
+// 6. Reaction criticality from the key-reaction sweep: frequency bars + scatter.
+function renderKeyCriticality(host) {
+  if (!host) return;
+  const kr = STATE.panelKeyReactions;
+  if (!kr || !kr.global || !kr.global.length) { host.innerHTML = '<p class="hint">Key-reaction data unavailable (run build_key_reactions.py).</p>'; return; }
+  const g = kr.global;
+  const rxnName = (id) => (STATE.reactionsPanel && STATE.reactionsPanel[id] && STATE.reactionsPanel[id].name) || '';
+  const top = g.slice(0, 20);
+  const nmax = Math.max(...top.map((x) => x.n_models), 1);
+  const bars = top.map((x) => {
+    const pct = (x.n_models / nmax * 100).toFixed(1);
+    return `<div class="an-distrow"><span class="an-distlbl"><a href="#" class="rxn-link" data-rxn="${escapeHtml(x.rxn)}">${escapeHtml(x.rxn)}</a></span>` +
+      `<span class="an-distbar"><span class="an-seg" style="width:${pct}%;background:var(--warn)" title="${escapeHtml(x.rxn)}${rxnName(x.rxn) ? ' — ' + rxnName(x.rxn) : ''}: key in ${x.n_models} models, max |Δ| ${x.max_severity}"></span></span>` +
+      `<span class="an-distn">${x.n_models}</span></div>`;
+  }).join('');
+  // scatter: x=n_models, y=max_severity
+  const W = 720, H = 360, padL = 56, padB = 44, padT = 14, padR = 20;
+  const xmax = Math.max(...g.map((x) => x.n_models), 1), ymax = Math.max(...g.map((x) => x.max_severity), 1);
+  const X = (v) => padL + (v / xmax) * (W - padL - padR);
+  const Y = (v) => H - padB - (v / ymax) * (H - padB - padT);
+  const dots = g.map((x) =>
+    `<circle class="an-bub" cx="${X(x.n_models).toFixed(1)}" cy="${Y(x.max_severity).toFixed(1)}" r="4"><title>${escapeHtml(x.rxn)}${rxnName(x.rxn) ? ' — ' + rxnName(x.rxn) : ''}: key in ${x.n_models} models, max |Δ growth| ${x.max_severity}, mean ${x.mean_severity}</title></circle>`).join('');
+  const grid = [0, 0.5, 1].map((f) =>
+    `<text class="an-lbl" x="${padL - 6}" y="${(Y(f * ymax) + 3).toFixed(1)}" text-anchor="end">${(f * ymax).toFixed(0)}</text>` +
+    `<text class="an-lbl" x="${X(f * xmax).toFixed(1)}" y="${H - padB + 14}" text-anchor="middle">${Math.round(f * xmax)}</text>`).join('');
+  host.innerHTML = `<div class="an-twocol">
+    <div><h4>Most frequently key (top 20)</h4><div class="an-distwrap an-crit">${bars}</div></div>
+    <div><h4>Frequency vs severity</h4><div class="an-scroll"><svg viewBox="0 0 ${W} ${H}" class="an-svg" style="max-width:${W}px">${grid}${dots}
+      <text class="an-axt" x="${(padL + W - padR) / 2}" y="${H - 4}" text-anchor="middle"># panel models where reaction is key</text>
+      <text class="an-axt" transform="translate(14,${(H - padB) / 2}) rotate(-90)" text-anchor="middle">max |Δ growth|</text></svg></div></div>
+  </div>`;
+  bindRxnLinks(host);
 }
 
 // -------------------- bootstrap --------------------

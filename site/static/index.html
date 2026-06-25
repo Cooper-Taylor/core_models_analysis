@@ -18,6 +18,7 @@
       <button data-tab="variants" class="active">Variant Browser</button>
       <button data-tab="reaction">Reaction Explorer</button>
       <button data-tab="panel-models">Panel Models</button>
+      <button data-tab="analytics">Analytics</button>
       <button data-tab="sandbox">Flux Sandbox</button>
       <button data-tab="about">About</button>
     </nav>
@@ -141,6 +142,34 @@
         <p class="hint">Click a model to inspect.</p>
       </div>
     </div>
+  </section>
+
+  <!-- ===================== ANALYTICS ===================== -->
+  <section id="tab-analytics" class="tab">
+    <h2>Analytics</h2>
+    <p class="hint">
+      Cross-cutting maps of all <span id="an-nvariants">…</span> direction variants and the
+      100-model panel. Hover any cell / point for exact values; reaction and model ids
+      link into the other tabs.
+    </p>
+
+    <h3>Variant agreement <span class="hint">— pairwise fraction of reactions with the same direction, over reactions both variants call (excludes shared "?")</span></h3>
+    <div id="an-agreement" class="an-block"></div>
+
+    <h3>Reaction-direction makeup <span class="hint">— share of forward / reverse / reversible / unknown per variant</span></h3>
+    <div id="an-dirdist" class="an-block"></div>
+
+    <h3>Impact landscape <span class="hint">— how many models each variant perturbs vs how many flip grow-status (bubble = reactions changed)</span></h3>
+    <div id="an-impact" class="an-block"></div>
+
+    <h3>Panel growth heatmap <span class="hint">— Δ growth flux of each panel model (rows) under each variant (cols); green = gains, red = loses</span></h3>
+    <div id="an-heatmap" class="an-block"></div>
+
+    <h3>Δ growth-flux distributions <span class="hint">— spread of growth perturbation across the 5,683 models each variant moves</span></h3>
+    <div id="an-deltahist" class="an-block"></div>
+
+    <h3>Reaction criticality <span class="hint">— reactions whose direction change disrupts growth in the most panel models (from the key-reaction sweep)</span></h3>
+    <div id="an-criticality" class="an-block"></div>
   </section>
 
   <!-- ===================== FLUX SANDBOX ===================== -->
