@@ -39,7 +39,9 @@ const STATE = {
   panelModelVariants: null,    // {model_id: {tag: {delta_flux, ..., n_changed}}}
   panelPipeline: null,         // {model_id: {tag: {base_flux, singles[], cumulative[]}}}
   panelKeyReactions: null,     // {models: {model_id: {base_flux, reactions[]}}, global: [...]}
-  panelGrowthControl: null,    // {models: {model_id: {base_flux, n_essential, reactions[]}}, global: [...]}
+  panelGrowthControl: null,    // {models: {model_id: {base_flux, n_essential, reactions[], metabolites[]}}, global, metabolites_global}
+  panelSyntheticLethal: null,  // {models: {model_id: {pairs[]}}, global: [...]}
+  panelFva: null,              // {models: {model_id: {n_blocked, n_forced, reactions[]}}, global: [...]}
   analytics: null,             // variant_analytics.json (agreement, dir-dist, delta hists)
   analyticsInit: false,        // analytics tab rendered once
   selectedModel: null,
@@ -1247,6 +1249,11 @@ async function loadPanelModelData() {
   // Growth-control knockout essentiality (precomputed; optional).
   try { STATE.panelGrowthControl = await API.data('panel_growth_control.json'); }
   catch (e) { STATE.panelGrowthControl = null; }
+  // Synthetic-lethal pairs + flux variability (precomputed; optional).
+  try { STATE.panelSyntheticLethal = await API.data('panel_synthetic_lethal.json'); }
+  catch (e) { STATE.panelSyntheticLethal = null; }
+  try { STATE.panelFva = await API.data('panel_fva.json'); }
+  catch (e) { STATE.panelFva = null; }
 }
 
 function pmEntry(mid, tag) {
@@ -1474,7 +1481,11 @@ function renderPanelModelDetail(mid) {
     <h3>Key reactions — direction sensitivity <span class="hint">— reactions whose direction change most disrupts this model's growth (every reaction probed in all directions vs baseline)</span></h3>
     <div id="pm-key-charts"></div>
     <h3>Growth control — knockout essentiality <span class="hint">— blocking each reaction (FBA reaction deletion): which reactions keep growth high (essential) or low (limiting)</span></h3>
-    <div id="pm-gc-charts"></div>`;
+    <div id="pm-gc-charts"></div>
+    <h3>Synthetic-lethal pairs <span class="hint">— reaction pairs whose joint knockout collapses growth though neither alone does</span></h3>
+    <div id="pm-sl-charts"></div>
+    <h3>Flux variability <span class="hint">— at near-optimal growth: which reactions are blocked, flux-forced (obligate), or flexible</span></h3>
+    <div id="pm-fva-charts"></div>`;
 
   pane.querySelectorAll('.pm-impact-row').forEach((tr) =>
     tr.addEventListener('click', () => {
@@ -1485,8 +1496,10 @@ function renderPanelModelDetail(mid) {
 
   if (!STATE.staticMode) initPmOverride(mid);
   initPmPipeline(mid);        // precomputed (static) data — render in both modes
-  renderPmKeyReactions(mid);  // precomputed direction-sensitivity — both modes
-  renderPmGrowthControl(mid); // precomputed knockout essentiality — both modes
+  renderPmKeyReactions(mid);   // precomputed direction-sensitivity — both modes
+  renderPmGrowthControl(mid);  // precomputed knockout essentiality + limiting metabolites
+  renderPmSyntheticLethal(mid);// precomputed synthetic-lethal pairs
+  renderPmFva(mid);            // precomputed flux variability
 }
 
 // ----- key reactions: per-reaction direction sensitivity (precomputed) -----
@@ -1728,7 +1741,85 @@ function renderPmGrowthControl(mid) {
     <h4>Knockout impact <span class="hint">— Δ growth when each reaction is blocked, top by magnitude</span></h4>
     ${renderGcBars(rx.slice(0, 40))}
     <h4>Flux vs essentiality <span class="hint">— flux carried at the growth optimum vs knockout Δ growth (each reaction)</span></h4>
-    ${renderGcScatter(rx)}`;
+    ${renderGcScatter(rx)}
+    <h4>Limiting metabolites <span class="hint">— LP shadow prices: metabolite pools that most constrain growth</span></h4>
+    ${renderLimitingMetaboliteBars(m.metabolites || [])}`;
+  bindRxnLinks(host);
+}
+
+function renderLimitingMetaboliteBars(mets) {
+  if (!mets.length) return '<p class="hint">No non-zero metabolite shadow prices.</p>';
+  const top = mets.slice(0, 18);
+  const maxAbs = Math.max(...top.map((x) => Math.abs(x.shadow_price)), 1e-9);
+  const rows = top.map((x) => {
+    const sp = x.shadow_price, sign = sp < 0 ? 'neg' : 'pos';
+    const w = (Math.abs(sp) / maxAbs * 100).toFixed(1);
+    return `<div class="an-distrow" title="${escapeHtml(x.name)} (${x.met}): shadow price ${sp >= 0 ? '+' : ''}${Number(sp).toFixed(4)}">` +
+      `<span class="an-distlbl">${escapeHtml(x.name)}</span>` +
+      `<span class="an-distbar"><span class="an-seg" style="width:${w}%;background:var(--accent-2)"></span></span>` +
+      `<span class="an-distn ${sign}">${sp >= 0 ? '+' : ''}${Number(sp).toFixed(3)}</span></div>`;
+  }).join('');
+  return `<div class="an-distwrap an-crit">${rows}</div>
+    <p class="hint">|shadow price| = how strongly that metabolite's mass balance limits growth at the optimum.</p>`;
+}
+
+// Synthetic-lethal pairs: ranked table of double-knockouts that collapse growth.
+function renderPmSyntheticLethal(mid) {
+  const host = document.getElementById('pm-sl-charts');
+  if (!host) return;
+  const sl = STATE.panelSyntheticLethal;
+  const m = (sl && sl.models) ? sl.models[mid] : null;
+  if (!m) { host.innerHTML = `<p class="hint">Synthetic-lethal data not available (run <code>scripts/build_synthetic_lethal.py</code>).</p>`; return; }
+  if (!m.pairs || !m.pairs.length) {
+    host.innerHTML = `<p class="hint">No synthetic-lethal pairs found among the top ${m.n_candidates} flux-carrying non-essential reactions in this model.</p>`;
+    return;
+  }
+  const rxnName = (id) => (STATE.reactionsPanel[id] && STATE.reactionsPanel[id].name) || '';
+  const rows = m.pairs.map((p) =>
+    `<tr><td><a href="#" class="rxn-link" data-rxn="${escapeHtml(p.a)}">${escapeHtml(p.a)}</a> + <a href="#" class="rxn-link" data-rxn="${escapeHtml(p.b)}">${escapeHtml(p.b)}</a></td>` +
+    `<td class="num pfc-val neg">${Number(p.joint_delta).toFixed(2)}</td>` +
+    `<td class="num">${Number(p.single_a).toFixed(2)} / ${Number(p.single_b).toFixed(2)}</td>` +
+    `<td class="num pfc-val ${p.epistasis < -1e-6 ? 'neg' : 'zero'}">${Number(p.epistasis).toFixed(2)}</td>` +
+    `<td title="${escapeHtml(rxnName(p.a) + ' + ' + rxnName(p.b))}">${escapeHtml((rxnName(p.a) || '?').slice(0, 22))} + …</td></tr>`).join('');
+  host.innerHTML = `<p class="hint">${m.n_pairs} synthetic-lethal/sick pair${m.n_pairs === 1 ? '' : 's'} among the top ${m.n_candidates} flux-carrying, individually-non-essential reactions.</p>
+    <table class="changed-by-table">
+      <thead><tr><th>reaction pair</th><th>joint Δ growth</th><th>singles (A / B)</th><th>epistasis</th><th>names</th></tr></thead>
+      <tbody>${rows}</tbody></table>
+    <p class="hint">Joint knockout collapses growth though each single barely moves it; <strong>epistasis</strong> = joint − (single A + single B), strongly negative = synergistic lethality.</p>`;
+  bindRxnLinks(host);
+}
+
+// Flux variability: classification summary + flux-range bars for the key reactions.
+function renderPmFva(mid) {
+  const host = document.getElementById('pm-fva-charts');
+  if (!host) return;
+  const fv = STATE.panelFva;
+  const m = (fv && fv.models) ? fv.models[mid] : null;
+  if (!m) { host.innerHTML = `<p class="hint">Flux-variability data not available (run <code>scripts/build_fva.py</code>).</p>`; return; }
+  const rx = (m.reactions || []).filter((r) => r.kind !== 'blocked').slice(0, 36);
+  const rxnName = (id) => (STATE.reactionsPanel[id] && STATE.reactionsPanel[id].name) || '';
+  // shared symmetric scale across shown reactions
+  const ext = Math.max(...rx.map((r) => Math.max(Math.abs(r.min), Math.abs(r.max))), 1e-9);
+  const W = 720, rowH = 16, padL = 130, padR = 50, top = 8;
+  const H = top + rx.length * rowH + 8;
+  const X = (v) => padL + ((v + ext) / (2 * ext)) * (W - padL - padR);
+  const zero = X(0);
+  const bars = rx.map((r, i) => {
+    const y = top + i * rowH;
+    const x1 = X(r.min), x2 = X(r.max);
+    const col = r.kind === 'flux_forced' ? _rgba(_C_WARN, 0.85) : _rgba(_C_ACC, 0.7);
+    return `<a href="#" class="rxn-link" data-rxn="${escapeHtml(r.rxn)}"><text class="an-lbl" x="${padL - 6}" y="${y + rowH - 5}" text-anchor="end">${escapeHtml(r.rxn)}</text></a>` +
+      `<rect x="${Math.min(x1, x2).toFixed(1)}" y="${y + 2}" width="${Math.max(2, Math.abs(x2 - x1)).toFixed(1)}" height="${rowH - 6}" fill="${col}"><title>${escapeHtml(r.rxn + (rxnName(r.rxn) ? ' — ' + rxnName(r.rxn) : ''))}: [${Number(r.min).toFixed(1)}, ${Number(r.max).toFixed(1)}] (${r.kind})</title></rect>`;
+  }).join('');
+  host.innerHTML = `<p class="hint">baseline growth flux ${Number(m.base_flux).toFixed(3)} &nbsp;·&nbsp;
+    <span class="pfc-val neg">${m.n_forced}</span> flux-forced (obligate) &nbsp;·&nbsp;
+    ${m.n_flexible} flexible &nbsp;·&nbsp; <span class="hint">${m.n_blocked}</span> blocked (cannot carry flux)</p>
+    <div class="an-scroll an-tall"><svg viewBox="0 0 ${W} ${H}" class="an-svg" style="max-width:${W}px">
+      <line class="an-grid" x1="${zero.toFixed(1)}" y1="2" x2="${zero.toFixed(1)}" y2="${H - 4}"/>
+      <text class="an-lbl" x="${padL}" y="${H - 2}" text-anchor="start">${(-ext).toFixed(0)}</text>
+      <text class="an-lbl" x="${(W - padR).toFixed(1)}" y="${H - 2}" text-anchor="end">+${ext.toFixed(0)}</text>
+      ${bars}</svg></div>
+    <p class="hint">Flux interval each reaction can take at ≥99% of optimal growth (Mahadevan &amp; Schilling 2003). <span class="pfc-val neg">red</span> = flux-forced (interval excludes 0 → obligate for growth); teal = flexible. Blocked reactions omitted.</p>`;
   bindRxnLinks(host);
 }
 
@@ -2032,6 +2123,8 @@ async function initAnalytics() {
   if (!STATE.panelModelVariants) { try { STATE.panelModelVariants = await API.data('panel_model_variants.json'); } catch (e) {} }
   if (!STATE.panelKeyReactions) { try { STATE.panelKeyReactions = await API.data('panel_key_reactions.json'); } catch (e) {} }
   if (!STATE.panelGrowthControl) { try { STATE.panelGrowthControl = await API.data('panel_growth_control.json'); } catch (e) {} }
+  if (!STATE.panelSyntheticLethal) { try { STATE.panelSyntheticLethal = await API.data('panel_synthetic_lethal.json'); } catch (e) {} }
+  if (!STATE.panelFva) { try { STATE.panelFva = await API.data('panel_fva.json'); } catch (e) {} }
   if (!STATE.reactionsPanel) { try { STATE.reactionsPanel = await API.data('reactions_panel.json'); } catch (e) {} }
 
   const an = STATE.analytics;
@@ -2049,6 +2142,9 @@ async function initAnalytics() {
   renderECClassHeatmap(document.getElementById('an-ecclass'));
   renderKeyCriticality(document.getElementById('an-criticality'));
   renderEssentialityGlobal(document.getElementById('an-essential'));
+  renderLimitingMetabolitesGlobal(document.getElementById('an-metabolites'));
+  renderSLGlobal(document.getElementById('an-sl'));
+  renderFvaGlobal(document.getElementById('an-fva'));
 }
 
 // 10. Essential reactions across the panel (knockout): frequency bars + per-model count histogram.
@@ -2338,6 +2434,57 @@ function renderECClassHeatmap(host) {
   });
   host.innerHTML = `<div class="an-scroll"><svg viewBox="0 0 ${W} ${H}" class="an-svg" style="max-width:${W}px">${collbl}${rowlbl}${cells}</svg></div>
     <p class="hint"># panel reactions of each enzyme class whose direction a variant changes — which parts of metabolism each heuristic rewrites. Teal intensity ∝ count (max ${cmax}).</p>`;
+}
+
+// 11. Limiting metabolites across the panel (shadow prices).
+function renderLimitingMetabolitesGlobal(host) {
+  if (!host) return;
+  const mg = STATE.panelGrowthControl && STATE.panelGrowthControl.metabolites_global;
+  if (!mg || !mg.length) { host.innerHTML = '<p class="hint">Shadow-price data unavailable.</p>'; return; }
+  const top = mg.slice(0, 20);
+  const nmax = Math.max(...top.map((x) => x.n_models), 1);
+  const rows = top.map((x) =>
+    `<div class="an-distrow" title="${escapeHtml(x.name)} (${x.met}): limiting in ${x.n_models} models, max |shadow price| ${x.max_abs_sp}">` +
+    `<span class="an-distlbl">${escapeHtml(x.name)}</span>` +
+    `<span class="an-distbar"><span class="an-seg" style="width:${(x.n_models / nmax * 100).toFixed(1)}%;background:var(--accent-2)"></span></span>` +
+    `<span class="an-distn">${x.n_models}</span></div>`).join('');
+  host.innerHTML = `<div class="an-distwrap an-crit">${rows}</div>
+    <p class="hint"># panel models in which each metabolite is among the top growth-limiting pools (largest |shadow price|).</p>`;
+}
+
+// 12. Synthetic-lethal pairs recurring across the panel.
+function renderSLGlobal(host) {
+  if (!host) return;
+  const g = STATE.panelSyntheticLethal && STATE.panelSyntheticLethal.global;
+  if (!g || !g.length) { host.innerHTML = '<p class="hint">No recurring synthetic-lethal pairs.</p>'; return; }
+  const rxnName = (id) => (STATE.reactionsPanel && STATE.reactionsPanel[id] && STATE.reactionsPanel[id].name) || '';
+  const rows = g.slice(0, 18).map((x) =>
+    `<tr><td><a href="#" class="rxn-link" data-rxn="${escapeHtml(x.a)}">${escapeHtml(x.a)}</a> + <a href="#" class="rxn-link" data-rxn="${escapeHtml(x.b)}">${escapeHtml(x.b)}</a></td>` +
+    `<td class="num">${x.n_models}</td><td class="num pfc-val neg">${Number(x.max_abs_joint).toFixed(1)}</td>` +
+    `<td title="${escapeHtml(rxnName(x.a) + ' + ' + rxnName(x.b))}">${escapeHtml((rxnName(x.a) || '?').slice(0, 26))}…</td></tr>`).join('');
+  host.innerHTML = `<table class="changed-by-table">
+    <thead><tr><th>reaction pair</th><th># models</th><th>max |joint Δ|</th><th>name (A)</th></tr></thead>
+    <tbody>${rows}</tbody></table>
+    <p class="hint">Pairs that are synthetic-lethal/sick in the most panel models — conserved jointly-essential reaction couples.</p>`;
+  bindRxnLinks(host);
+}
+
+// 13. Flux-forced / blocked reactions across the panel (FVA).
+function renderFvaGlobal(host) {
+  if (!host) return;
+  const g = STATE.panelFva && STATE.panelFva.global;
+  if (!g || !g.length) { host.innerHTML = '<p class="hint">FVA data unavailable.</p>'; return; }
+  const rxnName = (id) => (STATE.reactionsPanel && STATE.reactionsPanel[id] && STATE.reactionsPanel[id].name) || '';
+  const top = g.slice(0, 20);
+  const nmax = Math.max(...top.map((x) => x.n_forced_models), 1);
+  const rows = top.map((x) =>
+    `<div class="an-distrow" title="${escapeHtml(x.rxn)}${rxnName(x.rxn) ? ' — ' + rxnName(x.rxn) : ''}: flux-forced in ${x.n_forced_models} models, blocked in ${x.n_blocked_models}">` +
+    `<span class="an-distlbl"><a href="#" class="rxn-link" data-rxn="${escapeHtml(x.rxn)}">${escapeHtml(x.rxn)}</a></span>` +
+    `<span class="an-distbar"><span class="an-seg" style="width:${(x.n_forced_models / nmax * 100).toFixed(1)}%;background:var(--warn)"></span></span>` +
+    `<span class="an-distn">${x.n_forced_models}</span></div>`).join('');
+  host.innerHTML = `<div class="an-distwrap an-crit">${rows}</div>
+    <p class="hint"># panel models in which each reaction is <strong>flux-forced</strong> (must carry flux for optimal growth) — obligate reactions of the growth backbone.</p>`;
+  bindRxnLinks(host);
 }
 
 // -------------------- bootstrap --------------------

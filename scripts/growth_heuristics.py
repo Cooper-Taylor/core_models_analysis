@@ -415,8 +415,179 @@ def growth_control_one(model_id: str, baseline_map: dict, top_n: int = 90) -> di
         results.sort(key=lambda d: (-abs(d["ko_delta"]), -abs(d["flux_opt"]), d["rxn"]))
         keep = [d for d in results
                 if abs(d["ko_delta"]) > GROWTH_THRESHOLD or abs(d["flux_opt"]) > 1e-6][:top_n]
+
+        # Limiting metabolites: LP shadow prices (duals) at the growth optimum --
+        # the marginal change in growth per unit change in a metabolite's mass
+        # balance. Large |shadow price| = the metabolite pool constrains growth.
+        mets = []
+        sp = getattr(sol, "shadow_prices", None) if ok else None
+        if sp is not None:
+            name_of = {m.id: (m.name or m.id) for m in model.metabolites}
+            for mid_, val in sp.items():
+                try:
+                    v = float(val)
+                except Exception:
+                    continue
+                if abs(v) > 1e-9:
+                    mets.append({"met": mid_, "name": name_of.get(mid_, mid_), "shadow_price": v})
+            mets.sort(key=lambda d: -abs(d["shadow_price"]))
+            mets = mets[:25]
+
         return {"model_id": model_id, "base_flux": base_flux, "n_tested": n_tested,
-                "n_essential": n_ess, "n_limiting": n_lim, "reactions": keep}
+                "n_essential": n_ess, "n_limiting": n_lim, "reactions": keep,
+                "metabolites": mets}
+    except Exception as e:
+        return {"model_id": model_id, "error": f"{type(e).__name__}: {e}"}
+
+
+def synthetic_lethal_one(model_id: str, baseline_map: dict,
+                         n_cand: int = 35, top_n: int = 40) -> dict:
+    """Find synthetic-lethal / synthetic-sick reaction *pairs* in one model.
+
+    Single-reaction essentiality misses reactions that are dispensable alone but
+    jointly essential. Rebind to the cascade baseline + media, solve biomass, and
+    among the reactions that carry flux at the optimum keep those that are
+    **individually non-essential** (single-knockout barely moves growth) as
+    candidates (top ``n_cand`` by |flux|). Then knock out every candidate *pair*
+    and record ``joint_delta`` (Δgrowth of the double knockout) and
+    ``epistasis = joint_delta - (single_a + single_b)`` (synergy beyond the two
+    singles). Pairs with a strongly negative joint_delta are synthetic-lethal/sick.
+
+    Model loaded once; ~one LP per single + one per pair. Returns
+    ``{model_id, base_flux, n_candidates, n_pairs, pairs:[{a,b,joint_delta,
+    epistasis,single_a,single_b}...]}`` sorted by most-negative joint_delta
+    (capped at ``top_n``), or ``{model_id, error}``."""
+    import itertools
+    try:
+        model = load_json_model(str(MODELS_DIR / f"{model_id}.json"))
+        override_bounds(model, baseline_map)
+        apply_media(model)
+        bio_rxn = find_biomass_reaction(model)
+        if bio_rxn is None:
+            return {"model_id": model_id, "error": "no_biomass"}
+        model.objective = bio_rxn
+        sol = model.optimize()
+        ok = sol.status == "optimal" and sol.objective_value is not None
+        base_flux = float(sol.objective_value) if ok else 0.0
+        if not ok or base_flux <= GROWTH_THRESHOLD:
+            return {"model_id": model_id, "base_flux": base_flux,
+                    "n_candidates": 0, "n_pairs": 0, "pairs": []}
+        fluxes = sol.fluxes
+
+        def _flux():
+            so = model.optimize()
+            if so.status == "optimal" and so.objective_value is not None:
+                return float(so.objective_value)
+            return 0.0
+
+        seed_rxns: dict = {}
+        for rxn in model.reactions:
+            s = seed_id(rxn)
+            if s:
+                seed_rxns.setdefault(s, []).append(rxn)
+
+        # flux-carrying seeds, with single-KO delta
+        carriers = []
+        for seed, rs in seed_rxns.items():
+            fx = sum(abs(float(fluxes[r.id])) for r in rs if r.id in fluxes.index) \
+                if hasattr(fluxes, "index") else 0.0
+            if fx <= 1e-6:
+                continue
+            carriers.append((seed, fx, rs))
+        carriers.sort(key=lambda x: -x[1])
+        single = {}
+        cand = []
+        for seed, fx, rs in carriers:
+            backup = [(r, r.lower_bound, r.upper_bound) for r in rs]
+            for r in rs:
+                r.lower_bound, r.upper_bound = 0.0, 0.0
+            d = _flux() - base_flux
+            for r, lo, hi in backup:
+                r.lower_bound, r.upper_bound = lo, hi
+            single[seed] = d
+            if d > -GROWTH_THRESHOLD:  # individually non-essential
+                cand.append((seed, rs))
+            if len(cand) >= n_cand:
+                break
+
+        pairs = []
+        for (sa, ra), (sb, rb) in itertools.combinations(cand, 2):
+            rxs = ra + rb
+            backup = [(r, r.lower_bound, r.upper_bound) for r in rxs]
+            for r in rxs:
+                r.lower_bound, r.upper_bound = 0.0, 0.0
+            joint = _flux() - base_flux
+            for r, lo, hi in backup:
+                r.lower_bound, r.upper_bound = lo, hi
+            if joint < -GROWTH_THRESHOLD:  # the pair reduces growth (singles ~did not)
+                pairs.append({"a": sa, "b": sb, "joint_delta": joint,
+                              "epistasis": joint - (single[sa] + single[sb]),
+                              "single_a": single[sa], "single_b": single[sb]})
+        pairs.sort(key=lambda d: (d["joint_delta"], d["epistasis"]))
+        return {"model_id": model_id, "base_flux": base_flux,
+                "n_candidates": len(cand), "n_pairs": len(pairs),
+                "pairs": pairs[:top_n]}
+    except Exception as e:
+        return {"model_id": model_id, "error": f"{type(e).__name__}: {e}"}
+
+
+def fva_one(model_id: str, baseline_map: dict, fraction: float = 0.99,
+            top_n: int = 60) -> dict:
+    """Flux variability analysis of one model at near-optimal growth.
+
+    Rebind to the cascade baseline + media, then compute the min/max flux each
+    reaction can carry while keeping growth at >= ``fraction`` of optimum
+    (Mahadevan & Schilling 2003). Per SEED reaction classify:
+      * **blocked**     -- |min|,|max| < 1e-6 (cannot carry flux)
+      * **flux_forced** -- min*max > 0 (range excludes 0: obligate for growth)
+      * **flexible**    -- range spans 0
+    Returns ``{model_id, base_flux, n_blocked, n_forced, n_flexible,
+    reactions:[{rxn,min,max,span,kind}...]}`` (flux-forced + widest-range first,
+    capped at ``top_n``), or ``{model_id, error}``."""
+    from cobra.flux_analysis import flux_variability_analysis
+    try:
+        model = load_json_model(str(MODELS_DIR / f"{model_id}.json"))
+        override_bounds(model, baseline_map)
+        apply_media(model)
+        bio_rxn = find_biomass_reaction(model)
+        if bio_rxn is None:
+            return {"model_id": model_id, "error": "no_biomass"}
+        model.objective = bio_rxn
+        sol = model.optimize()
+        base_flux = float(sol.objective_value) if (sol.status == "optimal" and sol.objective_value is not None) else 0.0
+        # processes=1: cobra FVA would otherwise spawn its own pool, which fails
+        # inside our (daemonic) multiprocessing workers.
+        fr = flux_variability_analysis(model, fraction_of_optimum=fraction, processes=1)
+
+        # aggregate cobra reaction ranges onto SEED ids (net min/max across copies)
+        per_seed = {}
+        for rxn in model.reactions:
+            s = seed_id(rxn)
+            if not s or rxn.id not in fr.index:
+                continue
+            lo = float(fr.loc[rxn.id, "minimum"])
+            hi = float(fr.loc[rxn.id, "maximum"])
+            cur = per_seed.get(s)
+            if cur is None:
+                per_seed[s] = [lo, hi]
+            else:
+                cur[0] = min(cur[0], lo)
+                cur[1] = max(cur[1], hi)
+        rows = []
+        n_b = n_f = n_x = 0
+        for s, (lo, hi) in per_seed.items():
+            if abs(lo) < 1e-6 and abs(hi) < 1e-6:
+                kind = "blocked"; n_b += 1
+            elif lo * hi > 1e-12:
+                kind = "flux_forced"; n_f += 1
+            else:
+                kind = "flexible"; n_x += 1
+            rows.append({"rxn": s, "min": lo, "max": hi, "span": hi - lo, "kind": kind})
+        # flux-forced first (obligate), then widest range
+        rows.sort(key=lambda d: (0 if d["kind"] == "flux_forced" else 1, -d["span"], d["rxn"]))
+        return {"model_id": model_id, "base_flux": base_flux,
+                "n_blocked": n_b, "n_forced": n_f, "n_flexible": n_x,
+                "reactions": rows[:top_n]}
     except Exception as e:
         return {"model_id": model_id, "error": f"{type(e).__name__}: {e}"}
 

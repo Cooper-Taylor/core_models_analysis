@@ -13,7 +13,10 @@ The site computes four complementary, per-reaction signals:
 |---|---|---|
 | Direction sensitivity | does *flipping a reaction's direction* move growth? | Panel Models → "Key reactions"; Analytics → "Reaction criticality" |
 | Knockout essentiality | does *removing a reaction* collapse (or raise) growth? | Panel Models → "Growth control"; Analytics → "Essential reactions" |
+| Synthetic lethality | which reaction *pairs* are jointly (not singly) essential? | Panel Models → "Synthetic-lethal pairs"; Analytics → "Synthetic-lethal pairs" |
 | Flux at the optimum | how much flux does a reaction carry at max growth? | Panel Models → "Growth control" (flux-vs-essentiality scatter) |
+| Flux variability (FVA) | is a reaction blocked / flux-forced / flexible at optimal growth? | Panel Models → "Flux variability"; Analytics → "Flux-forced reactions" |
+| Shadow price | which metabolite pools most limit growth (LP duals)? | Panel Models → "Growth control" (limiting metabolites); Analytics → "Limiting metabolites" |
 | Reduced cost | LP marginal: growth change per unit bound relaxation | Growth-control tooltips |
 
 ---
@@ -54,20 +57,37 @@ high-flux + essential = **backbone**; low-flux + essential = **bottleneck**;
 high-flux + dispensable = **redundant** (alternate optima carry the load);
 on the zero line = **dispensable**. Flux degeneracy here is exactly the
 alternate-optima phenomenon characterized by **Mahadevan & Schilling (2003)**;
-**flux variability analysis (FVA)** and the **flux-coupling analysis** of
-**Burgard et al. (2004)** are the principled tools for it and are natural next
-additions.
+**flux variability analysis (FVA, Mahadevan & Schilling 2003)** is the principled
+tool for it and is now computed (Panel Models → "Flux variability"): at ≥99% of
+optimal growth each reaction is classified **blocked** (cannot carry flux),
+**flux-forced** (interval excludes 0 → obligate for growth), or **flexible**.
+Flux-forced reactions are the obligate growth backbone; the **flux-coupling
+analysis** of **Burgard et al. (2004)** is a natural next refinement.
 
-## 4. Reduced cost (LP sensitivity)
+## 4. Reduced cost & shadow price (LP sensitivity)
 
 The reduced cost is the linear-program dual on a reaction's bound: the marginal
-change in growth per unit relaxation of that bound at the optimum. Together with
-metabolite **shadow prices** it is the sensitivity analysis of growth to network
-perturbations formalized for metabolism by **Reznik, Mehta & Segrè (2013)**
-(flux-imbalance analysis). We surface per-reaction reduced costs in the
-growth-control tooltips; metabolite shadow prices are a planned addition.
+change in growth per unit relaxation of that bound at the optimum. The
+metabolite **shadow price** is the dual on a metabolite's mass balance — how
+strongly that pool limits growth — and is now reported (Panel Models → "Growth
+control" → limiting metabolites; Analytics → "Limiting metabolites"). Together
+these are the sensitivity analysis of growth to network perturbations formalized
+for metabolism by **Reznik, Mehta & Segrè (2013)** (flux-imbalance analysis).
 
-## 5. Cross-panel aggregation
+## 5. Synthetic lethality (reaction pairs)
+
+Single-reaction essentiality misses reactions that are dispensable alone but
+**jointly essential**. For each model we take the flux-carrying,
+individually-non-essential reactions and knock out every candidate *pair*,
+recording the joint Δgrowth and the **epistasis** = joint − (single A + single
+B). A strongly negative joint with near-zero singles is a synthetic-lethal/sick
+pair — a redundant couple the network relies on. This is the genome-scale
+synthetic-lethality analysis of **Suthers et al. (2009)**; **Fast-SL (Pratapa,
+Adler & Raghunathan 2015)** is the efficient algorithm for extending it to
+higher-order sets. We restrict the search to the top flux-carrying candidates per
+model (documented in the UI) rather than all pairs.
+
+## 6. Cross-panel aggregation
 
 Each per-reaction signal is tallied across all 100 panel models to find
 reactions that are *broadly* controlling — e.g. essential in the most models, or
@@ -84,6 +104,8 @@ clade-specific metabolic dependencies.
 - Segrè D, Vitkup D, Church GM (2002). *Analysis of optimality in natural and perturbed metabolic networks (MOMA).* PNAS 99(23):15112–15117.
 - Mahadevan R, Schilling CH (2003). *The effects of alternate optimal solutions in constraint-based genome-scale metabolic models (FVA).* Metab Eng 5(4):264–276.
 - Burgard AP, Nikolaev EV, Schilling CH, Maranas CD (2004). *Flux coupling analysis of genome-scale metabolic network reconstructions.* Genome Res 14(2):301–312.
+- Suthers PF, Zomorrodi A, Maranas CD (2009). *Genome-scale gene/reaction essentiality and synthetic lethality analysis.* Mol Syst Biol 5:301.
+- Pratapa A, Adler S, Raghunathan A (2015). *Fast-SL: an efficient algorithm to identify synthetic lethal sets in metabolic networks.* Bioinformatics 31(20):3299–3305.
 - Reznik E, Mehta P, Segrè D (2013). *Flux imbalance analysis and the sensitivity of cellular growth to changes in metabolite pools.* PLoS Comput Biol 9(8):e1003195.
 - Henry CS, Broadbelt LJ, Hatzimanikatis V (2007). *Thermodynamics-based metabolic flux analysis.* Biophys J 92(5):1792–1805.
 - Noor E, Bar-Even A, Flamholz A, Reznik E, Liebermeister W, Milo R (2014). *Pathway thermodynamics highlights kinetic obstacles in central metabolism (MDF).* PLoS Comput Biol 10(2):e1003483.

@@ -86,7 +86,7 @@ def main(argv: Optional[list] = None) -> None:
             results = list(pool.imap_unordered(_work, panel_ids, chunksize=2))
     dt = time.time() - t0
 
-    models, tally = {}, {}
+    models, tally, met_tally = {}, {}, {}
     n_err = n_solves = 0
     for res in results:
         if res.get("error"):
@@ -96,9 +96,11 @@ def main(argv: Optional[list] = None) -> None:
         n_solves += res.get("n_tested", 0)
         rxns = [{"rxn": d["rxn"], "ko_delta": _r(d["ko_delta"]), "flux_opt": _r(d["flux_opt"]),
                  "reduced_cost": _r(d["reduced_cost"]), "kind": d["kind"]} for d in res["reactions"]]
+        mets = [{"met": m["met"], "name": m["name"], "shadow_price": _r(m["shadow_price"])}
+                for m in res.get("metabolites", [])]
         models[mid] = {"base_flux": _r(res["base_flux"]), "n_tested": res["n_tested"],
                        "n_essential": res["n_essential"], "n_limiting": res["n_limiting"],
-                       "reactions": rxns}
+                       "reactions": rxns, "metabolites": mets}
         for d in res["reactions"]:
             t = tally.setdefault(d["rxn"], {"ess": 0, "lim": 0, "kos": []})
             if d["kind"] == "essential":
@@ -106,6 +108,10 @@ def main(argv: Optional[list] = None) -> None:
             elif d["kind"] == "limiting":
                 t["lim"] += 1
             t["kos"].append(d["ko_delta"])
+        for m in res.get("metabolites", []):
+            mt = met_tally.setdefault(m["met"], {"name": m["name"], "n": 0, "sps": []})
+            mt["n"] += 1
+            mt["sps"].append(abs(m["shadow_price"]))
 
     glob = [{"rxn": r, "n_essential_models": t["ess"], "n_limiting_models": t["lim"],
              "max_abs_ko": _r(max(abs(x) for x in t["kos"])),
@@ -114,7 +120,14 @@ def main(argv: Optional[list] = None) -> None:
     glob.sort(key=lambda d: (-d["n_essential_models"], -d["max_abs_ko"], d["rxn"]))
     glob = glob[:args.global_n]
 
-    OUT_FILE.write_text(json.dumps({"models": models, "global": glob}, separators=(",", ":")))
+    met_glob = [{"met": m, "name": v["name"], "n_models": v["n"],
+                 "max_abs_sp": _r(max(v["sps"])), "mean_abs_sp": _r(sum(v["sps"]) / len(v["sps"]))}
+                for m, v in met_tally.items()]
+    met_glob.sort(key=lambda d: (-d["n_models"], -d["max_abs_sp"], d["met"]))
+    met_glob = met_glob[:args.global_n]
+
+    OUT_FILE.write_text(json.dumps({"models": models, "global": glob, "metabolites_global": met_glob},
+                                   separators=(",", ":")))
     print(f"[ctrl] done in {dt:.1f}s ({len(models)} models, {n_err} errors, "
           f"~{n_solves} knockouts); wrote {OUT_FILE.name} ({OUT_FILE.stat().st_size/1024:.0f} KB)",
           flush=True)

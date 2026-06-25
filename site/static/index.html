@@ -182,6 +182,15 @@
 
     <h3>Essential reactions <span class="hint">— reactions essential to growth (knockout collapses it) across the most panel models</span></h3>
     <div id="an-essential" class="an-block"></div>
+
+    <h3>Flux-forced reactions <span class="hint">— reactions obligate for optimal growth (FVA interval excludes 0) across the most panel models</span></h3>
+    <div id="an-fva" class="an-block"></div>
+
+    <h3>Synthetic-lethal pairs <span class="hint">— reaction pairs jointly essential (but not singly) in the most panel models</span></h3>
+    <div id="an-sl" class="an-block"></div>
+
+    <h3>Limiting metabolites <span class="hint">— metabolite pools whose shadow price most constrains growth, across the most panel models</span></h3>
+    <div id="an-metabolites" class="an-block"></div>
   </section>
 
   <!-- ===================== FLUX SANDBOX ===================== -->
@@ -247,16 +256,19 @@
           exchange allows up to <code>-1000</code> mmol/gDW/h uptake; secretion is
           unrestricted. JSON keys <code>growth_flux</code>/<code>grows</code> hold the
           biomass flux and growth status.</li>
-      <li><strong>Growth-key reactions</strong>: the Panel Models tab finds the
-          reactions that control each model's growth — <em>direction sensitivity</em>
-          (flip each reaction's direction, measure Δ growth) and <em>knockout
-          essentiality</em> (block each reaction: essential reactions keep growth
-          high, growth-limiting reactions keep it low), plus flux carried at the
-          optimum and LP reduced cost. Methods + citations (Edwards &amp; Palsson
-          2000; Mahadevan &amp; Schilling 2003; Burgard 2004; Reznik 2013; Noor
-          2014) in <code>reports/GROWTH_KEY_REACTIONS_REVIEW.md</code>; produced by
-          <code>scripts/build_key_reactions.py</code> +
-          <code>scripts/build_growth_control.py</code>.</li>
+      <li><strong>Growth-key reactions</strong>: the Panel Models + Analytics tabs
+          find what controls each model's growth — <em>direction sensitivity</em>
+          (flip each reaction's direction), <em>knockout essentiality</em> (block
+          each reaction: essential keep growth high, limiting keep it low),
+          <em>synthetic-lethal pairs</em> (jointly-but-not-singly essential),
+          <em>flux variability</em> (blocked / flux-forced / flexible), and
+          <em>limiting metabolites</em> (LP shadow prices), plus flux at the
+          optimum and reduced cost. Methods + citations (Edwards &amp; Palsson 2000;
+          Mahadevan &amp; Schilling 2003; Burgard 2004; Reznik 2013; Suthers 2009;
+          Pratapa 2015; Noor 2014) in
+          <code>reports/GROWTH_KEY_REACTIONS_REVIEW.md</code>; produced by
+          <code>build_key_reactions.py</code>, <code>build_growth_control.py</code>,
+          <code>build_synthetic_lethal.py</code>, <code>build_fva.py</code>.</li>
       <li><strong>FBA reference</strong>: variants are compared to the
           <em>heuristic baseline</em> -- panel models fully rebound to
           the MSDB cascade's defaults.  This isolates "what does the heuristic

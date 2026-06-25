@@ -799,6 +799,10 @@ body.static-mode #tab-sandbox { display: none !important; }
 .an-distbar { display: flex; height: 15px; border-radius: 3px; overflow: hidden; background: var(--bg-elev); }
 .an-seg { height: 100%; }
 .an-distn { font-family: var(--mono); font-size: 11px; text-align: right; color: var(--text-dim); }
+.an-distn.neg { color: var(--warn); }
+.an-distn.pos { color: var(--good); }
+.an-svg a { cursor: pointer; }
+.an-svg a:hover text { fill: var(--accent); }
 .an-crit .an-distrow { grid-template-columns: 110px 1fr 36px; }
 /* delta-histogram small multiples */
 .an-hgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
