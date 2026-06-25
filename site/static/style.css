@@ -765,3 +765,11 @@ body.static-mode #tab-sandbox { display: none !important; }
 .pm-cum-dot.neg { fill: var(--warn); }
 .pm-cum-dot.zero { fill: var(--text-dim); }
 .pm-cum-chart .pfc-legend { border: 0; padding: 6px 0 0; }
+
+/* --- Key reactions (direction sensitivity) --- */
+.key-rxn-chart .pfc-row { grid-template-columns: 124px 66px 1fr 88px; }
+.key-rxn-chart .pfc-keydir { font-size: 11px; white-space: nowrap; text-align: center; }
+.key-rxn-global { margin-top: 10px; }
+.key-rxn-global > summary { cursor: pointer; color: var(--text-dim); font-size: 12px; padding: 4px 0; }
+.key-rxn-global > summary:hover { color: var(--accent); }
+.key-rxn-global table { margin-top: 6px; }

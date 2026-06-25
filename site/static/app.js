@@ -38,6 +38,7 @@ const STATE = {
   panelModels: null,           // {model_id: {organism_name, taxonomy, size stats, ...}}
   panelModelVariants: null,    // {model_id: {tag: {delta_flux, ..., n_changed}}}
   panelPipeline: null,         // {model_id: {tag: {base_flux, singles[], cumulative[]}}}
+  panelKeyReactions: null,     // {models: {model_id: {base_flux, reactions[]}}, global: [...]}
   selectedModel: null,
   pmVariantFilter: 'any',
   pmFluxFilter: 'any',
@@ -1236,6 +1237,9 @@ async function loadPanelModelData() {
   // Per-reaction perturbation pipeline (precomputed; optional — tolerate absence).
   try { STATE.panelPipeline = await API.data('panel_model_rxn_pipeline.json'); }
   catch (e) { STATE.panelPipeline = null; }
+  // Key-reaction direction-sensitivity (precomputed; optional).
+  try { STATE.panelKeyReactions = await API.data('panel_key_reactions.json'); }
+  catch (e) { STATE.panelKeyReactions = null; }
 }
 
 function pmEntry(mid, tag) {
@@ -1459,7 +1463,9 @@ function renderPanelModelDetail(mid) {
       <label>Heuristic: <select id="pm-pipe-variant"></select></label>
       <span id="pm-pipe-note" class="hint"></span>
     </div>
-    <div id="pm-pipe-charts"></div>`;
+    <div id="pm-pipe-charts"></div>
+    <h3>Key reactions — direction sensitivity <span class="hint">— reactions whose direction change most disrupts this model's growth (every reaction probed in all directions vs baseline)</span></h3>
+    <div id="pm-key-charts"></div>`;
 
   pane.querySelectorAll('.pm-impact-row').forEach((tr) =>
     tr.addEventListener('click', () => {
@@ -1469,7 +1475,76 @@ function renderPanelModelDetail(mid) {
     }));
 
   if (!STATE.staticMode) initPmOverride(mid);
-  initPmPipeline(mid);  // precomputed (static) data — render in both modes
+  initPmPipeline(mid);     // precomputed (static) data — render in both modes
+  renderPmKeyReactions(mid);  // precomputed direction-sensitivity — both modes
+}
+
+// ----- key reactions: per-reaction direction sensitivity (precomputed) -----
+// Ranks reactions by how much flipping their direction (vs baseline) moves growth.
+// Data: site/data/panel_key_reactions.json from scripts/build_key_reactions.py.
+function renderPmKeyReactions(mid) {
+  const host = document.getElementById('pm-key-charts');
+  if (!host) return;
+  const data = STATE.panelKeyReactions;
+  const m = (data && data.models) ? data.models[mid] : null;
+  if (!m) {
+    host.innerHTML = `<p class="hint">Key-reaction data not available (run <code>scripts/build_key_reactions.py</code>).</p>`;
+    return;
+  }
+  const rxns = m.reactions || [];
+  if (!rxns.length) {
+    host.innerHTML = `<p class="hint">No single reaction's direction change moves this model's growth.</p>`;
+    return;
+  }
+  host.innerHTML = `
+    <p class="hint">baseline growth flux ${Number(m.base_flux).toFixed(3)} &nbsp;·&nbsp;
+      ${m.n_tested} reactions probed in every direction &nbsp;·&nbsp;
+      ${rxns.length} shown (|Δ growth| &gt; 1e-6, ranked by severity)</p>
+    ${renderKeyReactionChart(rxns)}
+    ${renderGlobalKeyCard((data && data.global) || [])}`;
+  bindRxnLinks(host);
+}
+
+// Diverging severity bar chart for one model's key reactions (reuses pfc-* styles).
+function renderKeyReactionChart(rxns) {
+  const maxSev = Math.max(...rxns.map((r) => r.severity), 1e-9);
+  const rxnName = (id) => (STATE.reactionsPanel[id] && STATE.reactionsPanel[id].name) || '';
+  const rows = rxns.map((r) => {
+    const d = r.best_delta;
+    const sign = d > 1e-6 ? 'pos' : (d < -1e-6 ? 'neg' : 'zero');
+    const half = (r.severity / maxSev * 50).toFixed(2);
+    const bar = `<span class="pfc-bar ${sign}" style="width:${half}%"></span>`;
+    const byd = Object.entries(r.by_dir)
+      .map(([k, v]) => `${k} ${v >= 0 ? '+' : ''}${Number(v).toFixed(2)}`).join('   ');
+    const tip = `${r.rxn}${rxnName(r.rxn) ? ' — ' + rxnName(r.rxn) : ''}\n` +
+      `baseline ${r.base_dir} → ${r.best_dir}\nΔ growth by forced direction: ${byd}`;
+    return `<div class="pfc-row" title="${escapeHtml(tip)}">` +
+      `<span class="pfc-id"><a href="#" class="rxn-link" data-rxn="${escapeHtml(r.rxn)}">${escapeHtml(r.rxn)}</a></span>` +
+      `<span class="pfc-keydir">${revBadge(r.base_dir)}→${revBadge(r.best_dir)}</span>` +
+      `<span class="pfc-bar-cell">${bar}</span>` +
+      `<span class="pfc-val ${sign}">${d >= 0 ? '+' : ''}${Number(d).toFixed(3)}</span></div>`;
+  }).join('');
+  return `<div class="panel-flux-chart key-rxn-chart">
+    <div class="pfc-legend">${rxns.length} key reactions &nbsp;·&nbsp; bar = severity (max |Δ growth| over the forced directions) &nbsp;·&nbsp;
+      <span class="pfc-val neg">red</span> = a direction change kills growth, <span class="pfc-val pos">green</span> = boosts it</div>
+    <div class="pfc-rows">${rows}</div></div>`;
+}
+
+// Collapsible cross-panel tally: reactions that are key in the most models.
+function renderGlobalKeyCard(glob) {
+  if (!glob || !glob.length) return '';
+  const rxnName = (id) => (STATE.reactionsPanel[id] && STATE.reactionsPanel[id].name) || '';
+  const rows = glob.slice(0, 15).map((g) =>
+    `<tr><td><a href="#" class="rxn-link" data-rxn="${escapeHtml(g.rxn)}">${escapeHtml(g.rxn)}</a></td>` +
+    `<td>${escapeHtml(rxnName(g.rxn))}</td>` +
+    `<td class="num">${g.n_models}</td>` +
+    `<td class="num">${Number(g.max_severity).toFixed(2)}</td>` +
+    `<td class="num">${Number(g.mean_severity).toFixed(2)}</td></tr>`).join('');
+  return `<details class="key-rxn-global">
+    <summary>Most frequently key across the 100 panel models</summary>
+    <table class="changed-by-table">
+      <thead><tr><th>rxn</th><th>name</th><th># models</th><th>max |Δ|</th><th>mean |Δ|</th></tr></thead>
+      <tbody>${rows}</tbody></table></details>`;
 }
 
 async function showModelVariantRxns(mid, tag) {

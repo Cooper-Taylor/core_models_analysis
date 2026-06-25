@@ -264,6 +264,81 @@ def rxn_pipeline_one(model_id: str, baseline_map: dict, changed_dirs: dict) -> d
         return {"model_id": model_id, "error": f"{type(e).__name__}: {e}"}
 
 
+_ALL_DIRS = (">", "<", "=")
+
+
+def key_reactions_one(model_id: str, baseline_map: dict, top_n: int = 75) -> dict:
+    """Rank a model's reactions by how much *changing their direction* disrupts growth.
+
+    Variant-agnostic single-reaction sensitivity probe. Rebinds the model to the
+    cascade baseline (``baseline_map``) and records baseline growth, then for each
+    SEED reaction in the model flips it to **every other** direction in
+    ``('>', '<', '=')`` one at a time (keeping all others at baseline), re-solving
+    growth each time. A reaction is "key" when some direction change causes a large
+    |Δ growth|. The model JSON is loaded once; all flips happen in memory, so each
+    reaction costs ~2 LP solves (typically a few hundred solves per model).
+
+    Returns ``{model_id, base_flux, n_tested, reactions:[{rxn, base_dir, best_dir,
+    best_delta, by_dir:{dir:Δ}, severity}...]}`` sorted by ``severity`` (max |Δ|)
+    descending and capped at ``top_n``; or ``{model_id, error}`` on failure."""
+    try:
+        model = load_json_model(str(MODELS_DIR / f"{model_id}.json"))
+        override_bounds(model, baseline_map)
+        apply_media(model)
+        bio_rxn = find_biomass_reaction(model)
+        if bio_rxn is None:
+            return {"model_id": model_id, "error": "no_biomass"}
+        model.objective = bio_rxn
+
+        def _flux():
+            sol = model.optimize()
+            if sol.status == "optimal" and sol.objective_value is not None:
+                return float(sol.objective_value)
+            return 0.0
+
+        base_flux = _flux()
+
+        seed_rxns: dict = {}
+        for rxn in model.reactions:
+            s = seed_id(rxn)
+            if s:
+                seed_rxns.setdefault(s, []).append(rxn)
+
+        results = []
+        for seed, rs in seed_rxns.items():
+            base_dir = baseline_map.get(seed)
+            if base_dir is None:
+                continue  # reaction outside the cascade map: no defined baseline dir
+            base_bounds = _bounds_for_rev(base_dir)
+            backup = [(r, r.lower_bound, r.upper_bound) for r in rs]
+            by_dir = {}
+            for d in _ALL_DIRS:
+                if _bounds_for_rev(d) == base_bounds:
+                    continue  # equivalent to baseline (e.g. '=' vs '?') -> no change
+                lb, ub = _bounds_for_rev(d)
+                for r in rs:
+                    r.lower_bound, r.upper_bound = lb, ub
+                by_dir[d] = _flux() - base_flux
+                for r, lo, hi in backup:
+                    r.lower_bound, r.upper_bound = lo, hi
+            if not by_dir:
+                continue
+            best_dir = max(by_dir, key=lambda k: abs(by_dir[k]))
+            results.append({
+                "rxn": seed, "base_dir": base_dir, "best_dir": best_dir,
+                "best_delta": by_dir[best_dir], "by_dir": by_dir,
+                "severity": abs(by_dir[best_dir]),
+            })
+
+        n_tested = len(results)
+        results.sort(key=lambda x: (-x["severity"], x["rxn"]))
+        keep = [r for r in results if r["severity"] > GROWTH_THRESHOLD][:top_n]
+        return {"model_id": model_id, "base_flux": base_flux,
+                "n_tested": n_tested, "reactions": keep}
+    except Exception as e:
+        return {"model_id": model_id, "error": f"{type(e).__name__}: {e}"}
+
+
 _worker_kwargs_cache: dict = {}
 
 
