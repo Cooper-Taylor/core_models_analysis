@@ -527,7 +527,7 @@ _LN_RI_PATH_DEFAULT = (
 
 
 def load_ln_reversibility_index(path: str = _LN_RI_PATH_DEFAULT) -> dict:
-    """Parse the third column of ``MetaNetX_Reaction_Energies.tbl``.
+    """Parse the ln_RI (fourth) column of ``MetaNetX_Reaction_Energies.tbl``.
 
     Each row is ``rxn_id\\tdg\\tdge\\tln_RI`` where ``ln_RI`` is formatted
     as ``value+/-uncertainty`` (kept verbatim from the retrieval script).

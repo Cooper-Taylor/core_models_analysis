@@ -148,34 +148,44 @@
   <section id="tab-analytics" class="tab">
     <h2>Analytics</h2>
     <p class="hint">
-      Cross-cutting maps of all <span id="an-nvariants">…</span> direction variants and the
-      100-model panel. Hover any cell / point for exact values; reaction and model ids
-      link into the other tabs.
+      <strong>Top — direction-method comparison.</strong> The KEGG core models
+      already carry a direction for every reaction — the on-disk COBRA flux bounds
+      (<code>lower_bound</code>/<code>upper_bound</code>) the 5,683 models were built
+      with. We take that as the <strong><em>default</em></strong> reference
+      (<em>KEGG_default</em>, the per-reaction majority bound direction across the
+      models) and ask how well the thermodynamic / LLM heuristics reproduce it over
+      the <span id="an-mc-n">…</span> reactions in scope:
+      <em>Jankowski&nbsp;2007</em> (group-contribution ΔG′ feasibility window),
+      <em>Flamholz&nbsp;2012</em> (eQuilibrator reversibility index from the
+      ModelSEEDDatabase-bundled energies — not the 2022 Beber/eQ-3.0 API), and
+      <em>Claude&nbsp;Opus&nbsp;4.8</em> (LLM predictions). In the
+      <strong>Core models</strong> scope the default is pinned first and the
+      heuristics are ordered by how closely they track it; the <strong>All MSDB</strong>
+      scope is the original symmetric three-method view over every MSDB reaction (the
+      default only exists for in-model reactions).
+      <strong>Bottom — growth-control panel analyses</strong> over the 100-model
+      descriptive panel. Hover any cell for exact values; reaction ids link into the
+      other tabs.
     </p>
 
-    <h3>Variant agreement <span class="hint">— pairwise fraction of reactions with the same direction, over reactions both variants call (excludes shared "?")</span></h3>
+    <div class="scope-toggle" id="an-scope-toggle">
+      <span class="scope-label">Reaction scope:</span>
+      <button data-mscope="models" class="active">Core models</button>
+      <button data-mscope="models_no_transport">Core models · no transport</button>
+      <button data-mscope="all">All MSDB</button>
+      <button data-mscope="no_transport">All MSDB · no transport</button>
+    </div>
+
+    <h3>Method agreement <span class="hint">— pairwise fraction of reactions called the same direction, over reactions both methods decide (&gt;, &lt;, =); in the Core models scope, read the KEGG_default row/column for how each heuristic matches the model-built direction</span></h3>
     <div id="an-agreement" class="an-block"></div>
 
-    <h3>Effect correlation <span class="hint">— similarity of variants by their per-model Δ growth effect (not by direction call)</span></h3>
-    <div id="an-effectcorr" class="an-block"></div>
+    <h3>Direction confusion <span class="hint">— how each method pair's direction calls cross-tabulate (rows = first method, cols = second); diagonal = same call</span></h3>
+    <div id="an-confusion" class="an-block"></div>
 
-    <h3>Reaction-direction makeup <span class="hint">— share of forward / reverse / reversible / unknown per variant</span></h3>
+    <h3>Reaction-direction makeup <span class="hint">— share of forward / reverse / reversible / unknown per method</span></h3>
     <div id="an-dirdist" class="an-block"></div>
 
-    <h3>Impact landscape <span class="hint">— how many models each variant perturbs vs how many flip grow-status (bubble = reactions changed)</span></h3>
-    <div id="an-impact" class="an-block"></div>
-
-    <h3>Growth break vs restore <span class="hint">— per variant, models that lose growth (left) vs gain growth (right) vs baseline</span></h3>
-    <div id="an-tornado" class="an-block"></div>
-
-    <h3>Panel growth heatmap <span class="hint">— Δ growth flux of each panel model (rows) under each variant (cols); green = gains, red = loses</span></h3>
-    <div id="an-heatmap" class="an-block"></div>
-
-    <h3>Δ growth-flux distributions <span class="hint">— spread of growth perturbation across the models each variant moves</span></h3>
-    <div id="an-deltahist" class="an-block"></div>
-
-    <h3>Enzyme-class rewrites <span class="hint">— how many panel reactions of each EC class a variant re-directs</span></h3>
-    <div id="an-ecclass" class="an-block"></div>
+    <h3 class="an-divider">Growth-control panel analyses <span class="hint">— 100-model descriptive panel; independent of the direction methods above</span></h3>
 
     <h3>Reaction criticality <span class="hint">— reactions whose direction change disrupts growth in the most panel models (from the key-reaction sweep)</span></h3>
     <div id="an-criticality" class="an-block"></div>

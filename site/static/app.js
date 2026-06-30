@@ -42,7 +42,8 @@ const STATE = {
   panelGrowthControl: null,    // {models: {model_id: {base_flux, n_essential, reactions[], metabolites[]}}, global, metabolites_global}
   panelSyntheticLethal: null,  // {models: {model_id: {pairs[]}}, global: [...]}
   panelFva: null,              // {models: {model_id: {n_blocked, n_forced, reactions[]}}, global: [...]}
-  analytics: null,             // variant_analytics.json (agreement, dir-dist, delta hists)
+  methodCmp: null,             // method_comparison.json (agreement/confusion/dist; KEGG_default-anchored model scopes + wide MSDB scopes)
+  methodScope: 'models',       // 'models' | 'models_no_transport' | 'all' | 'no_transport' — reaction scope for the method matrices (defaults to the KEGG_default-anchored core-model view)
   analyticsInit: false,        // analytics tab rendered once
   selectedModel: null,
   pmVariantFilter: 'any',
@@ -2108,43 +2109,161 @@ function enhanceResizableGrids() {
 const _C_GOOD = [106, 209, 122], _C_WARN = [239, 111, 108], _C_ACC = [95, 216, 184];
 const _rgba = (c, a) => `rgba(${c[0]},${c[1]},${c[2]},${Math.max(0, Math.min(1, a)).toFixed(3)})`;
 const _seq = (t) => _rgba(_C_ACC, Math.max(0, Math.min(1, t)) * 0.9 + 0.07);
-const _div = (v, max) => {
-  if (!max) return 'transparent';
-  const a = Math.min(1, Math.abs(v) / max) * 0.88 + 0.06;
-  return v >= 0 ? _rgba(_C_GOOD, a) : _rgba(_C_WARN, a);
-};
-const _vmeta = (t) => ((STATE.manifest && STATE.manifest.variants) || []).find((v) => v.tag === t) || {};
 
 async function initAnalytics() {
   STATE.analyticsInit = true;
-  await loadManifest();
-  await loadAllModelsSummary();
-  try { STATE.analytics = await API.data('variant_analytics.json'); } catch (e) { STATE.analytics = null; }
-  if (!STATE.panelModelVariants) { try { STATE.panelModelVariants = await API.data('panel_model_variants.json'); } catch (e) {} }
+  try { STATE.methodCmp = await API.data('method_comparison.json'); } catch (e) { STATE.methodCmp = null; }
   if (!STATE.panelKeyReactions) { try { STATE.panelKeyReactions = await API.data('panel_key_reactions.json'); } catch (e) {} }
   if (!STATE.panelGrowthControl) { try { STATE.panelGrowthControl = await API.data('panel_growth_control.json'); } catch (e) {} }
   if (!STATE.panelSyntheticLethal) { try { STATE.panelSyntheticLethal = await API.data('panel_synthetic_lethal.json'); } catch (e) {} }
   if (!STATE.panelFva) { try { STATE.panelFva = await API.data('panel_fva.json'); } catch (e) {} }
   if (!STATE.reactionsPanel) { try { STATE.reactionsPanel = await API.data('reactions_panel.json'); } catch (e) {} }
 
-  const an = STATE.analytics;
-  const nv = document.getElementById('an-nvariants');
-  if (nv && an) nv.textContent = an.tags.length;
-  if (an) {
-    renderAgreementHeatmap(an, document.getElementById('an-agreement'));
-    renderEffectCorrHeatmap(an, document.getElementById('an-effectcorr'));
-    renderDirDistBars(an, document.getElementById('an-dirdist'));
-    renderDeltaHistograms(an, document.getElementById('an-deltahist'));
-  }
-  renderImpactScatter(document.getElementById('an-impact'));
-  renderGrowFlipTornado(document.getElementById('an-tornado'));
-  renderModelVariantHeatmap(document.getElementById('an-heatmap'));
-  renderECClassHeatmap(document.getElementById('an-ecclass'));
+  // --- direction-method comparison (KEGG_default reference vs heuristics; 4 reaction scopes) ---
+  // scope toggle: re-render only the method matrices (panel analyses are scope-independent)
+  document.querySelectorAll('#an-scope-toggle button').forEach((btn) =>
+    btn.addEventListener('click', () => {
+      const s = btn.dataset.mscope;
+      if (STATE.methodScope === s) return;
+      STATE.methodScope = s;
+      document.querySelectorAll('#an-scope-toggle button').forEach((b) =>
+        b.classList.toggle('active', b === btn));
+      renderMethodMatrices();
+    }));
+  renderMethodMatrices();
+
+  // --- growth-control panel analyses (100-model panel; scope-independent) ---
   renderKeyCriticality(document.getElementById('an-criticality'));
   renderEssentialityGlobal(document.getElementById('an-essential'));
-  renderLimitingMetabolitesGlobal(document.getElementById('an-metabolites'));
-  renderSLGlobal(document.getElementById('an-sl'));
   renderFvaGlobal(document.getElementById('an-fva'));
+  renderSLGlobal(document.getElementById('an-sl'));
+  renderLimitingMetabolitesGlobal(document.getElementById('an-metabolites'));
+}
+
+// --- comparison matrices (agreement, confusion, direction makeup), N methods ---
+// All read method_comparison.json for the currently-selected reaction scope; the
+// method set is per-scope (KEGG_default + heuristics in model scopes, heuristics-only wide).
+function renderMethodMatrices() {
+  const mc = STATE.methodCmp;
+  const agHost = document.getElementById('an-agreement');
+  const cfHost = document.getElementById('an-confusion');
+  const ddHost = document.getElementById('an-dirdist');
+  if (!mc || !mc.modes) {
+    [agHost, cfHost, ddHost].forEach((h) => { if (h) h.innerHTML = '<p class="hint">Method-comparison data unavailable (run build_method_comparison.py).</p>'; });
+    return;
+  }
+  const mode = mc.modes[STATE.methodScope] || mc.modes.all;
+  const nEl = document.getElementById('an-mc-n');
+  if (nEl) {
+    const n = (mc.counts && mc.counts[STATE.methodScope]) || mode.n_reactions;
+    nEl.textContent = Number(n).toLocaleString();
+  }
+  renderMethodAgreement(mode, agHost);
+  renderMethodConfusion(mode, cfHost);
+  renderMethodDirDist(mode, ddHost);
+}
+
+// Direction symbols → human labels + colors, shared by the method matrices.
+const _DIR_LABEL = { '>': 'forward', '<': 'reverse', '=': 'reversible', '?': 'unknown' };
+const _DIR_COLOR = { '>': 'var(--good)', '<': 'var(--warn)', '=': 'var(--accent-2)', '?': 'var(--border)' };
+
+// 1. Method × method directional-agreement heatmap (3×3, rank-similarity ordered).
+function renderMethodAgreement(mode, host) {
+  if (!host) return;
+  const methods = mode.methods, n = methods.length, A = mode.agreement, N = mode.agreement_n;
+  // rescale color over the off-diagonal range so the few cells read distinctly
+  let amin = 1;
+  for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) if (i !== j) amin = Math.min(amin, A[i][j]);
+  const resc = (a) => (1 - amin > 1e-6 ? (a - amin) / (1 - amin) : 1);
+  const cs = 76, padL = 132, padT = 118, W = padL + n * cs + 8, H = padT + n * cs + 8;
+  let cells = '', rowlbl = '', collbl = '';
+  for (let i = 0; i < n; i++) {
+    const y = padT + i * cs;
+    rowlbl += `<text class="an-lbl" x="${padL - 8}" y="${y + cs / 2 + 3}" text-anchor="end">${escapeHtml(methods[i])}</text>`;
+    collbl += `<text class="an-lbl" transform="translate(${padL + i * cs + cs / 2},${padT - 8}) rotate(-30)" text-anchor="start">${escapeHtml(methods[i])}</text>`;
+    for (let j = 0; j < n; j++) {
+      const a = A[i][j], x = padL + j * cs, t = resc(a);
+      const tip = i === j
+        ? `${methods[i]}: makes a directional call (>, <, =) on ${N[i][i].toLocaleString()} reactions`
+        : `${methods[i]} vs ${methods[j]}: ${(a * 100).toFixed(1)}% call the same direction over ${N[i][j].toLocaleString()} reactions both decide`;
+      cells += `<rect x="${x}" y="${y}" width="${cs - 2}" height="${cs - 2}" rx="3" fill="${_rgba(_C_ACC, i === j ? 1 : 0.14 + 0.84 * t)}"><title>${escapeHtml(tip)}</title></rect>`;
+      const dark = (i === j || t > 0.5);
+      cells += `<text x="${x + cs / 2}" y="${y + cs / 2 - 2}" text-anchor="middle" font-family="var(--mono)" font-size="17" font-weight="600" fill="${dark ? '#10141a' : '#cdd6e2'}" pointer-events="none">${Math.round(a * 100)}%</text>`;
+      cells += `<text x="${x + cs / 2}" y="${y + cs / 2 + 14}" text-anchor="middle" font-family="var(--mono)" font-size="9" fill="${dark ? '#2a3340' : '#9aa7b8'}" pointer-events="none">n=${N[i][j].toLocaleString()}</text>`;
+    }
+  }
+  host.innerHTML = `<div class="an-scroll"><svg viewBox="0 0 ${W} ${H}" class="an-svg" style="max-width:${W}px">${collbl}${rowlbl}${cells}</svg></div>
+    <p class="hint">Fraction of reactions <strong>both</strong> methods call directionally (&gt;, &lt;, =) that get the same call; shared "unknown" (?) is excluded. Teal intensity rescaled ${(amin * 100).toFixed(0)}–100% to spread the cells. Methods ordered by rank similarity — adjacent = most alike.</p>`;
+}
+
+// 2. Pairwise direction × direction confusion matrices (categories rank-ordered).
+function renderMethodConfusion(mode, host) {
+  if (!host) return;
+  const conf = mode.confusion || [];
+  if (!conf.length) { host.innerHTML = '<p class="hint">No confusion data.</p>'; return; }
+  const grids = conf.map((c) => {
+    // Drop any direction category whose row AND column are entirely empty
+    // (e.g. methods that never emit "?") so the grid shows no phantom rows.
+    const rowSum = (i) => c.matrix[i].reduce((s, v) => s + v, 0);
+    const colSum = (j) => c.matrix.reduce((s, row) => s + row[j], 0);
+    const keep = c.cats.map((_, i) => i).filter((i) => rowSum(i) > 0 || colSum(i) > 0);
+    const cats = keep.map((i) => c.cats[i]);
+    const m = keep.map((i) => keep.map((j) => c.matrix[i][j]));
+    const k = cats.length;
+    let cmax = 1;
+    for (let i = 0; i < k; i++) for (let j = 0; j < k; j++) cmax = Math.max(cmax, m[i][j]);
+    // Directional agreement consistent with the agreement heatmap: matches over
+    // reactions BOTH methods call directionally (>, <, =), excluding any "?".
+    const dir = cats.map((cat, i) => (cat !== '?' ? i : -1)).filter((i) => i >= 0);
+    let bothDecide = 0, sameDir = 0;
+    for (const i of dir) { for (const j of dir) bothDecide += m[i][j]; sameDir += m[i][i]; }
+    const dirAgree = bothDecide ? sameDir / bothDecide : 0;
+    const oneSidedUnknown = c.n - bothDecide; // co-covered reactions where one side is "?"
+    const cs = 38, padL = 40, padT = 24, W = padL + k * cs + 6, H = padT + k * cs + 6;
+    let cells = '', rowlbl = '', collbl = '';
+    for (let i = 0; i < k; i++) {
+      const y = padT + i * cs;
+      rowlbl += `<text class="an-lbl" x="${padL - 6}" y="${y + cs / 2 + 3}" text-anchor="end">${escapeHtml(cats[i])}</text>`;
+      collbl += `<text class="an-lbl" x="${padL + i * cs + cs / 2}" y="${padT - 6}" text-anchor="middle">${escapeHtml(cats[i])}</text>`;
+      for (let j = 0; j < k; j++) {
+        const v = m[i][j], x = padL + j * cs, t = v / cmax;
+        const tip = `${c.a} = ${cats[i]} (${_DIR_LABEL[cats[i]]}), ${c.b} = ${cats[j]} (${_DIR_LABEL[cats[j]]}): ${v.toLocaleString()} reactions`;
+        cells += `<rect x="${x}" y="${y}" width="${cs - 1.5}" height="${cs - 1.5}" rx="2" fill="${i === j ? _rgba(_C_GOOD, 0.18 + 0.74 * t) : _seq(t)}"><title>${escapeHtml(tip)}</title></rect>`;
+        if (v) cells += `<text class="an-cell" x="${x + cs / 2}" y="${y + cs / 2 + 3}" text-anchor="middle" fill="${t > 0.5 ? '#10141a' : '#cdd6e2'}">${v >= 10000 ? Math.round(v / 1000) + 'k' : v}</text>`;
+      }
+    }
+    const sub = `${(dirAgree * 100).toFixed(1)}% same direction · n=${bothDecide.toLocaleString()} both decide`
+      + (oneSidedUnknown > 0 ? ` · ${oneSidedUnknown.toLocaleString()} one-sided "?"` : '');
+    return `<div class="an-confcell">
+      <div class="an-conftitle">${escapeHtml(c.a)} <span class="hint">(rows)</span> × ${escapeHtml(c.b)} <span class="hint">(cols)</span></div>
+      <div class="an-confsub">${sub}</div>
+      <svg viewBox="0 0 ${W} ${H}" class="an-svg" style="max-width:${W}px">${collbl}${rowlbl}${cells}</svg></div>`;
+  }).join('');
+  const legend = `<span class="an-legitem"><span class="an-sw" style="background:${_rgba(_C_GOOD, 0.85)}"></span>same call (diagonal)</span>`
+    + `<span class="an-legitem"><span class="an-sw" style="background:${_rgba(_C_ACC, 0.85)}"></span>different call — darker = more reactions</span>`;
+  host.innerHTML = `<div class="an-legend">${legend}</div><div class="an-confgrid">${grids}</div>
+    <p class="hint">Each cell = # reactions where the row method made the row call (&gt; forward, &lt; reverse, = reversible, ? unknown) and the column method made the column call. The <span class="pfc-val pos">green diagonal</span> = same call; brighter off-diagonal (teal) = larger systematic disagreement (e.g. one method calls reversible "=" where another commits to a direction). The "% same direction" matches the agreement heatmap (over reactions both decide); reactions where one method says "?" are listed separately. Counts ≥ 10,000 abbreviated "k" — exact value on hover. Direction categories are ordered to put the most-confused pair adjacent.</p>`;
+}
+
+// 3. Per-method direction makeup: 100% stacked bars (forward / reverse / reversible / unknown).
+function renderMethodDirDist(mode, host) {
+  if (!host) return;
+  const methods = mode.methods, dist = mode.dist;
+  const order = ['>', '<', '=', '?'];
+  const rows = methods.map((mth) => {
+    const d = dist[mth] || {};
+    const tot = order.reduce((s, k) => s + (d[k] || 0), 0) || 1;
+    const bars = order.map((k) => {
+      const v = d[k] || 0, pct = v / tot * 100;
+      if (pct < 0.01) return '';
+      return `<span class="an-seg" style="width:${pct.toFixed(2)}%;background:${_DIR_COLOR[k]}" title="${escapeHtml(mth)} ${_DIR_LABEL[k]} (${k}): ${v.toLocaleString()} (${pct.toFixed(1)}%)"></span>`;
+    }).join('');
+    return `<div class="an-distrow"><span class="an-distlbl" title="${escapeHtml(mth)}">${escapeHtml(mth)}</span><span class="an-distbar">${bars}</span><span class="an-distn">${tot.toLocaleString()}</span></div>`;
+  }).join('');
+  const legend = order.map((k) =>
+    `<span class="an-legitem"><span class="an-sw" style="background:${_DIR_COLOR[k]}"></span>${_DIR_LABEL[k]} (${k})</span>`).join('');
+  host.innerHTML = `<div class="an-legend">${legend}</div><div class="an-distwrap">${rows}</div>
+    <p class="hint">Composition of each method's direction calls, each normalized to 100% over <strong>its own coverage</strong> — the count at right shows how many reactions that method calls, and the method sets only partly overlap (Flamholz covers far fewer reactions than Opus), so read this as each method's internal makeup, not a like-for-like per-reaction comparison. <strong>KEGG_default</strong> (Core models scope) is the direction the models were built with — its split of forward / reverse / reversible is the bar the heuristics are trying to match. Opus 4.8 commits to a forward direction far more often; the ΔG′ methods leave many reactions reversible "=".</p>`;
 }
 
 // 10. Essential reactions across the panel (knockout): frequency bars + per-model count histogram.
@@ -2183,148 +2302,6 @@ function renderEssentialityGlobal(host) {
   bindRxnLinks(host);
 }
 
-// 1. Variant x variant directional-agreement heatmap (SVG).
-function renderAgreementHeatmap(an, host) {
-  if (!host) return;
-  const tags = an.tags, n = tags.length, A = an.agreement, N = an.agreement_n;
-  let amin = 1;
-  for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) if (i !== j) amin = Math.min(amin, A[i][j]);
-  const resc = (a) => (1 - amin > 1e-6 ? (a - amin) / (1 - amin) : 1);
-  const cs = 26, padL = 116, padT = 116, W = padL + n * cs + 8, H = padT + n * cs + 8;
-  let cells = '', rowlbl = '', collbl = '';
-  for (let i = 0; i < n; i++) {
-    const y = padT + i * cs;
-    rowlbl += `<text class="an-lbl" x="${padL - 6}" y="${y + cs / 2 + 3}" text-anchor="end">${escapeHtml(tags[i])}</text>`;
-    collbl += `<text class="an-lbl" transform="translate(${padL + i * cs + cs / 2},${padT - 6}) rotate(-55)" text-anchor="start">${escapeHtml(tags[i])}</text>`;
-    for (let j = 0; j < n; j++) {
-      const a = A[i][j], x = padL + j * cs;
-      const tip = `${tags[i]} vs ${tags[j]}: ${(a * 100).toFixed(1)}% agree over ${N[i][j].toLocaleString()} co-decided reactions`;
-      cells += `<rect x="${x}" y="${y}" width="${cs - 1}" height="${cs - 1}" fill="${_rgba(_C_ACC, i === j ? 1 : 0.16 + 0.82 * resc(a))}"><title>${escapeHtml(tip)}</title></rect>`;
-      if (cs >= 24) cells += `<text class="an-cell" x="${x + cs / 2}" y="${y + cs / 2 + 3}" text-anchor="middle" fill="${a > (amin + 1) / 2 ? '#10141a' : '#cdd6e2'}">${Math.round(a * 100)}</text>`;
-    }
-  }
-  host.innerHTML = `<div class="an-scroll"><svg viewBox="0 0 ${W} ${H}" class="an-svg" style="max-width:${W}px">${collbl}${rowlbl}${cells}</svg></div>
-    <p class="hint">Teal intensity = agreement (rescaled ${(amin * 100).toFixed(0)}–100%). Tight clusters share a method family; off-diagonal blocks reveal where estimators diverge.</p>`;
-}
-
-// 2. Per-variant direction makeup: 100% stacked bars (HTML).
-function renderDirDistBars(an, host) {
-  if (!host) return;
-  const seg = { '>': ['var(--good)', 'forward'], '<': ['var(--warn)', 'reverse'], '=': ['var(--accent-2)', 'reversible'], '?': ['var(--border)', 'unknown'] };
-  const rows = an.tags.map((t) => {
-    const d = an.direction_dist[t];
-    const tot = (d['>'] + d['<'] + d['='] + d['?']) || 1;
-    const bars = ['>', '<', '=', '?'].map((k) => {
-      const pct = d[k] / tot * 100;
-      if (pct < 0.01) return '';
-      return `<span class="an-seg" style="width:${pct.toFixed(2)}%;background:${seg[k][0]}" title="${escapeHtml(t)} ${seg[k][1]}: ${d[k].toLocaleString()} (${pct.toFixed(1)}%)"></span>`;
-    }).join('');
-    return `<div class="an-distrow"><span class="an-distlbl">${escapeHtml(t)}</span><span class="an-distbar">${bars}</span></div>`;
-  }).join('');
-  const legend = Object.entries(seg).map(([k, v]) =>
-    `<span class="an-legitem"><span class="an-sw" style="background:${v[0]}"></span>${v[1]} (${k})</span>`).join('');
-  host.innerHTML = `<div class="an-legend">${legend}</div><div class="an-distwrap">${rows}</div>`;
-}
-
-// 3. Impact landscape scatter: x = models with flux change, y = grow-flips, r ~ rxn instances changed (SVG).
-function renderImpactScatter(host) {
-  if (!host) return;
-  const sm = STATE.allModelsSummary && STATE.allModelsSummary.variants;
-  if (!sm) { host.innerHTML = '<p class="hint">All-models summary unavailable.</p>'; return; }
-  const pts = Object.values(sm).filter((v) => v.tag !== 'baseline').map((v) => ({
-    tag: v.tag, x: v.n_models_flux_change || 0, y: v.n_models_flip || 0,
-    r: v.n_rxn_instances_touched || 0,
-  }));
-  if (!pts.length) { host.innerHTML = '<p class="hint">No variant impact data.</p>'; return; }
-  const W = 720, H = 440, padL = 60, padB = 48, padT = 34, padR = 130;
-  const xmax = Math.max(...pts.map((p) => p.x), 1), ymax = Math.max(...pts.map((p) => p.y), 1);
-  const rmax = Math.max(...pts.map((p) => p.r), 1);
-  const X = (x) => padL + (x / xmax) * (W - padL - padR);
-  const Y = (y) => H - padB - (y / ymax) * (H - padB - padT);
-  const R = (r) => 4 + Math.sqrt(r / rmax) * 16;
-  const grid = [0, 0.25, 0.5, 0.75, 1].map((f) => {
-    const x = padL + f * (W - padL - padR), y = H - padB - f * (H - padB - padT);
-    return `<line class="an-grid" x1="${padL}" y1="${y.toFixed(1)}" x2="${W - padR}" y2="${y.toFixed(1)}"/>` +
-      `<text class="an-lbl" x="${padL - 6}" y="${(y + 3).toFixed(1)}" text-anchor="end">${Math.round(f * ymax)}</text>` +
-      `<text class="an-lbl" x="${x.toFixed(1)}" y="${H - padB + 14}" text-anchor="middle">${Math.round(f * xmax)}</text>`;
-  }).join('');
-  const dots = pts.map((p, idx) => {
-    const cx = X(p.x), cy = Y(p.y), rr = R(p.r);
-    // alternate label above / below to reduce collisions in the dense cluster
-    const ly = idx % 2 === 0 ? Math.max(padT - 4, cy - rr - 3) : Math.min(H - padB - 2, cy + rr + 9);
-    return `<circle class="an-bub" cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${rr.toFixed(1)}"><title>${escapeHtml(p.tag)}: ${p.x.toLocaleString()} models flux-changed, ${p.y.toLocaleString()} grow-flips, ${p.r.toLocaleString()} reaction-instances changed</title></circle>` +
-      `<text class="an-cell" x="${cx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="middle" fill="#cdd6e2">${escapeHtml(p.tag)}</text>`;
-  }).join('');
-  host.innerHTML = `<div class="an-scroll"><svg viewBox="0 0 ${W} ${H}" class="an-svg" style="max-width:${W}px">${grid}${dots}
-    <text class="an-axt" x="${(padL + (W - padR)) / 2}" y="${H - 6}" text-anchor="middle"># models with growth-flux change</text>
-    <text class="an-axt" transform="translate(16,${(padT + H - padB) / 2}) rotate(-90)" text-anchor="middle"># models grow-status flipped</text></svg></div>
-    <p class="hint">Bubble area ∝ reaction-instances changed. Top-right = heuristics that perturb growth most; large low bubbles change many directions but rarely break growth.</p>`;
-}
-
-// 4. Panel models x variants Δ-growth heatmap (SVG).
-function renderModelVariantHeatmap(host) {
-  if (!host) return;
-  const pmv = STATE.panelModelVariants;
-  const tags = (STATE.analytics ? STATE.analytics.tags : []).filter((t) => t !== 'baseline');
-  if (!pmv || !tags.length) { host.innerHTML = '<p class="hint">Panel/variant data unavailable.</p>'; return; }
-  const mids = Object.keys(pmv);
-  const tot = (mid) => tags.reduce((s, t) => s + Math.abs((pmv[mid][t] || {}).delta_flux || 0), 0);
-  mids.sort((a, b) => tot(b) - tot(a));
-  // Color scale capped at the 95th percentile of |Δ| so the bulk is visible
-  // (a few extreme cells would otherwise wash everything else to near-zero alpha).
-  const absd = [];
-  for (const mid of mids) for (const t of tags) { const v = Math.abs((pmv[mid][t] || {}).delta_flux || 0); if (v > 1e-9) absd.push(v); }
-  absd.sort((a, b) => a - b);
-  const dcap = absd.length ? absd[Math.floor(absd.length * 0.95)] : 1e-9;
-  const dmaxReal = absd.length ? absd[absd.length - 1] : 0;
-  const cw = 30, rh = 9, padL = 132, padT = 116;
-  const W = padL + tags.length * cw + 8, H = padT + mids.length * rh + 8;
-  const collbl = tags.map((t, j) =>
-    `<text class="an-lbl" transform="translate(${padL + j * cw + cw / 2},${padT - 6}) rotate(-55)" text-anchor="start">${escapeHtml(t)}</text>`).join('');
-  let cells = '', rowlbl = '';
-  mids.forEach((mid, i) => {
-    const y = padT + i * rh;
-    if (rh >= 8) rowlbl += `<text class="an-lbl an-tiny" x="${padL - 5}" y="${y + rh - 1}" text-anchor="end">${escapeHtml(mid)}</text>`;
-    tags.forEach((t, j) => {
-      const e = pmv[mid][t] || {};
-      const d = e.delta_flux || 0;
-      const flip = e.baseline_grows != null && e.baseline_grows !== e.variant_grows;
-      const tip = `${mid} · ${t}: Δ growth ${d >= 0 ? '+' : ''}${Number(d).toFixed(3)}${flip ? ' (grow-flip)' : ''}`;
-      cells += `<rect x="${padL + j * cw}" y="${y}" width="${cw - 1}" height="${rh - 1}" fill="${_div(d, dcap)}"${flip ? ' stroke="#cdd6e2" stroke-width="0.6"' : ''}><title>${escapeHtml(tip)}</title></rect>`;
-    });
-  });
-  host.innerHTML = `<div class="an-scroll an-tall"><svg viewBox="0 0 ${W} ${H}" class="an-svg" style="max-width:${W}px">${collbl}${rowlbl}${cells}</svg></div>
-    <p class="hint">${mids.length} models (rows, most-perturbed on top) × ${tags.length} variants. <span class="pfc-val pos">green</span> = gains growth, <span class="pfc-val neg">red</span> = loses; outlined cell = grow-status flip. Color capped at P95 |Δ| = ${dcap.toFixed(1)} (fully saturated cells reach up to ${dmaxReal.toFixed(1)}).</p>`;
-}
-
-// 5. Per-variant Δ-growth distribution small-multiples (SVG).
-function renderDeltaHistograms(an, host) {
-  if (!host || !an.delta_hist) return;
-  const tags = an.tags.filter((t) => an.delta_hist[t]);
-  const charts = tags.map((t) => {
-    const h = an.delta_hist[t], bins = h.bins, counts = h.counts;
-    const w = 200, ht = 96, pad = 4, n = counts.length;
-    const cmax = Math.max(...counts, 1);
-    const bw = (w - 2 * pad) / n;
-    const zeroX = pad + ((0 - bins[0]) / (bins[n] - bins[0])) * (w - 2 * pad);
-    const bars = counts.map((c, i) => {
-      const bh = (c / cmax) * (ht - 16);
-      const mid = (bins[i] + bins[i + 1]) / 2;
-      const col = mid >= 0 ? _rgba(_C_GOOD, 0.85) : _rgba(_C_WARN, 0.85);
-      return `<rect x="${(pad + i * bw).toFixed(1)}" y="${(ht - 12 - bh).toFixed(1)}" width="${Math.max(0.6, bw - 0.4).toFixed(1)}" height="${bh.toFixed(1)}" fill="${col}"><title>Δ ${bins[i].toFixed(1)}…${bins[i + 1].toFixed(1)}: ${c} models</title></rect>`;
-    }).join('');
-    return `<div class="an-hcell"><div class="an-htitle">${escapeHtml(t)} <span class="hint">${h.n_moved.toLocaleString()}/${(h.n_evaluated || h.n_moved).toLocaleString()} moved</span></div>
-      <svg viewBox="0 0 ${w} ${ht}" class="an-svg">
-        <line class="an-grid" x1="${zeroX.toFixed(1)}" y1="2" x2="${zeroX.toFixed(1)}" y2="${ht - 12}"/>
-        ${bars}
-        <text class="an-tiny" x="${pad}" y="${ht - 2}" text-anchor="start">${bins[0]}</text>
-        <text class="an-tiny" x="${w - pad}" y="${ht - 2}" text-anchor="end">+${bins[n]}</text>
-      </svg></div>`;
-  }).join('');
-  host.innerHTML = `<div class="an-hgrid">${charts}</div>
-    <p class="hint">Each panel: distribution of Δ growth flux across the models that variant moves (|Δ|&gt;1e-6), green right of zero = growth gained, red left = lost.</p>`;
-}
-
 // 6. Reaction criticality from the key-reaction sweep: frequency bars + scatter.
 function renderKeyCriticality(host) {
   if (!host) return;
@@ -2357,83 +2334,6 @@ function renderKeyCriticality(host) {
       <text class="an-axt" transform="translate(14,${(H - padB) / 2}) rotate(-90)" text-anchor="middle">max |Δ growth|</text></svg></div></div>
   </div>`;
   bindRxnLinks(host);
-}
-
-// 7. Effect-similarity: per-model Δgrowth correlation between variants (diverging SVG).
-function renderEffectCorrHeatmap(an, host) {
-  if (!host) return;
-  const tags = an.corr_tags || [], n = tags.length, M = an.effect_corr;
-  if (!n) { host.innerHTML = '<p class="hint">Effect-correlation data unavailable.</p>'; return; }
-  const cs = 28, padL = 124, padT = 124, W = padL + n * cs + 8, H = padT + n * cs + 8;
-  let cells = '', rowlbl = '', collbl = '';
-  for (let i = 0; i < n; i++) {
-    const y = padT + i * cs;
-    rowlbl += `<text class="an-lbl" x="${padL - 6}" y="${y + cs / 2 + 3}" text-anchor="end">${escapeHtml(tags[i])}</text>`;
-    collbl += `<text class="an-lbl" transform="translate(${padL + i * cs + cs / 2},${padT - 6}) rotate(-55)" text-anchor="start">${escapeHtml(tags[i])}</text>`;
-    for (let j = 0; j < n; j++) {
-      const c = M[i][j], x = padL + j * cs;
-      cells += `<rect x="${x}" y="${y}" width="${cs - 1}" height="${cs - 1}" fill="${_div(c, 1)}"><title>${escapeHtml(`${tags[i]} vs ${tags[j]}: r = ${c.toFixed(3)} (per-model Δgrowth correlation)`)}</title></rect>`;
-      cells += `<text class="an-cell" x="${x + cs / 2}" y="${y + cs / 2 + 3}" text-anchor="middle" fill="${Math.abs(c) > 0.55 ? '#10141a' : '#cdd6e2'}">${Math.round(c * 100)}</text>`;
-    }
-  }
-  host.innerHTML = `<div class="an-scroll"><svg viewBox="0 0 ${W} ${H}" class="an-svg" style="max-width:${W}px">${collbl}${rowlbl}${cells}</svg></div>
-    <p class="hint">Pearson correlation of per-model Δ growth-flux vectors over the 5,683-model database — method similarity by <em>effect on growth</em> (complements the agreement heatmap's similarity by <em>direction call</em>). <span class="pfc-val pos">green</span> = perturb the same models the same way; <span class="pfc-val neg">red</span> = opposite.</p>`;
-}
-
-// 8. Grow-flip tornado: per variant, models whose growth breaks vs is restored (HTML).
-function renderGrowFlipTornado(host) {
-  if (!host) return;
-  const sm = STATE.allModelsSummary && STATE.allModelsSummary.variants;
-  if (!sm) { host.innerHTML = '<p class="hint">All-models summary unavailable.</p>'; return; }
-  const rows = Object.values(sm).filter((v) => v.tag !== 'baseline')
-    .map((v) => ({ tag: v.tag, lose: v.n_grew_default_now_not || 0, gain: v.n_not_default_now_grew || 0 }))
-    .sort((a, b) => (b.gain + b.lose) - (a.gain + a.lose));
-  const maxv = Math.max(...rows.map((r) => Math.max(r.gain, r.lose)), 1);
-  const body = rows.map((r) =>
-    `<div class="an-torrow" title="${escapeHtml(r.tag)}: ${r.lose} models lose growth, ${r.gain} gain growth">` +
-    `<span class="an-torlbl">${escapeHtml(r.tag)}</span>` +
-    `<span class="an-tornum neg">${r.lose}</span>` +
-    `<span class="an-torbarL"><span class="an-torneg" style="width:${(r.lose / maxv * 100).toFixed(1)}%"></span></span>` +
-    `<span class="an-torbarR"><span class="an-torpos" style="width:${(r.gain / maxv * 100).toFixed(1)}%"></span></span>` +
-    `<span class="an-tornum pos">${r.gain}</span></div>`).join('');
-  host.innerHTML = `<div class="an-tor">${body}</div>
-    <p class="hint"><span class="pfc-val neg">left/red</span> = models the variant breaks growth on (grew at baseline, not under variant); <span class="pfc-val pos">right/green</span> = models it restores growth on. Across all ${(STATE.allModelsSummary.n_all_models || 5683).toLocaleString()} models.</p>`;
-}
-
-// 9. Enzyme-class x variant heatmap: which EC classes each variant re-directs (SVG).
-const _EC_CLASS = { '1': 'Oxidoreductases', '2': 'Transferases', '3': 'Hydrolases', '4': 'Lyases', '5': 'Isomerases', '6': 'Ligases', '7': 'Translocases' };
-function renderECClassHeatmap(host) {
-  if (!host) return;
-  const rp = STATE.reactionsPanel;
-  const tags = (STATE.analytics ? STATE.analytics.tags : []).filter((t) => t !== 'baseline');
-  if (!rp || !tags.length) { host.innerHTML = '<p class="hint">Reaction/variant data unavailable.</p>'; return; }
-  const cls = ['1', '2', '3', '4', '5', '6', '7'];
-  const counts = {}; cls.forEach((c) => counts[c] = Object.fromEntries(tags.map((t) => [t, 0])));
-  for (const r of Object.values(rp)) {
-    let raw = r.ec_numbers || [];
-    if (typeof raw === 'string') raw = raw.split(/[;,\s]+/);
-    const ecset = [...new Set(raw.map((e) => String(e).trim()[0]).filter((d) => _EC_CLASS[d]))];
-    if (!ecset.length) continue;
-    for (const cb of (r.changed_by || [])) {
-      if (!tags.includes(cb.variant)) continue;
-      for (const d of ecset) counts[d][cb.variant] += 1;
-    }
-  }
-  let cmax = 1; cls.forEach((c) => tags.forEach((t) => { cmax = Math.max(cmax, counts[c][t]); }));
-  const cw = 30, rh = 27, padL = 138, padT = 120, W = padL + tags.length * cw + 8, H = padT + cls.length * rh + 8;
-  const collbl = tags.map((t, j) => `<text class="an-lbl" transform="translate(${padL + j * cw + cw / 2},${padT - 6}) rotate(-55)" text-anchor="start">${escapeHtml(t)}</text>`).join('');
-  let cells = '', rowlbl = '';
-  cls.forEach((c, i) => {
-    const y = padT + i * rh;
-    rowlbl += `<text class="an-lbl" x="${padL - 6}" y="${y + rh / 2 + 3}" text-anchor="end">${c} · ${_EC_CLASS[c]}</text>`;
-    tags.forEach((t, j) => {
-      const v = counts[c][t], x = padL + j * cw;
-      cells += `<rect x="${x}" y="${y}" width="${cw - 1}" height="${rh - 1}" fill="${_seq(v / cmax)}"><title>${escapeHtml(`${_EC_CLASS[c]} (EC ${c}) · ${t}: ${v} panel reactions re-directed`)}</title></rect>`;
-      if (v) cells += `<text class="an-cell" x="${x + cw / 2}" y="${y + rh / 2 + 3}" text-anchor="middle" fill="${v / cmax > 0.5 ? '#10141a' : '#cdd6e2'}">${v}</text>`;
-    });
-  });
-  host.innerHTML = `<div class="an-scroll"><svg viewBox="0 0 ${W} ${H}" class="an-svg" style="max-width:${W}px">${collbl}${rowlbl}${cells}</svg></div>
-    <p class="hint"># panel reactions of each enzyme class whose direction a variant changes — which parts of metabolism each heuristic rewrites. Teal intensity ∝ count (max ${cmax}).</p>`;
 }
 
 // 11. Limiting metabolites across the panel (shadow prices).
