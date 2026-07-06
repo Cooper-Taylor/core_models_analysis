@@ -44,6 +44,8 @@ const STATE = {
   panelFva: null,              // {models: {model_id: {n_blocked, n_forced, reactions[]}}, global: [...]}
   panelRxnDirEffects: null,    // {models:{mid:{base_flux,reactions[]}}, global, options, option_bounds}
   _rde: null,                  // scratch: currently-rendered reaction-direction-effects table state
+  panelCumDirGrowth: null,     // {models:{mid:{baseline,heuristics:{k:{reactions[],cumulative[]}}}}, schemes}
+  _cdg: null,                  // scratch: cumulative-direction-growth chart state
   methodCmp: null,             // method_comparison.json (agreement/confusion/dist; KEGG_default-anchored model scopes + wide MSDB scopes)
   methodScope: 'models',       // 'models' | 'models_no_transport' | 'all' | 'no_transport' — reaction scope for the method matrices (defaults to the KEGG_default-anchored core-model view)
   analyticsInit: false,        // analytics tab rendered once
@@ -1260,6 +1262,9 @@ async function loadPanelModelData() {
   // Per-reaction direction options (<,>,=,?) + heuristic calls (precomputed; optional).
   try { STATE.panelRxnDirEffects = await API.data('reaction_direction_effects_panel.json'); }
   catch (e) { STATE.panelRxnDirEffects = null; }
+  // Cumulative growth trajectory of each heuristic's sorted direction changes (precomputed; optional).
+  try { STATE.panelCumDirGrowth = await API.data('cumulative_direction_growth_panel.json'); }
+  catch (e) { STATE.panelCumDirGrowth = null; }
 }
 
 function pmEntry(mid, tag) {
@@ -1486,6 +1491,9 @@ function renderPanelModelDetail(mid) {
       <span id="pm-rde-count" class="hint"></span>
     </div>
     <div id="pm-rde-charts"></div>
+    <h3>Cumulative direction changes — growth trajectory
+      <span class="hint">— each heuristic's reaction changes, ranked by individual growth effect, then applied one on another (diff_template_evaluation, cumulative mode)</span></h3>
+    <div id="pm-cdg-charts"></div>
     ${liveHtml}
     <h3>Heuristic perturbation pipeline <span class="hint">— single-reaction &amp; cumulative growth-flux effect of one heuristic, vs baseline</span></h3>
     <div class="pm-pipe-controls">
@@ -1516,6 +1524,7 @@ function renderPanelModelDetail(mid) {
   renderPmSyntheticLethal(mid);// precomputed synthetic-lethal pairs
   renderPmFva(mid);            // precomputed flux variability
   renderPmRxnDirEffects(mid);  // per-reaction direction options (<,>,=,?) + 4 heuristic calls
+  renderPmCumDirGrowth(mid);   // cumulative growth trajectory of each heuristic (sorted, applied one-on-another)
 }
 
 // ----- key reactions: per-reaction direction sensitivity (precomputed) -----
@@ -1695,6 +1704,107 @@ function renderRdeGlobal() {
     + `<div><h5>Heuristics disagree most</h5><table class="changed-by-table"><thead><tr><th>rxn</th><th># models</th></tr></thead><tbody>${dis}</tbody></table></div>`
     + `<div><h5>Essential when off (? = 0 growth)</h5><table class="changed-by-table"><thead><tr><th>rxn</th><th># models</th></tr></thead><tbody>${off}</tbody></table></div>`
     + '</div></details>';
+}
+
+// ----- cumulative direction-change growth trajectory (precomputed) -----
+// Data: site/data/cumulative_direction_growth_panel.json (build_cumulative_direction_growth.py).
+// Per heuristic: reactions ranked by individual growth effect, then applied one-on-another
+// (diff_template_evaluation cumulative). We draw an SVG line chart of growth vs #applied.
+const CDG_COLORS = { jankowski: '#2c6fbb', flamholz: '#8e44ad', opus: '#b9770e' };
+function renderPmCumDirGrowth(mid) {
+  const host = document.getElementById('pm-cdg-charts');
+  if (!host) return;
+  const data = STATE.panelCumDirGrowth;
+  const m = (data && data.models) ? data.models[mid] : null;
+  if (!m) {
+    host.innerHTML = '<p class="hint">Cumulative-growth data not available '
+      + '(run <code>scripts/build_cumulative_direction_growth.py</code>).</p>';
+    return;
+  }
+  STATE._cdg = { mid, m, vis: { jankowski: true, flamholz: true, opus: true } };
+  drawCdg();
+}
+function cdgArrow(d) { return d === '<' ? '&lt;' : d === '>' ? '&gt;' : d; }
+function drawCdg() {
+  const host = document.getElementById('pm-cdg-charts');
+  const st = STATE._cdg;
+  if (!host || !st) return;
+  const m = st.m;
+  const schemes = STATE.panelCumDirGrowth.schemes;
+  const base = m.baseline || 0;
+  const W = 760, H = 330, ML = 54, MR = 16, MT = 14, MB = 42;
+  const pw = W - ML - MR, ph = H - MT - MB;
+  let maxN = 1, ymax = base;
+  for (const s of schemes) {
+    const h = m.heuristics[s.key]; if (!h) continue;
+    const c = h.cumulative || []; maxN = Math.max(maxN, c.length - 1);
+    for (const v of c) ymax = Math.max(ymax, v);
+  }
+  ymax = (ymax * 1.06) || 1;
+  const X = (i) => ML + (maxN ? i / maxN : 0) * pw;
+  const Y = (v) => MT + ph - (v / ymax) * ph;
+  let svg = `<svg viewBox="0 0 ${W} ${H}" class="cdg-svg" width="100%" preserveAspectRatio="xMidYMid meet">`;
+  for (const t of [0, ymax / 2, ymax]) {
+    const y = Y(t);
+    svg += `<line x1="${ML}" y1="${y}" x2="${W - MR}" y2="${y}" class="cdg-grid"/>`
+      + `<text x="${ML - 6}" y="${y + 3}" class="cdg-ylab">${t.toFixed(0)}</text>`;
+  }
+  const xt = [...new Set([0, Math.round(maxN / 2), maxN])];
+  for (const t of xt) {
+    const x = X(t);
+    svg += `<line x1="${x}" y1="${MT}" x2="${x}" y2="${MT + ph}" class="cdg-grid"/>`
+      + `<text x="${x}" y="${MT + ph + 16}" class="cdg-xlab" text-anchor="middle">${t}</text>`;
+  }
+  svg += `<text x="${ML + pw / 2}" y="${H - 6}" class="cdg-axis" text-anchor="middle">`
+    + '# reactions applied (ranked by individual growth effect)</text>';
+  svg += `<text transform="translate(13,${MT + ph / 2}) rotate(-90)" class="cdg-axis" text-anchor="middle">biomass growth</text>`;
+  const yb = Y(base);
+  svg += `<line x1="${ML}" y1="${yb}" x2="${W - MR}" y2="${yb}" class="cdg-base"/>`
+    + `<text x="${W - MR}" y="${yb - 4}" class="cdg-baselab" text-anchor="end">default ${base.toFixed(1)}</text>`;
+  for (const s of schemes) {
+    if (!st.vis[s.key]) continue;
+    const h = m.heuristics[s.key];
+    if (!h || !(h.cumulative || []).length) continue;
+    const c = h.cumulative, col = CDG_COLORS[s.key] || '#333', rx = h.reactions || [];
+    svg += `<polyline points="${c.map((v, i) => `${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(' ')}" `
+      + `fill="none" stroke="${col}" stroke-width="2"/>`;
+    svg += c.map((v, i) => {
+      const r = i > 0 ? (rx[i - 1] || {}) : null;
+      const tip = `${s.label}\nafter ${i} changes: growth ${v.toFixed(3)}`
+        + (r ? `\n+ ${r.rxn} (${r.from}->${r.to}, individual Δ ${r.delta})` : '');
+      return `<circle cx="${X(i).toFixed(1)}" cy="${Y(v).toFixed(1)}" r="2.4" fill="${col}"><title>${escapeHtml(tip)}</title></circle>`;
+    }).join('');
+  }
+  svg += '</svg>';
+  const legend = schemes.map((s) => {
+    const h = m.heuristics[s.key] || {}, col = CDG_COLORS[s.key] || '#333';
+    return `<label class="cdg-leg"><input type="checkbox" data-k="${s.key}" ${st.vis[s.key] ? 'checked' : ''}>`
+      + `<span class="cdg-sw" style="background:${col}"></span>${s.label} `
+      + `<span class="cdg-fin">(${h.n_changed || 0} rxns · peak ${h.peak != null ? Number(h.peak).toFixed(1) : '—'}`
+      + `@${h.peak_at != null ? h.peak_at : '—'} · final ${h.final != null ? Number(h.final).toFixed(1) : '—'})</span></label>`;
+  }).join('');
+  const lists = schemes.map((s) => {
+    const h = m.heuristics[s.key];
+    if (!h || !(h.reactions || []).length) return '';
+    const rows = h.reactions.map((r, i) => {
+      const cls = r.delta > 1e-6 ? 'cdg-pos' : (r.delta < -1e-6 ? 'cdg-neg' : 'cdg-zero');
+      return `<tr><td class="num">${i + 1}</td>`
+        + `<td><a href="#" class="rxn-link" data-rxn="${escapeHtml(r.rxn)}">${escapeHtml(r.rxn)}</a></td>`
+        + `<td>${cdgArrow(r.from)}→${cdgArrow(r.to)}</td>`
+        + `<td class="num ${cls}">${r.delta >= 0 ? '+' : ''}${Number(r.delta).toFixed(3)}</td></tr>`;
+    }).join('');
+    return `<details class="cdg-list"><summary>${s.label} — ${h.n_changed} changes, in applied order</summary>`
+      + '<table class="changed-by-table"><thead><tr><th>#</th><th>rxn</th><th>dir</th><th>individual Δ growth</th></tr></thead>'
+      + `<tbody>${rows}</tbody></table></details>`;
+  }).join('');
+  host.innerHTML = `<div class="cdg-controls">${legend}</div><div class="cdg-chartwrap">${svg}</div>`
+    + '<p class="hint">Reactions are ranked by their <em>individual</em> effect on growth (each change alone vs default), '
+    + 'then applied one-on-another in that order. A peak above the final value means later (smaller / negative-effect) '
+    + 'changes pull growth back down; interactions make the cumulative curve differ from the sum of individual effects.</p>'
+    + lists;
+  host.querySelectorAll('.cdg-controls input[type=checkbox]').forEach((cb) =>
+    cb.addEventListener('change', () => { st.vis[cb.dataset.k] = cb.checked; drawCdg(); }));
+  bindRxnLinks(host);
 }
 
 async function showModelVariantRxns(mid, tag) {
