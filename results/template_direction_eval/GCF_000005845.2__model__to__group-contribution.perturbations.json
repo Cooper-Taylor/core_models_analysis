@@ -1,0 +1,1150 @@
+{
+  "model_id": "GCF_000005845.2",
+  "baseline": "model",
+  "new": "group-contribution",
+  "n_perturbations": 57,
+  "perturbations": [
+    {
+      "op": "modify",
+      "reaction_id": "rxn00001_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00006_c0",
+      "lower_bound": 0.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00083_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00122_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00148_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00157_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00178_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00206_c0",
+      "lower_bound": 0.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00216_c0",
+      "lower_bound": 0.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00265_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00288_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00336_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00392_c0",
+      "lower_bound": 0.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00507_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00549_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00602_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00604_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00623_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00770_c0",
+      "lower_bound": 0.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00869_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00875_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00990_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn00994_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn01452_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn01476_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn01871_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn02167_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn02314_c0",
+      "lower_bound": 0.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn02342_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn03884_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn05226_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn05312_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn05468_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn05627_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn08350_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn08518_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn08556_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn08655_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn08656_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn08689_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn08734_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn08783_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn08792_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn08793_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn08900_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn08901_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn08971_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn08975_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn08976_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn09001_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn09003_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn09272_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn09295_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn10122_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn10126_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn10577_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    },
+    {
+      "op": "modify",
+      "reaction_id": "rxn11322_c0",
+      "lower_bound": -1000.0,
+      "upper_bound": 1000.0
+    }
+  ],
+  "records": [
+    {
+      "base_rxn": "rxn00001",
+      "model_rxn": "rxn00001_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00006",
+      "model_rxn": "rxn00006_c0",
+      "from_dir": "<",
+      "to_dir": ">",
+      "from_bounds": [
+        -1000.0,
+        0.0
+      ],
+      "to_bounds": [
+        0.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00083",
+      "model_rxn": "rxn00083_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00122",
+      "model_rxn": "rxn00122_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00148",
+      "model_rxn": "rxn00148_c0",
+      "from_dir": "<",
+      "to_dir": "=",
+      "from_bounds": [
+        -1000.0,
+        0.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00157",
+      "model_rxn": "rxn00157_c0",
+      "from_dir": "<",
+      "to_dir": "=",
+      "from_bounds": [
+        -1000.0,
+        0.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00178",
+      "model_rxn": "rxn00178_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00206",
+      "model_rxn": "rxn00206_c0",
+      "from_dir": "<",
+      "to_dir": ">",
+      "from_bounds": [
+        -1000.0,
+        0.0
+      ],
+      "to_bounds": [
+        0.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00216",
+      "model_rxn": "rxn00216_c0",
+      "from_dir": "=",
+      "to_dir": ">",
+      "from_bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "to_bounds": [
+        0.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00265",
+      "model_rxn": "rxn00265_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00288",
+      "model_rxn": "rxn00288_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00336",
+      "model_rxn": "rxn00336_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00392",
+      "model_rxn": "rxn00392_c0",
+      "from_dir": "=",
+      "to_dir": ">",
+      "from_bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "to_bounds": [
+        0.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00507",
+      "model_rxn": "rxn00507_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00549",
+      "model_rxn": "rxn00549_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00602",
+      "model_rxn": "rxn00602_c0",
+      "from_dir": "<",
+      "to_dir": "=",
+      "from_bounds": [
+        -1000.0,
+        0.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00604",
+      "model_rxn": "rxn00604_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00623",
+      "model_rxn": "rxn00623_c0",
+      "from_dir": "<",
+      "to_dir": "=",
+      "from_bounds": [
+        -1000.0,
+        0.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00770",
+      "model_rxn": "rxn00770_c0",
+      "from_dir": "=",
+      "to_dir": ">",
+      "from_bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "to_bounds": [
+        0.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00869",
+      "model_rxn": "rxn00869_c0",
+      "from_dir": "<",
+      "to_dir": "=",
+      "from_bounds": [
+        -1000.0,
+        0.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00875",
+      "model_rxn": "rxn00875_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00990",
+      "model_rxn": "rxn00990_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn00994",
+      "model_rxn": "rxn00994_c0",
+      "from_dir": "<",
+      "to_dir": "=",
+      "from_bounds": [
+        -1000.0,
+        0.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn01452",
+      "model_rxn": "rxn01452_c0",
+      "from_dir": "<",
+      "to_dir": "=",
+      "from_bounds": [
+        -1000.0,
+        0.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn01476",
+      "model_rxn": "rxn01476_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn01871",
+      "model_rxn": "rxn01871_c0",
+      "from_dir": "<",
+      "to_dir": "=",
+      "from_bounds": [
+        -1000.0,
+        0.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn02167",
+      "model_rxn": "rxn02167_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn02314",
+      "model_rxn": "rxn02314_c0",
+      "from_dir": "=",
+      "to_dir": ">",
+      "from_bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "to_bounds": [
+        0.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn02342",
+      "model_rxn": "rxn02342_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn03884",
+      "model_rxn": "rxn03884_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn05226",
+      "model_rxn": "rxn05226_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn05312",
+      "model_rxn": "rxn05312_c0",
+      "from_dir": "<",
+      "to_dir": "=",
+      "from_bounds": [
+        -1000.0,
+        0.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn05468",
+      "model_rxn": "rxn05468_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn05627",
+      "model_rxn": "rxn05627_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn08350",
+      "model_rxn": "rxn08350_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn08518",
+      "model_rxn": "rxn08518_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn08556",
+      "model_rxn": "rxn08556_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn08655",
+      "model_rxn": "rxn08655_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn08656",
+      "model_rxn": "rxn08656_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn08689",
+      "model_rxn": "rxn08689_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn08734",
+      "model_rxn": "rxn08734_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn08783",
+      "model_rxn": "rxn08783_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn08792",
+      "model_rxn": "rxn08792_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn08793",
+      "model_rxn": "rxn08793_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn08900",
+      "model_rxn": "rxn08900_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn08901",
+      "model_rxn": "rxn08901_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn08971",
+      "model_rxn": "rxn08971_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn08975",
+      "model_rxn": "rxn08975_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn08976",
+      "model_rxn": "rxn08976_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn09001",
+      "model_rxn": "rxn09001_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn09003",
+      "model_rxn": "rxn09003_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn09272",
+      "model_rxn": "rxn09272_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn09295",
+      "model_rxn": "rxn09295_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn10122",
+      "model_rxn": "rxn10122_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn10126",
+      "model_rxn": "rxn10126_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn10577",
+      "model_rxn": "rxn10577_c0",
+      "from_dir": ">",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        1000.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    },
+    {
+      "base_rxn": "rxn11322",
+      "model_rxn": "rxn11322_c0",
+      "from_dir": "0",
+      "to_dir": "=",
+      "from_bounds": [
+        0.0,
+        0.0
+      ],
+      "to_bounds": [
+        -1000.0,
+        1000.0
+      ]
+    }
+  ]
+}

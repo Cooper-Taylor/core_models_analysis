@@ -42,6 +42,8 @@ const STATE = {
   panelGrowthControl: null,    // {models: {model_id: {base_flux, n_essential, reactions[], metabolites[]}}, global, metabolites_global}
   panelSyntheticLethal: null,  // {models: {model_id: {pairs[]}}, global: [...]}
   panelFva: null,              // {models: {model_id: {n_blocked, n_forced, reactions[]}}, global: [...]}
+  panelRxnDirEffects: null,    // {models:{mid:{base_flux,reactions[]}}, global, options, option_bounds}
+  _rde: null,                  // scratch: currently-rendered reaction-direction-effects table state
   methodCmp: null,             // method_comparison.json (agreement/confusion/dist; KEGG_default-anchored model scopes + wide MSDB scopes)
   methodScope: 'models',       // 'models' | 'models_no_transport' | 'all' | 'no_transport' — reaction scope for the method matrices (defaults to the KEGG_default-anchored core-model view)
   analyticsInit: false,        // analytics tab rendered once
@@ -1255,6 +1257,9 @@ async function loadPanelModelData() {
   catch (e) { STATE.panelSyntheticLethal = null; }
   try { STATE.panelFva = await API.data('panel_fva.json'); }
   catch (e) { STATE.panelFva = null; }
+  // Per-reaction direction options (<,>,=,?) + heuristic calls (precomputed; optional).
+  try { STATE.panelRxnDirEffects = await API.data('reaction_direction_effects_panel.json'); }
+  catch (e) { STATE.panelRxnDirEffects = null; }
 }
 
 function pmEntry(mid, tag) {
@@ -1472,6 +1477,15 @@ function renderPanelModelDetail(mid) {
     ${impactTable}
     <h3>Δ growth flux by variant <span class="hint">— this model, each variant vs the baseline cascade</span></h3>
     ${renderModelVariantChart(impactRows)}
+    <h3>Reaction-direction heuristics — growth under &lt;, &gt;, =, ?
+      <span class="hint">— starting from the default, each reaction is set one-at-a-time to each option; where the 4 heuristics send it, and the resulting growth (? = knocked off)</span></h3>
+    <div class="rde-controls">
+      <input id="pm-rde-search" type="text" placeholder="filter reactions…" autocomplete="off">
+      <label><input type="checkbox" id="pm-rde-sensitive" checked> only growth-sensitive</label>
+      <label><input type="checkbox" id="pm-rde-disagree"> only heuristic disagreements</label>
+      <span id="pm-rde-count" class="hint"></span>
+    </div>
+    <div id="pm-rde-charts"></div>
     ${liveHtml}
     <h3>Heuristic perturbation pipeline <span class="hint">— single-reaction &amp; cumulative growth-flux effect of one heuristic, vs baseline</span></h3>
     <div class="pm-pipe-controls">
@@ -1501,6 +1515,7 @@ function renderPanelModelDetail(mid) {
   renderPmGrowthControl(mid);  // precomputed knockout essentiality + limiting metabolites
   renderPmSyntheticLethal(mid);// precomputed synthetic-lethal pairs
   renderPmFva(mid);            // precomputed flux variability
+  renderPmRxnDirEffects(mid);  // per-reaction direction options (<,>,=,?) + 4 heuristic calls
 }
 
 // ----- key reactions: per-reaction direction sensitivity (precomputed) -----
@@ -1569,6 +1584,117 @@ function renderGlobalKeyCard(glob) {
     <table class="changed-by-table">
       <thead><tr><th>rxn</th><th>name</th><th># models</th><th>max |Δ|</th><th>mean |Δ|</th></tr></thead>
       <tbody>${rows}</tbody></table></details>`;
+}
+
+// ----- reaction-direction heuristics: growth under <,>,=,? per reaction -----
+// Data: site/data/reaction_direction_effects_panel.json (build_reaction_direction_effects.py).
+// For each reaction (set one-at-a-time from the model's default bounds) we show the
+// growth under each of the 4 options and where the 4 heuristics send it.
+const RDE_OPTS = [
+  { k: '<', lab: '&lt; reverse' }, { k: '>', lab: '&gt; forward' },
+  { k: '=', lab: '= reversible' }, { k: '?', lab: '? off' },
+];
+const RDE_SCHEMES = [
+  { k: 'default', i: 'D', lab: 'Default (model)' }, { k: 'jankowski', i: 'J', lab: 'Jankowski (group contribution)' },
+  { k: 'flamholz', i: 'F', lab: 'Flamholz 2012 (eQuilibrator)' }, { k: 'opus', i: 'O', lab: 'Claude Opus 4.8' },
+];
+function rdeColor(g, base) {
+  if (g == null) return '#eee';
+  const r = base > 1e-6 ? g / base : (g > 1e-6 ? 1 : 0);
+  if (r < 0.02) return '#f7c7c2';
+  if (r < 0.5) return '#f6d9a8';
+  if (r < 0.98) return '#f2eeb0';
+  if (r <= 1.02) return '#cbe7c8';
+  return '#b9d4ef';
+}
+function rdeDirHtml(d) { return d === '<' ? '&lt;' : d === '>' ? '&gt;' : d; }
+function rdeDirClass(d) {
+  return d === '<' ? 'lt' : d === '>' ? 'gt' : d === '=' ? 'eq' : d === '?' ? 'q' : 'na';
+}
+function rdeSensitive(rec) {
+  const v = Object.values(rec.g).filter((x) => x != null);
+  return v.length ? (Math.max(...v) - Math.min(...v)) > 1e-6 : false;
+}
+function rdeDisagree(rec) {
+  const calls = RDE_SCHEMES.map((s) => rec.dirs[s.k]).filter((c) => c && c !== 'NA' && c !== '?');
+  return new Set(calls).size > 1;
+}
+function renderPmRxnDirEffects(mid) {
+  const host = document.getElementById('pm-rde-charts');
+  if (!host) return;
+  const data = STATE.panelRxnDirEffects;
+  const m = (data && data.models) ? data.models[mid] : null;
+  if (!m) {
+    host.innerHTML = '<p class="hint">Reaction-direction-effects data not available '
+      + '(run <code>scripts/build_reaction_direction_effects.py</code>).</p>';
+    return;
+  }
+  STATE._rde = { mid, base: m.base_flux, rows: m.reactions };
+  renderRdeTable();
+  ['pm-rde-search', 'pm-rde-sensitive', 'pm-rde-disagree'].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) { el.addEventListener('input', renderRdeTable); el.addEventListener('change', renderRdeTable); }
+  });
+}
+function renderRdeTable() {
+  const host = document.getElementById('pm-rde-charts');
+  const st = STATE._rde;
+  if (!host || !st) return;
+  const q = (document.getElementById('pm-rde-search').value || '').trim().toLowerCase();
+  const onlySen = document.getElementById('pm-rde-sensitive').checked;
+  const onlyDis = document.getElementById('pm-rde-disagree').checked;
+  const rxnName = (id) => (STATE.reactionsPanel && STATE.reactionsPanel[id] && STATE.reactionsPanel[id].name) || '';
+  let rows = st.rows;
+  if (onlySen) rows = rows.filter(rdeSensitive);
+  if (onlyDis) rows = rows.filter(rdeDisagree);
+  if (q) rows = rows.filter((r) => r.rxn.toLowerCase().includes(q) || rxnName(r.rxn).toLowerCase().includes(q));
+  const shown = rows.slice(0, 300);
+  const ob = STATE.panelRxnDirEffects.option_bounds || {};
+  const head = '<tr><th>reaction</th><th>heuristic calls</th>'
+    + RDE_OPTS.map((o) => `<th class="rde-opt" title="bounds ${JSON.stringify(ob[o.k] || '')}">${o.lab}</th>`).join('')
+    + '</tr>';
+  const body = shown.map((rec) => {
+    const badges = RDE_SCHEMES.map((s) => {
+      const d = rec.dirs[s.k];
+      return `<span class="rde-badge rde-d-${rdeDirClass(d)}" title="${s.lab}: ${d}">${s.i}:${rdeDirHtml(d)}</span>`;
+    }).join(' ');
+    const cells = RDE_OPTS.map((o) => {
+      const g = rec.g[o.k];
+      const who = RDE_SCHEMES.filter((s) => rec.dirs[s.k] === o.k)
+        .map((s) => `<span class="rde-who" title="${s.lab} sends it here">${s.i}</span>`).join('');
+      const val = g == null ? '×' : (Number.isInteger(g) ? g : g.toFixed(g < 10 ? 2 : 1));
+      return `<td class="rde-cell" style="background:${rdeColor(g, st.base)}">`
+        + `<span class="rde-val">${val}</span>${who ? `<span class="rde-whos">${who}</span>` : ''}</td>`;
+    }).join('');
+    return `<tr><td class="rde-rxn"><a href="#" class="rxn-link" data-rxn="${escapeHtml(rec.rxn)}">${escapeHtml(rec.rxn)}</a>`
+      + `${rxnName(rec.rxn) ? `<span class="rde-name">${escapeHtml(rxnName(rec.rxn))}</span>` : ''}</td>`
+      + `<td class="rde-heur">${badges}</td>${cells}</tr>`;
+  }).join('');
+  const cnt = document.getElementById('pm-rde-count');
+  if (cnt) cnt.textContent = `${rows.length} reactions${rows.length > shown.length ? ` (showing ${shown.length})` : ''}`
+    + ` · baseline growth ${Number(st.base).toFixed(3)}`;
+  host.innerHTML =
+    '<div class="rde-legend">Each cell = biomass growth when that one reaction is forced to the option (all others left at default). '
+    + '<b style="background:#cbe7c8">≈baseline</b> <b style="background:#b9d4ef">boosted</b> '
+    + '<b style="background:#f2eeb0">reduced</b> <b style="background:#f6d9a8">strongly ↓</b> '
+    + '<b style="background:#f7c7c2">~dead</b> <b style="background:#eee">× infeasible</b>. '
+    + 'Letters in a cell = which heuristics send the reaction there (D default, J Jankowski, F Flamholz, O Opus). '
+    + '<b>?</b> = unknown, tested as off/knockout.</div>'
+    + `<div class="rde-tablewrap"><table class="rde-table"><thead>${head}</thead><tbody>${body}</tbody></table></div>`
+    + renderRdeGlobal();
+  bindRxnLinks(host);
+}
+function renderRdeGlobal() {
+  const g = STATE.panelRxnDirEffects && STATE.panelRxnDirEffects.global;
+  if (!g) return '';
+  const row = (x) => `<tr><td><a href="#" class="rxn-link" data-rxn="${x.base}">${x.base}</a></td><td class="num">${x.n_models}</td></tr>`;
+  const dis = (g.most_disagreed || []).slice(0, 12).map(row).join('');
+  const off = (g.most_off_essential || []).slice(0, 12).map(row).join('');
+  return '<details class="rde-global"><summary>Cross-panel patterns (all 100 models)</summary>'
+    + '<div class="rde-global-grid">'
+    + `<div><h5>Heuristics disagree most</h5><table class="changed-by-table"><thead><tr><th>rxn</th><th># models</th></tr></thead><tbody>${dis}</tbody></table></div>`
+    + `<div><h5>Essential when off (? = 0 growth)</h5><table class="changed-by-table"><thead><tr><th>rxn</th><th># models</th></tr></thead><tbody>${off}</tbody></table></div>`
+    + '</div></details>';
 }
 
 async function showModelVariantRxns(mid, tag) {

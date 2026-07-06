@@ -833,3 +833,32 @@ body.static-mode #tab-sandbox { display: none !important; }
 .an-tornum { font-family: var(--mono); font-size: 11px; }
 .an-tornum.neg { text-align: right; color: var(--warn); }
 .an-tornum.pos { text-align: left; color: var(--good); }
+
+/* ---- reaction-direction heuristics chart (Panel Models) ---- */
+.rde-controls { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin: 6px 0 4px; }
+.rde-controls input[type=text] { padding: 5px 8px; border: 1px solid #bbb; border-radius: 5px; min-width: 240px; }
+.rde-controls label { font-size: 13px; color: #444; }
+.rde-legend { font-size: 12px; color: #444; margin: 6px 0; line-height: 1.7; }
+.rde-legend b { padding: 1px 5px; border-radius: 3px; color: #222; }
+.rde-tablewrap { max-height: 640px; overflow: auto; border: 1px solid #e6e6e6; border-radius: 6px; }
+.rde-table { border-collapse: collapse; width: 100%; font-size: 12px; }
+.rde-table th, .rde-table td { border: 1px solid #ececec; padding: 3px 6px; text-align: center; }
+.rde-table thead th { position: sticky; top: 0; background: #f0f4f9; color: #1f3a5f; z-index: 1; }
+.rde-table th.rde-opt { min-width: 78px; }
+td.rde-rxn { text-align: left; white-space: nowrap; }
+.rde-name { color: #8a8a8a; margin-left: 6px; font-size: 11px; }
+td.rde-heur { white-space: nowrap; }
+.rde-badge { display: inline-block; font-size: 10px; padding: 1px 4px; border-radius: 3px; margin: 0 1px;
+             background: #eee; color: #333; border: 1px solid #dcdcdc; font-family: var(--mono); }
+.rde-d-gt { background: #d7ecd6; } .rde-d-lt { background: #f5ddc0; }
+.rde-d-eq { background: #dce8f6; } .rde-d-q { background: #ececec; color: #999; }
+.rde-d-na { background: #f8f8f8; color: #bbb; }
+.rde-cell { position: relative; font-variant-numeric: tabular-nums; }
+.rde-val { display: block; }
+.rde-whos { display: block; margin-top: 1px; line-height: 1; }
+.rde-who { display: inline-block; font-size: 9px; font-weight: 700; background: #1f3a5f; color: #fff;
+           border-radius: 2px; padding: 0 2px; margin: 0 1px; }
+.rde-global { margin-top: 12px; }
+.rde-global summary { cursor: pointer; color: #1f3a5f; font-size: 13px; }
+.rde-global-grid { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 8px; }
+.rde-global-grid h5 { margin: 4px 0; color: #1f3a5f; }

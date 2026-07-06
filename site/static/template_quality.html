@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Template Quality — direction heuristics</title>
+<style>
+ :root { --navy:#1f3a5f; --line:#e6e6e6; --good:#1a7f37; --bad:#c0392b; --neutral:#888; }
+ body { font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; margin:0;
+        background:#fafafa; color:#1a1a1a; }
+ header { background:var(--navy); color:#fff; padding:20px 32px; }
+ header h1 { margin:0; font-size:20px; }
+ header p { margin:6px 0 0; font-size:13px; opacity:.9; }
+ header a { color:#cfe0f5; }
+ section { background:#fff; margin:20px 32px; padding:16px 22px; border:1px solid var(--line);
+           border-radius:8px; }
+ h2 { color:var(--navy); font-size:17px; margin:0 0 8px; }
+ p.caption { color:#444; font-size:13px; max-width:1050px; }
+ table { border-collapse:collapse; font-size:13px; margin-top:8px; }
+ th,td { border:1px solid var(--line); padding:5px 9px; text-align:right; }
+ th.lbl,td.lbl { text-align:left; }
+ thead th { background:#f0f4f9; color:var(--navy); position:sticky; top:0; }
+ td.default { background:#f7f9fc; font-weight:600; }
+ .delta { font-size:11px; display:block; }
+ .up-good,.dn-good { color:var(--good); }
+ .up-bad,.dn-bad { color:var(--bad); }
+ .neu { color:var(--neutral); }
+ .controls { display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin:6px 0 10px; }
+ input[type=text]{ padding:6px 8px; border:1px solid #bbb; border-radius:5px; min-width:320px; font-size:13px; }
+ .pill { font-size:12px; color:#555; }
+ .legend { font-size:12px; color:#555; margin-top:8px; }
+ .legend b.g{color:var(--good)} .legend b.r{color:var(--bad)}
+ code { background:#f0f2f5; padding:1px 4px; border-radius:3px; font-size:12px; }
+ .muted { color:#777; }
+ .scheme-jankowski{color:#2c6fbb} .scheme-flamholz{color:#8e44ad} .scheme-opus{color:#b9770e}
+</style></head>
+<body>
+<header>
+ <h1>Template Quality under reaction-direction heuristics</h1>
+ <p>KBUtilLib <code>MSTemplateUtils</code> battery run on every core model under four directionality schemes.
+    &nbsp;·&nbsp; <a href="/">← back to explorer</a></p>
+</header>
+
+<section>
+ <h2>What this is</h2>
+ <p class="caption">
+   Each core model is evaluated with the ModelSEED/KBUtilLib <b>Template Evaluation Suite</b>
+   (FVA reaction classification, closed-mode loop detection, and producible/consumable-metabolite
+   sweeps) under four ways of assigning reaction directionality:
+ </p>
+ <ul class="caption">
+   <li><b>Default</b> — the model's own in-place bounds (no override).</li>
+   <li><b class="scheme-jankowski">Jankowski</b> — group-contribution thermodynamics (Henry-2007 feasibility rule); <code>Jankowski_2008</code> column.</li>
+   <li><b class="scheme-flamholz">Flamholz 2012</b> — eQuilibrator reversibility index; <code>Flamholz_2012</code> column.</li>
+   <li><b class="scheme-opus">Claude Opus 4.8</b> — LLM-predicted directionality; <code>LLM_Opus_4.8</code> column.</li>
+ </ul>
+ <p class="caption muted">
+   Directions come from <code>results/reaction_directions_literature_vs_llm.tsv</code>; each method uses its
+   own rule (not the MSDB cascade). A direction is applied by rewriting a reaction's bounds
+   (<code>&gt;</code>→(0,1000), <code>&lt;</code>→(-1000,0), <code>=</code>→(-1000,1000)); <code>NA</code>/<code>?</code> leave the model's bound unchanged.
+   Data: <code>site/data/template_quality_all.json</code> (built by <code>scripts/template_quality_heuristics.py</code>).
+ </p>
+ <div id="meta" class="pill"></div>
+</section>
+
+<section>
+ <h2>Cross-model averages</h2>
+ <p class="caption">Mean of each metric across all evaluated models, per scheme. Deltas are vs the Default scheme.</p>
+ <div class="controls">
+   <label><input type="checkbox" id="panelOnly"> panel only (100 models)</label>
+   <span id="aggScope" class="pill"></span>
+ </div>
+ <div id="aggWrap" style="overflow:auto"></div>
+ <div class="legend">Δ colouring by whether the change is favourable:
+   <b class="g">green</b> = better (more growth / producible / consumable, fewer dead / closed-mode loops),
+   <b class="r">red</b> = worse, grey = neutral (directionality mix).</div>
+</section>
+
+<section>
+ <h2>Per-model detail</h2>
+ <div class="controls">
+   <input type="text" id="modelSearch" list="modelList" placeholder="type a model id, e.g. GCF_000005845.2">
+   <datalist id="modelList"></datalist>
+   <span id="modelInfo" class="pill"></span>
+ </div>
+ <div id="modelWrap" style="overflow:auto"></div>
+</section>
+
+<script>
+// "good direction" per metric: +1 = higher is better, -1 = lower is better, 0 = neutral
+const GOOD = { dead:-1, forward_only:0, reverse_only:0, reversible:0, essential:0,
+               closed_mode:-1, producible_complete:1, producible_glucose:1, consumable:1, growth:1 };
+let DATA=null;
+
+function deltaCell(val, base, key){
+  const d = (typeof val==="number" && typeof base==="number") ? +(val-base) : null;
+  let cls="neu", txt="";
+  if(d!==null && Math.abs(d)>1e-6){
+    const g=GOOD[key]||0;
+    if(g===0) cls="neu";
+    else cls = (d*g>0) ? "up-good" : "up-bad";
+    txt = (d>0?"+":"")+ (Math.abs(d)>=100? d.toFixed(0): d.toFixed(Math.abs(d)<1?3:1));
+  }
+  return `${fmt(val)}<span class="delta ${cls}">${txt}</span>`;
+}
+function fmt(v){ return (typeof v==="number") ? (Number.isInteger(v)? v : v.toFixed(v<1&&v>0?3:2)) : "—"; }
+
+function renderAgg(){
+  const panelOnly = document.getElementById("panelOnly").checked;
+  const schemes = DATA.schemes, metrics = DATA.metrics;
+  let agg;
+  if(!panelOnly){ agg = DATA.aggregate; document.getElementById("aggScope").textContent = `${DATA.n_models} models`; }
+  else { agg = computeAgg(new Set(DATA.panel_ids||[])); document.getElementById("aggScope").textContent = `${agg.__n} panel models`; }
+  const base = agg.default ? agg.default.mean : {};
+  let h = "<table><thead><tr><th class='lbl'>Scheme</th>";
+  for(const m of metrics) h += `<th>${m.label}</th>`;
+  h += "<th>Δcats vs def</th><th>growth ↑ / ↓</th><th>rxns overridden</th></tr></thead><tbody>";
+  for(const s of schemes){
+    const a = agg[s.key]; if(!a) continue;
+    h += `<tr><td class='lbl scheme-${s.key}'>${s.label}</td>`;
+    for(const m of metrics){
+      const v=a.mean[m.key];
+      h += (s.key==="default") ? `<td class='default'>${fmt(v)}</td>` : `<td>${deltaCell(v, base[m.key], m.key)}</td>`;
+    }
+    if(s.key==="default"){ h += "<td class='default'>—</td><td class='default'>—</td><td class='default'>—</td>"; }
+    else { h += `<td>${a.mean_categories_changed??"—"}</td><td><span class="up-good">${a.models_growth_gt??0}</span> / <span class="up-bad">${a.models_growth_lt??0}</span></td><td>${a.mean_overridden??"—"}</td>`; }
+    h += "</tr>";
+  }
+  h += "</tbody></table>";
+  document.getElementById("aggWrap").innerHTML = h;
+}
+
+// recompute aggregate for a subset of model ids (panel filter)
+function computeAgg(idset){
+  const schemes=DATA.schemes, metrics=DATA.metrics.map(m=>m.key);
+  const out={__n:0};
+  const ids = Object.keys(DATA.models).filter(id=>idset.has(id));
+  out.__n = ids.length;
+  for(const s of schemes){
+    const rows = ids.map(id=>DATA.models[id].schemes[s.key]).filter(Boolean);
+    if(!rows.length) continue;
+    const mean={}; for(const k of metrics) mean[k]=+(rows.reduce((a,x)=>a+(x[k]||0),0)/rows.length).toFixed(3);
+    const e={mean, n_models:rows.length};
+    if(s.key!=="default"){
+      e.mean_overridden=+(rows.reduce((a,x)=>a+(x.n_overridden||0),0)/rows.length).toFixed(2);
+      e.models_growth_gt=rows.filter(x=>(x.growth_delta||0)>1e-6).length;
+      e.models_growth_lt=rows.filter(x=>(x.growth_delta||0)<-1e-6).length;
+      e.mean_categories_changed=+(rows.reduce((a,x)=>a+((x.diff_vs_default||{}).categories_changed||0),0)/rows.length).toFixed(2);
+    }
+    out[s.key]=e;
+  }
+  return out;
+}
+
+function renderModel(id){
+  const m = DATA.models[id];
+  const info = document.getElementById("modelInfo");
+  if(!m){ info.textContent = id? "no data for "+id : ""; document.getElementById("modelWrap").innerHTML=""; return; }
+  const inPanel = (DATA.panel_ids||[]).includes(id);
+  info.textContent = `${m.n_reactions} reactions${inPanel?" · in 100-model panel":""}`;
+  const schemes=DATA.schemes, metrics=DATA.metrics;
+  const base = m.schemes.default||{};
+  let h="<table><thead><tr><th class='lbl'>Metric</th>";
+  for(const s of schemes) h+=`<th class='scheme-${s.key}'>${s.label}</th>`;
+  h+="</tr></thead><tbody>";
+  for(const mt of metrics){
+    h+=`<tr><td class='lbl'>${mt.label}</td>`;
+    for(const s of schemes){
+      const v=(m.schemes[s.key]||{})[mt.key];
+      h += (s.key==="default")? `<td class='default'>${fmt(v)}</td>` : `<td>${deltaCell(v, base[mt.key], mt.key)}</td>`;
+    }
+    h+="</tr>";
+  }
+  // overrides + diff summary row
+  h+=`<tr><td class='lbl muted'>reactions overridden</td><td class='default'>0</td>`;
+  for(const s of schemes.slice(1)) h+=`<td>${(m.schemes[s.key]||{}).n_overridden??"—"}</td>`;
+  h+="</tr>";
+  h+=`<tr><td class='lbl muted'>categories changed vs default</td><td class='default'>—</td>`;
+  for(const s of schemes.slice(1)){ const dd=(m.schemes[s.key]||{}).diff_vs_default||{}; h+=`<td>${dd.categories_changed??"—"} <span class="muted">(+${dd.added??0}/-${dd.removed??0})</span></td>`; }
+  h+="</tr></tbody></table>";
+  document.getElementById("modelWrap").innerHTML=h;
+}
+
+fetch("/data/template_quality_all.json").then(r=>{ if(!r.ok) throw new Error("not built yet"); return r.json(); })
+ .then(d=>{
+   DATA=d;
+   document.getElementById("meta").textContent =
+     `Generated ${d.generated} · ${d.n_models} models evaluated · ${d.n_errors} errors · scope: ${d.scope}`;
+   renderAgg();
+   document.getElementById("panelOnly").addEventListener("change", renderAgg);
+   const dl=document.getElementById("modelList");
+   dl.innerHTML = Object.keys(d.models).sort().map(id=>`<option value="${id}">`).join("");
+   const inp=document.getElementById("modelSearch");
+   inp.addEventListener("change",()=>renderModel(inp.value.trim()));
+   inp.addEventListener("input",()=>{ if(DATA.models[inp.value.trim()]) renderModel(inp.value.trim()); });
+   // seed with E. coli if present
+   const seed = d.models["GCF_000005845.2"] ? "GCF_000005845.2" : Object.keys(d.models)[0];
+   if(seed){ inp.value=seed; renderModel(seed); }
+ })
+ .catch(e=>{
+   document.getElementById("meta").textContent = "Data not available yet: "+e.message+
+     " — run scripts/template_quality_heuristics.py --all";
+ });
+</script>
+</body></html>

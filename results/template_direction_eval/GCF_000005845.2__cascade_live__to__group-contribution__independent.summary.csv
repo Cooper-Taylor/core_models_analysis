@@ -1,0 +1,5 @@
+model_rxn,base_rxn,from_dir,to_dir,from_bounds,to_bounds,n_categories_changed,n_added,n_removed,growth_before,growth_after,growth_delta,changed_categories
+rxn00001_c0,rxn00001,>,=,"[0.0, 1000.0]","[-1000.0, 1000.0]",0,0,0,87.211213,87.211213,0.0,
+rxn00122_c0,rxn00122,>,=,"[0.0, 1000.0]","[-1000.0, 1000.0]",6,30,14,87.211213,87.211213,-0.0,reaction_classes.minimal.essential.bio1;reaction_classes.minimal.essential.bio2;reaction_classes.minimal.essential.union;reaction_classes.rich.essential.bio1;reaction_classes.rich.essential.bio2;reaction_classes.rich.essential.union
+rxn00159_c0,rxn00159,=,>,"[0.0, 1000.0]","[0.0, 1000.0]",0,0,0,87.211213,87.211213,0.0,
+rxn00161_c0,rxn00161,=,>,"[0.0, 1000.0]","[0.0, 1000.0]",0,0,0,87.211213,87.211213,0.0,
