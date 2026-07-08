@@ -15,6 +15,12 @@ const API = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     }).then((r) => r.json()),
+  fluxLoops: (body) =>
+    fetch(`/api/flux_loops`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    }).then((r) => r.json()),
 };
 
 const STATE = {
@@ -42,6 +48,7 @@ const STATE = {
   panelGrowthControl: null,    // {models: {model_id: {base_flux, n_essential, reactions[], metabolites[]}}, global, metabolites_global}
   panelSyntheticLethal: null,  // {models: {model_id: {pairs[]}}, global: [...]}
   panelFva: null,              // {models: {model_id: {n_blocked, n_forced, reactions[]}}, global: [...]}
+  panelFluxLoops: null,        // {meta, models:{mid:{baseline:{...}, variants:{tag:{...}}}}, global} — EGC counts per variant
   panelRxnDirEffects: null,    // {models:{mid:{base_flux,reactions[]}}, global, options, option_bounds}
   _rde: null,                  // scratch: currently-rendered reaction-direction-effects table state
   panelCumDirGrowth: null,     // {models:{mid:{baseline,heuristics:{k:{reactions[],cumulative[]}}}}, schemes}
@@ -1265,6 +1272,8 @@ async function loadPanelModelData() {
   // Cumulative growth trajectory of each heuristic's sorted direction changes (precomputed; optional).
   try { STATE.panelCumDirGrowth = await API.data('cumulative_direction_growth_panel.json'); }
   catch (e) { STATE.panelCumDirGrowth = null; }
+  try { STATE.panelFluxLoops = await API.data('panel_flux_loops.json'); }
+  catch (e) { STATE.panelFluxLoops = null; }
 }
 
 function pmEntry(mid, tag) {
@@ -1508,7 +1517,9 @@ function renderPanelModelDetail(mid) {
     <h3>Synthetic-lethal pairs <span class="hint">— reaction pairs whose joint knockout collapses growth though neither alone does</span></h3>
     <div id="pm-sl-charts"></div>
     <h3>Flux variability <span class="hint">— at near-optimal growth: which reactions are blocked, flux-forced (obligate), or flexible</span></h3>
-    <div id="pm-fva-charts"></div>`;
+    <div id="pm-fva-charts"></div>
+    <h3>Energy-generating cycles <span class="hint">— closed-model EGC probes (ATP / redox / mass): thermodynamically infeasible loops each reversibility heuristic manufactures vs. baseline. A clean heuristic should add none.</span></h3>
+    <div id="pm-egc-charts"></div>`;
 
   pane.querySelectorAll('.pm-impact-row').forEach((tr) =>
     tr.addEventListener('click', () => {
@@ -1525,6 +1536,7 @@ function renderPanelModelDetail(mid) {
   renderPmFva(mid);            // precomputed flux variability
   renderPmRxnDirEffects(mid);  // per-reaction direction options (<,>,=,?) + 4 heuristic calls
   renderPmCumDirGrowth(mid);   // cumulative growth trajectory of each heuristic (sorted, applied one-on-another)
+  renderPmFluxLoops(mid);      // precomputed energy-generating cycles per variant (+ live recompute)
 }
 
 // ----- key reactions: per-reaction direction sensitivity (precomputed) -----
@@ -2058,6 +2070,162 @@ function renderPmFva(mid) {
       ${bars}</svg></div>
     <p class="hint">Flux interval each reaction can take at ≥99% of optimal growth (Mahadevan &amp; Schilling 2003). <span class="pfc-val neg">red</span> = flux-forced (interval excludes 0 → obligate for growth); teal = flexible. Blocked reactions omitted.</p>`;
   bindRxnLinks(host);
+}
+
+// ----- energy-generating cycles (EGCs) per variant (precomputed + live) -----
+// Data: site/data/panel_flux_loops.json from scripts/build_flux_loops.py.
+// find_flux_loops closes the model and probes for thermodynamically infeasible
+// ATP/redox/mass cycles. +Δ vs baseline = the heuristic manufactured new
+// free-energy loops (bad); −Δ = it removed baseline cycles (good).
+function egcProbeGroup() {
+  const pg = (STATE.panelFluxLoops && STATE.panelFluxLoops.meta
+              && STATE.panelFluxLoops.meta.probe_groups) || {};
+  const out = {};
+  for (const g of Object.keys(pg)) for (const p of pg[g]) out[p] = g;
+  return out;
+}
+
+function renderEgcLoops(loops) {
+  const probes = Object.keys(loops || {}).filter((p) => loops[p] && loops[p].length);
+  if (!probes.length) return '<p class="hint">No loops to show.</p>';
+  const group = egcProbeGroup();
+  return probes.map((p) => {
+    const items = loops[p].map((lp, i) => {
+      const chips = lp.reactions.map((r) =>
+        `<a href="#" class="rxn-link egc-rxn" data-rxn="${escapeHtml(r.id)}">${escapeHtml(r.id)}` +
+        `<span class="egc-dir">${escapeHtml(r.dir)}</span></a>`).join(' ');
+      return `<div class="egc-loop"><span class="egc-loop-lbl">loop ${i + 1} · size ${lp.size}` +
+        ` · flux ${Number(lp.target_flux).toFixed(1)}</span> ${chips}</div>`;
+    }).join('');
+    return `<div class="egc-probe"><span class="egc-probe-name">${escapeHtml(p)}</span> ` +
+      `<span class="hint">(${escapeHtml(group[p] || '')})</span>${items}</div>`;
+  }).join('');
+}
+
+function allVariantTags() {
+  return (STATE.manifest && STATE.manifest.variants
+          ? STATE.manifest.variants.map((v) => v.tag) : []).slice().sort();
+}
+
+function renderEgcLiveControl() {
+  const opts = ['baseline', ...allVariantTags()]
+    .map((t) => `<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`).join('');
+  return `<div class="live-only egc-live">
+      <label>Recompute live: <select id="egc-live-variant">${opts}</select></label>
+      <button id="egc-live-run" class="small">run EGC probes on this model + variant</button>
+      <span id="egc-live-status" class="hint"></span>
+      <div id="egc-live-results"></div>
+    </div>
+    <p class="hint static-only">Live EGC recompute requires live mode (<code>python3 site/serve.py --live</code>).</p>`;
+}
+
+function bindEgcLive(host, mid) {
+  const btn = host.querySelector('#egc-live-run');
+  if (!btn) return;
+  btn.addEventListener('click', async () => {
+    const variant = host.querySelector('#egc-live-variant').value;
+    const status = host.querySelector('#egc-live-status');
+    const out = host.querySelector('#egc-live-results');
+    status.textContent = 'running closed-model MILP probes…';
+    btn.disabled = true;
+    try {
+      const resp = await API.fluxLoops({ model_id: mid, variant });
+      if (resp.error) { status.textContent = 'error: ' + resp.error; return; }
+      const r = resp.result, b = resp.baseline;
+      if (r.status !== 'ok') { status.textContent = 'compute error: ' + (r.error || 'unknown'); return; }
+      const dtot = r.n_loops_total - b.n_loops_total;
+      status.textContent = `${resp.elapsed_s}s · ${r.n_loops_total} loop(s) ` +
+        `(ATP ${r.by_group.atp} / redox ${r.by_group.redox} / mass ${r.by_group.mass}), ` +
+        `Δ ${dtot >= 0 ? '+' : ''}${dtot} vs baseline`;
+      out.innerHTML = `<div class="egc-detail">${renderEgcLoops(r.loops)}</div>`;
+      bindRxnLinks(out);
+    } catch (e) {
+      status.textContent = 'error: ' + e;
+    } finally {
+      btn.disabled = false;
+    }
+  });
+}
+
+function renderPmFluxLoops(mid) {
+  const host = document.getElementById('pm-egc-charts');
+  if (!host) return;
+  const data = STATE.panelFluxLoops;
+  const m = (data && data.models) ? data.models[mid] : null;
+  if (!m) {
+    host.innerHTML = '<p class="hint">Energy-generating-cycle data not available ' +
+      '(run <code>scripts/build_flux_loops.py</code>).</p>' + renderEgcLiveControl();
+    bindEgcLive(host, mid);
+    return;
+  }
+  const base = m.baseline;
+  const meta = (data && data.meta) || {};
+  const cards = ['atp', 'redox', 'mass'].map((g) =>
+    `<div class="card"><h4>${g.toUpperCase()} loops</h4><div class="stat">${base.by_group[g]}</div></div>`).join('');
+  // +loops is BAD, so invert the usual color mapping: +Δ -> neg (red), −Δ -> pos (green).
+  const cell = (d) => {
+    const sign = d > 0 ? 'neg' : (d < 0 ? 'pos' : 'zero');
+    return `<td class="num pfc-val ${sign}">${d > 0 ? '+' : ''}${d}</td>`;
+  };
+  const vs = Object.entries(m.variants).sort((a, b) =>
+    (b[1].delta_vs_baseline.total - a[1].delta_vs_baseline.total) || a[0].localeCompare(b[0]));
+  const rows = vs.map(([tag, v]) => {
+    const d = v.delta_vs_baseline;
+    const probes = [
+      ...v.new_probes.map((p) => `<span class="egc-new">+${escapeHtml(p)}</span>`),
+      ...v.resolved_probes.map((p) => `<span class="egc-resolved">−${escapeHtml(p)}</span>`),
+    ].join(' ');
+    return `<tr class="egc-var-row" data-tag="${escapeHtml(tag)}">
+      <td><span class="tag">${escapeHtml(tag)}</span></td>
+      ${cell(d.atp)}${cell(d.redox)}${cell(d.mass)}
+      <td class="num">${v.n_loops_total}</td>${cell(d.total)}
+      <td class="num">${v.n_changed_here}</td>
+      <td class="egc-probes">${probes}</td></tr>`;
+  }).join('');
+  const table = vs.length ? `
+    <table class="changed-by-table egc-table">
+      <thead><tr><th>variant</th><th class="num">ATP Δ</th><th class="num">redox Δ</th><th class="num">mass Δ</th>
+        <th class="num">loops</th><th class="num">total Δ</th><th class="num">rxns changed</th><th>new / resolved probes</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <p class="hint"><span class="pfc-val neg">red +Δ</span> = heuristic <em>added</em> energy-generating cycles (bad);
+      <span class="pfc-val pos">green −Δ</span> = it <em>removed</em> baseline cycles (good).
+      Click a row (or “show baseline loops”) for the loop reactions. Only variants changing ≥1 reaction in this model are listed.</p>`
+    : '<p class="hint">No variant changes any reaction present in this model.</p>';
+  const redoxNote = meta.redox_note ? `<p class="hint">${escapeHtml(meta.redox_note)}</p>` : '';
+  host.innerHTML = `
+    <p class="hint">Baseline direction map: <strong>${base.n_loops_total}</strong> energy-generating cycle(s) in this closed model.
+      <a href="#" class="egc-baseline-toggle">show baseline loops</a></p>
+    <div class="flux-impact-grid">${cards}</div>
+    <div id="pm-egc-baseline-detail"></div>
+    ${table}
+    <div id="pm-egc-detail"></div>
+    ${redoxNote}
+    ${renderEgcLiveControl()}`;
+  const bToggle = host.querySelector('.egc-baseline-toggle');
+  if (bToggle) bToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const box = host.querySelector('#pm-egc-baseline-detail');
+    if (box.innerHTML) { box.innerHTML = ''; bToggle.textContent = 'show baseline loops'; return; }
+    box.innerHTML = `<div class="egc-detail">${renderEgcLoops(base.loops)}</div>`;
+    bToggle.textContent = 'hide baseline loops';
+    bindRxnLinks(box);
+  });
+  host.querySelectorAll('.egc-var-row').forEach((tr) =>
+    tr.addEventListener('click', () => {
+      host.querySelectorAll('.egc-var-row').forEach((r) => r.classList.remove('selected'));
+      tr.classList.add('selected');
+      const v = m.variants[tr.dataset.tag];
+      // Unchanged probes aren't re-stored on the variant; fall back to baseline loops.
+      const merged = {};
+      for (const p of Object.keys(v.by_probe)) merged[p] = v.loops[p] || base.loops[p] || [];
+      const box = host.querySelector('#pm-egc-detail');
+      box.innerHTML = `<h4 class="egc-detail-title">${escapeHtml(tr.dataset.tag)} — ` +
+        `${v.n_loops_total} loop(s), Δ ${v.delta_vs_baseline.total >= 0 ? '+' : ''}${v.delta_vs_baseline.total} vs baseline</h4>` +
+        `<div class="egc-detail">${renderEgcLoops(merged)}</div>`;
+      bindRxnLinks(box);
+    }));
+  bindEgcLive(host, mid);
 }
 
 function renderGcBars(rx) {

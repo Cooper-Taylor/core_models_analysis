@@ -38,6 +38,13 @@ Routes:
               "overrides": {"rxnXXXXX": "off|forward|reverse"} | {},
               "models": [optional subset]}
        returns: [{model_id, grows, growth_flux, status}, ...]
+  /api/flux_loops (POST)  [live mode only — 503 in static]
+       Energy-generating-cycle (EGC) detection on one model, closed, under a
+       variant's direction map.  ~1-3s (two 12-probe MILP passes: requested + baseline).
+       body: {"model_id": "GCF_...", "variant": "baseline|<tag>",
+              "overrides": {"rxnXXXXX": "off|forward|reverse"} | {},
+              "objective": "all|atp|redox|mass", "max_loops_per_probe": 5}
+       returns: {"result": {...}, "baseline": {...}}  (compact flux_loops_one dicts)
 
 Stdlib only -- no Flask / FastAPI dependency.  multiprocessing-based
 panel FBA via growth_heuristics.run_panel (live mode only).
@@ -358,7 +365,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         url = urlparse(self.path)
         path = unquote(url.path)
         try:
-            if STATIC_MODE and path in ("/api/panel_fba", "/api/reaction_impact"):
+            if STATIC_MODE and path in ("/api/panel_fba", "/api/reaction_impact", "/api/flux_loops"):
                 self._send_json({
                     "error": "FBA disabled in static mode — restart with "
                              "`python3 site/serve.py --live` after installing "
@@ -422,6 +429,33 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                     out["by_mode"][mode] = by_id
                 out["elapsed_s"] = round(time.time() - t, 2)
                 self._send_json(out)
+                return
+            if path == "/api/flux_loops":
+                model_id = body["model_id"]
+                variant = body.get("variant", "baseline")
+                overrides = body.get("overrides") or {}
+                objective = body.get("objective", "all")
+                max_loops = int(body.get("max_loops_per_probe", 5))
+                _init_fba_runtime()
+                state = _fba_state()
+                base_map = state["variant_maps"].get(variant)
+                if base_map is None:
+                    raise KeyError(f"unknown variant: {variant}")
+                eff_map = _apply_overrides(base_map, overrides)
+                t = time.time()
+                # Requested map + baseline map (single tiny model each -> direct calls).
+                result = gh.flux_loops_one(model_id, eff_map, objective=objective,
+                                           max_loops_per_probe=max_loops)
+                baseline = gh.flux_loops_one(model_id, state["variant_maps"]["baseline"],
+                                             objective=objective, max_loops_per_probe=max_loops)
+                self._send_json({
+                    "model_id": model_id,
+                    "variant": variant,
+                    "n_overrides": len(overrides),
+                    "elapsed_s": round(time.time() - t, 2),
+                    "result": result,
+                    "baseline": baseline,
+                })
                 return
             self._send_json({"error": "not found", "path": path}, code=404)
         except Exception as exc:

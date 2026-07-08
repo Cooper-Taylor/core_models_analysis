@@ -879,3 +879,22 @@ td.rde-heur { white-space: nowrap; }
 .cdg-list { margin-top: 8px; }
 .cdg-list summary { cursor: pointer; color: #1f3a5f; font-size: 13px; }
 .cdg-pos { color: #1a7f37; } .cdg-neg { color: #c0392b; } .cdg-zero { color: #999; }
+
+/* energy-generating cycles (EGC) section */
+.egc-table td, .egc-table th { padding: 3px 8px; }
+.egc-var-row { cursor: pointer; }
+.egc-var-row:hover { background: rgba(127, 127, 127, 0.10); }
+.egc-var-row.selected { background: rgba(95, 216, 184, 0.14); }
+.egc-probes { font-size: 11px; }
+.egc-new { color: var(--warn); margin-right: 4px; white-space: nowrap; }
+.egc-resolved { color: var(--good); margin-right: 4px; white-space: nowrap; }
+.egc-detail { margin: 6px 0 10px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-elev); }
+.egc-detail-title { margin: 10px 0 2px; font-size: 13px; }
+.egc-probe { margin: 6px 0; }
+.egc-probe-name { font-family: var(--mono); font-weight: 600; font-size: 12px; }
+.egc-loop { margin: 3px 0 3px 12px; font-size: 12px; line-height: 1.8; }
+.egc-loop-lbl { color: var(--text-dim); margin-right: 6px; font-size: 11px; }
+.egc-rxn { font-family: var(--mono); font-size: 12px; padding: 1px 4px; border: 1px solid var(--border); border-radius: 3px; margin-right: 2px; white-space: nowrap; display: inline-block; }
+.egc-dir { color: var(--accent); margin-left: 2px; font-weight: 600; }
+.egc-live { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 10px; }
+.egc-live #egc-live-results { flex-basis: 100%; }

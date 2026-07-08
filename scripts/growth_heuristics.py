@@ -592,6 +592,161 @@ def fva_one(model_id: str, baseline_map: dict, fraction: float = 0.99,
         return {"model_id": model_id, "error": f"{type(e).__name__}: {e}"}
 
 
+_MSP_CLEAR_PATCHED = False
+
+
+def _patch_modelseedpy_pkg_clear() -> None:
+    """Make modelseedpy's ``BaseFBAPkg.clear`` reusable (idempotent monkeypatch).
+
+    modelseedpy 0.4.2's ``clear()`` resets ``self.variables``/``self.constraints``
+    to bare ``{}`` without restoring the per-type sub-dicts, so a package fetched
+    again via ``pkgmgr.getpkg`` KeyErrors on ``self.variables["ru"]``.  kbutillib's
+    ``find_flux_loops`` clears and reuses the ReactionUsePkg between loops, so we
+    re-seed the type dicts after every clear.  Applied lazily from
+    ``flux_loops_one`` so the static site server never triggers it.
+    """
+    global _MSP_CLEAR_PATCHED
+    if _MSP_CLEAR_PATCHED:
+        return
+    from modelseedpy.fbapkg.basefbapkg import BaseFBAPkg
+    if getattr(BaseFBAPkg.clear, "_egc_patched", False):
+        _MSP_CLEAR_PATCHED = True
+        return
+    _orig_clear = BaseFBAPkg.clear
+
+    def _safe_clear(self):
+        _orig_clear(self)
+        for t in getattr(self, "variable_types", {}) or {}:
+            self.variables.setdefault(t, {})
+        for t in getattr(self, "constraint_types", {}) or {}:
+            self.constraints.setdefault(t, {})
+
+    _safe_clear._egc_patched = True
+    BaseFBAPkg.clear = _safe_clear
+    _MSP_CLEAR_PATCHED = True
+
+
+def flux_loops_one(model_id: str, reversibility_map: Optional[dict] = None,
+                   objective: str = "all", max_loops_per_probe: int = 5,
+                   compartment: str = "c0",
+                   fraction_of_optimum: float = 0.999) -> dict:
+    """Detect energy-generating cycles (EGCs) in one model under a direction map.
+
+    Applies ``reversibility_map`` to the model's reaction bounds, then *closes*
+    the model -- zeros every ``EX_/DM_/SK_`` exchange, the ``exchange_hash``
+    boundary set, and every biomass reaction -- so the only way to make ATP /
+    redox / mass is through an internal cycle.  Unlike ``fva_one``/``fba_one``
+    this deliberately does NOT call ``apply_media``: an open model would let
+    nutrients, not loops, feed the probes.  Then runs ``find_flux_loops``
+    (kbutillib) for the requested probe group.
+
+    ``objective`` is a probe group: ``"all"`` (atp+redox+mass, 12 probes),
+    ``"atp"``, ``"redox"``, or ``"mass"``.  NB: each redox probe drains to H2
+    (cpd11749); models lacking H2 (all 100 core models) report no redox loop --
+    expected, not a bug.
+
+    Returns a compact dict::
+
+        {model_id, status, error, n_loops_total,
+         by_group:{atp,redox,mass}, by_probe:{name:count},
+         loops:{probe:[{target_flux,size,reactions:[{id,dir,flux}]}]}}
+
+    Loop reactions carry only ``{id,dir,flux}`` -- equations/alternatives/etc.
+    are dropped (the site resolves reaction metadata separately).  On failure the
+    same shape is returned with ``status="error"`` and zeroed counts."""
+    # Heavy imports live inside the function body: the static site server does
+    # ``import growth_heuristics`` and must not transitively pull in
+    # kbutillib/modelseedpy (mirrors fva_one's inside-the-body cobra import).
+    from kbutillib.ms_fba_utils import find_flux_loops_standalone, EGC_PROBE_CATALOG
+    from modelseedpy.core.msmodelutl import MSModelUtil
+    _patch_modelseedpy_pkg_clear()
+
+    res = {
+        "model_id": model_id,
+        "status": "error",
+        "error": "",
+        "n_loops_total": 0,
+        "by_group": {"atp": 0, "redox": 0, "mass": 0},
+        "by_probe": {},
+        "loops": {},
+    }
+    try:
+        model = load_json_model(str(MODELS_DIR / f"{model_id}.json"))
+        if reversibility_map is not None:
+            override_bounds(model, reversibility_map)
+
+        # Close the model so the only way to make ATP/redox/mass is an internal
+        # cycle: zero every exchange/drain/sink and the *real* biomass reaction.
+        # A "biomass" reaction with few metabolites is actually ATP maintenance
+        # (ATP + H2O -> ADP + Pi + H+, encoded as bio2 in these core models) and
+        # MUST stay open: find_flux_loops reuses a matching existing reaction as
+        # its ATP probe, so closing bio2 would pin the probe to 0 and detect
+        # nothing.  Real biomass (many metabolites) is closed; its product is a
+        # dead end with no sink, so it is inert in a closed model anyway.
+        BIOMASS_MET_MIN = 10  # bio1 (real) ~22 mets; bio2 (ATP maint) ~5 mets
+        for rxn in model.reactions:
+            rid = rxn.id
+            is_bio = rid.startswith("bio") or "biomass" in rid.lower()
+            if rid.startswith(("EX_", "DM_", "SK_")):
+                rxn.lower_bound = 0.0
+                rxn.upper_bound = 0.0
+            elif is_bio and len(rxn.metabolites) >= BIOMASS_MET_MIN:
+                rxn.lower_bound = 0.0
+                rxn.upper_bound = 0.0
+            elif "ATPM" in rid and rxn.lower_bound > 0.0:
+                rxn.lower_bound = 0.0  # relax any forced maintenance floor
+
+        mdlutl = MSModelUtil.get(model)
+        # Belt-and-suspenders: zero any boundary reaction the prefix rule missed.
+        try:
+            for _met, rxn_obj in mdlutl.exchange_hash().items():
+                rxn_obj.lower_bound = 0.0
+                rxn_obj.upper_bound = 0.0
+        except Exception:
+            pass
+
+        raw = find_flux_loops_standalone(
+            mdlutl,
+            objective=objective,
+            compartment=compartment,
+            max_loops_per_probe=max_loops_per_probe,
+            fraction_of_optimum=fraction_of_optimum,
+            enable_redox_probes=True,
+            log_fn=lambda *a, **k: None,
+        )
+
+        # probe name -> group (built from the three concrete groups, not "all",
+        # so counts are never double-attributed).
+        probe_group = {p["name"]: g
+                       for g in ("atp", "redox", "mass")
+                       for p in EGC_PROBE_CATALOG[g]}
+        n_total = 0
+        for probe_name, loop_list in raw.items():
+            if not loop_list:
+                continue
+            grp = probe_group.get(probe_name, "atp")
+            res["by_group"][grp] += len(loop_list)
+            res["by_probe"][probe_name] = len(loop_list)
+            res["loops"][probe_name] = [
+                {
+                    "target_flux": round(float(lr["target_flux"]), 3),
+                    "size": lr["size"],
+                    "reactions": [
+                        {"id": r["id"], "dir": r["direction_used"],
+                         "flux": round(float(r["flux"]), 3)}
+                        for r in lr["reactions"]
+                    ],
+                }
+                for lr in loop_list
+            ]
+            n_total += len(loop_list)
+        res["n_loops_total"] = n_total
+        res["status"] = "ok"
+    except Exception as e:
+        res["error"] = f"{type(e).__name__}: {e}"
+    return res
+
+
 _worker_kwargs_cache: dict = {}
 
 
