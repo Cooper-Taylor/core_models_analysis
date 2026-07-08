@@ -406,13 +406,12 @@ def estimate_one(rxn_entry, db_level: str = "EQ", cfg: Optional[ReversibilityCon
         return status, thermoreversibility, None
 
     terms = _walk_stoichiometry(rxn_entry["stoichiometry"], cfg)
-    stored_max, stored_min = _stored_bounds(rxn_dg, rxn_dge, terms, cfg)
 
-    if stored_max < 0:
-        return "MdeltaG(Max): {0:.2f}".format(stored_max), ">", source_label
-    if stored_min > 0:
-        return "MdeltaG(Min): {0:.2f}".format(stored_min), "<", source_label
-
+    # Heuristics run most-specific -> least-specific so a reaction that is an
+    # ATP synthase or an ATP-driven (ABC) transporter is recognized by its
+    # structure BEFORE the general MdeltaG stored-bounds rule can force a
+    # directional call out of its delta-G bounds. Mirrors the MSDB cascade
+    # (Estimate_Reaction_Reversibility DEFAULT_HEURISTICS on claude-changes).
     if _is_atp_synthase(rxn_entry, terms["proton_cpts"]):
         return "ATPS", "=", source_label
 
@@ -420,6 +419,12 @@ def estimate_one(rxn_entry, db_level: str = "EQ", cfg: Optional[ReversibilityCon
     if abct is not None:
         status, thermoreversibility = abct
         return status, thermoreversibility, source_label
+
+    stored_max, stored_min = _stored_bounds(rxn_dg, rxn_dge, terms, cfg)
+    if stored_max < 0:
+        return "MdeltaG(Max): {0:.2f}".format(stored_max), ">", source_label
+    if stored_min > 0:
+        return "MdeltaG(Min): {0:.2f}".format(stored_min), "<", source_label
 
     # § 2.1 / 3.1 -- ln(reversibility index) when available.
     if cfg.ln_ri_by_rxn is not None:

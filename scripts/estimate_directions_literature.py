@@ -3,7 +3,7 @@
 compare them to the Claude-Opus-4.8 LLM predictions.
 
 Columns produced (one TSV row per MSDB reaction with >=1 prediction):
-    rxn_id  Jankowski_2008  Flamholz_2012  LLM_Opus_4.8
+    rxn_id  Jankowski_2008  Flamholz_2012  Beber_2022  LLM_Opus_4.8
 
 Directionality rule -- EACH method uses its OWN approach (do not mix them):
 
@@ -28,8 +28,10 @@ Energy / index sources, read from MSDB:
     LLM_Opus_4.8    <- data/ai_curation/all_modelseed/AICurationCacheReactionDirectionality.json
         directionality forward/reverse/reversible/uncertain -> >/</=/?
 
-The eQ-3.0 (Beber_2022) column is produced separately by estimate_directions_eq3.py
-(eQuilibrator 3.0's own ln_reversibility_index) and merged in.
+  Beber_2022 (eQuilibrator 3.0) -- eQ-3.0's OWN reversibility index at
+  |log10 gamma| = 3, computed separately by estimate_directions_eq3.py and
+  read here from its TSV (results/rxn_directions_eq3_2022.tsv, Beber_2022 col).
+  This step does NOT recompute it -- it merges the precomputed column in.
 
 Missing energy / missing reaction -> "NA".
 """
@@ -37,6 +39,7 @@ from __future__ import annotations
 
 import csv
 import glob
+import itertools
 import json
 import os
 import sys
@@ -60,6 +63,8 @@ LLM_JSON = os.path.join(
     "AICurationCacheReactionDirectionality.json")
 OUT_TSV = os.path.join(ROOT, "results", "reaction_directions_literature_vs_llm.tsv")
 OUT_SUMMARY = os.path.join(ROOT, "results", "reaction_directions_literature_summary.txt")
+# eQ-3.0 (Beber 2022) directions, precomputed by estimate_directions_eq3.py.
+EQ3_TSV = os.path.join(ROOT, "results", "rxn_directions_eq3_2022.tsv")
 
 GC_LABEL = "Group contribution"
 EQ_LABEL = "eQuilibrator"
@@ -128,18 +133,36 @@ def main():
     for rid, lnri in load_ln_reversibility_index().items():
         eq[rid] = ">" if lnri < -LNRI_THRESH else "<" if lnri > LNRI_THRESH else "="
 
+    # --- Beber_2022: eQuilibrator-3.0 (component contribution) directions,
+    #     computed separately by estimate_directions_eq3.py and merged in here
+    #     from its TSV (cols: rxn_id, Beber_2022, ln_RI). This is eQ-3.0's OWN
+    #     reversibility-index call at |log10 gamma| = 3, NOT recomputed here.
+    beber = {}
+    if os.path.exists(EQ3_TSV):
+        with open(EQ3_TSV, newline="") as fh:
+            for row in csv.DictReader(fh, delimiter="\t"):
+                rid = row.get("rxn_id")
+                d = (row.get("Beber_2022") or "").strip()
+                if rid and d in (">", "<", "=", "?"):
+                    beber[rid] = d
+    else:
+        print(f"[lit] WARNING: {EQ3_TSV} missing -> Beber_2022 column all-NA")
+
     print(f"[lit] MSDB reactions scanned: {n_rxn}")
     print(f"[lit] Jankowski_2008 (GC feasibility) directions: {len(gc)}")
     print(f"[lit] Flamholz_2012 (eQ reversibility index) directions: {len(eq)}")
+    print(f"[lit] Beber_2022 (eQ-3.0 reversibility index) directions: {len(beber)}")
 
     # --- union of reactions with >=1 prediction ---
-    ids = sorted(set(gc) | set(eq) | set(llm))
+    ids = sorted(set(gc) | set(eq) | set(beber) | set(llm))
     os.makedirs(os.path.dirname(OUT_TSV), exist_ok=True)
     with open(OUT_TSV, "w", newline="") as fh:
         w = csv.writer(fh, delimiter="\t")
-        w.writerow(["rxn_id", "Jankowski_2008", "Flamholz_2012", "LLM_Opus_4.8"])
+        w.writerow(["rxn_id", "Jankowski_2008", "Flamholz_2012",
+                    "Beber_2022", "LLM_Opus_4.8"])
         for rid in ids:
-            w.writerow([rid, gc.get(rid, "NA"), eq.get(rid, "NA"), llm.get(rid, "NA")])
+            w.writerow([rid, gc.get(rid, "NA"), eq.get(rid, "NA"),
+                        beber.get(rid, "NA"), llm.get(rid, "NA")])
     print(f"[lit] wrote {OUT_TSV} ({len(ids)} rows)")
 
     # --- summary: distributions + pairwise agreement on co-present reactions ---
@@ -153,16 +176,17 @@ def main():
         same = sum(1 for r in common if a[r] == b[r])
         return same, len(common), 100.0 * same / len(common)
 
+    methods = [("Jankowski_2008", gc), ("Flamholz_2012", eq),
+               ("Beber_2022", beber), ("LLM_Opus_4.8", llm)]
     lines = []
     lines.append(f"reactions in file (union): {len(ids)}")
-    lines.append(f"Jankowski_2008 (GC) non-NA: {len(gc)}   dist: {dist(gc)}")
-    lines.append(f"Flamholz_2012  (eQ) non-NA: {len(eq)}   dist: {dist(eq)}")
-    lines.append(f"LLM_Opus_4.8        non-NA: {len(llm)}   dist: {dist(llm)}")
     lines.append("")
-    for name, a, b in [("GC vs eQ", gc, eq), ("GC vs LLM", gc, llm),
-                       ("eQ vs LLM", eq, llm)]:
+    for name, d in methods:
+        lines.append(f"{name:<16} non-NA: {len(d):>6}  dist: {dist(d)}")
+    lines.append("")
+    for (n1, a), (n2, b) in itertools.combinations(methods, 2):
         s, n, pct = agree(a, b)
-        lines.append(f"{name:10s}: {s}/{n} agree ({pct:.1f}%) on co-present reactions")
+        lines.append(f"{n1:<16} vs {n2:<16}:  {s:>5}/{n:>6} agree ({pct:.1f}%)")
     summary = "\n".join(lines)
     open(OUT_SUMMARY, "w").write(summary + "\n")
     print("\n" + summary)

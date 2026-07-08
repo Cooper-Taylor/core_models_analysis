@@ -206,6 +206,23 @@ python3 scripts/build_thermo_source_comparison_notebook.py
 cd notebooks && jupyter execute --inplace *.ipynb
 ```
 
+### Presentation figures (thermodynamics → ATP/growth impact)
+
+Six interactive figures that summarize how the reversibility heuristics reshape
+core-model growth/ATP flux. Reads existing artifacts only (variant diff JSONs, the
+N=50 statistical panel, the live cascade) — no FBA is recomputed.
+
+```bash
+python3 scripts/build_presentation_figures.py            # all 6, HTML + PNG + site export
+python3 scripts/build_presentation_figures.py --no-png   # HTML only (skip kaleido/Chrome)
+python3 scripts/build_presentation_figures.py --figures 1,3,6
+```
+
+Outputs: `reports/presentation/index.html` (scrollable dashboard), `figN_*.html`
+(interactive) and `png/figN.png` (static, for slides); plus `site/data/figures/*.html`
++ `manifest.json` and a `site/figures.html` viewer for embedding in the static site.
+PNG export needs Chrome — install once with `plotly_get_chrome` (or pass `--no-png`).
+
 ### Re-run a single notebook interactively
 
 ```bash

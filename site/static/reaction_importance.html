@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reaction importance &amp; model clusters</title>
+<style>
+ :root { --navy:#1f3a5f; --line:#e6e6e6; }
+ body { font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif; margin:0; background:#fafafa; color:#1a1a1a; }
+ header { background:var(--navy); color:#fff; padding:20px 32px; }
+ header h1 { margin:0; font-size:20px; } header p { margin:6px 0 0; font-size:13px; opacity:.9; }
+ header a { color:#cfe0f5; }
+ section { background:#fff; margin:20px 32px; padding:16px 22px; border:1px solid var(--line); border-radius:8px; }
+ h2 { color:var(--navy); font-size:17px; margin:0 0 8px; }
+ p.caption { color:#444; font-size:13px; max-width:1050px; }
+ code { background:#f0f2f5; padding:1px 4px; border-radius:3px; font-size:12px; }
+ .muted { color:#777; }
+ .controls { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:8px 0; }
+ button.metric { font-size:12px; padding:4px 9px; border:1px solid #bbb; background:#f5f7fa; border-radius:5px; cursor:pointer; }
+ button.metric.active { background:var(--navy); color:#fff; border-color:var(--navy); }
+ input[type=text]{ padding:6px 8px; border:1px solid #bbb; border-radius:5px; min-width:260px; font-size:13px; }
+ /* bar chart */
+ .bar-row { display:grid; grid-template-columns:230px 1fr 70px; align-items:center; gap:8px; font-size:12px; margin:2px 0; }
+ .bar-lab { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+ .bar-lab a { color:var(--navy); text-decoration:none; }
+ .bar-track { background:#eef1f5; border-radius:3px; height:15px; }
+ .bar-fill { background:#2c6fbb; height:15px; border-radius:3px; }
+ .bar-val { text-align:right; font-variant-numeric:tabular-nums; color:#333; }
+ /* table */
+ table { border-collapse:collapse; font-size:12px; width:100%; }
+ th,td { border:1px solid #ececec; padding:4px 8px; text-align:right; }
+ th.l,td.l { text-align:left; } thead th { background:#f0f4f9; color:var(--navy); cursor:pointer; position:sticky; top:0; }
+ .tablewrap { max-height:460px; overflow:auto; border:1px solid var(--line); border-radius:6px; }
+ /* scatter */
+ .scatter-wrap { display:flex; gap:18px; flex-wrap:wrap; }
+ .cl-legend { font-size:12px; min-width:230px; }
+ .cl-item { display:flex; align-items:center; gap:6px; padding:3px 4px; border-radius:4px; cursor:pointer; }
+ .cl-item:hover { background:#f2f5f9; } .cl-item.sel { background:#e7eef7; }
+ .cl-sw { width:12px; height:12px; border-radius:3px; display:inline-block; }
+ .cl-sig { font-size:12px; color:#444; margin-top:8px; border-top:1px solid var(--line); padding-top:8px; }
+ .cl-sig h4 { margin:4px 0; color:var(--navy); font-size:13px; }
+ svg text { fill:#555; }
+ .ax { stroke:#ccc; stroke-width:1; } .axlab { font-size:11px; fill:#666; }
+</style></head>
+<body>
+<header>
+ <h1>Reaction direction-importance &amp; model clusters</h1>
+ <p>Every reaction in every core model, tested in all four directions — which reactions drive biomass flux, and how the models group by them. &nbsp;·&nbsp; <a href="/">← explorer</a> · <a href="/static/template_quality.html">Template Quality</a></p>
+</header>
+
+<section>
+ <h2>What this is</h2>
+ <p class="caption">
+   For <b id="nmodels">every</b> core model, each reaction was set — one at a time, from the model's default — to
+   <code>&lt;</code> reverse, <code>&gt;</code> forward, <code>=</code> reversible, and <code>?</code> off/knockout, re-solving biomass growth each time.
+   A reaction's <b>direction-sensitivity</b> for a model is the spread of growth across those four options; <b>knockout-essential</b>
+   means growth collapses when it is off. Aggregated over all models this ranks which reactions most control biological flux;
+   the models are then clustered by <em>which reactions</em> most influence their growth.
+ </p>
+ <p class="caption muted" id="meta"></p>
+</section>
+
+<section>
+ <h2>Most influential reactions</h2>
+ <div class="controls">
+   <span class="muted">rank by:</span>
+   <button class="metric active" data-m="n_sensitive">models sensitive</button>
+   <button class="metric" data-m="mean_spread">mean Δ growth</button>
+   <button class="metric" data-m="max_spread">max Δ growth</button>
+   <button class="metric" data-m="n_essential">knockout-essential</button>
+   <button class="metric" data-m="mean_boost">mean boost</button>
+ </div>
+ <div id="barchart"></div>
+</section>
+
+<section>
+ <h2>Reaction importance table <span class="muted" style="font-size:12px">(top 400 — click a header to sort)</span></h2>
+ <div class="controls"><input type="text" id="tsearch" placeholder="filter by id or name…"></div>
+ <div class="tablewrap"><table id="imptable"></table></div>
+</section>
+
+<section>
+ <h2>Model clusters <span class="muted" style="font-size:12px">— grouped by which reactions most influence each model's growth (KMeans on top-150 reactions, PCA projection)</span></h2>
+ <p class="caption muted" id="clmeta"></p>
+ <div class="scatter-wrap">
+   <div id="scatter"></div>
+   <div class="cl-legend">
+     <div id="cl-list"></div>
+     <div class="cl-sig" id="cl-sig"><span class="muted">Click a cluster to see its signature reactions.</span></div>
+   </div>
+ </div>
+</section>
+
+<script>
+const CL_COLORS = ['#1f77b4','#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf'];
+let D = null, curMetric = 'n_sensitive', sortKey = 'n_sensitive', sortDir = -1, selCluster = null;
+
+function fmt(v){ return typeof v==='number' ? (Number.isInteger(v)?v.toLocaleString():v.toFixed(2)) : (v||''); }
+
+function renderBars(){
+  const rows = [...D.importance_top].sort((a,b)=> (b[curMetric]||0)-(a[curMetric]||0)).slice(0,25);
+  const max = Math.max(...rows.map(r=>r[curMetric]||0), 1e-9);
+  document.getElementById('barchart').innerHTML = rows.map(r=>{
+    const w = ((r[curMetric]||0)/max*100).toFixed(1);
+    const lab = `${r.base}${r.name?' · '+r.name:''}`;
+    return `<div class="bar-row"><span class="bar-lab" title="${lab.replace(/"/g,'')}">`
+      + `<a href="#" onclick="return false">${r.base}</a> <span class="muted">${(r.name||'').slice(0,30)}</span></span>`
+      + `<span class="bar-track"><span class="bar-fill" style="width:${w}%"></span></span>`
+      + `<span class="bar-val">${fmt(r[curMetric]||0)}</span></div>`;
+  }).join('');
+}
+
+const COLS = [
+  {k:'base',l:'rxn',c:'l'},{k:'name',l:'name',c:'l'},{k:'n_present',l:'present'},
+  {k:'n_sensitive',l:'sensitive'},{k:'frac_sensitive',l:'% sens'},{k:'mean_spread',l:'mean Δ'},
+  {k:'max_spread',l:'max Δ'},{k:'n_essential',l:'ess (off)'},{k:'n_boost',l:'#boost'},{k:'mean_boost',l:'mean boost'},
+];
+function renderTable(){
+  const q=(document.getElementById('tsearch').value||'').toLowerCase();
+  let rows=[...D.importance_top];
+  if(q) rows=rows.filter(r=>r.base.toLowerCase().includes(q)||(r.name||'').toLowerCase().includes(q));
+  rows.sort((a,b)=>{ const x=a[sortKey],y=b[sortKey];
+    if(typeof x==='string'||typeof y==='string') return sortDir*String(x||'').localeCompare(String(y||''));
+    return sortDir*((x??0)-(y??0)); });
+  const head='<thead><tr>'+COLS.map(c=>`<th class="${c.c||''}" data-k="${c.k}">${c.l}${sortKey===c.k?(sortDir<0?' ▼':' ▲'):''}</th>`).join('')+'</tr></thead>';
+  const body='<tbody>'+rows.slice(0,400).map(r=>'<tr>'+COLS.map(c=>{
+    const v=r[c.k]; return `<td class="${c.c||''}">${c.c==='l'?(v||''):fmt(v)}</td>`;
+  }).join('')+'</tr>').join('')+'</tbody>';
+  const t=document.getElementById('imptable'); t.innerHTML=head+body;
+  t.querySelectorAll('th').forEach(th=>th.addEventListener('click',()=>{
+    const k=th.dataset.k; if(sortKey===k) sortDir=-sortDir; else {sortKey=k; sortDir=-1;} renderTable();
+  }));
+}
+
+function renderScatter(){
+  const cl=D.clustering, pts=cl.models;
+  const xs=pts.map(p=>p.x), ys=pts.map(p=>p.y);
+  const xmin=Math.min(...xs),xmax=Math.max(...xs),ymin=Math.min(...ys),ymax=Math.max(...ys);
+  const W=720,H=470,P=34;
+  const X=x=>P+(x-xmin)/((xmax-xmin)||1)*(W-2*P);
+  const Y=y=>H-P-(y-ymin)/((ymax-ymin)||1)*(H-2*P);
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:760px;background:#fff;border:1px solid #e6e6e6;border-radius:6px">`;
+  s+=`<line class="ax" x1="${P}" y1="${H-P}" x2="${W-P}" y2="${H-P}"/><line class="ax" x1="${P}" y1="${P}" x2="${P}" y2="${H-P}"/>`;
+  s+=`<text class="axlab" x="${W/2}" y="${H-8}" text-anchor="middle">PC1 (${(cl.pca_explained[0]*100).toFixed(1)}%)</text>`;
+  s+=`<text class="axlab" transform="translate(12,${H/2}) rotate(-90)" text-anchor="middle">PC2 (${(cl.pca_explained[1]*100).toFixed(1)}%)</text>`;
+  for(const p of pts){
+    const dim = (selCluster!=null && p.c!==selCluster);
+    s+=`<circle cx="${X(p.x).toFixed(1)}" cy="${Y(p.y).toFixed(1)}" r="${dim?1.6:2.3}" fill="${CL_COLORS[p.c%10]}" `
+      +`fill-opacity="${dim?0.12:0.62}"><title>${p.id}\ncluster ${p.c} · baseline growth ${p.baseline}\ntop reaction: ${p.top||'—'}</title></circle>`;
+  }
+  s+='</svg>';
+  document.getElementById('scatter').innerHTML=s;
+}
+function renderClusterList(){
+  const cl=D.clustering;
+  document.getElementById('cl-list').innerHTML = cl.clusters.map(c=>
+    `<div class="cl-item ${selCluster===c.id?'sel':''}" data-c="${c.id}">`
+    +`<span class="cl-sw" style="background:${CL_COLORS[c.id%10]}"></span>`
+    +`cluster ${c.id} <span class="muted">— ${c.size} models · mean growth ${c.mean_baseline}</span></div>`).join('');
+  document.getElementById('cl-list').querySelectorAll('.cl-item').forEach(el=>
+    el.addEventListener('click',()=>{ const c=+el.dataset.c; selCluster=(selCluster===c?null:c); renderScatter(); renderClusterList(); renderSig(); }));
+}
+function renderSig(){
+  const host=document.getElementById('cl-sig');
+  if(selCluster==null){ host.innerHTML='<span class="muted">Click a cluster to see its signature reactions.</span>'; return; }
+  const c=D.clustering.clusters.find(x=>x.id===selCluster);
+  const rows=(c.signature||[]).map(s=>`<tr><td class="l">${s.base}</td><td class="l">${(s.name||'').slice(0,40)}</td><td>${s.mean_influence}</td></tr>`).join('');
+  host.innerHTML=`<h4>Cluster ${c.id} — ${c.size} models · mean growth ${c.mean_baseline}</h4>`
+    +`<div class="muted">signature reactions (highest mean within-model influence):</div>`
+    +`<table><thead><tr><th class="l">rxn</th><th class="l">name</th><th>influence</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+fetch('/data/reaction_importance.json').then(r=>{ if(!r.ok) throw new Error('not built'); return r.json(); })
+ .then(d=>{
+   D=d;
+   document.getElementById('nmodels').textContent = `all ${d.n_models.toLocaleString()}`;
+   document.getElementById('meta').textContent =
+     `Generated ${d.generated} · ${d.n_models.toLocaleString()} models · ${d.n_errors} errors · ${d.importance_top.length} reactions ranked · ${d.option_note}`;
+   document.getElementById('clmeta').textContent =
+     `k=${d.clustering.k} clusters (silhouette ${d.clustering.silhouette}) · ${d.clustering.feature_reactions.length} reactions as features · PCA variance explained PC1 ${(d.clustering.pca_explained[0]*100).toFixed(1)}%, PC2 ${(d.clustering.pca_explained[1]*100).toFixed(1)}%`;
+   renderBars(); renderTable(); renderScatter(); renderClusterList(); renderSig();
+   document.querySelectorAll('button.metric').forEach(b=>b.addEventListener('click',()=>{
+     document.querySelectorAll('button.metric').forEach(x=>x.classList.remove('active'));
+     b.classList.add('active'); curMetric=b.dataset.m; renderBars();
+   }));
+   document.getElementById('tsearch').addEventListener('input', renderTable);
+ })
+ .catch(e=>{ document.getElementById('meta').textContent='Data not available: '+e.message+' — run scripts/build_reaction_importance.py'; });
+</script>
+</body></html>

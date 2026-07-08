@@ -1,0 +1,1236 @@
+{
+  "n_reactions_total": 56012,
+  "n_changed": 44,
+  "transitions": {
+    "<->=": 8,
+    ">->=": 6,
+    "<->>": 30
+  },
+  "deciding_heuristic": {
+    "ATP synthase": 14,
+    "ABC transporter": 30
+  },
+  "n_models_all_with_change": 5121,
+  "n_models_panel_with_change": 97,
+  "panel_fba": {
+    "n_models": 100,
+    "n_grow_flips": 0,
+    "n_flux_changes": 91,
+    "changed_models": [
+      {
+        "model_id": "GCF_000010305.1",
+        "old_flux": 10.03101464340066,
+        "new_flux": 38.843134912889454,
+        "delta_flux": 28.812120269488794,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_001262075.1",
+        "old_flux": 9.717603998405284,
+        "new_flux": 37.45335886403985,
+        "delta_flux": 27.735754865634565,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_002005425.1",
+        "old_flux": 9.283379930098473,
+        "new_flux": 36.5284127126182,
+        "delta_flux": 27.245032782519726,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_013377295.1",
+        "old_flux": 31.952823867677992,
+        "new_flux": 58.39075090505671,
+        "delta_flux": 26.43792703737872,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000046685.1",
+        "old_flux": 2.8785701105975354,
+        "new_flux": 28.301924935208863,
+        "delta_flux": 25.423354824611327,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000020645.1",
+        "old_flux": 9.755319880784768,
+        "new_flux": 34.192976611752734,
+        "delta_flux": 24.437656730967966,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000025725.1",
+        "old_flux": 22.55336619797348,
+        "new_flux": 46.986179579110306,
+        "delta_flux": 24.432813381136825,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000599545.1",
+        "old_flux": 57.355366971109,
+        "new_flux": 80.29751375955252,
+        "delta_flux": 22.942146788443516,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000756615.1",
+        "old_flux": 29.647484003456363,
+        "new_flux": 51.88309700582644,
+        "delta_flux": 22.23561300237008,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_006874645.1",
+        "old_flux": 11.932481679572781,
+        "new_flux": 34.111065629690266,
+        "delta_flux": 22.178583950117485,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000092365.1",
+        "old_flux": 25.622428849317657,
+        "new_flux": 47.78080351612133,
+        "delta_flux": 22.158374666803674,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_003143535.1",
+        "old_flux": 5.9689857818875565,
+        "new_flux": 28.105124407333218,
+        "delta_flux": 22.13613862544566,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_001632845.1",
+        "old_flux": 10.848581466609062,
+        "new_flux": 32.85248249783995,
+        "delta_flux": 22.00390103123089,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_002082765.1",
+        "old_flux": 21.99136179308766,
+        "new_flux": 43.98272358617574,
+        "delta_flux": 21.99136179308808,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000007945.1",
+        "old_flux": 21.99136179308771,
+        "new_flux": 43.98272358617554,
+        "delta_flux": 21.99136179308783,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000968135.1",
+        "old_flux": 24.335856231548846,
+        "new_flux": 46.238126839942886,
+        "delta_flux": 21.90227060839404,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_005280295.1",
+        "old_flux": 3.232536122581011,
+        "new_flux": 24.919397430280938,
+        "delta_flux": 21.686861307699928,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_002005145.1",
+        "old_flux": 21.481677203429353,
+        "new_flux": 42.96335440685879,
+        "delta_flux": 21.481677203429438,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_001636925.1",
+        "old_flux": 13.124324097308994,
+        "new_flux": 34.49280911162048,
+        "delta_flux": 21.36848501431149,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_900186975.1",
+        "old_flux": 5.84452181802665,
+        "new_flux": 27.16426161085393,
+        "delta_flux": 21.31973979282728,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000284095.1",
+        "old_flux": 21.143928837993144,
+        "new_flux": 42.287857675986245,
+        "delta_flux": 21.1439288379931,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_003352785.1",
+        "old_flux": 4.853299615843551,
+        "new_flux": 25.811613935690097,
+        "delta_flux": 20.958314319846547,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_004571195.1",
+        "old_flux": 13.134920148442012,
+        "new_flux": 33.949185707562506,
+        "delta_flux": 20.814265559120493,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_002591335.1",
+        "old_flux": 62.06297323017112,
+        "new_flux": 82.75063097356139,
+        "delta_flux": 20.687657743390268,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000016345.1",
+        "old_flux": 6.8774419217223235,
+        "new_flux": 27.509767686889337,
+        "delta_flux": 20.632325765167014,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000632475.1",
+        "old_flux": 61.50174972477949,
+        "new_flux": 82.0023329663731,
+        "delta_flux": 20.50058324159361,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_004114615.1",
+        "old_flux": 3.7702202912295695,
+        "new_flux": 24.16495968076475,
+        "delta_flux": 20.39473938953518,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_001659705.1",
+        "old_flux": 20.37423392880427,
+        "new_flux": 40.748467857609,
+        "delta_flux": 20.37423392880473,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000219105.1",
+        "old_flux": 20.316861776262485,
+        "new_flux": 40.63372355252523,
+        "delta_flux": 20.316861776262748,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000725365.1",
+        "old_flux": 20.31686177626251,
+        "new_flux": 40.63372355252517,
+        "delta_flux": 20.31686177626266,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_008118345.1",
+        "old_flux": 40.633723552525225,
+        "new_flux": 60.95058532878779,
+        "delta_flux": 20.316861776262563,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000200595.1",
+        "old_flux": 20.3168617762626,
+        "new_flux": 40.6337235525251,
+        "delta_flux": 20.3168617762625,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000008165.1",
+        "old_flux": 40.633723552525105,
+        "new_flux": 60.95058532878754,
+        "delta_flux": 20.316861776262435,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000164695.2",
+        "old_flux": 20.3168617762626,
+        "new_flux": 40.63372355252487,
+        "delta_flux": 20.31686177626227,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_003261575.2",
+        "old_flux": 40.63372355252427,
+        "new_flux": 60.95058532878489,
+        "delta_flux": 20.316861776260616,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000025265.1",
+        "old_flux": 33.81638918064934,
+        "new_flux": 54.10622268903861,
+        "delta_flux": 20.289833508389272,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_003441595.1",
+        "old_flux": 27.024488916243556,
+        "new_flux": 47.29285560342652,
+        "delta_flux": 20.26836668718296,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_002007605.1",
+        "old_flux": 6.754292352790182,
+        "new_flux": 27.017169411160733,
+        "delta_flux": 20.26287705837055,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_001610875.1",
+        "old_flux": 27.01716941116088,
+        "new_flux": 47.28004646953102,
+        "delta_flux": 20.262877058370144,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000298115.2",
+        "old_flux": 17.296123030781033,
+        "new_flux": 37.42823136635616,
+        "delta_flux": 20.132108335575126,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000015745.1",
+        "old_flux": 20.096604377241498,
+        "new_flux": 40.19320875448271,
+        "delta_flux": 20.096604377241214,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000746585.1",
+        "old_flux": 1.6735298124274232,
+        "new_flux": 21.755887561556595,
+        "delta_flux": 20.082357749129173,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000600005.1",
+        "old_flux": 19.9017252805645,
+        "new_flux": 39.80345056112913,
+        "delta_flux": 19.901725280564634,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_001020955.1",
+        "old_flux": 6.61664045374275,
+        "new_flux": 26.466561814970845,
+        "delta_flux": 19.849921361228095,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000195535.1",
+        "old_flux": 16.97025343302671,
+        "new_flux": 36.74032489469299,
+        "delta_flux": 19.77007146166628,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000023265.1",
+        "old_flux": 11.086354665234959,
+        "new_flux": 30.724986788255695,
+        "delta_flux": 19.638632123020734,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_001688725.2",
+        "old_flux": 17.730276397278733,
+        "new_flux": 37.262683285823435,
+        "delta_flux": 19.532406888544703,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000014285.1",
+        "old_flux": 19.4635836350189,
+        "new_flux": 38.9271672700384,
+        "delta_flux": 19.463583635019504,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000011305.1",
+        "old_flux": 19.46358363501845,
+        "new_flux": 38.92716727003777,
+        "delta_flux": 19.463583635019322,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_002951835.1",
+        "old_flux": 19.46358363501893,
+        "new_flux": 38.927167270037685,
+        "delta_flux": 19.463583635018754,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000521655.1",
+        "old_flux": 38.92716727003894,
+        "new_flux": 58.390750905056606,
+        "delta_flux": 19.463583635017663,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000009905.1",
+        "old_flux": 29.60427959465835,
+        "new_flux": 48.96919837422267,
+        "delta_flux": 19.36491877956432,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_001544015.1",
+        "old_flux": 18.790672263311798,
+        "new_flux": 38.02707908301502,
+        "delta_flux": 19.23640681970322,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000196355.1",
+        "old_flux": 2.387906305242706,
+        "new_flux": 21.455912391218558,
+        "delta_flux": 19.068006085975853,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_001021065.1",
+        "old_flux": 38.056529168426785,
+        "new_flux": 57.0847937526402,
+        "delta_flux": 19.028264584213417,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000014425.1",
+        "old_flux": 8.656704531092302,
+        "new_flux": 27.61868901448234,
+        "delta_flux": 18.961984483390037,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_001746835.1",
+        "old_flux": 18.78361092379676,
+        "new_flux": 37.56722184759353,
+        "delta_flux": 18.78361092379677,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000284415.1",
+        "old_flux": 18.6454804287713,
+        "new_flux": 37.29096085754296,
+        "delta_flux": 18.645480428771663,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000016885.1",
+        "old_flux": 18.598526624720773,
+        "new_flux": 37.19705324944157,
+        "delta_flux": 18.5985266247208,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000016745.1",
+        "old_flux": 18.595707924653947,
+        "new_flux": 37.19141584930798,
+        "delta_flux": 18.595707924654032,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_003966365.1",
+        "old_flux": 18.50522217369741,
+        "new_flux": 37.01044434739486,
+        "delta_flux": 18.50522217369745,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000260985.4",
+        "old_flux": 6.128318407813911,
+        "new_flux": 24.51327363125541,
+        "delta_flux": 18.384955223441498,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_001688905.2",
+        "old_flux": 18.361325173560406,
+        "new_flux": 36.722650347120855,
+        "delta_flux": 18.36132517356045,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_002302615.1",
+        "old_flux": 18.26420635630907,
+        "new_flux": 36.52841271261833,
+        "delta_flux": 18.264206356309256,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000018405.1",
+        "old_flux": 17.801925100180362,
+        "new_flux": 35.603850200360604,
+        "delta_flux": 17.80192510018024,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_009688965.1",
+        "old_flux": 19.979880260577715,
+        "new_flux": 37.46227548858297,
+        "delta_flux": 17.482395228005252,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000233715.2",
+        "old_flux": 26.203413606035205,
+        "new_flux": 43.67235601005982,
+        "delta_flux": 17.468942404024617,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000599985.1",
+        "old_flux": 17.348611677350515,
+        "new_flux": 34.69722335470103,
+        "delta_flux": 17.348611677350515,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000014865.1",
+        "old_flux": 17.145791522605457,
+        "new_flux": 34.29158304521274,
+        "delta_flux": 17.145791522607283,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000968535.2",
+        "old_flux": 17.117996920472144,
+        "new_flux": 34.235993840945,
+        "delta_flux": 17.117996920472855,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000828835.1",
+        "old_flux": 22.799681146459356,
+        "new_flux": 39.899442006303424,
+        "delta_flux": 17.099760859844068,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000010625.1",
+        "old_flux": 16.907571379539423,
+        "new_flux": 33.81514275907892,
+        "delta_flux": 16.907571379539494,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000253035.1",
+        "old_flux": 16.852564496870905,
+        "new_flux": 33.70512899374065,
+        "delta_flux": 16.852564496869746,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_003355515.1",
+        "old_flux": 16.80758425431891,
+        "new_flux": 33.6151685086381,
+        "delta_flux": 16.80758425431919,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_001443605.1",
+        "old_flux": 23.43138806886844,
+        "new_flux": 40.18670744277905,
+        "delta_flux": 16.755319373910613,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000164985.3",
+        "old_flux": 32.85248249783978,
+        "new_flux": 49.27872374676014,
+        "delta_flux": 16.426241248920363,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_900232105.1",
+        "old_flux": 16.42624124891996,
+        "new_flux": 32.85248249784001,
+        "delta_flux": 16.426241248920046,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000266885.1",
+        "old_flux": 16.426241248919997,
+        "new_flux": 32.85248249783996,
+        "delta_flux": 16.42624124891996,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000284315.1",
+        "old_flux": 5.3915186020870705,
+        "new_flux": 21.566074408347752,
+        "delta_flux": 16.17455580626068,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000270285.1",
+        "old_flux": 15.252528487910089,
+        "new_flux": 30.5050569758201,
+        "delta_flux": 15.252528487910011,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000724625.1",
+        "old_flux": 15.026950836324941,
+        "new_flux": 30.05390167264971,
+        "delta_flux": 15.02695083632477,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_002288005.1",
+        "old_flux": 7.442021074315232,
+        "new_flux": 22.32606322294585,
+        "delta_flux": 14.88404214863062,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000025185.1",
+        "old_flux": 13.919550565551324,
+        "new_flux": 27.839101131102662,
+        "delta_flux": 13.919550565551338,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_009649955.1",
+        "old_flux": 13.919550565551345,
+        "new_flux": 27.839101131102684,
+        "delta_flux": 13.919550565551338,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000973725.1",
+        "old_flux": 9.654681023820993,
+        "new_flux": 19.62140114070978,
+        "delta_flux": 9.966720116888785,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_001888165.1",
+        "old_flux": 16.426241248919975,
+        "new_flux": 25.89590966790472,
+        "delta_flux": 9.469668418984746,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000224745.1",
+        "old_flux": 8.864093065885925,
+        "new_flux": 16.071265562877976,
+        "delta_flux": 7.207172496992051,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000008945.1",
+        "old_flux": 18.67167814508078,
+        "new_flux": 25.787851085475108,
+        "delta_flux": 7.116172940394328,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_000179915.2",
+        "old_flux": 20.6876577433903,
+        "new_flux": 25.791706703027653,
+        "delta_flux": 5.104048959637353,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_002302535.1",
+        "old_flux": 15.040986688726775,
+        "new_flux": 19.966479803905692,
+        "delta_flux": 4.9254931151789165,
+        "old_grows": true,
+        "new_grows": true
+      },
+      {
+        "model_id": "GCF_900066015.1",
+        "old_flux": 15.530590993344296,
+        "new_flux": 18.2186980319774,
+        "delta_flux": 2.6881070386331043,
+        "old_grows": true,
+        "new_grows": true
+      }
+    ]
+  },
+  "reactions": [
+    {
+      "rxn_id": "rxn08173",
+      "name": "F(1)-ATPase",
+      "old": "<",
+      "new": "=",
+      "heuristic": "ATP synthase",
+      "status": "ATPS",
+      "is_transport": true,
+      "n_models_all": 5121,
+      "n_models_panel": 97
+    },
+    {
+      "rxn_id": "rxn09528",
+      "name": "ATP synthase, vacuole",
+      "old": "<",
+      "new": "=",
+      "heuristic": "ATP synthase",
+      "status": "ATPS",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn09529",
+      "name": "ATP synthase subunit alpha, mitochondrial",
+      "old": "<",
+      "new": "=",
+      "heuristic": "ATP synthase",
+      "status": "ATPS",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn09530",
+      "name": "ATP synthase, Golgi Apparatus",
+      "old": "<",
+      "new": "=",
+      "heuristic": "ATP synthase",
+      "status": "ATPS",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn10042",
+      "name": "coupling factors (F0, F1 and CF1)",
+      "old": "<",
+      "new": "=",
+      "heuristic": "ATP synthase",
+      "status": "ATPS",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn10443",
+      "name": "H+-exporting ATPase",
+      "old": ">",
+      "new": "=",
+      "heuristic": "ATP synthase",
+      "status": "ATPS",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn11221",
+      "name": "choline ABC transporter permease and substrate binding protein",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn13766",
+      "name": "ATP synthase (three protons for one ATP)",
+      "old": "<",
+      "new": "=",
+      "heuristic": "ATP synthase",
+      "status": "ATPS",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn27727",
+      "name": "coupling factors (F0, F1 and CF1)",
+      "old": ">",
+      "new": "=",
+      "heuristic": "ATP synthase",
+      "status": "ATPS",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn29496",
+      "name": "TRANS-RXNAVI-26452.ce",
+      "old": ">",
+      "new": "=",
+      "heuristic": "ATP synthase",
+      "status": "ATPS",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn30646",
+      "name": "Complex_V",
+      "old": "<",
+      "new": "=",
+      "heuristic": "ATP synthase",
+      "status": "ATPS",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn31585",
+      "name": "R_Light_rxn_2",
+      "old": "<",
+      "new": "=",
+      "heuristic": "ATP synthase",
+      "status": "ATPS",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34104",
+      "name": "JM_Cre_623",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34105",
+      "name": "JM_Cre_624",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34107",
+      "name": "JM_Cre_626",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34108",
+      "name": "JM_Cre_627",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34109",
+      "name": "JM_Cre_628",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34112",
+      "name": "JM_Cre_631",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34113",
+      "name": "JM_Cre_632",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34114",
+      "name": "JM_Cre_633",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34115",
+      "name": "JM_Cre_634",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34116",
+      "name": "JM_Cre_635",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34117",
+      "name": "JM_Cre_636",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34119",
+      "name": "JM_Cre_638",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34120",
+      "name": "JM_Cre_639",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34121",
+      "name": "JM_Cre_640",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34122",
+      "name": "JM_Cre_641",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34123",
+      "name": "JM_Cre_643",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34124",
+      "name": "JM_Cre_644",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34125",
+      "name": "JM_Cre_645",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34126",
+      "name": "JM_Cre_646",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34128",
+      "name": "JM_Cre_649",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34129",
+      "name": "JM_Cre_650",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34130",
+      "name": "JM_Cre_651",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34131",
+      "name": "JM_Cre_652",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34132",
+      "name": "JM_Cre_653",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34133",
+      "name": "JM_Cre_654",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34134",
+      "name": "JM_Cre_655",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34135",
+      "name": "JM_Cre_656",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34136",
+      "name": "JM_Cre_657",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn34137",
+      "name": "JM_Cre_658",
+      "old": "<",
+      "new": ">",
+      "heuristic": "ABC transporter",
+      "status": "ABCT: -1.0",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn38049",
+      "name": "ATPSYN-RXN.cd",
+      "old": ">",
+      "new": "=",
+      "heuristic": "ATP synthase",
+      "status": "ATPS",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn38050",
+      "name": "ATPSYN-RXN.cm",
+      "old": ">",
+      "new": "=",
+      "heuristic": "ATP synthase",
+      "status": "ATPS",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    },
+    {
+      "rxn_id": "rxn38051",
+      "name": "ATPSYN-RXN.cn",
+      "old": ">",
+      "new": "=",
+      "heuristic": "ATP synthase",
+      "status": "ATPS",
+      "is_transport": true,
+      "n_models_all": 0,
+      "n_models_panel": 0
+    }
+  ]
+}

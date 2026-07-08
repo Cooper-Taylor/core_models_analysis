@@ -8,6 +8,8 @@ pandas>=2.0
 numpy>=1.24
 matplotlib>=3.7
 scipy>=1.10
+plotly>=5.20
+kaleido          # static PNG export for plotly (scripts/build_presentation_figures.py)
 jupyter>=1.0
 jupyterlab>=4.0
 nbformat>=5.9

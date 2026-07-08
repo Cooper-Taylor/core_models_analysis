@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-25T03:28:09Z",
+  "generated_at": "2026-06-30T16:40:51Z",
   "panel_size": 100,
   "n_msdb_rxns": 56012,
-  "n_panel_rxns": 46633,
+  "n_panel_rxns": 46612,
   "variants": [
     {
       "tag": "baseline",
@@ -18,9 +18,9 @@
       "n_models_flux_change": 0,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 10564,
-        "new_rev=<": 2078,
-        "new_rev==": 12268,
+        "new_rev=>": 10588,
+        "new_rev=<": 2040,
+        "new_rev==": 12282,
         "new_rev=?": 31102
       }
     },
@@ -38,9 +38,9 @@
       "n_models_flux_change": 24,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 10972,
-        "new_rev=<": 2207,
-        "new_rev==": 11731,
+        "new_rev=>": 10996,
+        "new_rev=<": 2169,
+        "new_rev==": 11745,
         "new_rev=?": 31102
       }
     },
@@ -61,9 +61,9 @@
       "n_models_flux_change": 95,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 11327,
-        "new_rev=<": 2399,
-        "new_rev==": 11184,
+        "new_rev=>": 11351,
+        "new_rev=<": 2361,
+        "new_rev==": 11198,
         "new_rev=?": 31102
       }
     },
@@ -77,13 +77,13 @@
         "Park 2016"
       ],
       "section": "\u00a7 3.3 (fallback)",
-      "n_changed_vs_baseline": 1767,
+      "n_changed_vs_baseline": 1753,
       "n_models_flip": 0,
       "n_models_flux_change": 95,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 9182,
-        "new_rev=<": 1693,
+        "new_rev=>": 9212,
+        "new_rev=<": 1663,
         "new_rev==": 14035,
         "new_rev=?": 31102
       }
@@ -103,9 +103,9 @@
       "n_models_flux_change": 0,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 10340,
-        "new_rev=<": 2066,
-        "new_rev==": 12504,
+        "new_rev=>": 10364,
+        "new_rev=<": 2028,
+        "new_rev==": 12518,
         "new_rev=?": 31102
       }
     },
@@ -124,9 +124,9 @@
       "n_models_flux_change": 0,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 10105,
-        "new_rev=<": 1962,
-        "new_rev==": 12843,
+        "new_rev=>": 10129,
+        "new_rev=<": 1924,
+        "new_rev==": 12857,
         "new_rev=?": 31102
       }
     },
@@ -145,9 +145,9 @@
       "n_models_flux_change": 95,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 9433,
-        "new_rev==": 13563,
-        "new_rev=<": 1914,
+        "new_rev=>": 9457,
+        "new_rev==": 13577,
+        "new_rev=<": 1876,
         "new_rev=?": 31102
       }
     },
@@ -166,9 +166,9 @@
       "n_models_flux_change": 62,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 10513,
-        "new_rev=<": 2079,
-        "new_rev==": 12318,
+        "new_rev=>": 10537,
+        "new_rev=<": 2041,
+        "new_rev==": 12332,
         "new_rev=?": 31102
       }
     },
@@ -184,9 +184,9 @@
       "n_models_flux_change": 0,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 10579,
-        "new_rev=<": 2078,
-        "new_rev==": 12253,
+        "new_rev=>": 10603,
+        "new_rev=<": 2040,
+        "new_rev==": 12267,
         "new_rev=?": 31102
       }
     },
@@ -202,9 +202,9 @@
       "n_models_flux_change": 75,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 10180,
-        "new_rev=<": 2006,
-        "new_rev==": 12724,
+        "new_rev=>": 10204,
+        "new_rev=<": 1968,
+        "new_rev==": 12738,
         "new_rev=?": 31102
       }
     },
@@ -228,9 +228,9 @@
       "n_models_flux_change": 97,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 11292,
-        "new_rev=<": 2468,
-        "new_rev==": 11150,
+        "new_rev=>": 11316,
+        "new_rev=<": 2430,
+        "new_rev==": 11164,
         "new_rev=?": 31102
       }
     },
@@ -249,9 +249,9 @@
       "n_models_flux_change": 99,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 12944,
-        "new_rev=<": 3645,
-        "new_rev==": 8321,
+        "new_rev=>": 12968,
+        "new_rev=<": 3607,
+        "new_rev==": 8335,
         "new_rev=?": 31102
       }
     },
@@ -270,9 +270,9 @@
       "n_models_flux_change": 89,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 11691,
-        "new_rev=<": 2604,
-        "new_rev==": 10615,
+        "new_rev=>": 11715,
+        "new_rev=<": 2566,
+        "new_rev==": 10629,
         "new_rev=?": 31102
       }
     },
@@ -285,14 +285,14 @@
         "Wang 2021"
       ],
       "section": "\u00a7 New \u2014 dGPredictor energies",
-      "n_changed_vs_baseline": 15685,
+      "n_changed_vs_baseline": 15623,
       "n_models_flip": 1,
       "n_models_flux_change": 98,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 15461,
-        "new_rev=<": 3839,
-        "new_rev==": 14347,
+        "new_rev=>": 15469,
+        "new_rev=<": 3810,
+        "new_rev==": 14368,
         "new_rev=?": 22365
       }
     },
@@ -305,7 +305,7 @@
         "Claude Opus 4.8 (Anthropic), via the Argo gateway"
       ],
       "section": "AI / LLM",
-      "n_changed_vs_baseline": 39122,
+      "n_changed_vs_baseline": 39121,
       "n_models_flip": 41,
       "n_models_flux_change": 100,
       "rev_counts": {
@@ -327,14 +327,14 @@
         "Noor 2013"
       ],
       "section": "\u00a7 New \u2014 eQuilibrator 3.0",
-      "n_changed_vs_baseline": 7633,
+      "n_changed_vs_baseline": 7647,
       "n_models_flip": 0,
       "n_models_flux_change": 95,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 12086,
+        "new_rev=>": 12116,
         "new_rev==": 14953,
-        "new_rev=<": 2934,
+        "new_rev=<": 2904,
         "new_rev=?": 26039
       }
     },
@@ -349,13 +349,13 @@
         "Noor 2013"
       ],
       "section": "\u00a7 New \u2014 eQuilibrator 3.0",
-      "n_changed_vs_baseline": 9572,
+      "n_changed_vs_baseline": 9586,
       "n_models_flip": 83,
       "n_models_flux_change": 98,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 15177,
-        "new_rev=<": 4563,
+        "new_rev=>": 15207,
+        "new_rev=<": 4533,
         "new_rev==": 10233,
         "new_rev=?": 26039
       }
@@ -371,15 +371,35 @@
         "Noor 2012"
       ],
       "section": "\u00a7 New \u2014 consensus ensemble",
-      "n_changed_vs_baseline": 13097,
+      "n_changed_vs_baseline": 13095,
       "n_models_flip": 0,
       "n_models_flux_change": 19,
       "rev_counts": {
         "total": 56012,
-        "new_rev=>": 15402,
-        "new_rev=<": 3666,
-        "new_rev==": 18229,
+        "new_rev=>": 15430,
+        "new_rev=<": 3628,
+        "new_rev==": 18239,
         "new_rev=?": 18715
+      }
+    },
+    {
+      "tag": "kegg_implicit",
+      "title": "KEGG implicit directions (as-built model bounds)",
+      "apt_title": "The reaction directions the KEGG core models ship with (on-disk flux bounds), overlaid on the baseline cascade",
+      "description": "The direction each reaction was actually built with in the 5,683 KEGG core models, read straight from their on-disk COBRA flux bounds (lower_bound/upper_bound): (0,1000)->'>', (-1000,0)->'<', (-1000,1000)->'='. Taken as the per-reaction majority across every model containing the reaction (blocked bounds ignored; models are written in MSDB-canonical orientation, verified 0 flips). Applied as an overlay on the baseline cascade: a reaction keeps its baseline direction unless the models express one, so the diff and FBA effect isolate the models' own directionality.",
+      "citations": [
+        "ModelSEED / KBase core models \u2014 on-disk flux bounds"
+      ],
+      "section": "Model as-built",
+      "n_changed_vs_baseline": 85,
+      "n_models_flip": 17,
+      "n_models_flux_change": 100,
+      "rev_counts": {
+        "total": 56012,
+        "new_rev=>": 10640,
+        "new_rev=<": 2049,
+        "new_rev==": 12252,
+        "new_rev=?": 31071
       }
     }
   ]
