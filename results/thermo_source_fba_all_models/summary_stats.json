@@ -1,0 +1,29 @@
+{
+  "n_models": 5683,
+  "n_ok": 5683,
+  "n_errors": 0,
+  "errors": [],
+  "combined_unique_reactions_all_models": 239,
+  "combined_unique_compounds_all_models": 182,
+  "combined_reactions_with_direction_by_source": {
+    "modelseed": 202,
+    "group_contribution": 201,
+    "equilibrator": 170,
+    "dgpredictor": 141,
+    "modelseed_current": 202
+  },
+  "combined_compounds_with_energy_by_source": {
+    "modelseed": 156,
+    "group_contribution": 154,
+    "equilibrator": 143,
+    "dgpredictor": 0
+  },
+  "fba_growth_totals_by_source": {
+    "modelseed": 3610,
+    "group_contribution": 3642,
+    "equilibrator": 3570,
+    "dgpredictor": 3546,
+    "modelseed_current": 3610,
+    "implicit": 3461
+  }
+}

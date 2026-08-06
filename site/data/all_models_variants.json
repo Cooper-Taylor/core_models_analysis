@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T16:34:31Z",
+  "generated_at": "2026-07-31T19:43:46Z",
   "n_all_models": 5683,
   "variants": {
     "baseline": {
@@ -557,6 +557,36 @@
       "n_not_default_now_grew": 202,
       "n_models_flip": 336,
       "n_models_flux_change": 3595
+    },
+    "group_contribution": {
+      "tag": "group_contribution",
+      "n_all_models": 5683,
+      "n_models_containing_changed_rxn": 5681,
+      "n_rxn_instances_touched": 140984,
+      "max_increase": {
+        "model_id": "GCF_001190925.1",
+        "baseline_flux": 20.316861776262527,
+        "variant_flux": 149.41049796966618,
+        "delta_flux": 129.09363619340365,
+        "baseline_grows": true,
+        "variant_grows": true
+      },
+      "max_decrease": {
+        "model_id": "GCF_010448835.1",
+        "baseline_flux": 37.431376021389624,
+        "variant_flux": 0.0,
+        "delta_flux": -37.431376021389624,
+        "baseline_grows": true,
+        "variant_grows": false
+      },
+      "mean_flux": 47.94713671907826,
+      "median_flux": 50.42275276295804,
+      "std_flux": 42.72470916327065,
+      "n_models_grow": 3649,
+      "n_grew_default_now_not": 11,
+      "n_not_default_now_grew": 267,
+      "n_models_flip": 278,
+      "n_models_flux_change": 3660
     }
   }
 }

@@ -1,0 +1,6 @@
+hypothesis	test	n	statistic	p
+H1 ionic-strength mismatch (0.25 vs 0.10 M)	rho(diff, delta sum charge^2)	5292	0.07022	3.165e-07
+H2 net-proton handling	median diff -0.47 (H+ != 0, n=2674) vs -0.04 (H+ == 0, n=2618)	5292	3.145e+06	1.642e-10
+H2b net-proton dose response	rho(diff, net H+ coefficient)	5292	0.05172	0.0001672
+H3 stereo/isomer blindness	EC 5 isomerases with |dGP| < 0.5: 29.3% vs 6.3% baseline	335	0.229	
+H4 common-metabolite anchoring	median |diff| 0.53 (all reagents common, n=81) vs 2.79 (n=5211)	5292	9.66e+04	4.964e-17

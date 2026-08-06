@@ -102,6 +102,24 @@ def _ensure_source_snapshots() -> dict:
                 out_json=json_path,
             )
         paths[slug] = csv_path
+
+    # dGPredictor only: withhold reactions whose stored value was predicted from
+    # a KEGG reaction that is not theirs (build_dgpredictor_kegg_mask.py). The
+    # raw snapshot is left intact; a filtered copy is written next to it and used
+    # for the variant run, so the variant reflects only defensible dGPredictor
+    # directions. Rewritten every run -- it is cheap and must track the mask.
+    from build_dgpredictor_kegg_mask import load_mask
+    mask = load_mask()
+    if mask and "dgp" in paths:
+        raw = paths["dgp"]
+        filtered = raw.with_name("rxn_directions_dgp_keggmasked.csv")
+        df = pd.read_csv(raw)
+        before = len(df)
+        df = df[~df["rxn_id"].isin(mask)]
+        df.to_csv(filtered, index=False)
+        print(f"[mask] dgp: {before} -> {len(df)} reactions "
+              f"({before - len(df)} withheld, unvouched KEGG mapping) -> {filtered.name}")
+        paths["dgp"] = filtered
     return paths
 
 

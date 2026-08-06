@@ -54,3 +54,4 @@ logs/
 .venv/
 venv/
 env/
+results/reaction_effects_all/

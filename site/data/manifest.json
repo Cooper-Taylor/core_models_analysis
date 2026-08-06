@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-30T16:40:51Z",
+  "generated_at": "2026-07-31T19:42:32Z",
   "panel_size": 100,
   "n_msdb_rxns": 56012,
-  "n_panel_rxns": 46612,
+  "n_panel_rxns": 47321,
   "variants": [
     {
       "tag": "baseline",
@@ -400,6 +400,26 @@
         "new_rev=<": 2049,
         "new_rev==": 12252,
         "new_rev=?": 31071
+      }
+    },
+    {
+      "tag": "group_contribution",
+      "title": "Group Contribution directions (Jankowski 2008)",
+      "apt_title": "Group-contribution method reaction directionality (Jankowski 2008), MSDB default thermodynamic source",
+      "description": "Reaction directions from the Group Contribution method (Jankowski 2008), the thermodynamic source MSDB shipped with prior to eQuilibrator/dGPredictor integration. Read directly from each reaction's bundled 'Group contribution' dG/operator triple (results/rxn_directions_group-contribution.csv, 25,812 of ~56,000 reactions with a non-sentinel estimate). Overlaid on baseline.",
+      "citations": [
+        "Jankowski 2008"
+      ],
+      "section": "\u00a7 Thermodynamic source comparison",
+      "n_changed_vs_baseline": 5591,
+      "n_models_flip": 0,
+      "n_models_flux_change": 0,
+      "rev_counts": {
+        "total": 56012,
+        "new_rev==": 14465,
+        "new_rev=>": 10193,
+        "new_rev=<": 1730,
+        "new_rev=?": 29624
       }
     }
   ]

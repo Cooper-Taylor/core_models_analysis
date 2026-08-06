@@ -1,0 +1,17 @@
+{
+  "n_reactions_total": 56012,
+  "n_reactions_nonempty": 56002,
+  "n_compounds_total": 45708,
+  "reaction_coverage": {
+    "modelseed": 24910,
+    "group_contribution": 25826,
+    "equilibrator": 19498,
+    "dgpredictor": 10444
+  },
+  "compound_coverage": {
+    "modelseed": 19808,
+    "group_contribution": 19739,
+    "equilibrator": 16548,
+    "dgpredictor": 0
+  }
+}

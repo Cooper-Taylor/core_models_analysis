@@ -1,0 +1,12 @@
+prediction	n	rho_vs_abs_offset	p
+P1 eQuilibrator's own uncertainty	511	0.239	4.537e-08
+P4 rings	517	0.2241	2.635e-07
+P3 heavy atoms	517	0.1966	6.659e-06
+P2 conjugated bonds	517	0.1618	0.0002214
+P2c aromatic atoms	517	0.1616	0.000224
+P3b mass	517	0.16	0.0002583
+P2b fraction of bonds conjugated	517	0.1237	0.004837
+P3c distinct radius-1 fragments	517	0.1159	0.008362
+-- rotatable bonds	517	0.0884	0.04452
+-- stereocentres	517	-0.023	0.6018
+-- |charge|	517	-0.209	1.633e-06

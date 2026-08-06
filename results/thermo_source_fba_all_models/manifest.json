@@ -1,0 +1,21 @@
+{
+  "n_models": 5683,
+  "n_errors": 0,
+  "workers": 32,
+  "elapsed_s": 41.19,
+  "map_sources": [
+    "modelseed",
+    "group_contribution",
+    "equilibrator",
+    "dgpredictor",
+    "modelseed_current"
+  ],
+  "fba_sources": [
+    "modelseed",
+    "group_contribution",
+    "equilibrator",
+    "dgpredictor",
+    "modelseed_current",
+    "implicit"
+  ]
+}
