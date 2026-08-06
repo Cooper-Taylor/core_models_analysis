@@ -199,8 +199,32 @@ different rankings, and the difference is the whole story for O₂:
 - **Phosphoryl transfer is the cleanest**: 1.74 kcal/mol and *zero* reactions
   discordant by more than 15.
 
-Everything below glycosyl transfer sits at or under the baseline. **The
-disagreement is not spread across metabolism — it is concentrated in one class.**
+Everything below glycosyl transfer sits at or under the baseline.
+
+### What this table does *not* say
+
+It says no class stands out from the others. That is not the same as saying the
+classes agree. The test compares each class against the rest of the subset, so
+if disagreement were spread evenly, every class would score "no difference" —
+not because they agree, but because they are uniformly mediocre. That is close
+to what happens. Removing the quinone class entirely barely moves the totals:
+
+| | whole subset | quinones removed |
+|---|---:|---:|
+| n | 11,097 | 10,535 |
+| median \|Δ\| | 3.44 | **3.13** |
+| within 2 kcal/mol | 43.2% | **37.8%** |
+| disagree > 15 kcal/mol | 17.6% | **13.8%** |
+| disagree on **sign** | — | **22.6%** |
+
+Quinones are 5.1% of reactions and 29.3% of the total disagreement — a real,
+concentrated lump, but **71% of the disagreement is everywhere else**, diffuse
+and not attributable to any transformation class. More than one reaction in five
+still disagrees on *direction*, which is what matters for reversibility work.
+
+The structure the chemistry classification fails to find, σ finds (§4), and it
+survives removing quinones: with the class excluded, σ ≤ 3 gives median |Δ| 0.78
+and **zero** reactions above 15 kcal/mol, against 12.06 and 40.6% for σ > 30.
 
 ---
 
@@ -366,7 +390,67 @@ median signed −0.42 (no bias).
 
 ---
 
-## 5. Head-to-head against the original, and coverage
+## 5. Does the disagreement land on reactions that matter?
+
+§1 and §4 describe the database. The operational question is narrower: of the
+reactions actually present in the 5,683 Kegg2 core models, are they in the
+confident half of this comparison or the doubtful half?
+
+"Biologically significant" is operationalised two ways, both from this repo
+rather than asserted:
+
+- **prevalence** — how many of the 5,683 core models contain the reaction
+  (`site/data/reaction_model_counts.json`, field `all`);
+- **direction-sensitivity of growth** — in what fraction of models containing it
+  does swapping its bound direction move the FBA objective, aggregated across
+  all 5,683 per-model sweeps in `results/reaction_effects_all/`
+  (cached to `results/eq_vs_dgpms/rxn_growth_sensitivity.tsv`).
+
+Figure: `fig6_biological_significance.png`.
+
+### By prevalence
+
+| core models containing it | n | median \|Δ\| | in the σ ≤ 3 tier |
+|---|---:|---:|---:|
+| none | 10,979 | 3.46 | 19.9% |
+| 1–499 | 15 | 1.26 | ~53% |
+| 500–1,999 | 29 | 0.85 | **75.9%** |
+| **≥ 2,000** | 74 | **0.63** | **73.0%** |
+
+### By growth direction-sensitivity
+
+Among the 119 core-model reactions that survive into the key subset:
+
+| direction moves growth in… | n | median \|Δ\| | in the σ ≤ 3 tier |
+|---|---:|---:|---:|
+| < 25% of models | 86 | 0.86 | 65.1% |
+| 25–60% | 20 | 0.59 | 85.0% |
+| **> 60% of models** | 13 | **0.15** | **92.3%** |
+
+Core-model reactions overall are **71.4%** high-confidence against **20.5%** for
+the subset at large, with a median |Δ| of **0.70 vs 3.47 kcal/mol**.
+
+### Reading
+
+The two measures agree and point the same way: the more a reaction actually
+matters — more models carry it, and its direction more often changes predicted
+growth — the more confident dGPredictor is and the closer the two methods sit.
+Reactions where they differ by tens of kcal/mol are overwhelmingly ones that
+appear in **no** core model.
+
+This reframes §1 without contradicting it. The disagreement is real and
+widespread across the *database*, but it is concentrated in metabolism that is
+not being modelled. For the reactions the reversibility work actually touches,
+the two sources are close to interchangeable — and the residual risk there is
+direction near ΔG ≈ 0 (§4), not magnitude.
+
+Two limits. The rank correlations are weak (ρ = −0.080 for prevalence vs σ,
+ρ = −0.063 vs |Δ|) because 10,979 of 11,097 reactions sit in zero core models,
+so the distribution is too skewed for a correlation to mean much — the binned
+comparison is the meaningful view. And only 119 of the 239 core reactions reach
+the key subset, so this describes those, not all 239.
+
+## 6. Head-to-head against the original, and coverage
 
 On the 7,871 reactions covered by eQuilibrator **and both** dGPredictor
 variants, with KEGG-mismapped and eQ-sentinel rows removed from both:
@@ -394,7 +478,7 @@ The case for switching is elsewhere:
 
 ---
 
-## 6. Method-level hypotheses
+## 7. Method-level hypotheses
 
 | | result |
 |---|---|
@@ -437,6 +521,7 @@ export EQDGP_FIGS=reports/thermoComparison/figures/eq_vs_dgpms MSDB_ROOT=/scratc
 python scripts/analyze_eq_vs_dgpredictor.py     # reconciliation, tiers, mechanisms
 python scripts/analyze_eq_dgp_topdown.py        # layers 1-3 + the gauge demo
 python scripts/plot_eq_dgp_topdown.py           # fig1-fig5
+python scripts/plot_eq_dgp_biological_scatter.py  # fig6 (reads reaction_effects_all/)
 ```
 
 ## Caveats
@@ -448,6 +533,10 @@ python scripts/plot_eq_dgp_topdown.py           # fig1-fig5
   metabolite claim above is backed by the observed-disagreement column. Do not
   quote the fitted offsets alone — `compound_offsets.tsv` exists but
   `metabolite_validated.tsv` is the one to use.
+- **§5 covers 119 of the 239 core reactions** — the rest lack one of the two
+  sources or fall outside the key subset. Growth direction-sensitivity is a
+  single-reaction FBA perturbation, so it measures marginal effect in
+  isolation, not importance under simultaneous changes.
 - **The 15 kcal/mol discordance cut is chosen, not derived** (~4× baseline). The
   cascade's own reversible band is ±2.0 kcal/mol on mMdeltaG, so real direction
   flips start well below it. Class rankings are stable from >4 to >30 (§0).
@@ -462,5 +551,5 @@ python scripts/plot_eq_dgp_topdown.py           # fig1-fig5
 - The σ ≤ 3 tier is 2,272 of 11,097 reactions (20%): high precision, limited
   reach.
 - eQuilibrator here is dev's re-run, so the original-dGPredictor numbers quoted
-  from the earlier report used an older eQuilibrator. §5 holds both constant on
+  from the earlier report used an older eQuilibrator. §6 holds both constant on
   dev and is the fair comparison.
