@@ -385,7 +385,8 @@ output with no external evidence:
 | low (σ > 30) | 2,487 | 0.769 | 14.98 | 9.6% |
 
 **On its high-confidence fifth, the two methods are effectively
-interchangeable** (r = 0.993). Pooled over all tiers: r = 0.857, median 3.44,
+interchangeable** (r = 0.993) — and not one of those 2,272 reactions disagrees
+by more than 15 kcal/mol (§5). Pooled over all tiers: r = 0.857, median 3.44,
 median signed −0.42 (no bias).
 
 ---
@@ -450,6 +451,49 @@ so the distribution is too skewed for a correlation to mean much — the binned
 comparison is the meaningful view. And only 119 of the 239 core reactions reach
 the key subset, so this describes those, not all 239.
 
+### Using σ as a filter: how well does it actually work?
+
+Treating "σ above a cut" as a detector for "|Δ| > 15 kcal/mol":
+
+| cut | reactions kept | large differences removed | still > 15 among kept | median \|Δ\| kept |
+|---|---:|---:|---:|---:|
+| σ ≤ 3 | 20.5% | **100.0%** | **0** | 0.79 |
+| σ ≤ 10 | 25.7% | 99.9% | 2 | 1.06 |
+| **σ ≤ 20** | **52.6%** | **91.2%** | 171 (2.9%) | 1.76 |
+| σ ≤ 30 | 77.6% | 63.8% | 706 (8.2%) | 2.50 |
+| σ ≤ 50 | 93.3% | 32.6% | 1,313 (12.7%) | 3.04 |
+
+**Not one of the 2,272 reactions with σ ≤ 3 disagrees by more than 15 kcal/mol.**
+Zero. On this dataset σ is not merely correlated with disagreement at the low
+end — it is an exclusion guarantee.
+
+Three things follow.
+
+**Discarding only the low tier is not enough.** σ > 30 catches 63.8% of the
+large differences; the medium tier still holds 706 of them. A cut near σ ≤ 20
+is the better operating point: half the data retained, 91% of large differences
+gone.
+
+**The filter is imprecise in the discard direction.** Of the 8,825 reactions
+σ ≤ 3 throws away, **50.2% actually agreed within 5 kcal/mol**. You buy the
+guarantee by discarding a great deal of perfectly good agreement. It also
+*declines to use* dGPredictor rather than reconciling it with eQuilibrator —
+nothing is repaired, only withheld.
+
+**On core-model reactions the cost is small and the benefit is total.**
+
+| cut | core reactions kept | all reactions kept | quinone class kept |
+|---|---:|---:|---:|
+| σ ≤ 3 | **71.2%** (84/118) | 20.5% | 0.5% |
+| σ ≤ 20 | **78.8%** (93/118) | 52.6% | 4.3% |
+| σ ≤ 30 | 82.2% (97/118) | 77.6% | 22.8% |
+| unfiltered | 100% | 100% | 100% |
+
+The filter is far gentler on core-model reactions than on the database at large,
+and it removes exactly the right ones. Unfiltered, those 118 reactions have a
+maximum |Δ| of **97.58 kcal/mol with 21 above 15**; at any cut from σ ≤ 3 to
+σ ≤ 30 the maximum falls to **11.37 with none above 15**.
+
 ## 6. Head-to-head against the original, and coverage
 
 On the 7,871 reactions covered by eQuilibrator **and both** dGPredictor
@@ -494,9 +538,15 @@ The case for switching is elsewhere:
 1. **Adopt `dGPredictor-ModelSEED`; retire the KEGG-based `dGPredictor`.**
    The mis-mapping failure mode disappears, comparable coverage more than
    doubles, and you gain a confidence signal.
-2. **Use σ as the quality gate.** σ ≤ 3 gives r = 0.993 against eQuilibrator;
-   σ > 30 should not drive direction calls. This also auto-quarantines the
-   quinone failure (99.6% of it).
+2. **Use σ as the quality gate, cutting near σ ≤ 20.** That keeps 52.6% of
+   reactions and removes 91.2% of the large differences; σ ≤ 3 removes 100% but
+   retains only a fifth, and dropping merely σ > 30 catches just 63.8%. On
+   core-model reactions a σ ≤ 20 cut keeps 78.8% while taking the worst |Δ| from
+   97.58 down to 11.37 kcal/mol. It also auto-quarantines the quinone failure
+   (95.7% of the class removed at σ ≤ 20, 99.5% at σ ≤ 3). Note the filter
+   *withholds* rather than reconciles, and about half of what a σ ≤ 3 cut
+   discards would have been fine — so prefer the loosest cut that meets your
+   tolerance rather than the tightest.
 3. **Treat quinone/quinol reactions from dGPredictor as unusable** regardless of
    tier — 562 reactions, sign frequently wrong. Prefer eQuilibrator there.
 4. **Still filter eQuilibrator's sentinels** — 4,491 in the co-covered set,
@@ -548,8 +598,13 @@ python scripts/plot_eq_dgp_biological_scatter.py  # fig6 (reads reaction_effects
   large is hiding there.
 - "dGPredictor is the one at fault on quinones" is argued from the sign of a
   quinone-coupled dehydrogenation, not validated against a measurement.
-- The σ ≤ 3 tier is 2,272 of 11,097 reactions (20%): high precision, limited
-  reach.
+- The σ filter is validated against eQuilibrator, so "removes the large
+  differences" means "removes the reactions where the two sources disagree" —
+  not, on its own, "removes the reactions where dGPredictor is wrong". §2 argues
+  dGPredictor is the source at fault on quinones; elsewhere the attribution is
+  not established.
+- The zero-large-differences result at σ ≤ 3 is an empirical property of these
+  11,097 reactions, not a guarantee the model carries to new ones.
 - eQuilibrator here is dev's re-run, so the original-dGPredictor numbers quoted
   from the earlier report used an older eQuilibrator. §6 holds both constant on
   dev and is the fair comparison.
