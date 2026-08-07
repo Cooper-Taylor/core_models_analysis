@@ -494,7 +494,124 @@ and it removes exactly the right ones. Unfiltered, those 118 reactions have a
 maximum |Δ| of **97.58 kcal/mol with 21 above 15**; at any cut from σ ≤ 3 to
 σ ≤ 30 the maximum falls to **11.37 with none above 15**.
 
-## 6. Head-to-head against the original, and coverage
+---
+
+## 6. Optimising which reactions to trust
+
+§4–§5 established that σ predicts disagreement and recommended σ ≤ 20. That
+number was read off a table by hand. This section replaces it with an explicit
+optimisation. Figure: `fig7_consensus_optimization.png`.
+
+### The objective cannot be Pearson r
+
+Measured on this pool, not assumed:
+
+| subset | n | **Pearson r** | median \|Δ\| |
+|---|---:|---:|---:|
+| \|ΔG_eq\| > 50 | 1,451 | **0.774** | **11.91** |
+| \|ΔG_eq\| ≤ 10 | 7,835 | **0.366** | **2.52** |
+
+The set that agrees **4.7× better in kcal/mol scores less than half the
+correlation**, because r rewards spread rather than agreement. An optimiser told
+to maximise r would discard the near-zero bulk where most of metabolism sits.
+
+Agreement is therefore measured by **Lin's concordance correlation (CCC)**,
+maximal only on the identity line and so not inflatable by choosing a
+widely-spread subset, plus an explicit slope guard. Plain r is still reported as
+a diagnostic.
+
+### The program
+
+For a selected set `S`, with `x = ΔG_eq`, `y = ΔG_dgp`:
+
+```
+maximise    |S|                              coverage
+subject to  CCC(S)          ≥  c*            agreement about y = x
+            RMSE(S)         ≤  E*            error magnitude, kcal/mol
+            |slope(S) − 1|  ≤  δ             no systematic scaling
+```
+
+Coverage is the maximand and quality the constraint: coverage is what you want
+to be greedy about, quality is what must be guaranteed. Per-|ΔG|-decile
+retention is reported always, so the shape of the solution stays visible.
+
+### Two solvers
+
+**Oracle** selects directly on |x−y| — circular, since that is the quantity
+being guaranteed, so it is a bound and never a deliverable. It is exactly
+solvable: for fixed *k* the min-RMSE subset is the *k* smallest residuals and
+prefix-RMSE is monotone in *k*, so sort ascending and take the longest feasible
+prefix, O(n log n).
+
+**Rule** uses only features knowable *before* comparing the two sources, so it
+applies to reactions outside this set: dGPredictor σ, eQuilibrator σ, |ΔG|,
+participant count, max carbon, aromatic rings, net proton, plus chemistry-class
+exclusions.
+
+| RMSE ≤ | oracle n | **rule n** | rule coverage | CCC | median \|Δ\| | rule recovers |
+|---:|---:|---:|---:|---:|---:|---:|
+| 2 | 6,184 | 2,140 | 19.3% | 0.993 | 0.77 | 34.6% |
+| 3 | 7,464 | **3,246** | **29.3%** | 0.985 | 1.22 | 43.5% |
+| 5 | 8,911 | 5,556 | 50.1% | 0.956 | 1.69 | 62.3% |
+| 10 | 10,431 | 9,413 | 84.8% | 0.952 | 2.70 | 90.2% |
+
+The gap is itself a result: at a tight bar under half the achievable coverage is
+reachable from selection-time information. The rest of the disagreement is not
+predictable in advance.
+
+### Coordinate ascent is not enough
+
+Optimising one threshold at a time cannot loosen σ while tightening something
+else, and that is exactly the trade that pays. Coordinate ascent alone returns
+σ ≤ 7.94 (n = 2,657). Joint search by differential evolution finds **σ ≤ 14.37**
+paired with eQ σ ≤ 1.52, |ΔG| ≤ 149.5, ≤ 8 participants, ≤ 6 aromatic rings and
+|net H⁺| ≤ 4.11 — **n = 3,246, +22% coverage at the same bar.**
+
+### The shipped operating point
+
+RMSE ≤ 3 kcal/mol, chosen as ~2× the cascade's own ±2.0 kcal/mol reversible
+band, so a selected set will rarely flip a direction call on disagreement alone.
+
+**n = 3,246 (29.3%), CCC = 0.985, r = 0.985, slope = 0.987, RMSE = 3.00,
+median |Δ| = 1.22 kcal/mol.**
+
+Cross-validated 5-fold with thresholds refitted per fold: held-out coverage
+30.0%, CCC 0.9838, RMSE 3.08 — essentially identical to in-sample, so the
+thresholds are not fitted to noise.
+
+Against the hand-picked baseline, honestly: σ ≤ 20 gives 52.6% coverage at RMSE
+5.47 and CCC 0.978. The optimised rule is **not strictly better** — it buys a
+1.8× lower RMSE by giving up roughly half the coverage. Which is preferable
+depends on the tolerance you need, which is why the frontier is published rather
+than a single number.
+
+### What it gives up, and what it keeps
+
+Retention runs 27–44% across the lower eight |ΔG| deciles but only **6.8% in the
+top decile (|ΔG| 88.9–451.8)** — the O₂ / quinone regime where dGPredictor is
+both uncertain and demonstrably wrong (§2). Discarding it is the correct answer.
+
+A uniform ≥15% floor in *every* decile was tested as an anti-degeneracy guard.
+It makes every bar below RMSE ≤ 5 infeasible, precisely because of that decile,
+and costs almost nothing above it (5,414 vs 5,556 at RMSE ≤ 5). It is reported
+rather than enforced: a coverage-maximising objective does not have the
+degeneracy the floor was insuring against — that hazard belongs to maximising r.
+
+Critically, the rule is far gentler on biology than on the database:
+**66.1% of core-model reactions retained against 29.3% overall.**
+
+### Using it
+
+```python
+from optimize_thermo_consensus import load_selector
+keep = load_selector()(features_df)   # boolean mask; same contract as load_mask()
+```
+
+`scripts/verify_thermo_consensus.py` gates the result with ten assertions —
+constraints actually met, no high-leverage degeneracy, beats the baseline on
+error, oracle exactness, predicate round-trip, core-metabolism retention.
+
+## 7. Head-to-head against the original, and coverage
 
 On the 7,871 reactions covered by eQuilibrator **and both** dGPredictor
 variants, with KEGG-mismapped and eQ-sentinel rows removed from both:
@@ -522,7 +639,7 @@ The case for switching is elsewhere:
 
 ---
 
-## 7. Method-level hypotheses
+## 8. Method-level hypotheses
 
 | | result |
 |---|---|
@@ -538,15 +655,20 @@ The case for switching is elsewhere:
 1. **Adopt `dGPredictor-ModelSEED`; retire the KEGG-based `dGPredictor`.**
    The mis-mapping failure mode disappears, comparable coverage more than
    doubles, and you gain a confidence signal.
-2. **Use σ as the quality gate, cutting near σ ≤ 20.** That keeps 52.6% of
-   reactions and removes 91.2% of the large differences; σ ≤ 3 removes 100% but
-   retains only a fifth, and dropping merely σ > 30 catches just 63.8%. On
-   core-model reactions a σ ≤ 20 cut keeps 78.8% while taking the worst |Δ| from
-   97.58 down to 11.37 kcal/mol. It also auto-quarantines the quinone failure
-   (95.7% of the class removed at σ ≤ 20, 99.5% at σ ≤ 3). Note the filter
-   *withholds* rather than reconciles, and about half of what a σ ≤ 3 cut
-   discards would have been fine — so prefer the loosest cut that meets your
-   tolerance rather than the tightest.
+2. **Gate on quality, and pick the point off the frontier (§6) rather than by
+   hand.** Two defensible operating points, and the choice is a tolerance
+   decision, not a fact:
+   - *coverage-first* — σ ≤ 20: 52.6% of reactions, RMSE 5.47, CCC 0.978,
+     removes 91.2% of the large differences, keeps 78.8% of core-model
+     reactions.
+   - *accuracy-first* — the optimised rule: 29.3%, RMSE 3.00, CCC 0.985,
+     median |Δ| 1.22, keeps 66.1% of core-model reactions. Apply it with
+     `load_selector()`.
+
+   Either way the filter *withholds* rather than reconciles, and about half of
+   what a very tight cut discards would have been fine — so prefer the loosest
+   cut meeting your tolerance, not the tightest. Both auto-quarantine the
+   quinone failure.
 3. **Treat quinone/quinol reactions from dGPredictor as unusable** regardless of
    tier — 562 reactions, sign frequently wrong. Prefer eQuilibrator there.
 4. **Still filter eQuilibrator's sentinels** — 4,491 in the co-covered set,
@@ -572,6 +694,9 @@ python scripts/analyze_eq_vs_dgpredictor.py     # reconciliation, tiers, mechani
 python scripts/analyze_eq_dgp_topdown.py        # layers 1-3 + the gauge demo
 python scripts/plot_eq_dgp_topdown.py           # fig1-fig5
 python scripts/plot_eq_dgp_biological_scatter.py  # fig6 (reads reaction_effects_all/)
+python scripts/optimize_thermo_consensus.py     # frontier, fitted rule, selected set
+python scripts/verify_thermo_consensus.py       # 10 gating assertions; non-zero on failure
+python scripts/plot_thermo_consensus.py         # fig7
 ```
 
 ## Caveats
@@ -583,6 +708,10 @@ python scripts/plot_eq_dgp_biological_scatter.py  # fig6 (reads reaction_effects
   metabolite claim above is backed by the observed-disagreement column. Do not
   quote the fitted offsets alone — `compound_offsets.tsv` exists but
   `metabolite_validated.tsv` is the one to use.
+- **§6 optimises agreement between two estimators, not correctness.** A set on
+  which both agree can still be jointly wrong; the oracle bound is circular by
+  construction and is never a recommendation. The fitted thresholds are also
+  specific to this pool and this dGPredictor build — refit after either changes.
 - **§5 covers 119 of the 239 core reactions** — the rest lack one of the two
   sources or fall outside the key subset. Growth direction-sensitivity is a
   single-reaction FBA perturbation, so it measures marginal effect in
@@ -606,5 +735,5 @@ python scripts/plot_eq_dgp_biological_scatter.py  # fig6 (reads reaction_effects
 - The zero-large-differences result at σ ≤ 3 is an empirical property of these
   11,097 reactions, not a guarantee the model carries to new ones.
 - eQuilibrator here is dev's re-run, so the original-dGPredictor numbers quoted
-  from the earlier report used an older eQuilibrator. §6 holds both constant on
+  from the earlier report used an older eQuilibrator. §7 holds both constant on
   dev and is the fair comparison.

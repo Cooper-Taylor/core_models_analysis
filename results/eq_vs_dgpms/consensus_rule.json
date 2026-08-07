@@ -1,0 +1,32 @@
+{
+ "target": {
+  "rmse": 3.0,
+  "ccc": 0.95,
+  "slope_tol": 0.15,
+  "stratum_floor": 0.0
+ },
+ "thresholds": {
+  "dgp_uncertainty": 14.368344991796164,
+  "eq_uncertainty": 1.5240903000375745,
+  "abs_dg_eq": 149.50713746777433,
+  "n_participants": 8.20365008741858,
+  "max_carbon": 173.9612302964133,
+  "total_arom_rings": 6.333308815259127,
+  "abs_net_proton": 4.114401789939841
+ },
+ "dropped_classes": [],
+ "in_sample": {
+  "n": 3246,
+  "ccc": 0.9853991047734724,
+  "r": 0.9854042895693338,
+  "slope": 0.9869616665039294,
+  "rmse": 2.9978668427568294,
+  "median_absdiff": 1.2200000000000006
+ },
+ "cv_mean_test": {
+  "coverage": 0.3002625969818399,
+  "ccc": 0.9838417991035469,
+  "rmse": 3.079722464675757
+ },
+ "note": "Selects on agreement between two estimators, not on correctness."
+}
