@@ -613,6 +613,8 @@ error, oracle exactness, predicate round-trip, core-metabolism retention.
 
 ### 6a. The bigger problem: which SOURCE to use, per reaction
 
+**Full write-up: `THERMO_SOURCE_ASSIGNMENT.md`** — this is the condensed version.
+
 §6 picks a *subset* of reactions where two sources agree. That caps out around
 3,246 reactions, because it needs both present and concordant. The more useful
 question is a per-reaction **source assignment** — use eQuilibrator here, the
