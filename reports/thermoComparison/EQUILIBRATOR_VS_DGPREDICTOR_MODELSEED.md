@@ -611,6 +611,86 @@ keep = load_selector()(features_df)   # boolean mask; same contract as load_mask
 constraints actually met, no high-leverage degeneracy, beats the baseline on
 error, oracle exactness, predicate round-trip, core-metabolism retention.
 
+### 6a. The bigger problem: which SOURCE to use, per reaction
+
+§6 picks a *subset* of reactions where two sources agree. That caps out around
+3,246 reactions, because it needs both present and concordant. The more useful
+question is a per-reaction **source assignment** — use eQuilibrator here, the
+retrain there, Group Contribution where neither is better — which lets a
+reaction with only one usable source still count. Ceiling: **32,466 reactions
+(58% of the database)**, roughly 10×. Figure: `fig8_source_assignment.png`.
+
+```
+for each reaction i:  s*(i) = argmin_s ê(i,s)   over available sources
+                      keep i iff min_s ê(i,s) ≤ E*
+```
+
+Reactions do not interact, so given ê this is solved exactly by inspection. All
+the difficulty is in **ê(i,s)**, the expected absolute error of source *s* on
+reaction *i* — and cross-source disagreement cannot supply it, because that is
+*joint* error: if two sources differ by 20 kcal/mol you know one is wrong, not
+which.
+
+**Ground truth.** TECRDB experimental ΔG′°, matched by the SMILES→InChIKey
+pipeline in `/scratch/ctaylor/dgpredictor_tecrdb` — 802 `stereo_exact` matches.
+On those: eQuilibrator median |error| **0.45**, dGPredictor-ModelSEED **0.47**,
+Group Contribution **1.60** kcal/mol. No source dominates, so the assignment is
+worth making.
+
+**Why calibration needed two tiers.** TECRDB covers well-measured central
+metabolism, which is exactly the *low-σ* regime:
+
+| | TECRDB p50 / p90 / max | database p50 / p90 / max |
+|---|---|---|
+| dGPredictor-MS σ | 0.91 / 1.22 / 21.6 | **21.17 / 52.89 / 2039** |
+
+**75.6% of database reactions lie beyond the TECRDB p90** for dGPredictor (43.4%
+eQuilibrator, 27.8% GC). Fitting on gold alone and clipping assigns them the
+error learned at σ ≈ 1.2 — under-estimating error precisely where the source is
+least reliable, the opposite of what a safety filter must do. Measured: a
+gold-only fit gives ρ(σ, |err|) of **−0.066** for dGPredictor.
+
+So ê is fitted by isotonic regression (monotone, non-parametric) on two tiers:
+*gold* = |source − TECRDB|, weighted 3×; *silver* = |source − a trusted-σ
+reference|, which extends the σ range using the 20k reactions eQuilibrator
+covers. TECRDB earns eQuilibrator that role by showing σ ≤ 0.70 implies ~0.45
+kcal/mol accuracy. This lifts ρ(σ, |err|) to **+0.606** (dGPredictor) and
+**+0.386** (eQuilibrator). Group Contribution stays at −0.093 — its σ is simply
+uninformative, which is itself worth knowing.
+
+Two hard overrides sit on top, neither visible to a σ-only model: eQuilibrator
+sentinels (4,934 reactions) and dGPredictor on the quinone couple (1,028), both
+established earlier.
+
+**Validation** on held-out TECRDB (n = 241), against every fixed-source policy
+and the incumbent — dev's `Promote_Reaction_Thermodynamics_to_Canonical.py`:
+
+| strategy | median | **mean** | p90 |
+|---|---:|---:|---:|
+| **assignment** | **0.45** | **1.03** | 2.23 |
+| always eQuilibrator | 0.47 | 1.74 | 2.23 |
+| always dGPredictor-MS | 0.52 | 1.27 | 2.96 |
+| dev priority (EQ>GC, then ML) | 0.48 | 1.75 | 2.23 |
+| always Group contribution | 1.42 | 3.59 | 10.08 |
+
+Medians are near-tied — the gain is in the **mean, 41% below the incumbent**,
+i.e. it is avoiding the catastrophic cases rather than improving typical ones.
+
+**Coverage.** At ê ≤ 2 kcal/mol: **11,576 reactions (20.7% of the database)**,
+5,370 from eQuilibrator and 6,206 from dGPredictor — **3.6× the consensus
+subset**. Group Contribution is never chosen below ê ≤ 3; it only earns
+assignments at looser tolerances where nothing else is available.
+
+```python
+from optimize_thermo_source_assignment import load_assignment
+a = load_assignment()      # rxn, chosen_source, merged_dg, merged_operator, ehat, kept
+```
+
+`scripts/verify_thermo_source_assignment.py` gates it with 12 assertions — beats
+all four baselines on mean error, both overrides fired, never assigns an absent
+source, merged ΔG matches the chosen source, and the calibration is monotone.
+
+
 ## 7. Head-to-head against the original, and coverage
 
 On the 7,871 reactions covered by eQuilibrator **and both** dGPredictor
@@ -697,6 +777,9 @@ python scripts/plot_eq_dgp_biological_scatter.py  # fig6 (reads reaction_effects
 python scripts/optimize_thermo_consensus.py     # frontier, fitted rule, selected set
 python scripts/verify_thermo_consensus.py       # 10 gating assertions; non-zero on failure
 python scripts/plot_thermo_consensus.py         # fig7
+python scripts/optimize_thermo_source_assignment.py   # per-reaction source choice (§6a)
+python scripts/verify_thermo_source_assignment.py     # 12 gating assertions
+python scripts/plot_thermo_source_assignment.py       # fig8
 ```
 
 ## Caveats
@@ -708,6 +791,11 @@ python scripts/plot_thermo_consensus.py         # fig7
   metabolite claim above is backed by the observed-disagreement column. Do not
   quote the fitted offsets alone — `compound_offsets.tsv` exists but
   `metabolite_validated.tsv` is the one to use.
+- **§6a's ê is only as good as TECRDB reach.** Gold data covers 802 reactions,
+  all low-σ central metabolism; everything beyond is calibrated against a
+  trusted-σ proxy source, which bounds a source's error rather than measuring
+  it. Group Contribution's σ carries no signal (ρ = −0.093), so its ê is close
+  to a constant.
 - **§6 optimises agreement between two estimators, not correctness.** A set on
   which both agree can still be jointly wrong; the oracle bound is circular by
   construction and is never a recommendation. The fitted thresholds are also
