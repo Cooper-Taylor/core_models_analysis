@@ -117,14 +117,20 @@ kinds of target:
 Silver *bounds* a source's error rather than measuring it, hence the lower
 weight and the separate accounting.
 
-| source | gold n | silver n | gold median err | ρ(σ, error) |
+| source | gold n | silver n | gold median err | ρ(σ, **fitting target**) |
 |---|---:|---:|---:|---:|
 | dGPredictor-MS | 802 | 11,183 | 0.475 | **+0.612** |
 | eQuilibrator | 794 | 4,011 | 0.454 | **+0.354** |
 | Group Contribution | 802 | 9,808 | 1.600 | **−0.082** |
 
-The two-tier fit takes dGPredictor from −0.066 to **+0.612**. Group
-Contribution stays negative: **its self-reported uncertainty carries no
+**Read that last column carefully.** It is the correlation against the
+*combined fitting target*, which silver dominates (11,183 vs 802 points for
+dGPredictor). Silver is `|source − eQuilibrator|`, so +0.612 mostly says *σ
+predicts cross-source disagreement well* — which is what makes the extrapolation
+behave, but it is **not** the same as "σ predicts true error". §5b measures that
+separately, and the number is much smaller.
+
+Group Contribution stays negative: **its self-reported uncertainty carries no
 information**, so its `ê` is effectively a constant. That is a finding in its
 own right.
 
@@ -155,6 +161,61 @@ Group Contribution, then the ML tier, lowest reported error within a tier.
 Medians are near-tied. **The gain is in the mean — 41% below the incumbent —
 which means the algorithm is avoiding catastrophic cases, not improving typical
 ones.** For direction calls that is the failure mode that matters.
+
+## 5b. How close is ê to the true error?
+
+The validation above shows the *assignment* beats the baselines. This asks a
+narrower and more sceptical question: as a predictor of a source's actual error,
+how good is ê? Measured on held-out TECRDB over 20 random 70/30 splits.
+
+| source | median ê predicted | median actual error | P(actual ≤ ê) | ρ(ê, actual) |
+|---|---:|---:|---:|---:|
+| dGPredictor-MS | 1.99 | **0.50** | 77.7% | **0.111** |
+| eQuilibrator | 1.83 | **0.45** | 76.9% | **0.124** |
+| Group Contribution | 5.79 | 1.65 | 75.6% | 0.236 |
+
+Three things follow, and they are not all favourable.
+
+**ê is conservative, by roughly 4×.** It predicts ~2 kcal/mol where the truth is
+~0.5, and it is an upper bound on the actual error about 77% of the time. For a
+safety filter that is the right direction to err.
+
+**The promise it makes is kept.** When ê says "≤ 2 kcal/mol", the actual error is
+≤ 2 in **86.8%** of cases for dGPredictor and **91.1%** for eQuilibrator. This is
+the number to quote for "how much can I trust the tolerance".
+
+**But ê does not finely RANK reactions by error inside the well-measured
+regime.** ρ(ê, actual) is only 0.11–0.24, and at the decision boundary the
+separation is weak:
+
+| source | group | median actual | mean actual | % over 5 kcal/mol |
+|---|---|---:|---:|---:|
+| dGPredictor-MS | accepted (ê ≤ 2) | 0.46 | 1.25 | 5.4% |
+| dGPredictor-MS | rejected (ê > 2) | 0.60 | 1.44 | 6.1% |
+| eQuilibrator | accepted (ê ≤ 2) | 0.43 | **0.80** | 0.9% |
+| eQuilibrator | rejected (ê > 2) | 0.56 | **2.03** | 2.8% |
+
+For eQuilibrator the filter separates on the mean (0.80 vs 2.03, a 2.5× gap) and
+on the tail. For dGPredictor, within TECRDB, it barely separates at all.
+
+**Why, and why this is expected rather than a defect.** TECRDB contains only
+well-studied central metabolism, so even its *rejected* reactions are accurate —
+median 0.60 kcal/mol. The reactions the filter exists to catch, high-σ exotic
+chemistry with errors of tens of kcal/mol, are simply **not in TECRDB**. The
+filter cannot be shown to work on a test set that contains none of the cases it
+targets.
+
+So the evidence that the filter does its job is indirect, and comes from two
+other places: σ tracks cross-source disagreement at ρ = 0.61 across the *full*
+σ range (companion report §4), and the assignment beats every baseline on
+held-out **mean** error, 1.03 vs 1.75 (§5) — a mean-not-median gain, i.e. it is
+removing catastrophic cases.
+
+**The honest one-line summary:** ê is a well-behaved conservative *threshold* —
+trust "≤ 2 kcal/mol" at about 87–91% — but it is a weak *ranking*, and its
+performance on the extreme reactions it is designed to exclude is inferred, not
+measured.
+
 
 ## 6. What the filter does, and why "only one source" is not a free pass
 
@@ -239,6 +300,7 @@ Reproduce:
 python scripts/optimize_thermo_source_assignment.py   # fit + assign
 python scripts/verify_thermo_source_assignment.py     # 12 gating assertions
 python scripts/plot_thermo_source_assignment.py       # fig8
+python scripts/verify_ehat_calibration.py             # section 5b: is ehat a good error predictor?
 ```
 
 `verify_thermo_source_assignment.py` exits non-zero if the assignment fails to
@@ -254,6 +316,12 @@ match the chosen source, or if any calibration curve is non-monotone. Currently
   that *bounds* a source's error rather than measuring it. More experimental
   coverage of unusual chemistry would improve this more than any algorithmic
   change.
+- **`ê` is a threshold, not a ranking** (§5b). It keeps its "≤ 2 kcal/mol"
+  promise 87–91% of the time, but correlates only ρ ≈ 0.11–0.24 with true error
+  within TECRDB, and for dGPredictor barely separates accepted from rejected
+  there. That is because TECRDB holds none of the extreme reactions the filter
+  targets — so its benefit on those is inferred from cross-source behaviour, not
+  directly measured.
 - **It selects, it does not correct.** Nothing is reconciled or repaired; the
   algorithm declines to use a source where it expects it to be wrong.
 - **Agreement is not correctness.** Where sources agree they can still be jointly
