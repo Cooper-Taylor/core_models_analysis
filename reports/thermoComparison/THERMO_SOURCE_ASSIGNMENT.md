@@ -56,19 +56,117 @@ Step 4 is the part that is easy to drop and shouldn't be — see §6.
 
 ## 3. The algorithm precisely
 
+### 3.1 Notation
+
+| symbol | meaning | units | observable? |
+|---|---|---|---|
+| *i* | a ModelSEED reaction | — | — |
+| *s* | a source ∈ {EQ, DGPMS, GC} | — | — |
+| ΔG*s*(*i*) | source *s*'s estimate of the reaction's ΔG′° | kcal/mol | yes, stored |
+| **σ*s*(*i*)** | source *s*'s **own reported standard deviation** for that estimate | kcal/mol | yes, stored |
+| ΔG\*(*i*) | the **true** ΔG′° | kcal/mol | only for 802 reactions |
+| ε*s*(*i*) = \|ΔG*s*(*i*) − ΔG\*(*i*)\| | the **true absolute error** | kcal/mol | only for those 802 |
+| **ê(*i*,*s*)** | **estimate of E[ε*s*(*i*) \| σ*s*(*i*)]** — the predicted error | kcal/mol | computed for all |
+| ĝ*s* | the fitted calibration curve, so ê(*i*,*s*) = ĝ*s*(σ*s*(*i*)) | — | fitted |
+| *E*\* | the error tolerance the user chooses | kcal/mol | chosen |
+
+The whole method is the gap between rows 2 and 3 of the bolded entries: **σ is a
+claim the source makes about itself; ε is the truth; ê is a calibrated bridge
+from the claim to the truth.**
+
+### 3.2 What σ actually is, per source
+
+σ is *not* a measured error. It is each method's internal estimate of the
+dispersion of its own answer, computed before anyone compares it to anything.
+ModelSEED stores it as element [1] of the `thermodynamics` triple
+`[ΔG, σ, operator]`, in kcal/mol.
+
+| source | how σ is produced |
+|---|---|
+| **eQuilibrator** | Propagated from the component-contribution covariance matrix. For a reaction with stoichiometry vector **ν**, σ² = **ν**ᵀ **Σ** **ν**, where **Σ** is the covariance of the compound formation energies. Compounds it cannot estimate enter through a separate term inflated by 10⁶, which is the sentinel. |
+| **dGPredictor-ModelSEED** | The BayesianRidge **posterior predictive standard deviation**, σ = √Var[ΔG \| **x**, 𝒟], for that reaction's group-change feature vector **x**. |
+| **Group Contribution** | Propagated uncertainty of the fitted group energies. |
+
+These are three different quantities that happen to share a unit. There is no
+reason a priori that "σ = 1" means the same thing to any two of them — and it
+does not, which §3.3 measures.
+
+### 3.3 Why ê is needed, and why it is not just σ
+
+If σ were an honest Gaussian standard deviation, the expected absolute error
+would follow directly:
+
+> E\|X − μ\| = σ·√(2/π) ≈ **0.798 σ**
+
+So a perfectly calibrated source would need no calibration at all — you could
+set ê = 0.798σ and stop. Measured against TECRDB, none of the three obeys this:
+
+| source | median σ | median true error ε | ratio ε/σ | vs 0.798 |
+|---|---:|---:|---:|---|
+| Group Contribution | 4.35 | 1.60 | **0.368** | σ **overstates** error 2.2× |
+| dGPredictor-MS | 0.91 | 0.47 | **0.522** | σ **overstates** error 1.5× |
+| eQuilibrator | 0.36 | 0.45 | **1.260** | σ **understates** error 1.6× |
+
+**This is the justification for the whole calibration step.** The three sources'
+confidence scales are not comparable — one is optimistic, two are pessimistic, by
+different factors. Comparing raw σ across sources to decide which to trust would
+systematically favour whichever source happens to be most pessimistic in its
+self-reporting, regardless of accuracy. ĝ*s* is fitted **per source**, which puts
+all three on the common scale of *expected error against truth*.
+
+(Practical consequence, quantified in §6: on the 7,720 reactions where both
+eQuilibrator and dGPredictor are usable, choosing by ê disagrees with choosing by
+raw σ on **28.7%** of them.)
+
+### 3.4 The decision rule, term by term
+
+For each reaction *i*, define three nested sets:
+
 ```
-for each reaction i:   s*(i) = argmin_s  ê(i, s)      over sources available for i
-                       keep i  iff  min_s ê(i, s) ≤ E*
-maximise               coverage = |{i kept}|
+  A(i) = { s : ΔG_s(i) is defined }                    availability
+  V(i) = { s : s is vetoed on i }                      hard overrides, §4
+  F(i) = A(i) \ V(i)                                   feasible sources
 ```
 
-Reactions do not interact, so given `ê` this is solved exactly by inspection —
-there is no combinatorial search. All the difficulty is in `ê(i,s)`, the expected
-absolute error of source *s* on reaction *i*.
+then
 
-**Why `ê` needs ground truth.** Cross-source disagreement gives *joint* error,
-not per-source error: if two sources differ by 20 kcal/mol you know one is wrong,
-not which. Separating them requires an external reference.
+```
+  s*(i)  = argmin              ê(i, s)                 (1) pick
+             s ∈ F(i)
+
+  keep(i) = [ F(i) ≠ ∅ ]  ∧  [ ê(i, s*(i)) ≤ E* ]      (2) filter
+
+  ΔG_merged(i) = ΔG_{s*(i)}(i)          if keep(i)     (3) emit
+                 unassigned             otherwise
+```
+
+and the objective being maximised is simply
+
+```
+  coverage(E*) = | { i : keep(i) } |
+```
+
+Reading each line:
+
+- **(1) pick** — among sources that exist and are not vetoed, take the one whose
+  *predicted error* is smallest. Not the one with the smallest σ (§3.3), and not
+  a fixed priority order.
+- **(2) filter** — a reaction is only assigned if even the best available source
+  clears the tolerance. This is the step that makes single-source reactions
+  useful rather than dangerous (§6), and the one most easily dropped by mistake.
+- **(3) emit** — the merged value is *that source's* number, unmodified. Nothing
+  is averaged, reconciled or adjusted; the algorithm selects, it does not
+  correct.
+
+Because `keep` and `s*` depend only on reaction *i*, **reactions do not
+interact**. There is no combinatorial search: given ê the optimum is obtained by
+inspection in one pass, and it is exactly optimal, not approximate.
+
+**Why ê cannot be derived from cross-source disagreement alone.** For two
+sources *a*, *b*, the observable |ΔG*a* − ΔG*b*| ≤ ε*a* + ε*b* by the triangle
+inequality. It bounds the *sum* of their errors and cannot attribute the blame:
+a 20 kcal/mol disagreement is consistent with (20, 0), (0, 20) or (10, 10).
+Splitting it requires an external ΔG\*, which is what TECRDB supplies.
 
 ## 4. Calibration
 
@@ -103,19 +201,56 @@ useless.
 
 ### The two-tier fit
 
-`ê` is fitted by **isotonic regression** — monotone (a source reporting more
-uncertainty must never be predicted more accurate) and non-parametric (no
-functional form is imposed on a relationship we have no theory for) — on two
-kinds of target:
+For each source *s* we build a set of calibration points (*x*ₖ, *y*ₖ, *w*ₖ) — an
+input σ, a target error, and a weight — and fit ĝ*s* through them.
 
-- **Gold**: `|source − TECRDB|`, weighted 3×.
-- **Silver**: `|source − a trusted-σ reference|`. TECRDB licenses eQuilibrator
-  for this role by showing that at σ ≤ 0.70 it is accurate to a median 0.45
-  kcal/mol. Silver extends the σ range using the ~20k reactions eQuilibrator
-  covers. eQuilibrator itself is scored against low-σ dGPredictor.
+**The two kinds of target.**
 
-Silver *bounds* a source's error rather than measuring it, hence the lower
-weight and the separate accounting.
+```
+  gold    x = σ_s(i),  y = |ΔG_s(i) − ΔG_TECRDB(i)|,       w = 3
+          i ranges over the 802 stereo-exact TECRDB matches.
+          y is the TRUE error ε_s(i). This is a measurement.
+
+  silver  x = σ_s(i),  y = |ΔG_s(i) − ΔG_ref(i)|,          w = 1
+          i ranges over every reaction where source s and the reference ref
+          are both present and  σ_ref(i) ≤ τ_ref.
+          y BOUNDS ε_s(i); it is not a measurement of it.
+
+          ref(EQ) = DGPMS,  τ_DGPMS = 1.22
+          ref(GC) = ref(DGPMS) = EQ,  τ_EQ = 0.70
+```
+
+Each τ is that reference's TECRDB σ-p90 — the edge of the range where gold data
+actually constrains it. Within it, eQuilibrator is accurate to a median 0.45
+kcal/mol against experiment, which is what licenses it to stand in as a
+reference at all. Silver only bounds the error (by the triangle-inequality
+argument in §3.4), so it carries ⅓ the weight of gold and is accounted
+separately in the table below.
+
+**The fit.** ĝ*s* is the weighted **isotonic regression** of *y* on *x*:
+
+```
+  ĝ_s  =  argmin        Σ_k  w_k · ( y_k − f(x_k) )²
+           f nondecreasing
+```
+
+solved exactly by pool-adjacent-violators (PAVA), then evaluated by linear
+interpolation and clamped at the fitted endpoints:
+
+```
+  ê(i, s) = ĝ_s( σ_s(i) )
+```
+
+Two properties motivate this choice over, say, a linear or log-linear fit:
+
+- **Monotone** — the constraint *f* nondecreasing encodes the one thing we are
+  certain of: a source reporting *more* uncertainty must never be predicted to be
+  *more* accurate. A least-squares line has no such guarantee and can slope the
+  wrong way on noisy data, which is exactly what the gold-only fit did
+  (ρ = −0.066).
+- **Non-parametric** — no functional form is assumed for σ → ε, because there is
+  no theory saying it should be linear, quadratic or anything else, and §3.3
+  shows the constant of proportionality is not even the same across sources.
 
 | source | gold n | silver n | gold median err | ρ(σ, **fitting target**) |
 |---|---:|---:|---:|---:|
