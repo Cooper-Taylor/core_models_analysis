@@ -55,3 +55,10 @@ logs/
 venv/
 env/
 results/reaction_effects_all/
+
+# Error-filtered ΔG′° scatter single panels: 72 full-size PNGs (~10 MB) that are
+# just the per-slice blow-ups of the committed grid_*.png. Regenerate with
+# `python scripts/plot_thermo_source_dg_scatter_filtered.py` (~2m20s). The five
+# grids, the README and slice_counts.tsv in that directory DO ship.
+reports/thermoComparison/figures/thermo_source_dg_scatter_filtered/sigma/
+reports/thermoComparison/figures/thermo_source_dg_scatter_filtered/ehat/
