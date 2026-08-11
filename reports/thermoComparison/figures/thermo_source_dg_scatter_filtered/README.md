@@ -50,13 +50,30 @@ r 0.86 → 0.99 at σ ≤ 1 (n = 3,390, 17% of the pair) and 0.998 at ê ≤ 1
 diagonal. This is the calibrated-uncertainty self-tiering result from
 `EQUILIBRATOR_VS_DGPREDICTOR_MODELSEED.md`, drawn.
 
-**2. Group Contribution cannot be made confident, and its σ is not a signal.**
-Its isotonic calibration has only 5 steps and ρ(σ, actual error) = **−0.082** —
-GC's self-reported error bar carries no information about its actual error. So
-ê_GC takes 5 distinct values, 89% of reactions sitting at the constant 5.70, and
-every GC panel at ê ≤ 0.5/1/2 is empty while ê ≤ 10 admits 100% at once. On σ the
-filter is worse than useless on GC vs eQuilibrator: median \|Δ\| is 2.78 pooled but
-**3.47 at σ ≤ 5** — tightening the filter made the surviving set worse.
+**2. Group Contribution reports an error bar, but it is too weak to filter on.**
+GC does carry a per-reaction σ — 25,812 reactions, 1,718 distinct values over
+0–387 kcal/mol, growing with reaction size (Spearman 0.457 vs participant count)
+like a propagated uncertainty should. Measured against TECRDB on the 802
+stereo-exact matches it is *weakly* informative: ρ(σ, \|err\|) = **+0.161**
+(p = 5e-06), median \|err\| 1.60 kcal/mol. But it only separates its two best
+deciles (median \|err\| 0.86, 0.71) from the rest; past the 4th decile the profile
+is flat and non-monotone (1.79, 1.81, 5.42, 1.99, 1.38, 1.43, 1.23, 2.08).
+
+The consequence for these figures: the isotonic calibration behind ê is fitted on
+802 gold TECRDB points plus 9,808 silver ones (target \|GC − eQuilibrator\|, a
+proxy), and over that combined target the relationship is flat — ρ = −0.082, the
+number recorded as `spearman_sigma_vs_err` in `source_assignment_models.json`.
+That is a statistic about the *fitting target*, not about measured error; do not
+quote it as "GC's σ is anti-correlated with its error." The fit collapses to 5
+steps, so ê_GC takes 5 distinct values with 89% of reactions pinned at the
+constant 5.70, every GC panel at ê ≤ 0.5/1/2 is empty, and ê ≤ 10 admits 100% at
+once. On σ, filtering GC vs eQuilibrator does not buy agreement either: median
+\|Δ\| is 2.78 pooled but **3.47 at σ ≤ 5**.
+
+(The gold-set ρ for eQuilibrator, +0.053, and for dGPredictor-ModelSEED, −0.063,
+are both non-significant — range restriction, the gold set spanning only σ
+0–1.12 and 0.87–21.6 respectively. Their headline +0.354 / +0.612 come from the
+silver tier, which spans the full σ range.)
 
 **3. Two thresholds are structurally unreachable, not merely empty.**
 dGPredictor-ModelSEED never reports σ below 0.87, so σ ≤ 0.5 is empty for both
