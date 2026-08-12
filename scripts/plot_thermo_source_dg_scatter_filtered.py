@@ -22,8 +22,10 @@ ehat   ("tolerance", criterion 2)
     optimize_thermo_source_assignment.py: each source's sigma pushed through an
     isotonic regression fitted on 802 stereo-exact TECRDB matches, so the number
     is in real kcal/mol-of-actual-error rather than in that source's private
-    units. Read from results/eq_vs_dgpms/source_assignment.tsv. Keep reaction i
-    iff max(ehat_a(i), ehat_b(i)) <= T.
+    units. Read from results/eq_vs_dgpms_gcA/source_assignment.tsv -- refitted
+    against the Convention A GC rebuild, since ehat_GC derived from the previous
+    GC values no longer describes these ones. Keep reaction i iff
+    max(ehat_a(i), ehat_b(i)) <= T.
     ehat is NaN -- and the reaction therefore always fails -- where the
     assignment model refuses the source outright: eQuilibrator sentinel
     uncertainties (sigma > 100 kcal/mol, the source disclaiming an estimate) and
@@ -54,6 +56,18 @@ in definition and palette to plot_thermo_source_dg_scatter.py: each source's own
 ΔG'° run through the unmodified cascade (DEFAULT_HEURISTICS via
 per_source_energy), collapsed to reversible ("=") vs irreversible (">"/"<").
 
+DATA PROVENANCE
+---------------
+ModelSEED dev @ 49563c6f (2026-08-07 GC rebuild landed). Group Contribution is
+Convention A there; eQuilibrator and dGPredictor-ModelSEED are still Convention
+B. That mismatch is a real concern for a cross-source scatter, and it was
+tested: the GC-vs-eQuilibrator residual regressed on net H+ has slope -2.67
+kcal/mol per proton, nowhere near the +/-9.539 a systematic A-vs-B gap would
+produce, and the slope SHRANK from -3.39 under the old mixed-convention GC.
+Consistent A vs consistent B cancels for mass-balanced reactions; what the
+rebuild fixed was convention MIXING inside single reactions. So the panels are
+drawn on raw stored values with no convention correction.
+
 OUTPUTS  reports/thermoComparison/figures/thermo_source_dg_scatter_filtered/
     grid_unfiltered.png                   the 3 pairs, no threshold, with oval
     grid_<crit>_<mode>.png                3 pairs x 6 thresholds, 4 combinations
@@ -80,13 +94,16 @@ from matplotlib.patches import Ellipse
 ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR",
                                    "/scratch/ctaylor/core_models_analysis"))
 # Data comes from the dev snapshot: the only checkout carrying the retrained
-# dGPredictor-ModelSEED energies. Code (the cascade) comes from the working
-# ModelSEEDDatabase checkout.
-MSDB_DATA = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/tmp/devsnap"))
+# dGPredictor-ModelSEED energies. devsnap2 is dev @ 49563c6f, i.e. AFTER
+# ad34d6ab "Rebuild GC energies under Convention A" -- Group Contribution values
+# there differ from the earlier devsnap (34992d39) on 53% of reactions and cover
+# 1,501 more. Code (the cascade) comes from the working ModelSEEDDatabase
+# checkout.
+MSDB_DATA = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/tmp/devsnap2"))
 MSDB_CODE = Path(os.environ.get("MSDB_CODE_ROOT", "/scratch/ctaylor/ModelSEEDDatabase"))
 ASSIGN_TSV = Path(os.environ.get(
     "EQDGP_ASSIGNMENT",
-    str(ANALYSIS_DIR / "results" / "eq_vs_dgpms" / "source_assignment.tsv")))
+    str(ANALYSIS_DIR / "results" / "eq_vs_dgpms_gcA" / "source_assignment.tsv")))
 OUT_DIR = (ANALYSIS_DIR / "reports" / "thermoComparison" / "figures"
            / "thermo_source_dg_scatter_filtered")
 
@@ -198,6 +215,30 @@ def mvee(points: np.ndarray, tol: float = 1e-4, max_iter: int = 5000):
     axes, evecs = axes[order], evecs[:, order]
     angle = float(np.degrees(np.arctan2(evecs[1, 0], evecs[0, 0])))
     return (c * scale, 2.0 * axes[0] * scale, 2.0 * axes[1] * scale, angle)
+
+
+def proxy_handle(kind: str, label: str):
+    """Legend entry that does not depend on the host panel having drawn anything."""
+    from matplotlib.lines import Line2D
+    from matplotlib.patches import Patch
+    if kind == "oval":
+        return Patch(facecolor=OVAL_COLOR, alpha=0.25, edgecolor=OVAL_COLOR,
+                     linewidth=1.4, label=label)
+    color = EXCLUDED_COLOR if kind == "excluded" else CATEGORY_COLOR[kind]
+    return Line2D([], [], marker="o", linestyle="none", markersize=5.5,
+                  markerfacecolor=color, markeredgecolor="none", label=label)
+
+
+def pair_floor(sub: pd.DataFrame, a: str, b: str, crit: str) -> float:
+    """Smallest T at which ANY reaction can pass, i.e. min over reactions of
+    max(crit_a, crit_b). Not min(crit_a.min(), crit_b.min()) -- the filter needs
+    both sources under T on the SAME reaction, so a source's own floor says
+    nothing on its own."""
+    col = CRIT_COLUMN[crit]
+    worse = np.maximum(sub[f"{col}_{a}"].to_numpy(float),
+                       sub[f"{col}_{b}"].to_numpy(float))
+    worse = worse[np.isfinite(worse)]
+    return float(worse.min()) if worse.size else float("nan")
 
 
 def draw_oval(ax, points: np.ndarray, label: str | None = None):
@@ -356,8 +397,16 @@ def draw_panel(ax, sub: pd.DataFrame, a: str, b: str, keep: np.ndarray,
                 transform=ax.transAxes, ha="right", va="bottom",
                 fontsize=7 if compact else 8, color=INK_MUTED)
     if show_legend:
-        leg = ax.legend(loc="upper left", frameon=False, fontsize=8.5,
-                        labelcolor=INK_PRIMARY, markerscale=1.7,
+        # Built from proxy handles rather than from whatever this panel happens
+        # to have drawn: the legend host panel can be empty (a threshold below
+        # the pair's floor), and ax.legend() would then silently emit nothing.
+        handles = ([proxy_handle("excluded", f"Excluded by threshold ({n_drop:,})")]
+                   if mode == "context" else [])
+        handles += [proxy_handle(cat, f"{cat} ({counts.get(cat, 0):,})")
+                    for cat in CATEGORY_ORDER]
+        handles.append(proxy_handle("oval", "Covering oval (min-volume ellipse)"))
+        leg = ax.legend(handles=handles, loc="upper left", frameon=False,
+                        fontsize=8.5, labelcolor=INK_PRIMARY,
                         title="Reversibility transition", title_fontsize=8.5)
         leg.get_title().set_color(INK_SECONDARY)
     return {"n_keep": n_keep, "n_drop": n_drop, "r": r, "median_absdiff": med,
@@ -392,13 +441,6 @@ def main() -> None:
 
     print(f"loading reactions from {MSDB_DATA} ...")
     df = attach_ehat(load_table())
-
-    # A threshold below a source's floor makes every panel in that column empty,
-    # which is a property of the source, not of the reactions.
-    print("  floors (lowest value any reaction attains):")
-    for key, (_, label, _) in SOURCES.items():
-        print(f"    {label:24s} σ ≥ {df[f'sig_{key}'].min():.2f}   "
-              f"ê ≥ {df[f'ehat_{key}'].min():.2f} kcal/mol")
 
     bases, n_extreme = {}, {}
     for a, b in PAIRS:
@@ -514,10 +556,10 @@ def main() -> None:
                         note += (f"\n{n_extreme[(a,b)]} reaction(s) with |ΔG′°| > "
                                  f"{EXTREME_CUTOFF:g} kcal/mol excluded from the base set")
                     if st["n_keep"] == 0:
-                        floor = min(sub[f"{CRIT_COLUMN[crit]}_{k}"].min()
-                                    for k in (a, b))
-                        note += (f"\nempty because the lower of the two sources' "
-                                 f"{CRIT_SHORT[crit]} floors is {floor:.2f} kcal/mol")
+                        floor = pair_floor(sub, a, b, crit)
+                        note += (f"\nempty because no reaction has both sources under "
+                                 f"{CRIT_SHORT[crit]} = {tol:g}; the best any reaction "
+                                 f"achieves is {floor:.2f} kcal/mol")
                     ax.text(0.5, -0.125, note,
                             transform=ax.transAxes, ha="center", va="top",
                             fontsize=7.5, color=INK_MUTED, linespacing=1.6)
