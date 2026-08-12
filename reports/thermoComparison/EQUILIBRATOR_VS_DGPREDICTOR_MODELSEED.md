@@ -9,6 +9,7 @@ claim from it is believable.
 **Sources.** `dGPredictor-ModelSEED` (the ModelSEED-retrained variant) and
 eQuilibrator, both from upstream `origin/dev` @ **34992d39** (2026-08-04),
 extracted read-only to `/scratch/ctaylor/tmp/devsnap`. Nothing modified.
+That snapshot was deleted 2026-08-12; the numbers below are as-run against it. `/scratch/ctaylor/tmp/devsnap2` (dev @ 49563c6f) supersedes it and is what the scripts now default to — eQuilibrator and dGPredictor-ModelSEED are byte-identical there, but Group Contribution is the Convention A rebuild, so any GC-touching number here will shift on a re-run.
 Key subset **n = 11,097**; baseline median |eQ − dGP| = **3.44 kcal/mol**;
 17.6% of reactions (1,948) disagree by more than 15 kcal/mol.
 

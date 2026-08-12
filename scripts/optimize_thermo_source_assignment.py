@@ -76,7 +76,15 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from organic_reaction_types import QUINONE_RE  # noqa: E402
 
-MSDB_ROOT = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/tmp/devsnap"))
+# NOTE: the earlier snapshot /scratch/ctaylor/tmp/devsnap (dev @ 34992d39) was
+# deleted 2026-08-12. devsnap2 is dev @ 49563c6f: eQuilibrator and
+# dGPredictor-ModelSEED are byte-identical to it, Group Contribution is the
+# Convention A rebuild (ad34d6ab) -- 53% of values changed, coverage +1,501.
+# Re-running with these defaults therefore refits GC against Convention A and
+# would overwrite results/eq_vs_dgpms/, which was fitted on the OLD GC and is
+# what EQUILIBRATOR_VS_DGPREDICTOR_MODELSEED.md quotes. The Convention A refit
+# already exists as results/eq_vs_dgpms_gcA/ -- set EQDGP_OUT to keep them apart.
+MSDB_ROOT = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/tmp/devsnap2"))
 ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR",
                                    "/scratch/ctaylor/core_models_analysis"))
 OUT = Path(os.environ.get("EQDGP_OUT", str(ANALYSIS_DIR / "results" / "eq_vs_dgpms")))

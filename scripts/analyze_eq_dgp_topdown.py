@@ -63,7 +63,11 @@ from scipy.sparse.linalg import lsqr
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from organic_reaction_types import classify, CLASS_ORDER  # noqa: E402
 
-MSDB_ROOT = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/tmp/devsnap"))
+# NOTE: the earlier snapshot /scratch/ctaylor/tmp/devsnap (dev @ 34992d39) was
+# deleted 2026-08-12. devsnap2 is dev @ 49563c6f: eQuilibrator and
+# dGPredictor-ModelSEED are byte-identical to it, Group Contribution is the
+# Convention A rebuild (ad34d6ab) -- 53% of values changed, coverage +1,501.
+MSDB_ROOT = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/tmp/devsnap2"))
 ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR",
                                    "/scratch/ctaylor/core_models_analysis"))
 OUT_DIR = Path(os.environ.get("EQDGP_OUT",
