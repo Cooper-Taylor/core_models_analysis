@@ -405,9 +405,13 @@ def draw_panel(ax, sub: pd.DataFrame, a: str, b: str, keep: np.ndarray,
         handles += [proxy_handle(cat, f"{cat} ({counts.get(cat, 0):,})")
                     for cat in CATEGORY_ORDER]
         handles.append(proxy_handle("oval", "Covering oval (min-volume ellipse)"))
+        fs = 6.6 if compact else 8.5
         leg = ax.legend(handles=handles, loc="upper left", frameon=False,
-                        fontsize=8.5, labelcolor=INK_PRIMARY,
-                        title="Reversibility transition", title_fontsize=8.5)
+                        fontsize=fs, labelcolor=INK_PRIMARY,
+                        title="Reversibility transition", title_fontsize=fs,
+                        labelspacing=0.32 if compact else 0.5,
+                        handletextpad=0.4 if compact else 0.8,
+                        borderpad=0.2 if compact else 0.4)
         leg.get_title().set_color(INK_SECONDARY)
     return {"n_keep": n_keep, "n_drop": n_drop, "r": r, "median_absdiff": med,
             "n_both_zero": n_zero, "frac_both_zero": frac_zero,
@@ -494,7 +498,7 @@ def main() -> None:
                     keep = passing_mask(sub, a, b, crit, tol)
                     st = draw_panel(ax, sub, a, b, keep, mode,
                                     xlim=row_lim, ylim=row_lim,
-                                    show_legend=(ri == 0 and ci == 0), compact=True)
+                                    show_legend=True, compact=True)
                     ax.set_title(slice_title(a, b, crit, tol, st, len(sub),
                                              compact=True),
                                  color=INK_PRIMARY, fontsize=9, pad=6)

@@ -23,7 +23,9 @@ against the rebuilt GC (the previous fit no longer describes these values).
 | `slice_counts.tsv` | n passing / n excluded / r / median \|Δ\| / ΔG′°=0 share per slice |
 
 Thresholds T ∈ {0.5, 1, 2, 5, 10, 20} kcal/mol; a reaction passes iff **both**
-sources are ≤ T.
+sources are ≤ T. Every panel carries its own key, and the counts in it are that
+panel's — so the key doubles as the per-slice category breakdown rather than
+being repeated boilerplate.
 
 ## The two filters are not the same filter
 
