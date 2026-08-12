@@ -144,7 +144,73 @@ its measured guarantee from 94% to 90% within 2 kcal/mol (dGPredictor-ModelSEED
 power: without it, Group Contribution's BRONZE tier has a median error of 1.66
 kcal/mol — indistinguishable from its SILVER — and with it, 8.68.
 
-## 3.4 The decision cascade
+## 3.4 The pipeline end to end
+
+Everything above, in the order it actually executes. Each reaction × source pair
+enters at the top and leaves with a grade and the `reason` slug naming the rule
+that set it.
+
+```
+INPUTS                                  ModelSEED dev @ 49563c6f      TECRDB
+  per reaction i, per source s:         ΔG_s(i), σ_s(i), ν(i)         ΔG*(i), σ*(i)
+       │                                                                  │
+       ▼                                                                  │
+┌─ A. FEASIBILITY ────────────────────────────────────────────┐           │
+│  drop s from F(i) if:                                       │           │
+│    eQuilibrator σ > 100        sentinel        4,934        │           │
+│    eQuilibrator MetaNetX collision                35        │           │
+│    dGPredictor-ModelSEED on a quinone            511        │           │
+│  F(i) = ∅  ──────────────────────────────────► UNGRADED     │           │
+└──────────────────────────┬──────────────────────────────────┘           │
+                           │                                              │
+       ┌───────────────────┴───────────────────┐                          │
+       ▼                                       ▼                          │
+┌─ B. CALIBRATE (per source) ──┐   ┌─ C. FUSE (per reaction) ──────┐      │
+│  isotonic ĝ_s : σ ↦ ê        │   │  w_s   = 1 / ê_s²             │      │
+│  isotonic ĥ_s : σ ↦ p_ok     ├──►│  ΔḠ    = Σ w_s ΔG_s / Σ w_s   │      │
+│                              │ ê │  χ²    = Σ w_s (ΔG_s − ΔḠ)²   │      │
+│  fitted on: anchor (802      │   │  R     = √(χ² / (n−1))        │      │
+│  TECRDB, w=3) + proxy        │   │  z_s   = |ΔG_s − ΔḠ| / ê_s    │      │
+│  (vs a trusted-σ source,     │   │  Z     = structural zero?     │      │
+│  w=1)                        │   │          (all |ΔG|<0.5, or    │      │
+│                              │   │           transport)          │      │
+└──────────────┬───────────────┘   └───────────────┬───────────────┘      │
+               │  p_ok_s(i)                        │  R(i), z_s(i), Z(i)  │
+               └───────────────┬───────────────────┘                      │
+                               ▼                                          │
+┌─ D. CASCADE (independently for each s ∈ F(i)) ─────────────────┐        │
+│                                                                │        │
+│   p_ok ≥ 0.90 ? ──yes──► GOLD    "self-certain"                │        │
+│        │no                                                     │        │
+│   p_ok ≥ 0.70 ? ──yes──► SILVER  "self-confident"              │        │
+│        │no                                                     │        │
+│              ──────────► BRONZE  "uncorroborated"              │        │
+│                            │                                   │        │
+│   FLOOR:  BRONZE and n ≥ 2 and Z = 0 and R ≤ 1.5 and z_s ≤ 1   │        │
+│                            └────────► SILVER "corroborated"    │        │
+│                                        (never higher)          │        │
+│                                                                │        │
+│   DEMOTE: n ≥ 2 and R > 2 and z_s > 3                          │        │
+│                            ─────────► one tier down "outvoted" │        │
+└────────────────────────────┬───────────────────────────────────┘        │
+                             ▼                                            │
+┌─ E. MEASUREMENT OVERRIDE (terminal — applied last, so it wins) ─┐◄───────┘
+│   i has a TECRDB match?   ε_s = |ΔG_s − ΔG*|                    │
+│              ε_s ≤ 1 ──► GOLD      ε_s ≤ 3 ──► SILVER           │
+│              ε_s > 3 ──► BRONZE                 all "measured"  │
+└────────────────────────────┬────────────────────────────────────┘
+                             ▼
+OUTPUT   G_s(i) ∈ {GOLD, SILVER, BRONZE, UNGRADED}  +  reason
+         (TECRDB itself bypasses B–D: GOLD, or SILVER on a skeleton-tier match)
+```
+
+Two ordering details that matter. **Calibration (B) is fitted per source but
+applied per reaction**, so it is a one-time fit reused across the database.
+**The measurement override (E) is written last in the code precisely so it
+overwrites whatever the cascade decided** — a measured error outranks any
+inference from σ.
+
+## 3.5 The decision cascade, rule by rule
 
 Applied independently to each *s* ∈ 𝓢. Most-specific-first; each rule writes a
 `reason` slug so every label is auditable back to the rule that produced it.
@@ -179,7 +245,81 @@ Thresholds as shipped: `p_gold 0.90, p_silver 0.70, r_corrob 1.5, z_corrob 1.0,
 r_outvote 2.0, z_outvote 3.0, meas_gold 1.0, meas_silver 3.0`
 (`tables/grade_calibration.json`).
 
-## 3.5 Validation
+## 3.6 Which flag actually decided each grade
+
+The `reason` column is the audit trail: every row of `source_grades.tsv` carries
+exactly one, naming the rule from §3.5 that set its grade. Counting them says
+which parts of the machinery are load-bearing and which are decoration.
+
+Pooled over the three predictors (78,785 graded rows; TECRDB’s 1,550 are listed separately below):
+
+| reason (flag) | rule | GOLD | SILVER | BRONZE |
+|---|---|---:|---:|---:|
+| `self-certain` | *p*ₒₖ ≥ 0.90 | **7,119** | — | — |
+| `measured` | \|ε\| against TECRDB | **1,421** | 574 | 398 |
+| `self-confident` | *p*ₒₖ ≥ 0.70 | — | 11,301 | — |
+| `corroborated` | R ≤ 1.5, *z* ≤ 1, was BRONZE | — | **26,984** | — |
+| `outvoted` | R > 2, *z* > 3 | — | — | 4,086 |
+| `uncorroborated` | nothing else fired | — | — | **26,902** |
+
+TECRDB's own 1,550 rows: 802 `measured` → GOLD, 748
+`measured (skeleton match)` → SILVER. It bypasses the cascade entirely.
+
+Per source:
+
+| source | flag | GOLD | SILVER | BRONZE | total |
+|---|---|---:|---:|---:|---:|
+| **eQuilibrator** | self-certain | 1,848 | — | — | 1,848 |
+| | measured | 575 | 166 | 48 | 789 |
+| | self-confident | — | 8,556 | — | 8,556 |
+| | corroborated | — | 4,792 | — | 4,792 |
+| | outvoted | — | — | 727 | 727 |
+| | uncorroborated | — | — | 3,347 | 3,347 |
+| **dGPredictor-ModelSEED** | self-certain | 5,271 | — | — | 5,271 |
+| | measured | 537 | 187 | 78 | 802 |
+| | self-confident | — | 2,094 | — | 2,094 |
+| | corroborated | — | 10,123 | — | 10,123 |
+| | outvoted | — | — | 1,948 | 1,948 |
+| | uncorroborated | — | — | 11,175 | 11,175 |
+| **Group contribution** | measured | 309 | 221 | 272 | 802 |
+| | self-confident | — | 651 | — | 651 |
+| | corroborated | — | 12,069 | — | 12,069 |
+| | outvoted | — | — | 1,411 | 1,411 |
+| | uncorroborated | — | — | 12,380 | 12,380 |
+
+Four things follow, and the last two are cautions rather than reassurances.
+
+**Only two flags can produce GOLD.** `self-certain` supplies 83% of them and
+`measured` the remaining 17%. Corroboration produces exactly zero — the
+asymmetry of §3.3 is visible in the output, not merely asserted in the design.
+
+**`corroborated` is the most-used flag in the whole system** — 26,984 SILVERs,
+more than double `self-confident`'s 11,301. So cross-source agreement carries
+more of the middle tier than the sources' own calibrated confidence does. That
+is worth holding onto, because agreement between fallible predictors is the
+*weaker* kind of evidence (§3.3), and it is doing the most work.
+
+**Group Contribution has no `self-certain` rows at all.** Its *p*ₒₖ never reaches
+0.90 anywhere in the database, so every one of its 309 GOLDs is a TECRDB match.
+That is the direct output consequence of ρ(σ_GC, ε) = +0.176, and it is why GC
+appears with a blank GOLD row in §3.7's validation.
+
+**`measured` is the only flag that maps to more than one grade**, and it is not
+uniformly kind. For Group Contribution it produced 309 GOLD / 221 SILVER / 272
+BRONZE — a third of its measured reactions are off by more than 3 kcal/mol. For
+eQuilibrator the same flag produced 575 / 166 / 48. The measurement is not a
+rubber stamp; it is the only rule that can *demote* a source that σ said was
+fine.
+
+Regenerate this table with:
+
+```python
+import pandas as pd
+g = pd.read_csv("results/thermo_grades/source_grades.tsv", sep="\t", low_memory=False)
+pd.crosstab([g.source, g.reason], g.grade)
+```
+
+## 3.7 Validation
 
 Grades recomputed on the anchor with **Rule 1 disabled**, so the label is
 inferred from *p*ₛ and the consistency statistics only, then scored against the
@@ -209,10 +349,10 @@ The one non-monotonicity worth naming: Group Contribution's BRONZE tier has a
 bimodal — a third of it is nearly exact and the rest is badly wrong. The median
 and the p90 tell the story the mean hides.
 
-**As a trust label, the grade works.** That claim is what §3.5 supports, and it
+**As a trust label, the grade works.** That claim is what §3.7 supports, and it
 is the only claim made for it.
 
-## 3.6 Results
+## 3.8 Results
 
 Database-wide, over 56,002 non-EMPTY reactions:
 
@@ -234,7 +374,7 @@ Full counts and reason breakdowns: [`tables/grade_frontier.tsv`](tables/grade_fr
 Fitted curves, thresholds and the validation table above:
 [`tables/grade_calibration.json`](tables/grade_calibration.json).
 
-## 3.7 What the grade is used for downstream
+## 3.9 What the grade is used for downstream
 
 1. **A quality floor on a direction map.** `graded_trusted` (§5) drops every
    reaction whose best grade is BRONZE — 10,186 reactions — on the principle

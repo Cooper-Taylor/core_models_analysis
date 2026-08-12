@@ -77,7 +77,7 @@ these scripts.** Every filter is applied at read time.
 | `source_grades.tsv` | 80,335 | long form, one row per (reaction × source): `rxn, name, ec, source, dg, sigma, operator, ehat, p_ok, z, birge, n_src, struct_zero, grade, reason, n_anchor, n_proxy` |
 | `source_grades_heldout.tsv` | 78,785 | same, TECRDB removed and Rule 1 disabled |
 | `source_grades_wide.tsv` | 56,002 | one row per reaction, one grade column per source, plus `best_grade` / `best_source` |
-| `grade_calibration.json` | — | fitted ĥ curves, thresholds, veto counts, the §3.5 validation table |
+| `grade_calibration.json` | — | fitted ĥ curves, thresholds, veto counts, the §3.7 validation table |
 | `grade_frontier.tsv` | 4 | grade and reason counts per source |
 
 ### `results/thermo_grades_fba/` — the simulations
