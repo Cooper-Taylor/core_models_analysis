@@ -244,12 +244,69 @@ set neither model was fitted on, and it has not been run.
 
 ## 4.8 Results
 
-| target | tolerance | reactions recommended | source mix |
-|---|---|---:|---|
-| direction | ρ ≤ 0.35 | **27,240** | eQuilibrator 17,574 · dGPredictor-MS 7,259 · TECRDB 1,550 · Group Contribution 857 |
-| magnitude | ê ≤ 2.0 | **11,841** | dGPredictor-MS 5,499 · eQuilibrator 4,792 · TECRDB 1,550 |
+### Which source gets recommended, across all covered reactions
 
-6,049 reactions have a feasible source but are abstained on; 22,713 have none.
+The universe is the **33,289 reactions with at least one feasible source** —
+i.e. everything the recommender could in principle answer for. The remaining
+22,713 of the 56,002 non-EMPTY reactions have no thermodynamic source at all and
+are outside the question. Shares are of 33,289 and sum to 100%.
+
+**Target = direction** (priority rule, abstain at ρ > 0.35):
+
+| source recommended | reactions | share of 33,289 | share of the 27,240 answered |
+|---|---:|---:|---:|
+| eQuilibrator | 17,574 | **52.79%** | 64.52% |
+| dGPredictor-ModelSEED | 7,259 | **21.81%** | 26.65% |
+| TECRDB | 1,550 | **4.66%** | 5.69% |
+| Group contribution | 857 | **2.57%** | 3.15% |
+| *(abstained — risk above tolerance)* | 6,049 | **18.17%** | — |
+| **total** | **33,289** | **100.00%** | **100.00%** |
+
+**Target = magnitude** (argmin ê, abstain at ê > 2.0 kcal/mol):
+
+| source recommended | reactions | share of 33,289 | share of the 11,841 answered |
+|---|---:|---:|---:|
+| dGPredictor-ModelSEED | 5,499 | **16.52%** | 46.44% |
+| eQuilibrator | 4,792 | **14.40%** | 40.47% |
+| TECRDB | 1,550 | **4.66%** | 13.09% |
+| Group contribution | 0 | **0.00%** | 0.00% |
+| *(abstained — ê above tolerance)* | 21,448 | **64.43%** | — |
+| **total** | **33,289** | **100.00%** | **100.00%** |
+
+Four things this table shows.
+
+**The two targets disagree about the winner.** eQuilibrator takes 64.5% of the
+direction answers; dGPredictor-ModelSEED takes 46.4% of the magnitude answers
+and edges eQuilibrator there. That inversion is §4.2 made operational — it is
+the same dissociation, counted.
+
+**Group Contribution is recommended for almost nothing**: 2.57% under direction,
+and *never* under magnitude, because its calibrated ê never falls below 2
+kcal/mol anywhere in the database (its floor is 3.04). Under direction it wins
+only the 857 reactions where it is the sole feasible source. Given its 51%
+accuracy on directional reactions (§5.6 of the simulations write-up), that is
+the right outcome — but note it is reached by the priority order, not by any
+uncertainty-based judgement.
+
+**The magnitude target abstains on 64% of what it could answer.** That is not a
+failure; ê ≤ 2 kcal/mol is a demanding bar and the tolerance is a knob. Loosening
+it trades coverage for stated accuracy along the frontier in
+`THERMO_SOURCE_ASSIGNMENT.md` §7.
+
+**The direction target abstains on 18%.** These are the 6,049 reactions where
+even the best feasible source has ρ > 0.35 — the source's own calibrated
+uncertainty is wide enough, relative to the nearest cascade breakpoint, that its
+call is close to a coin flip. This is the abstention job of §4.7 doing work.
+
+For context, of the 33,289 covered reactions, 17,389 have all three predictors
+feasible, 10,718 have two, and 5,182 have exactly one.
+
+### Files
+
+| target | tolerance | answered | file |
+|---|---|---:|---|
+| direction | ρ ≤ 0.35 | 27,240 | `recommendation_direction.tsv` |
+| magnitude | ê ≤ 2.0 | 11,841 | `recommendation_magnitude.tsv` |
 
 Columns in `recommendation_<target>.tsv`: `rxn, name, ec, status`, per-source
 `dg_*` and `risk_*`, then `chosen_source, chosen_label, recommended_dg,

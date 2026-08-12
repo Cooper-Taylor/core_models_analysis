@@ -4,7 +4,7 @@ Flux-balance analysis over all 5,683 Kegg2 core models under each thermodynamic
 source in isolation and under the graded source. Complete results.
 
 Scripts: `build_graded_direction_maps.py`, `run_graded_fba_all_models.py`,
-`analyze_graded_fba.py`, `plot_graded_fba.py`.
+`analyze_graded_fba.py`, `analyze_implicit_directions.py`, `plot_graded_fba.py`.
 Data: `results/thermo_grades_fba/`; copies in [`tables/`](tables/).
 
 ---
@@ -108,7 +108,108 @@ differs from the model's native one after the overlay.
 | `graded_trusted` | 5 | 28 | 27.2 | 44 |
 | `graded_heldout` | 5 | 38 | 36.3 | 61 |
 
-## 5.3 Growth
+## 5.3 The implicit baseline — what the models ship with
+
+`implicit` applies no override at all: each model runs on the reaction bounds
+baked in when it was built and gap-filled. It is the reference every other
+variant is measured against, so it is worth knowing what those bounds actually
+say rather than treating them as a black box.
+
+Script: `analyze_implicit_directions.py`. Output:
+`results/thermo_grades_fba/implicit_directions.tsv`, `implicit_summary.json`.
+A reaction's native operator is read from its bounds — `lb < 0 < ub` → `=`,
+`lb ≥ 0 < ub` → `>`, `lb < 0, ub ≤ 0` → `<`, otherwise blocked.
+
+### The native bounds are a single global map
+
+Across all 699,422 (model, reaction) pairs:
+
+| native operator | pairs | share |
+|---|---:|---:|
+| `=` reversible | 358,244 | 51.2% |
+| `>` forward | 272,917 | 39.0% |
+| `<` reverse | 62,515 | 8.9% |
+| blocked | 5,746 | 0.8% |
+
+**All 239 core reactions carry a unanimous native direction across all 5,683
+models** — no reaction is forward in one model and reversible in another. The
+implicit bounds are therefore not 5,683 independent decisions but one map
+applied everywhere, presumably inherited from the template the models were built
+from. That is what makes it scoreable like any other direction source.
+
+Per reaction, that map is:
+
+| modal native operator | core reactions | share |
+|---|---:|---:|
+| `=` reversible | 108 | 45.2% |
+| `>` forward | 104 | 43.5% |
+| `<` reverse | 25 | 10.5% |
+| blocked | 2 | 0.8% |
+
+So the shipped bounds are *less* permissive than every thermodynamic variant
+except eQuilibrator: 45.2% reversible against Group Contribution's 82.5% and the
+graded map's 76.6%.
+
+### The native bounds are the least accurate direction source tested
+
+Scored against the experimental reference Λ\* exactly as in §5.6, on the 65 core
+reactions with a `stereo_exact` TECRDB match:
+
+| direction source | correct | accuracy |
+|---|---:|---:|
+| **implicit (native bounds)** | **44 / 65** | **67.7%** |
+| Group Contribution | 59 / 65 | 90.8% |
+| dGPredictor-ModelSEED | 63 / 65 | 96.9% |
+| graded, TECRDB held out | 63 / 65 | 96.9% |
+| eQuilibrator | 64 / 65 | 98.5% |
+
+Every thermodynamic source beats the bounds the models were shipped with, by 23
+to 31 points.
+
+**And the errors are one-sided.** Of the 21 mismatches:
+
+| native says | experiment says | n |
+|---|---|---:|
+| `>` forward | `=` reversible | **14** |
+| `<` reverse | `=` reversible | **5** |
+| `=` reversible | `<` reverse | 2 |
+
+19 of 21 are the model **over-constraining** — forcing a direction on a reaction
+the thermodynamics call reversible — against 2 in the opposite direction. That
+asymmetry is the mechanism behind §5.4: every thermodynamic variant grows *more*
+models than `implicit` (+133 to +279) because it is mostly relaxing constraints
+that were not thermodynamically justified in the first place.
+
+### Where the variants move it
+
+Agreement with the native bound, over core reactions each variant covers:
+
+| variant | agrees | of | share |
+|---|---:|---:|---:|
+| eQuilibrator | 127 | 173 | 73.4% |
+| graded, SILVER floor | 126 | 177 | 71.2% |
+| graded | 136 | 207 | 65.7% |
+| Group Contribution | 125 | 198 | 63.1% |
+| dGPredictor-ModelSEED | 130 | 206 | 63.1% |
+
+Native → graded transitions on the core set:
+
+| transition | n | |
+|---|---:|---|
+| `=` → `=` | 93 | agreed reversible |
+| `>` → `>` | 32 | agreed forward |
+| `<` → `<` | 11 | agreed reverse |
+| **`>` → `=`** | **54** | **relaxed** — the dominant change |
+| **`<` → `=`** | **11** | **relaxed** |
+| `=` → `<` | 3 | tightened |
+| `=` → `>` | 1 | tightened |
+| `<` → `>` | 2 | reversed |
+
+65 relaxations against 4 tightenings and 2 reversals. The graded map's effect on
+a core model is overwhelmingly to *remove* a direction constraint, which is both
+why growth goes up and why growth is a poor way to judge it (§5.4, below).
+
+## 5.4 Growth
 
 ![growth](figures/fig1_growth.png)
 
@@ -155,12 +256,12 @@ the same phenomenon as the growth count — see below.
 
 A map that calls more reactions reversible removes more constraints and grows
 more models whether or not it is right. **eQuilibrator grows the fewest models
-and is the most accurate against experiment (§5.5), so on this data growth count
+and is the most accurate against experiment (§5.6), so on this data growth count
 and correctness point in opposite directions.** Any claim of the form "source X
 is better because more models grow under it" is unsupported. Report the
 permissiveness column alongside, always.
 
-## 5.4 Pairwise agreement
+## 5.5 Pairwise agreement
 
 Number of models whose grow/no-grow verdict differs, and in whose favour. All 21
 pairs; full table in [`tables/variant_agreement.tsv`](tables/variant_agreement.tsv).
@@ -206,7 +307,7 @@ reactions' worth of source assignment. Removing the experimental data changes
 which source is used but almost never changes the resulting direction, because
 where TECRDB exists the predictors usually agree with it.
 
-## 5.5 Direction accuracy against experiment
+## 5.6 Direction accuracy against experiment
 
 ![direction accuracy](figures/fig2_direction_accuracy.png)
 
@@ -242,7 +343,7 @@ The reference's own operator mix is 647 `=`, 124 `>`, 31 `<`, which is why the
 directional subset is the discriminating one: a variant can score in the low 90s
 overall while being at chance on the reactions that actually constrain a model.
 
-## 5.6 The core reaction set
+## 5.7 The core reaction set
 
 ![core grades](figures/fig3_core_grades.png)
 
@@ -276,7 +377,7 @@ operator under every variant, which source the graded map picked, and the TECRDB
 direction and match tier where one exists. That is the table to use for
 case-by-case curation.
 
-## 5.7 What to conclude
+## 5.8 What to conclude
 
 1. **Coverage is where the graded map wins.** 33,289 reactions and 209 of 239
    core reactions, against eQuilibrator's 25,028 and 173 — and every call
@@ -286,7 +387,7 @@ case-by-case curation.
    fixes it.
 3. **Do not use Group Contribution alone to set direction.** 51% on directional
    reactions is chance.
-4. **Do not read growth counts as a quality ranking** without §5.3's
+4. **Do not read growth counts as a quality ranking** without §5.4's
    permissiveness column beside them.
 5. **Use `graded_trusted` when a wrong direction costs more than a missing one.**
    It gives up 26 growers and 10,186 reactions to exclude the BRONZE tier.

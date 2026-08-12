@@ -12,7 +12,7 @@ Built 2026-08-12 against ModelSEED `dev` @ **49563c6f**.
 | [`02_notation.md`](02_notation.md) | Every symbol used anywhere in this folder, defined once. Read this before the two algorithm files. |
 | [`03_grading_algorithm.md`](03_grading_algorithm.md) | The gold/silver/bronze **label**: calibration, the fusion statistics, the decision cascade, and its validation. |
 | [`04_recommendation_algorithm.md`](04_recommendation_algorithm.md) | The **selection** rule: which source to actually use, per target. Includes the exact direction-risk integral, the full ablation, and the negative result that determined the design. |
-| [`05_core_model_simulations.md`](05_core_model_simulations.md) | All core-model FBA data: inventory, coverage, growth, pairwise agreement, direction accuracy, and the per-reaction core table. |
+| [`05_core_model_simulations.md`](05_core_model_simulations.md) | All core-model FBA data: inventory, coverage, **the implicit baseline the models ship with**, growth, pairwise agreement, direction accuracy, and the per-reaction core table. |
 | [`06_reproduce.md`](06_reproduce.md) | Exact commands, runtimes, environment, provenance, and file inventory. |
 | [`tables/`](tables/) | The result tables themselves (TSV/JSON), copied here so the folder stands alone. |
 | [`figures/`](figures/) | The three figures, referenced from `05`. |
@@ -37,14 +37,18 @@ simulations (5,683 models × 7 variants) quantify what each choice does to
 metabolic models, and show that growth counts track how permissive a variant is
 rather than how correct it is.
 
-## Three results worth carrying out of this folder
+## Four results worth carrying out of this folder
 
 1. **The reported uncertainties are usable *within* a source and not *between*
    sources.** Within a source they predict error well enough to grade and to
    abstain; between sources they pick the wrong one. §04 quantifies both halves.
 2. **Growth counts do not rank thermodynamic sources.** The most permissive
    variant grows the most models; the most accurate variant grows the fewest.
-   Always report permissiveness alongside. §05.3.
-3. **The benchmark is partly in-sample.** eQuilibrator is fitted on TECRDB and
+   Always report permissiveness alongside. §05.4.
+3. **The bounds the core models ship with are the least accurate direction
+   source tested** — 67.7% against experiment, versus 90.8–98.5% for the
+   thermodynamic sources — and they err one way: 19 of 21 mistakes force a
+   direction on a reaction the thermodynamics call reversible. §05.3.
+4. **The benchmark is partly in-sample.** eQuilibrator is fitted on TECRDB and
    dGPredictor trained on 4,001 of its measurements, so the accuracy ordering
    they win is not fully independent evidence. §04.7.

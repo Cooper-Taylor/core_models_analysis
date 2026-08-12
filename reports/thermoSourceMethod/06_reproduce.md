@@ -12,6 +12,7 @@ python3 grade_thermo_sources.py            # ~4 min  → results/thermo_grades/
 python3 build_graded_direction_maps.py     # ~2 min  → results/thermo_grades_fba/
 python3 run_graded_fba_all_models.py --workers 32   # ~4 min, 39,781 LP solves
 python3 analyze_graded_fba.py              # ~3 min
+python3 analyze_implicit_directions.py     # ~2 min  (the implicit baseline, §5.3)
 python3 plot_graded_fba.py                 # ~20 s
 
 python3 recommend_thermo_source.py         # ~8 min  → results/thermo_recommendation/
@@ -89,10 +90,12 @@ these scripts.** Every filter is applied at read time.
 | `model_results.csv` | 5,683 | **one row per model**: inventory, per-variant direction coverage, overrides, bounds changed, FBA status, growth flux, grow/no-grow |
 | `summary_stats.json` | — | combined unions, growth totals, median bounds changed |
 | `manifest.json` | — | run metadata |
-| `variant_growth.tsv` | 7 | §5.3, one row per variant |
-| `variant_agreement.tsv` | 21 | §5.4, all pairs |
-| `direction_accuracy.tsv` | 24 | §5.5, 6 variants × 4 subsets |
-| `core_reaction_grades.tsv` | 239 | §5.6, the per-core-reaction table |
+| `variant_growth.tsv` | 7 | §5.4, one row per variant |
+| `variant_agreement.tsv` | 21 | §5.5, all pairs |
+| `direction_accuracy.tsv` | 24 | §5.6, 6 variants × 4 subsets |
+| `core_reaction_grades.tsv` | 239 | §5.7, the per-core-reaction table |
+| `implicit_directions.tsv` | 239 | §5.3, the models' native direction per core reaction vs every variant |
+| `implicit_summary.json` | — | §5.3, the aggregate implicit tables |
 
 ### `results/thermo_recommendation/` — the recommendations
 
@@ -104,7 +107,8 @@ these scripts.** Every filter is applied at read time.
 
 ### This folder
 
-`tables/` holds copies of every summary table above, so it can be read without
+`tables/` holds copies of every summary table above (including
+`implicit_directions.tsv` and `implicit_summary.json`), so it can be read without
 the results tree. `figures/` holds the three figures. The per-model
 `model_results.csv` (5,683 rows) and the long `source_grades.tsv` (80,335 rows)
 are left in `results/` rather than copied, being too large to be useful here.

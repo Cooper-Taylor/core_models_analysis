@@ -1,0 +1,103 @@
+{
+ "n_models": 5683,
+ "n_core_reactions": 239,
+ "pairwise_mix": {
+  ">": 272917,
+  "=": 358244,
+  "<": 62515,
+  "blocked": 5746
+ },
+ "consistency": {
+  "unanimous": 239
+ },
+ "modal_mix": {
+  ">": 104,
+  "=": 108,
+  "<": 25,
+  "blocked": 2
+ },
+ "direction_accuracy": {
+  "implicit": {
+   "n": 65,
+   "correct": 44,
+   "accuracy": 0.676923076923077
+  },
+  "gc": {
+   "n": 65,
+   "correct": 59,
+   "accuracy": 0.9076923076923077
+  },
+  "eq": {
+   "n": 65,
+   "correct": 64,
+   "accuracy": 0.9846153846153847
+  },
+  "dgpms": {
+   "n": 65,
+   "correct": 63,
+   "accuracy": 0.9692307692307692
+  },
+  "graded": {
+   "n": 65,
+   "correct": 65,
+   "accuracy": 1.0
+  },
+  "graded_trusted": {
+   "n": 65,
+   "correct": 65,
+   "accuracy": 1.0
+  },
+  "graded_heldout": {
+   "n": 65,
+   "correct": 63,
+   "accuracy": 0.9692307692307692
+  }
+ },
+ "implicit_mismatches": {
+  "> -> =": 14,
+  "< -> =": 5,
+  "= -> <": 2
+ },
+ "agreement_with_native": {
+  "gc": {
+   "n": 198,
+   "agree": 125,
+   "frac": 0.6313131313131313
+  },
+  "eq": {
+   "n": 173,
+   "agree": 127,
+   "frac": 0.7341040462427746
+  },
+  "dgpms": {
+   "n": 206,
+   "agree": 130,
+   "frac": 0.6310679611650486
+  },
+  "graded": {
+   "n": 207,
+   "agree": 136,
+   "frac": 0.6570048309178744
+  },
+  "graded_trusted": {
+   "n": 177,
+   "agree": 126,
+   "frac": 0.711864406779661
+  },
+  "graded_heldout": {
+   "n": 207,
+   "agree": 136,
+   "frac": 0.6570048309178744
+  }
+ },
+ "native_to_graded": {
+  "> -> >": 32,
+  "= -> =": 93,
+  "< -> <": 11,
+  "> -> =": 54,
+  "< -> =": 11,
+  "= -> <": 3,
+  "< -> >": 2,
+  "= -> >": 1
+ }
+}

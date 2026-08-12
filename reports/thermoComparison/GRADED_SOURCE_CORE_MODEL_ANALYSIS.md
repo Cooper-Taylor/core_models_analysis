@@ -124,6 +124,35 @@ Per reaction, the best grade available is GOLD for 103, SILVER for 76, BRONZE fo
 
 ---
 
+## 2b. The implicit baseline — what the models ship with
+
+`implicit` runs each model on its own on-disk bounds. Worth knowing what those
+say, since everything else is measured against them
+(`analyze_implicit_directions.py` → `results/thermo_grades_fba/implicit_*`).
+
+**All 239 core reactions carry a unanimous native direction across all 5,683
+models**, so the shipped bounds are one global map, not 5,683 decisions. That
+map is 45.2% reversible / 43.5% forward / 10.5% reverse / 0.8% blocked — less
+permissive than every variant except eQuilibrator.
+
+Scored against the experimental reference on the 65 scoreable core reactions,
+**it is the least accurate direction source tested**:
+
+| direction source | accuracy |
+|---|---:|
+| **implicit (native bounds)** | **67.7%** (44/65) |
+| Group Contribution | 90.8% |
+| dGPredictor-ModelSEED / graded held out | 96.9% |
+| eQuilibrator | 98.5% |
+
+**The errors are one-sided:** of 21 mismatches, 14 are native `>` where the
+experiment says `=` and 5 are native `<` → `=`, against 2 the other way. 19 of
+21 are the model over-constraining a reaction the thermodynamics call
+reversible. That is the mechanism behind §3 — every thermodynamic variant grows
+more models than `implicit` because it is mostly relaxing constraints that were
+never thermodynamically justified. On the core set the graded map makes 65
+relaxations against 4 tightenings and 2 reversals.
+
 ## 3. Growth
 
 ![growth](figures/graded_fba/fig1_growth.png)

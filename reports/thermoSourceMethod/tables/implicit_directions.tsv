@@ -1,0 +1,240 @@
+rxn	n_core_models	native_op	native_unanimous	tecrdb_direction	tecrdb_match_tier	op_gc	op_eq	op_dgpms	op_graded	op_graded_trusted	op_graded_heldout
+rxa45615	1531	=	True								
+rxn00001	5419	>	True	>	stereo_exact	=	>	>	>	>	>
+rxn00006	3970	<	True			>	>	>	>	>	>
+rxn00011	5352	<	True			<	<	=	<	<	<
+rxn00077	5398	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00083	2875	>	True	=	stereo_exact	=	=	=	=	=	=
+rxn00097	5502	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00102	150	=	True			=	=	=	=	=	=
+rxn00122	5476	>	True			=	>	=	=	=	=
+rxn00147	2809	>	True	>	stereo_exact	>	>	>	>	>	>
+rxn00148	5200	<	True	=	stereo_exact	=	=	=	=	=	=
+rxn00151	1826	>	True	=	stereo_exact	>	=	=	=	=	=
+rxn00157	1858	<	True	=	stereo_exact	=	=	=	=	=	=
+rxn00159	1954	>	True			>	>	=	=	=	=
+rxn00160	15	>	True			>	=	=	=	=	=
+rxn00161	3964	>	True			>	>	>	>	>	>
+rxn00162	710	>	True			>	>	>	>	>	>
+rxn00171	4663	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00172	941	<	True	=	stereo_exact	=	=	=	=	=	=
+rxn00173	3806	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00175	3991	>	True	=	stereo_exact	>	=	=	=	=	=
+rxn00178	4128	>	True	=	stereo_exact	=	=	=	=	=	=
+rxn00199	4535	>	True			>	>	>	>	>	>
+rxn00206	4908	<	True			>		=	>	>	>
+rxn00216	3552	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00224	3214	=	True								
+rxn00225	4186	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00247	2603	>	True			>	>	>	>	>	>
+rxn00248	4034	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00250	7	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00251	3190	=	True			=	=	=	=	=	=
+rxn00256	4602	<	True	<	stereo_exact	<	<	<	<	<	<
+rxn00265	799	>	True	=	stereo_exact	=	=	=	=	=	=
+rxn00285	4352	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00288	3469	>	True			=	<	=	=	=	=
+rxn00305	1333	>	True			>	>	>	>	>	>
+rxn00324	1887	<	True			=	<	=	<	<	<
+rxn00330	2544	<	True			<	<	<	<	<	<
+rxn00336	2365	>	True	=	stereo_exact	=	=	=	=	=	=
+rxn00371	2803	>	True			>	>	>	>	>	>
+rxn00379	3762	=	True	<	stereo_exact	=	<	<	<	<	<
+rxn00392	5186	=	True			=	=		=	=	=
+rxn00441	3788	>	True			>	>	>	>	>	>
+rxn00459	5582	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00499	3535	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00500	2180	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00506	3655	>	True			=	>	>	>	>	>
+rxn00507	2492	>	True			=	>	>	>	>	>
+rxn00512	1887	<	True	=	stereo_exact	=	<	<	=	=	<
+rxn00543	4740	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00544	900	<	True			=	=	=	=	=	=
+rxn00545	3250	>	True	=	stereo_exact	=	=	=	=	=	=
+rxn00548	1298	=	True			>	>	>	>	>	>
+rxn00549	4682	>	True	>	stereo_exact	=	>	>	>	>	>
+rxn00558	5378	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00568	2826	<	True			<	<	<	<	<	<
+rxn00569	2603	<	True			<	<	<	<	<	<
+rxn00602	2056	<	True	=	stereo_exact	=	=	=	=	=	=
+rxn00604	3909	>	True	=	stereo_exact	=	=	=	=	=	=
+rxn00611	5156	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00612	5156	=	True			=	=	=	=	=	=
+rxn00615	4152	>	True			=	=	=	=	=	=
+rxn00616	3842	=	True			=	=	=	=	=	=
+rxn00623	2469	<	True			=	<	<	<	<	<
+rxn00668	2095	=	True			=	>	=	=	=	=
+rxn00670	3808	=	True			=	=	=	=	=	=
+rxn00678	99	=	True	=	skeleton	=	=	=	=	=	=
+rxn00747	5562	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00748	2116	>	True			>	>	>	>	>	>
+rxn00762	1424	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00763	4650	=	True			=	=	=	=	=	=
+rxn00770	5538	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00777	5607	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00779	14	>	True			=	>	>	>	>	>
+rxn00781	5582	=	True	<	stereo_exact	=	<	<	<	<	<
+rxn00782	358	<	True			=	<	<	<	<	<
+rxn00785	5292	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00786	5370	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00799	5031	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00868	1542	<	True			=	<	<	<	<	<
+rxn00869	2121	<	True			=	<	<	<	<	<
+rxn00871	90	>	True			=	=	=	=	=	=
+rxn00874	4110	=	True			=	=	=	=	=	=
+rxn00875	935	>	True			=	=	=	=	=	=
+rxn00935	1852	=	True			=	=	=	=	=	=
+rxn00974	4747	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn00985	4186	=	True			=	=	=	=	=	=
+rxn00990	935	>	True	=	stereo_exact	=	=	=	=	=	=
+rxn00994	915	<	True			=	=	=	=	=	=
+rxn00995	377	>	True			>	>	>	>	>	>
+rxn01057	24	=	True			=	=	=	=	=	=
+rxn01100	5574	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn01106	5585	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn01115	3615	>	True			>	>	>	>	>	>
+rxn01116	5291	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn01121	545	>	True			>	>	>	>	>	>
+rxn01123	2522	>	True			=	=	=	=	=	=
+rxn01130	377	>	True	=	stereo_exact	=	=	=	=	=	=
+rxn01187	1298	>	True			>	>	>	>	>	>
+rxn01200	5292	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn01236	68	<	True			=	=	=	=		=
+rxn01241	5162	=	True	=	skeleton	=	=	=	=	=	=
+rxn01274	2667	>	True			=	>	=	>	>	>
+rxn01275	2759	>	True			=	=	=	=	=	=
+rxn01333	4787	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn01334	5176	=	True			=	=	=	=	=	=
+rxn01343	3247	>	True			=	=	=	=	=	=
+rxn01387	4535	=	True			=	=	=	=	=	=
+rxn01388	4747	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn01452	2541	<	True			=	=	=	=	=	=
+rxn01476	3839	>	True			=	>	=	=	=	=
+rxn01477	1714	>	True			>	>	>	>	>	>
+rxn01480	3212	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn01806	1451	>	True					>	>		>
+rxn01834	3461	=	True	=	stereo_exact	=	=	>	=	=	>
+rxn01870	4493	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn01871	4512	<	True			=	=	=	=	=	=
+rxn01872	3781	=	True			=		=	=	=	=
+rxn01996	1681	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn02167	3471	>	True	=	stereo_exact	=	=	=	=	=	=
+rxn02168	804	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn02314	3850	=	True	=	skeleton	=	=	=	=	=	=
+rxn02342	4510	>	True			=	=	=	=	=	=
+rxn02376	3788	=	True			=		=	=	=	=
+rxn02480	247	=	True			=	=	=	=		=
+rxn02527	695	>	True	=	stereo_exact	=	=	=	=	=	=
+rxn03020	92	=	True			=	=	=	=	=	=
+rxn03079	235	=	True			=	=	=	=	=	=
+rxn03085	102	=	True			=	=	=	=		=
+rxn03126	142	=	True			=	=	=	=	=	=
+rxn03127	95	=	True			=	=	=	=	=	=
+rxn03240	3446	=	True			=	=	=	=	=	=
+rxn03249	3566	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn03250	3446	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn03643	644	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn03644	694	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn03884	3260	>	True	=	stereo_exact	=	=	=	=	=	=
+rxn04794	1839	=	True			=	=	=	=	=	=
+rxn05040	4947	>	True			>	>	>	>	>	>
+rxn05145	5410	>	True			>	>	>	>	>	>
+rxn05209	5041	=	True					=	=	=	=
+rxn05226	3801	>	True			=	>	>	>	>	>
+rxn05312	4092	<	True			=		=	=	=	=
+rxn05313	2412	>	True					=	=	=	=
+rxn05319	5683	=	True			=		=	=	=	=
+rxn05466	5683	=	True			=		=	=	=	=
+rxn05467	5683	=	True			=		=	=	=	=
+rxn05468	5683	>	True			=		=	=	=	=
+rxn05469	5683	=	True			=		=	=	=	=
+rxn05488	5683	=	True			=		=	=	=	=
+rxn05493	1401	=	True			=		=	=	=	=
+rxn05528	5229	>	True				>	>	>	>	>
+rxn05559	5683	=	True			=		=	=	=	=
+rxn05561	3163	=	True			=		=	=	=	=
+rxn05573	1385	>	True	=	skeleton	=		=	=	=	=
+rxn05581	2573	=	True			=		=	=	=	=
+rxn05602	2230	=	True			=		=	=	=	=
+rxn05625	3490	=	True			=		=	=	=	=
+rxn05627	3320	>	True			=		=	=	=	=
+rxn05651	3087	=	True			=		=	=	=	=
+rxn05759	498	=	True								
+rxn05937	2725	>	True								
+rxn05939	1754	>	True								
+rxn06299	216	=	True			=	=	<	<	<	<
+rxn06493	4705	=	True								
+rxn06526	2863	=	True								
+rxn06777	3566	=	True			=	=	=	=	=	=
+rxn07191	86	>	True								
+rxn08173	5121	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn08178	735	>	True				=	=	=		=
+rxn08179	735	>	True				=	=	=		=
+rxn08350	5683	>	True			=		=	=	=	=
+rxn08355	656	>	True				>	>	>		>
+rxn08428	5683	=	True			=		=	=	=	=
+rxn08518	371	>	True			>	>	>	>	>	>
+rxn08527	3469	=	True			=	=	=	=		=
+rxn08528	3469	=	True			=	=	=	=	=	=
+rxn08556	2620	>	True			=	>	=	=		=
+rxn08557	2619	>	True			=	=	=	=		=
+rxn08558	2619	>	True			=	=	=	=	=	=
+rxn08655	1885	>	True			=	>	=	=		=
+rxn08656	1885	>	True			=	=	=	=		=
+rxn08689	5683	>	True			=		=	=	=	=
+rxn08691	5683	=	True			=		=	=	=	=
+rxn08734	4036	>	True			>	>	=	>		>
+rxn08783	2106	>	True			=	>	=	=		=
+rxn08792	3535	>	True			=	>	=	=		=
+rxn08793	3535	>	True			=	=	=	=		=
+rxn08900	1852	>	True			=	>	=	=		=
+rxn08901	1852	>	True			=	=	=	=		=
+rxn08966	5683	=	True			=		=	=	=	=
+rxn08971	4222	>	True			=	=	=	=		=
+rxn08975	4222	>	True			=	>	=	=		=
+rxn08976	4222	>	True			=	>	=	=	=	=
+rxn08977	113	>	True			=	>	=	=		=
+rxn08999	63	blocked	True			=		=	=	=	=
+rxn09001	3190	>	True			=	=	>	=		=
+rxn09003	3217	>	True			=	>	=	=		=
+rxn09004	1997	=	True			=		=	=	=	=
+rxn09008	5683	=	True					=	=	=	=
+rxn09167	1623	>	True			>	>	=	>		>
+rxn09174	111	=	True			=	=	=	=	=	=
+rxn09272	4628	>	True			=	>	=	=		=
+rxn09295	2875	>	True	=	stereo_exact	=	=	=	=	=	=
+rxn09314	481	>	True			>	>	>	>		>
+rxn10114	1689	>	True			>	>	=	>		>
+rxn10122	3692	>	True			=	>	=	=		=
+rxn10126	3271	>	True			=	>	=	=		=
+rxn10471	5683	=	True			=		=	=	=	=
+rxn10577	5683	>	True			=		=	=	=	=
+rxn11322	5683	blocked	True			=		=	=	=	=
+rxn11937	508	<	True			<		<	<	<	<
+rxn13974	1855	<	True								
+rxn14412	2881	>	True								
+rxn14414	2881	>	True								
+rxn14418	3971	>	True								
+rxn14419	3971	>	True								
+rxn14420	3989	>	True								
+rxn14421	1539	>	True								
+rxn14422	1539	>	True								
+rxn14423	383	>	True								
+rxn14424	383	>	True								
+rxn14425	1695	>	True								
+rxn14426	1695	>	True								
+rxn14427	3303	>	True								
+rxn14428	645	>	True								
+rxn15383	1088	>	True			>	>	>	>	>	>
+rxn15961	28	=	True			=	=	=	=	=	=
+rxn15962	177	=	True					=	=		=
+rxn17445	239	=	True								
+rxn39175	5683	=	True			=		=	=	=	=
+rxn39373	1099	=	True	=	stereo_exact	=	=	=	=	=	=
+rxn40505	319	=	True								
+rxn46184	239	=	True								
+sul00002	493	=	True								
+sul00003	147	=	True								
+sul00004	163	=	True								
+sul00008	1774	>	True								
+sul00010	1454	>	True								
