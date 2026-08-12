@@ -1,0 +1,34 @@
+{
+  "n_models": 5683,
+  "n_ok": 5683,
+  "n_errors": 0,
+  "errors": [],
+  "combined_unique_reactions_all_models": 239,
+  "combined_unique_compounds_all_models": 182,
+  "combined_reactions_with_direction_by_source": {
+    "gc": 200,
+    "eq": 173,
+    "dgpms": 208,
+    "graded": 209,
+    "graded_trusted": 179,
+    "graded_heldout": 209
+  },
+  "fba_growth_totals_by_source": {
+    "implicit": 3461,
+    "gc": 3656,
+    "eq": 3570,
+    "dgpms": 3717,
+    "graded": 3715,
+    "graded_trusted": 3689,
+    "graded_heldout": 3715
+  },
+  "median_bounds_changed_by_source": {
+    "implicit": 0,
+    "gc": 39,
+    "eq": 21,
+    "dgpms": 40,
+    "graded": 37,
+    "graded_trusted": 28,
+    "graded_heldout": 38
+  }
+}

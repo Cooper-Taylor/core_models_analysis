@@ -1,0 +1,25 @@
+subset	variant	label	n_scored	n_correct	accuracy	circular
+all_stereo_exact	gc	Group Contribution only	802	686	0.8554	False
+all_stereo_exact	eq	eQuilibrator only	794	758	0.9547	False
+all_stereo_exact	dgpms	dGPredictor-ModelSEED only	802	736	0.9177	False
+all_stereo_exact	graded	graded (recommended)	802	802	1.0000	True
+all_stereo_exact	graded_trusted	graded, SILVER floor	802	802	1.0000	True
+all_stereo_exact	graded_heldout	graded, TECRDB held out	802	749	0.9339	False
+core_models_only	gc	Group Contribution only	65	59	0.9077	False
+core_models_only	eq	eQuilibrator only	65	64	0.9846	False
+core_models_only	dgpms	dGPredictor-ModelSEED only	65	63	0.9692	False
+core_models_only	graded	graded (recommended)	65	65	1.0000	True
+core_models_only	graded_trusted	graded, SILVER floor	65	65	1.0000	True
+core_models_only	graded_heldout	graded, TECRDB held out	65	63	0.9692	False
+reference_directional	gc	Group Contribution only	155	79	0.5097	False
+reference_directional	eq	eQuilibrator only	155	145	0.9355	False
+reference_directional	dgpms	dGPredictor-ModelSEED only	155	133	0.8581	False
+reference_directional	graded	graded (recommended)	155	155	1.0000	True
+reference_directional	graded_trusted	graded, SILVER floor	155	155	1.0000	True
+reference_directional	graded_heldout	graded, TECRDB held out	155	138	0.8903	False
+reference_reversible	gc	Group Contribution only	647	607	0.9382	False
+reference_reversible	eq	eQuilibrator only	639	613	0.9593	False
+reference_reversible	dgpms	dGPredictor-ModelSEED only	647	603	0.9320	False
+reference_reversible	graded	graded (recommended)	647	647	1.0000	True
+reference_reversible	graded_trusted	graded, SILVER floor	647	647	1.0000	True
+reference_reversible	graded_heldout	graded, TECRDB held out	647	611	0.9444	False

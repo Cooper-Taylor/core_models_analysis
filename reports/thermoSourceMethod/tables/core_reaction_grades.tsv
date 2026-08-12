@@ -1,0 +1,240 @@
+rxn	n_core_models	name	ec	grade_GC	grade_EQ	grade_DGPMS	grade_TECRDB	best_grade	best_source	birge	op_gc	op_eq	op_dgpms	op_graded	op_graded_trusted	op_graded_heldout	graded_pick	tecrdb_direction	tecrdb_match_tier
+rxn05467	5683	CO2 transporter via diffusion		SILVER		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn08966	5683	nitrious oxide transport via diffusion (extracellular to periplasm)		BRONZE		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn05319	5683	TRANS-RXNBWI-115401.ce.maizeexp.OH_OH		SILVER		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn39175	5683	TrnRxn_cpd03662		SILVER		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn05468	5683	TRANS-RXNAVI-26568.ce		SILVER		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn08350	5683	D-lactate transport via proton symport (periplasm)		SILVER		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn05488	5683	acetate reversible transport via proton symport	2.A.1.13.-	BRONZE		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn10577	5683	Nitrogen exchange, diffusion		BRONZE		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn09008	5683	nitric oxide transport via diffusion (extracellular to periplasm)				GOLD		GOLD	DGPMS				=	=	=	=	dGPredictor-ModelSEED		
+rxn05559	5683	formate transport in via proton symport		BRONZE		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn08689	5683	h2s transport (periplasm)		SILVER		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn05469	5683	pyruvate reversible transport via proton symport		SILVER		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn11322	5683	(R,R)-butanediol transport		BRONZE		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn08428	5683	ethanol transport via diffusion (extracellular to periplasm)		BRONZE		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn10471	5683	Methane Transport		BRONZE		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn05466	5683	TRANS-RXN-173.ce		SILVER		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn08691	5683	hydrogen transport via diffusion (extracellular to periplasm)		SILVER		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn00777	5607	D-ribose-5-phosphate aldose-ketose-isomerase	5.3.1.6	GOLD	GOLD	GOLD	GOLD	GOLD	TECRDB	0.0818	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn01106	5585	2-Phospho-D-glycerate 2,3-phosphomutase	5.4.2.1;5.4.2.11;5.4.2.12	SILVER	GOLD	GOLD	GOLD	GOLD	TECRDB	0.2713	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00459	5582	2-phospho-D-glycerate hydro-lyase (phosphoenolpyruvate-forming)	4.2.1.11	GOLD	GOLD	GOLD	GOLD	GOLD	TECRDB	0.1510	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00781	5582	D-glyceraldehyde-3-phosphate:NAD+ oxidoreductase (phosphorylating)	1.2.1.12;1.2.1.59	BRONZE	GOLD	GOLD	GOLD	GOLD	TECRDB	1.3733	=	<	<	<	<	<	TECRDB	<	stereo_exact
+rxn01100	5574	ATP:3-phospho-D-glycerate 1-phosphotransferase	2.7.2.3	BRONZE	GOLD	GOLD	GOLD	GOLD	TECRDB	1.4247	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00747	5562	D-glyceraldehyde-3-phosphate aldose-ketose-isomerase	5.3.1.1	GOLD	GOLD	GOLD	GOLD	GOLD	TECRDB	0.2190	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00770	5538	ATP:D-ribose-5-phosphate diphosphotransferase	2.7.6.1	BRONZE	SILVER	BRONZE	GOLD	GOLD	TECRDB	1.9147	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00097	5502	ATP:AMP phosphotransferase	2.7.4.3	BRONZE	GOLD	GOLD	GOLD	GOLD	TECRDB	1.2382	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00122	5476	ATP:FMN adenylyltransferase	2.7.7.2	SILVER	BRONZE	SILVER		SILVER	GC	0.9639	=	>	=	=	=	=	dGPredictor-ModelSEED		
+rxn00001	5419	diphosphate phosphohydrolase	3.6.1.1	BRONZE	GOLD	GOLD	GOLD	GOLD	TECRDB	1.3188	=	>	>	>	>	>	TECRDB	>	stereo_exact
+rxn05145	5410	phosphate-transporting ATPase	3.6.3.27;3.A.1.7.-;7.3.2.1	BRONZE	GOLD	GOLD		GOLD	EQ	0.4608	>	>	>	>	>	>	eQuilibrator		
+rxn00077	5398	ATP:NAD+ 2'-phosphotransferase	2.7.1.23	BRONZE	GOLD	GOLD	GOLD	GOLD	TECRDB	1.3649	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00558	5378	D-glucose-6-phosphate aldose-ketose-isomerase	5.3.1.9	SILVER	GOLD	GOLD	GOLD	GOLD	TECRDB	0.5985	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00786	5370	D-fructose-1,6-bisphosphate D-glyceraldehyde-3-phosphate-lyase (glycerone-phosphate-forming)	4.1.2.13	SILVER	GOLD	GOLD	GOLD	GOLD	TECRDB	0.2092	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00011	5352	pyruvate:thiamin diphosphate acetaldehydetransferase (decarboxylating)	1.2.4.1;2.2.1.6;4.1.1.1	SILVER	SILVER	SILVER		SILVER	GC	0.5233	<	<	=	<	<	<	Group contribution		
+rxn01200	5292	Sedoheptulose-7-phosphate:D-glyceraldehyde-3-phosphate glycolaldehyde transferase	2.2.1.1	SILVER	GOLD	SILVER	GOLD	GOLD	TECRDB	0.4810	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00785	5292	D-Fructose 6-phosphate:D-glyceraldehyde-3-phosphate glycolaldehyde transferase	2.2.1.1	GOLD	GOLD	SILVER	GOLD	GOLD	TECRDB	0.4858	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn01116	5291	D-Ribulose-5-phosphate 3-epimerase	5.1.3.1	GOLD	GOLD	GOLD	GOLD	GOLD	TECRDB	0.1846	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn05528	5229	Copper-transporting ATPase	3.6.3.-;3.6.3.4;3.A.3.-.-		GOLD	GOLD		GOLD	EQ	0.6477		>	>	>	>	>	eQuilibrator		
+rxn00148	5200	ATP:pyruvate 2-O-phosphotransferase	2.7.1.40	BRONZE	SILVER	SILVER	GOLD	GOLD	TECRDB	1.4206	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00392	5186	ATP:riboflavin 5'-phosphotransferase	2.7.1.26	BRONZE	SILVER			SILVER	EQ	1.9392	=	=		=	=	=	eQuilibrator		
+rxn01334	5176	Sedoheptulose 1,7-bisphosphate D-glyceraldehyde-3-phosphate-lyase	4.1.2.-;4.1.2.13	SILVER	SILVER	SILVER		SILVER	GC	0.3907	=	=	=	=	=	=	dGPredictor-ModelSEED		
+rxn01241	5162	Dihydrolipoamide:NAD+ oxidoreductase	1.8.1.4	SILVER	GOLD	SILVER	SILVER	GOLD	EQ	0.0597	=	=	=	=	=	=	eQuilibrator	=	skeleton
+rxn00611	5156	sn-Glycerol-3-phosphate:NAD+ 2-oxidoreductase	1.1.1.8;1.1.1.94	SILVER	GOLD	GOLD	GOLD	GOLD	TECRDB	0.2908	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00612	5156	sn-Glycerol-3-phosphate:NADP+ 2-oxidoreductase	1.1.1.94	SILVER	GOLD	SILVER		GOLD	EQ	0.3685	=	=	=	=	=	=	eQuilibrator		
+rxn08173	5121	F(1)-ATPase	3.6.3.14;7.1.2.2	GOLD	GOLD	GOLD	GOLD	GOLD	TECRDB	0.4608	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn05209	5041	TRANS-RXNBWI-115525.ce.maizeexp.NA+_NA+				GOLD		GOLD	DGPMS				=	=	=	=	dGPredictor-ModelSEED		
+rxn00799	5031	(S)-malate hydro-lyase (fumarate-forming)	4.2.1.2	GOLD	GOLD	GOLD	GOLD	GOLD	TECRDB	0.0487	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn05040	4947	D-ribulose 5-phosphate formate-lyase (L-3,4-dihydroxybutan-2-one 4-phosphate-forming)	4.1.99.12	SILVER	SILVER	BRONZE		SILVER	GC	1.3767	>	>	>	>	>	>	eQuilibrator		
+rxn00206	4908	superoxide:superoxide oxidoreductase	1.15.1.1	SILVER		SILVER		SILVER	GC	0.8989	>		=	>	>	>	Group contribution		
+rxn01333	4787	sedoheptulose-7-phosphate:D-glyceraldehyde-3-phosphate glyceronetransferase	2.2.1.2	SILVER	GOLD	GOLD	GOLD	GOLD	TECRDB	0.4113	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00974	4747	citrate hydro-lyase (cis-aconitate-forming)	4.2.1.3;4.2.1.4	GOLD	GOLD	GOLD	GOLD	GOLD	TECRDB	0.0950	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn01388	4747	isocitrate hydro-lyase (cis-aconitate-forming)	4.2.1.3	GOLD	GOLD	GOLD	GOLD	GOLD	TECRDB	0.0847	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00543	4740	ethanol:NAD+ oxidoreductase	1.1.1.1;1.1.1.71	SILVER	GOLD	GOLD	GOLD	GOLD	TECRDB	0.0972	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn06493	4705	dihydrolipoylprotein:NAD+ oxidoreductase	1.8.1.4																
+rxn00549	4682	D-Fructose-1,6-bisphosphate 1-phosphohydrolase	3.1.3.11	BRONZE	GOLD	GOLD	GOLD	GOLD	TECRDB	1.1318	=	>	>	>	>	>	TECRDB	>	stereo_exact
+rxn00171	4663	acetaldehyde:NAD+ oxidoreductase (CoA-acetylating)	1.2.1.10	GOLD	GOLD	SILVER	GOLD	GOLD	TECRDB	0.3897	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00763	4650	Glycerol:NAD+ oxidoreductase	1.1.1.-;1.1.1.1;1.1.1.21;1.1.1.72	SILVER	SILVER	SILVER		SILVER	GC	0.4734	=	=	=	=	=	=	dGPredictor-ModelSEED		
+rxn09272	4628	fumarate reductase complex (i.e. FRD, involved in anaerobic respiration, repressed in aerobic respiration)	1.3.5.1;1.3.99.1	BRONZE	BRONZE			BRONZE	GC	1.9169	=	>	=	=		=	Group contribution		
+rxn00256	4602	acetyl-CoA:oxaloacetate C-acetyltransferase (thioester-hydrolysing)	2.3.3.1;2.3.3.16;2.3.3.3;4.1.3.7	GOLD	GOLD	GOLD	GOLD	GOLD	TECRDB	0.8280	<	<	<	<	<	<	TECRDB	<	stereo_exact
+rxn01387	4535	Isocitrate:NADP+ oxidoreductase	1.1.1.42	SILVER	SILVER	SILVER		SILVER	GC	0.2545	=	=	=	=	=	=	eQuilibrator		
+rxn00199	4535	oxalosuccinate carboxy-lyase (2-oxoglutarate-forming)	1.1.1.42;4.1.1.-	SILVER	SILVER	SILVER		SILVER	GC	0.1448	>	>	>	>	>	>	Group contribution		
+rxn01871	4512	acetyl-CoA:enzyme N6-(dihydrolipoyl)lysine S-acetyltransferase	2.3.1.12	SILVER	SILVER	SILVER		SILVER	GC	0.3801	=	=	=	=	=	=	eQuilibrator		
+rxn02342	4510	R03270	1.2.4.1	SILVER	SILVER	SILVER		SILVER	GC	0.6741	=	=	=	=	=	=	eQuilibrator		
+rxn01870	4493	D-Fructose 1-phosphate D-glyceraldehyde-3-phosphate-lyase	4.1.2.13	BRONZE	GOLD	BRONZE	GOLD	GOLD	TECRDB	1.0932	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00285	4352	Succinate:CoA ligase (ADP-forming)	6.2.1.5	SILVER	SILVER	GOLD	GOLD	GOLD	TECRDB	0.5133	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn08975	4222	dihydronicotinamide adenine dinucleotide-coenzyme Q reductase	1.6.5.2;1.6.5.3;1.6.5.9	BRONZE	BRONZE			BRONZE	GC	1.8663	=	>	=	=		=	Group contribution		
+rxn08976	4222	quinone reductase	1.6.5.2;1.6.5.3	SILVER	SILVER			SILVER	GC	1.0831	=	>	=	=	=	=	Group contribution		
+rxn08971	4222	NADH dehydrogenase (menaquinone-8 & 0 protons)	1.6.5.3	BRONZE	BRONZE			BRONZE	GC	2.2696	=	=	=	=		=	Group contribution		
+rxn00225	4186	ATP:acetate phosphotransferase	2.7.2.1;2.7.2.15	BRONZE	GOLD	GOLD	GOLD	GOLD	TECRDB	1.0696	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00985	4186	ATP:propanoate phosphotransferase	2.7.2.1;2.7.2.15	BRONZE	SILVER	BRONZE		SILVER	EQ	1.7686	=	=	=	=	=	=	eQuilibrator		
+rxn00615	4152	ATP:glycerol 3-phosphotransferase	2.7.1.30	BRONZE	SILVER	SILVER		SILVER	EQ	1.3733	=	=	=	=	=	=	dGPredictor-ModelSEED		
+rxn00178	4128	Acetyl-CoA:acetyl-CoA C-acetyltransferase	2.3.1.9	SILVER	GOLD	GOLD	GOLD	GOLD	TECRDB	0.2547	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00874	4110	butanoyl-CoA:acetyl-CoA C-butanoyltransferase	2.3.1.16;2.3.1.9	SILVER	SILVER	SILVER		SILVER	GC	0.6453	=	=	=	=	=	=	eQuilibrator		
+rxn05312	4092	Inorganic phosphate transporter	2.A.20.-.-	BRONZE		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn08734	4036	hydrogenase (ubiquinone-8: 2 protons) (periplasm)	1.18.99.1	BRONZE	BRONZE			BRONZE	GC	1.8739	>	>	=	>		>	Group contribution		
+rxn00248	4034	(S)-malate:NAD+ oxidoreductase	1.1.1.299;1.1.1.37	GOLD	SILVER	SILVER	GOLD	GOLD	TECRDB	0.1311	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00175	3991	Acetate:CoA ligase (AMP-forming)	6.2.1.1	BRONZE	GOLD	SILVER	GOLD	GOLD	TECRDB	2.6822	>	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn14420	3989	cytochrome-bd reductase (menaquinol: 2 protons)																	
+rxn14418	3971	cytochrome-bd reductase (ubiquinol: 2 protons)																	
+rxn14419	3971	cytochrome-bd oxidase (2 protons translocated)																	
+rxn00006	3970	hydrogen-peroxide:hydrogen-peroxide oxidoreductase	1.11.1.21;1.11.1.6	SILVER	SILVER	SILVER		SILVER	GC	0.2235	>	>	>	>	>	>	Group contribution		
+rxn00161	3964	(S)-Malate:NADP+ oxidoreductase(oxaloacetate-decarboxylating)	1.1.1.40	SILVER	SILVER	SILVER		SILVER	GC	0.1866	>	>	>	>	>	>	dGPredictor-ModelSEED		
+rxn00604	3909	D-glucose-6-phosphate:NADP+ 1-oxidoreductase	1.1.1.363;1.1.1.49	GOLD	GOLD	GOLD	GOLD	GOLD	TECRDB	0.1403	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn02314	3850	ATP:D-tagatose-6-phosphate 1-phosphotransferase	2.7.1.11;2.7.1.144;2.7.1.56	BRONZE	SILVER	SILVER	SILVER	SILVER	TECRDB	1.2057	=	=	=	=	=	=	TECRDB	=	skeleton
+rxn00616	3842	sn-Glycerol-3-phosphate:(acceptor) 2-oxidoreductase	1.1.5.3;1.1.99.5	BRONZE	BRONZE	SILVER		SILVER	DGPMS	2.3132	=	=	=	=	=	=	dGPredictor-ModelSEED		
+rxn01476	3839	6-Phospho-D-glucono-1,5-lactone lactonohydrolase	3.1.1.31	SILVER	SILVER	SILVER		SILVER	GC	0.0330	=	>	=	=	=	=	dGPredictor-ModelSEED		
+rxn00670	3808	propanoyl-CoA:phosphate propanoyltransferase	2.3.1.-;2.3.1.222;2.3.1.8	BRONZE	SILVER	SILVER		SILVER	EQ	1.2253	=	=	=	=	=	=	eQuilibrator		
+rxn00173	3806	acetyl-CoA:phosphate acetyltransferase	2.3.1.8	BRONZE	GOLD	SILVER	GOLD	GOLD	TECRDB	1.0173	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn05226	3801	D-glucose transport via PEP:Pyr PTS		BRONZE	GOLD	SILVER		GOLD	EQ	0.4434	=	>	>	>	>	>	eQuilibrator		
+rxn00441	3788	R00621	1.2.4.2	SILVER	SILVER	SILVER		SILVER	GC	0.3570	>	>	>	>	>	>	Group contribution		
+rxn02376	3788	R03316	1.2.4.2	SILVER		SILVER		SILVER	GC	0.0945	=		=	=	=	=	Group contribution		
+rxn01872	3781	succinyl-CoA:enzyme N6-(dihydrolipoyl)lysine S-succinyltransferase	2.3.1.61	SILVER		SILVER		SILVER	GC	0.0846	=		=	=	=	=	Group contribution		
+rxn00379	3762	ATP:sulfate adenylyltransferase	2.7.7.4	BRONZE	GOLD	GOLD	GOLD	GOLD	TECRDB	1.0177	=	<	<	<	<	<	TECRDB	<	stereo_exact
+rxn10122	3692	NADH dehydrogenase (ubiquinone-8 & 3.5 protons)	1.6.5.3	BRONZE	BRONZE			BRONZE	GC	1.8663	=	>	=	=		=	Group contribution		
+rxn00506	3655	Acetaldehyde:NAD+ oxidoreductase	1.2.1.3;1.2.1.5	SILVER	SILVER	SILVER		SILVER	GC	0.2549	=	>	>	>	>	>	eQuilibrator		
+rxn01115	3615	6-phospho-D-gluconate:NADP+ 2-oxidoreductase (decarboxylating)	1.1.1.351;1.1.1.44	SILVER	SILVER	SILVER		SILVER	GC	0.2663	>	>	>	>	>	>	dGPredictor-ModelSEED		
+rxn03249	3566	(S)-hydroxyhexanoyl-CoA:NAD+ oxidoreductase	1.1.1.211;1.1.1.35	GOLD	SILVER	SILVER	GOLD	GOLD	TECRDB	0.3172	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn06777	3566	(S)-3-Hydroxytetradecanoyl-CoA:NAD+ oxidoreductase	1.1.1.211;1.1.1.35	SILVER	SILVER	SILVER		SILVER	GC	0.4120	=	=	=	=	=	=	eQuilibrator		
+rxn00216	3552	ATP:D-glucose 6-phosphotransferase	2.7.1.1;2.7.1.2	BRONZE	GOLD	GOLD	GOLD	GOLD	TECRDB	1.4647	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn08792	3535	lactate oxidation	1.1.2.3	BRONZE	BRONZE			BRONZE	GC	1.8473	=	>	=	=		=	Group contribution		
+rxn00499	3535	(S)-Lactate:NAD+ oxidoreductase	1.1.1.27	SILVER	SILVER	SILVER	GOLD	GOLD	TECRDB	0.0204	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn08793	3535	L-Lactate dehydrogenase (menaquinone)	1.1.2.3	BRONZE	BRONZE			BRONZE	GC	2.2906	=	=	=	=		=	Group contribution		
+rxn05625	3490	nitrite transport in via proton symport, reversible		BRONZE		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn02167	3471	(S)-3-Hydroxybutanoyl-CoA hydro-lyase	4.2.1.-;4.2.1.17;4.2.1.55	SILVER	GOLD	GOLD	GOLD	GOLD	TECRDB	0.1706	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn08527	3469	fumarate reductase	1.3.99.1	BRONZE	BRONZE			BRONZE	GC	2.2097	=	=	=	=		=	Group contribution		
+rxn00288	3469	Succinate:(acceptor) oxidoreductase	1.3.99.1	BRONZE	BRONZE	SILVER		SILVER	DGPMS	2.1322	=	<	=	=	=	=	dGPredictor-ModelSEED		
+rxn08528	3469	fumarate reductase	1.3.99.1	SILVER	SILVER			SILVER	GC	1.0325	=	=	=	=	=	=	Group contribution		
+rxn01834	3461	(R)-S-Lactoylglutathione methylglyoxal-lyase (isomerizing)	4.4.1.5	BRONZE	GOLD	BRONZE	GOLD	GOLD	TECRDB	3.0094	=	=	>	=	=	>	TECRDB	=	stereo_exact
+rxn03240	3446	(S)-3-Hydroxyhexadecanoyl-CoA hydro-lyase	4.2.1.17;4.2.1.74	SILVER	SILVER	SILVER		SILVER	GC	0.2720	=	=	=	=	=	=	dGPredictor-ModelSEED		
+rxn03250	3446	(S)-Hydroxyhexanoyl-CoA hydro-lyase	4.2.1.-;4.2.1.17;4.2.1.74	SILVER	GOLD	GOLD	GOLD	GOLD	TECRDB	0.2361	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn05627	3320	nitrate transport in via proton symport		BRONZE		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn14427	3303	Nitrate reductase cytochrome-c type (2 protons translocated)																	
+rxn10126	3271	succinate dehyrdogenase		BRONZE	BRONZE			BRONZE	GC	1.9789	=	>	=	=		=	Group contribution		
+rxn03884	3260	2-dehydro-3-deoxy-D-gluconate-6-phosphate D-glyceraldehyde-3-phosphate-lyase	4.1.2.-;4.1.2.14	BRONZE	GOLD	GOLD	GOLD	GOLD	TECRDB	0.7139	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00545	3250	ATP:D-fructose-6-phosphate 1-phosphotransferase	2.7.1.11	BRONZE	GOLD	GOLD	GOLD	GOLD	TECRDB	1.2011	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn01343	3247	ATP:Sedoheptulose 7-phosphate 1-phosphotransferase	2.7.1.11	BRONZE	SILVER	SILVER		SILVER	EQ	1.2682	=	=	=	=	=	=	dGPredictor-ModelSEED		
+rxn09003	3217	Nitrate reductase (Menaquinol-8) (periplasm)		BRONZE	BRONZE			BRONZE	GC	3.0658	=	>	=	=		=	Group contribution		
+rxn00224	3214	protoheme ferro-lyase (protoporphyrin-forming)	4.99.1.1																
+rxn01480	3212	3-Hydroxy-2-methylpropanoate:NAD+ oxidoreductase	1.1.1.31	BRONZE	BRONZE	SILVER	GOLD	GOLD	TECRDB	0.0409	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn09001	3190	Nitrate reductase (Ubiquinol-8) (periplasm)	1.7.99.4	BRONZE	BRONZE			BRONZE	GC	0.6454	=	=	>	=		=	Group contribution		
+rxn00251	3190	phosphate:oxaloacetate carboxy-lyase (adding phosphate;phosphoenolpyruvate-forming)	4.1.1.31	BRONZE	BRONZE	SILVER		SILVER	DGPMS	2.0174	=	=	=	=	=	=	dGPredictor-ModelSEED		
+rxn05561	3163	Transport of dicarboxylates, extracellular	2.A.56.-.-	BRONZE		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn05651	3087	sulfate transport in via proton symport	2.A.53.-.-	BRONZE		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn14412	2881	cytochrome-c reductase (ubiquinol: 2 protons)																	
+rxn14414	2881	cytochrome-c reductase (menaquinol: 2 protons)																	
+rxn00083	2875	NADPH:NAD+ oxidoreductase	1.6.1.1;1.6.1.2;1.6.1.3	GOLD	GOLD	SILVER	GOLD	GOLD	TECRDB	0.7477	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn09295	2875	NAD(P) transhydrogenase (periplasm)	1.6.1.1	GOLD	GOLD	SILVER	GOLD	GOLD	TECRDB	0.7477	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn06526	2863	protein-dithiol:NADP+ oxidoreductase	1.8.1.8																
+rxn00568	2826	NIRBD-RXN.c	1.6.6.-;1.7.1.15;1.7.1.4	BRONZE	SILVER	SILVER		SILVER	EQ	0.8724	<	<	<	<	<	<	dGPredictor-ModelSEED		
+rxn00147	2809	ATP:pyruvate,water phosphotransferase	2.7.9.2	BRONZE	SILVER	BRONZE	GOLD	GOLD	TECRDB	2.6485	>	>	>	>	>	>	TECRDB	>	stereo_exact
+rxn00371	2803	Formate:NAD+ oxidoreductase	1.17.1.9;1.2.1.2	SILVER	SILVER	SILVER		SILVER	GC	0.1094	>	>	>	>	>	>	dGPredictor-ModelSEED		
+rxn01275	2759	ATP:D-Gluconate 6-phosphotransferase	2.7.1.12	BRONZE	SILVER	SILVER		SILVER	EQ	1.2995	=	=	=	=	=	=	dGPredictor-ModelSEED		
+rxn05937	2725	Ferredoxin:NADP+ oxidoreductase	1.18.1.2																
+rxn01274	2667	(R)-S-Lactoylglutathione hydrolase	3.1.2.6	BRONZE	SILVER	BRONZE		SILVER	EQ	1.2417	=	>	=	>	>	>	eQuilibrator		
+rxn08556	2620	sn-glycerol 3-phosphate:ubiquinone-8 oxidoreductase	1.1.5.3;1.1.99.5	BRONZE	BRONZE			BRONZE	GC	1.5664	=	>	=	=		=	Group contribution		
+rxn08557	2619	glycerol-3-phosphate dehydrogenase (menaquinone-8)	1.1.99.5	BRONZE	BRONZE			BRONZE	GC	2.6234	=	=	=	=		=	Group contribution		
+rxn08558	2619	anaerobic glycerol-3-phosphate dehydrogenase	1.1.5.3;1.1.99.5	SILVER	SILVER			SILVER	GC	1.3830	=	=	=	=	=	=	Group contribution		
+rxn00569	2603	Nitrite reductase (NAD(P)H)	1.7.1.4	BRONZE	SILVER	SILVER		SILVER	EQ	0.9591	<	<	<	<	<	<	dGPredictor-ModelSEED		
+rxn00247	2603	ATP:oxaloacetate carboxy-lyase (transphosphorylating;phosphoenolpyruvate-forming)	4.1.1.49	BRONZE	BRONZE	SILVER		SILVER	DGPMS	1.5107	>	>	>	>	>	>	dGPredictor-ModelSEED		
+rxn05581	2573	RXN0-1683.ce.maizeexp.GLYCEROL_GLYCEROL		BRONZE		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn00330	2544	acetyl-CoA:glyoxylate C-acetyltransferase (thioester-hydrolysing, carboxymethyl-forming)	2.3.3.9;4.1.3.2	SILVER	SILVER	SILVER		SILVER	GC	0.1469	<	<	<	<	<	<	dGPredictor-ModelSEED		
+rxn01452	2541	(S)-3-Hydroxybutanoyl-CoA:NADP+ oxidoreductase	1.1.1.157	SILVER	SILVER	SILVER		SILVER	GC	0.1784	=	=	=	=	=	=	eQuilibrator		
+rxn01123	2522	ATP:2-dehydro-3-deoxy-D-gluconate 6-phosphotransferase	2.7.1.178;2.7.1.45	BRONZE	SILVER	SILVER		SILVER	EQ	1.2133	=	=	=	=	=	=	dGPredictor-ModelSEED		
+rxn00507	2492	Acetaldehyde:NADP+ oxidoreductase	1.2.1.3;1.2.1.4;1.2.1.5	SILVER	SILVER	SILVER		SILVER	GC	0.0190	=	>	>	>	>	>	eQuilibrator		
+rxn00623	2469	hydrogen-sulfide:NADP+ oxidoreductase	1.8.1.2;1.8.2.2	BRONZE	SILVER	SILVER		SILVER	EQ	1.0767	=	<	<	<	<	<	dGPredictor-ModelSEED		
+rxn05313	2412	phosphate transport in/out via three Na+ symporter	2.A.58.-.-			GOLD		GOLD	DGPMS				=	=	=	=	dGPredictor-ModelSEED		
+rxn00336	2365	isocitrate glyoxylate-lyase (succinate-forming)	4.1.3.1	SILVER	GOLD	GOLD	GOLD	GOLD	TECRDB	0.6021	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn05602	2230	L-lactate reversible transport via proton symport		SILVER		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn00500	2180	(R)-Lactate:NAD+ oxidoreductase	1.1.1.28	SILVER	GOLD	GOLD	GOLD	GOLD	TECRDB	0.0697	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00869	2121	butanal:NAD+ oxidoreductase (CoA-acylating)	1.2.1.10;1.2.1.57;1.2.1.87	SILVER	SILVER	SILVER		SILVER	GC	0.6552	=	<	<	<	<	<	eQuilibrator		
+rxn00748	2116	glycerone-phosphate phosphate-lyase (methylglyoxal-forming)	4.2.3.3	BRONZE	SILVER	BRONZE		SILVER	EQ	2.6275	>	>	>	>	>	>	eQuilibrator		
+rxn08783	2106	DLACTDEHYDROGFAD-RXN.c.metaexp.CPD-9956_UBIQUINONE-8	1.1.-.-;1.1.2.4;1.1.5.-	BRONZE	BRONZE			BRONZE	GC	1.9410	=	>	=	=		=	Group contribution		
+rxn00668	2095	propanoyl-CoA:NADP+ 2-oxidoreductase	1.3.1.-;1.3.1.84	SILVER	SILVER	SILVER		SILVER	GC	0.3006	=	>	=	=	=	=	Group contribution		
+rxn00602	2056	(R)-Methylmalonyl-CoA CoA-carbonylmutase	5.4.99.2	BRONZE	GOLD	GOLD	GOLD	GOLD	TECRDB	0.4471	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn09004	1997	TRANS-RXN0-239.cp		BRONZE		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn00159	1954	(S)-malate:NAD+ oxidoreductase (decarboxylating)	1.1.1.38;1.1.1.39	SILVER	SILVER	SILVER		SILVER	GC	0.2909	>	>	=	=	=	=	dGPredictor-ModelSEED		
+rxn00512	1887	Glycolate:NAD+ oxidoreductase	1.1.1.26;1.1.1.29;1.1.99.14	SILVER	SILVER	SILVER	GOLD	GOLD	TECRDB	0.3487	=	<	<	=	=	<	TECRDB	=	stereo_exact
+rxn00324	1887	glycolate:NADP+ oxidoreductase	1.1.1.26;1.1.1.79	SILVER	GOLD	SILVER		GOLD	EQ	0.3996	=	<	=	<	<	<	eQuilibrator		
+rxn08655	1885	Glycolate oxidase		BRONZE	BRONZE			BRONZE	GC	1.5057	=	>	=	=		=	Group contribution		
+rxn08656	1885	Glycolate oxidase		BRONZE	BRONZE			BRONZE	GC	2.6969	=	=	=	=		=	Group contribution		
+rxn00157	1858	Acetyl-CoA:formate C-acetyltransferase	2.3.1.54	SILVER	GOLD	GOLD	GOLD	GOLD	TECRDB	0.1140	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn13974	1855	pyruvate:ferredoxin 2-oxidoreductase (CoA-acetylating)	1.2.7.-;1.2.7.1																
+rxn08901	1852	Malate dehydrogenase (menaquinone 8 as acceptor)	1.1.99.16	BRONZE	BRONZE			BRONZE	GC	2.3911	=	=	=	=		=	Group contribution		
+rxn08900	1852	FAD-dependent malate dehydrogenase	1.1.5.4;1.1.99.16	BRONZE	BRONZE			BRONZE	GC	1.7626	=	>	=	=		=	Group contribution		
+rxn00935	1852	(S)-Malate:(acceptor) oxidoreductase	1.1.5.4	BRONZE	BRONZE	SILVER		SILVER	DGPMS	2.5532	=	=	=	=	=	=	dGPredictor-ModelSEED		
+rxn04794	1839	propanoyl-CoA:formate C-propanoyltransferase	2.3.1.-;2.3.1.54	SILVER	SILVER	SILVER		SILVER	GC	0.4548	=	=	=	=	=	=	Group contribution		
+rxn00151	1826	ATP:pyruvate,phosphate phosphotransferase	2.7.9.1	BRONZE	GOLD	GOLD	GOLD	GOLD	TECRDB	3.6567	>	=	=	=	=	=	TECRDB	=	stereo_exact
+sul00008	1774																		
+rxn05939	1754	2-oxoglutarate synthase (rev)	1.2.7.3																
+rxn01477	1714	6-Phospho-D-gluconate hydro-lyase(2-dehydro-3-deoxy-6-phospho-D-gluconate-forming)	4.2.1.12	SILVER	SILVER	SILVER		SILVER	GC	0.3936	>	>	>	>	>	>	dGPredictor-ModelSEED		
+rxn14426	1695	cytochrome oxidase cbb3 (Ubiquinol-8: 2 protons)																	
+rxn14425	1695	cytochrome oxidase cbb3 (Ubiquinol-8: 2 protons)																	
+rxn10114	1689	formate dehydrogenase (quinone-8: 2 protons)	1.2.2.1	BRONZE	BRONZE			BRONZE	GC	1.9055	>	>	=	>		>	Group contribution		
+rxn01996	1681	Methylmalonyl-CoA epimerase	5.1.99.1	GOLD	GOLD	GOLD	GOLD	GOLD	TECRDB	0.0097	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn09167	1623	pyruvic (cytochrome b1) dehydrogenase	1.2.2.2;1.2.5.1	BRONZE	BRONZE			BRONZE	GC	1.9182	>	>	=	>		>	Group contribution		
+rxn00868	1542	Butanoyl-CoA:(acceptor) 2,3-oxidoreductase	1.3.1.44;1.3.8.1	SILVER	SILVER	SILVER		SILVER	GC	0.5705	=	<	<	<	<	<	eQuilibrator		
+rxn14421	1539	cytochrome-bo reductase (ubiquinol: 2 protons)																	
+rxn14422	1539	cytochrome-bd oxidase (2 protons translocated)																	
+rxa45615	1531																		
+sul00010	1454																		
+rxn01806	1451	nitrous-oxide:NAD+ oxidoreductase	1.7.1.14			BRONZE		BRONZE	DGPMS				>	>		>	dGPredictor-ModelSEED		
+rxn00762	1424	glycerol:NAD+ 2-oxidoreductase	1.1.1.6	GOLD	SILVER	SILVER	GOLD	GOLD	TECRDB	0.2561	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn05493	1401	Transport of a-ketoglutarate, extracellular	2.A.1.6.-	SILVER		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn05573	1385	D-glucose transport in via proton symport		BRONZE		GOLD	SILVER	GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED	=	skeleton
+rxn00305	1333	GTP:oxaloacetate carboxy-lyase (adding GTP;phosphoenolpyruvate-forming)	4.1.1.32	BRONZE	BRONZE	SILVER		SILVER	DGPMS	1.5328	>	>	>	>	>	>	dGPredictor-ModelSEED		
+rxn00548	1298	D-fructose-6-phosphate D-erythrose-4-phosphate-lyase (adding phosphate; acetyl-phosphate-forming)	4.1.2.22	BRONZE	SILVER	SILVER		SILVER	EQ	1.0386	>	>	>	>	>	>	dGPredictor-ModelSEED		
+rxn01187	1298	D-Xylulose 5-phosphate D-glyceraldehyde-3-phosphate-lyase (adding phosphate; acetyl-phosphate-forming)	4.1.2.22;4.1.2.9	BRONZE	SILVER	SILVER		SILVER	EQ	1.3264	>	>	>	>	>	>	dGPredictor-ModelSEED		
+rxn39373	1099	(R,R)-Butane-2,3-diol:NAD+ oxidoreductase	1.1.1.4	SILVER	SILVER	SILVER	GOLD	GOLD	TECRDB	0.0243	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn15383	1088	(S)-2-Hydroxy-2-methyl-3-oxobutanoate carboxy-lyase	4.1.1.5	SILVER	SILVER	BRONZE		SILVER	GC	1.0246	>	>	>	>	>	>	Group contribution		
+rxn00172	941	Acetate:CoA ligase (ADP-forming)	6.2.1.13	GOLD	GOLD	SILVER	GOLD	GOLD	TECRDB	0.8549	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00990	935	Acetoacetyl-CoA:acetate CoA-transferase	2.8.3.-;2.8.3.8	SILVER	GOLD	GOLD	GOLD	GOLD	TECRDB	0.4033	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00875	935	Butanoyl-CoA:acetate CoA-transferase	2.8.3.8	SILVER	SILVER	SILVER		SILVER	GC	0.2930	=	=	=	=	=	=	dGPredictor-ModelSEED		
+rxn00994	915	Butanoyl-CoA:acetoacetate CoA-transferase	2.8.3.9	SILVER	SILVER	SILVER		SILVER	GC	0.3198	=	=	=	=	=	=	dGPredictor-ModelSEED		
+rxn00544	900	R00755	4.1.1.1	SILVER	SILVER	SILVER		SILVER	GC	0.5608	=	=	=	=	=	=	eQuilibrator		
+rxn02168	804	(3R)-3-Hydroxybutanoyl-CoA hydro-lyase	4.2.1.55	SILVER	GOLD	GOLD	GOLD	GOLD	TECRDB	0.1928	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn00265	799	citrate oxaloacetate-lyase (forming acetate from the pro-S carboxymethyl group of citrate)	4.1.3.6	GOLD	GOLD	GOLD	GOLD	GOLD	TECRDB	0.2519	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn08179	735	Biotin sulfoxide reductase				BRONZE		BRONZE	DGPMS			=	=	=		=	dGPredictor-ModelSEED		
+rxn08178	735	Biotin sulfoxide reductase				BRONZE		BRONZE	DGPMS			=	=	=		=	dGPredictor-ModelSEED		
+rxn00162	710	oxaloacetate carboxy-lyase (pyruvate-forming)	1.1.1.38;1.1.1.40;4.1.1.112;4.1.1.3	SILVER	SILVER	SILVER		SILVER	GC	0.2874	>	>	>	>	>	>	Group contribution		
+rxn02527	695	R03544	1.1.1.-	SILVER	SILVER	SILVER	GOLD	GOLD	TECRDB	0.7158	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn03644	694	D-arabino-hex-3-ulose-6-phosphate isomerase	5.3.1.27	SILVER	GOLD	GOLD	GOLD	GOLD	TECRDB	0.3726	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn08355	656	Dimethyl sulfoxide reductase (Menaquinol 8) (periplasm)			BRONZE			BRONZE	EQ			>	>	>		>	eQuilibrator		
+rxn14428	645	Nitrite reductase cytochrome-c type																	
+rxn03643	644	D-arabino-hex-3-ulose-6-phosphate formaldehyde-lyase (D-ribulose-5-phosphate-forming)	4.1.2.43	GOLD	GOLD	GOLD	GOLD	GOLD	TECRDB	0.2552	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn01121	545	D-gluconate hydro-lyase (2-dehydro-3-deoxy-D-gluconate-forming)	4.2.1.140;4.2.1.39	SILVER	SILVER	SILVER		SILVER	GC	0.5725	>	>	>	>	>	>	dGPredictor-ModelSEED		
+rxn11937	508	Nitrogen:(NAD) oxidoreductase (N2O-forming)	1.7.99.6	BRONZE		SILVER		SILVER	DGPMS	1.2270	<		<	<	<	<	dGPredictor-ModelSEED		
+rxn05759	498	hydrogen:ferredoxin oxidoreductase	1.12.7.2;1.12.99.-																
+sul00002	493																		
+rxn09314	481	Trimethylamine N-oxide reductase (menaquinol 8) (periplasm)		BRONZE	BRONZE			BRONZE	GC	2.2396	>	>	>	>		>	Group contribution		
+rxn14424	383	cytochrome-aa oxidase (2 protons translocated)																	
+rxn14423	383	cytochrome-aa reductase (menaquinol: 2 protons)																	
+rxn00995	377	Acetoacetate carboxy-lyase (acetone-forming)	4.1.1.4	SILVER	SILVER	SILVER		SILVER	GC	0.8394	>	>	>	>	>	>	Group contribution		
+rxn01130	377	Propan-2-ol:NADP+ oxidoreductase	1.1.1.80	GOLD	GOLD	GOLD	GOLD	GOLD	TECRDB	0.2665	=	=	=	=	=	=	TECRDB	=	stereo_exact
+rxn08518	371	FHLMULTI-RXN.c		SILVER	SILVER	SILVER		SILVER	GC	1.0037	>	>	>	>	>	>	Group contribution		
+rxn00782	358	D-glyceraldehyde-3-phosphate:NADP+ oxidoreductase (phosphorylating)	1.2.1.13;1.2.1.59	BRONZE	GOLD	GOLD		GOLD	EQ	1.4333	=	<	<	<	<	<	dGPredictor-ModelSEED		
+rxn40505	319		1.2.7.4																
+rxn02480	247	5,10-Methenyltetrahydromethanopterin 10-hydrolase (decyclizing)	3.5.4.27	BRONZE		BRONZE		BRONZE	GC	1.7643	=	=	=	=		=	Group contribution		
+rxn46184	239		1.2.7.12																
+rxn17445	239	formylmethanofuran-tetrahydromethanopterin formyltransferase	2.3.1.101																
+rxn03079	235	5,10-Methylenetetrahydromethanopterin:coenzyme-F420 oxidoreductase	1.12.98.2;1.5.98.1;1.5.99.9	SILVER		BRONZE		SILVER	GC	1.4381	=	=	=	=	=	=	Group contribution		
+rxn06299	216	Hydrogen:Coenzyme F420 oxidoreductase	1.12.98.1	BRONZE	BRONZE	SILVER		SILVER	DGPMS	3.4321	=	=	<	<	<	<	dGPredictor-ModelSEED		
+rxn15962	177	carbon monoxide dehydrogenase/acetyl-CoA synthase (CODH/ACS)	1.2.7.4;1.2.99.2;2.1.1.-;2.3.1.-;2.3.1.169			BRONZE		BRONZE	DGPMS				=	=		=	dGPredictor-ModelSEED		
+sul00004	163																		
+rxn00102	150	carbonate hydro-lyase (carbon-dioxide-forming)	4.2.1.1	SILVER	SILVER	SILVER		SILVER	GC	0.1379	=	=	=	=	=	=	Group contribution		
+sul00003	147																		
+rxn03126	142	Coenzyme B:coenzyme M:methanophenazine oxidoreductase	1.8.98.1	SILVER	SILVER	BRONZE		SILVER	GC	1.0184	=	=	=	=	=	=	eQuilibrator		
+rxn08977	113	quinone reductase	1.6.5.2;1.6.99.6	BRONZE	BRONZE			BRONZE	GC	1.8625	=	>	=	=		=	Group contribution		
+rxn09174	111	RXN0-268.c	2.8.3.-	SILVER	SILVER	SILVER		SILVER	GC	0.4105	=	=	=	=	=	=	dGPredictor-ModelSEED		
+rxn03085	102	5,10-Methylenetetrahydromethanopterin:coenzyme-F420 oxidoreductase	1.5.98.2;1.5.99.11	BRONZE	BRONZE	BRONZE		BRONZE	GC	2.6936	=	=	=	=		=	Group contribution		
+rxn00678	99	(S)-2-Methyl-3-oxopropanoyl-CoA:pyruvate carboxyltransferase	2.1.3.1	SILVER	SILVER	SILVER	SILVER	SILVER	TECRDB	0.6198	=	=	=	=	=	=	TECRDB	=	skeleton
+rxn03127	95	2-(Methylthio)ethanesulfonate:N-(7-thioheptanoyl)-3-O-phosphothreonine S-(2-sulfoethyl)thiotransferase	2.8.4.1	SILVER	SILVER	BRONZE		SILVER	GC	0.8541	=	=	=	=	=	=	Group contribution		
+rxn03020	92	5-Methyl-5,6,7,8-tetrahydromethanopterin:2-mercaptoethanesulfonate 2-methyltransferas	2.1.1.86	SILVER	SILVER	SILVER		SILVER	GC	0.3364	=	=	=	=	=	=	Group contribution		
+rxn00871	90	butanoyl-CoA:phosphate butanoyltransferase	2.3.1.19	BRONZE	SILVER	SILVER		SILVER	EQ	1.3150	=	=	=	=	=	=	eQuilibrator		
+rxn07191	86	D-glyceraldehyde-3-phosphate:ferredoxin oxidoreductase	1.2.7.5;1.2.7.6																
+rxn01236	68	ATP:butanoate 1-phosphotransferase	2.7.2.7	BRONZE	BRONZE	BRONZE		BRONZE	GC	1.5912	=	=	=	=		=	Group contribution		
+rxn08999	63	nitrite transport via diffusion (extracellular to periplasm)		BRONZE		GOLD		GOLD	DGPMS	0.0000	=		=	=	=	=	dGPredictor-ModelSEED		
+rxn15961	28	hydrogen:2-(2,3-dihydropentaprenyloxy)phenazine oxidoreductase	1.12.2.-;1.12.98.3	SILVER	SILVER	BRONZE		SILVER	GC	0.9994	=	=	=	=	=	=	eQuilibrator		
+rxn01057	24	lactate racemase	5.1.2.1	SILVER	SILVER	SILVER		SILVER	GC	0.1549	=	=	=	=	=	=	Group contribution		
+rxn00160	15	(R)-Malate:NAD+ oxidoreductase (decarboxylating)	1.1.1.83	SILVER	SILVER	SILVER		SILVER	GC	0.5674	>	=	=	=	=	=	dGPredictor-ModelSEED		
+rxn00779	14	D-glyceraldehyde 3-phosphate:NADP+ oxidoreductase	1.2.1.9	SILVER	GOLD	GOLD		GOLD	EQ	0.0434	=	>	>	>	>	>	dGPredictor-ModelSEED		
+rxn00250	7	Pyruvate:carbon-dioxide ligase (ADP-forming)	6.4.1.1	GOLD	GOLD	GOLD	GOLD	GOLD	TECRDB	0.0347	=	=	=	=	=	=	TECRDB	=	stereo_exact

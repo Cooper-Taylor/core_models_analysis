@@ -1,0 +1,70 @@
+{
+  "msdb_data": "/scratch/ctaylor/tmp/devsnap2",
+  "msdb_code": "/scratch/ctaylor/ModelSEEDDatabase",
+  "n_reactions_nonempty": 56002,
+  "coverage": {
+    "gc": 27313,
+    "eq": 25028,
+    "dgpms": 31924,
+    "graded": 33289,
+    "graded_trusted": 23103,
+    "graded_heldout": 33289
+  },
+  "operator_mix": {
+    "gc": {
+      "=": 16321,
+      ">": 9579,
+      "<": 1413,
+      "?": 0
+    },
+    "eq": {
+      "=": 12855,
+      ">": 10583,
+      "<": 1590,
+      "?": 0
+    },
+    "dgpms": {
+      "=": 20771,
+      ">": 9922,
+      "<": 1231,
+      "?": 0
+    },
+    "graded": {
+      "=": 18756,
+      ">": 12671,
+      "<": 1862,
+      "?": 0
+    },
+    "graded_trusted": {
+      "=": 13750,
+      ">": 8405,
+      "<": 948,
+      "?": 0
+    },
+    "graded_heldout": {
+      "=": 18690,
+      ">": 12705,
+      "<": 1894,
+      "?": 0
+    }
+  },
+  "graded_source_mix": {
+    "graded": {
+      "Group contribution": 12031,
+      "TECRDB": 1288,
+      "dGPredictor-ModelSEED": 9842,
+      "eQuilibrator": 10128
+    },
+    "graded_trusted": {
+      "Group contribution": 5834,
+      "TECRDB": 1288,
+      "dGPredictor-ModelSEED": 6128,
+      "eQuilibrator": 9853
+    },
+    "graded_heldout": {
+      "Group contribution": 12067,
+      "dGPredictor-ModelSEED": 10457,
+      "eQuilibrator": 10765
+    }
+  }
+}

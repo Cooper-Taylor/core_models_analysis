@@ -1,0 +1,8 @@
+variant	label	n_directions	n_core_directions	frac_reversible	frac_reversible_core	n_grows	pct_grows	gained_vs_implicit	lost_vs_implicit	median_bounds_changed
+implicit	model's own bounds	0	0			3461	0.6090	0	0	0.0000
+gc	Group Contribution only	27313	200	0.5976	0.8250	3656	0.6433	206	11	39.0000
+eq	eQuilibrator only	25028	173	0.5136	0.6358	3570	0.6282	133	24	21.0000
+dgpms	dGPredictor-ModelSEED only	31924	208	0.6506	0.7837	3717	0.6541	279	23	40.0000
+graded	graded (recommended)	33289	209	0.5634	0.7656	3715	0.6537	277	23	37.0000
+graded_trusted	graded, SILVER floor	23103	179	0.5952	0.7598	3689	0.6491	251	23	28.0000
+graded_heldout	graded, TECRDB held out	33289	209	0.5614	0.7560	3715	0.6537	277	23	38.0000

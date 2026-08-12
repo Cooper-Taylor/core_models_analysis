@@ -1,0 +1,15 @@
+{
+  "n_models": 5683,
+  "n_errors": 0,
+  "workers": 32,
+  "elapsed_s": 49.22,
+  "fba_sources": [
+    "implicit",
+    "gc",
+    "eq",
+    "dgpms",
+    "graded",
+    "graded_trusted",
+    "graded_heldout"
+  ]
+}

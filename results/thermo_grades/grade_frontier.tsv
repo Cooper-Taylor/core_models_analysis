@@ -1,0 +1,5 @@
+source	n_graded	n_gold	n_silver	n_bronze	n_reason_uncorroborated	n_reason_corroborated	n_reason_outvoted	n_reason_measured	n_reason_self-confident	n_reason_measured (skeleton match)	n_reason_self-certain
+Group contribution	27313	309	12941	14063	12380.0	12069.0	1411.0	802	651.0	0.0	0.0
+TECRDB	1550	802	748	0	0.0	0.0	0.0	802	0.0	748.0	0.0
+dGPredictor-ModelSEED	31413	5808	12404	13201	11175.0	10123.0	1948.0	802	2094.0	0.0	5271.0
+eQuilibrator	20059	2423	13514	4122	3347.0	4792.0	727.0	789	8556.0	0.0	1848.0
