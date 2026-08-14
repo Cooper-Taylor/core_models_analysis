@@ -10,7 +10,7 @@ cd /scratch/ctaylor/core_models_analysis/scripts
 
 python3 grade_thermo_sources.py            # ~4 min  → results/thermo_grades/
 python3 build_graded_direction_maps.py     # ~2 min  → results/thermo_grades_fba/
-python3 run_graded_fba_all_models.py --workers 32   # ~4 min, 39,781 LP solves
+python3 run_graded_fba_all_models.py --workers 32   # ~50 s, 39,781 LP solves
 python3 analyze_graded_fba.py              # ~3 min
 python3 analyze_implicit_directions.py     # ~2 min  (the implicit baseline, §5.3)
 python3 plot_graded_fba.py                 # ~20 s

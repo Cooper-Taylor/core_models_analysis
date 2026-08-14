@@ -7,7 +7,13 @@ data held back from that calibration.
 
 **Result in one line.** At an expected-error tolerance of 2 kcal/mol it assigns a
 source to **11,576 reactions** with a held-out mean error of **1.03 kcal/mol**,
-against **1.75** for the priority rule ModelSEED `dev` currently uses.
+against **1.73** for the priority rule ModelSEED `dev` currently uses.
+
+**Refreshed 2026-08-13** against ModelSEED `dev` @ **49563c6f** (`devsnap2`),
+which carries the Convention A Group Contribution rebuild. Every table below was
+regenerated on that snapshot; the headline (11,576 reactions, held-out mean 1.03
+kcal/mol) is unchanged, but the Group Contribution rows moved because its σ
+roughly doubled. See `thermoSourceMethod/` for the consolidated write-up.
 
 Companion to `EQUILIBRATOR_VS_DGPREDICTOR_MODELSEED.md`, which established the
 inputs this depends on. Code: `scripts/optimize_thermo_source_assignment.py`.
@@ -24,14 +30,14 @@ sometimes enough to reverse the reaction's predicted direction.
 | source | reactions covered | share of database |
 |---|---:|---:|
 | dGPredictor-ModelSEED | 31,924 | 57.0% |
-| Group Contribution | 25,812 | 46.1% |
+| Group Contribution | 27,313 | 48.8% |
 | eQuilibrator | 25,028 | 44.7% |
-| **at least one source** | **32,466** | **58.0%** |
-| all three | 20,672 | 36.9% |
+| **at least one source** | **33,337** | **59.5%** |
+| all three | 20,855 | 37.2% |
 
 Crucially, **no source is uniformly best.** Against experimental values the
 median absolute errors are eQuilibrator 0.45, dGPredictor-ModelSEED 0.47, Group
-Contribution 1.60 kcal/mol. The first two are near-tied overall, but not on the
+Contribution 1.57 kcal/mol. The first two are near-tied overall, but not on the
 same reactions — so picking per reaction is worth doing.
 
 ## 2. The algorithm in plain terms
@@ -103,9 +109,9 @@ set ê = 0.798σ and stop. Measured against TECRDB, none of the three obeys this
 
 | source | median σ | median true error ε | ratio ε/σ | vs 0.798 |
 |---|---:|---:|---:|---|
-| Group Contribution | 4.35 | 1.60 | **0.368** | σ **overstates** error 2.2× |
+| Group Contribution | 8.66 | 1.57 | **0.181** | σ **overstates** error 4.4× |
 | dGPredictor-MS | 0.91 | 0.47 | **0.522** | σ **overstates** error 1.5× |
-| eQuilibrator | 0.36 | 0.45 | **1.260** | σ **understates** error 1.6× |
+| eQuilibrator | 0.36 | 0.45 | **1.261** | σ **understates** error 1.6× |
 
 **This is the justification for the whole calibration step.** The three sources'
 confidence scales are not comparable — one is optimistic, two are pessimistic, by
@@ -189,10 +195,14 @@ regime:
 |---|---|---|
 | dGPredictor-MS σ | 0.91 / 1.22 / 21.6 | **21.17 / 52.89 / 2039** |
 | eQuilibrator σ | 0.36 / 0.70 / 1.1 | 0.59 / 1.58 / 65.3 |
-| Group Contribution σ | 4.35 / 6.53 / 11.5 | 5.06 / 9.71 / 387 |
+| Group Contribution σ | 8.66 / 13.06 / 31.6 | 10.28 / 20.24 / 567 |
+
+(eQuilibrator's database column excludes its 4,934 σ-sentinels; including them
+the median is 0.78 and the p90 is 23,901, which describes the flag rather than
+the source.)
 
 **75.6% of dGPredictor's database reactions lie beyond the TECRDB p90** (43.4%
-eQuilibrator, 27.8% Group Contribution). A curve fitted on gold data alone, then
+eQuilibrator, 29.5% Group Contribution). A curve fitted on gold data alone, then
 clipped at its edge, assigns all of them the error learned at σ ≈ 1.2 — it is
 *most optimistic exactly where the source is least reliable*, which is the
 opposite of what a safety filter must do. Measured, that fit gives a Spearman
@@ -256,7 +266,7 @@ Two properties motivate this choice over, say, a linear or log-linear fit:
 |---|---:|---:|---:|---:|
 | dGPredictor-MS | 802 | 11,183 | 0.475 | **+0.612** |
 | eQuilibrator | 794 | 4,011 | 0.454 | **+0.354** |
-| Group Contribution | 802 | 9,808 | 1.600 | **−0.082** |
+| Group Contribution | 802 | 10,025 | 1.571 | **−0.068** |
 
 **Read that last column carefully.** It is the correlation against the
 *combined fitting target*, which silver dominates (11,183 vs 802 points for
@@ -290,10 +300,10 @@ Group Contribution, then the ML tier, lowest reported error within a tier.
 | **this algorithm** | **0.45** | **1.03** | 2.23 |
 | always eQuilibrator | 0.47 | 1.74 | 2.23 |
 | always dGPredictor-MS | 0.52 | 1.27 | 2.96 |
-| dev priority (EQ > GC, then ML) | 0.48 | 1.75 | 2.23 |
-| always Group Contribution | 1.42 | 3.59 | 10.08 |
+| dev priority (EQ > GC, then ML) | 0.47 | 1.73 | 2.23 |
+| always Group Contribution | 1.65 | 3.76 | 10.37 |
 
-Medians are near-tied. **The gain is in the mean — 41% below the incumbent —
+Medians are near-tied. **The gain is in the mean — 40% below the incumbent —
 which means the algorithm is avoiding catastrophic cases, not improving typical
 ones.** For direction calls that is the failure mode that matters.
 
@@ -307,7 +317,7 @@ how good is ê? Measured on held-out TECRDB over 20 random 70/30 splits.
 |---|---:|---:|---:|---:|
 | dGPredictor-MS | 1.99 | **0.50** | 77.7% | **0.111** |
 | eQuilibrator | 1.83 | **0.45** | 76.9% | **0.124** |
-| Group Contribution | 5.79 | 1.65 | 75.6% | 0.236 |
+| Group Contribution | 5.78 | 1.64 | 74.7% | 0.249 |
 
 Three things follow, and they are not all favourable.
 
@@ -326,12 +336,16 @@ separation is weak:
 | source | group | median actual | mean actual | % over 5 kcal/mol |
 |---|---|---:|---:|---:|
 | dGPredictor-MS | accepted (ê ≤ 2) | 0.46 | 1.25 | 5.4% |
-| dGPredictor-MS | rejected (ê > 2) | 0.60 | 1.44 | 6.1% |
+| dGPredictor-MS | rejected (ê > 2) | 1.11 | 1.92 | 5.9% |
 | eQuilibrator | accepted (ê ≤ 2) | 0.43 | **0.80** | 0.9% |
-| eQuilibrator | rejected (ê > 2) | 0.56 | **2.03** | 2.8% |
+| eQuilibrator | rejected (ê > 2) | 0.73 | **2.12** | 2.5% |
+| Group Contribution | accepted (ê ≤ 2) | — | — | — |
+| Group Contribution | rejected (ê > 2) | 1.64 | 3.84 | 27.1% |
 
-For eQuilibrator the filter separates on the mean (0.80 vs 2.03, a 2.5× gap) and
-on the tail. For dGPredictor, within TECRDB, it barely separates at all.
+For eQuilibrator the filter separates on the mean (0.80 vs 2.12, a 2.6× gap) and
+on the tail. For dGPredictor it separates on the median by 2.4× (0.46 vs 1.11)
+but only 1.5× on the mean. Group Contribution never clears ê ≤ 2 at all on the
+Convention A rebuild, so it has no accepted group to compare.
 
 **Why, and why this is expected rather than a defect.** TECRDB contains only
 well-studied central metabolism, so even its *rejected* reactions are accurate —
@@ -357,17 +371,17 @@ measured.
 A natural simplification is *if only one source covers the reaction, just use
 it; only arbitrate when there are two or more.* The data says otherwise.
 
-**4,644 reactions have exactly one usable source. The algorithm rejects 87.7% of
+**5,182 reactions have exactly one usable source. The algorithm rejects 89.2% of
 them:**
 
 | only source available | reactions | kept | rejected | median predicted error |
 |---|---:|---:|---:|---:|
-| dGPredictor only | 4,232 | 530 | **3,702** | **8.99** kcal/mol |
-| eQuilibrator only | 270 | 42 | 228 | 2.57 |
-| Group Contribution only | 142 | **0** | 142 | 5.70 |
+| dGPredictor only | 4,048 | 545 | **3,503** | **8.99** kcal/mol |
+| Group Contribution only | 1,088 | **0** | **1,088** | 5.70 |
+| eQuilibrator only | 46 | 15 | 31 | 2.26 |
 
-Auto-accepting these would import ~4,000 reactions at a median expected error of
-9 kcal/mol — about 4× the tolerance, and enough to flip a direction call on its
+Auto-accepting these would import ~3,500 dGPredictor reactions at a median
+expected error of 9 kcal/mol — about 4× the tolerance, and enough to flip a direction call on its
 own. Group Contribution alone never clears the bar: 0 of 142.
 
 The reason is intuitive once stated: **a reaction only one method can reach is
@@ -393,15 +407,16 @@ which is precisely what TECRDB calibration corrects.
 | 1 | 6,072 | 10.8% | 1,904 | 4,168 | 0 |
 | 1.5 | 8,045 | 14.4% | 3,877 | 4,168 | 0 |
 | **2** | **11,576** | **20.7%** | 5,370 | 6,206 | 0 |
-| 3 | 19,310 | 34.5% | 12,377 | 6,898 | 35 |
-| 5 | 21,638 | 38.6% | 14,004 | 7,447 | 187 |
-| 7.5 | 29,136 | 52.0% | 15,322 | 7,989 | 5,825 |
-| 10 | 30,685 | 54.8% | 15,497 | 9,363 | 5,825 |
-| no limit | 32,343 | 57.8% | 15,497 | 11,021 | 5,825 |
+| 3 | 19,275 | 34.4% | 12,377 | 6,898 | 0 |
+| 5 | 21,746 | 38.8% | 13,962 | 7,437 | 347 |
+| 7.5 | 30,291 | 54.1% | 15,266 | 7,922 | 7,103 |
+| 10 | 31,681 | 56.6% | 15,378 | 9,200 | 7,103 |
+| 20 | 32,995 | 58.9% | 15,378 | 10,514 | 7,103 |
+| no limit | 33,289 | 59.4% | 15,378 | 10,808 | 7,103 |
 
 Two things to read off it:
 
-- **Group Contribution is never chosen below ê ≤ 3.** It only picks up
+- **Group Contribution is never chosen below ê ≤ 5.** It only picks up
   assignments at loose tolerances, where nothing better is available.
 - **The unassigned reactions are not unreachable**, just not reachable at that
   tolerance. This is why the frontier is published instead of a single cut — the
@@ -466,5 +481,6 @@ match the chosen source, or if any calibration curve is non-monotone. Currently
 - **The overrides are hand-specified**, derived from the companion report rather
   than learned. A different snapshot or a retrained model would need them
   revisited.
-- Fitted against ModelSEED `dev` @ 34992d39. Refit if either the database or the
-  dGPredictor build changes.
+- Fitted against ModelSEED `dev` @ **49563c6f** (`devsnap2`, Convention A Group
+  Contribution). Refit if either the database or the dGPredictor build changes;
+  the Convention A rebuild alone moved every Group Contribution row on this page.

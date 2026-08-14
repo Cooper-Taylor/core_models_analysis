@@ -20,9 +20,15 @@ none of the three obeys this:
 
 | source | median σ | median ε | ratio ε/σ | vs the Gaussian 0.798 |
 |---|---:|---:|---:|---|
-| Group Contribution | 4.35 | 1.57 | 0.368 | σ **overstates** error 2.2× |
+| Group Contribution | 8.66 | 1.57 | 0.181 | σ **overstates** error 4.4× |
 | dGPredictor-ModelSEED | 0.91 | 0.47 | 0.522 | σ **overstates** error 1.5× |
-| eQuilibrator | 0.36 | 0.45 | 1.260 | σ **understates** error 1.6× |
+| eQuilibrator | 0.36 | 0.45 | 1.261 | σ **understates** error 1.6× |
+
+*(Group Contribution's σ is the Convention A rebuild's, measured on devsnap2. An
+earlier version of this table carried 4.35 / 0.368 / 2.2×, which was the
+pre-rebuild Group Contribution inherited from `THERMO_SOURCE_ASSIGNMENT.md`; the
+rebuild roughly doubled σ without changing the error, so the mismatch is larger,
+not smaller, than previously stated.)*
 
 Two sources are pessimistic and one is optimistic, by different factors. A rule
 that compares raw σ across sources therefore rewards whichever source
@@ -56,13 +62,18 @@ being within τ. Same data, same fitting machinery, different response variable.
 TECRDB covers well-measured central metabolism, which is exactly the **low-σ**
 regime. It cannot constrain the range the model must actually work over:
 
-| source | anchor σ p50 | anchor σ p90 | database σ p50 | database σ p90 |
-|---|---:|---:|---:|---:|
-| dGPredictor-ModelSEED | 0.91 | 1.22 | 21.17 | 52.89 |
-| eQuilibrator | 0.36 | 0.70 | 0.78 | — |
-| Group Contribution | — | 13.06 | 10.28 | — |
+| source | anchor σ p50 | anchor σ p90 | database σ p50 | database σ p90 | database σ max |
+|---|---:|---:|---:|---:|---:|
+| dGPredictor-ModelSEED | 0.91 | 1.22 | 21.17 | 52.89 | 2,039 |
+| eQuilibrator | 0.36 | 0.70 | 0.59 | 1.58 | 65.3 |
+| Group Contribution | 8.66 | 13.06 | 10.28 | 20.24 | 566.6 |
 
-75.6% of database reactions for dGPredictor-ModelSEED (43.4% eQuilibrator, 27.8%
+*(Database columns are over each source's non-sentinel reactions — for
+eQuilibrator that means the 20,094 with σ ≤ 100, excluding the 4,934 σ-sentinels
+of §1.4. Including the sentinels, eQuilibrator's database σ p50 is 0.78 and its
+p90 is 23,901, which describes the sentinel flag rather than the source.)*
+
+75.6% of database reactions for dGPredictor-ModelSEED (43.4% eQuilibrator, 29.5%
 Group Contribution) lie beyond the anchor's σ p90. Fitting on the anchor alone
 and clipping would assign those the error learned at σ ≈ 1.2 — underestimating
 error precisely where a source is least reliable, which is backwards for a
@@ -123,8 +134,13 @@ A 16× monotone spread in median error. For contrast, the ê accept/reject split
 separates dGPredictor's accepted from rejected reactions by 0.46 vs 0.60 —
 essentially not at all.
 
-Database-wide, of the 28,107 reactions with *n* ≥ 2: 13,071 at R ≤ 1, 6,729 at
-1 < R ≤ 2, 4,286 at 2 < R ≤ 5, 890 discrepant at R > 5.
+*(n sums to 795 rather than 802 because R is undefined on the 7 anchor reactions
+with only one feasible source.)*
+
+Database-wide, of the 28,107 reactions with *n* ≥ 2: **16,207** at R ≤ 1, 6,731
+at 1 < R ≤ 2, 4,283 at 2 < R ≤ 5, 886 discrepant at R > 5. *(Recounted from the
+shipped `source_grades.tsv`; an earlier version of this line read 13,071 / 6,729
+/ 4,286 / 890, which did not sum to 28,107.)*
 
 ### Corroboration is used asymmetrically — this is the key design decision
 
@@ -133,8 +149,9 @@ Database-wide, of the 28,107 reactions with *n* ≥ 2: 13,071 at R ≤ 1, 6,729 
 
 Agreement between two fallible predictors is weak evidence: eQuilibrator and
 Group Contribution share group-contribution lineage so they can be wrong the same
-way, and 11% of the R ≤ 1 set are structural zeros (Z = 1) where agreement is
-imposed by the stoichiometry. Disagreement is strong evidence: someone is
+way, and **28.5% of the R ≤ 1 set (4,617 of 16,207) are structural zeros**
+(Z = 1) where agreement is imposed by the stoichiometry rather than earned.
+Disagreement is strong evidence: someone is
 definitely wrong, and *z*ₛ names them.
 
 This was tested, not assumed. Allowing corroboration to promote all the way to

@@ -111,9 +111,9 @@ Computed per reaction over the feasible sources, with *n*(*i*) = \|F(*i*)\|.
 ΔḠ is an internal construct — a reference point for computing *z*ₛ — not a
 recommended value. Nothing in this folder ships a fused energy.
 
-Z matters because agreement can be free rather than earned: 1,445 of the 13,071
-reactions at R ≤ 1 are transport or net-cancelling stoichiometries where every
-source reports ≈ 0 by construction.
+Z matters because agreement can be free rather than earned: **4,617 of the
+16,207** reactions at R ≤ 1 (28.5%) are transport or net-cancelling
+stoichiometries where every source reports ≈ 0 by construction.
 
 ## 2.7 Outputs
 

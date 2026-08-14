@@ -107,7 +107,7 @@ because in each case the value is not a noisy estimate — it is not an estimate
 
 | veto | reactions | why |
 |---|---:|---|
-| **eQuilibrator sentinel**, σ > 100 | 4,934 | eQuilibrator flags compounds it cannot estimate by inflating variance by 10⁶. Stored uncertainties are strictly bimodal — real ones cap at 64.3 kcal/mol, sentinels start at 1,000, nothing in between — so the cut at 100 sits in an empty gap rather than being tuned. This is the source explicitly disclaiming the reaction. |
+| **eQuilibrator sentinel**, σ > 100 | 4,934 | eQuilibrator flags compounds it cannot estimate by inflating variance by 10⁶. Stored uncertainties are strictly bimodal — real ones cap at **65.3** kcal/mol, sentinels start at **7,504.6**, nothing in between — so the cut at 100 sits in a two-orders-of-magnitude empty gap rather than being tuned. This is the source explicitly disclaiming the reaction. |
 | **eQuilibrator MetaNetX collision** | 35 | `Retrieve_eQuilibrator_Reactions_Energies.py` writes `lhs[mnx_id] = |coeff|` instead of accumulating, so two ModelSEED compounds sharing one MetaNetX id silently overwrite each other. List read from `results/eq_vs_dgpms/reconciliation.tsv`. |
 | **dGPredictor-ModelSEED on quinone/quinol** | 511 | 52.8% sign disagreement with eQuilibrator on that couple, median σ 80.3 — the retrain regressed on two-electron aromatic redox. Self-flagged, but not reliably enough to leave to the σ model. |
 | **legacy `dGPredictor` KEGG mis-mapping** | (n/a) | 17,271 reactions carry a value predicted from a KEGG reaction ModelSEED does not list for them. **Not applicable here**: the legacy label is never read. `dGPredictor-ModelSEED` is keyed by ModelSEED id and is structurally immune, so no mask is applied. |
