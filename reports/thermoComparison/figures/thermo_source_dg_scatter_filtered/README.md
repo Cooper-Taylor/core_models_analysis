@@ -14,13 +14,13 @@ against the rebuilt GC (the previous fit no longer describes these values).
 
 | file | contents |
 |---|---|
-| `grid_unfiltered.png` | the 3 pairs with no error filter, each with its covering oval — the reference |
+| `grid_unfiltered.png` | the 3 pairs with no error filter, each with both ellipses — the reference |
 | `grid_sigma_filtered.png` | 3 pairs × 6 thresholds on **σ**, only passing reactions drawn |
-| `grid_sigma_context.png` | same, but every reaction drawn — failing grayed out, passing in color inside the oval |
+| `grid_sigma_context.png` | same, but every reaction drawn — failing grayed out, passing in color inside the ellipses |
 | `grid_ehat_filtered.png` | 3 pairs × 6 thresholds on **ê**, only passing reactions drawn |
 | `grid_ehat_context.png` | same, all reactions drawn, failing grayed out |
 | `{sigma,ehat}/{filtered,context}/dg_scatter_<A>_vs_<B>_<crit>_le<T>.png` | the 72 single full-size panels — **not committed** (gitignored, ~10 MB); re-run the script to get them |
-| `slice_counts.tsv` | n passing / n excluded / r / median \|Δ\| / ΔG′°=0 share per slice |
+| `slice_counts.tsv` | n passing / n excluded / r / median \|Δ\| / ΔG′°=0 share per slice, plus both ellipses' area, tilt, semi-axes, realised coverage and MVEE active-point count |
 
 Thresholds T ∈ {0.5, 1, 2, 5, 10, 20} kcal/mol; a reaction passes iff **both**
 sources are ≤ T. Every panel carries its own key, and the counts in it are that
@@ -42,12 +42,65 @@ on quinone/quinol).
 σ ≤ 2 means "the source claims 2". ê ≤ 2 means "the source has been measured to
 be off by about 2". They do not select the same reactions.
 
-## The oval
+## The two ellipses
 
-Minimum-volume enclosing ellipse (Khachiyan) over the **passing** points — the
-tightest oval that genuinely covers all of them, not a confidence ellipse. In
-`context` mode the grayed-out failing points sit outside it by construction; the
-oval's shrinkage from panel to panel is the filter's actual effect on the cloud.
+Every panel carries two, over the **passing** points, and they mean different
+things. Both are reported in `slice_counts.tsv` (`conc_*`, `mvee_*`).
+
+### Filled — 95% concentration ellipse
+
+Covariance shape, radius the **empirical** 95th percentile of the Mahalanobis
+distance $d^2 = (z-c)^\top S^{-1} (z-c)$. Using the empirical quantile rather
+than $\sqrt{\chi^2_{2,0.95}} = 2.4477$ makes the coverage claim distribution-free
+and exact: each panel's legend prints the realised fraction inside.
+
+Its major axis is the leading principal axis of $S$ — which is the
+**total-least-squares / orthogonal regression** fit, the right fit here because
+*both* coordinates carry error (OLS would assume the x-source is exact). So its
+tilt is readable against 45°, and its semi-minor axis is the 95%
+orthogonal-residual half-width: *95% of these reactions lie within b kcal/mol of
+that line*. That is the number in the legend.
+
+Where the sources agree this ellipse is a **needle** — e.g. 198 × 36.7 kcal/mol
+at 39.1° on GC vs eQ at σ ≤ 5 — so it renders as a thick diagonal stroke inside
+the point cloud, with a white halo to keep it legible. It degenerates to a point,
+and is not drawn, when ≥95% of the points coincide (the GC vs dGPMS ΔG′°=0
+clusters); the legend says so. It is also suppressed below **n = 20**, where the
+95th percentile is just the maximum and the ellipse would be a covering ellipse
+wearing a coverage label — those panels keep the MVEE, which *is* a covering
+ellipse and is labelled as one.
+
+### Dashed outline — minimum-volume enclosing ellipse
+
+The Löwner–John ellipse, by Khachiyan's algorithm: the unique minimiser of
+$-\log\det A$ subject to $(z_i-c)^\top A (z_i-c) \le 1$ for every point.
+Three properties make it worth drawing:
+
+- **Unique** (John, 1948) — a well-defined function of the point set, not an
+  estimator with a tuning choice.
+- **At most $d(d+3)/2 = 5$ points can be active** in the plane. Each panel prints
+  how many *distinct* points sit on its boundary, which is 3–6 here and is not
+  quite the same number: Khachiyan is solved to `tol=1e-4`, so points within
+  0.1% of the boundary cannot be resolved from truly active ones, and reactions
+  that share ΔG′° values put several rows at one contact location (the count
+  de-duplicates coordinates — without that it reads as high as 9).
+- $\tfrac12 E \subseteq \mathrm{conv}(P) \subseteq E$ — shrink it by $d=2$ about
+  its centre and it lands inside the convex hull. Measured: MVEE area ÷ hull area
+  = 1.48 / 1.40 / 1.96 for the three unfiltered pairs.
+
+So it is a smooth two-parameter stand-in for the convex hull — **an extremes
+statistic with breakdown point zero**, not a description of the cloud. Read it as
+*how far into the plane does this subset reach*, and nothing more. Quantitatively,
+on the unfiltered panels it is **98.6–166.3×** the area of the 95% ellipse, its
+centre is nowhere near the centroid (GC∩dGPMS: centred at y = +364 while the bulk
+sits at the origin), and deleting its 5 active points shrinks it by **37–51%**.
+The extreme case is GC vs dGPMS at σ ≤ 1: 95% of those 409 reactions fit in an
+ellipse of area **5** (kcal/mol)² (semi-axes 3 × 0.5 kcal/mol), while the MVEE
+reads **44,766** — **8,533×** larger, all of it four outliers.
+
+Numerical caveat: Khachiyan is run to `tol=1e-4`, so 2–4 points per panel sit
+outside by up to $q = 1.0006$. "Covers every point" is true to ~0.03% in linear
+scale, not exactly.
 
 ## What the Convention A rebuild did, and did not do
 
@@ -77,7 +130,7 @@ make GC's error bar informative.
 
 **1. eQuilibrator vs dGPredictor-ModelSEED is the pair that responds.**
 r 0.86 → 0.99 at σ ≤ 1 (n = 3,390, 17% of the pair) and 0.998 at ê ≤ 1
-(n = 1,291), median \|Δ\| 3.74 → 0.46 kcal/mol. The oval collapses onto the
+(n = 1,291), median \|Δ\| 3.74 → 0.46 kcal/mol. Both ellipses collapse onto the
 diagonal. Untouched by the GC rebuild.
 
 **2. Group Contribution's σ is still too weak to filter on, but it is no longer
@@ -115,11 +168,20 @@ Per pair: reactions where both sources have a non-sentinel ΔG′° and a define
 (non-`?`) stored operator. eQuilibrator sentinels (σ > 100 kcal/mol, 4,934
 values) are dropped up front. Reactions with \|ΔG′°\| > 1500 kcal/mol in either
 source are dropped (9 / 19 / 11 per pair) — a single such point would set the
-oval by itself. Base sizes: GC∩EQ **18,157**, GC∩DGPMS **25,950**, EQ∩DGPMS
+enclosing ellipse by itself. Base sizes: GC∩EQ **18,157**, GC∩DGPMS **25,950**, EQ∩DGPMS
 19,731.
 
 Point color is the reversibility transition between the two sources, in the same
 definition and palette as `plot_thermo_source_dg_scatter.py`.
+
+## The subtractive companion
+
+`../thermo_source_dg_scatter_subtractive/` runs the same slices the other way
+round: at each T it **removes** the reactions kept here and draws the residue.
+Together they partition the base set (n kept there + n kept here = n_base, in
+every slice). It is the view that shows whether a criterion *orders* the data
+rather than merely selecting a good subset — and on that test ê separates
+cleanly (residue r drops to 0.24–0.47) while σ mostly does not.
 
 ## Note on `../thermo_source_dg_scatter/`
 

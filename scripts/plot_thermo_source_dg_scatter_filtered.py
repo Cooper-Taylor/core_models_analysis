@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Pairwise DeltaG scatter plots across the three thermodynamic sources, sliced by
-how much error each source ADMITS to on the reaction, with a covering oval.
+how much error each source ADMITS to on the reaction, with two ellipses.
 
 This is the error-filtered companion to plot_thermo_source_dg_scatter.py. Same
 three pairs -- Group Contribution, eQuilibrator, dGPredictor-ModelSEED (the
@@ -40,16 +40,38 @@ TWO RENDERINGS PER SLICE
 filtered  only the reactions that pass are drawn, axes rescaled to them.
 context   every reaction in the pair's base set is drawn; the ones that fail the
           threshold are grayed out and pushed behind, the ones that pass keep
-          their categorical color and get the oval. Axes are shared down a
+          their categorical color and get the ellipses. Axes are shared down a
           column-group so the shrinking of the passing set is visible as an
           actual shrinking, not hidden by autoscale.
 
-THE OVAL
---------
-Minimum-volume enclosing ellipse (Khachiyan's algorithm) over the points that
-pass the threshold -- the tightest oval that genuinely covers all of them, not a
-confidence ellipse. Its area is the honest picture of how much of the ΔG'° plane
-a "confident" subset still occupies.
+THE TWO ELLIPSES
+----------------
+Every panel carries two, and they answer different questions.
+
+filled   95% CONCENTRATION ELLIPSE. Covariance shape, radius the EMPIRICAL 95th
+         percentile of the Mahalanobis distance d^2 = (z-c)' S^-1 (z-c), so the
+         coverage claim is distribution-free and exact rather than normal-theory:
+         the legend prints the realised fraction inside. Its major axis is the
+         principal axis of S, i.e. the total-least-squares / orthogonal
+         regression fit -- the right fit here because BOTH coordinates carry
+         error -- and its tilt is therefore readable against 45 degrees, which is
+         perfect agreement. The semi-minor axis is the 95% orthogonal-residual
+         scale. This is the ellipse to quote about the cloud.
+
+outline  MINIMUM-VOLUME ENCLOSING ELLIPSE (Loewner-John, by Khachiyan's
+         algorithm): the unique minimiser of -log det A subject to
+         (z_i - c)' A (z_i - c) <= 1 for every point. Uniqueness is John's 1948
+         theorem; in the plane it is fixed by at most d(d+3)/2 = 5 of the points
+         (the legend prints how many are actually active), and shrinking it by a
+         factor of d = 2 about its centre lands it inside the convex hull:
+         (1/2)E is a subset of conv(P), itself a subset of E. So it is a smooth
+         two-parameter stand-in for the convex hull -- an EXTREMES statistic with
+         a breakdown point of zero, not a description of the cloud. On the
+         unfiltered panels it runs 99-166x the area of the 95% ellipse, and
+         deleting its 5 active points shrinks it by 37-51%. Read it as "how far
+         into the plane does this subset reach", nothing more.
+
+Both areas, tilts and the realised coverage go into slice_counts.tsv.
 
 Point color is the reversibility transition between the two sources, identical
 in definition and palette to plot_thermo_source_dg_scatter.py: each source's own
@@ -69,7 +91,7 @@ rebuild fixed was convention MIXING inside single reactions. So the panels are
 drawn on raw stored values with no convention correction.
 
 OUTPUTS  reports/thermoComparison/figures/thermo_source_dg_scatter_filtered/
-    grid_unfiltered.png                   the 3 pairs, no threshold, with oval
+    grid_unfiltered.png                   the 3 pairs, no threshold, both ellipses
     grid_<crit>_<mode>.png                3 pairs x 6 thresholds, 4 combinations
     <crit>/<mode>/dg_scatter_<a>_vs_<b>_<crit>_le<T>.png      72 single panels
     slice_counts.tsv                      n passing / n excluded / r per slice
@@ -133,11 +155,18 @@ CRIT_LABEL = {
 CRIT_SHORT = {"sigma": "σ", "ehat": "ê"}
 CRIT_COLUMN = {"sigma": "sig", "ehat": "ehat"}    # column prefix in the table
 
+# Everything draw_panel() reports that belongs in slice_counts.tsv, in order.
+STAT_KEYS = ("n_keep", "n_drop", "r", "median_absdiff", "n_both_zero",
+             "frac_both_zero", "conc_area", "conc_tilt", "conc_cover",
+             "conc_semimajor", "conc_semiminor", "mvee_area", "mvee_tilt",
+             "mvee_support")
+
 EQ_SENTINEL = 100.0     # kcal/mol; eQuilibrator's "I have no estimate" marker
 # A handful of aggregate/polymer reactions carry genuine but chemically
 # implausible magnitudes (rxn05017, Group Contribution ~15,900 kcal/mol). They
 # are dropped from the base set here rather than merely clipped, because a
-# single such point would set the oval on its own. Count is reported per panel.
+# single such point would set the enclosing ellipse on its own -- it is fixed by
+# at most 5 points. Count is reported per panel.
 EXTREME_CUTOFF = 1500.0
 
 # Palette carried over unchanged from plot_thermo_source_dg_scatter.py: three
@@ -157,7 +186,15 @@ CATEGORY_COLOR = {
     "Irreversible → Irreversible": "#1baf7a",
 }
 EXCLUDED_COLOR = "#dedbd1"
-OVAL_COLOR = "#5a3fb0"
+OVAL_COLOR = "#5a3fb0"        # the 95% concentration ellipse: filled, solid edge
+MVEE_COLOR = "#9b8fd0"        # the enclosing ellipse: unfilled, dashed, thinner
+MVEE_DASH = (0, (5, 3))
+CONC_FRAC = 0.95
+# Below this many points the 95th percentile of the Mahalanobis distance is
+# essentially the maximum -- the "95% ellipse" would just be a covering ellipse
+# with a misleading label -- so it is not drawn. The MVEE still is: it is exactly
+# a covering ellipse and says so.
+CONC_MIN_N = 20
 INK_PRIMARY = "#0b0b0b"
 INK_SECONDARY = "#52514e"
 INK_MUTED = "#898781"
@@ -217,13 +254,83 @@ def mvee(points: np.ndarray, tol: float = 1e-4, max_iter: int = 5000):
     return (c * scale, 2.0 * axes[0] * scale, 2.0 * axes[1] * scale, angle)
 
 
+def concentration_ellipse(points: np.ndarray, frac: float = CONC_FRAC) -> dict:
+    """Empirical concentration ellipse: the shape of the covariance S, scaled to
+    the ``frac`` quantile of the Mahalanobis distance of the points themselves.
+
+    Returns {"ellipse": (center, width, height, angle_deg) or None, "cover":
+    realised fraction inside, "area", "tilt"}. Because the radius is an EMPIRICAL
+    quantile rather than sqrt(chi2_2,0.95) = 2.4477, the coverage statement holds
+    without assuming bivariate normality -- ``cover`` is the number to print, and
+    it exceeds ``frac`` when the distances tie (the ΔG′° = 0 clusters do exactly
+    this, and can collapse the ellipse to a point: ellipse is then None).
+
+    The major axis is the leading principal axis of S, which is the
+    total-least-squares / orthogonal-regression fit line. That is the right fit
+    for these panels -- ordinary least squares would assume the x source is
+    error-free -- and it is why the tilt is worth reading against 45 degrees.
+    """
+    P = np.asarray(points, dtype=float)
+    P = P[np.isfinite(P).all(axis=1)]
+    out = {"ellipse": None, "cover": float("nan"), "area": float("nan"),
+           "tilt": float("nan"), "semi_major": float("nan"),
+           "semi_minor": float("nan")}
+    if len(P) < CONC_MIN_N:
+        return out
+    c = P.mean(axis=0)
+    S = np.cov(P.T)
+    if not np.all(np.isfinite(S)):
+        return out
+    evals, evecs = np.linalg.eigh(S)
+    d2 = np.einsum("ij,jk,ik->i", P - c, np.linalg.pinv(S), P - c)
+    k2 = float(np.quantile(d2, frac))
+    out["cover"] = float((d2 <= k2).mean())
+    if k2 <= 0 or evals.min() <= 0:      # singular or degenerate: nothing to draw
+        out["area"] = 0.0
+        return out
+    a, b = np.sqrt(k2 * evals[1]), np.sqrt(k2 * evals[0])   # eigh sorts ascending
+    angle = float(np.degrees(np.arctan2(evecs[1, 1], evecs[0, 1])))
+    out.update(ellipse=(c, 2.0 * a, 2.0 * b, angle), area=float(np.pi * a * b),
+               tilt=angle % 180.0, semi_major=float(a), semi_minor=float(b))
+    return out
+
+
+def ellipse_support(points: np.ndarray, ell, tol: float = 1e-3) -> int:
+    """How many DISTINCT points sit on the boundary of ``ell``.
+
+    The exact MVEE has an active set of at most d(d+3)/2 = 5 in the plane, but
+    this is not that number and must not be labelled as if it were, for two
+    reasons. Khachiyan is run to tol=1e-4, so the returned ellipse is
+    approximate and several points can land within 0.1% of its boundary without
+    being active in the exact program (observed: 6 distinct points at q >= 0.999
+    on eQ vs dGPMS at sigma <= 20). And reactions genuinely share ΔG′° values, so
+    a single contact location can be several rows -- hence the de-duplication,
+    which is what keeps this number near the theoretical bound instead of 9.
+    """
+    if ell is None:
+        return 0
+    c, w, h, ang = ell
+    t = np.radians(ang)
+    R = np.array([[np.cos(t), np.sin(t)], [-np.sin(t), np.cos(t)]])
+    P = np.asarray(points, dtype=float)
+    U = (P - c) @ R.T
+    q = (U[:, 0] / (w / 2.0)) ** 2 + (U[:, 1] / (h / 2.0)) ** 2
+    on = q >= 1.0 - tol
+    if not on.any():
+        return 0
+    return int(len(np.unique(np.round(P[on], 6), axis=0)))
+
+
 def proxy_handle(kind: str, label: str):
     """Legend entry that does not depend on the host panel having drawn anything."""
     from matplotlib.lines import Line2D
     from matplotlib.patches import Patch
-    if kind == "oval":
+    if kind == "conc":
         return Patch(facecolor=OVAL_COLOR, alpha=0.25, edgecolor=OVAL_COLOR,
                      linewidth=1.4, label=label)
+    if kind == "mvee":
+        return Patch(facecolor="none", edgecolor=MVEE_COLOR, linewidth=1.1,
+                     linestyle=MVEE_DASH, label=label)
     color = EXCLUDED_COLOR if kind == "excluded" else CATEGORY_COLOR[kind]
     return Line2D([], [], marker="o", linestyle="none", markersize=5.5,
                   markerfacecolor=color, markeredgecolor="none", label=label)
@@ -241,16 +348,38 @@ def pair_floor(sub: pd.DataFrame, a: str, b: str, crit: str) -> float:
     return float(worse.min()) if worse.size else float("nan")
 
 
-def draw_oval(ax, points: np.ndarray, label: str | None = None):
+def draw_ellipses(ax, points: np.ndarray) -> dict:
+    """Draw the 95% concentration ellipse (filled) and the minimum-volume
+    enclosing ellipse (dashed outline), and return both sets of numbers."""
+    conc = concentration_ellipse(points)
+    if conc["ellipse"] is not None:
+        c, w, h, ang = conc["ellipse"]
+        # Where the sources agree this ellipse is a NEEDLE -- 95% of the reactions
+        # sit within a few kcal/mol of the fit line while spanning hundreds along
+        # it -- so it renders as a thick diagonal stroke buried in the point
+        # cloud. That is the honest geometry (and the whole point next to the
+        # balloon-shaped MVEE), so rather than widen it, give it a white halo and
+        # put the half-width in the legend.
+        import matplotlib.patheffects as pe
+        ax.add_patch(Ellipse(tuple(c), w, h, angle=ang, facecolor=OVAL_COLOR,
+                             alpha=0.10, edgecolor=OVAL_COLOR, linewidth=1.7,
+                             linestyle="-", zorder=6,
+                             path_effects=[pe.withStroke(linewidth=3.4,
+                                                         foreground="white")]))
     ell = mvee(points)
-    if ell is None:
-        return None
-    c, w, h, ang = ell
-    patch = Ellipse(tuple(c), w, h, angle=ang, facecolor=OVAL_COLOR, alpha=0.055,
-                    edgecolor=OVAL_COLOR, linewidth=1.4, linestyle="-",
-                    zorder=4, label=label)
-    ax.add_patch(patch)
-    return ell
+    if ell is not None:
+        c, w, h, ang = ell
+        ax.add_patch(Ellipse(tuple(c), w, h, angle=ang, facecolor="none",
+                             edgecolor=MVEE_COLOR, linewidth=1.0,
+                             linestyle=MVEE_DASH, zorder=4))
+    return {
+        "conc_area": conc["area"], "conc_tilt": conc["tilt"],
+        "conc_cover": conc["cover"], "conc_semimajor": conc["semi_major"],
+        "conc_semiminor": conc["semi_minor"],
+        "mvee_area": float(np.pi * ell[1] * ell[2] / 4.0) if ell else float("nan"),
+        "mvee_tilt": (ell[3] % 180.0) if ell else float("nan"),
+        "mvee_support": ellipse_support(points, ell),
+    }
 
 
 # ------------------------------------------------------------------- loading
@@ -332,7 +461,8 @@ def passing_mask(sub: pd.DataFrame, a: str, b: str, crit: str, tol: float) -> np
 # ------------------------------------------------------------------ plotting
 def draw_panel(ax, sub: pd.DataFrame, a: str, b: str, keep: np.ndarray,
                mode: str, xlim=None, ylim=None, show_legend: bool = True,
-               compact: bool = False) -> dict:
+               compact: bool = False, excluded_label: str = "Excluded by threshold",
+               empty_note: str = "no reaction qualifies\nat this threshold") -> dict:
     xs = sub[f"dg_{a}"].to_numpy(float)
     ys = sub[f"dg_{b}"].to_numpy(float)
     cats = np.array([classify(oa, ob)
@@ -367,7 +497,7 @@ def draw_panel(ax, sub: pd.DataFrame, a: str, b: str, keep: np.ndarray,
     if mode == "context" and n_drop:
         ax.scatter(xs[~keep], ys[~keep], s=5, linewidths=0, color=EXCLUDED_COLOR,
                    alpha=0.55, zorder=2,
-                   label=f"Excluded by threshold ({n_drop:,})")
+                   label=f"{excluded_label} ({n_drop:,})")
     for cat in CATEGORY_ORDER:
         idx = keep & (cats == cat)
         if not idx.any():
@@ -375,9 +505,12 @@ def draw_panel(ax, sub: pd.DataFrame, a: str, b: str, keep: np.ndarray,
         ax.scatter(xs[idx], ys[idx], s=13 if not compact else 9, linewidths=0,
                    color=CATEGORY_COLOR[cat], alpha=0.68, zorder=3,
                    label=f"{cat} ({counts.get(cat, 0):,})")
+    geom = {"conc_area": float("nan"), "conc_tilt": float("nan"),
+            "conc_cover": float("nan"), "conc_semimajor": float("nan"),
+            "conc_semiminor": float("nan"), "mvee_area": float("nan"),
+            "mvee_tilt": float("nan"), "mvee_support": 0}
     if n_keep >= 3:
-        draw_oval(ax, np.column_stack([xk, yk]),
-                  label="Covering oval (min-volume ellipse)")
+        geom = draw_ellipses(ax, np.column_stack([xk, yk]))
 
     ax.set_xlim(*xlim)
     ax.set_ylim(*ylim)
@@ -388,7 +521,7 @@ def draw_panel(ax, sub: pd.DataFrame, a: str, b: str, keep: np.ndarray,
         ax.spines[spine].set_color(BASELINE)
     ax.tick_params(colors=INK_MUTED, labelsize=8 if compact else 9)
     if n_keep == 0:
-        ax.text(0.5, 0.5, "no reaction qualifies\nat this threshold",
+        ax.text(0.5, 0.5, empty_note,
                 transform=ax.transAxes, ha="center", va="center",
                 fontsize=11 if not compact else 9.5, color=INK_MUTED)
     elif n_zero:
@@ -400,11 +533,29 @@ def draw_panel(ax, sub: pd.DataFrame, a: str, b: str, keep: np.ndarray,
         # Built from proxy handles rather than from whatever this panel happens
         # to have drawn: the legend host panel can be empty (a threshold below
         # the pair's floor), and ax.legend() would then silently emit nothing.
-        handles = ([proxy_handle("excluded", f"Excluded by threshold ({n_drop:,})")]
+        handles = ([proxy_handle("excluded", f"{excluded_label} ({n_drop:,})")]
                    if mode == "context" else [])
         handles += [proxy_handle(cat, f"{cat} ({counts.get(cat, 0):,})")
                     for cat in CATEGORY_ORDER]
-        handles.append(proxy_handle("oval", "Covering oval (min-volume ellipse)"))
+        if np.isfinite(geom["conc_cover"]):
+            if np.isfinite(geom["conc_semiminor"]):
+                # the half-width is the readable quantity: 95% of the reactions
+                # lie within it of the orthogonal fit line
+                shape = (f"±{geom['conc_semiminor']:.1f} @ {geom['conc_tilt']:.0f}°"
+                         if compact else
+                         f"±{geom['conc_semiminor']:.1f} kcal/mol about the "
+                         f"{geom['conc_tilt']:.1f}° orthogonal fit")
+            else:
+                shape = "degenerate"
+            head = "95% conc. ellipse" if compact else "95% concentration ellipse"
+            handles.append(proxy_handle(
+                "conc", f"{head} ({geom['conc_cover']:.1%} inside, {shape})"))
+        if np.isfinite(geom["mvee_area"]):
+            handles.append(proxy_handle(
+                "mvee", ("Min-volume enclosing ellipse "
+                         f"({geom['mvee_support']} boundary pts)" if compact else
+                         "Min-volume enclosing ellipse (hull proxy, "
+                         f"{geom['mvee_support']} distinct points on its boundary)")))
         fs = 6.6 if compact else 8.5
         leg = ax.legend(handles=handles, loc="upper left", frameon=False,
                         fontsize=fs, labelcolor=INK_PRIMARY,
@@ -415,7 +566,40 @@ def draw_panel(ax, sub: pd.DataFrame, a: str, b: str, keep: np.ndarray,
         leg.get_title().set_color(INK_SECONDARY)
     return {"n_keep": n_keep, "n_drop": n_drop, "r": r, "median_absdiff": med,
             "n_both_zero": n_zero, "frac_both_zero": frac_zero,
-            "xlim": xlim, "ylim": ylim}
+            "xlim": xlim, "ylim": ylim, **geom}
+
+
+def ellipse_note(st: dict) -> str:
+    """The mathematics of the two ellipses, with this panel's numbers in it, for
+    the footnote of a full-size single panel."""
+    import textwrap
+    wrap = lambda s: "\n".join(textwrap.fill(ln, 112) for ln in s.split("\n"))
+    if np.isfinite(st["conc_tilt"]):
+        line = (f"filled = {CONC_FRAC:.0%} concentration ellipse — covariance shape, "
+                f"radius the empirical {CONC_FRAC:.0%} quantile of Mahalanobis d², so "
+                f"{st['conc_cover']:.1%} of the points lie inside; major axis is the "
+                f"orthogonal (total-least-squares) fit at {st['conc_tilt']:.1f}° "
+                f"(45° = agreement), semi-axes {st['conc_semimajor']:,.0f} × "
+                f"{st['conc_semiminor']:,.1f} kcal/mol — i.e. {CONC_FRAC:.0%} of the "
+                f"reactions sit within {st['conc_semiminor']:,.1f} kcal/mol of that "
+                f"line — area {st['conc_area']:,.0f} (kcal/mol)²")
+    elif np.isfinite(st["conc_cover"]):
+        line = (f"filled = {CONC_FRAC:.0%} concentration ellipse — degenerate here "
+                f"({st['conc_cover']:.1%} of the points coincide), nothing drawn")
+    else:
+        line = (f"no {CONC_FRAC:.0%} concentration ellipse: fewer than {CONC_MIN_N} "
+                f"points, at which size its radius is just the maximum")
+    if np.isfinite(st["mvee_area"]):
+        ca = st.get("conc_area", float("nan"))
+        ratio = (f", {st['mvee_area'] / ca:,.0f}× its area"
+                 if np.isfinite(ca) and ca > 0 else "")
+        line += (f"\ndashed = minimum-volume enclosing ellipse — argmin −log det A "
+                 f"s.t. (zᵢ−c)ᵀA(zᵢ−c) ≤ 1 ∀i; unique (John 1948), ½E ⊆ conv(P) ⊆ E, "
+                 f"and at most 5 points can be active in the plane — "
+                 f"{st['mvee_support']} distinct points of {st['n_keep']:,} sit on this "
+                 f"boundary (Khachiyan solved to 1e-4, so near-active points are not "
+                 f"resolved from active ones); area {st['mvee_area']:,.0f}{ratio}")
+    return wrap(line)
 
 
 def slice_title(a: str, b: str, crit: str, tol: float | None, st: dict,
@@ -465,12 +649,12 @@ def main() -> None:
         ax.set_xlabel(SOURCES[a][2], color=INK_SECONDARY, fontsize=10)
         ax.set_ylabel(SOURCES[b][2], color=INK_SECONDARY, fontsize=10)
         records.append({"pair": f"{a}_vs_{b}", "criterion": "none", "tolerance": np.nan,
-                        "n_base": len(sub), **{k: st[k] for k in
-                                               ("n_keep", "n_drop", "r", "median_absdiff",
-                                                "n_both_zero", "frac_both_zero")}})
-    fig.suptitle("ΔG′° agreement between thermodynamic sources — no error filter, "
-                 "with minimum-volume covering oval",
-                 color=INK_PRIMARY, fontsize=14, y=0.99)
+                        "n_base": len(sub), **{k: st[k] for k in STAT_KEYS}})
+    fig.suptitle("ΔG′° agreement between thermodynamic sources — no error filter\n"
+                 "filled ellipse = 95% concentration (empirical Mahalanobis quantile; "
+                 "major axis = orthogonal fit) · dashed = minimum-volume enclosing "
+                 "ellipse (Löwner–John hull proxy)",
+                 color=INK_PRIMARY, fontsize=12.5, y=0.995)
     fig.tight_layout(rect=(0, 0, 1, 0.955))
     p = out_dir / "grid_unfiltered.png"
     fig.savefig(p, facecolor=SURFACE)
@@ -513,14 +697,11 @@ def main() -> None:
                     if mode == "filtered":
                         records.append({"pair": f"{a}_vs_{b}", "criterion": crit,
                                         "tolerance": tol, "n_base": len(sub),
-                                        **{k: st[k] for k in ("n_keep", "n_drop",
-                                                              "r", "median_absdiff",
-                                                              "n_both_zero",
-                                                              "frac_both_zero")}})
+                                        **{k: st[k] for k in STAT_KEYS}})
             sub_note = ("only the passing reactions are drawn; axes rescale to them"
                         if mode == "filtered" else
                         "every reaction is drawn — failing reactions grayed out, "
-                        "passing reactions in color and inside the oval; axes shared per row")
+                        "passing reactions in color and inside the ellipses; axes shared per row")
             fig.suptitle(
                 f"ΔG′° source agreement filtered by {CRIT_LABEL[crit]} — "
                 f"both sources ≤ T\n{sub_note}",
@@ -555,7 +736,7 @@ def main() -> None:
                     ax.set_xlabel(SOURCES[a][2], color=INK_SECONDARY, fontsize=10)
                     ax.set_ylabel(SOURCES[b][2], color=INK_SECONDARY, fontsize=10)
                     note = (f"filter: {CRIT_LABEL[crit]} ≤ {tol:g} kcal/mol "
-                            f"for BOTH sources")
+                            f"for BOTH sources\n" + ellipse_note(st))
                     if n_extreme[(a, b)]:
                         note += (f"\n{n_extreme[(a,b)]} reaction(s) with |ΔG′°| > "
                                  f"{EXTREME_CUTOFF:g} kcal/mol excluded from the base set")
