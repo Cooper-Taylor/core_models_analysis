@@ -226,13 +226,21 @@ reactions) against each other:
 - [`dg_scatter_equilibrator_vs_dgpredictor.png`](/scratch/ctaylor/core_models_analysis/reports/thermoComparison/figures/thermo_source_dg_scatter/dg_scatter_equilibrator_vs_dgpredictor.png) — n = 8,768, Pearson r = 0.69
 
 Points are colored by the **reversibility transition** between the two sources (each
-reaction's own operator from §3/§4, i.e. the unmodified cascade fed that source's own ΔG,
-collapsed to reversible `=` vs irreversible `>`/`<`): *No change* (both reversible),
-*Reversible → Irreversible*, *Irreversible → Reversible*, or *Irreversible → Irreversible*
-(both irreversible, regardless of whether the specific direction agrees). The legend gives
-the reaction count for each category — e.g. for Group Contribution vs eQuilibrator: No
-change 6,736; Reversible→Irreversible 2,146; Irreversible→Reversible 2,173;
-Irreversible→Irreversible 7,422 (sums to n = 18,477). Group Contribution and eQuilibrator
+reaction's own operator from §3/§4, i.e. the unmodified cascade fed that source's own ΔG):
+*No change* — the two sources make the identical call, either both reversible `=` or both
+irreversible in the **same** direction (`>`→`>`, `<`→`<`); *Reversible → Irreversible*;
+*Irreversible → Reversible*; or *Irreversible → Irreversible* — both irreversible in
+**opposite** directions (`>`→`<` or `<`→`>`), which is the only genuine direction conflict
+and the one that actually changes a flux model. Counts are written to
+`category_counts.tsv` beside the PNGs; for Group Contribution vs eQuilibrator: No change
+14,015; Reversible→Irreversible 2,146; Irreversible→Reversible 2,173;
+Irreversible→Irreversible 143 (sums to n = 18,477).
+
+> **Changed 2026-08-17.** The last category previously held *every* both-irreversible
+> pair regardless of direction, which coloured perfect agreement identically to a reversal
+> and made it the largest category in every panel (7,422 of 18,477 here, now 143). All
+> transition-coloured figures were regenerated under the strict definition via
+> `scripts/regen_figures.py --tag transition`. Group Contribution and eQuilibrator
 track each other closely (r = 0.91). The compression described in the rest of this
 section was measured *before* the KEGG mask; on the masked set dGPredictor's ΔG values
 are far less compressed than stated here (out-of-sample additive residual 1.58 rather

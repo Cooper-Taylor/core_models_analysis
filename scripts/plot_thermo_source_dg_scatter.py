@@ -8,13 +8,22 @@ plotted (the intersection of coverage). Points are colored by *reversibility
 transition* -- how the two sources' own reversibility calls (each run through
 the unmodified ModelSEED heuristic cascade, reversibility_heuristics.DEFAULT_HEURISTICS,
 fed that source's own DeltaG via per_source_energy) compare, collapsing each
-call to reversible ("=") vs irreversible (">" or "<"):
+call are compared:
 
-  * No change                    -- both sources call it reversible ("=")
+  * No change                    -- the two sources make the IDENTICAL call:
+    both reversible ("="), or both irreversible in the SAME direction (both ">"
+    or both "<"). Nothing is in dispute.
   * Reversible -> Irreversible   -- source A reversible, source B irreversible
   * Irreversible -> Reversible   -- source A irreversible, source B reversible
-  * Irreversible -> Irreversible -- both irreversible (regardless of whether
-    the specific direction, > or <, agrees between the two)
+  * Irreversible -> Irreversible -- both irreversible, in OPPOSITE directions
+    (">" vs "<"). RESERVED for this case: it is the only genuine direction
+    conflict, and it is what actually changes a flux model.
+
+That last category is stricter than it was before 2026-08, when it held every
+both-irreversible pair regardless of direction -- which coloured perfect
+agreement identically to a reversal and made it the largest category in every
+panel. "No change" is correspondingly larger now, so it is drawn smaller and
+more transparent with the three real transitions on top.
 
 The legend shows the reaction count for each category in parentheses.
 "No change" is rendered in neutral gray (no hue) rather than a 4th categorical
@@ -90,6 +99,14 @@ CATEGORY_COLOR = {
     "Irreversible → Reversible": "#eb6834",     # slot 2, orange
     "Irreversible → Irreversible": "#1baf7a",   # slot 3, aqua
 }
+# Displayed legend text. The category NAME is unchanged; the parenthetical
+# states the definition, which is not guessable from the name alone.
+CATEGORY_LEGEND = {
+    "No change": "No change (same call)",
+    "Reversible → Irreversible": "Reversible → Irreversible",
+    "Irreversible → Reversible": "Irreversible → Reversible",
+    "Irreversible → Irreversible": "Irreversible → Irreversible (opposite direction)",
+}
 INK_PRIMARY = "#0b0b0b"
 INK_SECONDARY = "#52514e"
 INK_MUTED = "#898781"
@@ -99,16 +116,21 @@ SURFACE = "#fcfcfb"
 
 
 def classify(op_a: str, op_b: str) -> str:
-    """Reversibility transition from source A to source B ('=' == reversible)."""
-    rev_a = op_a == "="
-    rev_b = op_b == "="
-    if rev_a and rev_b:
-        return "No change"
-    if rev_a and not rev_b:
+    """Reversibility transition from source A to source B.
+
+    "Irreversible -> Irreversible" is RESERVED for the case that matters: both
+    sources call the reaction irreversible but in OPPOSITE directions ('>' vs
+    '<'). Two sources that agree on the same irreversible direction have not
+    disagreed about anything, so they land in "No change" alongside the pairs
+    that both call it reversible.
+    """
+    if op_a == op_b:
+        return "No change"                    # both '=', or the same '>' / '<'
+    if op_a == "=":
         return "Reversible → Irreversible"
-    if not rev_a and rev_b:
+    if op_b == "=":
         return "Irreversible → Reversible"
-    return "Irreversible → Irreversible"
+    return "Irreversible → Irreversible"      # '>' vs '<' — direction reversed
 
 
 def load_source_data(reactions: dict, dgp_mask: set[str] | None = None) -> dict:
@@ -202,9 +224,11 @@ def plot_pair(src_a: str, src_b: str, data: dict, out_dir: Path | None = None,
 
     for cat in CATEGORY_ORDER:
         idx = [i for i, (c, keep) in enumerate(zip(cats, in_range)) if c == cat and keep]
-        label = f"{cat} ({cat_counts.get(cat, 0):,})"
-        ax.scatter(xs[idx], ys[idx], s=14, linewidths=0,
-                    color=CATEGORY_COLOR[cat], alpha=0.65, label=label, zorder=2)
+        label = f"{CATEGORY_LEGEND[cat]} ({cat_counts.get(cat, 0):,})"
+        bulk = cat == "No change"   # now the majority; keep it recessive
+        ax.scatter(xs[idx], ys[idx], s=9 if bulk else 16, linewidths=0,
+                    color=CATEGORY_COLOR[cat], alpha=0.35 if bulk else 0.7,
+                    label=label, zorder=2 if bulk else 3)
 
     ax.set_xlim(lo, hi)
     ax.set_ylim(lo, hi)
@@ -247,6 +271,20 @@ def plot_pair(src_a: str, src_b: str, data: dict, out_dir: Path | None = None,
     out_path = out_dir / f"dg_scatter_{src_a}_vs_{src_b}.png"
     fig.savefig(out_path, facecolor=SURFACE)
     plt.close(fig)
+
+    # Machine-readable counts alongside the PNG: the legend is not a data source,
+    # and prose elsewhere quotes these numbers.
+    stats_path = out_dir / "category_counts.tsv"
+    header = ("pair\tn\tpearson_r\tshown_range_r\t"
+              + "\t".join(CATEGORY_ORDER) + "\n")
+    line = (f"{src_a}_vs_{src_b}\t{len(common)}\t{r_all:.4f}\t{r_robust:.4f}\t"
+            + "\t".join(str(cat_counts.get(c, 0)) for c in CATEGORY_ORDER) + "\n")
+    if stats_path.exists() and stats_path.read_text().startswith(header):
+        with open(stats_path, "a") as fh:
+            fh.write(line)
+    else:
+        stats_path.write_text(header + line)
+
     print(f"wrote {out_path} ({len(common)} points)")
     return out_path
 
@@ -290,8 +328,10 @@ def main() -> None:
             print(f"  {label}: {len(data[src])} of {len(keep)} subset reactions "
                   f"have a usable DeltaG")
 
+    (out_dir / "category_counts.tsv").unlink(missing_ok=True)
     for src_a, src_b in PAIRS:
         plot_pair(src_a, src_b, data, out_dir=out_dir, subset_note=args.subset_label)
+    print(f"wrote {out_dir / 'category_counts.tsv'}")
 
 
 if __name__ == "__main__":

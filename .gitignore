@@ -86,7 +86,5 @@ results/thermo_grades_fba/rxn_source_coverage.csv
 results/thermo_recommendation/recommendation_direction.tsv
 results/thermo_recommendation/recommendation_magnitude.tsv
 
-# Regenerable per-source thermodynamics caches for the dGPredictor KEGG-fix
-# figures (rebuilt in ~2 min by plot_kegg_fix_impact.py from the dev snapshot).
-reports/thermoComparison/figures/kegg_fix_impact/_devsnap2_sources.pkl
-reports/dgpredictorReview/results/_devsnap2_thermo.pkl
+# Per-run logs from scripts/regen_figures.py
+reports/thermoComparison/figures/_regen_logs/

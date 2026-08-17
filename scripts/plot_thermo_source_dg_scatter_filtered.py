@@ -75,8 +75,10 @@ Both areas, tilts and the realised coverage go into slice_counts.tsv.
 
 Point color is the reversibility transition between the two sources, identical
 in definition and palette to plot_thermo_source_dg_scatter.py: each source's own
-ΔG'° run through the unmodified cascade (DEFAULT_HEURISTICS via
-per_source_energy), collapsed to reversible ("=") vs irreversible (">"/"<").
+ΔG'° is run through the unmodified cascade (DEFAULT_HEURISTICS via
+per_source_energy) and the two resulting operators are compared. "No change"
+means the IDENTICAL call -- both "=", or the same ">" / "<". "Irreversible ->
+Irreversible" is reserved for ">" vs "<", the only genuine direction conflict.
 
 DATA PROVENANCE
 ---------------
@@ -184,6 +186,14 @@ CATEGORY_COLOR = {
     "Reversible → Irreversible": "#2a78d6",
     "Irreversible → Reversible": "#eb6834",
     "Irreversible → Irreversible": "#1baf7a",
+}
+# Displayed legend text. The category NAME is unchanged; the parenthetical
+# states the definition, which is not guessable from the name alone.
+CATEGORY_LEGEND = {
+    "No change": "No change (same call)",
+    "Reversible → Irreversible": "Reversible → Irreversible",
+    "Irreversible → Reversible": "Irreversible → Reversible",
+    "Irreversible → Irreversible": "Irreversible → Irreversible (opposite direction)",
 }
 EXCLUDED_COLOR = "#dedbd1"
 OVAL_COLOR = "#5a3fb0"        # the 95% concentration ellipse: filled, solid edge
@@ -384,14 +394,21 @@ def draw_ellipses(ax, points: np.ndarray) -> dict:
 
 # ------------------------------------------------------------------- loading
 def classify(op_a: str, op_b: str) -> str:
-    rev_a, rev_b = op_a == "=", op_b == "="
-    if rev_a and rev_b:
-        return "No change"
-    if rev_a and not rev_b:
+    """Reversibility transition from source A to source B.
+
+    "Irreversible -> Irreversible" is RESERVED for the case that matters: both
+    sources call the reaction irreversible but in OPPOSITE directions ('>' vs
+    '<'). Two sources that agree on the same irreversible direction have not
+    disagreed about anything, so they land in "No change" alongside the pairs
+    that both call it reversible.
+    """
+    if op_a == op_b:
+        return "No change"                    # both '=', or the same '>' / '<'
+    if op_a == "=":
         return "Reversible → Irreversible"
-    if not rev_a and rev_b:
+    if op_b == "=":
         return "Irreversible → Reversible"
-    return "Irreversible → Irreversible"
+    return "Irreversible → Irreversible"      # '>' vs '<' — direction reversed
 
 
 def load_table() -> pd.DataFrame:
@@ -504,7 +521,7 @@ def draw_panel(ax, sub: pd.DataFrame, a: str, b: str, keep: np.ndarray,
             continue
         ax.scatter(xs[idx], ys[idx], s=13 if not compact else 9, linewidths=0,
                    color=CATEGORY_COLOR[cat], alpha=0.68, zorder=3,
-                   label=f"{cat} ({counts.get(cat, 0):,})")
+                   label=f"{CATEGORY_LEGEND[cat]} ({counts.get(cat, 0):,})")
     geom = {"conc_area": float("nan"), "conc_tilt": float("nan"),
             "conc_cover": float("nan"), "conc_semimajor": float("nan"),
             "conc_semiminor": float("nan"), "mvee_area": float("nan"),
