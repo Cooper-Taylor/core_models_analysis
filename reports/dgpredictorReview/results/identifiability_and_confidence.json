@@ -1,0 +1,57 @@
+{
+  "identifiability": {
+    "finetuned_dgpredictor": {
+      "n_training_observations": 3910,
+      "n_training_compounds": 563,
+      "n_groups_declared": 40361,
+      "n_groups_with_any_training_support": 1415,
+      "rank_of_compound_x_group_matrix": 470,
+      "rank_of_reaction_feature_matrix": 382,
+      "observations_per_free_parameter": 10.24
+    }
+  },
+  "outside_trained_span": {
+    "bayesianridge_sigma_floor_kJ": 3.309,
+    "note": "sqrt(1/alpha_): the uncertainty BayesianRidge reports when a reaction's feature vector lies entirely outside the trained span, i.e. its most confident possible answer",
+    "spearman_rho_unseen_share_vs_reported_sigma": 0.8397,
+    "tiers": [
+      {
+        "unseen_group_share": "[0, 1e-09)",
+        "n_reactions": 7176,
+        "median_reported_sigma_kJ": 3.8,
+        "median_abs_dG_model_kJ": 21.52
+      },
+      {
+        "unseen_group_share": "[1e-09, 0.1)",
+        "n_reactions": 5276,
+        "median_reported_sigma_kJ": 81.53,
+        "median_abs_dG_model_kJ": 58.04
+      },
+      {
+        "unseen_group_share": "[0.1, 0.25)",
+        "n_reactions": 7041,
+        "median_reported_sigma_kJ": 120.8,
+        "median_abs_dG_model_kJ": 53.12
+      },
+      {
+        "unseen_group_share": "[0.25, 0.5)",
+        "n_reactions": 5559,
+        "median_reported_sigma_kJ": 168.92,
+        "median_abs_dG_model_kJ": 68.55
+      },
+      {
+        "unseen_group_share": "[0.5, 0.999)",
+        "n_reactions": 3254,
+        "median_reported_sigma_kJ": 196.51,
+        "median_abs_dG_model_kJ": 64.44
+      },
+      {
+        "unseen_group_share": "[0.999, 1.01)",
+        "n_reactions": 40,
+        "median_reported_sigma_kJ": 124.35,
+        "median_abs_dG_model_kJ": 0.0
+      }
+    ],
+    "n_reactions_predicted_exactly_zero_because_all_groups_unseen": 40
+  }
+}

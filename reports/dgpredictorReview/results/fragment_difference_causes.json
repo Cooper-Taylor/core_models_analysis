@@ -1,0 +1,110 @@
+{
+  "learned_fragments_after_recanonicalising": {
+    "original": 1184,
+    "retrain": 1079,
+    "shared": 948,
+    "only_original": 236,
+    "only_retrain": 131
+  },
+  "training_compounds": {
+    "kegg_in_original": 673,
+    "unmappable_to_modelseed": 47,
+    "carried_into_retrain": 626
+  },
+  "why_only_in_original": {
+    "compound lost": 43,
+    "depiction differs": 177,
+    "cancellation / other": 15,
+    "unexplained": 1
+  },
+  "why_only_in_retrain": {
+    "depiction differs": 127,
+    "cancellation / other": 4,
+    "unexplained": 0
+  },
+  "examples_only_original": {
+    "compound lost": [
+      [
+        "cc[n+](cc)C(C)O",
+        [
+          "C80057"
+        ]
+      ],
+      [
+        "CC([n+])O",
+        [
+          "C80057"
+        ]
+      ],
+      [
+        "COC(C(C)O)N(C)C",
+        [
+          "C80058"
+        ]
+      ],
+      [
+        "CC(O)C(O)C([n+])O",
+        [
+          "C80057"
+        ]
+      ]
+    ],
+    "depiction differs": [
+      [
+        "CC(=O)C(O)C(C)=O",
+        [
+          "C02637"
+        ]
+      ],
+      [
+        "CNP(=O)([O-])[O-]",
+        [
+          "C02305",
+          "C03149"
+        ]
+      ],
+      [
+        "C=C(C)C(C)C(C)=O",
+        [
+          "C00399"
+        ]
+      ],
+      [
+        "cN(c)C",
+        [
+          "C01080",
+          "C01352"
+        ]
+      ]
+    ]
+  },
+  "examples_only_retrain": {
+    "depiction differs": [
+      [
+        "cCC(C(=N)N)C(N)=O",
+        [
+          "C01080"
+        ]
+      ],
+      [
+        "cc(c)CC(C)C",
+        [
+          "C01080"
+        ]
+      ],
+      [
+        "nc(n)O",
+        [
+          "C00366",
+          "C00385"
+        ]
+      ],
+      [
+        "CC(N)CC(=O)[O-]",
+        [
+          "C03406"
+        ]
+      ]
+    ]
+  }
+}

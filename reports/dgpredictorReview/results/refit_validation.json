@@ -1,0 +1,17 @@
+{
+  "n_reactions_compared": 32001,
+  "refit_vs_shipped_dG_model_only": {
+    "pearson_r": 0.9999999999999993,
+    "median_abs_diff_kJ": 2.6586803869577125e-09,
+    "p95_abs_diff_kJ": 3.5181415114493575e-08,
+    "max_abs_diff_kJ": 5.797546691610478e-07,
+    "frac_within_1_kJ": 1.0
+  },
+  "unseen_group_exposure": {
+    "frac_reactions_touching_a_zero_coef_group": 0.8707401397022507,
+    "median_frac_of_|group change| on zero-coef groups": 0.125,
+    "mean_frac_of_|group change| on zero-coef groups": 0.1895293722166218,
+    "frac_reactions_with_>50pct_on_zero_coef": 0.0939815141466168,
+    "frac_reactions_with_100pct_on_zero_coef": 0.0014111338460452974
+  }
+}

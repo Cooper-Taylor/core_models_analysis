@@ -1,0 +1,13 @@
+{
+  "n1": 1435,
+  "n2": 24882,
+  "width": 26404,
+  "used_total": 1514,
+  "used_r1": 247,
+  "used_r2": 1248,
+  "n_train": 4001,
+  "mse": 9.598899077534808,
+  "r2": 0.9997591149731375,
+  "rank_of_reaction_feature_matrix": 431,
+  "n_prior_determined_directions": 1083
+}

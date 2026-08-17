@@ -1,0 +1,58 @@
+{
+  "per_molecule_vs_Group contribution": {
+    "n_compounds": 21616,
+    "pearson_r": 0.977,
+    "median_abs_diff_kJ": 94.5,
+    "median_model_value_kJ": -476.6,
+    "median_reference_kJ": -467.8
+  },
+  "per_molecule_vs_eQuilibrator": {
+    "n_compounds": 20871,
+    "pearson_r": 0.337,
+    "median_abs_diff_kJ": 721.3,
+    "median_model_value_kJ": -405.1,
+    "median_reference_kJ": 297.6
+  },
+  "same_f_summed_over_a_balanced_reaction": {
+    "n_reactions": 32019,
+    "max_abs_diff_vs_shipped_prediction_kJ": 7.825288776075467e-06,
+    "note": "f() is exactly what the model uses; summing it over a reaction reproduces the shipped prediction, so f is real -- it is only its ABSOLUTE level that is undetermined"
+  },
+  "examples": {
+    "H2O": {
+      "dGPredictor_per_molecule_kJ": -239.1,
+      "Group_contribution_kJ": -237.2,
+      "eQuilibrator_kJ": -156.6
+    },
+    "ATP": {
+      "dGPredictor_per_molecule_kJ": -2815.8,
+      "Group_contribution_kJ": -2819.4,
+      "eQuilibrator_kJ": -2297.9
+    },
+    "ADP": {
+      "dGPredictor_per_molecule_kJ": -1947.3,
+      "Group_contribution_kJ": -1949.1,
+      "eQuilibrator_kJ": -1423.3
+    },
+    "Phosphate": {
+      "dGPredictor_per_molecule_kJ": -1094.3,
+      "Group_contribution_kJ": -1096.1,
+      "eQuilibrator_kJ": -1058.6
+    },
+    "NAD": {
+      "dGPredictor_per_molecule_kJ": -2347.4,
+      "Group_contribution_kJ": -2215.8,
+      "eQuilibrator_kJ": -1203.2
+    },
+    "Pyruvate": {
+      "dGPredictor_per_molecule_kJ": -466.8,
+      "Group_contribution_kJ": -471.5,
+      "eQuilibrator_kJ": -352.3
+    },
+    "D-Glucose": {
+      "dGPredictor_per_molecule_kJ": -917.2,
+      "Group_contribution_kJ": -913.3,
+      "eQuilibrator_kJ": -426.5
+    }
+  }
+}

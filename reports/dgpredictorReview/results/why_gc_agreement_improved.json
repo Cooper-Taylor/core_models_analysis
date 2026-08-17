@@ -1,0 +1,280 @@
+{
+  "own_coverage": {
+    "GC_vs_BASE": {
+      "n": 18670,
+      "r": 0.219,
+      "rho": 0.329,
+      "median_abs_delta": 9.11,
+      "frac_sign_flip": 0.253
+    },
+    "GC_vs_FT": {
+      "n": 25950,
+      "r": 0.804,
+      "rho": 0.597,
+      "median_abs_delta": 6.43,
+      "frac_sign_flip": 0.209
+    },
+    "EQ_vs_BASE": {
+      "n": 13870,
+      "r": 0.261,
+      "rho": 0.441,
+      "median_abs_delta": 4.75,
+      "frac_sign_flip": 0.262
+    },
+    "EQ_vs_FT": {
+      "n": 19731,
+      "r": 0.857,
+      "rho": 0.704,
+      "median_abs_delta": 3.74,
+      "frac_sign_flip": 0.199
+    }
+  },
+  "like_for_like": {
+    "GC_vs_BASE": {
+      "n": 18413,
+      "r": 0.219,
+      "rho": 0.331,
+      "median_abs_delta": 9.06,
+      "frac_sign_flip": 0.252
+    },
+    "GC_vs_FT": {
+      "n": 18413,
+      "r": 0.815,
+      "rho": 0.594,
+      "median_abs_delta": 6.11,
+      "frac_sign_flip": 0.207
+    },
+    "EQ_vs_BASE": {
+      "n": 13711,
+      "r": 0.262,
+      "rho": 0.443,
+      "median_abs_delta": 4.72,
+      "frac_sign_flip": 0.261
+    },
+    "EQ_vs_FT": {
+      "n": 13711,
+      "r": 0.875,
+      "rho": 0.681,
+      "median_abs_delta": 3.74,
+      "frac_sign_flip": 0.204
+    }
+  },
+  "kegg_mismapping_split": {
+    "vouched_GC_vs_BASE": {
+      "n": 9139,
+      "r": 0.817,
+      "rho": 0.631,
+      "median_abs_delta": 5.62,
+      "frac_sign_flip": 0.239
+    },
+    "vouched_GC_vs_FT": {
+      "n": 9139,
+      "r": 0.885,
+      "rho": 0.628,
+      "median_abs_delta": 7.41,
+      "frac_sign_flip": 0.23
+    },
+    "mismapped_GC_vs_BASE": {
+      "n": 9274,
+      "r": -0.027,
+      "rho": 0.054,
+      "median_abs_delta": 13.98,
+      "frac_sign_flip": 0.266
+    },
+    "mismapped_GC_vs_FT": {
+      "n": 9274,
+      "r": 0.788,
+      "rho": 0.558,
+      "median_abs_delta": 4.24,
+      "frac_sign_flip": 0.184
+    },
+    "vouched_value_reuse": {
+      "n": 9139,
+      "distinct_BASE_values": 3371,
+      "distinct_BASE_frac": 0.3689,
+      "distinct_FT_values": 3839,
+      "median_abs_GC": 7.22
+    },
+    "mismapped_value_reuse": {
+      "n": 9274,
+      "distinct_BASE_values": 956,
+      "distinct_BASE_frac": 0.1031,
+      "distinct_FT_values": 3561,
+      "median_abs_GC": 6.78
+    }
+  },
+  "zero_output_control": {
+    "all_GC_vs_BASE": {
+      "n": 18413,
+      "r": 0.219,
+      "rho": 0.331,
+      "median_abs_delta": 9.06,
+      "frac_sign_flip": 0.252
+    },
+    "drop_FT_zero_GC_vs_BASE": {
+      "n": 16333,
+      "r": 0.264,
+      "rho": 0.396,
+      "median_abs_delta": 8.87,
+      "frac_sign_flip": 0.285
+    },
+    "all_GC_vs_FT": {
+      "n": 18413,
+      "r": 0.815,
+      "rho": 0.594,
+      "median_abs_delta": 6.11,
+      "frac_sign_flip": 0.207
+    },
+    "drop_FT_zero_GC_vs_FT": {
+      "n": 16333,
+      "r": 0.814,
+      "rho": 0.595,
+      "median_abs_delta": 8.13,
+      "frac_sign_flip": 0.233
+    }
+  },
+  "leverage_ladder_all": {
+    "absGC_lt_None_GC_vs_BASE": {
+      "n": 18413,
+      "r": 0.219,
+      "rho": 0.331,
+      "median_abs_delta": 9.06,
+      "frac_sign_flip": 0.252
+    },
+    "absGC_lt_None_GC_vs_FT": {
+      "n": 18413,
+      "r": 0.815,
+      "rho": 0.594,
+      "median_abs_delta": 6.11,
+      "frac_sign_flip": 0.207
+    },
+    "absGC_lt_300_GC_vs_BASE": {
+      "n": 18315,
+      "r": 0.284,
+      "rho": 0.334,
+      "median_abs_delta": 9.01,
+      "frac_sign_flip": 0.251
+    },
+    "absGC_lt_300_GC_vs_FT": {
+      "n": 18315,
+      "r": 0.756,
+      "rho": 0.588,
+      "median_abs_delta": 6.0,
+      "frac_sign_flip": 0.208
+    },
+    "absGC_lt_100_GC_vs_BASE": {
+      "n": 17560,
+      "r": 0.29,
+      "rho": 0.309,
+      "median_abs_delta": 8.76,
+      "frac_sign_flip": 0.253
+    },
+    "absGC_lt_100_GC_vs_FT": {
+      "n": 17560,
+      "r": 0.698,
+      "rho": 0.541,
+      "median_abs_delta": 5.83,
+      "frac_sign_flip": 0.216
+    },
+    "absGC_lt_50_GC_vs_BASE": {
+      "n": 16040,
+      "r": 0.084,
+      "rho": 0.229,
+      "median_abs_delta": 8.01,
+      "frac_sign_flip": 0.263
+    },
+    "absGC_lt_50_GC_vs_FT": {
+      "n": 16040,
+      "r": 0.357,
+      "rho": 0.415,
+      "median_abs_delta": 4.99,
+      "frac_sign_flip": 0.234
+    },
+    "absGC_lt_20_GC_vs_BASE": {
+      "n": 14014,
+      "r": 0.017,
+      "rho": 0.173,
+      "median_abs_delta": 6.71,
+      "frac_sign_flip": 0.268
+    },
+    "absGC_lt_20_GC_vs_FT": {
+      "n": 14014,
+      "r": 0.092,
+      "rho": 0.338,
+      "median_abs_delta": 3.86,
+      "frac_sign_flip": 0.24
+    }
+  },
+  "leverage_ladder_vouched_only": {
+    "absGC_lt_None_GC_vs_BASE": {
+      "n": 9139,
+      "r": 0.817,
+      "rho": 0.631,
+      "median_abs_delta": 5.62,
+      "frac_sign_flip": 0.239
+    },
+    "absGC_lt_None_GC_vs_FT": {
+      "n": 9139,
+      "r": 0.885,
+      "rho": 0.628,
+      "median_abs_delta": 7.41,
+      "frac_sign_flip": 0.23
+    },
+    "absGC_lt_300_GC_vs_BASE": {
+      "n": 9125,
+      "r": 0.856,
+      "rho": 0.631,
+      "median_abs_delta": 5.62,
+      "frac_sign_flip": 0.239
+    },
+    "absGC_lt_300_GC_vs_FT": {
+      "n": 9125,
+      "r": 0.865,
+      "rho": 0.626,
+      "median_abs_delta": 7.4,
+      "frac_sign_flip": 0.23
+    },
+    "absGC_lt_100_GC_vs_BASE": {
+      "n": 8754,
+      "r": 0.809,
+      "rho": 0.591,
+      "median_abs_delta": 5.48,
+      "frac_sign_flip": 0.248
+    },
+    "absGC_lt_100_GC_vs_FT": {
+      "n": 8754,
+      "r": 0.797,
+      "rho": 0.58,
+      "median_abs_delta": 7.22,
+      "frac_sign_flip": 0.24
+    },
+    "absGC_lt_50_GC_vs_BASE": {
+      "n": 7943,
+      "r": 0.448,
+      "rho": 0.475,
+      "median_abs_delta": 5.04,
+      "frac_sign_flip": 0.27
+    },
+    "absGC_lt_50_GC_vs_FT": {
+      "n": 7943,
+      "r": 0.427,
+      "rho": 0.457,
+      "median_abs_delta": 6.67,
+      "frac_sign_flip": 0.261
+    },
+    "absGC_lt_20_GC_vs_BASE": {
+      "n": 6958,
+      "r": 0.231,
+      "rho": 0.366,
+      "median_abs_delta": 4.51,
+      "frac_sign_flip": 0.294
+    },
+    "absGC_lt_20_GC_vs_FT": {
+      "n": 6958,
+      "r": 0.208,
+      "rho": 0.359,
+      "median_abs_delta": 5.99,
+      "frac_sign_flip": 0.279
+    }
+  }
+}

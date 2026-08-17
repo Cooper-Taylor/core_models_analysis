@@ -1,0 +1,53 @@
+{
+  "staged_reactions": 28502,
+  "staged_id_is_a_modelseed_alias": 10718,
+  "staged_id_conflicts_with_alias": 0,
+  "reaction_has_no_kegg_alias_at_all": 17784,
+  "explained_by_an_alias_file_on_disk": {
+    "dev Aliases/Unique_ModelSEED_Reaction_Aliases.txt": 0,
+    "repo data/Unique_ModelSEED_Reaction_Aliases.txt": 0
+  },
+  "explained_by_carry_forward_from_previous_reaction": {
+    "n": 17784,
+    "fraction": 1.0
+  },
+  "top_reused_ids": [
+    [
+      "R09245",
+      858
+    ],
+    [
+      "R06601",
+      733
+    ],
+    [
+      "R10126",
+      544
+    ],
+    [
+      "R05196",
+      231
+    ],
+    [
+      "R06069",
+      231
+    ],
+    [
+      "R03877",
+      215
+    ],
+    [
+      "R10412",
+      206
+    ],
+    [
+      "R03542",
+      173
+    ]
+  ],
+  "affected_reactions_carrying_a_stored_dGPredictor_record": 17271,
+  "retrain_behaviour_on_affected_reactions": {
+    "gives_its_own_value": 10652,
+    "declines_no_complete_structure": 7132
+  }
+}

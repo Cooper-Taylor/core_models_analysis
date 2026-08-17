@@ -1,0 +1,25 @@
+{
+  "source_repo": "/scratch/ctaylor/dgpredictor_repo",
+  "n_training_reactions_in_cc_mat": 4001,
+  "n_training_reactions_mapped": 3934,
+  "n_training_reactions_featurized": 3910,
+  "n_training_compounds": 587,
+  "vocabulary": {
+    "r1": 2515,
+    "r2": 37846,
+    "feature_width": 40449,
+    "r1_used_in_training": 249,
+    "r2_used_in_training": 1166,
+    "total_used_in_training": 1415
+  },
+  "fit": {
+    "mse_kJ2": 9.883865673560932,
+    "r2": 0.9997552164041549,
+    "alpha_": 0.09131103262349621,
+    "lambda_": 0.00064720164736455
+  },
+  "coefficients": {
+    "n_nonzero": 1415,
+    "max_abs_kJ": 242.5086438394596
+  }
+}

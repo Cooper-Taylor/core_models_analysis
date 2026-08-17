@@ -1,0 +1,19 @@
+{
+  "training_feature_matrix": {
+    "shape": [
+      3910,
+      1415
+    ],
+    "rank": 382,
+    "n_nonzero_coefficients": 1415,
+    "n_prior_determined_directions": 1033
+  },
+  "n_reactions_scored": 28346,
+  "out_of_span_norm_fraction": {
+    "median": 0.4221,
+    "mean": 0.4186,
+    "frac_below_0.1": 0.1992,
+    "frac_above_0.5": 0.4048,
+    "frac_above_0.9": 0.032
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "sigma_floor_kJ": 3.309,
+  "n_predictions_total": 32019,
+  "n_with_dG_model_only_exactly_zero": 3716,
+  "BLIND_group_change_vector_is_identically_zero": {
+    "n": 3673,
+    "n_at_sigma_floor": 3673,
+    "median_sigma_kJ": 3.31,
+    "examples": [
+      "rxn00045",
+      "rxn00083",
+      "rxn00266",
+      "rxn00839",
+      "rxn01004",
+      "rxn01147",
+      "rxn01461",
+      "rxn02243"
+    ]
+  },
+  "UNSEEN_all_touched_groups_have_zero_coefficient": {
+    "n": 40,
+    "n_at_sigma_floor": 0,
+    "median_sigma_kJ": 124.35,
+    "examples": [
+      "rxn02572",
+      "rxn02573",
+      "rxn02688",
+      "rxn02904",
+      "rxn03125",
+      "rxn03266",
+      "rxn03375",
+      "rxn03381"
+    ]
+  },
+  "MIXED_nonzero_vector_that_happens_to_cancel_in_energy": {
+    "n": 3,
+    "n_at_sigma_floor": 0,
+    "median_sigma_kJ": 124.35,
+    "examples": [
+      "rxn04836",
+      "rxn25801",
+      "rxn25806"
+    ]
+  },
+  "no_stoichiometry_record": 0
+}
