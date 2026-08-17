@@ -38,8 +38,20 @@ PANELS
 
 each under three conditions: as-shipped / KEGG-fixed / random control.
 
-Point colour is the reversibility transition between the two sources, identical
-in definition and palette to plot_thermo_source_dg_scatter.py.
+Point colour is the reversibility transition between the two sources. Each
+source's own ΔG′° goes through the unmodified ModelSEED cascade and the two
+operators are compared:
+
+    No change                    identical call -- both "=", or the SAME
+                                 irreversible direction (both ">" or both "<")
+    Reversible -> Irreversible   "=" then ">" or "<"
+    Irreversible -> Reversible   ">" or "<" then "="
+    Irreversible -> Irreversible ">" vs "<" -- both irreversible, in OPPOSITE
+                                 directions. The only genuine direction conflict.
+
+Palette is the one from plot_thermo_source_dg_scatter.py, but that script lumps
+every both-irreversible pair into the last category regardless of direction; here
+the category is reserved for actual reversals.
 
 Data: ModelSEED dev @ 49563c6f (/scratch/ctaylor/tmp/devsnap2) -- the live dev
 branch; cascade code from the working ModelSEEDDatabase checkout.
@@ -106,6 +118,14 @@ CATEGORY_COLOR = {
     "Irreversible → Reversible": "#eb6834",
     "Irreversible → Irreversible": "#1baf7a",
 }
+# Displayed legend text. The category NAME is unchanged; the parenthetical
+# states the definition, which is not guessable from the name alone.
+CATEGORY_LEGEND = {
+    "No change": "No change (same call)",
+    "Reversible → Irreversible": "Reversible → Irreversible",
+    "Irreversible → Reversible": "Irreversible → Reversible",
+    "Irreversible → Irreversible": "Irreversible → Irreversible (opposite direction)",
+}
 INK_PRIMARY = "#0b0b0b"
 INK_SECONDARY = "#52514e"
 INK_MUTED = "#898781"
@@ -116,14 +136,21 @@ SURFACE = "#fcfcfb"
 
 
 def classify(a: str, b: str) -> str:
-    ra, rb = a == "=", b == "="
-    if ra and rb:
-        return "No change"
-    if ra and not rb:
+    """Reversibility transition between two sources' own cascade calls.
+
+    "Irreversible → Irreversible" is reserved for the case that actually matters:
+    both sources call the reaction irreversible but in OPPOSITE directions
+    ('>' vs '<'). Two sources that agree on the same irreversible direction have
+    not disagreed about anything, so they are "No change" alongside the pairs
+    that both call it reversible.
+    """
+    if a == b:
+        return "No change"                      # both '=', or the same '>' / '<'
+    if a == "=":
         return "Reversible → Irreversible"
-    if not ra and rb:
+    if b == "=":
         return "Irreversible → Reversible"
-    return "Irreversible → Irreversible"
+    return "Irreversible → Irreversible"        # '>' vs '<' — direction reversed
 
 
 def load_table() -> pd.DataFrame:
@@ -171,12 +198,17 @@ def metrics(sub: pd.DataFrame, a: str, b: str) -> dict:
     y = sub[f"dg_{b}"].to_numpy(float)
     if len(x) < 3:
         return {"n": len(x)}
+    cats = Counter(classify(p, q) for p, q in zip(sub[f"op_{a}"], sub[f"op_{b}"]))
+    n = len(x)
     return {
-        "n": int(len(x)),
+        "n": int(n),
         "pearson_r": float(np.corrcoef(x, y)[0, 1]),
         "spearman_rho": float(pd.Series(x).corr(pd.Series(y), method="spearman")),
         "median_abs_delta": float(np.median(np.abs(y - x))),
         "frac_sign_flip": float(np.mean(np.sign(x) * np.sign(y) < 0)),
+        **{f"n_{c}": int(cats[c]) for c in CATEGORY_ORDER},
+        "frac_direction_reversed":
+            float(cats["Irreversible → Irreversible"] / n),
     }
 
 
@@ -201,9 +233,11 @@ def draw(ax, sub, a, b, title, lims, *, legend=False, extra="") -> dict:
     for cat in CATEGORY_ORDER:
         idx = [i for i, c in enumerate(cats) if c == cat]
         if idx:
-            ax.scatter(x[idx], y[idx], s=9, linewidths=0, alpha=0.55,
-                       color=CATEGORY_COLOR[cat], zorder=2,
-                       label=f"{cat} ({counts[cat]:,})")
+            bulk = cat == "No change"
+            ax.scatter(x[idx], y[idx], s=6 if bulk else 11, linewidths=0,
+                       alpha=0.35 if bulk else 0.7,
+                       color=CATEGORY_COLOR[cat], zorder=2 if bulk else 3,
+                       label=f"{CATEGORY_LEGEND[cat]} ({counts[cat]:,})")
     ax.set_xlim(*lims)
     ax.set_ylim(*lims)
     ax.set_xlabel(SOURCES[a][1], color=INK_SECONDARY, fontsize=9)

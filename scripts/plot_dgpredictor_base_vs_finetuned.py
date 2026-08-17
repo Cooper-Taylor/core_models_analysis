@@ -14,12 +14,23 @@ so the comparison needs no unit conversion, no re-prediction, and no ID
 crosswalk: it is the same reaction, the same kcal/mol, the same stored-operator
 convention, differing only in which dGPredictor produced the number.
 
-Point colour is the reversibility TRANSITION between the two, defined exactly as
-in plot_thermo_source_dg_scatter.py: each source's own ΔG′° is pushed through
-the unmodified ModelSEED cascade (``reversibility_heuristics.DEFAULT_HEURISTICS``
-via ``per_source_energy``) and the resulting call is collapsed to reversible
-("=") vs irreversible (">"/"<"). "No change" is neutral gray rather than a 4th
-categorical hue -- same reasoning, same palette.
+Point colour is the reversibility TRANSITION between the two. Each variant's own
+ΔG′° is pushed through the unmodified ModelSEED cascade
+(``reversibility_heuristics.DEFAULT_HEURISTICS`` via ``per_source_energy``), and
+the two resulting operators are compared:
+
+    No change                    identical call -- both "=", or the SAME
+                                 irreversible direction (both ">" or both "<")
+    Reversible -> Irreversible   "=" then ">" or "<"
+    Irreversible -> Reversible   ">" or "<" then "="
+    Irreversible -> Irreversible ">" vs "<" -- both irreversible, in OPPOSITE
+                                 directions. The only genuine direction conflict.
+
+This differs from plot_thermo_source_dg_scatter.py, which lumps every
+both-irreversible pair into the last category regardless of whether the
+directions agree, and so colours perfect agreement identically to a reversal.
+"No change" is neutral gray rather than a 4th categorical hue -- per the dataviz
+skill, only 3 categorical hues stay CVD-safe on an all-pairs scatter.
 
 THREE FIGURES
 -------------
@@ -100,6 +111,14 @@ CATEGORY_COLOR = {
     "Irreversible → Reversible": "#eb6834",
     "Irreversible → Irreversible": "#1baf7a",
 }
+# Displayed legend text. The category NAME is unchanged; the parenthetical
+# states the definition, which is not guessable from the name alone.
+CATEGORY_LEGEND = {
+    "No change": "No change (same call)",
+    "Reversible → Irreversible": "Reversible → Irreversible",
+    "Irreversible → Reversible": "Irreversible → Reversible",
+    "Irreversible → Irreversible": "Irreversible → Irreversible (opposite direction)",
+}
 INK_PRIMARY = "#0b0b0b"
 INK_SECONDARY = "#52514e"
 INK_MUTED = "#898781"
@@ -117,14 +136,20 @@ ZOOM_LIMIT = 250.0
 
 
 def classify(op_a: str, op_b: str) -> str:
-    rev_a, rev_b = op_a == "=", op_b == "="
-    if rev_a and rev_b:
-        return "No change"
-    if rev_a and not rev_b:
+    """Reversibility transition between the two variants' own cascade calls.
+
+    "Irreversible → Irreversible" is reserved for the case that actually matters:
+    both call the reaction irreversible but in OPPOSITE directions ('>' vs '<').
+    Two sources agreeing on the same irreversible direction have not disagreed
+    about anything, so they are "No change" alongside the both-reversible pairs.
+    """
+    if op_a == op_b:
+        return "No change"                      # both '=', or the same '>' / '<'
+    if op_a == "=":
         return "Reversible → Irreversible"
-    if not rev_a and rev_b:
+    if op_b == "=":
         return "Irreversible → Reversible"
-    return "Irreversible → Irreversible"
+    return "Irreversible → Irreversible"        # '>' vs '<' — direction reversed
 
 
 def load_table() -> pd.DataFrame:
@@ -193,8 +218,11 @@ def draw_panel(ax, sub: pd.DataFrame, title: str, *, legend: bool = True,
         idx = [i for i, c in enumerate(cats) if c == cat]
         if not idx:
             continue
-        ax.scatter(xs[idx], ys[idx], s=14, linewidths=0, color=CATEGORY_COLOR[cat],
-                   alpha=0.65, zorder=2, label=f"{cat} ({counts[cat]:,})")
+        bulk = cat == "No change"
+        ax.scatter(xs[idx], ys[idx], s=9 if bulk else 16, linewidths=0,
+                   color=CATEGORY_COLOR[cat], alpha=0.35 if bulk else 0.7,
+                   zorder=2 if bulk else 3,
+                   label=f"{CATEGORY_LEGEND[cat]} ({counts[cat]:,})")
     ax.set_xlim(*lims)
     ax.set_ylim(*lims)
     ax.set_xlabel(BASE_AXIS, color=INK_SECONDARY, fontsize=10)

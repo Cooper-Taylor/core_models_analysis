@@ -35,6 +35,23 @@ third way: a **random** subset of the full set, of exactly the same size as the
 fixed set, repeated 25 times with a fixed seed. If the improvement were merely
 "fewer points", the control would move as much as the fix does.
 
+## Point colours
+
+Each source's own ΔG′° is pushed through the unmodified ModelSEED cascade and
+the two resulting operators are compared:
+
+| category | meaning |
+|---|---|
+| **No change** (gray) | identical call — both `=`, **or the same irreversible direction** (both `>` or both `<`) |
+| **Reversible → Irreversible** (blue) | `=` then `>`/`<` |
+| **Irreversible → Reversible** (orange) | `>`/`<` then `=` |
+| **Irreversible → Irreversible** (green) | `>` vs `<` — both irreversible, in **opposite** directions. The only genuine direction conflict. |
+
+This is deliberately stricter than `plot_thermo_source_dg_scatter.py`, which
+puts every both-irreversible pair in the last category regardless of direction,
+and therefore colours perfect agreement identically to a reversal. Gray is drawn
+smaller and more transparent because it is now the bulk of every panel.
+
 ## Results
 
 | pair | as shipped | KEGG fixed | random control (mean ± SD) |
@@ -50,6 +67,24 @@ against Group Contribution falls 9.11 → 5.69 kcal/mol, against eQuilibrator
 
 The control panels are visually indistinguishable from the as-shipped panels;
 only the fixed panels collapse onto the diagonal.
+
+## Direction reversals — arguably the more important number
+
+A ΔG disagreement only changes an FBA model when it flips the reaction's
+direction. Counting only the green category (both sources irreversible, opposite
+directions):
+
+| pair | as shipped | KEGG fixed | random control |
+|---|---:|---:|---:|
+| Group Contribution vs dGPredictor | 507 (2.7%) | **158 (1.7%)** | 247 (2.7%) |
+| eQuilibrator vs dGPredictor | 542 (3.9%) | **176 (2.2%)** | 320 (4.1%) |
+| dGPredictor vs dGPredictor-ModelSEED | 397 (1.9%) | **70 (0.7%)** | 189 (1.9%) |
+
+The fix roughly halves the reversal *rate* in every pair; the random control
+leaves it unchanged. For reference, pairs that do not involve the original
+predictor were always low — Group Contribution vs eQuilibrator 1.5%,
+eQuilibrator vs the retrain 0.5% — so the excess is specific to the mis-mapped
+values.
 
 ## Files
 
