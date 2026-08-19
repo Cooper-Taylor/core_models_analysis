@@ -180,9 +180,11 @@ def fit_error_models(train: pd.DataFrame, db: pd.DataFrame | None = None) -> dic
     reference where gold data runs out: for the other sources the silver target
     is |source - eQuilibrator| on reactions where eQuilibrator is in its trusted
     band. eQuilibrator itself is scored the same way against low-sigma
-    dGPredictor. Silver is an upper bound on the source's error rather than a
-    measurement of it, so gold is weighted 3x and the tier each reaction was
-    fitted from is recorded.
+    dGPredictor. The silver target is a STAND-IN, not a measurement. Measured
+    against the anchor it is approximately unbiased -- median difference +/-0.01
+    kcal/mol, and it exceeds the real error only ~half the time -- but noisier
+    (Spearman 0.43-0.84). So gold is weighted 3x for lower variance, not to
+    correct a bias, and the tier each reaction was fitted from is recorded.
     """
     from sklearn.isotonic import IsotonicRegression
     models = {}

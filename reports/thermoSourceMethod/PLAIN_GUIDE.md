@@ -91,8 +91,13 @@ only on measurements and extrapolating flat would mean being most optimistic
 exactly where a source is least reliable — backwards for a safety check. So the
 fit is padded with a second, weaker tier: reactions where a *trusted* source
 (one inside its own well-measured σ range) can stand in as a stand-in reference.
-Those points carry ⅓ the weight, because a stand-in gives an upper bound on the
-error, not a measurement of it.
+Those points carry ⅓ the weight, because a stand-in is weaker evidence than a
+measurement.
+
+Are the stand-ins any good? On reactions where we have both, the stand-in target
+lands within ±0.01 kcal/mol of the real error on average — it is not biased, just
+noisier. What it buys is reach: the measured reactions stop at σ ≈ 23, while the
+stand-in points run to σ = 414, which is where most of the database lives.
 
 **What comes out:** eQuilibrator and dGPredictor get informative curves. Group
 Contribution's is nearly flat — 0.845 down to 0.511 across the whole database.

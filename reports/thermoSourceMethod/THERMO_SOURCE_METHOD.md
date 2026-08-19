@@ -425,15 +425,59 @@ So each fit uses two tiers:
 | tier | response εⱼ | weight | what it is |
 |---|---|---:|---|
 | **anchor** | \|ΔG*ₛ* − ΔG\*\| on 𝓐 | 3 | a measurement |
-| **proxy** | \|ΔG*ₛ* − ΔG_ref\| where the reference is inside its trusted-σ band | 1 | an *upper bound* on the error, not a measurement |
+| **proxy** | \|ΔG*ₛ* − ΔG_ref\| where the reference is inside its trusted-σ band | 1 | a *stand-in* for the error, not a measurement of it |
 
 The proxy reference is eQuilibrator for GC and DG, and dGPredictor-ModelSEED for
 EQ. "Trusted band" means σ_EQ ≤ 0.70 or σ_DG ≤ 1.22 — each source's own anchor
 p90, i.e. the range where measurements actually constrain it. TECRDB establishes
 that eQuilibrator below σ 0.70 is accurate to a median 0.45 kcal/mol; *that* is
 what earns it the right to stand in as a reference where measurements run out.
-Proxy points carry ⅓ the weight because an upper bound is weaker evidence, and
-each row records which tier it came from.
+Proxy points carry ⅓ the weight because a stand-in is weaker evidence than a
+measurement, and each row records which tier it came from.
+
+### What the proxy points actually are, and how good the stand-in is
+
+They are **ordinary ModelSEED reactions** — no measurement involved. A reaction
+qualifies as a proxy point for source *s* if *s* has a value there, the
+reference source also has a value, and **the reference's own σ is inside its
+trusted band**. Nothing else is required, so the set is large:
+
+| source being fitted | reference | proxy reactions | of which also anchors | σ p50 | σ max |
+|---|---|---:|---:|---:|---:|
+| Group Contribution | eQuilibrator | 10,025 | 772 | 10.42 | 61.5 |
+| dGPredictor-ModelSEED | eQuilibrator | 11,183 | 772 | 14.42 | 414.4 |
+| eQuilibrator | dGPredictor-ModelSEED | 4,011 | 789 | 0.32 | 2.0 |
+
+**This is what buys the σ range.** The anchor tops out at σ 23.0 for Group
+Contribution and 21.6 for dGPredictor-ModelSEED; the proxy tier reaches 61.5 and
+414.4. Without it the curve would have nothing to say about most of the database.
+
+Note that nearly every anchor reaction is *also* a proxy point (772 of 802), so
+those reactions contribute twice — once with the measured target at weight 3 and
+once with the stand-in target at weight 1.
+
+**How good is the stand-in?** On the reactions that are both, the surrogate
+target can be compared directly against the real one:
+
+| source | n | surrogate median | real median | median difference | Spearman ρ | surrogate ≥ real |
+|---|---:|---:|---:|---:|---:|---:|
+| Group Contribution | 772 | 1.49 | 1.60 | **+0.00** | +0.839 | 52% |
+| eQuilibrator | 789 | 0.37 | 0.45 | **+0.01** | +0.434 | 55% |
+| dGPredictor-ModelSEED | 772 | 0.36 | 0.47 | **−0.00** | +0.497 | 48% |
+
+> **Correction.** Earlier versions of this document called the proxy target an
+> *upper bound* on the error, reasoning from the triangle inequality. The data
+> says otherwise: it is **approximately unbiased** — the median difference is
+> ±0.01 kcal/mol, and it exceeds the real error only about half the time. It is
+> *noisier* (ρ = 0.43–0.84), not systematically larger. The ⅓ weight is still
+> the right call, but for the right reason: added noise, not added bias.
+
+**The dependency structure is worth seeing plainly.** Group Contribution and
+dGPredictor-ModelSEED are both calibrated against eQuilibrator, and eQuilibrator
+is calibrated against dGPredictor-ModelSEED. So a systematic error in
+eQuilibrator's low-σ regime would propagate into two of the three calibration
+curves. Only the anchor tier is free of that, and it is the minority of the
+fitting weight.
 
 ## 5.3 The fitted probability curves
 
@@ -468,10 +512,21 @@ covers the nominal 68.3% of measured errors on the anchor:
 | eQuilibrator | 0.598 | 794 | 0.866 | 0.694 | 0.683 |
 | dGPredictor-ModelSEED | 0.648 | 802 | 0.813 | 0.687 | 0.683 |
 
-All three needed shrinking by about a third — ê is systematically conservative,
-because the proxy tier supplies most of its fitting points and a proxy is an
-upper bound. Before/after coverage is printed on every run, so this calibration
-is checkable rather than asserted.
+All three needed shrinking by about a third. The reason is **not** that ê is
+biased — it is that the conversion assumes a Gaussian, and the errors are
+strongly heavy-tailed:
+
+| source | median \|ε\| | mean \|ε\| | mean/median | p90/median |
+|---|---:|---:|---:|---:|
+| Group Contribution | 1.57 | 3.79 | **2.41** | **6.40** |
+| eQuilibrator | 0.45 | 1.37 | **3.03** | **5.04** |
+| dGPredictor-ModelSEED | 0.47 | 1.39 | **2.93** | **6.24** |
+| *(half-normal reference)* | | | *1.18* | *2.44* |
+
+A few large errors inflate the *mean* absolute error well above the bulk of the
+distribution, so ê/√(2/π) produces a τ far too wide to be the standard deviation
+of the central 68%. *k*ₛ absorbs that. Before/after coverage is printed on every
+run, so this is checkable rather than asserted.
 
 ---
 
@@ -1322,8 +1377,10 @@ reactions, against eQuilibrator's 25,028 and 173 — every call carrying a grade
    group-contribution lineage, so R under-reports their disagreement. The
    proposed mitigation — a pairwise R matrix down-weighting EQ–GC agreement —
    is **not implemented**.
-5. **The proxy tier is an upper bound, not a measurement**, and supplies 83–93%
-   of the calibration points. Carried per row as `n_anchor` / `n_proxy`.
+5. **The proxy tier is a stand-in, not a measurement**, and supplies 63–82% of
+   the calibration weight. It is approximately unbiased but noisier (§5.2), and
+   its dependency structure is not flat: two of the three curves are calibrated
+   against eQuilibrator. Carried per row as `n_anchor` / `n_proxy`.
 6. **Growth is a coarse readout.** A direction error only surfaces if it gates
    biomass. The reaction-level metrics are the sensitive ones.
 7. **Everything is snapshot-specific.** The Convention A rebuild changed 53% of

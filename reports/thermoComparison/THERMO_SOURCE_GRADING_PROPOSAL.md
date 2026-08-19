@@ -1,8 +1,14 @@
 # A gold / silver / bronze grade for each thermodynamic source, per reaction
 
-**Status: proposal.** Numbers are from a working prototype run 2026-08-12 against
-`/scratch/ctaylor/tmp/devsnap2` (ModelSEED `dev` @ 49563c6f; Group Contribution =
-the Convention A rebuild). Nothing is shipped yet.
+**Status: shipped — this page is kept as the design record.** Numbers below are
+from the working prototype run 2026-08-12 against `/scratch/ctaylor/tmp/devsnap2`
+(ModelSEED `dev` @ 49563c6f; Group Contribution = the Convention A rebuild) and
+differ from the shipped run by a few tens of reactions, mostly because the
+MetaNetX-collision veto grew from 15 to 35 reactions once
+`results/eq_vs_dgpms/reconciliation.tsv` was wired in. **For current numbers use
+[`../thermoSourceMethod/THERMO_SOURCE_METHOD.md`](../thermoSourceMethod/THERMO_SOURCE_METHOD.md)**;
+read this page for the *rationale* — where the problem came from (§0), why
+corroboration is asymmetric (§2.3), and which simpler schemes were rejected (§4).
 
 Companion to [`THERMO_SOURCE_ASSIGNMENT.md`](THERMO_SOURCE_ASSIGNMENT.md), which
 picks *one winning source* per reaction. This does not pick a winner. It hands
@@ -272,9 +278,13 @@ changes.
 2. **EQ and GC are not independent**, so R under-reports discrepancy on that
    pair. Mitigation: emit the pairwise R matrix alongside the pooled R and
    down-weight EQ–GC agreement in rule 3.
-3. **p_ok inherits the proxy tier's bias.** The proxy target is an upper bound on
-   error, not a measurement, and supplies 83–93% of the fitting points. Carried
-   per row as `n_anchor` / `n_proxy` provenance.
+3. **p_ok leans heavily on the proxy tier.** The proxy target is a stand-in, not
+   a measurement — measured against the anchor it is approximately unbiased
+   (median difference ±0.01 kcal/mol) but noisier (ρ = 0.43–0.84) — and it
+   supplies 63–82% of the fitting weight. Group Contribution and
+   dGPredictor-ModelSEED are both calibrated against eQuilibrator, so a
+   systematic error in its low-σ regime would reach two of the three curves.
+   Carried per row as `n_anchor` / `n_proxy` provenance.
 4. **Grades are snapshot-specific.** The Convention A rebuild changed 53% of GC
    values and doubled its σ. Every emitted table stamps the MSDB commit.
 5. **GC has no GOLD path except measurement.** By construction and by evidence —
