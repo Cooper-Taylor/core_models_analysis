@@ -284,7 +284,15 @@ def grade_tecrdb(tec: pd.DataFrame, skeleton_gold: bool) -> tuple:
 
 # ----------------------------------------------------------------- validation
 def validate(db, p_ok, fus, tec) -> list:
-    """Regrade with the measurement override OFF, then score against it."""
+    """Regrade with the measurement override OFF, then score against it.
+
+    IN-SAMPLE with respect to the calibration: the curves were fitted on all 802
+    anchors and this scores those same 802. Disabling the measurement override
+    removes the *direct* use of the label, not the indirect one. Use
+    ``validate_cv`` for the leak-free number; the two agree to 0.04 kcal/mol
+    (§ the docs), because the anchor is only 19-37% of the fitting weight and
+    isotonic pooling makes one point out of 802 nearly invisible.
+    """
     grades, _ = grade_predictors(db, p_ok, fus, tec, disable_measured=True)
     m0 = tec["match_tier"].eq("stereo_exact")
     rows = []
@@ -302,6 +310,61 @@ def validate(db, p_ok, fus, tec) -> list:
                          "frac_within_1": float((e <= 1).mean()),
                          "frac_within_2": float((e <= 2).mean()),
                          "p90_abs_err": float(e.quantile(0.9))})
+    return rows
+
+
+def validate_cv(db, tec, veto_eq, n_folds: int = 5, n_reps: int = 4,
+                seed: int = 11) -> list:
+    """Leak-free validation: refit the calibration on each training fold.
+
+    ``validate`` scores the same 802 anchors the curves were fitted on. Here the
+    anchors are split into folds; for each fold the magnitude and probability
+    curves are refitted on the *other* folds only, test reactions are also kept
+    out of the proxy tier (matching the guard in
+    ``optimize_thermo_source_assignment.main``), and only then is the held-out
+    fold graded and scored.
+
+    Slower -- it refits everything ``n_folds * n_reps`` times -- so it is not on
+    the default path. ``--cv`` runs it.
+    """
+    m0 = tec["match_tier"].eq("stereo_exact")
+    anchor_idx = db.index[m0.to_numpy() & db["tecrdb_dg"].notna()]
+    rng = np.random.default_rng(seed)
+    pooled = {(k, v): [] for k in K for v in (GOLD, SILVER, BRONZE)}
+
+    for _ in range(n_reps):
+        folds = np.array_split(rng.permutation(anchor_idx), n_folds)
+        for f in range(n_folds):
+            te = folds[f]
+            tr = np.concatenate([folds[j] for j in range(n_folds) if j != f])
+            db_tr = db[~db.rxn.isin(set(db.loc[te, "rxn"]))]   # test out of proxy too
+            eh = predict_error(db, fit_error_models(
+                db.loc[tr].rename(columns={"tecrdb_dg": "tecrdb"}), db_tr))
+            pk = predict_p_ok(db, fit_p_ok(db.loc[tr], db_tr), veto_eq)
+            gr, _ = grade_predictors(db, pk, fuse(db, eh, pk), tec, disable_measured=True)
+            for k in K:
+                err = (db[f"dg_{k}"] - db["tecrdb_dg"]).abs()
+                for v in (GOLD, SILVER, BRONZE):
+                    m = pd.Series(False, index=db.index)
+                    m.loc[te] = True
+                    m &= (gr[k] == v) & err.notna()
+                    pooled[(k, v)].extend(err[m].tolist())
+
+    rows = []
+    for k in K:
+        for v in (GOLD, SILVER, BRONZE):
+            e = np.array(pooled[(k, v)])
+            if not len(e):
+                rows.append({"source": LABEL[k], "grade": NAME[v], "n": 0})
+                continue
+            rows.append({"source": LABEL[k], "grade": NAME[v], "n": int(len(e)),
+                         "median_abs_err": float(np.median(e)),
+                         "mean_abs_err": float(e.mean()),
+                         "frac_within_1": float((e <= 1).mean()),
+                         "frac_within_2": float((e <= 2).mean()),
+                         "p90_abs_err": float(np.percentile(e, 90)),
+                         "note": f"{n_folds}-fold x {n_reps} reps; n counts each "
+                                 f"anchor once per rep"})
     return rows
 
 
@@ -392,7 +455,12 @@ def build(skeleton_gold: bool = False, heldout: bool = False) -> tuple:
              "vetoes": {"eq_sentinel": int((db.sig_EQ > EQ_SENTINEL).sum()),
                         "eq_mnx_collision": len(veto_eq),
                         "dgpms_quinone": int(((db.is_quinone == 1) & db.dg_DGPMS.notna()).sum())}}
-    return long, wide, calib
+    calib["validation_note"] = (
+        "validation[] is IN-SAMPLE w.r.t. the calibration: the curves were fitted "
+        "on all 802 anchors and this scores those same 802, with only the "
+        "measurement override disabled. validation_cv[], when present, refits per "
+        "fold and is leak-free.")
+    return long, wide, calib, (db, tec, veto_eq)
 
 
 def frontier(long: pd.DataFrame) -> pd.DataFrame:
@@ -409,10 +477,13 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--tecrdb-skeleton-gold", action="store_true",
                     help="grade skeleton-tier TECRDB matches GOLD instead of SILVER")
+    ap.add_argument("--cv", action="store_true",
+                    help="also run the leak-free cross-validated validation "
+                         "(refits the calibration per fold; several minutes)")
     args = ap.parse_args()
 
     OUT.mkdir(parents=True, exist_ok=True)
-    long, wide, calib = build(skeleton_gold=args.tecrdb_skeleton_gold)
+    long, wide, calib, ctx = build(skeleton_gold=args.tecrdb_skeleton_gold)
 
     print("\n=== grades ===")
     tab = pd.crosstab(long.source, long.grade).reindex(
@@ -424,6 +495,15 @@ def main() -> None:
     print(f"  any source {int(wide.best_grade.notna().sum())}   "
           + "   ".join(f"best={n}: {int(bg.get(n, 0))}" for n in ("GOLD", "SILVER", "BRONZE")))
 
+    if args.cv:
+        db_, tec_, veto_ = ctx
+        print("\nleak-free cross-validated validation (refits per fold)...")
+        calib["validation_cv"] = validate_cv(db_, tec_, veto_)
+        for r in calib["validation_cv"]:
+            if r["n"]:
+                print(f"  {r['source']:22s} {r['grade']:6s} n={r['n']:5d}  "
+                      f"median={r['median_abs_err']:6.2f}  <=2: {r['frac_within_2']:4.0%}")
+
     long.to_csv(OUT / "source_grades.tsv", sep="\t", index=False, float_format="%.4f")
     wide.to_csv(OUT / "source_grades_wide.tsv", sep="\t", index=False, float_format="%.4f")
     frontier(long).to_csv(OUT / "grade_frontier.tsv", sep="\t", index=False)
@@ -433,7 +513,7 @@ def main() -> None:
 
     # held-out grades: no TECRDB source, no measurement override. Needed to
     # score a graded direction map against TECRDB without circularity.
-    ho, _, _ = build(skeleton_gold=args.tecrdb_skeleton_gold, heldout=True)
+    ho, _, _, _ = build(skeleton_gold=args.tecrdb_skeleton_gold, heldout=True)
     ho.to_csv(OUT / "source_grades_heldout.tsv", sep="\t", index=False, float_format="%.4f")
     print(f"wrote {OUT}/source_grades_heldout.tsv ({len(ho)} rows)")
 

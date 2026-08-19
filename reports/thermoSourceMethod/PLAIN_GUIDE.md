@@ -250,6 +250,11 @@ eQuilibrator and 65× for dGPredictor.
 **What it cannot show:** whether bronze works on the exotic chemistry it exists
 for. Those bronze rows are n = 10 to 285, all central metabolism.
 
+**One subtlety this test does *not* by itself handle.** Switching off the
+measurement rule removes the *direct* use of the lab data, but the confidence
+curves from Step 3 were themselves fitted using those same 802 measurements. So
+the label is hidden from the grader; the curve is not. Method 3 covers that.
+
 ---
 
 ## Method 2 — Require monotonicity, not just separation
@@ -271,15 +276,28 @@ than the mean for that source.
 Any evaluation that uses the same measurements the grader used is worthless. Two
 guards:
 
-1. **Rule 1 is disabled** during evaluation (Method 1).
-2. For the downstream direction test, a **separate variant is built that has
-   never seen TECRDB at all** — no measurement override, and TECRDB removed as
-   a source. Without it the graded map scores a meaningless 100%, because it
-   contains the answer.
+1. **Rule 1 is disabled** during evaluation (Method 1) — this hides the label.
+2. **The calibration is refitted per fold** — this hides the curve. The 802
+   measured reactions are split into 5 folds; both confidence curves are refit
+   on the other four, with the test reactions also excluded from the weaker
+   second tier, and only then is the held-out fold graded.
+3. For the downstream direction test, a **separate variant is built that has
+   never seen the lab data at all** — no measurement override, and the lab data
+   removed as a source.
 
-That second guard matters: the plain graded map scores **802/802** against
-experiment. The held-out version scores **93.4%**. Reporting the first number
-would be nonsense, and the trap is easy to fall into.
+Guard 2 was added after this question was asked, and it is worth reporting that
+it **barely matters**: nothing in the Method 1 table moves by more than 0.04
+kcal/mol when the calibration is refitted per fold. The reason is that the 802
+measurements carry only 19–37% of the fitting weight, and the curve is pooled
+into 18–44 steps, so removing a fifth of them moves almost no thresholds — and
+the grade is a coarse three-way cut on top of that. The leak was real but not
+material. *(It is still worth having the guard: "we checked" beats "we reasoned
+it was probably fine".)*
+
+Guard 3 matters far more: the plain graded map scores **802/802** against
+experiment because it literally contains the answer. The version that never saw
+it scores **93.4%**. Reporting the first number would be nonsense, and the trap
+is easy to fall into.
 
 ---
 

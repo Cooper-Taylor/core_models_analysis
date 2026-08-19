@@ -379,11 +379,20 @@ def choose(db, risk, feasible, tol, tau) -> pd.DataFrame:
 
 # ---------------------------------------------------------------- validation
 def validate(db, anchor_idx, risk, feasible, ops, ref_op, tau, ehat, n_splits=20):
-    """Held-out direction accuracy for the recommender and its baselines.
+    """Direction accuracy for the recommender and its baselines.
 
-    The risk model itself has no per-reaction free parameters -- only the three
-    tau scale factors -- so the split is over which reactions the tau
-    calibration sees, which is the only place the anchor could leak in.
+    HELD OUT ONLY IN THE SCORING SENSE. risk, tau and ehat are computed once on
+    the full anchor before this function is called, so the 70/30 permutation
+    changes which reactions are SCORED, not which are FITTED. The +/- figures
+    are therefore test-set sampling variability, not out-of-sample
+    generalisation.
+
+    That matters less here than it would elsewhere, for two reasons: the
+    strategies being compared are mostly parameter-free (a fixed priority order,
+    or argmin over a precomputed quantity), and the only fitted quantities are
+    three scalars. But the distinction is real -- see ``validate_cv`` in
+    grade_thermo_sources.py, which does refit per fold, and moves the grading
+    numbers by at most 0.04 kcal/mol.
     """
     ids = np.array(anchor_idx)
     rows = []

@@ -743,9 +743,42 @@ measurement it was not allowed to see:
 | | SILVER | 517 | 1.28 | 1.62 | 42% | 69% | 3.59 |
 | | BRONZE | 285 | **8.68** | 7.73 | 33% | 34% | 15.23 |
 
-Monotone in every column, for every source, on data withheld from the label.
-GOLD → BRONZE separates by 10× for eQuilibrator and 65× for
-dGPredictor-ModelSEED.
+Monotone in every column, for every source. GOLD → BRONZE separates by 10× for
+eQuilibrator and 65× for dGPredictor-ModelSEED.
+
+### The leakage this table does and does not control for
+
+Disabling Rule 1 removes the **direct** use of the measurement, but the
+calibration curves of Part 5 were fitted on all 802 anchors, and this table
+scores those same 802. So the label is held out; **the curve is not**. Calling
+the table "held out" without that qualifier would overstate it.
+
+`validate_cv` measures the difference: the anchors are split into 5 folds, both
+curves are refitted on the other four (with test reactions also kept out of the
+proxy tier), and only then is the held-out fold graded. 4 repeats, so each
+anchor is scored 4 times.
+
+| source | grade | in-sample median / within-2 | **leak-free** median / within-2 |
+|---|---|---|---|
+| eQuilibrator | GOLD | 0.32 / 94% | **0.32 / 94%** |
+| | SILVER | 0.46 / 85% | **0.46 / 85%** |
+| | BRONZE | 3.33 / 0% | **3.33 / 5%** |
+| dGPredictor-ModelSEED | GOLD | 0.32 / 98% | **0.32 / 98%** |
+| | SILVER | 0.55 / 82% | **0.55 / 82%** |
+| | BRONZE | 20.78 / 0% | **20.78 / 0%** |
+| Group Contribution | SILVER | 1.28 / 69% | **1.28 / 69%** |
+| | BRONZE | 8.68 / 34% | **8.72 / 34%** |
+
+**Nothing moves by more than 0.04 kcal/mol**, and the only percentage change is
+on eQuilibrator's BRONZE tier, which holds 14 reactions. Two reasons the leak is
+so small: the anchor carries only 19–37% of the fitting weight (802 points at
+weight 3 against 4,011–11,183 proxy points at weight 1), and isotonic pooling
+into 18–44 knots means one point out of 802 barely moves a threshold. The grade
+is then a coarse three-way cut, so a curve that barely moves changes almost no
+tiers.
+
+Both tables ship in `grade_calibration.json` as `validation` and
+`validation_cv`; the CV pass is behind `--cv` because it refits 20 times.
 
 One honest wrinkle: Group Contribution's BRONZE has a *higher* within-1 rate
 (33%) than its median suggests, because that tier is bimodal — a third of it is
