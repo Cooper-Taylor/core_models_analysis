@@ -148,6 +148,8 @@ They are built separately, and they use the uncertainties differently.
 
 # Part 3 — The inputs
 
+![reaction selection and TECRDB mapping](figures/fig4_reaction_selection.png)
+
 ## 3.1 The snapshot
 
 Reaction data comes from a read-only `git archive` of ModelSEED `dev` at commit
@@ -555,47 +557,18 @@ reaction-level grade would have to average that away.
 
 ## 6.2 The grading pipeline
 
-```
-INPUTS                        ΔG_s(i), σ_s(i), ν(i)              TECRDB ΔG*(i)
-       │                                                              │
-       ▼                                                              │
-┌─ A. FEASIBILITY ────────────────────────────────────────────┐       │
-│  drop s if: eQ σ > 100 (4,934) · eQ MetaNetX (35)           │       │
-│             dGPredictor-ModelSEED on a quinone (511)        │       │
-│  F(i) = ∅  ──────────────────────────────────► UNGRADED     │       │
-└──────────────────────────┬──────────────────────────────────┘       │
-       ┌───────────────────┴───────────────────┐                      │
-       ▼                                       ▼                      │
-┌─ B. CALIBRATE  (Part 5) ─────┐   ┌─ C. FUSE ─────────────────┐      │
-│  ĝ_s : σ ↦ ê                 │ ê │  w_s = 1 / ê_s²           │      │
-│  ĥ_s : σ ↦ p                 ├──►│  ΔḠ, χ², R, z_s, Z        │      │
-└──────────────┬───────────────┘   └─────────────┬─────────────┘      │
-               │  p_s(i)                         │  R(i), z_s(i), Z   │
-               └───────────────┬─────────────────┘                    │
-                               ▼                                      │
-┌─ D. CASCADE  (independently for each s ∈ F(i)) ────────────────┐     │
-│   p ≥ 0.90 ? ──yes──► GOLD    "self-certain"                   │     │
-│   p ≥ 0.70 ? ──yes──► SILVER  "self-confident"                 │     │
-│   otherwise  ───────► BRONZE  "uncorroborated"                 │     │
-│                                                                │     │
-│   FLOOR   BRONZE and n ≥ 2 and Z = 0 and R ≤ 1.5 and z_s ≤ 1   │     │
-│                      ─────► SILVER "corroborated"  never higher│     │
-│   DEMOTE  n ≥ 2 and R > 2 and z_s > 3                          │     │
-│                      ─────► one tier down "outvoted"           │     │
-└────────────────────────────┬───────────────────────────────────┘     │
-                             ▼                                         │
-┌─ E. MEASUREMENT OVERRIDE  (terminal, applied last so it wins) ─┐◄─────┘
-│   ε_s ≤ 1 ──► GOLD    ε_s ≤ 3 ──► SILVER    ε_s > 3 ──► BRONZE │
-│                                            all "measured"      │
-└────────────────────────────┬───────────────────────────────────┘
-                             ▼
-             G_s(i)  +  reason        TECRDB bypasses B–D entirely
-```
+![the grading algorithm](figures/fig5_grading.png)
 
-Two ordering facts worth stating because they are invisible in prose:
+Two ordering facts worth stating because they are invisible in a rule list:
 **calibration is fitted once per source but applied per reaction**, and **the
 measurement override is written last in the code specifically so it overwrites
 whatever the cascade concluded.**
+
+Every count in that figure is read from `tables/` at draw time rather than typed
+in, and the values are also dumped to
+[`figures/fig_flowchart_values.tsv`](figures/fig_flowchart_values.tsv) so a
+number quoted from a box can be rechecked against a file. Regenerate with
+`python3 scripts/regen_figures.py thermo_method_flowcharts`.
 
 ## 6.3 Cross-source consistency, used asymmetrically
 
@@ -973,6 +946,9 @@ edge. The quantity is well-defined and correctly computed. It is simply not the
 quantity that selects a source.
 
 ## 7.5 The algorithm as shipped
+
+![the recommendation algorithm](figures/fig6_recommendation.png)
+
 
 ```
 RECOMMEND( reaction i, target T ):

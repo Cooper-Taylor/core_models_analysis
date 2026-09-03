@@ -29,6 +29,8 @@ Everything below exists to fix that and then use the result.
 
 ---
 
+![how reactions acquire sources, and how experiments are matched onto them](figures/fig4_reaction_selection.png)
+
 ## Step 1 — Collect the four sources
 
 | | what it is | reactions covered |
@@ -136,6 +138,8 @@ independent labs report conflicting measurements of the same constant).
 
 ## Step 5 — Label every number: gold, silver or bronze
 
+![the grading algorithm](figures/fig5_grading.png)
+
 Each source on each reaction gets its own label, independently. On the same
 reaction, eQuilibrator can be gold and Group Contribution bronze — and that
 happens: on `rxn00001`, Group Contribution has the wrong *sign*.
@@ -159,6 +163,8 @@ golds diluted what gold means (Part B, method 5).
 ---
 
 ## Step 6 — Pick one source to actually use
+
+![the recommendation algorithm](figures/fig6_recommendation.png)
 
 A label is not a choice. Asked "which of these three should I use?", the
 answer depends on **what you are going to do with the number**:
