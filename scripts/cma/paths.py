@@ -75,11 +75,18 @@ def config_file() -> str | None:
 # root resolution
 # ---------------------------------------------------------------------------
 #: name -> (env var, config key,candidate relative locations, what it is)
+#: name -> (env var, config key, candidate locations, description, marker)
+#:
+#: `marker` is a path that must exist inside a directory for it to count as
+#: this root. A name match alone is not enough: searching the parent directory
+#: happily finds an unrelated folder called ModelSEEDDatabase, and everything
+#: downstream then fails in a way that points at the wrong thing.
 _ROOTS = {
     "msdb": ("MSDB_ROOT", "msdb",
              ("../ModelSEEDDatabase", "ModelSEEDDatabase", "data/ModelSEEDDatabase",
               "../../ModelSEEDDatabase"),
-             "the ModelSEEDDatabase clone (biochemistry, media, thermodynamics)"),
+             "the ModelSEEDDatabase clone (biochemistry, media, thermodynamics)",
+             "Biochemistry/reaction_00.json"),
     # Deliberately does NOT fall back to the live clone. The two held different
     # biochemistry, and quietly substituting one for the other is the bug this
     # separation exists to prevent: callers pass required=False and handle None.
