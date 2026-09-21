@@ -159,6 +159,22 @@ def resolve_model_set(spec: str, media: str | None = None,
     """A registry key, a directory, a glob, or a file listing ids/paths."""
     if not _is_pathish(spec) and spec in models_reg.keys():
         ms = models_reg.get(spec)
+        # A registry entry only says where the models *should* be. Verify they
+        # are actually there: otherwise a run resolves cleanly, reports "0 of 0
+        # models", and fails later somewhere that does not mention the data.
+        d = ms.models_dir()
+        if not d.exists():
+            raise ResolveError(
+                f"model set {spec!r} is registered but its directory does not exist:\n"
+                f"  {d}\n"
+                "  Fetch the data with `python3 scripts/fetch_data.py --all`, or point at\n"
+                "  an existing copy (see `beginPipeline --doctor`)."
+            )
+        if not any(d.glob(ms.id_glob)):
+            raise ResolveError(
+                f"model set {spec!r} points at {d}, which contains no files matching "
+                f"{ms.id_glob!r}."
+            )
         return replace(ms, media=media) if media else ms
 
     p = Path(spec).expanduser()
