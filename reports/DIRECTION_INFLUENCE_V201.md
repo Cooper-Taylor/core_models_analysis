@@ -20,9 +20,9 @@ The practical consequence: **the core panel cannot validate a direction source**
 
 | | models | reactions/model (median) | distinct MSDB reactions | media |
 |---|---:|---:|---:|---|
-| core (`core_kegg2`) | 5,683 | 176 | 239 | 347-compound complete |
-| genome-scale (`ms2_gsm`) | 5,420 | 1,097 | 3,628 | 20-compound glucose minimal |
-| genome-scale (`ms2_gsm_auxo`) | 5,420 | 1,085 | 3,478 | 51-compound auxotrophy |
+| core (`core_kegg2`) | 5,683 | 128 | 239 | 347-compound complete |
+| genome-scale (`ms2_gsm`) | 5,420 | 1,085 | 3,634 | 20-compound glucose minimal |
+| genome-scale (`ms2_gsm_auxo`) | 5,420 | 1,085 | 3,484 | 51-compound auxotrophy |
 
 Both genome-scale sets come from the ModelSEED v2 manuscript's public KBase workspaces and were gap-filled on the media shown. The core models carry a **15-fold smaller reaction surface**, which is the single most important number in this document.
 
@@ -65,9 +65,11 @@ The core models contain **239 distinct** ModelSEED reactions; the genome-scale m
 | gold + silver | 50% | **19.4%** | 49% | **15.0%** |
 | gold + silver + bronze | 71% | **26.4%** | 65% | **18.3%** |
 
-This single column orders the growth results better than anything else in the document. On the genome-scale models, gold changes 3.7% of reaction occurrences and retains the most growth of any source; Claude and the council change 31% and retain almost none. The cumulative tiers climb 3.7% -> 15.0% -> 18.3% and their growth falls monotonically on auxotrophy media, 4,618 -> 1,866 -> 55.
+This column is the **best single predictor tested** on the genome-scale models, but it is a weak one and it does not generalise. Against grower count across the eleven sources: Spearman rho = -0.65 (p = 0.03) on glucose minimal, -0.45 (p = 0.17) on auxotrophy, and -0.03 on the core models, where it has essentially no ordering power. A different column, the share of the model set's distinct reactions a source calls at all, beats it on Pearson in both genome-scale sets. With eleven non-independent sets (gold is nested inside gold+silver, which is nested inside gold+silver+bronze) none of this supports a law.
 
-Note also that the two LLM routes reach **93-98%** of both networks, against 33-60% for any thermodynamic source. They have an opinion about nearly everything, which is their value and, applied as hard constraints, their danger.
+The broad pattern is still visible: gold changes 3.7% of reaction occurrences and retains the most growth of any source, Claude and the council change 31% and retain almost none, and the cumulative tiers climb 3.7% -> 15.0% -> 18.3% while their auxotrophy growth falls 4,618 -> 1,866 -> 55. But there are clear counterexamples: bronze changes *less* than gold (3.3% against 3.7%) and retains far less growth, and dGPredictor changes only 12.5% yet leaves zero growers, the same as Claude at 31.5%.
+
+Note also that the two LLM routes reach **84.5-97.6%** of the reactions in these networks, against 32.5-70.7% for any thermodynamic source. The separation is wide on the genome-scale models (93.0-97.6% against 32.5-60.0%) and much narrower on the core models, where the council reaches 84.5% and eQuilibrator 70.7%. The LLMs have an opinion about nearly everything, which is their value and, applied as hard constraints, their danger.
 
 ## 4. Core models: most sources help
 
@@ -87,7 +89,9 @@ All 5,683 core models, complete media. Baseline 3,461/5,683 growers.
 | gold + silver | 3,686 | +225 | 58.6591 | 68.6 |
 | gold + silver + bronze | 3,556 | +95 | 48.3827 | 93.1 |
 
-The ordering tracks constraint pressure almost exactly. eQuilibrator is the least directional source (48%) and gains the most models (+487). Claude is among the most directional (84%) and loses the most (-560). Silver, the least directional tier (43%), gains 367; gold, more directional at 58%, loses 122.
+The ordering broadly follows constraint pressure, in the direction you would expect: eQuilibrator is the least directional source (48% of its calls are `>` or `<`) and gains the most models (+487); Claude is among the most directional (84%) and loses the most (-560); silver, the least directional tier (43%), gains 367 while gold at 58% loses 122.
+
+Measured rather than eyeballed, the relationship is real but **negative and fragile**: more directional calls means worse growth, Spearman rho = -0.68 (p = 0.02, n = 11) using each set's directional fraction over the whole release. Computed over only the 239 reactions the core models actually contain -- the ones that can affect the FBA -- it falls to rho = -0.28 (p = 0.41) and is not significant. The eleven sets are also nested rather than independent. Treat it as a tendency, not a predictor.
 
 **Gold alone costs growth while silver alone gains it.** That inverts the evidence hierarchy and is worth stating plainly: on this model set, better-graded directions are more often committal, and commitment removes degrees of freedom the models were using. The grade measures how well an energy is known, not how safe it is to impose.
 
@@ -109,7 +113,9 @@ All 5,420 models, each on the medium it was gap-filled for.
 | gold + silver | 0 | 1,866 | 559 |
 | gold + silver + bronze | 0 | 55 | 688 |
 
-On glucose minimal media five of the eleven sources leave **zero** growing models. The auxotrophy set, which starts from a near-complete baseline of 5,399, separates them better and shows a clean monotonic decay across the cumulative tiers: gold retains 4,618 models, gold+silver 1,866, gold+silver+bronze 55.
+On glucose minimal media six of the eleven sources leave **zero** growing models (dGPredictor, eQuilibrator, Claude, silver only, gold+silver, gold+silver+bronze); every one returns an optimal LP with biomass flux 0, so these are genuine no-growth solutions, not solver failures. The auxotrophy set, which starts from a near-complete baseline of 5,399, separates them better and shows a clean monotonic decay across the cumulative tiers: gold retains 4,618 models, gold+silver 1,866, gold+silver+bronze 55.
+
+"Nearly everything collapses" is fair for glucose minimal and an overstatement for auxotrophy. There, only two of eleven sets reach zero; gold retains 85.5% of baseline and the silver-containing sets about a third. Six of eleven fall below 4%.
 
 **The survivors grow faster.** Mean flux among growing models rises from 1.32 at baseline to 4.09 under gold and 6.52 under gold+silver. Directional constraints remove futile cycling and channel flux, so the models that tolerate the constraints benefit from them. The cost is concentrated entirely in the models that stop growing.
 
@@ -117,7 +123,7 @@ On glucose minimal media five of the eleven sources leave **zero** growing model
 
 This needed diagnosing rather than reporting, because a total collapse is as likely to be a bug as a result. It is not a bug. Three checks establish that.
 
-**The conversion is faithful.** Direction round-trips exactly from the KBase originals across 41,052 reactions with zero mismatches, and the models grow normally on their own bounds (4,347 and 5,399 growers). Only the override breaks them.
+**The conversion is faithful.** Direction round-trips exactly from the KBase originals: 327,872 reactions across a 300-model random sample, zero mismatches (`results/influence_v201/conversion_roundtrip.json`). The models also grow normally on their own bounds, 4,347 and 5,399 growers. Only the override breaks them.
 
 **It is not the medium.** The collapse reproduces on the 347-compound complete medium, not just the 20-compound minimal one.
 
@@ -136,15 +142,15 @@ Repeating that scan over 73 models that all grow at baseline: every one of them 
 
 **One reaction explains most of it.** `rxn03108`, the thiamine phosphomethylpyrimidine kinase, is present in 100% of the genome-scale models and lethal in 72 of 73. eQuilibrator computes +15.59 kcal/mol for it and therefore calls it reverse. That number is not wrong: the phosphoryl transfer is uphill in isolation. But the enzyme is an ATP-driven kinase in thiamine biosynthesis and must run forward, so constraining it to the thermodynamically favoured direction removes thiamine and with it biomass.
 
-`rxn00379`, ATP sulfurylase, is the same failure with better evidence: graded **gold** from an openTECR *measurement*, +11 kcal/mol, called reverse by eQuilibrator, dGPredictor and Claude. In the cell it runs forward because pyrophosphatase removes the PPi product. The measurement is right and the direction call is right in isolation; the constraint is still wrong.
+`rxn00379`, ATP sulfurylase, is the same failure with better evidence: graded **gold** from an openTECR *measurement*, +11 kcal/mol, called reverse by eQuilibrator, dGPredictor and Claude. In the cell it runs forward because pyrophosphatase removes the PPi product. The measurement is right and the direction call is right in isolation; the constraint is still wrong. It is a milder case than `rxn03108`: present in 66.6% of the models and individually lethal in roughly one in eight of those that carry it, against `rxn03108`'s 100% presence and near-universal lethality.
 
 Removing just the top three from the eQuilibrator map restores 137 of 381 growers in a 480-model sample, from zero. The collapse is not diffuse over-constraint. It is a handful of obligatory, cofactor-driven reactions.
 
-**Why the core models escape.** They contain 239 distinct reactions against 3,628. Thiamine and sulfate assimilation are simply absent from a core carbon-metabolism model, so the reactions that kill the genome-scale models are never touched. The core panel does not so much disagree with the genome-scale result as fail to test it.
+**Why the core models escape.** They contain 239 distinct reactions against 3,634. Thiamine and sulfate assimilation are simply absent from a core carbon-metabolism model, so the reactions that kill the genome-scale models are never touched. The core panel does not so much disagree with the genome-scale result as fail to test it.
 
 ## 7. What the sources agree about
 
-- The graded tiers are largely **eQuilibrator**: 99.52% agreement over 20,868 shared reactions, and 100% for silver and bronze. The recommendation precedence puts eQuilibrator first, so a tier behaves as a confidence filter on one source rather than as a consensus of several.
+- The graded tiers are largely **eQuilibrator**: 99.52% agreement over 20,868 shared reactions, 100.0% for bronze and 99.9% for silver. The recommendation precedence puts eQuilibrator first, so a tier behaves as a confidence filter on one source rather than as a consensus of several.
 
 - The LLMs and the thermodynamics **disagree**: council against eQuilibrator 56.22% over 17,108 reactions.
 
@@ -160,7 +166,7 @@ On the lethal reactions the LLMs are often the ones that are biologically right:
 
 **A grade is not a licence to constrain.** The grading scheme answers "how well is this energy known", and it answers it well: `rxn00379` is gold because openTECR measured it. It does not answer "is it safe to fix this reaction's direction in a model", and those two questions come apart precisely at the reactions that matter, the cofactor-driven ones. A tier used as an FBA constraint set needs a second filter for obligatory reactions.
 
-**Reversibility is the safe default and the sources differ mainly in how often they use it.** Across both model sets, growth outcome tracks the directional fraction more closely than it tracks source identity or grade. Anything above roughly 60% directional damages the genome-scale models badly.
+**Reversibility is the safe default and the sources differ mainly in how often they use it.** Every set that is more than about 60% directional damages the genome-scale models badly. But no single summary statistic of a direction set reliably predicts its growth effect: of the candidates tested -- directional fraction, reactions called, occurrences changed, overrides per model -- none is significant on the core panel, and the best on the genome-scale panel reaches only rho = -0.65. What a source does depends on *which* reactions it constrains, not how many.
 
 **Two candidate fixes**, neither tested here: exempt reactions whose stoichiometry contains ATP/PPi hydrolysis from directional constraint, which is the mechanism in every case examined; or intersect a tier with the LLM council and keep only reactions where both agree, trading coverage for safety.
 
@@ -195,7 +201,7 @@ Outputs are under `results/influence_v201/` (`core_all/`, `gsm_gmm/`, `gsm_auxo/
 
 - **Energy-generating-cycle detection does not work on these models.** The existing `flux_loops` probe closes every biomass reaction with 10 or more metabolites and relies on a smaller one staying open as an ATP probe. The genome-scale models have exactly one biomass and no maintenance reaction, so it would report zero cycles for all 5,420 with no error. The model-set checker warns about this; the probe needs an injected ATP sink before any loop claim can be made here.
 
-- **The lethal-reaction scan covers 73 models**, chosen as every 60th of the set. The ranking of `rxn03108` is unambiguous at that sample size; the long tail of 48 reactions is not fully enumerated.
+- **The lethal-reaction scan covers 73 models**: every 60th of the set is 91 models, of which 73 grow at baseline and are therefore testable. The ranking of `rxn03108` is unambiguous and replicated on an independent sample; the long tail is not fully enumerated, and the per-reaction counts below `rxn03108` shift by a few percentage points between samples.
 
 - **Claude Opus 4.8 is not part of the release.** It is a standalone single-model run held in this repo. The council includes this model among its five roles, so the two are not independent.
 

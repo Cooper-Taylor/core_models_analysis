@@ -102,9 +102,11 @@ def fetch_gs_models(into: Path, jobs: int) -> int:
 
 def fetch_core_models(into: Path) -> int:
     dest = into / "core_models_kegg2"
-    if dest.exists():
-        print(f"  {dest} already exists")
+    if dest.exists() and any(dest.glob("*.json")):
+        print(f"  {dest} already has {len(list(dest.glob('*.json')))} models")
         return 0
+    if dest.exists():
+        print(f"  {dest} exists but holds no *.json -- re-extracting")
     dest.mkdir(parents=True, exist_ok=True)
     tar = dest / "core_models.tar.gz"
     print(f"  downloading {CORE_MODELS_URL}")
@@ -113,7 +115,26 @@ def fetch_core_models(into: Path) -> int:
         print("  download failed. The tarball is Supplementary Data S2 of the")
         print("  ModelSEED v2 paper: https://bioseed.mcs.anl.gov/~fliu/modelseed2/")
         return rc
-    return run(["tar", "xzf", str(tar), "-C", str(dest), "--strip-components=1"])
+    # Members are ./core_models_kegg2/GCF_*.json -- two leading components, not
+    # one. Stripping only one left every model a directory too deep, where the
+    # resolver's *.json marker could not see them, so the fetch "succeeded" and
+    # --doctor then sent the user back to run it again.
+    rc = run(["tar", "xzf", str(tar), "-C", str(dest), "--strip-components=2"])
+    if rc != 0:
+        return rc
+    # tar exits 0 on a layout change too, so check the result rather than the
+    # exit code.
+    n = len(list(dest.glob("*.json")))
+    if n == 0:
+        nested = list(dest.glob("*/*.json"))
+        print(f"  extraction produced no *.json directly in {dest}")
+        if nested:
+            print(f"  but {len(nested)} were found one level deeper -- the tarball layout "
+                  "changed; adjust --strip-components in fetch_core_models()")
+        return 1
+    print(f"  {n} model JSONs extracted into {dest}")
+    tar.unlink(missing_ok=True)
+    return 0
 
 
 def main() -> int:

@@ -15,12 +15,12 @@ Two collections are registered:
     =========================  ==================  ==========================
     property                   core_kegg2          ms2_gsm
     =========================  ==================  ==========================
-    reactions / model (median) 176                 1,097
+    reactions / model (median) 128                 1,085
     file form                  ``.json``           ``.json.gz``
     model id                   ``GCF_000005845.2`` ``GCF_000005845.2.RAST.GMM``
     biomass                    ``bio1`` + ``bio2``  ``bio1`` only, 51-61 mets
     medium                     347-compound        20-compound defined minimal
-    distinct MSDB reactions    239                 3,628
+    distinct MSDB reactions    239                 3,634
     =========================  ==================  ==========================
 
     The biomass difference is the dangerous one. ``flux_loops_one`` closes every
