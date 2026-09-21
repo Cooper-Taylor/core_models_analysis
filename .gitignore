@@ -85,3 +85,25 @@ results/thermo_grades/source_grades_wide.tsv
 results/thermo_grades_fba/rxn_source_coverage.csv
 results/thermo_recommendation/recommendation_direction.tsv
 results/thermo_recommendation/recommendation_magnitude.tsv
+
+# Per-run logs from scripts/regen_figures.py
+reports/thermoComparison/figures/_regen_logs/
+
+# Local environment config (copy cma.toml.example if you need one).
+cma.toml
+.venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# Pre-refactor checksum snapshot, used to prove behaviour did not change.
+.baseline/
+
+# Large regenerable sweep outputs. The direction sets themselves are small and
+# ARE tracked; the per-model FBA results are ~38 MB and rebuild in minutes.
+results/influence_v201/
+
+# Plot-script intermediate caches, regenerable by the figure that writes them.
+*_sources.pkl

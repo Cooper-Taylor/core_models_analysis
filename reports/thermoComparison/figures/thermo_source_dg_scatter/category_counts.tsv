@@ -1,0 +1,4 @@
+pair	n	pearson_r	shown_range_r	No change	Reversible → Irreversible	Irreversible → Reversible	Irreversible → Irreversible
+group_contribution_vs_equilibrator	21272	0.8903	0.7327	16104	3032	2010	126
+group_contribution_vs_dgpredictor	9278	0.7411	0.8134	6864	1812	444	158
+equilibrator_vs_dgpredictor	9783	0.6051	0.6051	7211	1808	571	193

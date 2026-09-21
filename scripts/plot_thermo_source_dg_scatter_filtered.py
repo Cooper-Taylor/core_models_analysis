@@ -75,8 +75,10 @@ Both areas, tilts and the realised coverage go into slice_counts.tsv.
 
 Point color is the reversibility transition between the two sources, identical
 in definition and palette to plot_thermo_source_dg_scatter.py: each source's own
-ΔG'° run through the unmodified cascade (DEFAULT_HEURISTICS via
-per_source_energy), collapsed to reversible ("=") vs irreversible (">"/"<").
+source's stored direction operator (``thermodynamics[label][2]``, as written by
+upstream dev -- not recomputed here) is compared. "No change"
+means the IDENTICAL call -- both "=", or the same ">" / "<". "Irreversible ->
+Irreversible" is reserved for ">" vs "<", the only genuine direction conflict.
 
 DATA PROVENANCE
 ---------------
@@ -119,20 +121,14 @@ ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR",
 # dGPredictor-ModelSEED energies. devsnap2 is dev @ 49563c6f, i.e. AFTER
 # ad34d6ab "Rebuild GC energies under Convention A" -- Group Contribution values
 # there differ from the earlier devsnap (34992d39) on 53% of reactions and cover
-# 1,501 more. Code (the cascade) comes from the working ModelSEEDDatabase
-# checkout.
+# 1,501 more. Directions are read from those same records, so no code is taken
+# from the working checkout any more -- there is no MSDB_CODE.
 MSDB_DATA = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/tmp/devsnap2"))
-MSDB_CODE = Path(os.environ.get("MSDB_CODE_ROOT", "/scratch/ctaylor/ModelSEEDDatabase"))
 ASSIGN_TSV = Path(os.environ.get(
     "EQDGP_ASSIGNMENT",
     str(ANALYSIS_DIR / "results" / "eq_vs_dgpms_gcA" / "source_assignment.tsv")))
 OUT_DIR = (ANALYSIS_DIR / "reports" / "thermoComparison" / "figures"
            / "thermo_source_dg_scatter_filtered")
-
-sys.path.insert(0, str(MSDB_CODE / "Scripts" / "Thermodynamics"))
-from reversibility_heuristics import (  # noqa: E402
-    DEFAULT_HEURISTICS, run_reversibility, per_source_energy,
-)
 
 # key -> (thermodynamics subkey, short label, axis title)
 SOURCES = {
@@ -184,6 +180,14 @@ CATEGORY_COLOR = {
     "Reversible → Irreversible": "#2a78d6",
     "Irreversible → Reversible": "#eb6834",
     "Irreversible → Irreversible": "#1baf7a",
+}
+# Displayed legend text. The category NAME is unchanged; the parenthetical
+# states the definition, which is not guessable from the name alone.
+CATEGORY_LEGEND = {
+    "No change": "No change (same call)",
+    "Reversible → Irreversible": "Reversible → Irreversible",
+    "Irreversible → Reversible": "Irreversible → Reversible",
+    "Irreversible → Irreversible": "Irreversible → Irreversible (opposite direction)",
 }
 EXCLUDED_COLOR = "#dedbd1"
 OVAL_COLOR = "#5a3fb0"        # the 95% concentration ellipse: filled, solid edge
@@ -384,14 +388,21 @@ def draw_ellipses(ax, points: np.ndarray) -> dict:
 
 # ------------------------------------------------------------------- loading
 def classify(op_a: str, op_b: str) -> str:
-    rev_a, rev_b = op_a == "=", op_b == "="
-    if rev_a and rev_b:
-        return "No change"
-    if rev_a and not rev_b:
+    """Reversibility transition from source A to source B.
+
+    "Irreversible -> Irreversible" is RESERVED for the case that matters: both
+    sources call the reaction irreversible but in OPPOSITE directions ('>' vs
+    '<'). Two sources that agree on the same irreversible direction have not
+    disagreed about anything, so they land in "No change" alongside the pairs
+    that both call it reversible.
+    """
+    if op_a == op_b:
+        return "No change"                    # both '=', or the same '>' / '<'
+    if op_a == "=":
         return "Reversible → Irreversible"
-    if not rev_a and rev_b:
+    if op_b == "=":
         return "Irreversible → Reversible"
-    return "Irreversible → Irreversible"
+    return "Irreversible → Irreversible"      # '>' vs '<' — direction reversed
 
 
 def load_table() -> pd.DataFrame:
@@ -416,13 +427,12 @@ def load_table() -> pd.DataFrame:
                     # the source itself declares no estimate -- not a data point
                     n_sentinel += 1
                     continue
-                _, op, _ = run_reversibility(entry, per_source_energy(subkey),
-                                             DEFAULT_HEURISTICS)
-                if op is None:
-                    continue
+                # Direction is READ, not recomputed: triple[2] is the operator
+                # upstream dev stored for this source. Running the cascade here
+                # would report our local heuristic ordering instead.
                 row[f"dg_{key}"] = dg
                 row[f"sig_{key}"] = sig
-                row[f"op_{key}"] = op
+                row[f"op_{key}"] = triple[2]
             rows.append(row)
     df = pd.DataFrame(rows).set_index("rxn")
     print(f"  {len(df):,} non-EMPTY reactions; dropped {n_sentinel:,} eQuilibrator "
@@ -504,7 +514,7 @@ def draw_panel(ax, sub: pd.DataFrame, a: str, b: str, keep: np.ndarray,
             continue
         ax.scatter(xs[idx], ys[idx], s=13 if not compact else 9, linewidths=0,
                    color=CATEGORY_COLOR[cat], alpha=0.68, zorder=3,
-                   label=f"{cat} ({counts.get(cat, 0):,})")
+                   label=f"{CATEGORY_LEGEND[cat]} ({counts.get(cat, 0):,})")
     geom = {"conc_area": float("nan"), "conc_tilt": float("nan"),
             "conc_cover": float("nan"), "conc_semimajor": float("nan"),
             "conc_semiminor": float("nan"), "mvee_area": float("nan"),

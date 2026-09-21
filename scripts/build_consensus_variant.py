@@ -35,6 +35,7 @@ ANALYSIS_ROOT = SCRIPTS.parent
 sys.path.insert(0, str(SCRIPTS))
 
 from build_ai_direction_variant import parse_report, write_report, count_new_rev
+from cma import manifest as cma_manifest
 
 OUT_ROOT = ANALYSIS_ROOT / "thermo_variants"
 SOURCES = ("baseline", "eq3_beber2022", "dgpredictor")  # group-contribution + eQ3.0 + dGPredictor
@@ -118,16 +119,11 @@ def main(argv: Optional[list] = None) -> None:
     with open(dest / "cfg.json", "w") as fh:
         json.dump(summary, fh, indent=2, default=str)
 
-    manifest_path = OUT_ROOT / "manifest.json"
-    manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {"variants": []}
-    manifest.setdefault("variants", [])
-    manifest["variants"] = [v for v in manifest["variants"] if v.get("tag") != args.tag]
-    entry = dict(summary)
-    entry["elapsed_s"] = round(time.time() - t0, 2)
-    manifest["variants"].append(entry)
-    with open(manifest_path, "w") as fh:
-        json.dump(manifest, fh, indent=2, default=str)
-    print(f"wrote {dest}; updated manifest ({len(manifest['variants'])} variants total)")
+    # Upsert in place via the shared helper; the hand-rolled version this
+    # replaces dropped the tag and re-appended it, reordering the manifest.
+    entry = dict(summary, elapsed_s=round(time.time() - t0, 2))
+    data = cma_manifest.merge([entry], root=OUT_ROOT)
+    print(f"wrote {dest}; updated manifest ({len(data['variants'])} variants total)")
 
 
 if __name__ == "__main__":

@@ -5,16 +5,28 @@ dGPredictor, eQuilibrator vs dGPredictor.
 
 For each pair, only reactions where BOTH sources have a non-sentinel DeltaG are
 plotted (the intersection of coverage). Points are colored by *reversibility
-transition* -- how the two sources' own reversibility calls (each run through
-the unmodified ModelSEED heuristic cascade, reversibility_heuristics.DEFAULT_HEURISTICS,
-fed that source's own DeltaG via per_source_energy) compare, collapsing each
-call to reversible ("=") vs irreversible (">" or "<"):
+transition* -- how the two sources' own reversibility calls compare. Those calls
+are READ FROM THE DATABASE: each is the operator element of that source's stored
+``thermodynamics[label] = [dg, dge, operator]`` triple, exactly as upstream dev
+wrote it. Nothing is recomputed here -- the cascade is not run, so these figures
+report ModelSEED's own directions and not our local heuristic edits. Reactions
+whose stored operator is "?" (the source declines to call a direction) are not
+plotted for that source. The calls are compared as:
 
-  * No change                    -- both sources call it reversible ("=")
+  * No change                    -- the two sources make the IDENTICAL call:
+    both reversible ("="), or both irreversible in the SAME direction (both ">"
+    or both "<"). Nothing is in dispute.
   * Reversible -> Irreversible   -- source A reversible, source B irreversible
   * Irreversible -> Reversible   -- source A irreversible, source B reversible
-  * Irreversible -> Irreversible -- both irreversible (regardless of whether
-    the specific direction, > or <, agrees between the two)
+  * Irreversible -> Irreversible -- both irreversible, in OPPOSITE directions
+    (">" vs "<"). RESERVED for this case: it is the only genuine direction
+    conflict, and it is what actually changes a flux model.
+
+That last category is stricter than it was before 2026-08, when it held every
+both-irreversible pair regardless of direction -- which coloured perfect
+agreement identically to a reversal and made it the largest category in every
+panel. "No change" is correspondingly larger now, so it is drawn smaller and
+more transparent with the three real transitions on top.
 
 The legend shows the reaction count for each category in parentheses.
 "No change" is rendered in neutral gray (no hue) rather than a 4th categorical
@@ -30,10 +42,19 @@ restricted to that set of reactions -- used to redraw the comparison over only
 the 239 reactions that actually appear across the combined core models, rather
 than all ~19k ModelSEED reactions. ``--out-subdir NAME`` redirects the output
 directory so a subset run does not overwrite the all-reactions figures.
+
+Data: ModelSEED dev @ 49563c6f (2026-08-12), snapshotted at
+/scratch/ctaylor/tmp/devsnap2 -- NOT the working claude-changes checkout, whose
+Biochemistry predates ad34d6ab "Rebuild GC energies under Convention A" and
+whose stored direction operators carry our local cascade reordering. Both the
+DeltaG values and the direction operators are read straight out of that
+snapshot's reaction records.
 """
 from __future__ import annotations
 
 import argparse
+import glob
+import json
 import os
 import sys
 from pathlib import Path
@@ -44,16 +65,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR", "/scratch/ctaylor/core_models_analysis"))
-MSDB_ROOT = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/ModelSEEDDatabase"))
+# Data comes from the upstream dev snapshot, matching the other scatter scripts.
+# No MSDB_CODE counterpart is needed any more: directions are read from the
+# stored records rather than recomputed, so nothing is imported from a checkout.
+MSDB_DATA = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/tmp/devsnap2"))
 OUT_DIR = ANALYSIS_DIR / "reports" / "thermoComparison" / "figures" / "thermo_source_dg_scatter"
-
-sys.path.insert(0, str(MSDB_ROOT / "Libs" / "Python"))
-sys.path.insert(0, str(MSDB_ROOT / "Scripts" / "Thermodynamics"))
-
-from BiochemPy import Reactions  # noqa: E402
-from reversibility_heuristics import (  # noqa: E402
-    DEFAULT_HEURISTICS, run_reversibility, per_source_energy,
-)
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_dgpredictor_kegg_mask import load_mask  # noqa: E402
@@ -90,6 +106,14 @@ CATEGORY_COLOR = {
     "Irreversible → Reversible": "#eb6834",     # slot 2, orange
     "Irreversible → Irreversible": "#1baf7a",   # slot 3, aqua
 }
+# Displayed legend text. The category NAME is unchanged; the parenthetical
+# states the definition, which is not guessable from the name alone.
+CATEGORY_LEGEND = {
+    "No change": "No change (same call)",
+    "Reversible → Irreversible": "Reversible → Irreversible",
+    "Irreversible → Reversible": "Irreversible → Reversible",
+    "Irreversible → Irreversible": "Irreversible → Irreversible (opposite direction)",
+}
 INK_PRIMARY = "#0b0b0b"
 INK_SECONDARY = "#52514e"
 INK_MUTED = "#898781"
@@ -99,16 +123,38 @@ SURFACE = "#fcfcfb"
 
 
 def classify(op_a: str, op_b: str) -> str:
-    """Reversibility transition from source A to source B ('=' == reversible)."""
-    rev_a = op_a == "="
-    rev_b = op_b == "="
-    if rev_a and rev_b:
-        return "No change"
-    if rev_a and not rev_b:
+    """Reversibility transition from source A to source B.
+
+    "Irreversible -> Irreversible" is RESERVED for the case that matters: both
+    sources call the reaction irreversible but in OPPOSITE directions ('>' vs
+    '<'). Two sources that agree on the same irreversible direction have not
+    disagreed about anything, so they land in "No change" alongside the pairs
+    that both call it reversible.
+    """
+    if op_a == op_b:
+        return "No change"                    # both '=', or the same '>' / '<'
+    if op_a == "=":
         return "Reversible → Irreversible"
-    if not rev_a and rev_b:
+    if op_b == "=":
         return "Irreversible → Reversible"
-    return "Irreversible → Irreversible"
+    return "Irreversible → Irreversible"      # '>' vs '<' — direction reversed
+
+
+def load_reactions() -> dict:
+    """{rxn_id: record} straight off the dev snapshot's reaction JSONs.
+
+    Replaces ``BiochemPy.Reactions().loadReactions()``. BiochemPy resolves its
+    biochem root relative to its own __file__ and so can only read the checkout
+    it was imported from; the snapshot ships Biochemistry/ and Scripts/ but no
+    Libs/. Only ``status`` and ``thermodynamics`` are read downstream, so the
+    alias/name/pathway joins BiochemPy also performs are not needed.
+    """
+    reactions = {}
+    for path in sorted(glob.glob(str(MSDB_DATA / "Biochemistry" / "reaction_*.json"))):
+        with open(path) as fh:
+            for entry in json.load(fh):
+                reactions[entry["id"]] = entry
+    return reactions
 
 
 def load_source_data(reactions: dict, dgp_mask: set[str] | None = None) -> dict:
@@ -129,6 +175,11 @@ def load_source_data(reactions: dict, dgp_mask: set[str] | None = None) -> dict:
     conditions are redundant (sentinel dG <=> stored operator "?"), but the
     "?" check is kept explicit so a reaction is never plotted as though a
     source had an opinion on it when that source's own record says otherwise.
+
+    The returned operator is that same stored ``triple[2]``. It is deliberately
+    NOT recomputed by running the reversibility cascade over the source's dG:
+    doing so reported our local heuristic ordering rather than the database's
+    own direction call, which is the thing these panels are about.
     """
     dgp_mask = dgp_mask or set()
     out = {src: {} for src in SOURCE_LABEL}
@@ -141,17 +192,18 @@ def load_source_data(reactions: dict, dgp_mask: set[str] | None = None) -> dict:
             if src == "dgpredictor" and rxn_id in dgp_mask:
                 n_masked += 1
                 continue
-            status, operator, _ = run_reversibility(
-                rxn_entry, per_source_energy(label), DEFAULT_HEURISTICS)
-            if operator is None:
-                continue
             thermo = rxn_entry.get("thermodynamics") or {}
             pair = thermo.get(label)
             stored_op = pair[2] if pair and len(pair) > 2 else None
             if stored_op == "?" or stored_op is None:
                 n_excluded_q[src] += 1
                 continue
-            out[src][rxn_id] = (float(pair[0]), operator)
+            try:
+                dg = float(pair[0])
+            except (TypeError, ValueError):
+                n_excluded_q[src] += 1
+                continue
+            out[src][rxn_id] = (dg, stored_op)
     for src, n in n_excluded_q.items():
         print(f"  {src}: excluded {n} reaction(s) with an undefined ('?') stored operator")
     if n_masked:
@@ -202,9 +254,11 @@ def plot_pair(src_a: str, src_b: str, data: dict, out_dir: Path | None = None,
 
     for cat in CATEGORY_ORDER:
         idx = [i for i, (c, keep) in enumerate(zip(cats, in_range)) if c == cat and keep]
-        label = f"{cat} ({cat_counts.get(cat, 0):,})"
-        ax.scatter(xs[idx], ys[idx], s=14, linewidths=0,
-                    color=CATEGORY_COLOR[cat], alpha=0.65, label=label, zorder=2)
+        label = f"{CATEGORY_LEGEND[cat]} ({cat_counts.get(cat, 0):,})"
+        bulk = cat == "No change"   # now the majority; keep it recessive
+        ax.scatter(xs[idx], ys[idx], s=9 if bulk else 16, linewidths=0,
+                    color=CATEGORY_COLOR[cat], alpha=0.35 if bulk else 0.7,
+                    label=label, zorder=2 if bulk else 3)
 
     ax.set_xlim(lo, hi)
     ax.set_ylim(lo, hi)
@@ -247,6 +301,20 @@ def plot_pair(src_a: str, src_b: str, data: dict, out_dir: Path | None = None,
     out_path = out_dir / f"dg_scatter_{src_a}_vs_{src_b}.png"
     fig.savefig(out_path, facecolor=SURFACE)
     plt.close(fig)
+
+    # Machine-readable counts alongside the PNG: the legend is not a data source,
+    # and prose elsewhere quotes these numbers.
+    stats_path = out_dir / "category_counts.tsv"
+    header = ("pair\tn\tpearson_r\tshown_range_r\t"
+              + "\t".join(CATEGORY_ORDER) + "\n")
+    line = (f"{src_a}_vs_{src_b}\t{len(common)}\t{r_all:.4f}\t{r_robust:.4f}\t"
+            + "\t".join(str(cat_counts.get(c, 0)) for c in CATEGORY_ORDER) + "\n")
+    if stats_path.exists() and stats_path.read_text().startswith(header):
+        with open(stats_path, "a") as fh:
+            fh.write(line)
+    else:
+        stats_path.write_text(header + line)
+
     print(f"wrote {out_path} ({len(common)} points)")
     return out_path
 
@@ -268,8 +336,8 @@ def main() -> None:
     out_dir = OUT_DIR if args.out_subdir is None else (
         ANALYSIS_DIR / "reports" / "thermoComparison" / "figures" / args.out_subdir)
 
-    print("loading reactions from live ModelSEEDDatabase checkout...")
-    reactions = Reactions().loadReactions()
+    print(f"loading reactions from {MSDB_DATA} ...")
+    reactions = load_reactions()
     print(f"  {len(reactions)} reactions loaded")
 
     dgp_mask = set() if args.no_dgp_mask else load_mask()
@@ -278,7 +346,6 @@ def main() -> None:
         print(f"  {label}: {len(data[src])} reactions with a usable DeltaG")
 
     if args.subset is not None:
-        import json
         keep = set(json.loads(args.subset.read_text()))
         print(f"\nrestricting to subset of {len(keep)} reaction ids from {args.subset}")
         missing = keep - set(reactions)
@@ -290,8 +357,10 @@ def main() -> None:
             print(f"  {label}: {len(data[src])} of {len(keep)} subset reactions "
                   f"have a usable DeltaG")
 
+    (out_dir / "category_counts.tsv").unlink(missing_ok=True)
     for src_a, src_b in PAIRS:
         plot_pair(src_a, src_b, data, out_dir=out_dir, subset_note=args.subset_label)
+    print(f"wrote {out_dir / 'category_counts.tsv'}")
 
 
 if __name__ == "__main__":

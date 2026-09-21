@@ -1,0 +1,5472 @@
+{
+  "_n": 100,
+  "per_variant": {
+    "on_disk": {
+      "n_models": 100,
+      "n_models_attempted": 100,
+      "n_failed_to_load": 0,
+      "n_growers": 83,
+      "frac_growers": 0.83,
+      "mean_growth_of_growers": 41.418,
+      "mean_overrides": 0.0
+    },
+    "v201_gold": {
+      "n_models": 100,
+      "n_models_attempted": 100,
+      "n_failed_to_load": 0,
+      "n_growers": 79,
+      "frac_growers": 0.79,
+      "mean_growth_of_growers": 34.0139,
+      "mean_overrides": 32.4
+    },
+    "v201_gold_silver": {
+      "n_models": 100,
+      "n_models_attempted": 100,
+      "n_failed_to_load": 0,
+      "n_growers": 83,
+      "frac_growers": 0.83,
+      "mean_growth_of_growers": 44.2626,
+      "mean_overrides": 66.2
+    },
+    "v201_gold_silver_bronze": {
+      "n_models": 100,
+      "n_models_attempted": 100,
+      "n_failed_to_load": 0,
+      "n_growers": 83,
+      "frac_growers": 0.83,
+      "mean_growth_of_growers": 37.1992,
+      "mean_overrides": 88.8
+    },
+    "v201_equilibrator": {
+      "n_models": 100,
+      "n_models_attempted": 100,
+      "n_failed_to_load": 0,
+      "n_growers": 96,
+      "frac_growers": 0.96,
+      "mean_growth_of_growers": 52.8986,
+      "mean_overrides": 83.9
+    },
+    "v201_llm_council": {
+      "n_models": 100,
+      "n_models_attempted": 100,
+      "n_failed_to_load": 0,
+      "n_growers": 80,
+      "frac_growers": 0.8,
+      "mean_growth_of_growers": 39.7834,
+      "mean_overrides": 93.8
+    },
+    "claude_opus48": {
+      "n_models": 100,
+      "n_models_attempted": 100,
+      "n_failed_to_load": 0,
+      "n_growers": 59,
+      "frac_growers": 0.59,
+      "mean_growth_of_growers": 41.5059,
+      "mean_overrides": 116.4
+    }
+  },
+  "warnings": [],
+  "per_model": [
+    {
+      "model_id": "GCF_000007945.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 22,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 55,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 43.98272358617544,
+          "grows": true,
+          "n_overrides": 83,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 77,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 86,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 60.95058532878793,
+          "grows": true,
+          "n_overrides": 110,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000008165.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 81.09450129376918,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 58.553380189049484,
+          "grows": true,
+          "n_overrides": 43,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 65.97408537926319,
+          "grows": true,
+          "n_overrides": 88,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 65.97408537926265,
+          "grows": true,
+          "n_overrides": 122,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 107.3368781337337,
+          "grows": true,
+          "n_overrides": 118,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 79.73476536971926,
+          "grows": true,
+          "n_overrides": 132,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 79.52428572280604,
+          "grows": true,
+          "n_overrides": 161,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000008945.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 28,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 55,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 69,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 39.92333123469688,
+          "grows": true,
+          "n_overrides": 66,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 68,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 42.04615069592717,
+          "grows": true,
+          "n_overrides": 89,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000009905.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 40.251329300150104,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 32.33269045167157,
+          "grows": true,
+          "n_overrides": 36,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 33.29437891000854,
+          "grows": true,
+          "n_overrides": 67,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 33.29437891000855,
+          "grows": true,
+          "n_overrides": 92,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 54.364667315418366,
+          "grows": true,
+          "n_overrides": 90,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 57.668285551407884,
+          "grows": true,
+          "n_overrides": 103,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 52.82373687440233,
+          "grows": true,
+          "n_overrides": 125,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000010305.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 35.90370984057859,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 35.90370984057527,
+          "grows": true,
+          "n_overrides": 31,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 51.6097955391933,
+          "grows": true,
+          "n_overrides": 68,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 37.09673530180971,
+          "grows": true,
+          "n_overrides": 89,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 39.12559876139558,
+          "grows": true,
+          "n_overrides": 84,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 32.73140283519387,
+          "grows": true,
+          "n_overrides": 92,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 27.865813105849192,
+          "grows": true,
+          "n_overrides": 114,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000010625.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 30.825522916464443,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 29.708125097944038,
+          "grows": true,
+          "n_overrides": 33,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 53.30537762417944,
+          "grows": true,
+          "n_overrides": 68,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 35.5369184161195,
+          "grows": true,
+          "n_overrides": 91,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 53.30537762417931,
+          "grows": true,
+          "n_overrides": 88,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 28.497254289549243,
+          "grows": true,
+          "n_overrides": 94,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 116,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000011305.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 49.46528031974372,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 38.92716727003777,
+          "grows": true,
+          "n_overrides": 38,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 75.23789281233658,
+          "grows": true,
+          "n_overrides": 76,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 54.46618149402539,
+          "grows": true,
+          "n_overrides": 99,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 94.42196968425368,
+          "grows": true,
+          "n_overrides": 96,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 48.26661318725839,
+          "grows": true,
+          "n_overrides": 107,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 29.278375869933758,
+          "grows": true,
+          "n_overrides": 132,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000014285.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 45.35018848672075,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 40.633723552525204,
+          "grows": true,
+          "n_overrides": 34,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 70.86184538417736,
+          "grows": true,
+          "n_overrides": 69,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 60.95058532878772,
+          "grows": true,
+          "n_overrides": 96,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 79.8014294891448,
+          "grows": true,
+          "n_overrides": 89,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 35.7091017340657,
+          "grows": true,
+          "n_overrides": 104,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 34.79729992082029,
+          "grows": true,
+          "n_overrides": 129,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000014405.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 8.421641259978584,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 19,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 43,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 55,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 30.62390854475961,
+          "grows": true,
+          "n_overrides": 53,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 8.421641259978617,
+          "grows": true,
+          "n_overrides": 53,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 73,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000014425.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 29.98487263175728,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 19,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 43,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 58,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 30.81018461462618,
+          "grows": true,
+          "n_overrides": 55,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 27.679266499437745,
+          "grows": true,
+          "n_overrides": 59,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 36.28479939041535,
+          "grows": true,
+          "n_overrides": 79,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000014865.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 33,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 65,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 87,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 28.76929556653647,
+          "grows": true,
+          "n_overrides": 79,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 90,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 114,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000015745.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 60.28981313172385,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 38.16145730973179,
+          "grows": true,
+          "n_overrides": 40,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 58.553380189049335,
+          "grows": true,
+          "n_overrides": 82,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 58.55338018904929,
+          "grows": true,
+          "n_overrides": 115,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 83.17154867662764,
+          "grows": true,
+          "n_overrides": 113,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 58.774320323963984,
+          "grows": true,
+          "n_overrides": 127,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 39.76214286140313,
+          "grows": true,
+          "n_overrides": 153,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000016345.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 23.43356846966498,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 27.041961010903144,
+          "grows": true,
+          "n_overrides": 38,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 35.708674351177194,
+          "grows": true,
+          "n_overrides": 70,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 38.61495866268753,
+          "grows": true,
+          "n_overrides": 101,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 53.56301152676003,
+          "grows": true,
+          "n_overrides": 95,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 23.433568469664955,
+          "grows": true,
+          "n_overrides": 110,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 131,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000016745.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 35.323144960888676,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 36.494652164908445,
+          "grows": true,
+          "n_overrides": 33,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 44.42178385051008,
+          "grows": true,
+          "n_overrides": 68,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 44.42178385050975,
+          "grows": true,
+          "n_overrides": 86,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 63.86564128858954,
+          "grows": true,
+          "n_overrides": 81,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 35.533572118937975,
+          "grows": true,
+          "n_overrides": 96,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 120,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000016885.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 37.197053249441495,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 37.19705324944154,
+          "grows": true,
+          "n_overrides": 37,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 67.218003670103,
+          "grows": true,
+          "n_overrides": 77,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 54.14292649736793,
+          "grows": true,
+          "n_overrides": 103,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 54.14292649736766,
+          "grows": true,
+          "n_overrides": 98,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 33.80851196905844,
+          "grows": true,
+          "n_overrides": 111,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 137,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000018405.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 34.964790456010796,
+          "grows": true,
+          "n_overrides": 33,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 34.964790456010796,
+          "grows": true,
+          "n_overrides": 61,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 34.96479045601077,
+          "grows": true,
+          "n_overrides": 81,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 34.964790456010775,
+          "grows": true,
+          "n_overrides": 77,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 86,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 107,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000020645.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 38.40144020761349,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 30.23411027438216,
+          "grows": true,
+          "n_overrides": 31,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 52.01627207700631,
+          "grows": true,
+          "n_overrides": 60,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 37.022047470678956,
+          "grows": true,
+          "n_overrides": 75,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 42.4851771453003,
+          "grows": true,
+          "n_overrides": 71,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 40.94611736631272,
+          "grows": true,
+          "n_overrides": 83,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 33.1280498510894,
+          "grows": true,
+          "n_overrides": 101,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000023265.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 25.9956102079562,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 30.724986788255894,
+          "grows": true,
+          "n_overrides": 32,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 45.22185843749359,
+          "grows": true,
+          "n_overrides": 67,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 32.13987272610387,
+          "grows": true,
+          "n_overrides": 89,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 42.009816854001805,
+          "grows": true,
+          "n_overrides": 84,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 25.99561020795621,
+          "grows": true,
+          "n_overrides": 92,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 22.929921116485556,
+          "grows": true,
+          "n_overrides": 110,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000024425.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 39,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 17.88035538994371,
+          "grows": true,
+          "n_overrides": 75,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 16.308877084886078,
+          "grows": true,
+          "n_overrides": 93,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 32.617754169772425,
+          "grows": true,
+          "n_overrides": 89,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 96,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 113,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000025185.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 24.60944805929893,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 27.391631856467843,
+          "grows": true,
+          "n_overrides": 37,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 41.75865169665373,
+          "grows": true,
+          "n_overrides": 72,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 28.99567674459742,
+          "grows": true,
+          "n_overrides": 98,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 28.995676744597382,
+          "grows": true,
+          "n_overrides": 97,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 24.609448059298956,
+          "grows": true,
+          "n_overrides": 111,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 131,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000025265.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 55.17325090449646,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 38.056529168426906,
+          "grows": true,
+          "n_overrides": 43,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 57.0847937526404,
+          "grows": true,
+          "n_overrides": 87,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 43.98272358617542,
+          "grows": true,
+          "n_overrides": 109,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 80.50265860030072,
+          "grows": true,
+          "n_overrides": 106,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 55.05670972188703,
+          "grows": true,
+          "n_overrides": 117,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 45.33027353986943,
+          "grows": true,
+          "n_overrides": 140,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000025725.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 59.862707601148706,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 40.19320875448279,
+          "grows": true,
+          "n_overrides": 33,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 40.19320875448295,
+          "grows": true,
+          "n_overrides": 63,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 40.19320875448278,
+          "grows": true,
+          "n_overrides": 85,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 80.28400776531649,
+          "grows": true,
+          "n_overrides": 84,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 59.56730848636492,
+          "grows": true,
+          "n_overrides": 100,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 57.882335164310696,
+          "grows": true,
+          "n_overrides": 122,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000046685.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 24.87115242200009,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 28.301924935208817,
+          "grows": true,
+          "n_overrides": 25,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 28.301924935208827,
+          "grows": true,
+          "n_overrides": 54,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 28.301924935208827,
+          "grows": true,
+          "n_overrides": 67,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 28.301924935208735,
+          "grows": true,
+          "n_overrides": 60,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 24.871152421999984,
+          "grows": true,
+          "n_overrides": 65,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 84,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000092365.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 55.13520070131959,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 38.40971943177252,
+          "grows": true,
+          "n_overrides": 27,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 38.94995709512418,
+          "grows": true,
+          "n_overrides": 58,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 42.1435916454544,
+          "grows": true,
+          "n_overrides": 82,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 55.135200701319974,
+          "grows": true,
+          "n_overrides": 76,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 55.135200701319796,
+          "grows": true,
+          "n_overrides": 82,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 46.62548082527101,
+          "grows": true,
+          "n_overrides": 106,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000143845.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 23.453275992679465,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 13.547276438610647,
+          "grows": true,
+          "n_overrides": 29,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 27.094552877221386,
+          "grows": true,
+          "n_overrides": 57,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 14.751781000960023,
+          "grows": true,
+          "n_overrides": 74,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 24.553394220294678,
+          "grows": true,
+          "n_overrides": 75,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 78,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 20.566176557540796,
+          "grows": true,
+          "n_overrides": 99,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000164695.2",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 56.142347049532866,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 35.32052493364186,
+          "grows": true,
+          "n_overrides": 28,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 36.06807488453699,
+          "grows": true,
+          "n_overrides": 63,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 39.03558679269974,
+          "grows": true,
+          "n_overrides": 89,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 74.85646273270989,
+          "grows": true,
+          "n_overrides": 81,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 55.20099140980511,
+          "grows": true,
+          "n_overrides": 92,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 47.01969576689516,
+          "grows": true,
+          "n_overrides": 118,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000164985.3",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 67.75061193320555,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 38.39087525676878,
+          "grows": true,
+          "n_overrides": 38,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 64.27974545220742,
+          "grows": true,
+          "n_overrides": 82,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 49.97692731855462,
+          "grows": true,
+          "n_overrides": 116,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 92.04264993418953,
+          "grows": true,
+          "n_overrides": 117,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 68.03562990902063,
+          "grows": true,
+          "n_overrides": 131,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 74.29721588069242,
+          "grows": true,
+          "n_overrides": 156,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000179915.2",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 35.017981733620246,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 32,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 66,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 93,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 44.049302622453496,
+          "grows": true,
+          "n_overrides": 82,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 33.27209251819525,
+          "grows": true,
+          "n_overrides": 88,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 11.116897512412335,
+          "grows": true,
+          "n_overrides": 112,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000195535.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 42.463674449691986,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 36.740324894693025,
+          "grows": true,
+          "n_overrides": 32,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 38.85554866948882,
+          "grows": true,
+          "n_overrides": 67,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 38.85554866948915,
+          "grows": true,
+          "n_overrides": 89,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 50.30098854017726,
+          "grows": true,
+          "n_overrides": 84,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 42.46367444969196,
+          "grows": true,
+          "n_overrides": 94,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 34.60509958049949,
+          "grows": true,
+          "n_overrides": 117,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000196355.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 26.033193732139768,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 8.110250748677522,
+          "grows": true,
+          "n_overrides": 31,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 8.110250748677522,
+          "grows": true,
+          "n_overrides": 64,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 8.110250748677522,
+          "grows": true,
+          "n_overrides": 80,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 48.73136503149,
+          "grows": true,
+          "n_overrides": 77,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 26.03319373213985,
+          "grows": true,
+          "n_overrides": 85,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 103,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000200595.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 38.89499324199495,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 37.428231366355,
+          "grows": true,
+          "n_overrides": 27,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 37.42823136635503,
+          "grows": true,
+          "n_overrides": 54,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 39.03558679269959,
+          "grows": true,
+          "n_overrides": 77,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 46.39000697396343,
+          "grows": true,
+          "n_overrides": 64,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 35.6578062960989,
+          "grows": true,
+          "n_overrides": 74,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 21.184151712420938,
+          "grows": true,
+          "n_overrides": 101,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000219105.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 48.67972473238354,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 37.42823136635516,
+          "grows": true,
+          "n_overrides": 46,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 54.325879219083596,
+          "grows": true,
+          "n_overrides": 83,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 40.671527592073296,
+          "grows": true,
+          "n_overrides": 107,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 80.50265860030014,
+          "grows": true,
+          "n_overrides": 99,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 48.67972473238328,
+          "grows": true,
+          "n_overrides": 112,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 35.238795699054485,
+          "grows": true,
+          "n_overrides": 136,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000224745.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 39,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 45.46461530322388,
+          "grows": true,
+          "n_overrides": 74,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 36.32600922281038,
+          "grows": true,
+          "n_overrides": 94,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 64.88128809748137,
+          "grows": true,
+          "n_overrides": 90,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 2.9293133975004424,
+          "grows": true,
+          "n_overrides": 99,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 15.292547526506361,
+          "grows": true,
+          "n_overrides": 118,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000233715.2",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 36.09528433157852,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 39.98408633363917,
+          "grows": true,
+          "n_overrides": 39,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 40.94475937788542,
+          "grows": true,
+          "n_overrides": 71,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 40.94475937788542,
+          "grows": true,
+          "n_overrides": 91,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 77.15606185172852,
+          "grows": true,
+          "n_overrides": 88,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 37.40808521728072,
+          "grows": true,
+          "n_overrides": 99,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 122,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000237205.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 25,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 59,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 16.46241900196206,
+          "grows": true,
+          "n_overrides": 80,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 71,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 80,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 21.630488831349922,
+          "grows": true,
+          "n_overrides": 102,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000253035.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 41.18107317876724,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 31.469524519086548,
+          "grows": true,
+          "n_overrides": 34,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 37.355643784051765,
+          "grows": true,
+          "n_overrides": 70,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 39.42505133470192,
+          "grows": true,
+          "n_overrides": 89,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 68.01699291206529,
+          "grows": true,
+          "n_overrides": 83,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 41.18107317876716,
+          "grows": true,
+          "n_overrides": 97,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 52.398274307824316,
+          "grows": true,
+          "n_overrides": 119,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000260985.4",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 42.94309537964768,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 24.513273631255384,
+          "grows": true,
+          "n_overrides": 33,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 48.47662214896867,
+          "grows": true,
+          "n_overrides": 66,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 27.400394428677714,
+          "grows": true,
+          "n_overrides": 91,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 55.36011629620056,
+          "grows": true,
+          "n_overrides": 85,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 42.94309537964792,
+          "grows": true,
+          "n_overrides": 102,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 44.59461267349177,
+          "grows": true,
+          "n_overrides": 126,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000266885.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 39.29901780526206,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 32.231135921923354,
+          "grows": true,
+          "n_overrides": 36,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 49.278723746759965,
+          "grows": true,
+          "n_overrides": 69,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 34.47526916566401,
+          "grows": true,
+          "n_overrides": 93,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 46.482047266227326,
+          "grows": true,
+          "n_overrides": 87,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 35.38313264292668,
+          "grows": true,
+          "n_overrides": 98,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 22.406001223367653,
+          "grows": true,
+          "n_overrides": 121,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000270285.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 27.495717541992846,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 30.505056975820164,
+          "grows": true,
+          "n_overrides": 29,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 30.50505697582019,
+          "grows": true,
+          "n_overrides": 55,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 30.505056975820082,
+          "grows": true,
+          "n_overrides": 74,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 30.505056975820217,
+          "grows": true,
+          "n_overrides": 66,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 27.495717541992633,
+          "grows": true,
+          "n_overrides": 75,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 99,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000283635.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 29.597083799333557,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 22,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 46,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 57,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 29.59708379933324,
+          "grows": true,
+          "n_overrides": 56,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 56,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 74,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000284095.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 36.946927585869254,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 20.12566465007507,
+          "grows": true,
+          "n_overrides": 28,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 20.125664650075088,
+          "grows": true,
+          "n_overrides": 55,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 21.99136179308769,
+          "grows": true,
+          "n_overrides": 85,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 40.25132930015009,
+          "grows": true,
+          "n_overrides": 77,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 46.526992634776924,
+          "grows": true,
+          "n_overrides": 86,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 49.51279882045249,
+          "grows": true,
+          "n_overrides": 112,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000284315.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 39.86823781919813,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 21.56607440834837,
+          "grows": true,
+          "n_overrides": 30,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 21.56607440834837,
+          "grows": true,
+          "n_overrides": 53,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 21.566074408348165,
+          "grows": true,
+          "n_overrides": 72,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 39.86823781919795,
+          "grows": true,
+          "n_overrides": 66,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 39.85548088062248,
+          "grows": true,
+          "n_overrides": 76,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 48.51644788444028,
+          "grows": true,
+          "n_overrides": 97,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000284415.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 52.29764472327261,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 37.290960857542906,
+          "grows": true,
+          "n_overrides": 35,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 38.05652916842678,
+          "grows": true,
+          "n_overrides": 68,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 86,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 39.39590322002409,
+          "grows": true,
+          "n_overrides": 85,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 39.39590322002409,
+          "grows": true,
+          "n_overrides": 101,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 27.31215609443453,
+          "grows": true,
+          "n_overrides": 120,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000298115.2",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 33.90356301019561,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 29.925649723262246,
+          "grows": true,
+          "n_overrides": 23,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 29.92564972326244,
+          "grows": true,
+          "n_overrides": 54,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 29.92564972326245,
+          "grows": true,
+          "n_overrides": 67,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 44.400734388146944,
+          "grows": true,
+          "n_overrides": 70,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 30.772568409343098,
+          "grows": true,
+          "n_overrides": 75,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 39.960660949332215,
+          "grows": true,
+          "n_overrides": 95,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000307165.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 29.597083799333152,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 26,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 59,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 75,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 29.597083799332683,
+          "grows": true,
+          "n_overrides": 74,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 29.48891652928731,
+          "grows": true,
+          "n_overrides": 76,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 95,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000507245.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 33.96399951906986,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 14.524845110682941,
+          "grows": true,
+          "n_overrides": 31,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 32.85248249783995,
+          "grows": true,
+          "n_overrides": 70,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 16.203608057406136,
+          "grows": true,
+          "n_overrides": 85,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 40.98082331644918,
+          "grows": true,
+          "n_overrides": 86,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 34.989723518202744,
+          "grows": true,
+          "n_overrides": 91,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 23.528581344187877,
+          "grows": true,
+          "n_overrides": 113,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000521655.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 69.0821762581794,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 53.96324024074796,
+          "grows": true,
+          "n_overrides": 39,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 60.65373529030267,
+          "grows": true,
+          "n_overrides": 79,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 45.57658943291577,
+          "grows": true,
+          "n_overrides": 106,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 64.77580744785276,
+          "grows": true,
+          "n_overrides": 98,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 60.37699395022522,
+          "grows": true,
+          "n_overrides": 107,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 59.64321429210465,
+          "grows": true,
+          "n_overrides": 133,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000599545.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 73.6447510045573,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 52.885166801468756,
+          "grows": true,
+          "n_overrides": 48,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 80.50265860030038,
+          "grows": true,
+          "n_overrides": 93,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 63.174519610423935,
+          "grows": true,
+          "n_overrides": 128,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 100.62832325037556,
+          "grows": true,
+          "n_overrides": 124,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 61.51814477680211,
+          "grows": true,
+          "n_overrides": 139,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 71.71640107267729,
+          "grows": true,
+          "n_overrides": 165,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000599985.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 58.281284908061146,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 31,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 63,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 92,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 58.281284908061295,
+          "grows": true,
+          "n_overrides": 91,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 58.281284908061295,
+          "grows": true,
+          "n_overrides": 97,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 58.29048982331317,
+          "grows": true,
+          "n_overrides": 119,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000600005.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 31,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 66,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 36.72265034712088,
+          "grows": true,
+          "n_overrides": 93,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 86,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 97,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 122,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000632475.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 82.455813198258,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 61.42759784989762,
+          "grows": true,
+          "n_overrides": 43,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 81.61802075671832,
+          "grows": true,
+          "n_overrides": 94,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 64.4450316102881,
+          "grows": true,
+          "n_overrides": 130,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 105.05574192006227,
+          "grows": true,
+          "n_overrides": 130,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 74.953260124638,
+          "grows": true,
+          "n_overrides": 154,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 78.02765096399789,
+          "grows": true,
+          "n_overrides": 178,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000724625.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 30,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 61,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 84,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 43.962469240009774,
+          "grows": true,
+          "n_overrides": 80,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 87,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 110,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000725365.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 60.95058532878772,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 39.03558679269954,
+          "grows": true,
+          "n_overrides": 32,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 40.63372355252516,
+          "grows": true,
+          "n_overrides": 69,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 40.63372355252542,
+          "grows": true,
+          "n_overrides": 95,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 60.95058532878787,
+          "grows": true,
+          "n_overrides": 89,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 58.77432032396403,
+          "grows": true,
+          "n_overrides": 97,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 52.25397522116504,
+          "grows": true,
+          "n_overrides": 123,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000746585.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 21.755887561556612,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 21.755887561556612,
+          "grows": true,
+          "n_overrides": 25,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 21.755887561556605,
+          "grows": true,
+          "n_overrides": 54,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 21.755887561556605,
+          "grows": true,
+          "n_overrides": 67,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 21.755887561556648,
+          "grows": true,
+          "n_overrides": 58,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 21.755887561556587,
+          "grows": true,
+          "n_overrides": 66,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 87,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000756615.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 62.06297323017077,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 51.88309700582646,
+          "grows": true,
+          "n_overrides": 36,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 57.87472437162519,
+          "grows": true,
+          "n_overrides": 78,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 45.57658943291533,
+          "grows": true,
+          "n_overrides": 109,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 90.20299094455301,
+          "grows": true,
+          "n_overrides": 109,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 55.798229226784066,
+          "grows": true,
+          "n_overrides": 124,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 51.52258095358816,
+          "grows": true,
+          "n_overrides": 148,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000828835.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 32.5598826992037,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 31.900088921497904,
+          "grows": true,
+          "n_overrides": 29,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 51.685418423611985,
+          "grows": true,
+          "n_overrides": 66,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 55.733023953124885,
+          "grows": true,
+          "n_overrides": 90,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 65.60259430883032,
+          "grows": true,
+          "n_overrides": 86,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 32.559882699203875,
+          "grows": true,
+          "n_overrides": 99,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 57.040924556872056,
+          "grows": true,
+          "n_overrides": 122,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000968135.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 39.699842722456346,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 39.80345056112914,
+          "grows": true,
+          "n_overrides": 36,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 49.84952068117209,
+          "grows": true,
+          "n_overrides": 75,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 38.372409425031215,
+          "grows": true,
+          "n_overrides": 99,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 36.49465216490841,
+          "grows": true,
+          "n_overrides": 94,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 105,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 128,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000968535.2",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 32.541569821599,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 34.937884808047016,
+          "grows": true,
+          "n_overrides": 35,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 34.23599384094443,
+          "grows": true,
+          "n_overrides": 72,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 34.23599384094515,
+          "grows": true,
+          "n_overrides": 99,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 51.35399076141744,
+          "grows": true,
+          "n_overrides": 95,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 31.344498766202456,
+          "grows": true,
+          "n_overrides": 111,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 135,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_000973725.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 9.583383486373574,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 9.63323574223298,
+          "grows": true,
+          "n_overrides": 40,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 24.964046971582707,
+          "grows": true,
+          "n_overrides": 75,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 9.601556527531404,
+          "grows": true,
+          "n_overrides": 98,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 23.043735666076454,
+          "grows": true,
+          "n_overrides": 94,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 7.332660439527018,
+          "grows": true,
+          "n_overrides": 99,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 121,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_001020955.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 23.20493847500626,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 23.20493847500649,
+          "grows": true,
+          "n_overrides": 28,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 40.514780804907154,
+          "grows": true,
+          "n_overrides": 55,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 25.77593623033377,
+          "grows": true,
+          "n_overrides": 77,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 45.10788840308395,
+          "grows": true,
+          "n_overrides": 68,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 23.20493847500622,
+          "grows": true,
+          "n_overrides": 78,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 102,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_001021065.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 76.1130583368534,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 56.5468177807074,
+          "grows": true,
+          "n_overrides": 29,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 60.37699395022513,
+          "grows": true,
+          "n_overrides": 64,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 96,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 60.376993950225156,
+          "grows": true,
+          "n_overrides": 89,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 60.3769939502252,
+          "grows": true,
+          "n_overrides": 97,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 60.37699395022523,
+          "grows": true,
+          "n_overrides": 122,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_001262075.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 46.88909603449544,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 32.617275413759764,
+          "grows": true,
+          "n_overrides": 31,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 32.617275413750285,
+          "grows": true,
+          "n_overrides": 66,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 35.02516558148244,
+          "grows": true,
+          "n_overrides": 88,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 65.70807965321151,
+          "grows": true,
+          "n_overrides": 79,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 46.10117733186684,
+          "grows": true,
+          "n_overrides": 88,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 110,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_001443605.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 25.955755818631566,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 25.955755818631584,
+          "grows": true,
+          "n_overrides": 36,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 46.3246057776049,
+          "grows": true,
+          "n_overrides": 68,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 30.883070518403187,
+          "grows": true,
+          "n_overrides": 87,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 46.32460577760479,
+          "grows": true,
+          "n_overrides": 85,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 25.95575581863148,
+          "grows": true,
+          "n_overrides": 96,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 119,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_001544015.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 34.492809111620566,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 40.19615724736722,
+          "grows": true,
+          "n_overrides": 35,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 55.41128099799403,
+          "grows": true,
+          "n_overrides": 69,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 40.059929654763344,
+          "grows": true,
+          "n_overrides": 98,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 55.41128099799424,
+          "grows": true,
+          "n_overrides": 95,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 30.67738739098026,
+          "grows": true,
+          "n_overrides": 105,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 126,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_001610875.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 56.556007548687084,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 31.46952451908666,
+          "grows": true,
+          "n_overrides": 31,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 37.831289328171444,
+          "grows": true,
+          "n_overrides": 69,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 40.22883951866634,
+          "grows": true,
+          "n_overrides": 97,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 61.05740433983859,
+          "grows": true,
+          "n_overrides": 93,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 55.802248718844176,
+          "grows": true,
+          "n_overrides": 109,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 56.428419609251904,
+          "grows": true,
+          "n_overrides": 132,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_001632845.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 30.88843637329607,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 30.888436373295974,
+          "grows": true,
+          "n_overrides": 34,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 61.449973576511404,
+          "grows": true,
+          "n_overrides": 67,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 46.08748018238356,
+          "grows": true,
+          "n_overrides": 90,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 69.49925784721117,
+          "grows": true,
+          "n_overrides": 87,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 30.888436373296006,
+          "grows": true,
+          "n_overrides": 101,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 23.41403840183261,
+          "grows": true,
+          "n_overrides": 121,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_001636925.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 34.49280911162043,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 34.492809111620424,
+          "grows": true,
+          "n_overrides": 41,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 51.73921366743079,
+          "grows": true,
+          "n_overrides": 76,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 48.31384674847806,
+          "grows": true,
+          "n_overrides": 95,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 55.31452762315324,
+          "grows": true,
+          "n_overrides": 89,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 29.94563370201396,
+          "grows": true,
+          "n_overrides": 101,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 123,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_001659705.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 50.16084912285391,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 32,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 61,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 82,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 53.3823026990092,
+          "grows": true,
+          "n_overrides": 76,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 50.160849122853875,
+          "grows": true,
+          "n_overrides": 84,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 35.205255440532234,
+          "grows": true,
+          "n_overrides": 104,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_001688725.2",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 36.465341516155945,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 36.465341516155966,
+          "grows": true,
+          "n_overrides": 31,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 36.46534151615598,
+          "grows": true,
+          "n_overrides": 56,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 36.46534151615598,
+          "grows": true,
+          "n_overrides": 71,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 37.26268328582341,
+          "grows": true,
+          "n_overrides": 67,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 36.46534151615598,
+          "grows": true,
+          "n_overrides": 74,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 95,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_001688905.2",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 36.722650347120876,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 36.72265034712105,
+          "grows": true,
+          "n_overrides": 23,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 55.84132872580451,
+          "grows": true,
+          "n_overrides": 49,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 55.841328725803464,
+          "grows": true,
+          "n_overrides": 72,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 66.97278811902461,
+          "grows": true,
+          "n_overrides": 62,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 36.722650347120876,
+          "grows": true,
+          "n_overrides": 73,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 99,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_001746835.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 33.05214223328366,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 33.04534316762747,
+          "grows": true,
+          "n_overrides": 33,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 44.96313344222972,
+          "grows": true,
+          "n_overrides": 63,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 29.821607146052283,
+          "grows": true,
+          "n_overrides": 85,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 29.3445271059588,
+          "grows": true,
+          "n_overrides": 77,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 86,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 22.785627607326806,
+          "grows": true,
+          "n_overrides": 110,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_001888165.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 24.19581119335488,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 18.74837554286538,
+          "grows": true,
+          "n_overrides": 32,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 19.342239765674265,
+          "grows": true,
+          "n_overrides": 65,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 20.278116277779567,
+          "grows": true,
+          "n_overrides": 80,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 28.462891552774717,
+          "grows": true,
+          "n_overrides": 80,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 24.824775871062513,
+          "grows": true,
+          "n_overrides": 85,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 33.1515397611517,
+          "grows": true,
+          "n_overrides": 107,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_002005145.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 58.20374392713616,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 41.906845273641416,
+          "grows": true,
+          "n_overrides": 29,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 42.96335440685867,
+          "grows": true,
+          "n_overrides": 56,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 42.963354406858755,
+          "grows": true,
+          "n_overrides": 81,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 60.089894482145816,
+          "grows": true,
+          "n_overrides": 75,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 55.110600927336534,
+          "grows": true,
+          "n_overrides": 85,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 43.75429339003893,
+          "grows": true,
+          "n_overrides": 109,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_002005425.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 33.25523894720565,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 33.25523894720562,
+          "grows": true,
+          "n_overrides": 33,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 51.82385417458422,
+          "grows": true,
+          "n_overrides": 69,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 37.262683285823385,
+          "grows": true,
+          "n_overrides": 94,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 51.82385417458407,
+          "grows": true,
+          "n_overrides": 90,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 30.177974605234418,
+          "grows": true,
+          "n_overrides": 100,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 121,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_002007605.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 36,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 41.37531548678064,
+          "grows": true,
+          "n_overrides": 72,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 98,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 46.023545484383654,
+          "grows": true,
+          "n_overrides": 93,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 107,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 33.11134608582196,
+          "grows": true,
+          "n_overrides": 129,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_002082765.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 56.25056250562489,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 40.25132930015009,
+          "grows": true,
+          "n_overrides": 25,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 40.25132930015009,
+          "grows": true,
+          "n_overrides": 49,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 43.98272358617531,
+          "grows": true,
+          "n_overrides": 66,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 75.00075000749973,
+          "grows": true,
+          "n_overrides": 62,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 56.25056250562497,
+          "grows": true,
+          "n_overrides": 71,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 52.955934043384104,
+          "grows": true,
+          "n_overrides": 95,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_002127965.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 25.953616993390245,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 5.362184028279068,
+          "grows": true,
+          "n_overrides": 30,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 5.36218402827907,
+          "grows": true,
+          "n_overrides": 61,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 5.649509248317252,
+          "grows": true,
+          "n_overrides": 74,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 39.657766692697656,
+          "grows": true,
+          "n_overrides": 69,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 69,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 9.486353485246665,
+          "grows": true,
+          "n_overrides": 88,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_002288005.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 14.135859034386497,
+          "grows": true,
+          "n_overrides": 31,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 28.123906902837273,
+          "grows": true,
+          "n_overrides": 60,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 14.732644852284986,
+          "grows": true,
+          "n_overrides": 73,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 14.732644852285045,
+          "grows": true,
+          "n_overrides": 71,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 76,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 94,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_002302535.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 28,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 30.65339042782731,
+          "grows": true,
+          "n_overrides": 57,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 16.107186885850524,
+          "grows": true,
+          "n_overrides": 71,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 15.326695213913716,
+          "grows": true,
+          "n_overrides": 65,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 70,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 92,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_002302615.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 32.61871172398045,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 32.61871172398047,
+          "grows": true,
+          "n_overrides": 26,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 37.262683285823435,
+          "grows": true,
+          "n_overrides": 54,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 37.26268328582344,
+          "grows": true,
+          "n_overrides": 77,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 37.262683285823556,
+          "grows": true,
+          "n_overrides": 69,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 32.22786388883975,
+          "grows": true,
+          "n_overrides": 77,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 104,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_002591335.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 80.50265860030062,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 59.49581265165233,
+          "grows": true,
+          "n_overrides": 42,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 76.11305833685375,
+          "grows": true,
+          "n_overrides": 90,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 65.97408537926319,
+          "grows": true,
+          "n_overrides": 123,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 100.62832325036858,
+          "grows": true,
+          "n_overrides": 120,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 80.50265860029987,
+          "grows": true,
+          "n_overrides": 132,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 87.96544717235068,
+          "grows": true,
+          "n_overrides": 158,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_002951835.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 47.81116966878055,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 35.975493493831785,
+          "grows": true,
+          "n_overrides": 29,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 55.03123022315147,
+          "grows": true,
+          "n_overrides": 63,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 38.230537788975234,
+          "grows": true,
+          "n_overrides": 87,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 59.09046889675966,
+          "grows": true,
+          "n_overrides": 79,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 44.6418527011715,
+          "grows": true,
+          "n_overrides": 90,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 24.829844621926622,
+          "grows": true,
+          "n_overrides": 115,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_003143535.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 31,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 65,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 84,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 36.86124233572144,
+          "grows": true,
+          "n_overrides": 75,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 81,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 104,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_003261575.2",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 81.09450129376934,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 63.36292381875677,
+          "grows": true,
+          "n_overrides": 48,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 87.21121348365872,
+          "grows": true,
+          "n_overrides": 99,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 65.97408537926296,
+          "grows": true,
+          "n_overrides": 140,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 127.46254278380884,
+          "grows": true,
+          "n_overrides": 138,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 81.09450129376879,
+          "grows": true,
+          "n_overrides": 157,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 79.524285722806,
+          "grows": true,
+          "n_overrides": 185,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_003352785.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 22.70456815911355,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 22.704568159113645,
+          "grows": true,
+          "n_overrides": 28,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 23.636750419552218,
+          "grows": true,
+          "n_overrides": 60,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 23.636750419552108,
+          "grows": true,
+          "n_overrides": 79,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 41.36431323421687,
+          "grows": true,
+          "n_overrides": 71,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 22.704568159113848,
+          "grows": true,
+          "n_overrides": 79,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 16.851698314156025,
+          "grows": true,
+          "n_overrides": 99,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_003355515.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 32.618711723980454,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 32.618711723980454,
+          "grows": true,
+          "n_overrides": 25,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 33.61516850863795,
+          "grows": true,
+          "n_overrides": 52,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 33.615168508638114,
+          "grows": true,
+          "n_overrides": 72,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 33.61516850863808,
+          "grows": true,
+          "n_overrides": 61,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 32.22786388883964,
+          "grows": true,
+          "n_overrides": 76,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 99,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_003441595.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 77.25766569044005,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 78.32071437442423,
+          "grows": true,
+          "n_overrides": 40,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 100.6916256033631,
+          "grows": true,
+          "n_overrides": 86,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 82.04858917450936,
+          "grows": true,
+          "n_overrides": 119,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 100.69162560336275,
+          "grows": true,
+          "n_overrides": 113,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 63.89581517553208,
+          "grows": true,
+          "n_overrides": 125,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 64.50447661067706,
+          "grows": true,
+          "n_overrides": 150,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_003966365.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 51.11638310774443,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 37.01044434739489,
+          "grows": true,
+          "n_overrides": 27,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 57.45332396205785,
+          "grows": true,
+          "n_overrides": 60,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 38.302215974705234,
+          "grows": true,
+          "n_overrides": 94,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 53.96634658626871,
+          "grows": true,
+          "n_overrides": 82,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 48.73178538767093,
+          "grows": true,
+          "n_overrides": 97,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 35.97756439084577,
+          "grows": true,
+          "n_overrides": 123,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_004114615.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 28.044381168011075,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 21.83801073192638,
+          "grows": true,
+          "n_overrides": 36,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 41.375315486780565,
+          "grows": true,
+          "n_overrides": 78,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 25.367803555788033,
+          "grows": true,
+          "n_overrides": 97,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 65.52969252303245,
+          "grows": true,
+          "n_overrides": 90,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 28.044381168011085,
+          "grows": true,
+          "n_overrides": 99,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 23.756712261076917,
+          "grows": true,
+          "n_overrides": 121,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_004571195.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 31.68217707247977,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 33.68109059371382,
+          "grows": true,
+          "n_overrides": 32,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 47.7271913741058,
+          "grows": true,
+          "n_overrides": 66,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 51.15800405341941,
+          "grows": true,
+          "n_overrides": 87,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 50.7772086498971,
+          "grows": true,
+          "n_overrides": 80,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 31.682177072479746,
+          "grows": true,
+          "n_overrides": 92,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 113,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_005280295.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 34,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 71,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 95,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 35.76071077988749,
+          "grows": true,
+          "n_overrides": 89,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 99,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 120,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_006874645.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 31,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 66,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 80,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 35.818367921738314,
+          "grows": true,
+          "n_overrides": 75,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 12.880439892783194,
+          "grows": true,
+          "n_overrides": 84,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 103,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_008118345.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 64.9062996431775,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 50.38838421772801,
+          "grows": true,
+          "n_overrides": 35,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 58.28128490806117,
+          "grows": true,
+          "n_overrides": 69,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 95,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 56.25056250562508,
+          "grows": true,
+          "n_overrides": 86,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 56.25056250562506,
+          "grows": true,
+          "n_overrides": 98,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 37.83207100323083,
+          "grows": true,
+          "n_overrides": 122,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_008805035.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 13.596636735937054,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 13.596636735937054,
+          "grows": true,
+          "n_overrides": 26,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 13.928100360320318,
+          "grows": true,
+          "n_overrides": 56,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 14.569666682450473,
+          "grows": true,
+          "n_overrides": 67,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 13.928100360319945,
+          "grows": true,
+          "n_overrides": 59,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 13.512924605650602,
+          "grows": true,
+          "n_overrides": 65,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 11.77210846114411,
+          "grows": true,
+          "n_overrides": 85,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_009649955.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 15.05244271040308,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 27.39163185646793,
+          "grows": true,
+          "n_overrides": 31,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 41.75865169665401,
+          "grows": true,
+          "n_overrides": 58,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 28.9956767445974,
+          "grows": true,
+          "n_overrides": 83,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 28.99567674459738,
+          "grows": true,
+          "n_overrides": 82,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 15.05244271040304,
+          "grows": true,
+          "n_overrides": 91,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 112,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_009688965.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 32.564910006871145,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 51.476253146486094,
+          "grows": true,
+          "n_overrides": 39,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 59.972810508545756,
+          "grows": true,
+          "n_overrides": 78,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 59.972810508544995,
+          "grows": true,
+          "n_overrides": 106,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 76.32903155632683,
+          "grows": true,
+          "n_overrides": 103,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 32.564910006871315,
+          "grows": true,
+          "n_overrides": 117,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 142,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_013377295.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 29,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 63,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 44.36788897925521,
+          "grows": true,
+          "n_overrides": 82,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 78,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 85,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 56.730775594798544,
+          "grows": true,
+          "n_overrides": 107,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_900066015.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 16.313792536684677,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 7.8080134422758976,
+          "grows": true,
+          "n_overrides": 37,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 25.274363749485527,
+          "grows": true,
+          "n_overrides": 77,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 16.849575832990485,
+          "grows": true,
+          "n_overrides": 101,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 42.705740837839194,
+          "grows": true,
+          "n_overrides": 98,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 16.89039757673449,
+          "grows": true,
+          "n_overrides": 105,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 11.52981888600194,
+          "grows": true,
+          "n_overrides": 125,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_900186975.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 41.12477482340449,
+          "grows": true,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 23.260784668972043,
+          "grows": true,
+          "n_overrides": 28,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 23.260784668971773,
+          "grows": true,
+          "n_overrides": 59,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 26.295738972717512,
+          "grows": true,
+          "n_overrides": 79,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 42.90248816044551,
+          "grows": true,
+          "n_overrides": 71,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 40.25132930015011,
+          "grows": true,
+          "n_overrides": 78,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 101,
+          "biomass_rxn": "bio1"
+        }
+      }
+    },
+    {
+      "model_id": "GCF_900232105.1",
+      "runs": {
+        "on_disk": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 0,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold": {
+          "status": "optimal",
+          "growth": 30.72498678825565,
+          "grows": true,
+          "n_overrides": 30,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver": {
+          "status": "optimal",
+          "growth": 30.72498678825565,
+          "grows": true,
+          "n_overrides": 58,
+          "biomass_rxn": "bio1"
+        },
+        "v201_gold_silver_bronze": {
+          "status": "optimal",
+          "growth": 32.85248249783985,
+          "grows": true,
+          "n_overrides": 82,
+          "biomass_rxn": "bio1"
+        },
+        "v201_equilibrator": {
+          "status": "optimal",
+          "growth": 32.89222123636914,
+          "grows": true,
+          "n_overrides": 77,
+          "biomass_rxn": "bio1"
+        },
+        "v201_llm_council": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 90,
+          "biomass_rxn": "bio1"
+        },
+        "claude_opus48": {
+          "status": "optimal",
+          "growth": 0.0,
+          "grows": false,
+          "n_overrides": 114,
+          "biomass_rxn": "bio1"
+        }
+      }
+    }
+  ],
+  "errors": []
+}

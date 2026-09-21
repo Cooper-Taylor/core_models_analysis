@@ -1,0 +1,85 @@
+{
+  "stages": {
+    "heuristics": {
+      "status": "skipped",
+      "missing": [
+        "heuristics"
+      ]
+    },
+    "growth": {
+      "status": "ok",
+      "elapsed_s": 3.12,
+      "output": "growth.json"
+    },
+    "growth_diff": {
+      "status": "ok",
+      "elapsed_s": 0.0,
+      "output": "growth_diff.json"
+    }
+  },
+  "order": [
+    "heuristics",
+    "growth",
+    "growth_diff"
+  ],
+  "elapsed_s": 3.12,
+  "inputs": {
+    "models": [
+      "core_kegg2"
+    ],
+    "directions": [
+      "v201_gold",
+      "v201_gold_silver",
+      "v201_gold_silver_bronze",
+      "v201_equilibrator",
+      "v201_llm_council",
+      "claude_opus48"
+    ],
+    "heuristics": [],
+    "thermo": [],
+    "media": null,
+    "panel": "core_100",
+    "limit": null,
+    "only": "growth,growth_diff",
+    "exclude": null,
+    "no_heavy": false,
+    "baseline": null,
+    "db_level": "EQ",
+    "workers": 16,
+    "option": [],
+    "out": "results/direction_sets_v201/fba_panel",
+    "stop_on_error": false
+  },
+  "resolved": {
+    "model_set": "core_kegg2",
+    "models_dir": "/scratch/ctaylor/core_models_analysis/data/core_models_kegg2",
+    "loader": "cobra_json",
+    "id_glob": "*.json",
+    "n_models": 100,
+    "n_models_available": 100,
+    "media": "kbase_complete",
+    "media_default_uptake": -1000.0,
+    "direction_labels": [
+      "v201_gold",
+      "v201_gold_silver",
+      "v201_gold_silver_bronze",
+      "v201_equilibrator",
+      "v201_llm_council",
+      "claude_opus48"
+    ],
+    "heuristic_labels": [],
+    "thermo_labels": [],
+    "stages": [
+      "heuristics",
+      "growth",
+      "growth_diff"
+    ]
+  },
+  "command": "python3 beginPipeline --models core_kegg2 --panel core_100 --workers 16 --directions v201_gold --directions v201_gold_silver --directions v201_gold_silver_bronze --directions v201_equilibrator --directions v201_llm_council --directions claude_opus48 --only growth,growth_diff --out results/direction_sets_v201/fba_panel",
+  "paths": {
+    "analysis_dir": "/scratch/ctaylor/core_models_analysis",
+    "msdb_live": "/scratch/ctaylor/ModelSEEDDatabase",
+    "msdb_snapshot": "/scratch/ctaylor/tmp/devsnap2",
+    "python": "/mnt/homes/ctaylor/conda/miniforge3/envs/core_models_analysis/bin/python"
+  }
+}

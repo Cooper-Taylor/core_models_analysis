@@ -24,7 +24,7 @@ Output: ``site/data/reaction_direction_effects_panel.json`` consumed by the
 "Reaction-direction heuristics" chart under the site's Panel Models tab.
 
 Pure cobra (no modelseedpy needed).  Run:
-    PY=/mnt/homes/ctaylor/conda/miniforge3/envs/core_models_analysis/bin/python
+    PY=python3
     $PY scripts/build_reaction_direction_effects.py [--workers 32]
 """
 

@@ -23,7 +23,7 @@ the sequence of evaluation calls diff_template_evaluation performs.
 Output: ``site/data/cumulative_direction_growth_panel.json`` -> the "Cumulative
 direction changes" line chart under the site's Panel Models tab.
 
-    PY=/mnt/homes/ctaylor/conda/miniforge3/envs/core_models_analysis/bin/python
+    PY=python3
     $PY scripts/build_cumulative_direction_growth.py [--workers 48]
 """
 

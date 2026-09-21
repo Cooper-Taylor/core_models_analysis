@@ -30,9 +30,24 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "scripts" / "figures.tsv"
 LOG_DIR = ROOT / "reports" / "thermoComparison" / "figures" / "_regen_logs"
-PYTHON = os.environ.get(
-    "CMA_PYTHON",
-    "/mnt/homes/ctaylor/conda/miniforge3/envs/core_models_analysis/bin/python")
+def _python() -> str:
+    """Interpreter for the forked figure jobs.
+
+    Defaults to the interpreter running this script, which is right in a venv,
+    a conda env or a bare system Python alike. It used to be one hardcoded
+    conda path, which meant the registry only worked on one machine.
+    """
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    try:
+        from cma import paths
+        return paths.python_exe()
+    except Exception:  # noqa: BLE001 -- never let the figure runner die on this
+        import sys as _s
+        return os.environ.get("CMA_PYTHON") or _s.executable
+
+
+PYTHON = _python()
 
 
 def load_registry() -> list[dict]:

@@ -14,6 +14,43 @@ markdown report.
 
 ---
 
+## Quickstart
+
+```bash
+git clone https://github.com/Cooper-Taylor/core_models_analysis
+cd core_models_analysis
+python3 -m venv .venv && source .venv/bin/activate
+pip install -e ".[all]"
+
+beginPipeline --doctor                    # what is installed, what data is missing
+python3 scripts/fetch_data.py --all       # clone MSDB, fetch the models
+beginPipeline --list                      # every stage and everything registered
+beginPipeline --models core_kegg2 --limit 20 --directions v201_gold
+```
+
+`--doctor` is the one to run first: it reports every data root it found or
+could not find, every Python package, and exactly which variable to set for
+anything missing.
+
+Requires Python 3.11+ and `git`. The heavy inputs (ModelSEEDDatabase, the model
+JSONs) are not vendored; `fetch_data.py` gets them and puts them where the
+package already looks, so there is usually nothing to configure. If your copies
+live elsewhere, set `MSDB_ROOT` and friends, or copy `cma.toml.example` to
+`cma.toml`.
+
+### The one command
+
+```bash
+beginPipeline --models <path|name> [--directions ...] [--heuristics ...] [--only ...]
+```
+
+Every input takes a filesystem path or the name of something registered, so you
+can point it at models or direction tables nothing knows about yet without
+editing any Python. By default it produces everything it can; `--only` narrows.
+Full guide in [PIPELINE.md](PIPELINE.md).
+
+---
+
 ## What's in here
 
 | Stage | Notebook | What it does | Embedded report |
@@ -78,7 +115,7 @@ need to supply locally.
 
 ## External dependencies
 
-Three things this repo deliberately does **not** vendor:
+Four things this repo deliberately does **not** vendor:
 
 ### 1. ModelSEEDDatabase (required)
 
@@ -127,54 +164,87 @@ ln -s /path/to/core_models_kegg2 data/core_models_kegg2
 ln -s /path/to/core_models.tar   data/core_models.tar   # optional
 ```
 
+### 4. ModelSEED v2 genome-scale models (optional)
+
+The 5,420 gap-filled genome-scale models from the ModelSEED v2 manuscript
+(Faria et al. 2023), in two media conditions, downloaded from the public KBase
+workspaces 155807 and 155808. They need no KBase auth token -- both workspaces
+are world-readable.
+
+```bash
+python3 /scratch/ctaylor/modelseed2_gs_models/scripts/download_ms2_models.py
+python3 /scratch/ctaylor/modelseed2_gs_models/scripts/convert_to_cobra.py --jobs 32
+```
+
+They are registered as the model sets `ms2_gsm` (glucose minimal media) and
+`ms2_gsm_auxo` (auxotrophy media) in
+[`scripts/cma/entries/model_sets.py`](scripts/cma/entries/model_sets.py); point
+`MS2_GS_MODELS_DIR` elsewhere if you unpack them somewhere other than
+`/scratch/ctaylor/modelseed2_gs_models`. Validate with:
+
+```bash
+python3 scripts/cma_check.py --kind modelset --key ms2_gsm
+```
+
+They matter because they touch **3,769** distinct ModelSEED reactions against
+the core panel's **239** -- a fifteenfold expansion of the reaction surface a
+direction map or thermodynamic source can move. See
+`/scratch/ctaylor/modelseed2_gs_models/README.md`.
+
+---
+
+## Adding a source, a variant, a model set: the `cma` registry
+
+Thermo sources, heuristic variants, direction maps, model sets, figures and
+probes are declared once in [`scripts/cma/entries/`](scripts/cma/entries/) and
+read from there by everything downstream, instead of being re-declared as
+literals across the pipeline.
+
+```bash
+python3 scripts/cma_new.py thermo-source --key eq3 --display "eQuilibrator 3.0"
+python3 scripts/cma_new.py variant --key llm_gpt5 --kind overlay
+python3 scripts/cma_new.py model-set --key ecoli_gsm
+python3 scripts/cma_check.py          # validate registries + parity with the old literals
+python3 scripts/check_goldens.py --all   # prove the numbers did not move
+```
+
+See [`scripts/cma/README.md`](scripts/cma/README.md).
 ---
 
 ## Setup
 
 ```bash
-# 1. Clone
-git clone <this-repo-url> core_models_analysis
-cd core_models_analysis
-
-# 2. Create a conda / venv environment with Python 3.12
-conda create -n core_models_analysis python=3.12 -y
-conda activate core_models_analysis
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Install KBUtils_Local in editable mode (see above)
-pip install -e /path/to/KBUtils_Local
-
-# 5. Point data/ at your local copies (see external dependencies)
-mkdir -p data
-ln -s /path/to/core_models_kegg2     data/core_models_kegg2
-ln -s /path/to/ModelSEEDDatabase     /scratch/ctaylor/ModelSEEDDatabase  # or adapt paths
+pip install -e ".[all]"        # or ".[dev]" for just the tests
 ```
 
-### Adapting paths to your environment
+Extras: `figures` (matplotlib, plotly, kaleido), `notebooks` (jupyter),
+`dev` (pytest, ruff), `all`.
 
-Every script reads its two root paths from environment variables and
-falls back to the original defaults if they are unset:
+Installing puts three commands on PATH -- `beginPipeline`, `cma-check` and
+`cma-new`. They also work straight from a checkout with nothing installed, via
+the `beginPipeline` shim at the repo root.
 
-| Env var | Default | Meaning |
+### Where the data goes
+
+`cma.paths` resolves each external root in this order, first hit wins:
+
+1. an environment variable
+2. a key in `cma.toml` (beside the repo, or `~/.config/cma/config.toml`)
+3. conventional locations next to the repo
+4. otherwise an error naming the variable to set
+
+| root | env var | what it is |
 |---|---|---|
-| `CORE_MODELS_ANALYSIS_DIR` | `/scratch/ctaylor/core_models_analysis` | this repo on disk |
-| `MSDB_ROOT` | `/scratch/ctaylor/ModelSEEDDatabase` | ModelSEEDDatabase clone |
+| MSDB | `MSDB_ROOT` | the ModelSEEDDatabase clone; required by almost everything |
+| MSDB snapshot | `MSDB_SNAPSHOT_ROOT` | a pinned snapshot the grading scripts read |
+| core models | `CORE_MODELS_DIR` | the 5,683 core model JSONs |
+| genome-scale models | `MS2_GS_MODELS_DIR` | the ModelSEED v2 models |
 
-If your clones live at the defaults, do nothing. Otherwise export the
-overrides before running anything:
+The two MSDB roots are deliberately separate variables. They have held
+different biochemistry, so a single shared name silently repointed part of the
+pipeline at the other one's data.
 
-```bash
-export CORE_MODELS_ANALYSIS_DIR=/path/to/core_models_analysis
-export MSDB_ROOT=/path/to/ModelSEEDDatabase
-```
-
-Add these to your shell profile (or a project-local `.envrc` if you use
-[direnv](https://direnv.net/)) so every shell, notebook kernel, and
-`jupyter execute` invocation inherits them.
-
----
+`beginPipeline --doctor` prints what each resolved to.
 
 ## Running the pipeline
 

@@ -43,6 +43,7 @@ sys.path.insert(0, str(MSDB_ROOT / "Libs" / "Python"))
 
 import reversibility_lib as lib
 import variant_catalog
+from cma import manifest as cma_manifest
 
 
 OUT_ROOT = ANALYSIS_ROOT / "thermo_variants"
@@ -230,7 +231,7 @@ def main(argv: Optional[list] = None) -> None:
 
     selected = (variant_catalog.VARIANTS if args.only is None
                 else [variant_catalog.variant_by_tag(t) for t in args.only])
-    manifest = {"variants": []}
+    summaries = []
     for v in selected:
         print(f"--- variant {v['tag']:>12} : {v['title']}")
         s = export_variant(rxns, v, out_root)
@@ -238,12 +239,18 @@ def main(argv: Optional[list] = None) -> None:
             extras = {k: v for k, v in c.items() if k != "total"}
             print(f"      {label:>10}  total={c['total']}  {extras}")
         print(f"      elapsed: {s['elapsed_s']}s")
-        manifest["variants"].append(s)
+        summaries.append(s)
 
-    with open(out_root / "manifest.json", "w") as fh:
-        json.dump(manifest, fh, indent=2, default=str)
-    print(f"wrote {out_root / 'manifest.json'}  "
-          f"({len(manifest['variants'])} variants)")
+    # Merge, never rewrite. This used to open `manifest = {"variants": []}` and
+    # dump it wholesale, so a full run erased the six variants that are built by
+    # the standalone overlay scripts (ai_opus48, consensus_thermo, eq3_beber2022,
+    # eq3_gamma1, group_contribution, kegg_implicit) -- they are not in
+    # variant_catalog -- and an `--only` run cut the manifest down to just the
+    # tags named on the command line. The directories survived; the index the
+    # site reads did not.
+    data = cma_manifest.merge(summaries, root=out_root)
+    print(f"merged {len(summaries)} variant(s) into {out_root / 'manifest.json'}  "
+          f"({len(data['variants'])} total)")
 
 
 if __name__ == "__main__":

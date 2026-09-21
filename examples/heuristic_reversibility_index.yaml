@@ -1,0 +1,8 @@
+# Noor 2012/2013 reversibility index at a 100-fold cutoff.
+#
+# `ln_ri_by_rxn: auto` loads the table reversibility_lib knows about; give a
+# path instead to use your own.
+tag: ri_gamma2
+knobs:
+  ln_ri_by_rxn: auto
+  ln_ri_threshold: 4.605170   # ln(100) -> |log10 gamma| = 2

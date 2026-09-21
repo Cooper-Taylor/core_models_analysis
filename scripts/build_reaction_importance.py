@@ -25,7 +25,7 @@ Part 2 (analyze)
 
 Pure cobra FBA (no modelseedpy needed for the solves). Clustering uses scikit-learn.
 
-    PY=/mnt/homes/ctaylor/conda/miniforge3/envs/core_models_analysis/bin/python
+    PY=python3
     $PY scripts/build_reaction_importance.py --workers 96          # compute (resumable) + analyze
     $PY scripts/build_reaction_importance.py --analyze-only        # re-run analysis on existing raw
 """

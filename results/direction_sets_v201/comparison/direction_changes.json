@@ -1,0 +1,6532 @@
+{
+  "_n": 13943,
+  "reference_set": "claude_opus48",
+  "sets_compared": [
+    "v201_bronze_only",
+    "v201_dgpredictor",
+    "v201_equilibrator",
+    "v201_gold",
+    "v201_gold_only",
+    "v201_gold_silver",
+    "v201_gold_silver_bronze",
+    "v201_group_contribution",
+    "v201_llm_council",
+    "v201_silver_only"
+  ],
+  "n_reactions_differing": 13943,
+  "transition_counts": {
+    "> -> =": 32309,
+    "> -> <": 6105,
+    "= -> >": 2663,
+    "< -> =": 1989,
+    "= -> <": 1541,
+    "< -> >": 249
+  },
+  "top_reactions": [
+    {
+      "rxn_id": "rxn00107",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00164",
+      "transitions": {
+        "v201_dgpredictor": [
+          "=",
+          "<"
+        ],
+        "v201_equilibrator": [
+          "=",
+          "<"
+        ],
+        "v201_gold": [
+          "=",
+          "<"
+        ],
+        "v201_gold_only": [
+          "=",
+          "<"
+        ],
+        "v201_gold_silver": [
+          "=",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          "=",
+          "<"
+        ],
+        "v201_group_contribution": [
+          "=",
+          "<"
+        ],
+        "v201_llm_council": [
+          "=",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00321",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00579",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00643",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn01204",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn01265",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "<"
+        ],
+        "v201_llm_council": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn01636",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn01673",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn02782",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn08173",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn14104",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold": [
+          "<",
+          "="
+        ],
+        "v201_gold_only": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ],
+        "v201_group_contribution": [
+          "<",
+          "="
+        ],
+        "v201_llm_council": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn25164",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold": [
+          "<",
+          "="
+        ],
+        "v201_gold_only": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ],
+        "v201_group_contribution": [
+          "<",
+          "="
+        ],
+        "v201_llm_council": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn30646",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn57584",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn58099",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn59593",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn60217",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00108",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00201",
+      "transitions": {
+        "v201_dgpredictor": [
+          "=",
+          "<"
+        ],
+        "v201_equilibrator": [
+          "=",
+          "<"
+        ],
+        "v201_gold_silver": [
+          "=",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          "=",
+          "<"
+        ],
+        "v201_group_contribution": [
+          "=",
+          "<"
+        ],
+        "v201_llm_council": [
+          "=",
+          "<"
+        ],
+        "v201_silver_only": [
+          "=",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00217",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00245",
+      "transitions": {
+        "v201_dgpredictor": [
+          "=",
+          ">"
+        ],
+        "v201_equilibrator": [
+          "=",
+          ">"
+        ],
+        "v201_gold_silver": [
+          "=",
+          ">"
+        ],
+        "v201_gold_silver_bronze": [
+          "=",
+          ">"
+        ],
+        "v201_group_contribution": [
+          "=",
+          ">"
+        ],
+        "v201_llm_council": [
+          "=",
+          ">"
+        ],
+        "v201_silver_only": [
+          "=",
+          ">"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00250",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00336",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00404",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00553",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00604",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00617",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ],
+        "v201_silver_only": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00640",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00695",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00702",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00811",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "<"
+        ],
+        "v201_equilibrator": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "<"
+        ],
+        "v201_group_contribution": [
+          ">",
+          "<"
+        ],
+        "v201_llm_council": [
+          ">",
+          "<"
+        ],
+        "v201_silver_only": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00921",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          ">"
+        ],
+        "v201_equilibrator": [
+          "<",
+          ">"
+        ],
+        "v201_gold_silver": [
+          "<",
+          ">"
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          ">"
+        ],
+        "v201_group_contribution": [
+          "<",
+          ">"
+        ],
+        "v201_llm_council": [
+          "<",
+          ">"
+        ],
+        "v201_silver_only": [
+          "<",
+          ">"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn01105",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold": [
+          "<",
+          "="
+        ],
+        "v201_gold_only": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ],
+        "v201_llm_council": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn01284",
+      "transitions": {
+        "v201_dgpredictor": [
+          "=",
+          "<"
+        ],
+        "v201_equilibrator": [
+          "=",
+          "<"
+        ],
+        "v201_gold_silver": [
+          "=",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          "=",
+          "<"
+        ],
+        "v201_group_contribution": [
+          "=",
+          "<"
+        ],
+        "v201_llm_council": [
+          "=",
+          "<"
+        ],
+        "v201_silver_only": [
+          "=",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn01380",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn01465",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold": [
+          "<",
+          "="
+        ],
+        "v201_gold_only": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ],
+        "v201_llm_council": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn01479",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn01509",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn01513",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn01517",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn01675",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn01678",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn01731",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ],
+        "v201_silver_only": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn02132",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold": [
+          "<",
+          "="
+        ],
+        "v201_gold_only": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ],
+        "v201_group_contribution": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn02206",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn02276",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn02401",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn02451",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn02517",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn02728",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn02896",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn02957",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn03073",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "<"
+        ],
+        "v201_equilibrator": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "<"
+        ],
+        "v201_group_contribution": [
+          ">",
+          "<"
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ],
+        "v201_silver_only": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn03203",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn03360",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "<"
+        ],
+        "v201_equilibrator": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "<"
+        ],
+        "v201_group_contribution": [
+          ">",
+          "<"
+        ],
+        "v201_llm_council": [
+          ">",
+          "<"
+        ],
+        "v201_silver_only": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn03511",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn03566",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "<"
+        ],
+        "v201_equilibrator": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "<"
+        ],
+        "v201_group_contribution": [
+          ">",
+          "<"
+        ],
+        "v201_llm_council": [
+          ">",
+          "<"
+        ],
+        "v201_silver_only": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn03840",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "<"
+        ],
+        "v201_gold_only": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "<"
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn04477",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn04759",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn04945",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn05105",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn06655",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "<"
+        ],
+        "v201_equilibrator": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "<"
+        ],
+        "v201_group_contribution": [
+          ">",
+          "<"
+        ],
+        "v201_llm_council": [
+          ">",
+          "<"
+        ],
+        "v201_silver_only": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn07441",
+      "transitions": {
+        "v201_dgpredictor": [
+          "=",
+          ">"
+        ],
+        "v201_equilibrator": [
+          "=",
+          ">"
+        ],
+        "v201_gold_silver": [
+          "=",
+          ">"
+        ],
+        "v201_gold_silver_bronze": [
+          "=",
+          ">"
+        ],
+        "v201_group_contribution": [
+          "=",
+          ">"
+        ],
+        "v201_llm_council": [
+          "=",
+          "<"
+        ],
+        "v201_silver_only": [
+          "=",
+          ">"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn08531",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn09240",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ],
+        "v201_group_contribution": [
+          "<",
+          ">"
+        ],
+        "v201_llm_council": [
+          "<",
+          ">"
+        ],
+        "v201_silver_only": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn09528",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold": [
+          "<",
+          "="
+        ],
+        "v201_gold_only": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ],
+        "v201_group_contribution": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn09529",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn09530",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn10042",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn10443",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn10902",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn12950",
+      "transitions": {
+        "v201_dgpredictor": [
+          "=",
+          ">"
+        ],
+        "v201_equilibrator": [
+          "=",
+          ">"
+        ],
+        "v201_gold": [
+          "=",
+          ">"
+        ],
+        "v201_gold_only": [
+          "=",
+          ">"
+        ],
+        "v201_gold_silver": [
+          "=",
+          ">"
+        ],
+        "v201_gold_silver_bronze": [
+          "=",
+          ">"
+        ],
+        "v201_llm_council": [
+          "=",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn13834",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn15858",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn15865",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn16614",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn17704",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn17705",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn19449",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn19742",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn19776",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn19855",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn21918",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          ">"
+        ],
+        "v201_equilibrator": [
+          "<",
+          ">"
+        ],
+        "v201_gold_silver": [
+          "<",
+          ">"
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          ">"
+        ],
+        "v201_group_contribution": [
+          "<",
+          ">"
+        ],
+        "v201_llm_council": [
+          "<",
+          ">"
+        ],
+        "v201_silver_only": [
+          "<",
+          ">"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn22531",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn24330",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn24985",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn25165",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold": [
+          "<",
+          "="
+        ],
+        "v201_gold_only": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ],
+        "v201_group_contribution": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn27727",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold": [
+          "<",
+          "="
+        ],
+        "v201_gold_only": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ],
+        "v201_group_contribution": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn27780",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn27781",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn27867",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn28116",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn28275",
+      "transitions": {
+        "v201_dgpredictor": [
+          "=",
+          ">"
+        ],
+        "v201_equilibrator": [
+          "=",
+          ">"
+        ],
+        "v201_gold": [
+          "=",
+          ">"
+        ],
+        "v201_gold_only": [
+          "=",
+          ">"
+        ],
+        "v201_gold_silver": [
+          "=",
+          ">"
+        ],
+        "v201_gold_silver_bronze": [
+          "=",
+          ">"
+        ],
+        "v201_group_contribution": [
+          "=",
+          ">"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn28615",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn29496",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn30383",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn30445",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn31585",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn31751",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn31753",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn31777",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn32069",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold": [
+          "<",
+          "="
+        ],
+        "v201_gold_only": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ],
+        "v201_group_contribution": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn32159",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn32178",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn32351",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn32828",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn32840",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn33281",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn33454",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn33456",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn33468",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn33532",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn33534",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn33709",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn33710",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn33714",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn33880",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn33882",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "<"
+        ],
+        "v201_equilibrator": [
+          ">",
+          "<"
+        ],
+        "v201_gold": [
+          ">",
+          "<"
+        ],
+        "v201_gold_only": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "<"
+        ],
+        "v201_group_contribution": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn34218",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn34328",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "<"
+        ],
+        "v201_equilibrator": [
+          ">",
+          "<"
+        ],
+        "v201_gold": [
+          ">",
+          "<"
+        ],
+        "v201_gold_only": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "<"
+        ],
+        "v201_group_contribution": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn34586",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "<"
+        ],
+        "v201_equilibrator": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "<"
+        ],
+        "v201_group_contribution": [
+          ">",
+          "<"
+        ],
+        "v201_llm_council": [
+          ">",
+          "<"
+        ],
+        "v201_silver_only": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn34773",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn35524",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn37162",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ],
+        "v201_silver_only": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn37930",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn38050",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold": [
+          "<",
+          "="
+        ],
+        "v201_gold_only": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ],
+        "v201_group_contribution": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn39409",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "<"
+        ],
+        "v201_equilibrator": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "<"
+        ],
+        "v201_group_contribution": [
+          ">",
+          "<"
+        ],
+        "v201_llm_council": [
+          ">",
+          "<"
+        ],
+        "v201_silver_only": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn42006",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn44015",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn45009",
+      "transitions": {
+        "v201_dgpredictor": [
+          "=",
+          ">"
+        ],
+        "v201_equilibrator": [
+          "=",
+          ">"
+        ],
+        "v201_gold_silver": [
+          "=",
+          ">"
+        ],
+        "v201_gold_silver_bronze": [
+          "=",
+          ">"
+        ],
+        "v201_group_contribution": [
+          "=",
+          ">"
+        ],
+        "v201_llm_council": [
+          "=",
+          ">"
+        ],
+        "v201_silver_only": [
+          "=",
+          ">"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn45299",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn45602",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn47989",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn50878",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn51178",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn51796",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn52198",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ],
+        "v201_silver_only": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn52846",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "<"
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn53944",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "<"
+        ],
+        "v201_gold_only": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "<"
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn54344",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn55189",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn55190",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn55191",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn55679",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn56319",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn56327",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn56364",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn56389",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn56394",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn56404",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn56408",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn57252",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn59396",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn60202",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn60333",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn60360",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00003",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "<"
+        ],
+        "v201_group_contribution": [
+          ">",
+          "<"
+        ],
+        "v201_llm_council": [
+          ">",
+          "<"
+        ],
+        "v201_silver_only": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00011",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "<"
+        ],
+        "v201_llm_council": [
+          ">",
+          "<"
+        ],
+        "v201_silver_only": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00087",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ],
+        "v201_group_contribution": [
+          "<",
+          "="
+        ],
+        "v201_silver_only": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00100",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00134",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00175",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00183",
+      "transitions": {
+        "v201_dgpredictor": [
+          "=",
+          ">"
+        ],
+        "v201_equilibrator": [
+          "=",
+          ">"
+        ],
+        "v201_gold_silver": [
+          "=",
+          ">"
+        ],
+        "v201_gold_silver_bronze": [
+          "=",
+          ">"
+        ],
+        "v201_llm_council": [
+          "=",
+          ">"
+        ],
+        "v201_silver_only": [
+          "=",
+          ">"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00272",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_silver_only": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00288",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "<"
+        ],
+        "v201_equilibrator": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "<"
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ],
+        "v201_silver_only": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00302",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00304",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold": [
+          "<",
+          "="
+        ],
+        "v201_gold_only": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00324",
+      "transitions": {
+        "v201_equilibrator": [
+          "=",
+          "<"
+        ],
+        "v201_gold": [
+          "=",
+          "<"
+        ],
+        "v201_gold_only": [
+          "=",
+          "<"
+        ],
+        "v201_gold_silver": [
+          "=",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          "=",
+          "<"
+        ],
+        "v201_llm_council": [
+          "=",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00332",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "<"
+        ],
+        "v201_llm_council": [
+          ">",
+          "<"
+        ],
+        "v201_silver_only": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00356",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_silver_only": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00380",
+      "transitions": {
+        "v201_dgpredictor": [
+          "=",
+          "<"
+        ],
+        "v201_equilibrator": [
+          "=",
+          "<"
+        ],
+        "v201_gold_silver": [
+          "=",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          "=",
+          "<"
+        ],
+        "v201_llm_council": [
+          "=",
+          "<"
+        ],
+        "v201_silver_only": [
+          "=",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00402",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ],
+        "v201_llm_council": [
+          "<",
+          "="
+        ],
+        "v201_silver_only": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00411",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold": [
+          "<",
+          "="
+        ],
+        "v201_gold_only": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00423",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00424",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_silver_only": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00460",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold": [
+          "<",
+          "="
+        ],
+        "v201_gold_only": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00467",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "="
+        ],
+        "v201_silver_only": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00517",
+      "transitions": {
+        "v201_dgpredictor": [
+          "<",
+          "="
+        ],
+        "v201_equilibrator": [
+          "<",
+          "="
+        ],
+        "v201_gold": [
+          "<",
+          "="
+        ],
+        "v201_gold_only": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver": [
+          "<",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          "<",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00518",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00533",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_silver_only": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00547",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00552",
+      "transitions": {
+        "v201_gold": [
+          "=",
+          ">"
+        ],
+        "v201_gold_only": [
+          "=",
+          ">"
+        ],
+        "v201_gold_silver": [
+          "=",
+          ">"
+        ],
+        "v201_gold_silver_bronze": [
+          "=",
+          ">"
+        ],
+        "v201_group_contribution": [
+          "=",
+          ">"
+        ],
+        "v201_llm_council": [
+          "=",
+          ">"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00581",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_silver_only": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00609",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "<"
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_llm_council": [
+          ">",
+          "<"
+        ],
+        "v201_silver_only": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00616",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "<"
+        ],
+        "v201_equilibrator": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver": [
+          ">",
+          "<"
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "<"
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_silver_only": [
+          ">",
+          "<"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00621",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_silver_only": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00627",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00635",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00672",
+      "transitions": {
+        "v201_equilibrator": [
+          "=",
+          ">"
+        ],
+        "v201_gold_silver": [
+          "=",
+          ">"
+        ],
+        "v201_gold_silver_bronze": [
+          "=",
+          ">"
+        ],
+        "v201_group_contribution": [
+          "=",
+          ">"
+        ],
+        "v201_llm_council": [
+          "=",
+          ">"
+        ],
+        "v201_silver_only": [
+          "=",
+          ">"
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00674",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00739",
+      "transitions": {
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "<"
+        ],
+        "v201_llm_council": [
+          ">",
+          "<"
+        ],
+        "v201_silver_only": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00744",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00751",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00772",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00780",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00800",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00812",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ],
+        "v201_group_contribution": [
+          ">",
+          "="
+        ],
+        "v201_silver_only": [
+          ">",
+          "="
+        ]
+      }
+    },
+    {
+      "rxn_id": "rxn00838",
+      "transitions": {
+        "v201_dgpredictor": [
+          ">",
+          "="
+        ],
+        "v201_equilibrator": [
+          ">",
+          "="
+        ],
+        "v201_gold": [
+          ">",
+          "="
+        ],
+        "v201_gold_only": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver": [
+          ">",
+          "="
+        ],
+        "v201_gold_silver_bronze": [
+          ">",
+          "="
+        ]
+      }
+    }
+  ],
+  "truncated_to": 200
+}

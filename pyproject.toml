@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "core-models-analysis"
+version = "0.2.0"
+description = "Reaction-direction analysis over ModelSEED core and genome-scale metabolic models"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+keywords = ["metabolic-models", "ModelSEED", "thermodynamics", "FBA", "cobra"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+# The floor for each is the oldest version this code is known to work with.
+dependencies = [
+  "cobra>=0.29",
+  "pandas>=2.0",
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+figures = ["matplotlib>=3.7", "plotly>=5.20", "kaleido"]
+notebooks = ["jupyter>=1.0", "jupyterlab>=4.0", "nbformat>=5.9", "ipykernel>=6.25"]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+all = [
+  "matplotlib>=3.7", "plotly>=5.20", "kaleido",
+  "jupyter>=1.0", "jupyterlab>=4.0", "nbformat>=5.9", "ipykernel>=6.25",
+  "pytest>=8.0", "ruff>=0.6",
+]
+
+[project.scripts]
+# The pipeline, and the three helpers around the registry.
+beginPipeline = "cma.cli:main"
+cma-check     = "cma.cli:main_check"
+cma-new       = "cma.cli:main_new"
+
+[project.urls]
+Homepage = "https://github.com/Cooper-Taylor/core_models_analysis"
+
+# scripts/ is the package directory: cma lives at scripts/cma. The other ~100
+# modules in scripts/ stay plain scripts -- they are run, not imported as a
+# library -- so only the package is installed.
+[tool.setuptools]
+package-dir = { "" = "scripts" }
+
+[tool.setuptools.packages.find]
+where = ["scripts"]
+include = ["cma*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = ["E501"]

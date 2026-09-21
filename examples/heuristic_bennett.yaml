@@ -1,0 +1,9 @@
+# Measured E. coli metabolite concentrations (Bennett 2009) instead of the
+# uniform 1e-5..2e-2 M prior.
+#
+# `per_met_conc_range` and `per_met_conc` accept either the name of a table in
+# reversibility_lib, or a path to a two-column file.
+tag: bennett2009
+knobs:
+  per_met_conc_range: BENNETT_2009_ECOLI
+  per_met_conc: BENNETT_2009_MEAN

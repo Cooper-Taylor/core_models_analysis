@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+"""beginPipeline -- run the reaction-direction analysis from one command.
+
+This file is a shim so the command works straight from a checkout:
+
+    python3 beginPipeline --help
+
+`pip install -e .` also installs it as `beginPipeline` on PATH. The
+implementation is scripts/cma/cli.py; see PIPELINE.md for the guide.
+"""
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent / "scripts"))
+
+from cma.cli import main  # noqa: E402
+
+if __name__ == "__main__":
+    sys.exit(main())

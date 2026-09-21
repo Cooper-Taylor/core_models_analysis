@@ -41,6 +41,8 @@ SCRIPTS = Path(__file__).resolve().parent
 ANALYSIS_ROOT = SCRIPTS.parent
 sys.path.insert(0, str(SCRIPTS))
 
+from cma import manifest as cma_manifest
+
 # Reuse the AI-variant overlay machinery (identical report/manifest format).
 from build_ai_direction_variant import parse_report, write_report, count_new_rev
 
@@ -128,19 +130,16 @@ def build_one(tag, dir_map, base_rows, summary_extra):
 
 
 def append_manifest(summaries: list, t0: float) -> None:
-    manifest_path = OUT_ROOT / "manifest.json"
-    manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {"variants": []}
-    manifest.setdefault("variants", [])
-    tags = {s["tag"] for s in summaries}
-    manifest["variants"] = [v for v in manifest["variants"] if v.get("tag") not in tags]
-    for s in summaries:
-        entry = dict(s)
-        entry["elapsed_s"] = round(time.time() - t0, 2)
-        manifest["variants"].append(entry)
-    with open(manifest_path, "w") as fh:
-        json.dump(manifest, fh, indent=2, default=str)
-    print(f"updated {manifest_path} (+{[s['tag'] for s in summaries]}; "
-          f"{len(manifest['variants'])} variants total)")
+    """Upsert these variants into thermo_variants/manifest.json.
+
+    Delegates to ``cma.manifest.merge``, which preserves each entry's existing
+    position. The hand-rolled body this replaces removed the matching tags and
+    re-appended them, so every rebuild silently reordered the manifest.
+    """
+    entries = [dict(s, elapsed_s=round(time.time() - t0, 2)) for s in summaries]
+    data = cma_manifest.merge(entries, root=OUT_ROOT)
+    print(f"updated {OUT_ROOT / 'manifest.json'} (+{[s['tag'] for s in summaries]}; "
+          f"{len(data['variants'])} variants total)")
 
 
 def main(argv: Optional[list] = None) -> None:

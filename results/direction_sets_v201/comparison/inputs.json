@@ -1,0 +1,110 @@
+{
+  "model_set": {
+    "name": "core_kegg2",
+    "dir": "/scratch/ctaylor/core_models_analysis/data/core_models_kegg2",
+    "glob": "*.json",
+    "loader": "cobra_json",
+    "n_models_available": 5683,
+    "n_models_selected": 100,
+    "media": "kbase_complete",
+    "results_namespace": null
+  },
+  "media": {
+    "name": "kbase_complete",
+    "n_compounds": 347
+  },
+  "direction_maps": {
+    "v201_group_contribution": {
+      "n_reactions": 19246,
+      "operators": {
+        "=": 7309,
+        ">": 10514,
+        "<": 1423
+      }
+    },
+    "v201_dgpredictor": {
+      "n_reactions": 12177,
+      "operators": {
+        ">": 6863,
+        "<": 2016,
+        "=": 3298
+      }
+    },
+    "v201_equilibrator": {
+      "n_reactions": 21218,
+      "operators": {
+        ">": 9129,
+        "<": 1065,
+        "=": 11024
+      }
+    },
+    "v201_llm_council": {
+      "n_reactions": 44850,
+      "operators": {
+        ">": 38945,
+        "<": 2350,
+        "=": 3555
+      }
+    },
+    "claude_opus48": {
+      "n_reactions": 51515,
+      "operators": {
+        ">": 41909,
+        "=": 8178,
+        "<": 1428
+      }
+    },
+    "v201_gold_only": {
+      "n_reactions": 3089,
+      "operators": {
+        ">": 1687,
+        "<": 96,
+        "=": 1306
+      }
+    },
+    "v201_silver_only": {
+      "n_reactions": 16150,
+      "operators": {
+        "<": 922,
+        "=": 9163,
+        ">": 6065
+      }
+    },
+    "v201_bronze_only": {
+      "n_reactions": 8875,
+      "operators": {
+        ">": 4179,
+        "=": 3396,
+        "<": 1300
+      }
+    },
+    "v201_gold": {
+      "n_reactions": 3089,
+      "operators": {
+        ">": 1687,
+        "<": 96,
+        "=": 1306
+      }
+    },
+    "v201_gold_silver": {
+      "n_reactions": 19239,
+      "operators": {
+        ">": 7752,
+        "<": 1018,
+        "=": 10469
+      }
+    },
+    "v201_gold_silver_bronze": {
+      "n_reactions": 28114,
+      "operators": {
+        ">": 11931,
+        "<": 2318,
+        "=": 13865
+      }
+    }
+  },
+  "heuristics": [],
+  "thermo_sources": {},
+  "workers": 16,
+  "limit": null
+}

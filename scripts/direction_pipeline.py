@@ -36,6 +36,7 @@ from seed_annotation import normalize_seed_id  # strips the _c-suffix bug
 import pandas as pd
 
 import growth_heuristics as gh
+from cma.directions import normalize_operator as _normalize_operator
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -76,34 +77,16 @@ def _source_slug(source: str) -> str:
 # Direction map I/O
 # ---------------------------------------------------------------------------
 def _normalize_direction(value: str) -> str:
-    """Coerce common spellings of a direction marker to ``>``/``<``/``=``/``?``."""
-    if value is None:
-        return "?"
-    v = str(value).strip()
-    if v in VALID_DIRECTIONS:
-        return v
-    low = v.lower()
-    mapping = {
-        "forward": ">",
-        "fwd": ">",
-        "f": ">",
-        "reverse": "<",
-        "rev": "<",
-        "r": "<",
-        "reversible": "=",
-        "both": "=",
-        "bidirectional": "=",
-        "unknown": "?",
-        "": "?",
-        "none": "?",
-        "null": "?",
-    }
-    if low in mapping:
-        return mapping[low]
-    # Last-chance: take the first character if it's already one of ours.
-    if v and v[0] in VALID_DIRECTIONS:
-        return v[0]
-    return "?"
+    """Coerce common spellings of a direction marker to ``>``/``<``/``=``/``?``.
+
+    Delegates to :func:`cma.directions.normalize_operator`, the single
+    implementation. The version this replaces ended with "take the first
+    character if it's already one of ours", which inverted arrow notation:
+    ``<=>`` (reversible) became ``<`` (reverse-only) and ``=>`` (forward)
+    became ``=``. Both are legal operators, so nothing downstream complained --
+    the reactions simply came out constrained the wrong way.
+    """
+    return _normalize_operator(value)
 
 
 def _row_to_pair(row: Mapping[str, str]) -> Optional[tuple]:

@@ -1,0 +1,13 @@
+# A heuristic spec for `beginPipeline --heuristics examples/heuristic_sigma95.yaml`.
+#
+# Every key under `knobs` is a field of ReversibilityConfig; run
+# `python3 beginPipeline --list` to see all of them with their types.
+# Anything you leave out keeps the ModelSEED default, so a spec only states
+# what it changes.
+tag: sigma95
+knobs:
+  # Replace the fixed +/- 2 kcal/mol reversible band with a 95% band built from
+  # the per-reaction component-contribution uncertainty.
+  sigma_band_k: 1.96
+  # Widen the bounded-dG check the same way.
+  sigma_bounds_k: 1.96

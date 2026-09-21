@@ -1,0 +1,24 @@
+# Copy to `cma.toml` (beside this file, or at ~/.config/cma/config.toml) if the
+# external data is not somewhere the package already looks.
+#
+# Nothing here is required. `cma.paths` searches conventional locations next to
+# the repo first, and an environment variable beats both. Check what it found:
+#
+#     beginPipeline --doctor
+#
+[paths]
+# The ModelSEEDDatabase clone. Required by almost everything.
+# env override: MSDB_ROOT
+# msdb = "/path/to/ModelSEEDDatabase"
+
+# A pinned MSDB snapshot read by the grading and scatter scripts. Deliberately
+# separate from `msdb`: the two have held different biochemistry, and quietly
+# substituting one for the other silently changes results.
+# env override: MSDB_SNAPSHOT_ROOT
+# msdb_snapshot = "/path/to/devsnap"
+
+# The 5,683 core model JSONs.      env override: CORE_MODELS_DIR
+# core_models = "/path/to/core_models_kegg2"
+
+# The ModelSEED v2 genome-scale models.  env override: MS2_GS_MODELS_DIR
+# gs_models = "/path/to/modelseed2_gs_models"

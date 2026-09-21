@@ -43,6 +43,8 @@ SCRIPTS = Path(__file__).resolve().parent
 ANALYSIS_ROOT = SCRIPTS.parent
 sys.path.insert(0, str(SCRIPTS))
 
+from cma import manifest as cma_manifest
+
 from direction_pipeline import _normalize_direction  # forward/reverse/... -> >/</=/?
 
 OUT_ROOT = ANALYSIS_ROOT / "thermo_variants"
@@ -204,22 +206,15 @@ def main(argv: Optional[list] = None) -> None:
         json.dump(summary, fh, indent=2, default=str)
 
     # Idempotently append/replace the entry in manifest.json (create if absent).
-    manifest_path = out_root / "manifest.json"
-    if manifest_path.exists():
-        manifest = json.loads(manifest_path.read_text())
-    else:
-        manifest = {"variants": []}
-    manifest.setdefault("variants", [])
-    manifest["variants"] = [v for v in manifest["variants"] if v.get("tag") != args.tag]
-    entry = dict(summary)
-    entry["elapsed_s"] = round(time.time() - t0, 2)
-    manifest["variants"].append(entry)
-    with open(manifest_path, "w") as fh:
-        json.dump(manifest, fh, indent=2, default=str)
+    # Upsert in place via the shared helper. The hand-rolled block this
+    # replaces removed the tag and re-appended it, so every rebuild moved the
+    # entry to the end of the manifest and quietly reordered the site index.
+    entry = dict(summary, elapsed_s=round(time.time() - t0, 2))
+    data = cma_manifest.merge([entry], root=OUT_ROOT)
 
     print(f"wrote {dest}")
-    print(f"updated {manifest_path} (tag={args.tag!r}; "
-          f"{len(manifest['variants'])} variants total)")
+    print(f"updated {OUT_ROOT / 'manifest.json'} (tag={args.tag!r}; "
+          f"{len(data['variants'])} variants total)")
     print(f"counts EQ: {counts_eq}")
 
 

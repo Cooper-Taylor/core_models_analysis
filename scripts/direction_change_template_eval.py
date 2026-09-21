@@ -83,7 +83,7 @@ USAGE
         --mode batch
 
 Run with the conda env that has cobra + modelseedpy + kbutillib, e.g.
-    /mnt/homes/ctaylor/conda/miniforge3/envs/core_models_analysis/bin/python
+    python3
 """
 
 from __future__ import annotations

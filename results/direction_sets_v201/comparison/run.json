@@ -1,0 +1,102 @@
+{
+  "stages": {
+    "inputs": {
+      "status": "ok",
+      "elapsed_s": 0.02,
+      "output": "inputs.json"
+    },
+    "heuristics": {
+      "status": "skipped",
+      "missing": [
+        "heuristics"
+      ]
+    },
+    "direction_summary": {
+      "status": "ok",
+      "elapsed_s": 0.16,
+      "output": "direction_summary.json"
+    },
+    "direction_changes": {
+      "status": "ok",
+      "elapsed_s": 0.04,
+      "output": "direction_changes.json"
+    }
+  },
+  "order": [
+    "inputs",
+    "heuristics",
+    "direction_summary",
+    "direction_changes"
+  ],
+  "elapsed_s": 0.23,
+  "inputs": {
+    "models": [
+      "core_kegg2"
+    ],
+    "directions": [
+      "v201_group_contribution",
+      "v201_dgpredictor",
+      "v201_equilibrator",
+      "v201_llm_council",
+      "claude_opus48",
+      "v201_gold_only",
+      "v201_silver_only",
+      "v201_bronze_only",
+      "v201_gold",
+      "v201_gold_silver",
+      "v201_gold_silver_bronze"
+    ],
+    "heuristics": [],
+    "thermo": [],
+    "media": null,
+    "panel": "core_100",
+    "limit": null,
+    "only": "inputs,direction_summary,direction_changes",
+    "exclude": null,
+    "no_heavy": false,
+    "baseline": null,
+    "db_level": "EQ",
+    "workers": 16,
+    "option": [],
+    "out": "results/direction_sets_v201/comparison",
+    "stop_on_error": false
+  },
+  "resolved": {
+    "model_set": "core_kegg2",
+    "models_dir": "/scratch/ctaylor/core_models_analysis/data/core_models_kegg2",
+    "loader": "cobra_json",
+    "id_glob": "*.json",
+    "n_models": 100,
+    "n_models_available": 100,
+    "media": "kbase_complete",
+    "media_default_uptake": -1000.0,
+    "direction_labels": [
+      "v201_group_contribution",
+      "v201_dgpredictor",
+      "v201_equilibrator",
+      "v201_llm_council",
+      "claude_opus48",
+      "v201_gold_only",
+      "v201_silver_only",
+      "v201_bronze_only",
+      "v201_gold",
+      "v201_gold_silver",
+      "v201_gold_silver_bronze"
+    ],
+    "heuristic_labels": [],
+    "thermo_labels": [],
+    "stages": [
+      "inputs",
+      "heuristics",
+      "direction_summary",
+      "direction_changes"
+    ]
+  },
+  "command": "python3 beginPipeline --models core_kegg2 --panel core_100 --directions v201_group_contribution --directions v201_dgpredictor --directions v201_equilibrator --directions v201_llm_council --directions claude_opus48 --directions v201_gold_only --directions v201_silver_only --directions v201_bronze_only --directions v201_gold --directions v201_gold_silver --directions v201_gold_silver_bronze --only inputs,direction_summary,direction_changes --out results/direction_sets_v201/comparison",
+  "paths": {
+    "analysis_dir": "/scratch/ctaylor/core_models_analysis",
+    "msdb_live": "/scratch/ctaylor/ModelSEEDDatabase",
+    "msdb_snapshot": "/scratch/ctaylor/tmp/devsnap2",
+    "python": "/mnt/homes/ctaylor/conda/miniforge3/envs/core_models_analysis/bin/python"
+  }
+}

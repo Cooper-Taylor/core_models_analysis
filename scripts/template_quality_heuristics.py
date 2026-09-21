@@ -30,7 +30,7 @@ exist.
 Output: ``site/data/template_quality_<scope>.json`` (+ a raw ``.jsonl`` for
 resumability).  Run:
 
-    PY=/mnt/homes/ctaylor/conda/miniforge3/envs/core_models_analysis/bin/python
+    PY=python3
     $PY scripts/template_quality_heuristics.py --panel            # 100-model panel
     $PY scripts/template_quality_heuristics.py --all --workers 96  # all core models
 """

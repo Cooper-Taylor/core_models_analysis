@@ -1,0 +1,165 @@
+{
+  "release": "v2.0.1",
+  "n_reactions_in_release": 56012,
+  "sets": [
+    {
+      "name": "v201_group_contribution",
+      "family": "source",
+      "source": "Group contribution",
+      "n_callable": 19246,
+      "n_dropped_uncallable": 25625,
+      "operators": {
+        "=": 7309,
+        ">": 10514,
+        "<": 1423
+      },
+      "path": "results/direction_sets_v201/v201_group_contribution.json"
+    },
+    {
+      "name": "v201_dgpredictor",
+      "family": "source",
+      "source": "dGPredictor",
+      "n_callable": 12177,
+      "n_dropped_uncallable": 17440,
+      "operators": {
+        ">": 6863,
+        "<": 2016,
+        "=": 3298
+      },
+      "path": "results/direction_sets_v201/v201_dgpredictor.json"
+    },
+    {
+      "name": "v201_equilibrator",
+      "family": "source",
+      "source": "eQuilibrator",
+      "n_callable": 21218,
+      "n_dropped_uncallable": 3957,
+      "operators": {
+        ">": 9129,
+        "<": 1065,
+        "=": 11024
+      },
+      "path": "results/direction_sets_v201/v201_equilibrator.json"
+    },
+    {
+      "name": "v201_llm_council",
+      "family": "source",
+      "source": "LLMs",
+      "n_callable": 44850,
+      "n_dropped_uncallable": 794,
+      "operators": {
+        ">": 38945,
+        "<": 2350,
+        "=": 3555
+      },
+      "path": "results/direction_sets_v201/v201_llm_council.json"
+    },
+    {
+      "name": "claude_opus48",
+      "family": "source",
+      "source": "Claude Opus 4.8",
+      "n_callable": 51515,
+      "n_dropped_uncallable": 0,
+      "note": "standalone single-model run, not part of the release",
+      "operators": {
+        ">": 41909,
+        "=": 8178,
+        "<": 1428
+      },
+      "path": "results/direction_sets_v201/claude_opus48.json"
+    },
+    {
+      "name": "v201_gold_only",
+      "family": "grade-exclusive",
+      "grades": [
+        "gold"
+      ],
+      "n_callable": 3089,
+      "n_dropped_uncallable": 345,
+      "operators": {
+        ">": 1687,
+        "<": 96,
+        "=": 1306
+      },
+      "path": "results/direction_sets_v201/v201_gold_only.json"
+    },
+    {
+      "name": "v201_silver_only",
+      "family": "grade-exclusive",
+      "grades": [
+        "silver"
+      ],
+      "n_callable": 16150,
+      "n_dropped_uncallable": 2238,
+      "operators": {
+        "<": 922,
+        "=": 9163,
+        ">": 6065
+      },
+      "path": "results/direction_sets_v201/v201_silver_only.json"
+    },
+    {
+      "name": "v201_bronze_only",
+      "family": "grade-exclusive",
+      "grades": [
+        "bronze"
+      ],
+      "n_callable": 8875,
+      "n_dropped_uncallable": 2402,
+      "operators": {
+        ">": 4179,
+        "=": 3396,
+        "<": 1300
+      },
+      "path": "results/direction_sets_v201/v201_bronze_only.json"
+    },
+    {
+      "name": "v201_gold",
+      "family": "grade-cumulative",
+      "grades": [
+        "gold"
+      ],
+      "n_callable": 3089,
+      "n_dropped_uncallable": 345,
+      "operators": {
+        ">": 1687,
+        "<": 96,
+        "=": 1306
+      },
+      "path": "results/direction_sets_v201/v201_gold.json"
+    },
+    {
+      "name": "v201_gold_silver",
+      "family": "grade-cumulative",
+      "grades": [
+        "gold",
+        "silver"
+      ],
+      "n_callable": 19239,
+      "n_dropped_uncallable": 2583,
+      "operators": {
+        ">": 7752,
+        "<": 1018,
+        "=": 10469
+      },
+      "path": "results/direction_sets_v201/v201_gold_silver.json"
+    },
+    {
+      "name": "v201_gold_silver_bronze",
+      "family": "grade-cumulative",
+      "grades": [
+        "gold",
+        "silver",
+        "bronze"
+      ],
+      "n_callable": 28114,
+      "n_dropped_uncallable": 4985,
+      "operators": {
+        ">": 11931,
+        "<": 2318,
+        "=": 13865
+      },
+      "path": "results/direction_sets_v201/v201_gold_silver_bronze.json"
+    }
+  ]
+}

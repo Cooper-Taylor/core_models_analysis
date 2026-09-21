@@ -1,0 +1,425 @@
+{
+  "_n": 11,
+  "per_map": {
+    "v201_group_contribution": {
+      "n_reactions": 19246,
+      "operators": {
+        "=": 7309,
+        ">": 10514,
+        "<": 1423
+      }
+    },
+    "v201_dgpredictor": {
+      "n_reactions": 12177,
+      "operators": {
+        ">": 6863,
+        "<": 2016,
+        "=": 3298
+      }
+    },
+    "v201_equilibrator": {
+      "n_reactions": 21218,
+      "operators": {
+        ">": 9129,
+        "<": 1065,
+        "=": 11024
+      }
+    },
+    "v201_llm_council": {
+      "n_reactions": 44850,
+      "operators": {
+        ">": 38945,
+        "<": 2350,
+        "=": 3555
+      }
+    },
+    "claude_opus48": {
+      "n_reactions": 51515,
+      "operators": {
+        ">": 41909,
+        "=": 8178,
+        "<": 1428
+      }
+    },
+    "v201_gold_only": {
+      "n_reactions": 3089,
+      "operators": {
+        ">": 1687,
+        "<": 96,
+        "=": 1306
+      }
+    },
+    "v201_silver_only": {
+      "n_reactions": 16150,
+      "operators": {
+        "<": 922,
+        "=": 9163,
+        ">": 6065
+      }
+    },
+    "v201_bronze_only": {
+      "n_reactions": 8875,
+      "operators": {
+        ">": 4179,
+        "=": 3396,
+        "<": 1300
+      }
+    },
+    "v201_gold": {
+      "n_reactions": 3089,
+      "operators": {
+        ">": 1687,
+        "<": 96,
+        "=": 1306
+      }
+    },
+    "v201_gold_silver": {
+      "n_reactions": 19239,
+      "operators": {
+        ">": 7752,
+        "<": 1018,
+        "=": 10469
+      }
+    },
+    "v201_gold_silver_bronze": {
+      "n_reactions": 28114,
+      "operators": {
+        ">": 11931,
+        "<": 2318,
+        "=": 13865
+      }
+    }
+  },
+  "pairwise_agreement": {
+    "claude_opus48 vs v201_bronze_only": {
+      "shared": 7266,
+      "agree": 5528,
+      "disagree": 1738,
+      "pct_agree": 76.08
+    },
+    "claude_opus48 vs v201_dgpredictor": {
+      "shared": 11307,
+      "agree": 7355,
+      "disagree": 3952,
+      "pct_agree": 65.05
+    },
+    "claude_opus48 vs v201_equilibrator": {
+      "shared": 20229,
+      "agree": 12113,
+      "disagree": 8116,
+      "pct_agree": 59.88
+    },
+    "claude_opus48 vs v201_gold": {
+      "shared": 2969,
+      "agree": 2355,
+      "disagree": 614,
+      "pct_agree": 79.32
+    },
+    "claude_opus48 vs v201_gold_only": {
+      "shared": 2969,
+      "agree": 2355,
+      "disagree": 614,
+      "pct_agree": 79.32
+    },
+    "claude_opus48 vs v201_gold_silver": {
+      "shared": 18222,
+      "agree": 10856,
+      "disagree": 7366,
+      "pct_agree": 59.58
+    },
+    "claude_opus48 vs v201_gold_silver_bronze": {
+      "shared": 25488,
+      "agree": 16384,
+      "disagree": 9104,
+      "pct_agree": 64.28
+    },
+    "claude_opus48 vs v201_group_contribution": {
+      "shared": 17170,
+      "agree": 13367,
+      "disagree": 3803,
+      "pct_agree": 77.85
+    },
+    "claude_opus48 vs v201_llm_council": {
+      "shared": 42599,
+      "agree": 39802,
+      "disagree": 2797,
+      "pct_agree": 93.43
+    },
+    "claude_opus48 vs v201_silver_only": {
+      "shared": 15253,
+      "agree": 8501,
+      "disagree": 6752,
+      "pct_agree": 55.73
+    },
+    "v201_bronze_only vs v201_dgpredictor": {
+      "shared": 4604,
+      "agree": 4150,
+      "disagree": 454,
+      "pct_agree": 90.14
+    },
+    "v201_bronze_only vs v201_equilibrator": {
+      "shared": 3247,
+      "agree": 3247,
+      "disagree": 0,
+      "pct_agree": 100.0
+    },
+    "v201_bronze_only vs v201_gold": {
+      "shared": 0,
+      "agree": 0,
+      "disagree": 0,
+      "pct_agree": null
+    },
+    "v201_bronze_only vs v201_gold_only": {
+      "shared": 0,
+      "agree": 0,
+      "disagree": 0,
+      "pct_agree": null
+    },
+    "v201_bronze_only vs v201_gold_silver": {
+      "shared": 0,
+      "agree": 0,
+      "disagree": 0,
+      "pct_agree": null
+    },
+    "v201_bronze_only vs v201_gold_silver_bronze": {
+      "shared": 8875,
+      "agree": 8875,
+      "disagree": 0,
+      "pct_agree": 100.0
+    },
+    "v201_bronze_only vs v201_group_contribution": {
+      "shared": 6130,
+      "agree": 5530,
+      "disagree": 600,
+      "pct_agree": 90.21
+    },
+    "v201_bronze_only vs v201_llm_council": {
+      "shared": 5101,
+      "agree": 3583,
+      "disagree": 1518,
+      "pct_agree": 70.24
+    },
+    "v201_bronze_only vs v201_silver_only": {
+      "shared": 0,
+      "agree": 0,
+      "disagree": 0,
+      "pct_agree": null
+    },
+    "v201_dgpredictor vs v201_equilibrator": {
+      "shared": 7929,
+      "agree": 5757,
+      "disagree": 2172,
+      "pct_agree": 72.61
+    },
+    "v201_dgpredictor vs v201_gold": {
+      "shared": 2596,
+      "agree": 1326,
+      "disagree": 1270,
+      "pct_agree": 51.08
+    },
+    "v201_dgpredictor vs v201_gold_only": {
+      "shared": 2596,
+      "agree": 1326,
+      "disagree": 1270,
+      "pct_agree": 51.08
+    },
+    "v201_dgpredictor vs v201_gold_silver": {
+      "shared": 7258,
+      "agree": 5503,
+      "disagree": 1755,
+      "pct_agree": 75.82
+    },
+    "v201_dgpredictor vs v201_gold_silver_bronze": {
+      "shared": 11862,
+      "agree": 9653,
+      "disagree": 2209,
+      "pct_agree": 81.38
+    },
+    "v201_dgpredictor vs v201_group_contribution": {
+      "shared": 8050,
+      "agree": 6137,
+      "disagree": 1913,
+      "pct_agree": 76.24
+    },
+    "v201_dgpredictor vs v201_llm_council": {
+      "shared": 9716,
+      "agree": 6160,
+      "disagree": 3556,
+      "pct_agree": 63.4
+    },
+    "v201_dgpredictor vs v201_silver_only": {
+      "shared": 4662,
+      "agree": 4177,
+      "disagree": 485,
+      "pct_agree": 89.6
+    },
+    "v201_equilibrator vs v201_gold": {
+      "shared": 2989,
+      "agree": 2902,
+      "disagree": 87,
+      "pct_agree": 97.09
+    },
+    "v201_equilibrator vs v201_gold_only": {
+      "shared": 2989,
+      "agree": 2902,
+      "disagree": 87,
+      "pct_agree": 97.09
+    },
+    "v201_equilibrator vs v201_gold_silver": {
+      "shared": 17621,
+      "agree": 17521,
+      "disagree": 100,
+      "pct_agree": 99.43
+    },
+    "v201_equilibrator vs v201_gold_silver_bronze": {
+      "shared": 20868,
+      "agree": 20768,
+      "disagree": 100,
+      "pct_agree": 99.52
+    },
+    "v201_equilibrator vs v201_group_contribution": {
+      "shared": 12061,
+      "agree": 9434,
+      "disagree": 2627,
+      "pct_agree": 78.22
+    },
+    "v201_equilibrator vs v201_llm_council": {
+      "shared": 17108,
+      "agree": 9618,
+      "disagree": 7490,
+      "pct_agree": 56.22
+    },
+    "v201_equilibrator vs v201_silver_only": {
+      "shared": 14632,
+      "agree": 14619,
+      "disagree": 13,
+      "pct_agree": 99.91
+    },
+    "v201_gold vs v201_gold_only": {
+      "shared": 3089,
+      "agree": 3089,
+      "disagree": 0,
+      "pct_agree": 100.0
+    },
+    "v201_gold vs v201_gold_silver": {
+      "shared": 3089,
+      "agree": 3089,
+      "disagree": 0,
+      "pct_agree": 100.0
+    },
+    "v201_gold vs v201_gold_silver_bronze": {
+      "shared": 3089,
+      "agree": 3089,
+      "disagree": 0,
+      "pct_agree": 100.0
+    },
+    "v201_gold vs v201_group_contribution": {
+      "shared": 2410,
+      "agree": 2161,
+      "disagree": 249,
+      "pct_agree": 89.67
+    },
+    "v201_gold vs v201_llm_council": {
+      "shared": 2280,
+      "agree": 1797,
+      "disagree": 483,
+      "pct_agree": 78.82
+    },
+    "v201_gold vs v201_silver_only": {
+      "shared": 0,
+      "agree": 0,
+      "disagree": 0,
+      "pct_agree": null
+    },
+    "v201_gold_only vs v201_gold_silver": {
+      "shared": 3089,
+      "agree": 3089,
+      "disagree": 0,
+      "pct_agree": 100.0
+    },
+    "v201_gold_only vs v201_gold_silver_bronze": {
+      "shared": 3089,
+      "agree": 3089,
+      "disagree": 0,
+      "pct_agree": 100.0
+    },
+    "v201_gold_only vs v201_group_contribution": {
+      "shared": 2410,
+      "agree": 2161,
+      "disagree": 249,
+      "pct_agree": 89.67
+    },
+    "v201_gold_only vs v201_llm_council": {
+      "shared": 2280,
+      "agree": 1797,
+      "disagree": 483,
+      "pct_agree": 78.82
+    },
+    "v201_gold_only vs v201_silver_only": {
+      "shared": 0,
+      "agree": 0,
+      "disagree": 0,
+      "pct_agree": null
+    },
+    "v201_gold_silver vs v201_gold_silver_bronze": {
+      "shared": 19239,
+      "agree": 19239,
+      "disagree": 0,
+      "pct_agree": 100.0
+    },
+    "v201_gold_silver vs v201_group_contribution": {
+      "shared": 11454,
+      "agree": 9263,
+      "disagree": 2191,
+      "pct_agree": 80.87
+    },
+    "v201_gold_silver vs v201_llm_council": {
+      "shared": 15372,
+      "agree": 8432,
+      "disagree": 6940,
+      "pct_agree": 54.85
+    },
+    "v201_gold_silver vs v201_silver_only": {
+      "shared": 16150,
+      "agree": 16150,
+      "disagree": 0,
+      "pct_agree": 100.0
+    },
+    "v201_gold_silver_bronze vs v201_group_contribution": {
+      "shared": 17584,
+      "agree": 14793,
+      "disagree": 2791,
+      "pct_agree": 84.13
+    },
+    "v201_gold_silver_bronze vs v201_llm_council": {
+      "shared": 20473,
+      "agree": 12015,
+      "disagree": 8458,
+      "pct_agree": 58.69
+    },
+    "v201_gold_silver_bronze vs v201_silver_only": {
+      "shared": 16150,
+      "agree": 16150,
+      "disagree": 0,
+      "pct_agree": 100.0
+    },
+    "v201_group_contribution vs v201_llm_council": {
+      "shared": 13395,
+      "agree": 9948,
+      "disagree": 3447,
+      "pct_agree": 74.27
+    },
+    "v201_group_contribution vs v201_silver_only": {
+      "shared": 9044,
+      "agree": 7102,
+      "disagree": 1942,
+      "pct_agree": 78.53
+    },
+    "v201_llm_council vs v201_silver_only": {
+      "shared": 13092,
+      "agree": 6635,
+      "disagree": 6457,
+      "pct_agree": 50.68
+    }
+  }
+}

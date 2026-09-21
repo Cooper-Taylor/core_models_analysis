@@ -40,7 +40,10 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-MSDB_ROOT = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/ModelSEEDDatabase"))
+# Upstream dev snapshot, not the working claude-changes checkout -- the feature
+# tables in DATA_DIR are built from the same snapshot, so the compound deltag
+# values joined here must come from it too or the SNR panel mixes two vintages.
+MSDB_ROOT = Path(os.environ.get("MSDB_ROOT", "/scratch/ctaylor/tmp/devsnap2"))
 ANALYSIS_DIR = Path(os.environ.get("CORE_MODELS_ANALYSIS_DIR",
                                    "/scratch/ctaylor/core_models_analysis"))
 DATA_DIR = ANALYSIS_DIR / "results" / "thermo_agreement"
