@@ -18,7 +18,8 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from cma import pipeline, resolve  # noqa: E402
+from cma import models as models_reg  # noqa: E402
+from cma import pipeline, resolve
 from cma.directions import normalize_operator  # noqa: E402
 
 
@@ -76,15 +77,36 @@ def test_id_list_keeps_assembly_version(tmp_path):
     """`GCF_000005825.2` must not lose its `.2`.
 
     Path.suffixes treats a version number as an extension, so the first
-    version resolved every id to a file that does not exist.
+    version resolved every id to a file that does not exist. Uses a synthetic
+    model directory so the test needs no downloaded data.
     """
+    mdir = tmp_path / "models"
+    mdir.mkdir()
+    for name in ("GCF_000005825.2", "GCF_000005845.2"):
+        (mdir / f"{name}.json").write_text("{}")
     lst = tmp_path / "ids.txt"
-    lst.write_text("GCF_000005825.2\nGCF_000005845.2\n")
+    lst.write_text("\n".join(str(mdir / f"{n}.json")
+                             for n in ("GCF_000005825.2", "GCF_000005845.2")) + "\n")
     ms = resolve.resolve_model_set(str(lst))
     ids = resolve.model_ids(ms)
     assert ids == ["GCF_000005825.2", "GCF_000005845.2"]
     for i in ids:
         assert ms.path_for(i).exists(), f"{ms.path_for(i)} should exist"
+
+
+def test_id_list_of_bare_ids_resolves_against_a_registered_set(tmp_path):
+    """Bare ids carry no directory, so they are matched against registered sets.
+
+    Skipped when the model data is not installed -- this one genuinely needs it.
+    """
+    ms_dir = models_reg.get("core_kegg2").models_dir()
+    if not ms_dir.exists():
+        pytest.skip("core_kegg2 model data not installed")
+    real = sorted(p.stem for p in list(ms_dir.glob("*.json"))[:2])
+    lst = tmp_path / "bare.txt"
+    lst.write_text("\n".join(real) + "\n")
+    ms = resolve.resolve_model_set(str(lst))
+    assert resolve.model_ids(ms) == real
 
 
 def test_unknown_model_spec_raises_resolve_error():
