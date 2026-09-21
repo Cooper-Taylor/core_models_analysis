@@ -85,37 +85,55 @@ _ROOTS = {
     # separation exists to prevent: callers pass required=False and handle None.
     "msdb_snapshot": ("MSDB_SNAPSHOT_ROOT", "msdb_snapshot",
                       ("../tmp/devsnap2", "../devsnap2", "data/devsnap2"),
-                      "a pinned MSDB snapshot, read by the grading/scatter scripts"),
+                      "a pinned MSDB snapshot, read by the grading/scatter scripts",
+                      "Biochemistry/reaction_00.json"),
     "core_models": ("CORE_MODELS_DIR", "core_models",
                     ("data/core_models_kegg2", "../core_models_kegg2"),
-                    "the 5,683 core model JSONs"),
+                    "the 5,683 core model JSONs", "*.json"),
     "gs_models": ("MS2_GS_MODELS_DIR", "gs_models",
                   ("data/modelseed2_gs_models", "../modelseed2_gs_models"),
-                  "the ModelSEED v2 genome-scale models"),
+                  "the ModelSEED v2 genome-scale models", "gmm"),
 }
 
 
+def _looks_right(p: Path, marker: str) -> bool:
+    """Is this directory actually the thing we are looking for?"""
+    if not p.is_dir():
+        return False
+    if "*" in marker:
+        return any(p.glob(marker))
+    return (p / marker).exists()
+
+
 def _resolve(name: str, required: bool) -> Path | None:
-    env, key, candidates, what = _ROOTS[name]
+    env, key, candidates, what, marker = _ROOTS[name]
     raw = os.environ.get(env)
     if raw:
         p = Path(raw).expanduser()
-        if p.exists():
-            return p
-        raise MissingRoot(f"{env}={raw!r} does not exist (expected {what})")
+        if not p.exists():
+            raise MissingRoot(f"{env}={raw!r} does not exist (expected {what})")
+        if not _looks_right(p, marker):
+            raise MissingRoot(
+                f"{env}={raw!r} exists but does not look like {what}: "
+                f"expected to find {marker!r} inside it"
+            )
+        return p
 
     cfg = _config().get(key)
     if cfg:
         p = Path(cfg).expanduser()
-        if p.exists():
-            return p
-        raise MissingRoot(
-            f"{config_file()} sets paths.{key}={cfg!r}, which does not exist"
-        )
+        if not p.exists():
+            raise MissingRoot(f"{config_file()} sets paths.{key}={cfg!r}, which does not exist")
+        if not _looks_right(p, marker):
+            raise MissingRoot(
+                f"{config_file()} sets paths.{key}={cfg!r}, which does not look like "
+                f"{what}: expected {marker!r} inside it"
+            )
+        return p
 
     for rel in candidates:
         p = (_REPO / rel).resolve()
-        if p.exists():
+        if _looks_right(p, marker):
             return p
 
     if not required:
@@ -238,8 +256,9 @@ def doctor() -> tuple[int, str]:
     L.append("")
 
     rc = 0
+    missing_data = []
     L.append("data roots")
-    for name, (env, key, _cands, what) in _ROOTS.items():
+    for name, (env, key, _cands, what, _marker) in _ROOTS.items():
         try:
             p = _resolve(name, required=False)
         except MissingRoot as exc:
@@ -252,6 +271,8 @@ def doctor() -> tuple[int, str]:
         else:
             L.append(f"  {name:<16} absent -- {what}")
             L.append(f"  {'':<16}        set {env}, or paths.{key} in cma.toml")
+            if name != "msdb_snapshot":     # only the grading scripts need that one
+                missing_data.append(name)
     L.append("")
 
     L.append("python packages")
@@ -279,8 +300,14 @@ def doctor() -> tuple[int, str]:
     L.append("")
 
     if rc:
-        L.append("Some requirements are missing. See the Setup section of README.md,")
-        L.append("or run:  python3 -m pip install -e '.[all]'")
-    else:
+        L.append("Python requirements are missing. Run:")
+        L.append("  python3 -m pip install -e '.[all]'")
+    if missing_data:
+        rc = rc or 1
+        L.append(f"Data is missing ({', '.join(missing_data)}), so most of the pipeline")
+        L.append("cannot run yet. Fetch it with:")
+        L.append("  python3 scripts/fetch_data.py --all")
+        L.append("or point at existing copies with the environment variables above.")
+    if not rc:
         L.append("Everything required is present.")
     return rc, "\n".join(L)
