@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from cma import models as models_reg  # noqa: E402
-from cma import pipeline, resolve
+from cma import pipeline, resolve  # noqa: E402
 from cma.directions import normalize_operator  # noqa: E402
 
 
