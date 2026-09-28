@@ -30,3 +30,4 @@ thermo_source_coverage_bars	plot_thermo_source_coverage_bars.py		bars
 thermo_source_growth_bars	plot_thermo_source_growth_bars.py		bars
 graded_fba	plot_graded_fba.py		bars
 thermo_method_flowcharts	plot_method_flowcharts.py		diagram
+direction_influence	plot_direction_influence.py		influence,v201

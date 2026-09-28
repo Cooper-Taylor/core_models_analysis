@@ -225,6 +225,20 @@ python3 beginPipeline --models core_kegg2 --panel core_100 --directions thermo_g
 
 ---
 
+## The written analysis
+
+The direction-influence study is typeset as a PDF from the same result files
+the pipeline writes, so the document cannot drift from the data:
+
+```bash
+python3 scripts/plot_direction_influence.py     # or: regen_figures.py direction_influence
+python3 scripts/build_influence_pdf.py          # -> reports/DIRECTION_INFLUENCE_V201.pdf
+```
+
+Every number in it is read at build time from `results/influence_v201/` and
+`results/direction_sets_v201/`. Figures are registered as `direction_influence`
+in `scripts/figures.tsv`.
+
 ## Adding a new stage
 
 One decorated function in [`scripts/cma/stages.py`](scripts/cma/stages.py). No
