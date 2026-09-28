@@ -231,13 +231,19 @@ The direction-influence study is typeset as a PDF from the same result files
 the pipeline writes, so the document cannot drift from the data:
 
 ```bash
-python3 scripts/plot_direction_influence.py     # or: regen_figures.py direction_influence
-python3 scripts/build_influence_pdf.py          # -> reports/DIRECTION_INFLUENCE_V201.pdf
+python3 scripts/regen_figures.py direction_influence   # the four figures
+python3 scripts/build_influence_report.py              # PDF + Markdown
+python3 scripts/build_influence_report.py --format md  # just one
 ```
 
-Every number in it is read at build time from `results/influence_v201/` and
-`results/direction_sets_v201/`. Figures are registered as `direction_influence`
-in `scripts/figures.tsv`.
+Outputs `reports/DIRECTION_INFLUENCE_V201.pdf` and `.md`. Both are renderings
+of a single content definition in `document()`, so they cannot disagree with
+each other, and every number is read at build time from
+`results/influence_v201/` and `results/direction_sets_v201/`, so neither can
+disagree with the data. The earlier hand-maintained Markdown drifted from the
+results on sixteen separate claims before a recount caught it.
+
+Figures are registered as `direction_influence` in `scripts/figures.tsv`.
 
 ## Adding a new stage
 
