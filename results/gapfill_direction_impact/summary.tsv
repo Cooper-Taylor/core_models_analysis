@@ -1,0 +1,19 @@
+tier	tier_key	class	reactions_in_class	reactions_called_by_tier	reactions_modified	pct_of_class_modified	pct_of_called_modified	occurrences_in_class	occurrences_modified	pct_occurrences_modified
+gold	v201_gold_only	original	2665	382	82	3.08	21.47	5461785	199291	3.65
+gold	v201_gold_only	gapfilled	408	25	17	4.17	68.0	22185	162	0.73
+gold	v201_gold_only	media-only	696	53	43	6.18	81.13	18646	1034	5.55
+silver	v201_silver_only	original	2665	929	299	11.22	32.19	5461785	598026	10.95
+silver	v201_silver_only	gapfilled	408	172	114	27.94	66.28	22185	5693	25.66
+silver	v201_silver_only	media-only	696	306	212	30.46	69.28	18646	3800	20.38
+bronze	v201_bronze_only	original	2665	395	116	4.35	29.37	5461785	173658	3.18
+bronze	v201_bronze_only	gapfilled	408	86	46	11.27	53.49	22185	1896	8.55
+bronze	v201_bronze_only	media-only	696	126	68	9.77	53.97	18646	6646	35.64
+gold (cumulative)	v201_gold	original	2665	382	82	3.08	21.47	5461785	199291	3.65
+gold (cumulative)	v201_gold	gapfilled	408	25	17	4.17	68.0	22185	162	0.73
+gold (cumulative)	v201_gold	media-only	696	53	43	6.18	81.13	18646	1034	5.55
+gold + silver	v201_gold_silver	original	2665	1311	381	14.3	29.06	5461785	797317	14.6
+gold + silver	v201_gold_silver	gapfilled	408	197	131	32.11	66.5	22185	5855	26.39
+gold + silver	v201_gold_silver	media-only	696	359	255	36.64	71.03	18646	4834	25.93
+gold + silver + bronze	v201_gold_silver_bronze	original	2665	1706	497	18.65	29.13	5461785	970975	17.78
+gold + silver + bronze	v201_gold_silver_bronze	gapfilled	408	283	177	43.38	62.54	22185	7751	34.94
+gold + silver + bronze	v201_gold_silver_bronze	media-only	696	485	323	46.41	66.6	18646	11480	61.57

@@ -1,0 +1,2475 @@
+rxn	class	on_disk	tier_call	n_genomes	cofactors
+rxn05466	original	=	=	5419	ammonia
+rxn05488	original	=	=	5419	(none of the tracked families)
+rxn00062	original	>	>	5419	ATP/ADP/AMP;phosphate
+rxn05469	original	=	=	5419	(none of the tracked families)
+rxn05319	original	=	=	5419	(none of the tracked families)
+rxn08350	original	=	=	5419	(none of the tracked families)
+rxn05559	original	=	=	5419	(none of the tracked families)
+rxn05467	original	=	=	5419	CO2
+rxn05195	original	>	>	5413	ATP/ADP/AMP;phosphate
+rxn05064	original	>	=	5413	CO2;ammonia
+rxn05730	original	=	=	5411	(none of the tracked families)
+rxn04133	original	>	>	5411	CO2
+rxn12637	original	=	=	5411	(none of the tracked families)
+rxn03012	original	>	>	5411	(none of the tracked families)
+rxn01208	original	<	<	5411	CO2
+rxn24718	original	>	>	5411	CO2
+rxn04132	original	>	>	5411	CO2
+rxn02374	original	>	=	5411	(none of the tracked families)
+rxn04457	original	>	>	5411	CO2
+rxn12633	original	=	=	5411	(none of the tracked families)
+rxn12641	original	=	=	5411	(none of the tracked families)
+rxn02989	original	<	<	5411	(none of the tracked families)
+rxn00064	original	>	>	5410	ATP/ADP/AMP;ammonia
+rxn05129	original	>	>	5410	phosphate
+rxn02666	original	<	<	5410	CO2
+rxn12635	original	=	=	5407	(none of the tracked families)
+rxn12642	original	=	=	5407	(none of the tracked families)
+rxn09260	original	=	=	5354	(none of the tracked families)
+rxn00777	original	=	=	5344	(none of the tracked families)
+rxn00119	original	=	=	5336	ATP/ADP/AMP
+rxn01106	original	=	=	5323	(none of the tracked families)
+rxn00781	original	=	<	5322	NAD(H);phosphate
+rxn00097	original	=	=	5322	ATP/ADP/AMP
+rxn00459	original	=	=	5321	(none of the tracked families)
+rxn01127	original	=	=	5318	ATP/ADP/AMP
+rxn00747	original	=	=	5300	(none of the tracked families)
+rxn01211	original	=	=	5276	(none of the tracked families)
+rxn00907	original	=	=	5246	NADP(H)
+rxn08032	original	=	=	5244	(none of the tracked families)
+rxn05468	original	>	=	5224	O2
+rxn00692	original	=	=	5222	THF / folate
+rxn00122	original	>	=	5215	ATP/ADP/AMP;FAD(H2);pyrophosphate
+rxn03174	original	<	<	5212	(none of the tracked families)
+rxn00527	original	=	=	5202	(none of the tracked families)
+rxn00493	original	=	=	5202	(none of the tracked families)
+rxn00100	original	>	=	5195	ATP/ADP/AMP;CoA
+rxn00113	original	>	=	5191	ATP/ADP/AMP;phosphate;CO2;ammonia
+rxn00412	original	>	=	5191	ATP/ADP/AMP;phosphate
+rxn00410	original	>	=	5190	ATP/ADP/AMP;phosphate;ammonia
+rxn00558	original	=	=	5186	(none of the tracked families)
+rxn00786	original	=	=	5177	(none of the tracked families)
+rxn05145	original	>	>	5173	ATP/ADP/AMP;phosphate
+rxn00001	original	>	>	5170	phosphate;pyrophosphate
+rxn01116	original	=	=	5154	(none of the tracked families)
+rxn08173	original	=	=	5153	ATP/ADP/AMP;phosphate
+rxn01509	original	=	=	5141	ATP/ADP/AMP
+rxn09562	original	=	=	5141	(none of the tracked families)
+rxn00239	original	=	=	5140	ATP/ADP/AMP
+rxn10060	original	>	=	5139	NAD(H);NADP(H)
+rxn00011	original	<	=	5139	CO2
+rxn01643	original	<	<	5133	NADP(H);phosphate
+rxn00105	original	>	=	5132	ATP/ADP/AMP;NAD(H);pyrophosphate
+rxn02175	original	>	=	5117	ATP/ADP/AMP;pyrophosphate
+rxn00917	original	>	>	5116	ATP/ADP/AMP;pyrophosphate
+rxn00260	original	=	=	5114	(none of the tracked families)
+rxn01485	original	=	=	5102	(none of the tracked families)
+rxn01603	original	>	=	5101	ATP/ADP/AMP;phosphate
+rxn00800	original	=	=	5079	ATP/ADP/AMP
+rxn01200	original	=	=	5078	(none of the tracked families)
+rxn00785	original	=	=	5078	(none of the tracked families)
+rxn00834	original	=	=	5078	NAD(H)
+rxn00838	original	>	=	5077	phosphate
+rxn03136	original	=	=	5076	(none of the tracked families)
+rxn03264	original	>	>	5074	ATP/ADP/AMP;phosphate;pyrophosphate
+rxn00392	original	=	=	5066	ATP/ADP/AMP
+rxn00189	original	>	>	5063	ammonia
+rxn00364	original	=	=	5062	ATP/ADP/AMP
+rxn01219	original	=	=	5062	ATP/ADP/AMP
+rxn01334	original	=	=	5058	(none of the tracked families)
+rxn00612	original	=	=	5056	NADP(H)
+rxn00555	original	=	=	5048	(none of the tracked families)
+rxn00187	original	>	>	5037	ATP/ADP/AMP;phosphate;ammonia
+rxn40037	original	>	>	5031	(none of the tracked families)
+rxn01644	original	>	>	5027	(none of the tracked families)
+rxn01218	original	>	>	5027	phosphate
+rxn01445	original	>	>	5027	phosphate
+rxn00461	original	>	=	5026	phosphate
+rxn03903	original	=	=	5021	(none of the tracked families)
+rxn01362	original	<	=	5019	pyrophosphate
+rxn01517	original	=	=	5019	ATP/ADP/AMP
+rxn00138	original	>	=	5018	ATP/ADP/AMP;NAD(H);pyrophosphate;ammonia
+rxn01513	original	=	=	5018	ATP/ADP/AMP
+rxn02285	original	=	<	5017	NADP(H)
+rxn01210	original	>	=	5015	ATP/ADP/AMP;phosphate
+rxn00533	original	>	=	5005	ATP/ADP/AMP;phosphate
+rxn02476	original	=	=	5000	phosphate
+rxn05528	original	>	>	4998	ATP/ADP/AMP;phosphate
+rxn10481	original	>	>	4998	ATP/ADP/AMP;phosphate
+rxn00913	original	>	=	4993	phosphate
+rxn00708	original	>	>	4993	phosphate
+rxn00363	original	>	>	4993	phosphate
+rxn00831	original	>	>	4993	phosphate
+rxn01145	original	>	=	4993	phosphate
+rxn02008	original	>	=	4990	ATP/ADP/AMP;phosphate
+rxn00851	original	>	=	4990	ATP/ADP/AMP;phosphate
+rxn01961	original	>	=	4990	phosphate
+rxn01521	original	>	>	4989	phosphate
+rxn02929	original	=	=	4986	NADP(H)
+rxn03408	original	=	=	4985	(none of the tracked families)
+rxn39452	original	=	<	4983	NADP(H)
+rxn03933	original	=	=	4983	(none of the tracked families)
+rxn39451	original	=	<	4982	NAD(H)
+rxn01241	original	=	=	4978	NAD(H)
+rxn03141	original	>	=	4975	ATP/ADP/AMP;phosphate
+rxn01740	original	=	=	4975	NADP(H)
+rxn01354	original	=	=	4970	(none of the tracked families)
+rxn00411	original	>	=	4970	(none of the tracked families)
+rxn00460	original	>	=	4970	(none of the tracked families)
+rxn00840	original	=	=	4967	(none of the tracked families)
+rxn02286	original	>	=	4965	ATP/ADP/AMP;phosphate
+rxn00647	original	=	=	4955	(none of the tracked families)
+rxn00414	original	>	=	4952	ATP/ADP/AMP;phosphate
+rxn01757	original	=	=	4952	(none of the tracked families)
+rxn01255	original	>	>	4950	phosphate
+rxn02213	original	>	=	4937	(none of the tracked families)
+rxn00915	original	<	<	4927	pyrophosphate
+rxn01602	original	=	=	4924	NADP(H)
+rxn03147	original	>	>	4922	ATP/ADP/AMP;phosphate
+rxn01465	original	=	=	4907	(none of the tracked families)
+rxn02895	original	>	=	4905	ATP/ADP/AMP;phosphate
+rxn00192	original	>	=	4904	CoA
+rxn01962	original	>	>	4903	pyrophosphate
+rxn00514	original	>	>	4903	pyrophosphate
+rxn02341	original	>	>	4901	CO2
+rxn02518	original	>	>	4899	pyrophosphate
+rxn00304	original	>	=	4898	(none of the tracked families)
+rxn01018	original	>	>	4891	phosphate
+rxn00303	original	>	=	4888	ATP/ADP/AMP
+rxn08689	original	=	=	4885	(none of the tracked families)
+rxn03421	original	=	=	4869	(none of the tracked families)
+rxn00242	original	>	>	4867	pyrophosphate
+rxn00790	original	<	<	4864	pyrophosphate
+rxn00154	original	=	=	4862	NAD(H);CoA;CO2
+rxn00313	original	>	>	4851	CO2
+rxn12510	original	>	=	4851	ATP/ADP/AMP
+rxn00283	original	=	=	4849	(none of the tracked families)
+rxn02128	original	>	=	4849	ATP/ADP/AMP
+rxn01575	original	=	=	4827	(none of the tracked families)
+rxn00214	original	=	=	4826	(none of the tracked families)
+rxn01653	original	>	>	4826	ATP/ADP/AMP;phosphate
+rxn00806	original	=	=	4823	(none of the tracked families)
+rxn00903	original	=	=	4823	(none of the tracked families)
+rxn00293	original	>	=	4821	pyrophosphate
+rxn03638	original	>	=	4812	CoA
+rxn02201	original	>	>	4804	pyrophosphate
+rxn02200	original	=	=	4802	(none of the tracked families)
+rxn00799	original	=	=	4801	(none of the tracked families)
+rxn01256	original	>	>	4779	(none of the tracked families)
+rxn01353	original	=	=	4776	ATP/ADP/AMP
+rxn01678	original	=	=	4776	ATP/ADP/AMP
+rxn00515	original	=	=	4776	ATP/ADP/AMP
+rxn01673	original	=	=	4776	ATP/ADP/AMP
+rxn00107	original	>	=	4776	ATP/ADP/AMP
+rxn00237	original	=	=	4775	ATP/ADP/AMP
+rxn01332	original	>	>	4773	phosphate
+rxn10344	original	>	>	4772	ATP/ADP/AMP;phosphate
+rxn05516	original	>	>	4772	ATP/ADP/AMP;phosphate
+rxn02517	original	=	=	4772	ATP/ADP/AMP
+rxn00839	original	=	=	4772	ATP/ADP/AMP
+rxn08715	original	>	>	4764	ATP/ADP/AMP;phosphate
+rxn02212	original	>	>	4756	phosphate
+rxn02155	original	=	=	4754	ATP/ADP/AMP;pyrophosphate
+rxn00929	original	=	<	4752	NAD(H)
+rxn01000	original	>	>	4752	CO2
+rxn09330	original	=	=	4748	(none of the tracked families)
+rxn03047	original	>	=	4743	ATP/ADP/AMP
+rxn00206	original	<	>	4737	O2
+rxn01512	original	=	=	4729	ATP/ADP/AMP
+rxn01739	original	>	=	4721	ATP/ADP/AMP
+rxn08893	original	=	=	4719	(none of the tracked families)
+rxn00409	original	=	=	4713	ATP/ADP/AMP
+rxn04791	original	=	=	4706	glutathione
+rxn00117	original	=	=	4704	ATP/ADP/AMP
+rxn03080	original	>	>	4699	phosphate
+rxn03446	original	>	>	4698	phosphate
+rxn01069	original	>	>	4698	phosphate
+rxn00165	original	>	>	4697	ammonia
+rxn00299	original	>	>	4692	(none of the tracked families)
+rxn00302	original	>	=	4688	(none of the tracked families)
+rxn03005	original	=	=	4688	THF / folate
+rxn05040	original	>	>	4688	(none of the tracked families)
+rxn03004	original	=	=	4684	THF / folate
+rxn00048	original	>	>	4675	(none of the tracked families)
+rxn01974	original	=	=	4672	(none of the tracked families)
+rxn01682	original	=	=	4667	(none of the tracked families)
+rxn00474	original	>	>	4667	(none of the tracked families)
+rxn01964	original	>	=	4663	(none of the tracked families)
+rxn02503	original	>	=	4654	ATP/ADP/AMP
+rxn01333	original	=	=	4639	(none of the tracked families)
+rxn15021	original	<	<	4603	CO2
+rxn00802	original	=	=	4601	(none of the tracked families)
+rxn00711	original	<	=	4597	pyrophosphate
+rxn01434	original	>	=	4581	ATP/ADP/AMP;pyrophosphate
+rxn14334	original	>	>	4564	pyrophosphate
+rxn05030	original	>	>	4564	pyrophosphate
+rxn03843	original	>	>	4564	pyrophosphate
+rxn14040	original	>	>	4563	pyrophosphate
+rxn14333	original	>	>	4561	pyrophosphate
+rxn14011	original	>	>	4561	pyrophosphate
+rxn14061	original	>	>	4557	pyrophosphate
+rxn13957	original	>	>	4557	pyrophosphate
+rxn00300	original	>	>	4556	pyrophosphate
+rxn00974	original	=	=	4543	(none of the tracked families)
+rxn01388	original	=	=	4543	(none of the tracked families)
+rxn02507	original	>	>	4535	CO2
+rxn08428	original	=	=	4528	(none of the tracked families)
+rxn00727	original	>	>	4523	(none of the tracked families)
+rxn00726	original	>	>	4521	ammonia
+rxn03901	original	>	>	4519	phosphate
+rxn00060	original	>	>	4511	ammonia
+rxn03068	original	=	=	4502	NADP(H)
+rxn02320	original	=	=	4497	(none of the tracked families)
+rxn10770	original	=	=	4495	NAD(H)
+rxn03039	original	=	<	4490	pyrophosphate
+rxn00139	original	<	<	4490	ATP/ADP/AMP;pyrophosphate
+rxn00029	original	>	>	4483	(none of the tracked families)
+rxn00171	original	=	=	4482	NAD(H);CoA
+rxn02474	original	=	=	4479	NADP(H)
+rxn00763	original	=	<	4469	NAD(H)
+rxn01710	original	=	=	4466	NAD(H)
+rxn03407	original	>	=	4461	ATP/ADP/AMP;phosphate;ammonia
+rxn00193	original	=	=	4457	(none of the tracked families)
+rxn03435	original	=	=	4456	NADP(H)
+rxn03436	original	=	=	4456	(none of the tracked families)
+rxn00791	original	<	<	4454	pyrophosphate
+rxn00132	original	>	>	4451	ATP/ADP/AMP;phosphate
+rxn01670	original	>	=	4443	phosphate
+rxn09272	original	>	>	4437	quinone
+rxn01519	original	>	>	4436	pyrophosphate
+rxn03909	original	>	=	4433	CO2
+rxn00549	original	>	>	4424	phosphate
+rxn03175	original	=	=	4422	(none of the tracked families)
+rxn00789	original	<	<	4422	ATP/ADP/AMP;pyrophosphate
+rxn02811	original	=	=	4420	(none of the tracked families)
+rxn02789	original	=	=	4418	(none of the tracked families)
+rxn00256	original	<	<	4416	CoA
+rxn02473	original	>	>	4408	(none of the tracked families)
+rxn03437	original	>	>	4403	(none of the tracked families)
+rxn00898	original	>	>	4403	(none of the tracked families)
+rxn00085	original	=	=	4399	NADP(H)
+rxn15467	original	>	>	4396	(none of the tracked families)
+rxn00213	original	>	=	4395	pyrophosphate
+rxn00863	original	>	>	4393	NAD(H)
+rxn02159	original	=	=	4393	NAD(H)
+rxn00902	original	<	=	4390	CoA
+rxn23042	original	>	>	4390	pyrophosphate;CO2
+rxn02342	original	>	=	4389	(none of the tracked families)
+rxn01019	original	>	>	4385	phosphate
+rxn01871	original	<	=	4380	CoA
+rxn03062	original	=	=	4374	NAD(H)
+rxn00735	original	=	=	4374	NAD(H);CO2
+rxn01387	original	=	=	4359	NADP(H)
+rxn00199	original	>	>	4359	CO2
+rxn08975	original	>	>	4349	NAD(H);quinone
+rxn02305	original	>	=	4332	pyrophosphate
+rxn02186	original	=	=	4329	NADP(H)
+rxn00836	original	<	<	4328	pyrophosphate
+rxn03908	original	>	=	4324	ATP/ADP/AMP
+rxn03108	original	>	<	4314	ATP/ADP/AMP
+rxn01300	original	>	=	4312	ATP/ADP/AMP
+rxn02484	original	>	=	4311	ATP/ADP/AMP
+rxn00649	original	>	>	4303	(none of the tracked families)
+rxn00882	original	>	>	4291	phosphate
+rxn00883	original	>	>	4291	phosphate
+rxn00881	original	>	>	4291	phosphate
+rxn00102	original	=	=	4285	CO2
+rxn00423	original	>	=	4274	CoA
+rxn08691	original	=	=	4268	(none of the tracked families)
+rxn00775	original	>	>	4265	ATP/ADP/AMP
+rxn00988	original	>	=	4263	ATP/ADP/AMP;CoA;pyrophosphate
+rxn00947	original	>	=	4254	ATP/ADP/AMP;CoA;pyrophosphate
+rxn09449	original	>	=	4252	ATP/ADP/AMP;CoA;pyrophosphate
+rxn05736	original	>	=	4252	ATP/ADP/AMP;CoA;pyrophosphate
+rxn02465	original	<	=	4252	NADP(H);phosphate
+rxn05957	original	>	>	4251	(none of the tracked families)
+rxn15395	original	>	>	4247	(none of the tracked families)
+rxn00179	original	>	=	4234	ATP/ADP/AMP
+rxn05150	original	>	>	4229	ATP/ADP/AMP;phosphate
+rxn02373	original	<	=	4227	NADP(H);phosphate
+rxn02504	original	=	=	4216	(none of the tracked families)
+rxn01257	original	=	=	4215	(none of the tracked families)
+rxn08352	original	>	>	4204	NAD(H)
+rxn04113	original	>	>	4200	NADP(H)
+rxn00559	original	=	=	4196	(none of the tracked families)
+rxn00285	original	=	=	4184	ATP/ADP/AMP;CoA;phosphate
+rxn01329	original	=	=	4178	(none of the tracked families)
+rxn03958	original	=	=	4177	NADP(H)
+rxn03907	original	>	=	4152	pyrophosphate
+rxn00910	original	=	=	4141	NADP(H);THF / folate
+rxn04954	original	=	=	4139	NAD(H);THF / folate
+rxn01520	original	>	>	4135	(none of the tracked families)
+rxn05114	original	>	=	4126	ATP/ADP/AMP;phosphate
+rxn00241	original	>	>	4110	phosphate
+rxn03445	original	=	=	4109	(none of the tracked families)
+rxn01997	original	>	>	4070	(none of the tracked families)
+rxn02508	original	=	=	4068	(none of the tracked families)
+rxn08981	original	>	=	4056	ATP/ADP/AMP;phosphate;pyrophosphate
+rxn01265	original	=	=	4054	pyrophosphate
+rxn00420	original	>	>	4044	phosphate
+rxn00137	original	>	>	4043	ATP/ADP/AMP;phosphate
+rxn08971	original	>	=	4042	NAD(H);quinone
+rxn03384	original	>	>	4039	CO2
+rxn02288	original	>	>	4037	CO2
+rxn00912	original	=	=	4033	THF / folate
+rxn01791	original	>	=	4032	ATP/ADP/AMP;pyrophosphate
+rxn00737	original	>	>	4025	ammonia
+rxn00615	original	>	=	4004	ATP/ADP/AMP
+rxn01917	original	=	=	4003	ATP/ADP/AMP
+rxn00874	original	=	=	4003	CoA
+rxn01466	original	>	>	3996	pyrophosphate
+rxn02160	original	>	>	3961	phosphate
+rxn03841	original	>	>	3951	(none of the tracked families)
+rxn05312	original	<	=	3943	phosphate
+rxn11268	original	<	=	3943	pyrophosphate
+rxn01270	original	=	=	3937	(none of the tracked families)
+rxn01973	original	=	=	3935	(none of the tracked families)
+rxn08734	original	>	>	3912	quinone
+rxn00211	original	=	=	3912	NAD(H)
+rxn00006	original	<	>	3911	O2
+rxn16583	original	>	>	3908	ATP/ADP/AMP
+rxn02402	original	<	=	3896	pyrophosphate;CO2
+rxn00065	original	>	>	3879	ATP/ADP/AMP;pyrophosphate
+rxn01675	original	>	=	3875	pyrophosphate
+rxn01629	original	=	=	3875	(none of the tracked families)
+rxn03248	original	<	=	3865	CoA
+rxn02680	original	<	=	3865	CoA
+rxn02804	original	<	=	3864	CoA
+rxn03243	original	<	=	3863	CoA
+rxn00676	original	=	=	3861	CoA
+rxn06510	original	<	=	3861	CoA
+rxn02011	original	>	=	3810	ATP/ADP/AMP;phosphate
+rxn00604	original	>	=	3791	NADP(H)
+rxn02376	original	=	=	3787	(none of the tracked families)
+rxn00441	original	>	=	3787	CO2
+rxn00670	original	=	=	3785	CoA;phosphate
+rxn00175	original	>	=	3783	ATP/ADP/AMP;CoA;pyrophosphate
+rxn01872	original	=	=	3780	CoA
+rxn00675	original	>	>	3778	ATP/ADP/AMP;CoA
+rxn00161	original	>	=	3763	NADP(H);CO2
+rxn00980	original	>	>	3760	phosphate
+rxn12848	original	>	>	3754	ATP/ADP/AMP;phosphate
+rxn00063	original	>	>	3739	ATP/ADP/AMP;pyrophosphate
+rxn00704	original	=	=	3733	(none of the tracked families)
+rxn20583	original	=	=	3732	(none of the tracked families)
+rxn05029	original	>	>	3728	ATP/ADP/AMP
+rxn01084	original	=	>	3726	ATP/ADP/AMP
+rxn01476	original	>	>	3723	(none of the tracked families)
+rxn05539	original	>	>	3679	ATP/ADP/AMP;phosphate
+rxn01637	original	=	=	3679	(none of the tracked families)
+rxn05607	original	=	>	3662	(none of the tracked families)
+rxn05567	original	=	=	3660	(none of the tracked families)
+rxn05560	original	=	>	3648	(none of the tracked families)
+rxn00772	original	>	=	3641	ATP/ADP/AMP
+rxn05485	original	=	=	3640	(none of the tracked families)
+rxn01987	original	=	=	3639	ATP/ADP/AMP
+rxn05569	original	=	=	3636	(none of the tracked families)
+rxn05501	original	=	>	3636	(none of the tracked families)
+rxn00952	original	>	>	3632	(none of the tracked families)
+rxn01851	original	>	>	3632	NAD(H)
+rxn08336	original	>	=	3631	quinone
+rxn08335	original	>	>	3628	quinone
+rxn00463	original	>	>	3616	pyrophosphate
+rxn01351	original	>	>	3613	pyrophosphate
+rxn00301	original	>	>	3613	pyrophosphate
+rxn09014	original	>	>	3613	pyrophosphate
+rxn00367	original	>	>	3613	pyrophosphate
+rxn05219	original	>	>	3608	ATP/ADP/AMP;phosphate
+rxn02988	original	<	<	3608	phosphate
+rxn01286	original	>	>	3606	NAD(H)
+rxn09176	original	=	=	3591	ATP/ADP/AMP;phosphate;pyrophosphate
+rxn03031	original	>	=	3580	CoA
+rxn05174	original	>	>	3574	ATP/ADP/AMP;phosphate
+rxn05619	original	>	>	3567	ATP/ADP/AMP;phosphate
+rxn00379	original	=	<	3557	ATP/ADP/AMP;pyrophosphate
+rxn00438	original	>	>	3556	ATP/ADP/AMP
+rxn00183	original	>	>	3535	NAD(H)
+rxn00342	original	>	=	3530	ammonia
+rxn02853	original	>	>	3528	NAD(H)
+rxn05734	original	=	=	3528	NAD(H)
+rxn00506	original	>	>	3528	NAD(H)
+rxn05735	original	>	>	3528	NAD(H)
+rxn01459	original	>	>	3525	NADP(H)
+rxn00653	original	=	<	3525	NAD(H)
+rxn00872	original	<	<	3525	FAD(H2)
+rxn00504	original	=	>	3525	NADP(H)
+rxn23850	original	>	>	3523	NAD(H)
+rxn00938	original	>	=	3518	ammonia
+rxn03251	original	=	<	3516	FAD(H2)
+rxn08796	original	=	>	3510	(none of the tracked families)
+rxn08801	original	=	>	3510	(none of the tracked families)
+rxn08797	original	=	>	3508	(none of the tracked families)
+rxn03253	original	=	<	3508	FAD(H2)
+rxn02679	original	=	<	3508	FAD(H2)
+rxn08040	original	=	=	3508	(none of the tracked families)
+rxn00946	original	=	<	3505	FAD(H2)
+rxn10122	original	>	>	3498	NAD(H);quinone
+rxn01115	original	>	=	3495	NADP(H);CO2
+rxn11040	original	>	=	3494	NAD(H);CO2
+rxn08793	original	>	=	3491	quinone
+rxn08792	original	>	>	3491	quinone
+rxn01800	original	>	>	3485	ammonia
+rxn01368	original	>	>	3484	ammonia
+rxn03244	original	=	=	3459	NAD(H)
+rxn03239	original	=	=	3459	NAD(H)
+rxn06777	original	=	=	3459	NAD(H)
+rxn03242	original	=	=	3457	NAD(H)
+rxn03246	original	=	=	3457	NAD(H)
+rxn00784	original	=	=	3453	(none of the tracked families)
+rxn08527	original	=	>	3453	quinone
+rxn01799	original	=	=	3453	phosphate
+rxn00288	original	>	<	3453	FAD(H2)
+rxn02000	original	=	=	3442	(none of the tracked families)
+rxn03269	original	=	=	3441	NADP(H)
+rxn02003	original	=	=	3438	NADP(H)
+rxn05614	original	>	>	3434	ATP/ADP/AMP;phosphate
+rxn05183	original	>	>	3434	ATP/ADP/AMP;phosphate
+rxn05613	original	>	>	3431	ATP/ADP/AMP;phosphate
+rxn05170	original	>	>	3430	ATP/ADP/AMP;phosphate
+rxn08131	original	=	>	3410	NAD(H)
+rxn20643	original	>	>	3407	SAM
+rxn15249	original	=	=	3403	ATP/ADP/AMP
+rxn01138	original	=	=	3395	phosphate
+rxn01548	original	=	<	3395	phosphate
+rxn01358	original	=	<	3395	phosphate
+rxn01985	original	=	<	3393	phosphate
+rxn01446	original	=	=	3393	phosphate
+rxn01859	original	=	=	3393	phosphate
+rxn01649	original	=	<	3393	phosphate
+rxn05197	original	=	=	3392	(none of the tracked families)
+rxn03167	original	>	>	3382	phosphate
+rxn02277	original	>	=	3380	ATP/ADP/AMP;phosphate;CO2
+rxn01647	original	=	=	3376	phosphate
+rxn02167	original	>	=	3373	(none of the tracked families)
+rxn02312	original	=	=	3354	SAM
+rxn01834	original	=	=	3354	glutathione
+rxn40439	original	=	=	3351	(none of the tracked families)
+rxn00361	original	>	=	3349	ATP/ADP/AMP
+rxn00693	original	=	>	3348	THF / folate
+rxn03245	original	=	=	3348	(none of the tracked families)
+rxn02911	original	=	=	3348	(none of the tracked families)
+rxn03240	original	=	=	3348	(none of the tracked families)
+rxn03250	original	=	=	3348	(none of the tracked families)
+rxn02934	original	=	=	3346	(none of the tracked families)
+rxn03247	original	=	=	3346	(none of the tracked families)
+rxn03241	original	=	=	3346	(none of the tracked families)
+rxn02949	original	=	=	3343	(none of the tracked families)
+rxn39964	original	>	>	3337	ammonia
+rxn05163	original	>	>	3305	ATP/ADP/AMP;phosphate
+rxn00262	original	>	>	3305	ammonia;O2
+rxn00338	original	>	>	3304	O2
+rxn10570	original	=	=	3304	(none of the tracked families)
+rxn02803	original	=	<	3302	FAD(H2)
+rxn01103	original	>	>	3302	phosphate
+rxn00227	original	>	>	3302	phosphate
+rxn05175	original	>	>	3297	ATP/ADP/AMP;phosphate
+rxn00993	original	=	<	3291	(none of the tracked families)
+rxn09188	original	=	<	3275	FAD(H2)
+rxn08098	original	>	>	3273	ATP/ADP/AMP;phosphate
+rxn05654	original	=	=	3267	(none of the tracked families)
+rxn01484	original	=	=	3266	(none of the tracked families)
+rxn00416	original	>	=	3265	ATP/ADP/AMP;pyrophosphate
+rxn03504	original	=	=	3263	(none of the tracked families)
+rxn00547	original	>	=	3262	ATP/ADP/AMP
+rxn10126	original	>	>	3256	FAD(H2);quinone
+rxn13741	original	>	>	3255	quinone
+rxn00205	original	>	>	3252	glutathione
+rxn00552	original	>	>	3245	ammonia
+rxn02297	original	>	=	3239	CoA;CO2
+rxn41683	original	=	>	3235	(none of the tracked families)
+rxn00208	original	>	>	3234	THF / folate;ammonia;O2
+rxn00209	original	>	>	3231	THF / folate;O2
+rxn08192	original	>	>	3228	ATP/ADP/AMP;phosphate
+rxn02720	original	=	<	3205	FAD(H2)
+rxn16806	original	=	>	3202	(none of the tracked families)
+rxn01544	original	<	=	3192	pyrophosphate
+rxn02314	original	=	=	3185	ATP/ADP/AMP
+rxn16824	original	>	>	3167	ATP/ADP/AMP;phosphate;ammonia
+rxn05561	original	=	=	3161	(none of the tracked families)
+rxn02317	original	=	=	3155	(none of the tracked families)
+rxn02316	original	>	=	3155	(none of the tracked families)
+rxn02315	original	>	=	3155	(none of the tracked families)
+rxn01343	original	>	=	3152	ATP/ADP/AMP
+rxn00328	original	=	=	3148	(none of the tracked families)
+rxn01117	original	=	=	3143	(none of the tracked families)
+rxn08941	original	=	=	3140	phosphate
+rxn01146	original	=	=	3139	phosphate
+rxn03884	original	>	=	3138	(none of the tracked families)
+rxn11944	original	<	>	3138	SAM
+rxn08942	original	=	=	3137	phosphate
+rxn26127	original	=	=	3133	phosphate
+rxn15750	original	=	=	3132	(none of the tracked families)
+rxn02792	original	>	=	3125	CO2
+rxn02791	original	=	=	3125	(none of the tracked families)
+rxn02774	original	=	<	3124	NAD(H)
+rxn01636	original	=	=	3110	(none of the tracked families)
+rxn01802	original	>	=	3099	FAD(H2);CO2
+rxn03891	original	>	>	3084	pyrophosphate
+rxn05287	original	>	>	3081	pyrophosphate
+rxn02331	original	<	<	3081	phosphate
+rxn03892	original	>	>	3080	pyrophosphate
+rxn01406	original	>	>	3074	(none of the tracked families)
+rxn00743	original	>	>	3067	phosphate
+rxn09001	original	>	=	3061	quinone
+rxn01518	original	>	=	3054	ATP/ADP/AMP
+rxn01143	original	>	=	3052	ATP/ADP/AMP
+rxn00016	original	>	>	3050	(none of the tracked families)
+rxn00950	original	>	=	3039	ammonia
+rxn03146	original	=	=	3036	(none of the tracked families)
+rxn01021	original	=	=	3026	(none of the tracked families)
+rxn00143	original	=	=	3026	SAM
+rxn00405	original	>	>	3025	CO2
+rxn03159	original	=	=	3023	(none of the tracked families)
+rxn03951	original	=	=	3020	NAD(H)
+rxn00691	original	>	>	3018	THF / folate
+rxn11663	original	>	=	3017	NAD(H);CO2
+rxn05187	original	>	>	3016	ATP/ADP/AMP;phosphate
+rxn08070	original	>	>	3015	ATP/ADP/AMP;phosphate
+rxn03181	original	>	=	3009	ATP/ADP/AMP
+rxn02933	original	=	=	3004	NAD(H)
+rxn04750	original	=	=	3004	NAD(H)
+rxn05651	original	=	=	2997	(none of the tracked families)
+rxn00251	original	=	<	2995	phosphate;CO2
+rxn01102	original	>	=	2979	ATP/ADP/AMP
+rxn00640	original	>	=	2973	phosphate
+rxn09003	original	>	>	2972	quinone
+rxn00346	original	>	>	2933	CO2
+rxn09240	original	>	=	2905	ATP/ADP/AMP;phosphate;pyrophosphate
+rxn00371	original	>	=	2900	NAD(H);CO2
+rxn05121	original	=	>	2862	(none of the tracked families)
+rxn05161	original	>	>	2852	ATP/ADP/AMP;phosphate
+rxn02222	original	>	>	2837	ammonia
+rxn02177	original	>	>	2828	(none of the tracked families)
+rxn00002	original	>	>	2823	CO2;ammonia
+rxn00407	original	>	>	2821	ammonia
+rxn04070	original	>	>	2818	phosphate
+rxn04142	original	=	=	2807	(none of the tracked families)
+rxn00541	original	=	=	2807	(none of the tracked families)
+rxn00641	original	>	=	2806	pyrophosphate
+rxn00469	original	=	=	2791	(none of the tracked families)
+rxn00191	original	=	=	2789	(none of the tracked families)
+rxn05168	original	>	>	2783	ATP/ADP/AMP;phosphate
+rxn05179	original	>	>	2783	ATP/ADP/AMP;phosphate
+rxn01492	original	>	=	2767	ATP/ADP/AMP
+rxn09295	original	>	=	2762	NAD(H);NADP(H)
+rxn00083	original	>	=	2762	NAD(H);NADP(H)
+rxn00066	original	>	>	2760	NAD(H)
+rxn01416	original	=	>	2740	(none of the tracked families)
+rxn01843	original	=	<	2727	ammonia
+rxn02275	original	>	=	2727	ammonia
+rxn03869	original	>	>	2727	ammonia
+rxn03839	original	<	<	2725	ammonia
+rxn00231	original	>	>	2724	ammonia
+rxn00022	original	>	>	2715	(none of the tracked families)
+rxn01275	original	>	=	2710	ATP/ADP/AMP
+rxn03130	original	>	>	2702	(none of the tracked families)
+rxn01366	original	=	=	2700	phosphate
+rxn00695	original	>	=	2696	ATP/ADP/AMP;pyrophosphate
+rxn00190	original	>	=	2693	ATP/ADP/AMP;NAD(H);pyrophosphate
+rxn00525	original	>	>	2691	NAD(H);CO2
+rxn00292	original	>	>	2665	(none of the tracked families)
+rxn00278	original	=	=	2664	NAD(H);ammonia
+rxn00830	original	=	=	2661	(none of the tracked families)
+rxn05305	original	>	=	2646	(none of the tracked families)
+rxn02897	original	>	=	2646	(none of the tracked families)
+rxn00712	original	>	=	2627	(none of the tracked families)
+rxn01129	original	=	=	2627	(none of the tracked families)
+rxn01705	original	=	=	2627	(none of the tracked families)
+rxn01515	original	>	=	2627	(none of the tracked families)
+rxn01370	original	=	=	2627	(none of the tracked families)
+rxn01128	original	=	=	2627	(none of the tracked families)
+rxn01516	original	>	=	2627	(none of the tracked families)
+rxn01510	original	=	=	2626	(none of the tracked families)
+rxn01674	original	=	=	2626	(none of the tracked families)
+rxn08556	original	>	>	2604	quinone
+rxn00616	original	=	<	2603	FAD(H2)
+rxn08558	original	>	=	2603	quinone
+rxn08557	original	>	=	2603	quinone
+rxn00147	original	>	>	2599	ATP/ADP/AMP;phosphate
+rxn00509	original	>	>	2597	NADP(H)
+rxn08128	original	=	=	2596	(none of the tracked families)
+rxn08126	original	=	=	2596	(none of the tracked families)
+rxn05297	original	=	=	2596	(none of the tracked families)
+rxn08127	original	=	=	2596	(none of the tracked families)
+rxn00569	original	<	<	2586	NADP(H);ammonia
+rxn00568	original	<	<	2586	NAD(H);ammonia
+rxn00297	original	=	=	2583	(none of the tracked families)
+rxn00247	original	>	=	2570	ATP/ADP/AMP;CO2
+rxn05581	original	=	=	2558	(none of the tracked families)
+rxn08153	original	=	=	2554	(none of the tracked families)
+rxn05217	original	=	=	2554	(none of the tracked families)
+rxn00250	original	=	=	2552	ATP/ADP/AMP;phosphate
+rxn01274	original	>	>	2547	glutathione
+rxn01137	original	>	>	2544	ammonia
+rxn01858	original	>	>	2544	ammonia
+rxn00124	original	>	=	2525	ATP/ADP/AMP;THF / folate
+rxn01807	original	>	=	2525	ATP/ADP/AMP
+rxn01053	original	=	>	2519	NAD(H)
+rxn01281	original	=	=	2515	NADP(H)
+rxn00330	original	<	=	2514	CoA
+rxn05181	original	>	>	2502	ATP/ADP/AMP;phosphate
+rxn00867	original	>	>	2492	ammonia
+rxn00076	original	>	>	2486	ATP/ADP/AMP;NAD(H)
+rxn01123	original	>	=	2483	ATP/ADP/AMP
+rxn15230	original	=	=	2480	(none of the tracked families)
+rxn01452	original	<	=	2479	NADP(H)
+rxn02404	original	>	=	2468	phosphate
+rxn05579	original	=	=	2466	(none of the tracked families)
+rxn00507	original	>	>	2458	NADP(H)
+rxn05223	original	>	>	2450	ATP/ADP/AMP;phosphate
+rxn00623	original	<	<	2445	NADP(H)
+rxn03540	original	>	>	2443	ATP/ADP/AMP;phosphate
+rxn01199	original	>	=	2401	ATP/ADP/AMP
+rxn08380	original	>	=	2401	ATP/ADP/AMP
+rxn00808	original	>	=	2389	ATP/ADP/AMP
+rxn15121	original	=	=	2388	ATP/ADP/AMP
+rxn00347	original	=	=	2384	ammonia
+rxn05625	original	=	=	2381	(none of the tracked families)
+rxn05153	original	>	>	2376	ATP/ADP/AMP;phosphate
+rxn00953	original	=	=	2373	(none of the tracked families)
+rxn02303	original	>	>	2370	CO2;O2
+rxn05255	media-only	>	=	2370	(none of the tracked families)
+rxn15167	original	=	=	2369	(none of the tracked families)
+rxn02345	original	=	=	2352	(none of the tracked families)
+rxn03087	original	=	=	2346	(none of the tracked families)
+rxn05034	original	>	>	2345	pyrophosphate
+rxn03893	original	>	>	2344	pyrophosphate
+rxn00336	original	>	=	2343	(none of the tracked families)
+rxn02143	original	=	=	2340	(none of the tracked families)
+rxn00360	original	>	>	2328	phosphate
+rxn01299	original	=	>	2322	(none of the tracked families)
+rxn00056	original	>	=	2317	O2
+rxn00365	original	>	=	2286	ATP/ADP/AMP
+rxn00368	original	>	=	2286	(none of the tracked families)
+rxn00369	original	>	=	2286	(none of the tracked families)
+rxn08762	original	>	>	2286	ATP/ADP/AMP;phosphate
+rxn00715	original	=	=	2285	(none of the tracked families)
+rxn00707	original	=	=	2284	(none of the tracked families)
+rxn00701	original	=	=	2279	(none of the tracked families)
+rxn01258	original	>	=	2279	(none of the tracked families)
+rxn00355	original	>	=	2276	pyrophosphate
+rxn08333	original	>	>	2275	pyrophosphate;CO2
+rxn05148	original	>	>	2275	ATP/ADP/AMP;phosphate
+rxn03236	original	=	>	2274	(none of the tracked families)
+rxn11946	original	>	=	2274	quinone;SAM
+rxn05158	original	>	>	2270	ATP/ADP/AMP;phosphate
+rxn01225	original	>	<	2257	ammonia
+rxn02889	original	>	=	2250	ATP/ADP/AMP;phosphate
+rxn00713	original	>	=	2243	(none of the tracked families)
+rxn09978	original	=	=	2241	(none of the tracked families)
+rxn00709	original	>	=	2235	ATP/ADP/AMP
+rxn07434	original	>	=	2218	CO2
+rxn07431	original	=	=	2218	(none of the tracked families)
+rxn12008	original	<	<	2218	pyrophosphate
+rxn07430	original	>	=	2217	CO2
+rxn07432	original	>	=	2217	CO2
+rxn01171	original	=	=	2215	(none of the tracked families)
+rxn40368	original	=	=	2212	(none of the tracked families)
+rxn05155	original	>	>	2210	ATP/ADP/AMP;phosphate
+rxn01925	original	=	=	2205	CoA
+rxn05202	original	=	=	2198	(none of the tracked families)
+rxn02483	original	>	>	2198	CO2
+rxn00274	original	>	=	2171	CoA
+rxn03916	original	>	=	2170	ATP/ADP/AMP;pyrophosphate
+rxn03918	original	>	=	2170	ATP/ADP/AMP
+rxn00714	original	>	>	2165	(none of the tracked families)
+rxn07879	original	=	=	2149	(none of the tracked families)
+rxn00991	original	=	=	2148	(none of the tracked families)
+rxn05177	original	>	>	2145	ATP/ADP/AMP;phosphate
+rxn00904	original	=	=	2141	(none of the tracked families)
+rxn08711	original	=	=	2137	ATP/ADP/AMP
+rxn05494	original	=	=	2137	(none of the tracked families)
+rxn03990	original	>	>	2126	NAD(H);O2
+rxn03991	original	>	>	2125	NADP(H);O2
+rxn01355	original	>	=	2121	ATP/ADP/AMP;phosphate
+rxn01545	original	=	=	2120	(none of the tracked families)
+rxn01226	original	=	=	2117	(none of the tracked families)
+rxn05602	original	=	=	2100	(none of the tracked families)
+rxn04385	original	>	>	2100	CO2
+rxn02898	original	>	>	2081	CoA
+rxn05024	original	>	>	2080	(none of the tracked families)
+rxn00748	original	>	>	2080	phosphate
+rxn05603	original	=	=	2080	(none of the tracked families)
+rxn01522	original	>	=	2078	NAD(H)
+rxn00566	original	>	=	2076	ammonia
+rxn00742	original	>	=	2075	ammonia
+rxn02831	original	>	=	2073	ATP/ADP/AMP;CoA;pyrophosphate
+rxn08441	original	>	>	2069	CoA
+rxn08440	original	>	>	2069	CoA
+rxn00943	original	>	>	2067	CoA
+rxn08444	original	>	>	2067	CoA
+rxn01068	original	=	=	2061	NAD(H)
+rxn00321	original	=	=	2060	(none of the tracked families)
+rxn00668	original	=	>	2058	NADP(H)
+rxn03075	original	>	=	2053	ATP/ADP/AMP
+rxn08783	original	>	>	2048	quinone
+rxn03396	original	>	>	2041	NADP(H);O2
+rxn00690	original	>	>	2030	ATP/ADP/AMP;phosphate;THF / folate
+rxn00470	original	>	>	2026	CO2
+rxn00269	original	>	>	2025	ammonia;O2
+rxn00992	original	=	=	2024	NAD(H)
+rxn00717	original	>	>	2023	ammonia
+rxn01025	original	>	>	2023	ammonia
+rxn00879	original	=	=	2022	NAD(H)
+rxn00140	original	=	>	2014	ATP/ADP/AMP
+rxn11702	original	>	=	2012	CO2
+rxn02832	original	<	<	2005	(none of the tracked families)
+rxn08044	original	=	=	2001	(none of the tracked families)
+rxn00101	original	>	>	1997	CO2;ammonia
+rxn02866	original	<	<	1965	FAD(H2)
+rxn05958	original	>	>	1964	(none of the tracked families)
+rxn14169	original	>	>	1960	(none of the tracked families)
+rxn05176	original	>	>	1958	ATP/ADP/AMP;phosphate
+rxn00642	original	>	>	1951	(none of the tracked families)
+rxn00602	original	<	=	1951	(none of the tracked families)
+rxn05031	original	>	=	1951	pyrophosphate
+rxn01489	original	>	>	1951	pyrophosphate
+rxn02945	original	>	=	1951	pyrophosphate
+rxn00159	original	>	=	1950	NAD(H);CO2
+rxn02144	original	>	=	1944	(none of the tracked families)
+rxn04792	original	=	=	1934	NAD(H)
+rxn04938	original	=	=	1934	NADP(H)
+rxn08213	original	=	=	1927	(none of the tracked families)
+rxn00999	original	>	>	1915	CO2;O2
+rxn01827	original	>	>	1914	CO2;O2
+rxn04783	original	>	=	1910	ATP/ADP/AMP;phosphate
+rxn05160	original	>	>	1907	ATP/ADP/AMP;phosphate
+rxn02569	original	>	<	1904	ATP/ADP/AMP;phosphate
+rxn00740	original	>	>	1894	ammonia
+rxn02302	original	=	>	1891	(none of the tracked families)
+rxn01816	original	=	<	1891	(none of the tracked families)
+rxn28338	original	>	>	1890	(none of the tracked families)
+rxn01396	original	>	=	1889	ATP/ADP/AMP
+rxn05605	original	=	=	1866	(none of the tracked families)
+rxn00858	original	>	>	1865	(none of the tracked families)
+rxn23045	original	>	>	1863	O2
+rxn05149	original	>	>	1857	ATP/ADP/AMP;phosphate
+rxn05527	original	=	=	1855	(none of the tracked families)
+rxn01297	original	=	=	1842	NAD(H)
+rxn01833	original	>	>	1837	ammonia;O2
+rxn05205	original	=	=	1834	(none of the tracked families)
+rxn00377	original	=	>	1830	glutathione
+rxn02762	original	>	>	1829	(none of the tracked families)
+rxn02522	original	>	>	1829	(none of the tracked families)
+rxn02521	original	>	>	1827	(none of the tracked families)
+rxn03483	original	>	>	1827	(none of the tracked families)
+rxn00264	original	>	>	1819	O2
+rxn08900	original	>	>	1819	quinone
+rxn08901	original	>	=	1819	quinone
+rxn00333	original	>	>	1816	O2
+rxn00508	original	>	>	1813	NAD(H)
+rxn01013	original	=	=	1792	NADP(H)
+rxn00324	original	<	<	1792	NADP(H)
+rxn01831	original	=	=	1792	NAD(H)
+rxn05608	original	>	>	1783	ATP/ADP/AMP;phosphate
+rxn08869	original	>	>	1782	ATP/ADP/AMP;phosphate
+rxn00223	original	=	=	1779	(none of the tracked families)
+rxn03057	original	=	=	1779	(none of the tracked families)
+rxn01044	original	=	=	1779	(none of the tracked families)
+rxn01217	original	>	>	1775	ammonia
+rxn00440	original	>	=	1774	ATP/ADP/AMP
+rxn03885	original	>	>	1769	(none of the tracked families)
+rxn01291	original	=	=	1765	NADP(H)
+rxn00679	original	<	=	1761	CoA
+rxn01204	original	=	=	1759	(none of the tracked families)
+rxn05144	original	>	>	1746	phosphate;THF / folate
+rxn05638	original	=	=	1745	(none of the tracked families)
+rxn05585	original	>	>	1743	ATP/ADP/AMP;phosphate
+rxn05552	original	>	>	1743	ATP/ADP/AMP;phosphate
+rxn05307	original	=	=	1742	(none of the tracked families)
+rxn05512	original	>	>	1742	ATP/ADP/AMP;phosphate
+rxn05594	original	>	>	1742	ATP/ADP/AMP;phosphate
+rxn05656	original	>	>	1741	ATP/ADP/AMP;phosphate
+rxn05621	original	>	>	1741	ATP/ADP/AMP;phosphate
+rxn09193	original	<	=	1738	(none of the tracked families)
+rxn03394	original	>	>	1733	NADP(H);O2
+rxn01775	original	=	=	1729	NAD(H)
+rxn08656	original	>	<	1723	quinone
+rxn08655	original	>	>	1723	quinone
+rxn08657	original	>	=	1721	quinone
+rxn00068	gapfilled	<	<	1720	NAD(H)
+rxn01648	original	=	=	1719	phosphate
+rxn00890	original	=	=	1718	(none of the tracked families)
+rxn05172	original	>	>	1718	ATP/ADP/AMP;phosphate
+rxn02093	original	=	=	1717	(none of the tracked families)
+rxn00819	original	=	=	1717	(none of the tracked families)
+rxn00817	original	=	>	1716	(none of the tracked families)
+rxn03838	original	>	=	1715	(none of the tracked families)
+rxn01477	original	>	>	1714	(none of the tracked families)
+rxn15296	original	>	>	1712	(none of the tracked families)
+rxn00127	original	>	>	1704	SAM;CO2
+rxn00471	original	>	>	1703	ammonia
+rxn01504	original	=	=	1699	(none of the tracked families)
+rxn05682	original	=	=	1695	(none of the tracked families)
+rxn03061	original	=	=	1692	(none of the tracked families)
+rxn08667	original	=	>	1692	(none of the tracked families)
+rxn00095	original	>	>	1692	ATP/ADP/AMP
+rxn00289	original	=	=	1679	(none of the tracked families)
+rxn00166	original	>	>	1659	ammonia
+rxn08100	original	=	=	1654	(none of the tracked families)
+rxn08934	original	=	>	1648	(none of the tracked families)
+rxn08935	original	=	>	1648	(none of the tracked families)
+rxn09037	original	>	>	1645	pyrophosphate
+rxn01029	original	>	>	1642	ammonia
+rxn03393	original	>	>	1622	CO2
+rxn00131	original	=	>	1616	ATP/ADP/AMP
+rxn03433	original	>	>	1614	CoA
+rxn08025	original	=	<	1600	(none of the tracked families)
+rxn09992	original	>	<	1599	(none of the tracked families)
+rxn02021	original	=	<	1599	NADP(H)
+rxn03511	original	=	=	1599	(none of the tracked families)
+rxn00608	original	>	>	1598	(none of the tracked families)
+rxn16611	original	=	=	1596	(none of the tracked families)
+rxn03917	original	=	=	1596	(none of the tracked families)
+rxn09167	original	>	>	1590	quinone;CO2
+rxn01996	original	=	=	1586	(none of the tracked families)
+rxn05535	original	>	>	1572	ATP/ADP/AMP;phosphate
+rxn05542	original	>	>	1572	ATP/ADP/AMP;phosphate
+rxn05545	original	>	>	1572	ATP/ADP/AMP;phosphate
+rxn12850	original	>	>	1572	ATP/ADP/AMP;phosphate
+rxn05541	original	>	>	1572	ATP/ADP/AMP;phosphate
+rxn05547	original	>	>	1572	ATP/ADP/AMP;phosphate
+rxn05533	original	>	>	1572	ATP/ADP/AMP;phosphate
+rxn12851	original	>	>	1571	ATP/ADP/AMP;phosphate
+rxn05544	original	>	>	1571	ATP/ADP/AMP;phosphate
+rxn05538	original	>	>	1570	ATP/ADP/AMP;phosphate
+rxn12849	original	>	>	1570	ATP/ADP/AMP;phosphate
+rxn05546	original	>	>	1570	ATP/ADP/AMP;phosphate
+rxn05536	original	>	>	1570	ATP/ADP/AMP;phosphate
+rxn05540	original	>	>	1570	ATP/ADP/AMP;phosphate
+rxn05543	original	>	>	1570	ATP/ADP/AMP;phosphate
+rxn05534	original	>	>	1570	ATP/ADP/AMP;phosphate
+rxn05537	original	>	>	1570	ATP/ADP/AMP;phosphate
+rxn05108	original	=	=	1568	(none of the tracked families)
+rxn00782	original	<	=	1564	NADP(H);phosphate
+rxn00575	original	>	>	1562	(none of the tracked families)
+rxn02597	original	=	>	1562	(none of the tracked families)
+rxn09657	original	>	=	1554	(none of the tracked families)
+rxn01133	original	>	=	1548	CoA
+rxn05146	original	>	>	1546	ATP/ADP/AMP;phosphate
+rxn00298	original	=	=	1544	NAD(H)
+rxn01457	original	=	=	1539	(none of the tracked families)
+rxn00394	original	>	>	1538	(none of the tracked families)
+rxn01080	original	=	=	1537	(none of the tracked families)
+rxn00395	original	>	>	1536	ammonia
+rxn15293	original	=	=	1535	(none of the tracked families)
+rxn04082	original	=	=	1533	(none of the tracked families)
+rxn01967	original	=	=	1527	(none of the tracked families)
+rxn16839	original	<	=	1518	ammonia
+rxn01825	original	>	>	1511	O2
+rxn01486	original	>	>	1511	pyrophosphate
+rxn05188	original	>	>	1509	ATP/ADP/AMP;phosphate
+rxn00853	original	>	>	1500	CO2;ammonia
+rxn05165	original	>	>	1500	ATP/ADP/AMP;phosphate
+rxn01114	original	>	=	1494	ATP/ADP/AMP
+rxn01124	original	=	=	1487	NAD(H)
+rxn00375	original	=	>	1484	(none of the tracked families)
+rxn05308	media-only	>	=	1478	(none of the tracked families)
+rxn13892	original	>	>	1471	ATP/ADP/AMP;phosphate
+rxn01015	original	=	=	1471	(none of the tracked families)
+rxn01480	original	=	=	1466	NAD(H)
+rxn01867	original	>	>	1463	NAD(H)
+rxn01868	original	>	>	1463	NADP(H)
+rxn05557	original	>	=	1458	ATP/ADP/AMP;phosphate
+rxn37797	original	=	>	1456	NADP(H);THF / folate
+rxn02007	original	>	>	1442	(none of the tracked families)
+rxn24134	original	>	>	1440	CO2
+rxn01444	original	>	=	1437	ATP/ADP/AMP
+rxn01508	original	>	=	1437	ATP/ADP/AMP
+rxn03962	original	=	=	1436	NADP(H)
+rxn00348	original	=	=	1434	(none of the tracked families)
+rxn10415	original	>	>	1433	ATP/ADP/AMP;phosphate
+rxn01122	original	>	>	1430	(none of the tracked families)
+rxn05496	original	=	=	1423	(none of the tracked families)
+rxn00926	original	>	>	1423	ammonia
+rxn10204	original	>	=	1422	CoA
+rxn07919	original	=	=	1422	(none of the tracked families)
+rxn10203	original	>	=	1421	CoA
+rxn03852	original	=	=	1421	(none of the tracked families)
+rxn08710	original	=	=	1416	ATP/ADP/AMP
+rxn00849	original	=	=	1415	(none of the tracked families)
+rxn00196	original	>	>	1410	NADP(H)
+rxn05211	original	=	=	1410	(none of the tracked families)
+rxn01806	original	>	>	1406	NAD(H)
+rxn00966	original	<	<	1404	(none of the tracked families)
+rxn00671	original	=	=	1402	NAD(H);CoA;CO2
+rxn05663	original	=	=	1402	(none of the tracked families)
+rxn00501	original	=	=	1402	NAD(H);CoA;CO2
+rxn05493	original	=	=	1398	(none of the tracked families)
+rxn02663	original	=	>	1394	(none of the tracked families)
+rxn01107	original	>	>	1394	(none of the tracked families)
+rxn01352	original	=	>	1391	(none of the tracked families)
+rxn10162	original	=	=	1384	(none of the tracked families)
+rxn10161	original	=	=	1383	(none of the tracked families)
+rxn10163	original	=	=	1383	(none of the tracked families)
+rxn05316	original	=	=	1381	(none of the tracked families)
+rxn05317	original	=	=	1381	(none of the tracked families)
+rxn05198	original	=	=	1381	(none of the tracked families)
+rxn05200	original	=	=	1381	(none of the tracked families)
+rxn05199	original	=	=	1381	(none of the tracked families)
+rxn08995	original	=	=	1374	(none of the tracked families)
+rxn00837	original	<	>	1370	NADP(H);ammonia
+rxn00656	original	=	=	1369	(none of the tracked families)
+rxn02925	original	=	=	1369	(none of the tracked families)
+rxn05573	original	>	=	1364	(none of the tracked families)
+rxn00804	original	=	=	1361	NAD(H);ammonia
+rxn01573	original	=	=	1348	NAD(H);ammonia
+rxn01045	original	=	=	1348	NAD(H);ammonia
+rxn00322	original	>	>	1324	CO2
+rxn05157	original	>	>	1319	ATP/ADP/AMP;phosphate
+rxn09953	original	=	=	1314	NAD(H);CoA
+rxn00114	original	=	<	1309	ATP/ADP/AMP;CO2;ammonia
+rxn05201	original	=	=	1307	(none of the tracked families)
+rxn01639	original	<	<	1300	(none of the tracked families)
+rxn08122	original	=	=	1293	NAD(H)
+rxn05301	original	=	=	1285	(none of the tracked families)
+rxn01930	original	>	>	1285	(none of the tracked families)
+rxn00728	original	=	>	1285	(none of the tracked families)
+rxn01134	original	=	=	1284	(none of the tracked families)
+rxn00123	original	>	>	1283	phosphate;THF / folate
+rxn08470	original	>	>	1283	O2
+rxn05737	original	>	>	1283	O2
+rxn08471	original	>	>	1283	O2
+rxn08467	original	>	>	1282	O2
+rxn08469	original	>	>	1282	O2
+rxn08468	original	>	>	1282	O2
+rxn00358	original	=	=	1281	(none of the tracked families)
+rxn08647	original	>	=	1277	ATP/ADP/AMP
+rxn01832	original	=	=	1276	NADP(H)
+rxn08854	original	=	=	1275	(none of the tracked families)
+rxn05566	original	=	=	1274	(none of the tracked families)
+rxn05109	original	>	>	1268	CoA
+rxn01506	original	=	=	1267	(none of the tracked families)
+rxn05152	original	>	>	1265	ATP/ADP/AMP;phosphate
+rxn05189	original	>	>	1264	ATP/ADP/AMP;phosphate
+rxn05173	original	>	>	1261	ATP/ADP/AMP;phosphate
+rxn03023	original	>	=	1259	ATP/ADP/AMP
+rxn01316	original	<	<	1257	phosphate
+rxn00305	original	>	=	1254	CO2
+rxn00478	original	>	>	1251	O2
+rxn03041	original	>	>	1250	CO2
+rxn04139	original	>	>	1244	NADP(H);O2
+rxn01501	original	<	=	1244	NADP(H);CoA
+rxn02276	original	=	=	1240	(none of the tracked families)
+rxn01763	original	>	=	1236	ATP/ADP/AMP
+rxn00109	original	=	<	1236	NAD(H);ammonia
+rxn03060	original	=	=	1234	(none of the tracked families)
+rxn05582	original	=	=	1233	(none of the tracked families)
+rxn00606	original	=	=	1223	(none of the tracked families)
+rxn01453	original	=	=	1218	NADP(H)
+rxn01203	original	<	=	1216	(none of the tracked families)
+rxn16503	original	=	>	1208	ammonia
+rxn00548	original	=	>	1208	phosphate
+rxn00539	original	>	>	1208	ammonia
+rxn01187	original	>	>	1208	phosphate
+rxn05578	original	=	=	1200	(none of the tracked families)
+rxn05167	original	>	>	1197	ATP/ADP/AMP;phosphate
+rxn05518	original	=	>	1196	(none of the tracked families)
+rxn02885	original	<	=	1191	(none of the tracked families)
+rxn05164	original	>	>	1189	ATP/ADP/AMP;phosphate
+rxn05156	original	>	>	1183	ATP/ADP/AMP;phosphate
+rxn00433	original	>	>	1180	O2
+rxn00598	original	>	=	1169	CoA
+rxn03975	original	<	=	1168	NADP(H)
+rxn05599	original	>	>	1166	ATP/ADP/AMP;phosphate
+rxn05620	original	>	>	1166	ATP/ADP/AMP;phosphate
+rxn05649	original	=	=	1166	(none of the tracked families)
+rxn41287	original	>	>	1159	O2
+rxn00787	original	=	=	1149	(none of the tracked families)
+rxn05671	original	=	=	1148	(none of the tracked families)
+rxn01315	original	>	>	1146	O2
+rxn00422	original	=	=	1143	(none of the tracked families)
+rxn11703	original	>	>	1142	(none of the tracked families)
+rxn01951	original	>	=	1138	ATP/ADP/AMP
+rxn05151	original	>	>	1137	ATP/ADP/AMP;phosphate
+rxn00467	original	=	=	1137	(none of the tracked families)
+rxn16679	original	>	>	1129	NADP(H);O2
+rxn01671	original	>	=	1119	ATP/ADP/AMP
+rxn01292	original	=	=	1117	(none of the tracked families)
+rxn01022	original	=	<	1113	phosphate
+rxn00546	original	=	=	1105	NAD(H)
+rxn00634	original	=	=	1100	NAD(H)
+rxn02009	original	>	=	1100	ATP/ADP/AMP;phosphate
+rxn03040	original	=	=	1096	(none of the tracked families)
+rxn00160	original	>	=	1096	NAD(H);CO2
+rxn11322	original	=	=	1094	(none of the tracked families)
+rxn05193	original	>	>	1088	ATP/ADP/AMP;phosphate
+rxn05504	original	>	>	1087	ATP/ADP/AMP;phosphate
+rxn05192	original	>	>	1087	ATP/ADP/AMP;phosphate
+rxn27362	original	=	=	1086	(none of the tracked families)
+rxn16149	original	=	=	1085	NADP(H)
+rxn08897	original	=	<	1081	(none of the tracked families)
+rxn01972	original	=	=	1080	(none of the tracked families)
+rxn01893	original	>	=	1077	(none of the tracked families)
+rxn15383	original	>	>	1072	CO2
+rxn00007	original	=	>	1070	(none of the tracked families)
+rxn02377	original	=	=	1065	NAD(H)
+rxn00340	original	>	=	1063	ATP/ADP/AMP;pyrophosphate;ammonia
+rxn01192	original	>	>	1063	O2
+rxn03043	original	=	<	1059	(none of the tracked families)
+rxn02190	original	>	=	1051	(none of the tracked families)
+rxn15949	original	>	>	1046	CO2
+rxn03422	original	>	>	1046	NAD(H)
+rxn00744	original	>	=	1046	ATP/ADP/AMP
+rxn05306	original	=	=	1045	(none of the tracked families)
+rxn00702	original	>	=	1028	pyrophosphate
+rxn05166	original	>	>	1028	ATP/ADP/AMP;phosphate
+rxn02369	original	=	=	1027	(none of the tracked families)
+rxn05491	original	=	=	1026	(none of the tracked families)
+rxn02939	original	=	=	1024	NAD(H)
+rxn15947	original	=	>	1024	NADP(H)
+rxn42682	original	>	>	1024	NADP(H);O2
+rxn02185	gapfilled	<	=	1024	(none of the tracked families)
+rxn02360	original	=	=	1020	(none of the tracked families)
+rxn00456	original	=	=	1019	ammonia
+rxn05659	original	=	=	1017	(none of the tracked families)
+rxn00797	original	=	>	1017	(none of the tracked families)
+rxn01896	original	=	<	1017	(none of the tracked families)
+rxn10470	original	=	=	1017	(none of the tracked families)
+rxn01541	original	=	=	1016	(none of the tracked families)
+rxn02429	original	>	=	1015	ATP/ADP/AMP
+rxn00962	original	>	>	1014	NADP(H);O2
+rxn04786	original	=	=	1010	(none of the tracked families)
+rxn08608	original	>	>	1008	quinone
+rxn03173	original	>	>	1005	pyrophosphate
+rxn01924	original	<	<	1004	FAD(H2)
+rxn02270	original	<	<	1004	FAD(H2)
+rxn01607	original	>	=	1002	ATP/ADP/AMP
+rxn05645	original	>	=	1000	(none of the tracked families)
+rxn12405	original	=	=	998	(none of the tracked families)
+rxn00540	original	=	=	993	(none of the tracked families)
+rxn01819	original	>	>	990	(none of the tracked families)
+rxn00362	original	=	=	989	(none of the tracked families)
+rxn05551	original	=	=	987	(none of the tracked families)
+rxn02927	original	>	>	985	CO2;ammonia
+rxn01454	original	<	<	983	CoA
+rxn08172	original	=	=	981	NADP(H)
+rxn08376	original	=	=	980	(none of the tracked families)
+rxn05318	original	=	=	980	(none of the tracked families)
+rxn08343	original	=	=	980	(none of the tracked families)
+rxn02173	original	>	>	980	(none of the tracked families)
+rxn08323	original	=	=	980	(none of the tracked families)
+rxn01761	original	=	=	978	(none of the tracked families)
+rxn15337	original	=	=	977	(none of the tracked families)
+rxn15338	original	=	=	976	(none of the tracked families)
+rxn01635	original	<	=	975	ammonia
+rxn00311	original	>	>	972	NADP(H);O2
+rxn01111	original	>	=	972	ATP/ADP/AMP
+rxn01842	original	>	>	968	ATP/ADP/AMP;CoA;pyrophosphate
+rxn03055	original	>	>	968	NAD(H)
+rxn26307	original	=	=	967	(none of the tracked families)
+rxn16108	original	>	>	966	pyrophosphate
+rxn00194	original	>	>	966	CO2
+rxn10577	original	>	=	962	(none of the tracked families)
+rxn01729	original	>	>	957	NAD(H)
+rxn00654	original	>	>	950	CO2;ammonia
+rxn02944	original	=	=	949	(none of the tracked families)
+rxn03188	original	>	>	949	CO2;ammonia
+rxn07589	original	>	>	949	SAM;CO2
+rxn39860	original	>	<	947	SAM
+rxn13827	original	=	>	943	ATP/ADP/AMP
+rxn05229	gapfilled	>	=	940	ATP/ADP/AMP;phosphate
+rxn10471	original	=	=	939	(none of the tracked families)
+rxn00424	original	=	=	939	(none of the tracked families)
+rxn05484	original	=	=	935	(none of the tracked families)
+rxn05683	original	=	=	935	(none of the tracked families)
+rxn00609	original	=	<	930	(none of the tracked families)
+rxn05072	original	=	>	930	(none of the tracked families)
+rxn07588	original	=	<	925	SAM
+rxn00783	original	=	=	924	(none of the tracked families)
+rxn08048	original	>	>	923	(none of the tracked families)
+rxn02161	original	>	=	919	ATP/ADP/AMP
+rxn01390	original	>	=	919	ATP/ADP/AMP
+rxn04047	original	=	<	917	SAM
+rxn00272	original	>	=	914	(none of the tracked families)
+rxn10157	original	>	=	912	(none of the tracked families)
+rxn10155	original	>	=	912	(none of the tracked families)
+rxn00990	original	>	=	910	(none of the tracked families)
+rxn01895	original	<	<	910	(none of the tracked families)
+rxn00875	original	>	=	910	(none of the tracked families)
+rxn04604	original	>	>	910	(none of the tracked families)
+rxn00366	original	>	>	909	phosphate
+rxn00116	original	>	>	909	phosphate
+rxn00236	original	>	>	909	phosphate
+rxn00291	original	=	=	907	(none of the tracked families)
+rxn04056	original	=	=	906	NADP(H)
+rxn05092	original	>	>	902	O2
+rxn00868	original	<	<	898	NAD(H)
+rxn08722	original	>	=	891	(none of the tracked families)
+rxn09304	original	>	=	891	(none of the tracked families)
+rxn00994	original	<	=	890	(none of the tracked families)
+rxn02782	original	=	=	887	(none of the tracked families)
+rxn05571	original	=	=	885	(none of the tracked families)
+rxn02883	original	<	=	885	(none of the tracked families)
+rxn09182	original	=	=	881	(none of the tracked families)
+rxn05673	original	=	=	880	(none of the tracked families)
+rxn05574	original	=	=	880	(none of the tracked families)
+rxn00855	original	>	=	877	CoA
+rxn00544	original	<	=	877	(none of the tracked families)
+rxn09264	original	>	=	877	CoA
+rxn09265	original	>	=	877	CoA
+rxn00168	original	>	>	876	CO2
+rxn00927	original	=	>	871	(none of the tracked families)
+rxn08347	original	=	=	866	NADP(H)
+rxn00513	original	>	>	865	phosphate
+rxn09012	original	>	>	865	phosphate
+rxn05154	original	>	>	861	ATP/ADP/AMP;phosphate
+rxn00529	original	>	>	856	CO2
+rxn00621	original	>	=	853	pyrophosphate
+rxn03030	original	>	=	853	CoA
+rxn05039	original	>	>	853	phosphate
+rxn05564	original	=	=	850	(none of the tracked families)
+rxn00829	original	>	>	848	ATP/ADP/AMP;phosphate;CO2
+rxn13477	gapfilled	>	>	844	pyrophosphate
+rxn26457	original	>	>	842	pyrophosphate
+rxn01598	original	>	>	837	NADP(H);O2
+rxn01331	original	>	>	837	NAD(H)
+rxn05204	original	=	=	827	(none of the tracked families)
+rxn04651	original	>	=	820	ATP/ADP/AMP
+rxn02322	original	>	=	819	ATP/ADP/AMP
+rxn05105	original	=	=	816	(none of the tracked families)
+rxn05106	original	>	>	812	phosphate
+rxn05104	original	>	>	812	(none of the tracked families)
+rxn12666	media-only	>	=	809	(none of the tracked families)
+rxn26456	original	>	>	801	ATP/ADP/AMP
+rxn01966	original	=	=	798	phosphate
+rxn01132	original	=	=	798	phosphate
+rxn46365	original	>	=	796	ATP/ADP/AMP;phosphate
+rxn02281	original	>	>	796	ATP/ADP/AMP;phosphate
+rxn05508	original	=	=	795	(none of the tracked families)
+rxn00245	original	>	>	793	(none of the tracked families)
+rxn00669	original	>	=	789	ATP/ADP/AMP;CoA;phosphate;THF / folate
+rxn02168	original	=	=	788	(none of the tracked families)
+rxn00719	original	=	=	787	NAD(H)
+rxn01027	original	=	=	786	NAD(H)
+rxn03586	original	>	>	784	NAD(H);O2
+rxn05059	original	>	>	781	pyrophosphate;ammonia
+rxn12549	original	=	=	781	(none of the tracked families)
+rxn01857	original	=	=	781	NAD(H)
+rxn03066	original	=	=	779	(none of the tracked families)
+rxn05687	original	>	=	775	(none of the tracked families)
+rxn02894	original	>	=	762	ATP/ADP/AMP
+rxn24966	original	>	>	762	FAD(H2);O2
+rxn00172	original	<	=	761	ATP/ADP/AMP;CoA;phosphate
+rxn09333	original	>	>	761	ATP/ADP/AMP;phosphate
+rxn16680	original	=	=	759	CoA
+rxn00756	original	>	>	757	(none of the tracked families)
+rxn02268	original	>	>	754	O2
+rxn02900	original	=	=	744	(none of the tracked families)
+rxn08578	original	=	=	744	(none of the tracked families)
+rxn05667	original	=	=	742	(none of the tracked families)
+rxn08178	original	>	>	736	NAD(H)
+rxn08179	original	>	>	736	NADP(H)
+rxn00639	original	=	>	735	(none of the tracked families)
+rxn11650	original	=	>	734	(none of the tracked families)
+rxn08171	original	=	>	729	glutathione
+rxn03630	original	>	>	728	CO2;O2
+rxn02529	original	=	>	723	CO2
+rxn26305	original	=	=	722	(none of the tracked families)
+rxn05500	original	=	=	721	(none of the tracked families)
+rxn03886	original	=	=	712	NAD(H)
+rxn01750	original	>	>	709	(none of the tracked families)
+rxn07475	original	=	=	709	THF / folate
+rxn02266	original	>	=	709	CoA
+rxn01179	original	>	>	708	CoA;CO2
+rxn00776	original	>	=	704	(none of the tracked families)
+rxn00526	original	>	>	703	NADP(H);CO2
+rxn01923	original	>	>	701	O2
+rxn01109	original	=	=	700	NADP(H)
+rxn01108	original	=	=	700	NAD(H)
+rxn04945	original	=	=	699	NADP(H)
+rxn39175	original	=	=	694	(none of the tracked families)
+rxn03887	original	>	>	692	(none of the tracked families)
+rxn01948	original	>	>	690	CO2
+rxn03360	original	=	<	690	CO2
+rxn00497	original	>	>	690	CO2
+rxn00484	original	>	>	690	CO2
+rxn01499	original	>	>	690	CO2
+rxn16106	original	>	>	688	pyrophosphate
+rxn02321	original	=	=	685	(none of the tracked families)
+rxn01365	original	=	<	683	ammonia
+rxn00599	original	>	=	681	CoA;CO2
+rxn00010	original	>	=	681	CO2
+rxn01462	original	=	>	679	(none of the tracked families)
+rxn16615	original	=	=	678	(none of the tracked families)
+rxn07473	original	>	=	677	NAD(H);CO2
+rxn40410	original	>	>	674	(none of the tracked families)
+rxn07474	original	=	=	673	(none of the tracked families)
+rxn01634	original	>	>	672	CO2
+rxn00162	original	>	>	671	CO2
+rxn02971	original	=	>	669	(none of the tracked families)
+rxn01278	original	=	=	663	NADP(H)
+rxn02366	original	>	>	662	O2
+rxn08359	original	=	=	661	(none of the tracked families)
+rxn08521	original	=	=	659	NAD(H)
+rxn03976	original	=	=	659	NADP(H)
+rxn00490	original	>	>	657	CO2
+rxn05162	original	>	>	653	ATP/ADP/AMP;phosphate
+rxn00588	original	>	>	650	O2
+rxn04788	original	=	<	650	(none of the tracked families)
+rxn08712	original	=	=	650	ATP/ADP/AMP
+rxn08933	original	=	>	648	(none of the tracked families)
+rxn00537	original	>	>	645	phosphate
+rxn08355	original	>	>	645	quinone
+rxn09315	original	=	>	644	quinone
+rxn08354	original	=	>	643	quinone
+rxn08356	original	=	>	643	quinone
+rxn00892	original	>	=	641	ATP/ADP/AMP
+rxn00212	original	>	>	636	(none of the tracked families)
+rxn08158	original	=	>	636	(none of the tracked families)
+rxn00914	original	>	=	634	ATP/ADP/AMP
+rxn02071	original	>	>	634	O2
+rxn00835	original	>	=	634	ATP/ADP/AMP
+rxn42530	original	>	>	634	ammonia;O2
+rxn02946	original	>	>	634	O2
+rxn05515	original	>	>	633	ATP/ADP/AMP;phosphate
+rxn00674	original	>	=	626	ATP/ADP/AMP;CoA;pyrophosphate;THF / folate
+rxn01990	original	=	=	625	(none of the tracked families)
+rxn02346	original	=	=	625	(none of the tracked families)
+rxn12206	original	>	>	623	CO2
+rxn03086	original	<	=	621	(none of the tracked families)
+rxn01213	original	>	>	619	pyrophosphate
+rxn14126	original	>	>	619	pyrophosphate
+rxn08676	original	>	>	618	ATP/ADP/AMP;phosphate;glutathione
+rxn05124	original	>	>	616	ammonia;O2
+rxn16236	original	>	=	614	phosphate
+rxn16237	original	>	=	614	phosphate
+rxn00383	original	>	>	613	O2
+rxn04928	original	>	>	612	CO2
+rxn05028	original	>	>	611	pyrophosphate
+rxn16110	original	>	>	610	pyrophosphate
+rxn03646	original	=	>	610	(none of the tracked families)
+rxn30453	original	>	>	606	ATP/ADP/AMP;phosphate
+rxn08262	original	=	=	606	(none of the tracked families)
+rxn03906	original	>	>	603	NAD(H);CO2;O2
+rxn00589	original	>	>	603	NAD(H);CO2;O2
+rxn05681	original	=	=	603	(none of the tracked families)
+rxn04724	original	>	>	603	NAD(H);CO2;O2
+rxn04748	original	>	>	602	NAD(H);CO2;O2
+rxn04745	original	>	>	602	NAD(H);CO2;O2
+rxn00629	original	=	=	596	NAD(H)
+rxn00473	original	>	>	592	ammonia
+rxn02449	original	>	>	592	phosphate
+rxn04661	original	=	=	590	NADP(H)
+rxn04662	original	=	=	590	NAD(H)
+rxn00374	original	=	=	586	ammonia
+rxn05107	original	>	>	584	phosphate
+rxn07441	original	>	>	582	(none of the tracked families)
+rxn00133	original	=	>	582	ATP/ADP/AMP
+rxn08045	original	=	=	580	(none of the tracked families)
+rxn00018	original	=	=	578	CO2
+rxn03954	original	=	=	571	NADP(H)
+rxn03953	original	=	=	571	NAD(H)
+rxn00672	original	>	>	570	CO2
+rxn05128	original	=	>	567	(none of the tracked families)
+rxn00186	original	>	=	565	ATP/ADP/AMP;phosphate
+rxn01094	original	>	>	563	NAD(H)
+rxn05652	original	>	=	561	(none of the tracked families)
+rxn03898	original	>	>	557	NADP(H);O2
+rxn03897	original	>	>	557	NAD(H);O2
+rxn04787	original	>	=	556	CoA
+rxn05513	original	>	>	554	ATP/ADP/AMP;phosphate
+rxn25270	original	=	=	552	(none of the tracked families)
+rxn00897	original	=	=	544	(none of the tracked families)
+rxn00587	original	>	>	539	O2
+rxn05691	original	=	=	537	(none of the tracked families)
+rxn07492	original	>	=	535	(none of the tracked families)
+rxn41965	original	>	>	535	O2
+rxn16614	original	=	=	530	pyrophosphate
+rxn02263	original	=	=	530	(none of the tracked families)
+rxn01423	original	>	=	528	(none of the tracked families)
+rxn12225	gapfilled	>	>	522	O2
+rxn10504	original	=	=	520	NAD(H)
+rxn01538	original	>	<	511	ATP/ADP/AMP
+rxn00429	original	=	>	508	NAD(H)
+rxn37060	original	>	>	508	quinone
+rxn11937	original	<	<	505	NAD(H)
+rxn40418	original	=	=	503	(none of the tracked families)
+rxn00941	original	=	=	501	pyrophosphate
+rxn03842	original	=	>	501	ammonia
+rxn29769	original	>	>	500	ATP/ADP/AMP;phosphate
+rxn01747	original	>	>	500	CO2;ammonia
+rxn01121	original	>	>	496	(none of the tracked families)
+rxn04011	original	=	>	494	ammonia
+rxn02497	original	>	=	492	ATP/ADP/AMP;phosphate
+rxn01152	original	=	=	486	(none of the tracked families)
+rxn01828	original	>	>	486	(none of the tracked families)
+rxn00607	original	>	>	484	(none of the tracked families)
+rxn09314	original	>	>	480	quinone
+rxn01654	original	<	<	479	ammonia
+rxn00221	original	>	>	477	phosphate
+rxn04602	original	>	>	476	NAD(H);O2
+rxn00004	original	=	=	473	(none of the tracked families)
+rxn00255	original	=	=	473	(none of the tracked families)
+rxn03856	original	=	=	469	NAD(H)
+rxn02046	original	>	>	467	phosphate
+rxn04751	original	=	=	464	(none of the tracked families)
+rxn08023	original	=	=	464	(none of the tracked families)
+rxn11934	original	<	<	463	ATP/ADP/AMP;FAD(H2)
+rxn11409	original	>	=	462	CoA
+rxn00202	original	<	=	462	CoA
+rxn16609	original	=	=	459	ATP/ADP/AMP
+rxn02375	original	>	=	457	ATP/ADP/AMP
+rxn16234	original	=	=	457	pyrophosphate
+rxn00948	original	>	=	456	CoA;CO2
+rxn05646	original	=	=	451	(none of the tracked families)
+rxn02279	original	>	>	450	O2
+rxn00449	original	=	=	450	(none of the tracked families)
+rxn00584	original	>	>	445	NAD(H);CO2
+rxn10484	gapfilled	>	=	445	NADP(H);ammonia
+rxn09313	original	=	>	439	quinone
+rxn01715	original	>	>	437	ammonia;O2
+rxn01840	original	=	=	436	NAD(H)
+rxn01176	original	=	=	427	(none of the tracked families)
+rxn03969	original	=	>	424	NAD(H)
+rxn00307	original	>	=	423	pyrophosphate
+rxn05593	original	=	=	423	(none of the tracked families)
+rxn02761	original	=	=	422	(none of the tracked families)
+rxn39434	original	=	=	422	(none of the tracked families)
+rxn00400	original	>	>	420	NADP(H);O2
+rxn00082	original	>	>	420	NADP(H);O2
+rxn05615	original	=	=	416	(none of the tracked families)
+rxn44043	original	=	=	416	(none of the tracked families)
+rxn13321	original	=	=	416	(none of the tracked families)
+rxn13339	original	=	=	416	(none of the tracked families)
+rxn05550	original	>	>	416	ATP/ADP/AMP;phosphate
+rxn04386	original	>	=	415	ATP/ADP/AMP
+rxn00979	original	>	>	414	NAD(H)
+rxn08599	original	=	>	413	(none of the tracked families)
+rxn04601	original	>	>	410	NAD(H);O2
+rxn02209	original	=	=	410	NAD(H)
+rxn01615	original	=	=	410	NAD(H)
+rxn29120	original	=	=	401	(none of the tracked families)
+rxn01927	original	>	>	400	O2
+rxn00682	original	=	=	395	(none of the tracked families)
+rxn25271	original	=	=	395	(none of the tracked families)
+rxn01620	original	=	=	386	(none of the tracked families)
+rxn21329	original	=	=	385	NAD(H)
+rxn08348	media-only	>	>	385	phosphate;O2
+rxn00577	original	=	=	384	phosphate
+rxn05549	original	>	>	383	ATP/ADP/AMP;phosphate
+rxn05644	original	>	>	383	ATP/ADP/AMP;phosphate
+rxn00779	original	>	>	380	NADP(H)
+rxn09214	original	=	=	373	(none of the tracked families)
+rxn00995	original	>	>	373	CO2
+rxn01894	original	>	>	371	CO2
+rxn08258	original	=	=	371	(none of the tracked families)
+rxn01630	original	>	=	370	ammonia
+rxn05225	original	=	=	370	(none of the tracked families)
+rxn05611	original	=	=	370	(none of the tracked families)
+rxn01285	original	>	>	370	CO2
+rxn09022	original	=	=	365	(none of the tracked families)
+rxn01505	gapfilled	>	=	365	(none of the tracked families)
+rxn00134	original	>	=	364	ATP/ADP/AMP
+rxn09010	original	>	>	364	phosphate
+rxn00932	original	>	>	364	CO2;O2
+rxn08518	original	>	=	363	CO2
+rxn05159	original	>	>	361	ATP/ADP/AMP;phosphate
+rxn26350	original	>	=	360	ATP/ADP/AMP
+rxn00856	original	=	=	358	(none of the tracked families)
+rxn08187	original	=	=	350	(none of the tracked families)
+rxn46396	original	<	=	347	CoA
+rxn00813	original	=	=	347	NADP(H)
+rxn15545	original	=	=	347	NAD(H)
+rxn09427	gapfilled	>	>	345	NADP(H);CoA;CO2
+rxn04308	gapfilled	>	>	344	pyrophosphate
+rxn02319	original	>	=	343	ATP/ADP/AMP
+rxn12249	media-only	<	<	343	FAD(H2)
+rxn08628	original	=	=	342	(none of the tracked families)
+rxn27342	original	=	>	341	(none of the tracked families)
+rxn05184	original	>	>	341	ATP/ADP/AMP;phosphate
+rxn01991	original	=	=	341	NADP(H);ammonia
+rxn05044	original	=	=	336	(none of the tracked families)
+rxn01220	original	>	=	334	ATP/ADP/AMP
+rxn01753	original	>	>	334	(none of the tracked families)
+rxn16776	original	>	>	333	O2
+rxn00636	original	=	=	333	(none of the tracked families)
+rxn05123	original	>	=	332	ATP/ADP/AMP;phosphate
+rxn05147	original	>	>	332	ATP/ADP/AMP;phosphate
+rxn08708	original	>	=	330	ATP/ADP/AMP
+rxn08571	original	>	=	330	phosphate
+rxn08349	media-only	>	>	330	NAD(H);phosphate
+rxn01438	original	>	>	329	NADP(H);O2
+rxn01571	original	>	=	328	ATP/ADP/AMP;CoA;pyrophosphate
+rxn16826	original	>	>	326	(none of the tracked families)
+rxn16612	original	=	=	326	ATP/ADP/AMP
+rxn05127	original	>	>	325	NADP(H)
+rxn48389	original	>	=	325	(none of the tracked families)
+rxn05126	original	>	>	325	NAD(H)
+rxn05555	original	>	>	323	ATP/ADP/AMP;phosphate
+rxn03974	original	<	=	322	NAD(H)
+rxn16828	original	<	>	322	(none of the tracked families)
+rxn08781	original	=	=	322	(none of the tracked families)
+rxn10626	gapfilled	>	>	322	(none of the tracked families)
+rxn04675	gapfilled	>	>	321	CO2
+rxn00803	original	=	=	320	(none of the tracked families)
+rxn01475	original	=	=	320	NADP(H)
+rxn05563	original	=	=	318	phosphate
+rxn12575	original	<	=	318	(none of the tracked families)
+rxn10188	original	=	=	318	phosphate
+rxn08879	original	=	=	318	phosphate
+rxn09256	original	=	=	317	(none of the tracked families)
+rxn09429	gapfilled	>	>	315	NADP(H);CoA;CO2
+rxn01395	original	>	=	311	CO2
+rxn05598	original	>	>	311	ATP/ADP/AMP;phosphate
+rxn05612	original	=	=	308	(none of the tracked families)
+rxn07307	original	<	>	305	(none of the tracked families)
+rxn01912	original	=	=	303	NADP(H)
+rxn01911	original	=	=	303	NAD(H)
+rxn09944	original	=	=	300	NAD(H);CoA
+rxn16593	original	<	<	299	FAD(H2)
+rxn16565	original	<	<	299	FAD(H2)
+rxn16594	original	<	<	299	FAD(H2)
+rxn16592	original	<	<	299	FAD(H2)
+rxn01780	media-only	<	=	295	(none of the tracked families)
+rxn00985	original	=	=	294	ATP/ADP/AMP;THF / folate
+rxn03883	original	=	=	293	NAD(H)
+rxn04934	original	=	=	292	NAD(H)
+rxn18486	original	>	>	292	ATP/ADP/AMP;phosphate
+rxn14263	original	=	=	291	(none of the tracked families)
+rxn00774	gapfilled	>	=	291	ATP/ADP/AMP;phosphate;ammonia
+rxn08216	original	=	=	281	(none of the tracked families)
+rxn01709	original	>	>	281	(none of the tracked families)
+rxn04024	original	=	=	280	(none of the tracked families)
+rxn04025	original	=	=	280	(none of the tracked families)
+rxn00331	original	=	=	280	(none of the tracked families)
+rxn16511	original	<	=	276	phosphate
+rxn04603	original	>	>	272	O2
+rxn07846	original	>	=	272	pyrophosphate
+rxn03038	original	>	>	272	O2
+rxn04597	original	>	>	271	NAD(H);O2
+rxn04598	original	>	>	271	NAD(H);O2
+rxn02318	original	=	=	269	(none of the tracked families)
+rxn02332	original	>	=	269	(none of the tracked families)
+rxn00074	original	=	<	268	NAD(H)
+rxn05303	original	>	=	268	(none of the tracked families)
+rxn05222	media-only	>	=	268	(none of the tracked families)
+rxn00015	original	=	=	267	ammonia
+rxn01405	original	=	=	267	(none of the tracked families)
+rxn05243	original	>	=	265	(none of the tracked families)
+rxn08620	original	=	=	265	(none of the tracked families)
+rxn05244	original	>	=	265	(none of the tracked families)
+rxn05669	original	>	=	265	(none of the tracked families)
+rxn01641	original	=	=	265	THF / folate
+rxn22791	original	=	=	260	(none of the tracked families)
+rxn03923	original	=	>	258	phosphate
+rxn08152	original	=	=	255	(none of the tracked families)
+rxn14372	original	>	=	253	phosphate
+rxn00624	original	=	>	251	(none of the tracked families)
+rxn00472	media-only	<	=	251	(none of the tracked families)
+rxn02788	original	>	=	248	(none of the tracked families)
+rxn08688	media-only	>	>	247	O2
+rxn05300	original	>	=	244	(none of the tracked families)
+rxn04930	original	>	=	241	ATP/ADP/AMP
+rxn01389	original	>	=	241	ATP/ADP/AMP
+rxn02296	original	>	=	240	ATP/ADP/AMP;CoA;pyrophosphate
+rxn00312	original	>	>	240	CO2;O2
+rxn00638	original	=	=	236	NAD(H)
+rxn00600	gapfilled	>	=	236	CoA
+rxn01627	gapfilled	>	>	236	CO2
+rxn05171	original	>	>	234	ATP/ADP/AMP;phosphate
+rxn00295	original	>	=	234	(none of the tracked families)
+rxn08168	gapfilled	>	=	234	(none of the tracked families)
+rxn02930	media-only	<	=	234	NAD(H);ammonia
+rxn02760	original	=	>	233	(none of the tracked families)
+rxn00281	media-only	>	=	232	CoA
+rxn09690	media-only	>	=	231	(none of the tracked families)
+rxn09388	original	>	>	229	ATP/ADP/AMP;phosphate
+rxn05180	original	>	>	228	ATP/ADP/AMP;phosphate
+rxn01663	original	=	=	227	NADP(H)
+rxn00916	gapfilled	>	>	227	ATP/ADP/AMP;pyrophosphate;ammonia
+rxn11938	original	>	>	226	NAD(H);CO2
+rxn01830	original	>	>	225	(none of the tracked families)
+rxn41725	original	>	>	223	pyrophosphate
+rxn03079	original	=	=	221	(none of the tracked families)
+rxn01633	original	>	>	220	(none of the tracked families)
+rxn00228	original	>	>	220	phosphate
+rxn15749	original	>	>	217	NAD(H);ammonia
+rxn00152	original	>	>	210	phosphate;CO2;O2
+rxn07847	original	=	=	207	(none of the tracked families)
+rxn04026	original	>	>	207	CO2
+rxn00949	original	<	=	204	ammonia
+rxn05680	original	=	=	204	(none of the tracked families)
+rxn07343	original	=	=	200	(none of the tracked families)
+rxn08255	original	>	=	198	ATP/ADP/AMP;CoA;phosphate
+rxn08260	original	>	=	198	ATP/ADP/AMP;CoA;phosphate
+rxn00866	original	>	>	196	CO2
+rxn08254	original	=	=	195	(none of the tracked families)
+rxn01487	original	=	>	195	NADP(H)
+rxn15466	original	=	=	192	NADP(H)
+rxn08713	original	=	=	192	ATP/ADP/AMP
+rxn05636	original	=	=	191	(none of the tracked families)
+rxn08263	original	=	=	190	(none of the tracked families)
+rxn12748	original	=	=	189	(none of the tracked families)
+rxn01307	media-only	<	=	188	(none of the tracked families)
+rxn02625	original	=	>	186	ammonia
+rxn03864	original	=	=	185	NAD(H)
+rxn00003	gapfilled	<	<	183	CO2
+rxn01580	original	>	>	180	O2
+rxn01619	original	=	=	180	(none of the tracked families)
+rxn00195	original	=	=	180	(none of the tracked families)
+rxn48557	original	=	=	179	ATP/ADP/AMP
+rxn04600	original	=	>	178	NAD(H)
+rxn04599	original	=	>	178	NAD(H)
+rxn40000	original	>	=	176	ATP/ADP/AMP;pyrophosphate
+rxn46822	original	>	>	176	pyrophosphate
+rxn08709	original	>	=	172	ATP/ADP/AMP
+rxn20839	original	=	=	170	ATP/ADP/AMP
+rxn00620	gapfilled	<	>	170	(none of the tracked families)
+rxn01048	gapfilled	<	=	169	(none of the tracked families)
+rxn02523	original	=	=	167	ammonia
+rxn08619	original	=	=	166	(none of the tracked families)
+rxn12749	original	>	>	166	O2
+rxn04794	original	=	=	165	CoA
+rxn10123	original	>	=	163	NAD(H);quinone
+rxn00310	media-only	>	>	163	ammonia;O2
+rxn03826	media-only	>	=	162	ATP/ADP/AMP;NAD(H);CoA;FAD(H2);pyrophosphate
+rxn04455	media-only	<	>	162	(none of the tracked families)
+rxn01662	original	=	=	160	NAD(H)
+rxn00431	original	>	=	159	ammonia
+rxn10598	gapfilled	>	<	159	NAD(H)
+rxn42902	gapfilled	>	<	159	(none of the tracked families)
+rxn10475	gapfilled	>	=	159	ATP/ADP/AMP
+rxn10424	gapfilled	>	=	159	NAD(H)
+rxn10425	gapfilled	>	=	159	ATP/ADP/AMP;phosphate
+rxn10603	gapfilled	>	>	159	(none of the tracked families)
+rxn10479	gapfilled	>	=	159	ammonia
+rxn00975	original	>	=	158	ATP/ADP/AMP
+rxn17641	original	>	=	157	pyrophosphate
+rxn12746	original	>	>	156	NAD(H);CO2;O2
+rxn00614	original	>	>	156	O2
+rxn24594	original	>	>	155	phosphate
+rxn46469	original	=	=	155	(none of the tracked families)
+rxn02676	original	=	>	155	(none of the tracked families)
+rxn00121	original	=	>	155	ATP/ADP/AMP;FAD(H2)
+rxn16218	original	>	=	155	ATP/ADP/AMP;pyrophosphate
+rxn39999	original	>	=	155	ATP/ADP/AMP;pyrophosphate
+rxn05291	gapfilled	>	>	155	NADP(H);CoA;CO2
+rxn00652	media-only	<	>	155	(none of the tracked families)
+rxn40157	original	<	<	154	NAD(H)
+rxn40158	original	<	<	154	NADP(H)
+rxn08278	original	=	=	154	(none of the tracked families)
+rxn23044	original	>	>	154	(none of the tracked families)
+rxn16217	original	=	=	153	ATP/ADP/AMP
+rxn20834	original	>	>	153	pyrophosphate
+rxn16578	original	>	>	153	pyrophosphate
+rxn15546	original	=	=	153	NADP(H)
+rxn14345	original	=	=	151	pyrophosphate
+rxn44084	original	=	=	151	pyrophosphate
+rxn05237	original	>	>	151	ATP/ADP/AMP;phosphate
+rxn00503	gapfilled	<	>	151	NAD(H)
+rxn09660	media-only	>	=	151	(none of the tracked families)
+rxn08742	original	=	=	148	(none of the tracked families)
+rxn08118	original	=	=	147	(none of the tracked families)
+rxn39985	original	=	=	146	(none of the tracked families)
+rxn00698	original	=	=	146	phosphate
+rxn02344	original	=	=	144	(none of the tracked families)
+rxn09341	gapfilled	<	>	142	(none of the tracked families)
+rxn25829	original	>	>	141	ammonia
+rxn05117	original	>	<	141	NADP(H)
+rxn05119	original	>	<	141	NAD(H)
+rxn02235	original	=	=	141	NAD(H)
+rxn01188	original	>	>	141	(none of the tracked families)
+rxn02959	original	=	<	140	SAM
+rxn14039	original	>	=	140	(none of the tracked families)
+rxn15929	original	=	<	139	(none of the tracked families)
+rxn15924	original	=	<	139	(none of the tracked families)
+rxn02313	original	=	=	139	NADP(H)
+rxn01618	original	=	=	138	NADP(H)
+rxn09042	gapfilled	>	>	138	O2
+rxn10010	original	>	>	136	NAD(H)
+rxn10014	original	<	<	136	NAD(H)
+rxn10012	original	<	<	136	NAD(H)
+rxn05732	original	<	<	136	NAD(H)
+rxn10013	original	<	<	136	NAD(H)
+rxn10011	original	<	<	136	NAD(H)
+rxn22016	original	=	<	135	O2
+rxn22017	original	=	>	135	O2
+rxn44358	original	=	=	132	(none of the tracked families)
+rxn00284	gapfilled	<	<	132	NAD(H)
+rxn39978	original	>	>	131	NAD(H);O2
+rxn01450	original	>	=	131	CO2
+rxn39979	original	>	>	131	NAD(H);O2
+rxn47516	original	>	=	128	ATP/ADP/AMP;phosphate
+rxn40436	original	=	>	127	ammonia
+rxn17642	original	>	=	127	pyrophosphate
+rxn11732	media-only	<	=	126	NAD(H)
+rxn02123	media-only	>	=	126	(none of the tracked families)
+rxn00495	media-only	>	>	125	ammonia
+rxn00553	original	=	=	124	(none of the tracked families)
+rxn02552	original	>	=	124	ATP/ADP/AMP
+rxn09532	gapfilled	<	>	124	CoA
+rxn10067	original	>	>	123	O2
+rxn01419	original	>	=	121	NAD(H);CO2
+rxn08882	original	>	>	120	(none of the tracked families)
+rxn08583	original	=	=	120	(none of the tracked families)
+rxn03798	media-only	<	=	120	(none of the tracked families)
+rxn00859	media-only	>	=	116	NAD(H)
+rxn00207	media-only	<	<	116	CO2;O2
+rxn05887	original	>	<	114	NAD(H)
+rxn00749	gapfilled	>	>	113	(none of the tracked families)
+rxn08160	original	>	>	112	ATP/ADP/AMP;phosphate
+rxn09174	original	=	=	111	THF / folate
+rxn05058	original	>	>	111	phosphate
+rxn05012	original	>	=	111	phosphate
+rxn04153	original	>	>	109	NADP(H);O2
+rxn04152	original	>	>	109	NADP(H);O2
+rxn04154	original	>	>	109	NADP(H);O2
+rxn00502	gapfilled	<	=	108	NADP(H);CoA;CO2
+rxn09672	media-only	>	=	107	(none of the tracked families)
+rxn01631	original	>	=	105	(none of the tracked families)
+rxn04020	original	=	=	105	phosphate
+rxn00844	original	>	>	105	NADP(H);O2
+rxn00933	original	=	=	103	(none of the tracked families)
+rxn06060	media-only	<	>	103	glutathione
+rxn00279	original	>	>	102	CO2
+rxn01041	original	=	=	101	NAD(H)
+rxn11510	original	>	=	101	ATP/ADP/AMP
+rxn01421	media-only	<	<	101	NAD(H);ammonia
+rxn00880	original	>	>	99	O2
+rxn18575	original	>	>	99	ATP/ADP/AMP;phosphate
+rxn16238	original	>	=	99	ATP/ADP/AMP;phosphate
+rxn01808	media-only	>	<	99	phosphate
+rxn02267	media-only	<	<	99	NAD(H)
+rxn00678	original	=	=	98	(none of the tracked families)
+rxn00258	original	<	=	98	(none of the tracked families)
+rxn13648	gapfilled	>	>	98	quinone;ammonia
+rxn11940	original	=	<	97	NAD(H)
+rxn10594	original	=	=	97	(none of the tracked families)
+rxn01539	gapfilled	<	<	95	phosphate
+rxn09637	media-only	>	=	95	ATP/ADP/AMP;NAD(H);pyrophosphate
+rxn00479	original	>	>	94	CO2;O2
+rxn00986	original	>	<	94	ATP/ADP/AMP;pyrophosphate;THF / folate
+rxn02154	gapfilled	<	>	94	ATP/ADP/AMP
+rxn09693	media-only	>	=	94	(none of the tracked families)
+rxn45951	original	=	=	93	CoA
+rxn00033	gapfilled	>	>	93	CO2;O2
+rxn09896	media-only	<	=	91	NAD(H);ammonia
+rxn09889	media-only	>	>	91	(none of the tracked families)
+rxn00871	original	>	=	90	CoA;phosphate
+rxn07200	original	>	<	90	NADP(H)
+rxn00359	gapfilled	<	>	90	(none of the tracked families)
+rxn05185	original	>	>	89	ATP/ADP/AMP;phosphate
+rxn03085	original	=	=	89	(none of the tracked families)
+rxn04464	gapfilled	>	>	89	FAD(H2);THF / folate
+rxn04784	gapfilled	>	=	89	ATP/ADP/AMP;phosphate
+rxn01879	media-only	<	=	88	NADP(H)
+rxn00769	media-only	>	>	88	(none of the tracked families)
+rxn00130	gapfilled	<	>	87	ATP/ADP/AMP;ammonia
+rxn01039	media-only	>	<	86	NAD(H)
+rxn00524	original	>	>	85	O2
+rxn12612	media-only	<	=	85	(none of the tracked families)
+rxn03127	original	=	=	84	(none of the tracked families)
+rxn11877	original	=	=	84	ammonia
+rxn02094	original	>	=	84	ATP/ADP/AMP
+rxn09699	original	=	=	84	(none of the tracked families)
+rxn11859	original	>	=	83	CoA
+rxn10596	original	>	=	83	(none of the tracked families)
+rxn10468	original	>	=	83	(none of the tracked families)
+rxn10595	original	>	=	83	(none of the tracked families)
+rxn11858	original	>	>	83	CoA
+rxn02466	original	>	=	83	(none of the tracked families)
+rxn02171	original	=	=	83	(none of the tracked families)
+rxn03034	original	<	=	83	(none of the tracked families)
+rxn09316	original	>	>	82	quinone
+rxn00069	gapfilled	>	=	81	NAD(H)
+rxn02356	original	=	<	79	NAD(H)
+rxn02358	original	=	<	79	NADP(H)
+rxn09310	gapfilled	>	>	79	ATP/ADP/AMP;pyrophosphate;CO2
+rxn01306	media-only	<	=	79	(none of the tracked families)
+rxn02744	media-only	>	>	79	NAD(H)
+rxn01461	media-only	<	=	78	(none of the tracked families)
+rxn11347	media-only	<	=	78	(none of the tracked families)
+rxn09195	original	=	=	77	(none of the tracked families)
+rxn08533	original	=	=	77	(none of the tracked families)
+rxn40324	original	>	>	75	ATP/ADP/AMP;phosphate;CO2
+rxn21234	original	>	>	73	CO2
+rxn45998	original	>	>	73	CO2
+rxn05470	original	<	=	72	(none of the tracked families)
+rxn00177	original	=	=	71	(none of the tracked families)
+rxn09072	media-only	>	>	70	NAD(H);phosphate;CO2
+rxn08531	original	=	=	69	(none of the tracked families)
+rxn00814	original	>	>	69	O2
+rxn10053	gapfilled	>	=	69	ATP/ADP/AMP;phosphate;CO2
+rxn09678	media-only	>	=	69	(none of the tracked families)
+rxn05047	media-only	>	>	69	CoA
+rxn04999	media-only	>	>	69	(none of the tracked families)
+rxn14242	media-only	>	=	69	CoA
+rxn01236	original	<	=	68	ATP/ADP/AMP
+rxn26447	original	=	>	67	(none of the tracked families)
+rxn03168	original	<	<	67	phosphate
+rxn03880	gapfilled	<	=	67	(none of the tracked families)
+rxn03866	gapfilled	<	=	67	CoA
+rxn03617	gapfilled	<	=	67	NAD(H)
+rxn46480	original	=	=	66	(none of the tracked families)
+rxn12263	media-only	>	=	66	ATP/ADP/AMP;CoA;pyrophosphate
+rxn01945	original	>	>	65	NAD(H);O2
+rxn02363	original	>	>	65	NAD(H);O2
+rxn00345	original	=	=	65	(none of the tracked families)
+rxn00181	gapfilled	>	=	65	ATP/ADP/AMP
+rxn02990	gapfilled	<	=	65	NADP(H);phosphate
+rxn03622	gapfilled	<	<	65	NAD(H)
+rxn16596	original	=	=	64	NADP(H)
+rxn39887	original	>	=	63	NAD(H);CO2
+rxn08999	original	=	=	63	(none of the tracked families)
+rxn39886	original	>	=	63	NAD(H);CO2
+rxn25163	original	=	=	63	ATP/ADP/AMP;phosphate
+rxn03003	media-only	>	>	63	CO2
+rxn02325	media-only	<	=	62	(none of the tracked families)
+rxn01081	media-only	<	>	62	(none of the tracked families)
+rxn12224	original	>	>	61	O2
+rxn11258	gapfilled	>	>	61	(none of the tracked families)
+rxn02931	media-only	<	=	61	NADP(H);ammonia
+rxn11855	gapfilled	>	>	60	CO2
+rxn04043	original	=	=	59	ATP/ADP/AMP
+rxn01202	gapfilled	>	=	59	(none of the tracked families)
+rxn01420	original	>	>	58	CO2
+rxn47256	original	>	>	58	phosphate
+rxn03324	original	>	=	58	NAD(H)
+rxn02284	gapfilled	<	<	58	NAD(H)
+rxn08978	original	>	=	57	NADP(H);quinone
+rxn08977	original	>	>	57	NADP(H);quinone
+rxn02928	gapfilled	<	=	57	NAD(H)
+rxn02882	gapfilled	>	=	57	(none of the tracked families)
+rxn00118	gapfilled	>	=	57	ATP/ADP/AMP
+rxn02884	gapfilled	>	>	56	CO2
+rxn12522	media-only	<	=	56	(none of the tracked families)
+rxn02029	original	=	=	55	(none of the tracked families)
+rxn15964	original	=	=	55	(none of the tracked families)
+rxn01953	gapfilled	>	<	54	(none of the tracked families)
+rxn14012	gapfilled	>	>	54	pyrophosphate
+rxn01154	media-only	>	=	54	THF / folate
+rxn01201	original	=	=	53	NAD(H)
+rxn00430	gapfilled	<	=	52	NAD(H)
+rxn00768	original	>	>	51	(none of the tracked families)
+rxn01003	media-only	>	>	50	CO2
+rxn00651	media-only	<	<	50	(none of the tracked families)
+rxn05036	media-only	<	=	49	(none of the tracked families)
+rxn10469	original	>	=	48	(none of the tracked families)
+rxn04036	original	>	>	48	phosphate
+rxn09661	original	=	=	48	(none of the tracked families)
+rxn09023	original	=	=	48	(none of the tracked families)
+rxn09024	original	=	=	48	(none of the tracked families)
+rxn05648	original	=	=	48	(none of the tracked families)
+rxn13778	gapfilled	>	=	48	(none of the tracked families)
+rxn04706	gapfilled	>	=	48	(none of the tracked families)
+rxn05227	media-only	>	<	48	FAD(H2)
+rxn01294	media-only	>	>	48	CO2
+rxn02633	media-only	<	<	48	NAD(H)
+rxn01612	media-only	>	>	47	NADP(H);O2
+rxn09043	gapfilled	>	=	45	ATP/ADP/AMP;NAD(H);phosphate
+rxn01841	media-only	>	=	45	NADP(H)
+rxn01779	media-only	<	>	45	(none of the tracked families)
+rxn02975	original	=	=	44	(none of the tracked families)
+rxn01418	gapfilled	>	=	44	NAD(H);CoA;CO2
+rxn02985	original	=	=	43	NADP(H)
+rxn01324	original	=	=	43	NADP(H)
+rxn00257	original	>	>	43	ATP/ADP/AMP;CoA;phosphate
+rxn01254	media-only	<	=	43	(none of the tracked families)
+rxn05628	media-only	>	=	43	(none of the tracked families)
+rxn13647	gapfilled	>	=	42	quinone;ammonia
+rxn05744	gapfilled	>	>	42	NADP(H);CoA;CO2
+rxn00406	media-only	<	=	42	(none of the tracked families)
+rxn11206	media-only	>	=	41	(none of the tracked families)
+rxn10839	original	>	>	39	ATP/ADP/AMP;phosphate
+rxn09045	gapfilled	>	=	39	ATP/ADP/AMP;NAD(H);phosphate
+rxn00688	media-only	>	>	39	NADP(H);THF / folate;CO2
+rxn01033	media-only	>	>	39	NADP(H)
+rxn05565	original	=	=	38	(none of the tracked families)
+rxn16371	original	>	<	38	phosphate
+rxn09487	media-only	<	>	37	NADP(H)
+rxn33011	original	=	=	36	(none of the tracked families)
+rxn00404	original	<	=	36	(none of the tracked families)
+rxn09997	gapfilled	<	=	36	phosphate;O2
+rxn00934	media-only	>	=	35	ATP/ADP/AMP;CoA;phosphate
+rxn01182	media-only	>	=	35	ATP/ADP/AMP;CoA;pyrophosphate
+rxn00924	media-only	>	<	35	(none of the tracked families)
+rxn00723	original	>	=	34	ATP/ADP/AMP;CoA;pyrophosphate
+rxn11998	gapfilled	>	=	34	pyrophosphate
+rxn00435	gapfilled	>	>	34	(none of the tracked families)
+rxn03114	gapfilled	>	=	34	pyrophosphate
+rxn12239	gapfilled	>	=	34	NAD(H)
+rxn01360	gapfilled	>	>	34	O2
+rxn11209	media-only	>	=	34	(none of the tracked families)
+rxn14245	media-only	<	>	34	ammonia
+rxn00561	media-only	<	>	34	(none of the tracked families)
+rxn00426	media-only	<	=	34	(none of the tracked families)
+rxn00957	gapfilled	>	>	33	NAD(H)
+rxn10785	gapfilled	>	>	33	pyrophosphate
+rxn12676	media-only	>	=	33	(none of the tracked families)
+rxn02743	media-only	<	>	32	ammonia
+rxn16143	original	=	=	31	(none of the tracked families)
+rxn19159	original	=	=	31	(none of the tracked families)
+rxn23366	original	>	=	31	ATP/ADP/AMP;phosphate
+rxn12215	gapfilled	>	=	31	NAD(H)
+rxn01993	media-only	>	>	31	NAD(H)
+rxn02359	media-only	>	<	31	FAD(H2)
+rxn01778	media-only	>	>	31	ammonia;O2
+rxn11552	original	=	=	30	NADP(H)
+rxn39967	original	=	=	30	NAD(H);ammonia
+rxn14184	gapfilled	>	>	30	O2
+rxn00090	media-only	>	>	30	glutathione;O2
+rxn13836	media-only	>	>	30	(none of the tracked families)
+rxn00972	media-only	<	=	30	(none of the tracked families)
+rxn13834	media-only	>	=	30	NADP(H)
+rxn05245	media-only	>	=	30	(none of the tracked families)
+rxn00259	media-only	<	=	30	(none of the tracked families)
+rxn22815	original	>	>	29	(none of the tracked families)
+rxn09345	gapfilled	>	>	29	pyrophosphate
+rxn00306	gapfilled	>	=	29	CoA;phosphate
+rxn01369	media-only	>	>	29	CO2;O2
+rxn09950	media-only	>	=	29	(none of the tracked families)
+rxn01252	original	>	>	28	O2
+rxn31759	original	=	=	28	(none of the tracked families)
+rxn15961	original	=	=	28	(none of the tracked families)
+rxn00511	original	<	=	28	NADP(H)
+rxn13395	gapfilled	>	<	28	NADP(H)
+rxn08110	media-only	>	>	28	NADP(H);THF / folate
+rxn00959	media-only	>	>	28	NADP(H);O2
+rxn00570	gapfilled	<	<	27	O2
+rxn00432	media-only	>	>	27	O2
+rxn00594	media-only	>	>	27	NAD(H);CO2;ammonia;O2
+rxn02181	original	=	=	26	(none of the tracked families)
+rxn09071	media-only	>	=	26	NAD(H);THF / folate
+rxn00327	original	>	>	25	CO2;ammonia
+rxn00520	gapfilled	>	=	25	CoA;phosphate
+rxn02176	gapfilled	<	>	25	ATP/ADP/AMP
+rxn00419	media-only	<	=	25	NAD(H);ammonia
+rxn00491	media-only	<	=	25	(none of the tracked families)
+rxn01057	original	<	=	24	(none of the tracked families)
+rxn16146	original	=	=	24	ATP/ADP/AMP;CoA;pyrophosphate
+rxn00075	original	=	>	24	NAD(H)
+rxn02187	original	>	=	24	(none of the tracked families)
+rxn00078	gapfilled	>	=	24	ATP/ADP/AMP;NAD(H);NADP(H)
+rxn00955	gapfilled	>	=	24	(none of the tracked families)
+rxn08775	gapfilled	<	=	24	(none of the tracked families)
+rxn01645	media-only	<	=	24	(none of the tracked families)
+rxn00848	media-only	>	=	24	THF / folate
+rxn04454	original	>	>	23	(none of the tracked families)
+rxn04712	original	>	=	23	(none of the tracked families)
+rxn00530	gapfilled	>	>	23	ammonia
+rxn09443	gapfilled	>	>	23	NADP(H);CoA;CO2
+rxn02424	media-only	<	=	23	NAD(H);CoA
+rxn02751	media-only	>	=	23	(none of the tracked families)
+rxn00282	media-only	<	=	23	(none of the tracked families)
+rxn05116	media-only	>	>	23	CO2
+rxn04996	original	<	<	22	NADP(H)
+rxn08756	original	>	>	22	NAD(H)
+rxn00684	gapfilled	<	=	22	NAD(H);THF / folate
+rxn09421	gapfilled	>	>	22	NADP(H);CoA;CO2
+rxn09420	gapfilled	>	>	22	NADP(H);CoA;CO2
+rxn11731	media-only	<	=	22	(none of the tracked families)
+rxn00335	media-only	>	=	22	(none of the tracked families)
+rxn12777	media-only	<	=	22	NAD(H);CoA;CO2
+rxn00229	media-only	>	>	22	CO2;O2
+rxn00253	media-only	<	>	22	ammonia
+rxn03380	media-only	<	>	22	(none of the tracked families)
+rxn00454	media-only	<	=	22	(none of the tracked families)
+rxn04952	media-only	<	=	22	NAD(H);ammonia
+rxn03379	media-only	<	=	22	ammonia
+rxn13251	gapfilled	>	>	21	(none of the tracked families)
+rxn02327	media-only	>	<	21	(none of the tracked families)
+rxn01023	media-only	<	<	21	(none of the tracked families)
+rxn29768	original	>	>	20	ATP/ADP/AMP;phosphate
+rxn01253	original	<	=	20	(none of the tracked families)
+rxn09680	gapfilled	<	=	20	(none of the tracked families)
+rxn00315	gapfilled	>	=	20	(none of the tracked families)
+rxn12303	gapfilled	<	=	20	(none of the tracked families)
+rxn00970	gapfilled	<	<	20	NAD(H)
+rxn10768	media-only	>	=	20	ATP/ADP/AMP
+rxn10439	media-only	>	=	20	ATP/ADP/AMP
+rxn00453	media-only	<	>	20	(none of the tracked families)
+rxn01037	media-only	>	=	20	(none of the tracked families)
+rxn01773	media-only	>	=	20	CoA
+rxn01772	media-only	>	=	20	NAD(H);CoA;CO2
+rxn08764	media-only	>	=	20	NADP(H)
+rxn05909	gapfilled	<	=	19	(none of the tracked families)
+rxn03899	gapfilled	>	>	19	NAD(H);O2
+rxn11208	media-only	>	=	19	(none of the tracked families)
+rxn04042	media-only	>	=	19	ATP/ADP/AMP
+rxn10883	media-only	>	>	19	ATP/ADP/AMP;phosphate
+rxn09412	media-only	>	=	19	NAD(H);phosphate
+rxn08939	original	=	>	18	(none of the tracked families)
+rxn16107	original	>	>	18	pyrophosphate
+rxn08736	original	=	>	18	quinone
+rxn01345	gapfilled	>	>	18	phosphate
+rxn01547	gapfilled	<	<	18	ammonia
+rxn01933	media-only	>	>	18	CO2
+rxn01601	media-only	<	=	18	NAD(H)
+rxn00380	original	>	<	17	ATP/ADP/AMP;phosphate
+rxn10054	gapfilled	<	>	17	ammonia
+rxn03194	gapfilled	>	=	17	(none of the tracked families)
+rxn11200	media-only	>	=	17	(none of the tracked families)
+rxn02516	media-only	<	>	17	(none of the tracked families)
+rxn13708	media-only	>	=	17	(none of the tracked families)
+rxn12747	media-only	>	>	17	O2
+rxn00317	gapfilled	>	=	16	(none of the tracked families)
+rxn01931	media-only	>	>	16	CO2
+rxn04953	media-only	<	=	16	NADP(H);ammonia
+rxn00841	media-only	>	=	16	(none of the tracked families)
+rxn03705	media-only	>	>	16	O2
+rxn04143	original	=	=	15	NAD(H)
+rxn02145	original	=	>	15	(none of the tracked families)
+rxn00532	original	=	=	15	NADP(H);CoA
+rxn02826	gapfilled	>	>	15	ammonia;O2
+rxn09878	gapfilled	>	>	15	O2
+rxn01099	gapfilled	>	>	15	phosphate
+rxn10113	gapfilled	>	>	15	quinone;O2
+rxn01460	gapfilled	<	<	15	(none of the tracked families)
+rxn03423	gapfilled	>	>	15	NAD(H)
+rxn00677	media-only	<	=	15	THF / folate
+rxn05063	media-only	>	>	15	(none of the tracked families)
+rxn08439	media-only	>	>	15	CoA
+rxn00565	media-only	>	>	15	O2
+rxn00560	gapfilled	>	=	14	ATP/ADP/AMP;phosphate
+rxn00401	gapfilled	>	>	14	CO2;O2
+rxn09486	gapfilled	>	=	14	pyrophosphate
+rxn01952	media-only	<	<	14	phosphate
+rxn00268	media-only	<	=	14	NAD(H);ammonia
+rxn10434	media-only	>	=	14	CoA
+rxn10608	media-only	>	=	14	(none of the tracked families)
+rxn00230	media-only	>	=	14	phosphate;pyrophosphate
+rxn10599	media-only	>	=	14	(none of the tracked families)
+rxn13753	gapfilled	>	>	13	NAD(H);quinone
+rxn01874	gapfilled	<	=	13	SAM
+rxn00197	gapfilled	<	=	13	NADP(H);CoA;CO2
+rxn01731	media-only	>	=	13	ATP/ADP/AMP;CoA;phosphate
+rxn01734	media-only	<	=	13	(none of the tracked families)
+rxn01248	original	=	=	12	NAD(H)
+rxn02401	gapfilled	<	=	12	ATP/ADP/AMP
+rxn00928	media-only	>	=	12	NAD(H)
+rxn00050	media-only	<	<	12	O2
+rxn03329	media-only	>	=	12	(none of the tracked families)
+rxn00188	media-only	<	<	12	CO2;ammonia
+rxn00610	media-only	>	>	12	phosphate
+rxn01577	media-only	>	=	12	(none of the tracked families)
+rxn00958	gapfilled	>	>	11	NADP(H)
+rxn12376	gapfilled	<	=	11	(none of the tracked families)
+rxn11267	gapfilled	>	=	11	(none of the tracked families)
+rxn01207	media-only	<	=	11	NAD(H);CoA;CO2
+rxn03056	media-only	>	>	11	NADP(H)
+rxn10951	media-only	<	=	11	CoA;CO2
+rxn02993	media-only	>	>	11	ammonia;O2
+rxn07450	gapfilled	<	>	10	ammonia
+rxn09440	gapfilled	>	>	10	NADP(H);CoA;CO2
+rxn13842	media-only	>	>	10	ATP/ADP/AMP;phosphate
+rxn01422	media-only	<	<	10	NADP(H);ammonia
+rxn03653	media-only	>	=	10	NAD(H);CoA
+rxn12780	media-only	>	<	10	NADP(H)
+rxn04074	media-only	<	=	10	(none of the tracked families)
+rxn10793	media-only	>	=	10	(none of the tracked families)
+rxn12744	media-only	>	=	10	(none of the tracked families)
+rxn01716	media-only	>	>	10	NAD(H);O2
+rxn11346	media-only	<	=	10	(none of the tracked families)
+rxn01305	media-only	<	=	10	NAD(H)
+rxn01056	media-only	<	=	10	THF / folate
+rxn01611	media-only	>	>	10	NADP(H);O2
+rxn12147	original	>	<	9	(none of the tracked families)
+rxn05023	original	>	>	9	CoA
+rxn00155	gapfilled	>	=	9	NADP(H);CoA;CO2
+rxn08447	gapfilled	>	>	9	CoA
+rxn02229	gapfilled	<	<	9	(none of the tracked families)
+rxn00373	gapfilled	>	>	9	CO2
+rxn13085	gapfilled	>	>	9	SAM;CO2
+rxn03347	media-only	>	=	9	(none of the tracked families)
+rxn00617	media-only	>	=	9	(none of the tracked families)
+rxn02364	media-only	>	>	9	NAD(H)
+rxn00489	media-only	>	>	9	CO2;O2
+rxn01032	media-only	>	>	9	NAD(H)
+rxn11007	media-only	>	>	9	THF / folate
+rxn01862	media-only	>	<	9	FAD(H2)
+rxn09967	media-only	>	>	9	NAD(H);THF / folate
+rxn13803	media-only	>	=	9	THF / folate
+rxn01944	media-only	>	>	9	NADP(H)
+rxn03642	media-only	>	=	9	(none of the tracked families)
+rxn00673	media-only	<	<	9	FAD(H2)
+rxn09502	media-only	>	=	9	ATP/ADP/AMP
+rxn01205	original	>	>	8	CO2;ammonia
+rxn00971	original	>	=	8	ATP/ADP/AMP;CoA;phosphate
+rxn00220	gapfilled	>	>	8	phosphate
+rxn00738	gapfilled	<	=	8	ammonia
+rxn09665	gapfilled	<	=	8	(none of the tracked families)
+rxn05310	gapfilled	>	=	8	(none of the tracked families)
+rxn00905	gapfilled	<	=	8	(none of the tracked families)
+rxn13141	gapfilled	<	=	8	ammonia
+rxn00940	gapfilled	<	>	8	(none of the tracked families)
+rxn00505	gapfilled	>	=	8	NAD(H);CO2
+rxn00487	gapfilled	<	=	8	NAD(H);ammonia
+rxn13659	media-only	>	<	8	NAD(H)
+rxn09402	media-only	>	=	8	(none of the tracked families)
+rxn00603	media-only	<	=	8	NADP(H)
+rxn09638	media-only	>	=	8	ATP/ADP/AMP;NADP(H);pyrophosphate
+rxn08429	media-only	>	=	8	(none of the tracked families)
+rxn09616	media-only	>	=	8	(none of the tracked families)
+rxn14299	media-only	>	>	8	(none of the tracked families)
+rxn05622	original	>	>	7	ATP/ADP/AMP;phosphate
+rxn00542	gapfilled	>	=	7	(none of the tracked families)
+rxn00945	gapfilled	<	<	7	NADP(H)
+rxn08166	gapfilled	<	>	7	quinone
+rxn03840	gapfilled	>	<	7	ammonia
+rxn11943	gapfilled	>	=	7	(none of the tracked families)
+rxn07881	media-only	>	<	7	FAD(H2)
+rxn07886	media-only	>	<	7	CoA
+rxn07883	media-only	>	=	7	NAD(H)
+rxn08125	media-only	<	=	7	(none of the tracked families)
+rxn07875	media-only	>	>	7	NAD(H)
+rxn12058	media-only	>	>	7	pyrophosphate
+rxn05590	media-only	<	=	7	(none of the tracked families)
+rxn07884	media-only	>	=	7	CoA
+rxn01350	media-only	>	>	7	O2
+rxn09614	media-only	>	=	7	(none of the tracked families)
+rxn07880	media-only	>	=	7	CoA
+rxn02557	media-only	>	=	7	NADP(H)
+rxn02496	media-only	<	=	7	(none of the tracked families)
+rxn07882	media-only	>	=	7	(none of the tracked families)
+rxn07887	media-only	>	=	7	(none of the tracked families)
+rxn00720	original	=	=	6	NADP(H)
+rxn00847	original	>	=	6	(none of the tracked families)
+rxn01028	original	=	=	6	NADP(H)
+rxn16142	original	=	=	6	(none of the tracked families)
+rxn47122	original	>	=	6	(none of the tracked families)
+rxn08789	original	=	<	6	(none of the tracked families)
+rxn08790	original	=	<	6	(none of the tracked families)
+rxn08458	original	=	=	6	NAD(H);FAD(H2)
+rxn00275	gapfilled	<	=	6	(none of the tracked families)
+rxn00203	gapfilled	>	>	6	CO2
+rxn00252	gapfilled	>	=	6	phosphate;pyrophosphate;CO2
+rxn02810	gapfilled	>	=	6	(none of the tracked families)
+rxn00494	gapfilled	<	=	6	(none of the tracked families)
+rxn00918	gapfilled	>	>	6	(none of the tracked families)
+rxn02768	gapfilled	<	=	6	(none of the tracked families)
+rxn01730	gapfilled	>	=	6	ATP/ADP/AMP;CoA;phosphate
+rxn12264	gapfilled	<	<	6	FAD(H2)
+rxn13726	gapfilled	<	>	6	NAD(H);quinone
+rxn00451	gapfilled	<	=	6	SAM
+rxn13143	gapfilled	<	>	6	NAD(H)
+rxn11213	gapfilled	>	>	6	(none of the tracked families)
+rxn01741	gapfilled	<	=	6	NADP(H)
+rxn00895	media-only	>	=	6	CoA
+rxn04658	media-only	>	=	6	NADP(H);phosphate
+rxn14342	media-only	>	=	6	(none of the tracked families)
+rxn01206	media-only	>	>	6	ammonia
+rxn10613	media-only	>	=	6	(none of the tracked families)
+rxn04703	media-only	<	=	6	NAD(H)
+rxn13149	media-only	<	<	6	CoA;CO2;O2
+rxn02802	media-only	>	<	6	NADP(H)
+rxn10981	media-only	<	=	6	FAD(H2)
+rxn14077	media-only	>	=	6	(none of the tracked families)
+rxn03993	media-only	>	>	6	NADP(H);O2
+rxn09431	media-only	>	=	6	NADP(H);CoA;CO2
+rxn05220	media-only	>	=	6	(none of the tracked families)
+rxn04659	media-only	>	=	6	(none of the tracked families)
+rxn00534	media-only	>	=	6	(none of the tracked families)
+rxn01975	media-only	>	=	6	NADP(H)
+rxn01169	media-only	>	=	6	ATP/ADP/AMP
+rxn05722	media-only	<	=	6	(none of the tracked families)
+rxn13966	media-only	>	>	6	NADP(H);CO2;O2
+rxn05293	original	>	>	5	NAD(H)
+rxn09289	original	>	=	5	CoA
+rxn48588	original	=	>	5	quinone;ammonia;O2
+rxn05093	original	>	>	5	O2
+rxn04660	original	>	=	5	(none of the tracked families)
+rxn08094	gapfilled	>	=	5	NAD(H);CoA;CO2
+rxn01500	gapfilled	<	=	5	NAD(H);CoA
+rxn14120	gapfilled	<	=	5	NAD(H);THF / folate
+rxn08927	gapfilled	<	=	5	(none of the tracked families)
+rxn08066	gapfilled	<	=	5	ATP/ADP/AMP
+rxn00833	gapfilled	>	=	5	(none of the tracked families)
+rxn01818	gapfilled	<	>	5	(none of the tracked families)
+rxn14144	gapfilled	<	>	5	(none of the tracked families)
+rxn00751	media-only	>	=	5	ATP/ADP/AMP
+rxn03275	media-only	>	=	5	(none of the tracked families)
+rxn00891	media-only	<	=	5	(none of the tracked families)
+rxn04681	media-only	<	<	5	SAM
+rxn10619	media-only	>	>	5	(none of the tracked families)
+rxn11004	media-only	>	>	5	FAD(H2);CO2
+rxn01442	media-only	<	=	5	(none of the tracked families)
+rxn03983	media-only	>	=	5	ATP/ADP/AMP;glutathione
+rxn11931	media-only	<	>	5	(none of the tracked families)
+rxn00857	media-only	<	=	5	(none of the tracked families)
+rxn09566	media-only	>	<	5	ammonia;O2
+rxn10769	media-only	>	=	5	ATP/ADP/AMP
+rxn00444	media-only	>	>	5	(none of the tracked families)
+rxn00465	media-only	>	>	5	CO2;ammonia
+rxn03641	original	>	=	4	(none of the tracked families)
+rxn02227	original	>	>	4	NADP(H)
+rxn02226	original	>	>	4	NAD(H)
+rxn00973	gapfilled	>	=	4	(none of the tracked families)
+rxn00908	gapfilled	>	=	4	NAD(H);THF / folate;CO2;ammonia
+rxn00320	gapfilled	>	=	4	(none of the tracked families)
+rxn00680	gapfilled	<	=	4	CoA
+rxn12649	gapfilled	>	=	4	NADP(H);THF / folate
+rxn01261	gapfilled	<	=	4	NADP(H)
+rxn00899	gapfilled	<	=	4	NAD(H);CoA;CO2
+rxn10447	gapfilled	>	>	4	ATP/ADP/AMP;phosphate
+rxn04678	gapfilled	<	=	4	(none of the tracked families)
+rxn11933	gapfilled	>	<	4	FAD(H2)
+rxn10578	gapfilled	>	=	4	ATP/ADP/AMP;phosphate
+rxn05035	gapfilled	>	=	4	phosphate
+rxn13147	gapfilled	>	>	4	phosphate;CO2
+rxn01348	gapfilled	<	=	4	(none of the tracked families)
+rxn02396	gapfilled	>	>	4	CO2
+rxn12743	gapfilled	>	=	4	(none of the tracked families)
+rxn08892	gapfilled	<	=	4	(none of the tracked families)
+rxn01156	media-only	>	=	4	(none of the tracked families)
+rxn09417	media-only	<	>	4	(none of the tracked families)
+rxn08413	media-only	>	=	4	(none of the tracked families)
+rxn00286	media-only	<	=	4	(none of the tracked families)
+rxn08700	media-only	<	=	4	NAD(H)
+rxn02624	media-only	<	<	4	CoA
+rxn00572	media-only	<	<	4	NADP(H)
+rxn00944	media-only	>	=	4	NAD(H);CoA
+rxn00538	media-only	>	>	4	phosphate;ammonia
+rxn09370	media-only	>	>	4	CO2;O2
+rxn01193	media-only	>	>	4	O2
+rxn00909	media-only	>	=	4	FAD(H2);THF / folate
+rxn10795	media-only	>	>	4	(none of the tracked families)
+rxn01173	media-only	>	=	4	NADP(H)
+rxn13400	media-only	>	=	4	(none of the tracked families)
+rxn09453	media-only	>	=	4	ATP/ADP/AMP;CoA;pyrophosphate
+rxn02202	media-only	>	=	4	(none of the tracked families)
+rxn00921	media-only	>	>	4	CO2
+rxn03078	media-only	>	>	4	NADP(H)
+rxn00309	media-only	<	=	4	NAD(H);ammonia
+rxn03050	media-only	<	=	4	(none of the tracked families)
+rxn03517	media-only	>	=	4	(none of the tracked families)
+rxn00593	media-only	>	>	4	CO2
+rxn11207	media-only	<	=	4	(none of the tracked families)
+rxn00518	media-only	<	=	4	(none of the tracked families)
+rxn00485	media-only	>	>	4	ATP/ADP/AMP;pyrophosphate
+rxn04064	media-only	<	=	4	NAD(H)
+rxn01524	original	>	>	3	O2
+rxn01578	original	=	=	3	NAD(H)
+rxn01298	original	>	>	3	O2
+rxn12500	original	=	>	3	quinone
+rxn04657	original	>	=	3	ATP/ADP/AMP
+rxn00427	gapfilled	<	>	3	(none of the tracked families)
+rxn01943	gapfilled	>	>	3	NAD(H)
+rxn10558	gapfilled	>	>	3	ATP/ADP/AMP;phosphate
+rxn01934	gapfilled	>	>	3	CO2;O2
+rxn09632	gapfilled	>	>	3	phosphate
+rxn09438	gapfilled	>	>	3	NADP(H);CoA;CO2
+rxn12220	gapfilled	>	>	3	CO2;O2
+rxn00877	gapfilled	<	=	3	(none of the tracked families)
+rxn09433	gapfilled	>	=	3	NADP(H);CoA;CO2
+rxn05010	gapfilled	<	<	3	SAM
+rxn00037	gapfilled	>	>	3	CO2;O2
+rxn01151	gapfilled	<	=	3	(none of the tracked families)
+rxn13022	gapfilled	>	=	3	NAD(H);CO2
+rxn12204	gapfilled	<	=	3	(none of the tracked families)
+rxn04677	gapfilled	<	=	3	(none of the tracked families)
+rxn12498	gapfilled	<	=	3	quinone
+rxn11674	gapfilled	>	>	3	CO2;O2
+rxn02293	gapfilled	>	>	3	O2
+rxn10614	gapfilled	<	=	3	(none of the tracked families)
+rxn00657	gapfilled	<	=	3	(none of the tracked families)
+rxn02269	gapfilled	<	=	3	NAD(H);CoA;CO2
+rxn00381	gapfilled	<	>	3	ATP/ADP/AMP
+rxn00084	gapfilled	>	>	3	NADP(H)
+rxn04942	media-only	>	=	3	NADP(H)
+rxn02061	media-only	>	>	3	(none of the tracked families)
+rxn01126	media-only	>	>	3	ammonia
+rxn00842	media-only	<	=	3	(none of the tracked families)
+rxn04676	media-only	>	=	3	(none of the tracked families)
+rxn07493	media-only	>	=	3	phosphate
+rxn01401	media-only	>	>	3	O2
+rxn05577	media-only	<	=	3	(none of the tracked families)
+rxn04933	media-only	<	=	3	NAD(H)
+rxn09523	media-only	>	>	3	NAD(H)
+rxn01282	media-only	>	>	3	phosphate
+rxn01243	media-only	>	=	3	CO2
+rxn08053	media-only	<	<	3	FAD(H2)
+rxn02634	media-only	<	>	3	(none of the tracked families)
+rxn00326	media-only	<	=	3	NADP(H);CoA
+rxn01926	media-only	>	=	3	ATP/ADP/AMP
+rxn03440	media-only	>	=	3	(none of the tracked families)
+rxn02622	media-only	>	=	3	(none of the tracked families)
+rxn09220	media-only	>	>	3	quinone;O2
+rxn12566	media-only	<	=	3	(none of the tracked families)
+rxn00888	media-only	>	=	3	(none of the tracked families)
+rxn02091	media-only	>	>	3	ammonia;O2
+rxn00643	media-only	>	=	3	(none of the tracked families)
+rxn07490	media-only	>	=	3	NAD(H)
+rxn00901	media-only	<	=	3	NADP(H);ammonia
+rxn00613	media-only	<	=	3	NADP(H)
+rxn00764	media-only	<	=	3	NADP(H)
+rxn00445	media-only	>	>	3	O2
+rxn01440	media-only	>	>	3	O2
+rxn00752	media-only	>	>	3	O2
+rxn07489	media-only	>	>	3	phosphate
+rxn12630	media-only	>	=	3	(none of the tracked families)
+rxn00028	media-only	>	>	3	O2
+rxn10615	media-only	>	>	3	(none of the tracked families)
+rxn09318	original	>	=	2	(none of the tracked families)
+rxn04656	original	>	>	2	(none of the tracked families)
+rxn01483	original	>	=	2	CoA
+rxn01443	gapfilled	<	=	2	(none of the tracked families)
+rxn08894	gapfilled	>	=	2	(none of the tracked families)
+rxn05481	gapfilled	<	=	2	(none of the tracked families)
+rxn01317	gapfilled	>	=	2	phosphate
+rxn00244	gapfilled	>	>	2	(none of the tracked families)
+rxn01359	gapfilled	>	=	2	NADP(H)
+rxn13990	gapfilled	>	=	2	ATP/ADP/AMP
+rxn12362	gapfilled	>	=	2	ATP/ADP/AMP;phosphate;CO2
+rxn00734	gapfilled	>	>	2	phosphate;CO2;O2
+rxn00339	gapfilled	>	=	2	ATP/ADP/AMP;phosphate;ammonia
+rxn01977	gapfilled	>	=	2	(none of the tracked families)
+rxn09441	gapfilled	>	>	2	NADP(H);CoA;CO2
+rxn02273	gapfilled	<	>	2	NAD(H)
+rxn03064	gapfilled	<	<	2	phosphate
+rxn01231	gapfilled	>	>	2	CO2
+rxn05026	gapfilled	>	=	2	phosphate
+rxn00796	gapfilled	>	>	2	(none of the tracked families)
+rxn08928	gapfilled	>	=	2	(none of the tracked families)
+rxn09615	gapfilled	>	=	2	(none of the tracked families)
+rxn08491	gapfilled	>	>	2	FAD(H2)
+rxn00798	gapfilled	>	=	2	(none of the tracked families)
+rxn13799	gapfilled	>	=	2	(none of the tracked families)
+rxn05634	media-only	<	=	2	THF / folate
+rxn01561	media-only	>	=	2	(none of the tracked families)
+rxn00517	media-only	<	=	2	(none of the tracked families)
+rxn04789	media-only	>	>	2	NAD(H)
+rxn14246	media-only	>	=	2	(none of the tracked families)
+rxn02365	media-only	>	>	2	NADP(H)
+rxn00325	media-only	>	>	2	O2
+rxn02830	media-only	>	=	2	(none of the tracked families)
+rxn11396	media-only	<	=	2	(none of the tracked families)
+rxn00249	media-only	>	=	2	NADP(H)
+rxn14167	media-only	>	>	2	ammonia
+rxn10836	media-only	<	=	2	THF / folate
+rxn11349	media-only	>	>	2	CO2;O2
+rxn07773	media-only	>	>	2	CO2;O2
+rxn01347	media-only	>	=	2	(none of the tracked families)
+rxn09437	media-only	>	>	2	NADP(H);CoA;CO2
+rxn00356	media-only	>	=	2	(none of the tracked families)
+rxn10753	media-only	<	>	2	(none of the tracked families)
+rxn02816	media-only	<	<	2	(none of the tracked families)
+rxn03071	media-only	>	=	2	NAD(H)
+rxn00919	media-only	<	>	2	(none of the tracked families)
+rxn01024	media-only	>	>	2	ammonia
+rxn12588	media-only	<	=	2	(none of the tracked families)
+rxn10058	media-only	>	=	2	NAD(H);NADP(H)
+rxn04702	media-only	>	=	2	(none of the tracked families)
+rxn04793	media-only	<	>	2	NADP(H)
+rxn00630	media-only	<	=	2	NADP(H)
+rxn12193	media-only	>	=	2	(none of the tracked families)
+rxn07572	media-only	>	=	2	CoA;CO2
+rxn01632	media-only	>	=	2	(none of the tracked families)
+rxn01172	media-only	>	=	2	NAD(H)
+rxn00417	media-only	>	=	2	(none of the tracked families)
+rxn02274	media-only	>	>	2	CO2
+rxn01913	media-only	<	=	2	NAD(H)
+rxn02100	media-only	<	>	2	(none of the tracked families)
+rxn05703	media-only	<	=	2	(none of the tracked families)
+rxn01310	media-only	<	=	2	NADP(H)
+rxn04998	media-only	>	>	2	O2
+rxn10862	media-only	>	>	2	ATP/ADP/AMP;phosphate
+rxn02815	media-only	<	>	2	(none of the tracked families)
+rxn10902	media-only	>	=	2	NAD(H)
+rxn08459	media-only	>	=	2	NADP(H);FAD(H2)
+rxn01216	media-only	<	>	2	(none of the tracked families)
+rxn02915	media-only	>	=	2	(none of the tracked families)
+rxn13388	media-only	>	>	2	O2
+rxn01142	media-only	<	>	2	(none of the tracked families)
+rxn11210	media-only	<	=	2	(none of the tracked families)
+rxn01861	media-only	>	<	2	NAD(H)
+rxn02893	media-only	<	<	2	NAD(H);CO2
+rxn08103	media-only	<	=	2	THF / folate
+rxn02767	media-only	>	>	2	(none of the tracked families)
+rxn01326	media-only	>	>	2	O2
+rxn01373	media-only	<	<	2	SAM
+rxn01079	media-only	<	=	2	NADP(H)
+rxn01722	original	=	=	1	NAD(H)
+rxn01685	original	=	=	1	NAD(H)
+rxn01723	original	=	=	1	NADP(H)
+rxn11684	original	>	>	1	pyrophosphate
+rxn07456	gapfilled	>	=	1	ATP/ADP/AMP;phosphate;ammonia
+rxn08968	gapfilled	<	=	1	(none of the tracked families)
+rxn10059	gapfilled	>	=	1	NAD(H);NADP(H)
+rxn07573	gapfilled	>	=	1	NADP(H)
+rxn00557	gapfilled	<	=	1	(none of the tracked families)
+rxn01054	gapfilled	<	=	1	(none of the tracked families)
+rxn13779	gapfilled	>	=	1	(none of the tracked families)
+rxn12217	gapfilled	>	=	1	THF / folate
+rxn01014	gapfilled	>	>	1	CO2
+rxn02250	gapfilled	>	>	1	ammonia;O2
+rxn00627	gapfilled	>	=	1	ATP/ADP/AMP
+rxn14091	gapfilled	>	>	1	NADP(H);O2
+rxn00579	gapfilled	<	=	1	(none of the tracked families)
+rxn04071	gapfilled	<	=	1	(none of the tracked families)
+rxn02380	gapfilled	<	=	1	(none of the tracked families)
+rxn01221	gapfilled	>	>	1	phosphate
+rxn05238	gapfilled	>	=	1	(none of the tracked families)
+rxn12664	gapfilled	<	=	1	(none of the tracked families)
+rxn12615	gapfilled	<	=	1	(none of the tracked families)
+rxn00198	gapfilled	>	=	1	NADP(H);CO2
+rxn04093	gapfilled	>	>	1	O2
+rxn00767	gapfilled	>	=	1	phosphate;pyrophosphate
+rxn07775	gapfilled	<	=	1	NAD(H)
+rxn08767	gapfilled	<	=	1	CoA
+rxn00521	gapfilled	>	=	1	ammonia
+rxn02204	gapfilled	<	=	1	(none of the tracked families)
+rxn00625	gapfilled	<	<	1	(none of the tracked families)
+rxn02113	gapfilled	>	>	1	CO2
+rxn07764	gapfilled	>	>	1	NADP(H);O2
+rxn13905	gapfilled	>	>	1	(none of the tracked families)
+rxn01147	gapfilled	<	=	1	ATP/ADP/AMP
+rxn01699	gapfilled	>	>	1	O2
+rxn08931	gapfilled	>	<	1	(none of the tracked families)
+rxn02251	gapfilled	>	>	1	O2
+rxn07757	gapfilled	>	>	1	NAD(H);O2
+rxn00393	gapfilled	<	=	1	(none of the tracked families)
+rxn11174	gapfilled	>	=	1	(none of the tracked families)
+rxn10074	gapfilled	<	<	1	NAD(H);FAD(H2)
+rxn07848	gapfilled	<	=	1	NADP(H)
+rxn09348	gapfilled	<	>	1	(none of the tracked families)
+rxn02756	gapfilled	<	=	1	(none of the tracked families)
+rxn00906	gapfilled	>	=	1	NAD(H)
+rxn08929	gapfilled	<	=	1	(none of the tracked families)
+rxn07575	gapfilled	>	>	1	NADP(H)
+rxn03558	gapfilled	<	>	1	NADP(H)
+rxn08167	gapfilled	<	<	1	quinone
+rxn09477	gapfilled	>	>	1	O2
+rxn07574	gapfilled	>	=	1	(none of the tracked families)
+rxn07465	gapfilled	>	>	1	CO2
+rxn07774	gapfilled	<	<	1	ammonia
+rxn07776	gapfilled	<	=	1	(none of the tracked families)
+rxn00571	gapfilled	>	<	1	NAD(H)
+rxn03750	gapfilled	>	>	1	NAD(H);O2
+rxn01398	gapfilled	<	<	1	phosphate
+rxn05299	gapfilled	>	=	1	(none of the tracked families)
+rxn00852	gapfilled	>	>	1	ammonia;O2
+rxn01150	media-only	<	=	1	NADP(H)
+rxn01789	media-only	>	=	1	NAD(H)
+rxn08114	media-only	>	>	1	CO2;ammonia
+rxn04646	media-only	>	>	1	NAD(H);O2
+rxn04670	media-only	>	>	1	(none of the tracked families)
+rxn02172	media-only	<	>	1	(none of the tracked families)
+rxn01222	media-only	>	>	1	pyrophosphate
+rxn14354	media-only	>	>	1	NADP(H);O2
+rxn12572	media-only	<	=	1	(none of the tracked families)
+rxn07630	media-only	>	=	1	(none of the tracked families)
+rxn01918	media-only	>	>	1	NAD(H)
+rxn01412	media-only	>	=	1	NADP(H)
+rxn02575	media-only	<	>	1	(none of the tracked families)
+rxn09452	media-only	>	=	1	ATP/ADP/AMP;CoA;pyrophosphate
+rxn01903	media-only	>	>	1	ammonia;O2
+rxn10804	media-only	>	=	1	ATP/ADP/AMP;CoA;pyrophosphate
+rxn01959	media-only	<	>	1	(none of the tracked families)
+rxn01209	media-only	<	<	1	ATP/ADP/AMP;phosphate
+rxn11132	media-only	>	>	1	CO2
+rxn05554	media-only	<	=	1	phosphate
+rxn04935	media-only	>	=	1	NADP(H)
+rxn03089	media-only	>	=	1	(none of the tracked families)
+rxn12407	media-only	<	=	1	(none of the tracked families)
+rxn08169	media-only	>	=	1	(none of the tracked families)
+rxn04571	media-only	>	>	1	ammonia;O2
+rxn05529	media-only	<	=	1	(none of the tracked families)
+rxn03861	media-only	>	=	1	NADP(H)
+rxn03457	media-only	>	=	1	CoA;CO2
+rxn03874	media-only	>	=	1	(none of the tracked families)
+rxn01105	media-only	>	=	1	(none of the tracked families)
+rxn00780	media-only	>	=	1	ATP/ADP/AMP
+rxn13392	media-only	>	=	1	(none of the tracked families)
+rxn05519	media-only	<	=	1	(none of the tracked families)
+rxn05495	media-only	<	=	1	(none of the tracked families)
+rxn01136	media-only	>	=	1	(none of the tracked families)
+rxn00976	media-only	>	=	1	(none of the tracked families)
+rxn09522	media-only	>	>	1	FAD(H2)
+rxn13713	media-only	<	=	1	(none of the tracked families)
+rxn00318	media-only	<	=	1	(none of the tracked families)
+rxn00633	media-only	<	=	1	(none of the tracked families)
+rxn12188	media-only	>	>	1	phosphate
+rxn02687	media-only	>	=	1	NAD(H)
+rxn13954	media-only	<	=	1	ATP/ADP/AMP
+rxn09444	media-only	>	=	1	ATP/ADP/AMP;CoA;pyrophosphate
+rxn00156	media-only	>	>	1	CoA;CO2;O2
+rxn12561	media-only	<	=	1	(none of the tracked families)
+rxn05745	media-only	>	=	1	(none of the tracked families)
+rxn02278	media-only	<	=	1	NADP(H)
+rxn01456	media-only	>	=	1	NAD(H)
+rxn03342	media-only	>	>	1	ammonia;O2
+rxn07624	media-only	<	=	1	CoA
+rxn02258	media-only	<	=	1	(none of the tracked families)
+rxn07491	media-only	>	=	1	NADP(H)
+rxn02106	media-only	<	>	1	NAD(H)
+rxn01835	media-only	>	=	1	NAD(H)
+rxn48581	media-only	>	>	1	ATP/ADP/AMP;phosphate;ammonia
+rxn02339	media-only	<	=	1	(none of the tracked families)
+rxn12558	media-only	>	=	1	(none of the tracked families)
+rxn02323	media-only	>	>	1	O2
+rxn05487	media-only	<	=	1	(none of the tracked families)
+rxn02690	media-only	>	>	1	O2
+rxn14020	media-only	>	>	1	NADP(H);O2
+rxn02520	media-only	<	<	1	(none of the tracked families)
+rxn01391	media-only	<	=	1	NAD(H)
+rxn11190	media-only	>	=	1	(none of the tracked families)
+rxn00771	media-only	>	=	1	ATP/ADP/AMP
+rxn09948	media-only	>	>	1	(none of the tracked families)
+rxn02574	media-only	<	<	1	(none of the tracked families)
+rxn13847	media-only	<	=	1	CoA
+rxn03469	media-only	>	>	1	(none of the tracked families)
+rxn12537	media-only	>	=	1	(none of the tracked families)
+rxn01008	media-only	<	=	1	(none of the tracked families)
+rxn07251	media-only	<	>	1	NAD(H)
+rxn09681	media-only	>	=	1	(none of the tracked families)
+rxn00149	media-only	>	=	1	NAD(H)
+rxn01233	media-only	>	=	1	(none of the tracked families)
+rxn00963	media-only	>	>	1	NADP(H);CO2;O2
+rxn04649	media-only	>	<	1	(none of the tracked families)
+rxn02257	media-only	>	=	1	(none of the tracked families)
+rxn07759	media-only	>	>	1	NAD(H);O2
+rxn00372	media-only	>	>	1	CoA
+rxn04022	media-only	<	>	1	(none of the tracked families)
+rxn01613	media-only	>	=	1	ATP/ADP/AMP;CoA;pyrophosphate
+rxn12590	media-only	<	=	1	(none of the tracked families)
+rxn08948	media-only	>	>	1	phosphate
+rxn01186	media-only	>	>	1	phosphate
+rxn05743	media-only	>	>	1	ATP/ADP/AMP
+rxn03426	media-only	<	=	1	(none of the tracked families)
+rxn01826	media-only	>	>	1	CO2;O2
+rxn09655	media-only	<	=	1	(none of the tracked families)
+rxn04648	media-only	>	>	1	O2
+rxn11735	media-only	>	=	1	ATP/ADP/AMP;phosphate
+rxn09221	media-only	>	=	1	ATP/ADP/AMP
+rxn05728	media-only	>	=	1	(none of the tracked families)
+rxn00821	media-only	>	=	1	glutathione
+rxn12741	media-only	<	=	1	(none of the tracked families)
+rxn02752	media-only	>	>	1	O2
+rxn03468	media-only	<	>	1	NAD(H)
+rxn03481	media-only	>	<	1	(none of the tracked families)
+rxn03341	media-only	>	>	1	NADP(H)
+rxn02864	media-only	<	>	1	(none of the tracked families)
+rxn08038	media-only	>	>	1	phosphate
+rxn00232	media-only	<	>	1	ATP/ADP/AMP
+rxn00961	media-only	>	>	1	NAD(H);CO2;O2
+rxn04465	media-only	>	>	1	CO2
+rxn07623	media-only	<	=	1	(none of the tracked families)
+rxn04978	media-only	>	>	1	NADP(H);O2
+rxn01289	media-only	>	=	1	NAD(H)
+rxn07495	media-only	>	>	1	(none of the tracked families)
+rxn02688	media-only	>	=	1	(none of the tracked families)
+rxn11201	media-only	<	=	1	(none of the tracked families)
+rxn02992	media-only	<	=	1	(none of the tracked families)
+rxn14229	media-only	<	>	1	(none of the tracked families)
+rxn00697	media-only	>	>	1	ATP/ADP/AMP
+rxn00308	media-only	<	=	1	NAD(H);ammonia
+rxn02289	media-only	>	>	1	NAD(H)
+rxn02135	media-only	>	<	1	FAD(H2)
+rxn09880	media-only	>	=	1	CoA
+rxn04572	media-only	>	=	1	(none of the tracked families)
+rxn09567	media-only	>	=	1	NAD(H);glutathione
+rxn04376	media-only	>	>	1	phosphate
+rxn00592	media-only	>	>	1	CO2
+rxn00900	media-only	>	=	1	NAD(H);CO2
+rxn10114	media-only	>	>	1	quinone;CO2
+rxn01803	media-only	>	>	1	CO2
+rxn02261	media-only	<	<	1	CoA
+rxn01104	media-only	>	=	1	phosphate
+rxn00354	media-only	>	=	1	NAD(H)
+rxn09435	media-only	>	>	1	NADP(H);CoA;CO2
+rxn07766	media-only	>	>	1	NADP(H);O2
+rxn16111	media-only	>	>	1	pyrophosphate
+rxn01783	media-only	<	=	1	(none of the tracked families)
+rxn07763	media-only	>	>	1	NAD(H);O2

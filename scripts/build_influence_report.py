@@ -65,6 +65,10 @@ def load() -> dict:
     D["manifest"] = json.loads((sets / "manifest.json").read_text())
     D["agreement"] = json.loads((sets / "comparison" / "direction_summary.json").read_text())
     D["roundtrip"] = json.loads((inf / "conversion_roundtrip.json").read_text())
+    gi = paths.results("gapfill_direction_impact")
+    if (gi / "summary.json").exists():
+        D["gapfill"] = json.loads((gi / "summary.json").read_text())
+        D["cofactor"] = json.loads((gi / "by_cofactor.json").read_text())
     return D
 
 
@@ -266,7 +270,96 @@ def document(D) -> list:
              "core carbon-metabolism model, so the reactions that kill the genome-scale models "
              "are never touched.")
 
-    add("h1", "6. Does anything predict what a source will do?")
+    if "gapfill" in D:
+        idx = {(r["tier"], r["class"]): r for r in D["gapfill"]}
+        eo = D["cofactor"]["original"]
+        eg = D["cofactor"]["gapfilled"]
+        fam = {f["cofactor"]: f for f in eo["families"]}
+        g_o = idx[("gold", "original")]
+        g_g = idx[("gold", "gapfilled")]
+        a_o = idx[("gold + silver + bronze", "original")]
+        a_g = idx[("gold + silver + bronze", "gapfilled")]
+        a_m = idx[("gold + silver + bronze", "media-only")]
+
+        add("h1", "6. Gap-filled reactions, and which ones get re-called")
+        add("p", "The genome-scale models exist twice: the same 5,419 genomes reconstructed "
+                 "once and gap-filled against glucose minimal media, and again against "
+                 "auxotrophy media. Comparing the pair separates what the genome supports "
+                 "from what gap-filling added. A reaction present in **both** models and "
+                 "gap-filled in **neither** is genome-derived; one carrying gap-fill data in "
+                 "either is gap-filled; one present in only one of the pair is conditional on "
+                 "the medium and is reported separately.")
+        add("table",
+            [["Provenance", "Distinct reactions", "Occurrences", "What it is"],
+             ["original", f"{a_o['reactions_in_class']:,}",
+              f"{a_o['occurrences_in_class']:,}", "in both media models, gap-filled in neither"],
+             ["gapfilled", f"{a_g['reactions_in_class']:,}",
+              f"{a_g['occurrences_in_class']:,}", "carries gapfill data in either model"],
+             ["media-only", f"{a_m['reactions_in_class']:,}",
+              f"{a_m['occurrences_in_class']:,}", "present in one media model, absent from the other"]],
+            [26, 30, 26, 62], (1, 2))
+        add("caption", "Gap-filled and media-conditional reactions are numerous as distinct "
+                       "identifiers but rare as occurrences: together they are under 1% of all "
+                       "reaction instances. Most of any given model is genome-derived.")
+        add("figure", "fig5_gapfill_cofactor.png",
+            "**Figure 5.** Left: the share of the reactions a tier calls that it would change, "
+            "split by provenance. Right: which cofactor families mark a genome-derived "
+            "reaction as likely to be re-called, as enrichment against the 29% class average.",
+            168)
+        add("p", f"**Gap-filled reactions are re-called two to three times as often.** Of the "
+                 f"genome-derived reactions the full graded set has an opinion about, it would "
+                 f"change {a_o['pct_of_called_modified']:.0f}%. Of the gap-filled ones it would "
+                 f"change {a_g['pct_of_called_modified']:.0f}%, and of the media-conditional "
+                 f"ones {a_m['pct_of_called_modified']:.0f}%. Gold alone is starker still: "
+                 f"{g_o['pct_of_called_modified']:.0f}% of genome-derived against "
+                 f"{g_g['pct_of_called_modified']:.0f}% of gap-filled.")
+        add("p", "That is what you would expect if gap-filling picks directions to make a model "
+                 "grow rather than to match the thermodynamics, and it is a second reason the "
+                 "genome-scale models are more fragile than the core ones under a direction "
+                 "override: the override is disproportionately aimed at the reactions the "
+                 "reconstruction added on purpose. It also connects to the mechanism in "
+                 "section 5, where the second most lethal reaction, the "
+                 "3'-phosphoadenylyl-sulfate sulfohydrolase, is itself gap-filled.")
+        add("h2", "Which cofactors mark a reaction as likely to be re-called")
+        add("p", "The prediction going in was that the modified reactions would concentrate in "
+                 "ATP, NAD and NADP chemistry. Half of that holds. Raw shares are misleading "
+                 "here, because a family that appears in many reactions will appear in many "
+                 "modified reactions; what matters is the rate among the reactions a tier "
+                 "actually calls.")
+        rows = [["Cofactor family", "Called", "Modified", "Rate", "Enrichment"]]
+        for k in ("CoA", "FAD(H2)", "quinone", "ATP/ADP/AMP", "pyrophosphate",
+                  "ammonia", "CO2", "phosphate", "NADP(H)", "NAD(H)", "O2"):
+            f = fam.get(k)
+            if f:
+                rows.append([k, f"{f['called']:,}", f"{f['modified']:,}",
+                             f"{f['modified_rate']}%", f"{f['enrichment_vs_class']:.2f}"])
+        add("table", rows, [40, 22, 24, 20, 26], (1, 2, 3, 4))
+        add("caption", "Genome-derived reactions only, under gold + silver + bronze. "
+                       "Enrichment is the family's modification rate over the "
+                       f"{eo['class_modified_rate']}% class average; tags overlap, since a "
+                       "reaction can use several cofactors.")
+        add("p", "**ATP is enriched, but NAD and NADP are not.** ATP chemistry is re-called "
+                 "1.5 times more often than average and pyrophosphate 1.4 times, which matches "
+                 "the mechanism in section 5: these are the reactions driven by cofactor "
+                 "hydrolysis rather than by their own free energy. But NAD(H) sits at 0.78 and "
+                 "NADP(H) at 0.81, meaning both are re-called **less** often than average. "
+                 "Nicotinamide redox potentials are well characterised and consistently "
+                 "estimated, so the sources mostly agree with the reconstruction about them.")
+        add("p", "**The strongest signal was not predicted at all.** CoA chemistry is re-called "
+                 f"at {fam['CoA']['modified_rate']:.0f}%, more than twice the class average, and "
+                 "the two membrane redox families follow at 1.7 times. Thioester hydrolysis is "
+                 "strongly favourable in isolation while the cell routinely runs it "
+                 "biosynthetically, and quinone potentials are the known weak point of the "
+                 "estimators. Oxygen chemistry is the opposite case: re-called at 6.9%, almost "
+                 "never, because a reaction consuming O2 is unambiguously downhill and every "
+                 "source agrees.")
+        add("p", "This supports the idea of fixing groups rather than reactions, but it "
+                 "redirects it. The groups worth a rule are **CoA thioesters, quinone and FAD "
+                 "redox, and ATP or pyrophosphate coupling** -- together 568 of the 1,706 "
+                 "genome-derived reactions the graded set calls. A rule exempting NAD and NADP "
+                 "chemistry would target reactions the sources already get right.")
+
+    add("h1", "7. Does anything predict what a source will do?")
     add("figure", "fig3_coverage_effect.png",
         "**Figure 4.** Share of reaction occurrences a source changes, against the share of "
         "models that grow. Note the independent vertical scales: the core panel spans 51-70%, "
@@ -287,7 +380,7 @@ def document(D) -> list:
              "changes only 12.5% and leaves zero growers, the same as Claude at 31.5%. **What a "
              "source does depends on which reactions it constrains, not how many.**")
 
-    add("h1", "7. What follows")
+    add("h1", "8. What follows")
     for head, txt in [
         ("A direction source cannot be validated on the core models.",
          "They exercise 239 of 56,012 reactions and omit the pathways where thermodynamic and "
@@ -311,7 +404,7 @@ def document(D) -> list:
     ]:
         add("p", f"**{head}** {txt}")
 
-    add("h1", "8. Caveats")
+    add("h1", "9. Caveats")
     for c in [
         "**Growth is the only readout.** A direction set that preserves grower count may still "
         "distort flux distributions; nothing here measures that.",

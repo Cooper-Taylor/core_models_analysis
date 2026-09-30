@@ -301,6 +301,67 @@ def fig4(_D, out: Path):
     plt.close(fig)
 
 
+def fig5(_D, out: Path):
+    """Gap-filled reactions are modified far more often, and by cofactor family."""
+    imp = paths.results("gapfill_direction_impact")
+    if not (imp / "summary.json").exists():
+        print("  fig5 skipped: run scripts/analyze_gapfill_direction_impact.py first")
+        return
+    summ = json.load(open(imp / "summary.json"))
+    enr = json.load(open(imp / "by_cofactor.json"))
+
+    fig, (axL, axR) = plt.subplots(1, 2, figsize=(13, 5.0),
+                                   gridspec_kw={"width_ratios": [1.05, 1]})
+    fig.patch.set_facecolor(SURFACE)
+
+    tiers = ["gold", "silver", "bronze", "gold + silver", "gold + silver + bronze"]
+    classes = [("original", BLUE), ("gapfilled", ORANGE), ("media-only", AQUA)]
+    idx = {(r["tier"], r["class"]): r for r in summ}
+    n, w = len(tiers), 0.26
+    xs = list(range(n))
+    for k, (cls, colour) in enumerate(classes):
+        vals = [idx[(t, cls)]["pct_of_called_modified"] for t in tiers]
+        pos = [x + (k - 1) * w for x in xs]
+        axL.bar(pos, vals, width=w - 0.025, color=colour, zorder=3, label=cls)
+        for x, v in zip(pos, vals, strict=True):
+            axL.text(x, v + 1.4, f"{v:.0f}", ha="center", fontsize=7.5, color=INK)
+    axL.set_xticks(xs, [t.replace(" + ", "+\n") for t in tiers], fontsize=8.5, color=INK)
+    axL.set_ylabel("% of the reactions it calls that it would change", fontsize=9, color=INK2)
+    axL.set_ylim(0, 95)
+    axL.set_title("Gap-filled reactions are re-called far more often\n"
+                  "than the reactions the genome itself supports",
+                  fontsize=10.5, color=INK, pad=12, loc="left")
+    axL.legend(frameon=False, fontsize=8.5, ncol=3, loc="upper left", labelcolor=INK2)
+    style(axL)
+    axL.grid(axis="y", color=GRID, lw=0.8)
+    axL.grid(axis="x", visible=False)
+
+    fams = [f for f in enr["original"]["families"] if f["called"] >= 20]
+    fams.sort(key=lambda f: f["enrichment_vs_class"] or 0)
+    ys = list(range(len(fams)))
+    vals = [f["enrichment_vs_class"] for f in fams]
+    cols = [ORANGE if v and v > 1 else MUTED for v in vals]
+    axR.barh(ys, vals, height=0.62, color=cols, zorder=3)
+    axR.axvline(1.0, color=INK2, lw=1.4, ls="--", zorder=4)
+    for i, f in enumerate(fams):
+        axR.text(f["enrichment_vs_class"] + 0.04, i,
+                 f"{f['enrichment_vs_class']:.2f}   n={f['called']:,}",
+                 va="center", fontsize=7.5, color=INK)
+    axR.set_yticks(ys, [f["cofactor"].replace(" / ", "/") for f in fams],
+                   fontsize=8.5, color=INK)
+    axR.set_xlim(0, 2.6)
+    axR.set_xlabel("enrichment: how much more often this family is re-called\n"
+                   "than the genome-derived set as a whole", fontsize=8.5, color=INK2)
+    axR.set_title("Which cofactors mark a reaction as likely to be re-called\n"
+                  "dashed line = the class average, 29%",
+                  fontsize=10.5, color=INK, pad=12, loc="left")
+    style(axR)
+    fig.tight_layout()
+    fig.savefig(out / "fig5_gapfill_cofactor.png", dpi=200, facecolor=SURFACE)
+    fig.savefig(out / "fig5_gapfill_cofactor.pdf", facecolor=SURFACE)
+    plt.close(fig)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -311,7 +372,7 @@ def main() -> int:
     args = ap.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
     D = json.loads(args.data.read_text()) if args.data else load_results()
-    for fn in (fig1, fig2, fig3, fig4):
+    for fn in (fig1, fig2, fig3, fig4, fig5):
         fn(D, args.out)
         print(f"  {fn.__name__} -> {args.out}")
     return 0
