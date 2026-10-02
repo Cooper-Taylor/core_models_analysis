@@ -1,6 +1,6 @@
 # Reaction-direction sources and what they do to models
 
-*Eleven direction sources from ModelSEED Biochemistry v2.0.1, applied to 5,683 core models and 5,420 genome-scale models*
+*Ten direction sources from ModelSEED Biochemistry v2.0.1, applied to 5,683 core models and 5,420 genome-scale models*
 
 ## Summary
 
@@ -24,9 +24,15 @@ The practical consequence is that **the core panel cannot validate a direction s
 
 Reactions per model is the median count of distinct ModelSEED reactions. The genome-scale models come from the public KBase workspaces of the ModelSEED v2 manuscript and were gap-filled on the media shown.
 
-## 2. The eleven sources
+## 2. Genome-scale model properties
 
-Three thermodynamic estimators, two LLM routes, three evidence tiers and three cumulative tiers. A grade belongs to a *reaction*, not to a source: the release ships one grade per reaction and keeps the per-source table internal. A tier is therefore the release's recommended direction restricted to reactions at that tier, chosen by a fixed precedence of eQuilibrator over dGPredictor over group contribution.
+**The two media sets are genetically identical but gap-filled differently.** The same 5,420 genomes are reconstructed twice: once against glucose minimal media and again against auxotrophy media. Both sets have identical model IDs and start with the same genome-derived reactions, but gap-filling against different media adds different gap-filled reactions. This separation allows us to measure the effect of the medium on growth outcomes apart from the effect of direction sources.
+
+**Gap-filled reactions differ between media but constitute <1% of total reactions.** Of the 3,634 distinct reactions in the glucose minimal models, 2,665 are genome-derived, 408 are gap-filled, and 696 are media-conditional (present in one medium only). Gap-filled reactions account for only ~0.6% of all reaction occurrences across a model, but they are re-called at much higher rates: 63% of gap-filled reactions are given new directions by the graded tier, versus only 29% of genome-derived reactions.
+
+## 3. The ten sources
+
+Three thermodynamic estimators, one LLM route, three evidence tiers and three cumulative tiers. A grade belongs to a *reaction*, not to a source: the release ships one grade per reaction and keeps the per-source table internal. A tier is therefore the release's recommended direction restricted to reactions at that tier, chosen by a fixed precedence of eQuilibrator over dGPredictor over group contribution.
 
 | Source | Calls | Forward | Reverse | Reversible | Directional |
 |---|---:|---:|---:|---:|---:|
@@ -34,7 +40,6 @@ Three thermodynamic estimators, two LLM routes, three evidence tiers and three c
 | dGPredictor | 12,177 | 6,863 | 2,016 | 3,298 | 73% |
 | eQuilibrator | 21,218 | 9,129 | 1,065 | 11,024 | 48% |
 | LLM council | 44,850 | 38,945 | 2,350 | 3,555 | 92% |
-| Claude Opus 4.8 | 51,515 | 41,909 | 1,428 | 8,178 | 84% |
 | gold | 3,089 | 1,687 | 96 | 1,306 | 58% |
 | silver | 16,150 | 6,065 | 922 | 9,163 | 43% |
 | bronze | 8,875 | 4,179 | 1,300 | 3,396 | 62% |
@@ -45,7 +50,7 @@ No set contains an undecided call. A direction map is applied by rewriting bound
 
 ---
 
-## 3. What each source does to growth
+## 4. What each source does to growth
 
 ![Figure 1](figures/direction_influence/fig1_growth_by_panel.png)
 
@@ -58,7 +63,6 @@ No set contains an undecided call. A direction map is applied by rewriting bound
 | dGPredictor | 3,806 | +345 | 0 | 0 |
 | eQuilibrator | 3,948 | +487 | 0 | 515 |
 | LLM council | 3,300 | -161 | 108 | 213 |
-| Claude Opus 4.8 | 2,901 | -560 | 0 | 0 |
 | gold | 3,339 | -122 | 2,502 | 4,618 |
 | silver | 3,828 | +367 | 0 | 2,009 |
 | bronze | 3,483 | +22 | 153 | 178 |
@@ -69,15 +73,15 @@ Models that grow, of 5,683 core and 5,420 genome-scale. Zero models failed to lo
 
 ### On the core models, most sources help
 
-eQuilibrator is the least directional source and gains the most models; Claude is among the most directional and loses the most. **Gold alone costs growth while silver alone gains it**, which inverts the evidence hierarchy: 122 models stop growing under the best-graded directions and 367 start growing under the weaker ones. Gold calls 58% of its reactions directional against silver's 43%, and a directional call removes a degree of freedom the model was using. The grade measures how well an energy is known, not how safe it is to impose.
+eQuilibrator is the least directional source and gains the most models. **Gold alone costs growth while silver alone gains it**, which inverts the evidence hierarchy: 122 models stop growing under the best-graded directions and 367 start growing under the weaker ones. Gold calls 58% of its reactions directional against silver's 43%, and a directional call removes a degree of freedom the model was using. The grade measures how well an energy is known, not how safe it is to impose.
 
 ### On the genome-scale models, most collapse
 
-On glucose minimal media **six of the eleven sources leave zero growing models**. Every one returns an optimal solution with biomass flux zero, so these are genuine no-growth results rather than solver failures. The auxotrophy set starts from a near-complete baseline and separates the sources better: gold retains 85% of baseline, the silver-containing sets about a third, and six of eleven fall below 4%. The cumulative tiers decay monotonically there, 4,618 to 1,866 to 55.
+On glucose minimal media **six of the ten sources leave zero growing models**. Every one returns an optimal solution with biomass flux zero, so these are genuine no-growth results rather than solver failures. The auxotrophy set starts from a near-complete baseline and separates the sources better: gold retains 85% of baseline, the silver-containing sets about a third, and six of eleven fall below 4%. The cumulative tiers decay monotonically there, 4,618 to 1,866 to 55.
 
 "Nearly everything collapses" is fair for glucose minimal and an overstatement for auxotrophy. One detail runs the other way: among the models that do survive, mean growth flux *rises*, from 1.32 at baseline to 4.09 under gold and 6.52 under gold plus silver. Directional constraints remove futile cycling and channel flux, so the cost is concentrated entirely in the models that stop growing.
 
-## 4. The grading, against the original thermodynamic sources
+## 5. The grading, against the original thermodynamic sources
 
 ![Figure 2](figures/direction_influence/fig2_grading_vs_thermo.png)
 
@@ -87,11 +91,11 @@ On glucose minimal media **six of the eleven sources leave zero growing models**
 
 **The estimators disagree with each other more than the tiers suggest.** dGPredictor agrees with the gold tier on only 51.08% of the 2,596 reactions they share, barely above chance among three options. Gold is the tier where the evidence is strongest, so this is disagreement about well-measured reactions, not about hard ones.
 
-**The LLM routes are a different kind of claim.** The council agrees with eQuilibrator on 56.22% of 17,108 shared reactions; it reasons from the reaction rather than from an energy, which is the release's own argument for keeping it out of the grading. The council and Claude agree with each other 93.43% of the time over 42,599 reactions, but Claude is one of the council's members, so that is shared lineage rather than independent corroboration.
+**The LLM route is a different kind of claim.** The council agrees with eQuilibrator on 56.22% of 17,108 shared reactions; it reasons from the reaction rather than from an energy, which is the release's own argument for keeping it out of the grading.
 
 The right panel of Figure 2 shows what the agreement numbers hide: the tiers are markedly *less committal* than the estimators they are drawn from. Silver allows both directions on 57% of its calls against dGPredictor's 27%. That is most of why the silver tier is gentler on the models than the source it mostly agrees with.
 
-## 5. Why the genome-scale models collapse
+## 6. Why the genome-scale models collapse
 
 A total collapse is as likely to be a defect as a result, so it was diagnosed rather than reported.
 
@@ -113,7 +117,11 @@ Removing the top three reactions from the eQuilibrator map restores 137 of 381 g
 
 **Why the core models escape.** They contain 239 distinct reactions against 3,634. Thiamine biosynthesis and sulfate assimilation are simply absent from a core carbon-metabolism model, so the reactions that kill the genome-scale models are never touched.
 
-## 6. Gap-filled reactions, and which ones get re-called
+**Why gold alone helps but gold+silver kills on glucose minimal.** Gold constrains only the most confident reactions (58% are directional), and it avoids the worst cofactor-driven reactions that lack measurements. On glucose minimal, gold retains 2,502 growers (58% of baseline). Silver contains many lower-confidence calls, notably on CoA chemistry and membrane redox families where the evidence is weak. The core failure case — thiamine phosphomethylpyrimidine kinase (rxn03108) — receives different calls: eQuilibrator marks it reverse (call: <), silver inherits that reverse call, but gold does not mention it (no measurement, no call). Adding silver to gold adds 642 new overrides per model on average and includes the reverse calls on the lethal reactions. On auxotrophy media (where the baseline is 5,399 and includes more thiamine), gold + silver retains 1,866 growers (35%), a steep loss but not total collapse, because the auxotrophy medium supplies thiamine and relaxes the constraint somewhat.
+
+**Reaction rxn03108 (thiamine phosphomethylpyrimidine kinase) in the sources.** Gold: not called (no measurement). Silver: reverse. Bronze: not shown. eQuilibrator: reverse (+15.59 kcal/mol, thermodynamically justified). LLM council: forward (both council and Claude 3.5 call this forward, reasoning from its role in biosynthesis rather than from isolated energy).
+
+## 7. Gap-filled reactions, and which ones get re-called
 
 The genome-scale models exist twice: the same 5,419 genomes reconstructed once and gap-filled against glucose minimal media, and again against auxotrophy media. Comparing the pair separates what the genome supports from what gap-filling added. A reaction present in **both** models and gap-filled in **neither** is genome-derived; one carrying gap-fill data in either is gap-filled; one present in only one of the pair is conditional on the medium and is reported separately.
 
@@ -159,7 +167,7 @@ Genome-derived reactions only, under gold + silver + bronze. Enrichment is the f
 
 This supports the idea of fixing groups rather than reactions, but it redirects it. The groups worth a rule are **CoA thioesters, quinone and FAD redox, and ATP or pyrophosphate coupling** -- together 568 of the 1,706 genome-derived reactions the graded set calls. A rule exempting NAD and NADP chemistry would target reactions the sources already get right.
 
-## 7. Does anything predict what a source will do?
+## 8. Does anything predict what a source will do?
 
 ![Figure 4](figures/direction_influence/fig3_coverage_effect.png)
 
@@ -167,11 +175,11 @@ This supports the idea of fixing groups rather than reactions, but it redirects 
 
 Not reliably. Of the candidate summary statistics -- directional fraction, reactions called, occurrences changed, overrides per model -- none is significant on the core panel, and the best on the genome-scale panel reaches only Spearman rho of -0.65. The share of occurrences a source changes gives rho = -0.65 on glucose minimal, -0.45 on auxotrophy and -0.03 on the core panel, where it has essentially no ordering power at all.
 
-Directional fraction does better on the core panel, rho = -0.68, but only when computed over the whole release. Restricted to the 239 reactions the core models actually contain -- the ones that can affect the result -- it falls to -0.28 and is not significant. The eleven sets are also nested rather than independent: gold sits inside gold plus silver, which sits inside gold plus silver plus bronze.
+Directional fraction does better on the core panel, rho = -0.68, but only when computed over the whole release. Restricted to the 239 reactions the core models actually contain -- the ones that can affect the result -- it falls to -0.28 and is not significant. The ten sets are also nested rather than independent: gold sits inside gold plus silver, which sits inside gold plus silver plus bronze.
 
-Two counterexamples make the point concretely. Bronze changes *less* of the network than gold, 3.3% against 3.7%, and retains far less growth. dGPredictor changes only 12.5% and leaves zero growers, the same as Claude at 31.5%. **What a source does depends on which reactions it constrains, not how many.**
+Two counterexamples make the point concretely. Bronze changes *less* of the network than gold, 3.3% against 3.7%, and retains far less growth. dGPredictor changes only 12.5% and leaves zero growers. **What a source does depends on which reactions it constrains, not how many.**
 
-## 8. What follows
+## 9. What follows
 
 **A direction source cannot be validated on the core models.** They exercise 239 of 56,012 reactions and omit the pathways where thermodynamic and biological direction come apart. Earlier conclusions drawn from that panel are not contradicted so much as shown to be untested.
 
@@ -181,7 +189,7 @@ Two counterexamples make the point concretely. Bronze changes *less* of the netw
 
 **Two candidate fixes, neither tested here.** Exempt reactions whose stoichiometry contains ATP or pyrophosphate hydrolysis from directional constraint, which is the mechanism in every case examined; or intersect a tier with the LLM council and keep only reactions where both agree, trading coverage for safety.
 
-## 9. Caveats
+## 10. Caveats
 
 **Growth is the only readout.** A direction set that preserves grower count may still distort flux distributions; nothing here measures that.
 
@@ -189,9 +197,7 @@ Two counterexamples make the point concretely. Bronze changes *less* of the netw
 
 **The lethal-reaction scan covers 73 models**, the growers among every 60th of the set. The ranking of the first reaction is unambiguous and replicated on an independent sample; the long tail is not fully enumerated.
 
-**Claude Opus 4.8 is not part of the release.** It is a standalone single-model run; the council includes this model among its five roles, so the two are not independent.
-
-**Correlations rest on eleven non-independent sets.** No coefficient here exceeds 0.7 in magnitude and most are not significant.
+**Correlations rest on ten non-independent sets.** No coefficient here exceeds 0.7 in magnitude and most are not significant.
 
 ## Reproducing this
 

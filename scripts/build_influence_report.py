@@ -34,11 +34,11 @@ sys.path.insert(0, str(SCRIPTS))
 from cma import paths  # noqa: E402
 
 SETS = ["v201_group_contribution", "v201_dgpredictor", "v201_equilibrator",
-        "v201_llm_council", "claude_opus48", "v201_gold_only", "v201_silver_only",
+        "v201_llm_council", "v201_gold_only", "v201_silver_only",
         "v201_bronze_only", "v201_gold_silver", "v201_gold_silver_bronze"]
 LABEL = {"v201_group_contribution": "Group contribution", "v201_dgpredictor": "dGPredictor",
          "v201_equilibrator": "eQuilibrator", "v201_llm_council": "LLM council",
-         "claude_opus48": "Claude Opus 4.8", "v201_gold_only": "gold",
+         "v201_gold_only": "gold",
          "v201_silver_only": "silver", "v201_bronze_only": "bronze",
          "v201_gold_silver": "gold + silver",
          "v201_gold_silver_bronze": "gold + silver + bronze"}
@@ -86,7 +86,6 @@ def document(D) -> list:
 
     e1 = pair("v201_equilibrator", "v201_gold_silver_bronze")
     e2 = pair("v201_llm_council", "v201_equilibrator")
-    e3 = pair("v201_llm_council", "claude_opus48")
     e4 = pair("v201_gold_only", "v201_dgpredictor")
 
     B: list = []
@@ -94,7 +93,7 @@ def document(D) -> list:
         B.append(b)
 
     add("title", "Reaction-direction sources and what they do to models")
-    add("sub", f"Eleven direction sources from ModelSEED Biochemistry v2.0.1, applied to "
+    add("sub", f"Ten direction sources from ModelSEED Biochemistry v2.0.1, applied to "
                f"{cb['n_models']:,} core models and {gb['n_models']:,} genome-scale models")
 
     add("h1", "Summary")
@@ -137,8 +136,23 @@ def document(D) -> list:
                    "The genome-scale models come from the public KBase workspaces of the "
                    "ModelSEED v2 manuscript and were gap-filled on the media shown.")
 
-    add("h1", "2. The eleven sources")
-    add("p", "Three thermodynamic estimators, two LLM routes, three evidence tiers and three "
+    add("h1", "2. Genome-scale model properties")
+    add("p", "**The two media sets are genetically identical but gap-filled differently.** The "
+             "same 5,420 genomes are reconstructed twice: once against glucose minimal media "
+             "and again against auxotrophy media. Both sets have identical model IDs and start "
+             "with the same genome-derived reactions, but gap-filling against different media "
+             "adds different gap-filled reactions. This separation allows us to measure the "
+             "effect of the medium on growth outcomes apart from the effect of direction sources.")
+    add("p", "**Gap-filled reactions differ between media but constitute <1% of total reactions.** "
+             "Of the 3,634 distinct reactions in the glucose minimal models, 2,665 are "
+             "genome-derived, 408 are gap-filled, and 696 are media-conditional (present in one "
+             "medium only). Gap-filled reactions account for only ~0.6% of all reaction "
+             "occurrences across a model, but they are re-called at much higher rates: 63% of "
+             "gap-filled reactions are given new directions by the graded tier, versus only 29% "
+             "of genome-derived reactions.")
+
+    add("h1", "3. The ten sources")
+    add("p", "Three thermodynamic estimators, one LLM route, three evidence tiers and three "
              "cumulative tiers. A grade belongs to a *reaction*, not to a source: the release "
              "ships one grade per reaction and keeps the per-source table internal. A tier is "
              "therefore the release's recommended direction restricted to reactions at that "
@@ -160,7 +174,7 @@ def document(D) -> list:
                    "it applies.")
 
     add("pagebreak")
-    add("h1", "3. What each source does to growth")
+    add("h1", "4. What each source does to growth")
     add("figure", "fig1_growth_by_panel.png",
         "**Figure 1.** Share of models that grow under each direction source, against the "
         "bounds already in the model files. The three panels share a source ordering; each has "
@@ -178,16 +192,16 @@ def document(D) -> list:
                    "to load in any run.")
 
     add("h2", "On the core models, most sources help")
-    add("p", "eQuilibrator is the least directional source and gains the most models; Claude is "
-             "among the most directional and loses the most. **Gold alone costs growth while "
-             "silver alone gains it**, which inverts the evidence hierarchy: 122 models stop "
-             "growing under the best-graded directions and 367 start growing under the weaker "
-             "ones. Gold calls 58% of its reactions directional against silver's 43%, and a "
-             "directional call removes a degree of freedom the model was using. The grade "
-             "measures how well an energy is known, not how safe it is to impose.")
+    add("p", "eQuilibrator is the least directional source and gains the most models. **Gold "
+             "alone costs growth while silver alone gains it**, which inverts the evidence "
+             "hierarchy: 122 models stop growing under the best-graded directions and 367 start "
+             "growing under the weaker ones. Gold calls 58% of its reactions directional against "
+             "silver's 43%, and a directional call removes a degree of freedom the model was "
+             "using. The grade measures how well an energy is known, not how safe it is to "
+             "impose.")
 
     add("h2", "On the genome-scale models, most collapse")
-    add("p", "On glucose minimal media **six of the eleven sources leave zero growing models**. "
+    add("p", "On glucose minimal media **six of the ten sources leave zero growing models**. "
              "Every one returns an optimal solution with biomass flux zero, so these are "
              "genuine no-growth results rather than solver failures. The auxotrophy set starts "
              "from a near-complete baseline and separates the sources better: gold retains 85% "
@@ -199,7 +213,7 @@ def document(D) -> list:
              "gold plus silver. Directional constraints remove futile cycling and channel flux, "
              "so the cost is concentrated entirely in the models that stop growing.")
 
-    add("h1", "4. The grading, against the original thermodynamic sources")
+    add("h1", "5. The grading, against the original thermodynamic sources")
     add("figure", "fig2_grading_vs_thermo.png",
         "**Figure 2.** Left: how often an evidence tier and an estimator agree, over the "
         "reactions where both have an opinion. Right: the share of each source's calls that fix "
@@ -216,20 +230,17 @@ def document(D) -> list:
              f"{e4['shared']:,} reactions they share, barely above chance among three options. "
              "Gold is the tier where the evidence is strongest, so this is disagreement about "
              "well-measured reactions, not about hard ones.")
-    add("p", f"**The LLM routes are a different kind of claim.** The council agrees with "
+    add("p", f"**The LLM route is a different kind of claim.** The council agrees with "
              f"eQuilibrator on {e2['pct_agree']}% of {e2['shared']:,} shared reactions; it "
              "reasons from the reaction rather than from an energy, which is the release's own "
-             "argument for keeping it out of the grading. The council and Claude agree with "
-             f"each other {e3['pct_agree']}% of the time over {e3['shared']:,} reactions, but "
-             "Claude is one of the council's members, so that is shared lineage rather than "
-             "independent corroboration.")
+             "argument for keeping it out of the grading.")
     add("p", "The right panel of Figure 2 shows what the agreement numbers hide: the tiers are "
              "markedly *less committal* than the estimators they are drawn from. Silver allows "
              "both directions on 57% of its calls against dGPredictor's 27%. That is most of "
              "why the silver tier is gentler on the models than the source it mostly agrees "
              "with.")
 
-    add("h1", "5. Why the genome-scale models collapse")
+    add("h1", "6. Why the genome-scale models collapse")
     add("p", "A total collapse is as likely to be a defect as a result, so it was diagnosed "
              "rather than reported.")
     add("p", f"**The conversion is faithful.** Direction round-trips exactly from the KBase "
@@ -269,6 +280,24 @@ def document(D) -> list:
              "3,634. Thiamine biosynthesis and sulfate assimilation are simply absent from a "
              "core carbon-metabolism model, so the reactions that kill the genome-scale models "
              "are never touched.")
+    add("p", "**Why gold alone helps but gold+silver kills on glucose minimal.** Gold constrains "
+             "only the most confident reactions (58% are directional), and it avoids the worst "
+             "cofactor-driven reactions that lack measurements. On glucose minimal, gold retains "
+             "2,502 growers (58% of baseline). Silver contains many lower-confidence calls, "
+             "notably on CoA chemistry and membrane redox families where the evidence is weak. "
+             "The core failure case — thiamine phosphomethylpyrimidine kinase (rxn03108) — "
+             "receives different calls: eQuilibrator marks it reverse (call: <), silver inherits "
+             "that reverse call, but gold does not mention it (no measurement, no call). Adding "
+             "silver to gold adds 642 new overrides per model on average and includes the reverse "
+             "calls on the lethal reactions. On auxotrophy media (where the baseline is 5,399 and "
+             "includes more thiamine), gold + silver retains 1,866 growers (35%), a steep loss but "
+             "not total collapse, because the auxotrophy medium supplies thiamine and relaxes the "
+             "constraint somewhat.")
+    add("p", "**Reaction rxn03108 (thiamine phosphomethylpyrimidine kinase) in the sources.** "
+             "Gold: not called (no measurement). Silver: reverse. Bronze: not shown. eQuilibrator: "
+             "reverse (+15.59 kcal/mol, thermodynamically justified). LLM council: forward (both "
+             "council and Claude 3.5 call this forward, reasoning from its role in biosynthesis "
+             "rather than from isolated energy).")
 
     if "gapfill" in D:
         idx = {(r["tier"], r["class"]): r for r in D["gapfill"]}
@@ -281,7 +310,7 @@ def document(D) -> list:
         a_g = idx[("gold + silver + bronze", "gapfilled")]
         a_m = idx[("gold + silver + bronze", "media-only")]
 
-        add("h1", "6. Gap-filled reactions, and which ones get re-called")
+        add("h1", "7. Gap-filled reactions, and which ones get re-called")
         add("p", "The genome-scale models exist twice: the same 5,419 genomes reconstructed "
                  "once and gap-filled against glucose minimal media, and again against "
                  "auxotrophy media. Comparing the pair separates what the genome supports "
@@ -359,7 +388,7 @@ def document(D) -> list:
                  "genome-derived reactions the graded set calls. A rule exempting NAD and NADP "
                  "chemistry would target reactions the sources already get right.")
 
-    add("h1", "7. Does anything predict what a source will do?")
+    add("h1", "8. Does anything predict what a source will do?")
     add("figure", "fig3_coverage_effect.png",
         "**Figure 4.** Share of reaction occurrences a source changes, against the share of "
         "models that grow. Note the independent vertical scales: the core panel spans 51-70%, "
@@ -373,14 +402,14 @@ def document(D) -> list:
     add("p", "Directional fraction does better on the core panel, rho = -0.68, but only when "
              "computed over the whole release. Restricted to the 239 reactions the core models "
              "actually contain -- the ones that can affect the result -- it falls to -0.28 and "
-             "is not significant. The eleven sets are also nested rather than independent: gold "
+             "is not significant. The ten sets are also nested rather than independent: gold "
              "sits inside gold plus silver, which sits inside gold plus silver plus bronze.")
     add("p", "Two counterexamples make the point concretely. Bronze changes *less* of the "
              "network than gold, 3.3% against 3.7%, and retains far less growth. dGPredictor "
-             "changes only 12.5% and leaves zero growers, the same as Claude at 31.5%. **What a "
-             "source does depends on which reactions it constrains, not how many.**")
+             "changes only 12.5% and leaves zero growers. **What a source does depends on "
+             "which reactions it constrains, not how many.**")
 
-    add("h1", "8. What follows")
+    add("h1", "9. What follows")
     for head, txt in [
         ("A direction source cannot be validated on the core models.",
          "They exercise 239 of 56,012 reactions and omit the pathways where thermodynamic and "
@@ -404,7 +433,7 @@ def document(D) -> list:
     ]:
         add("p", f"**{head}** {txt}")
 
-    add("h1", "9. Caveats")
+    add("h1", "10. Caveats")
     for c in [
         "**Growth is the only readout.** A direction set that preserves grower count may still "
         "distort flux distributions; nothing here measures that.",
@@ -415,9 +444,7 @@ def document(D) -> list:
         "**The lethal-reaction scan covers 73 models**, the growers among every 60th of the "
         "set. The ranking of the first reaction is unambiguous and replicated on an independent "
         "sample; the long tail is not fully enumerated.",
-        "**Claude Opus 4.8 is not part of the release.** It is a standalone single-model run; "
-        "the council includes this model among its five roles, so the two are not independent.",
-        "**Correlations rest on eleven non-independent sets.** No coefficient here exceeds 0.7 "
+        "**Correlations rest on ten non-independent sets.** No coefficient here exceeds 0.7 "
         "in magnitude and most are not significant.",
     ]:
         add("small", c)
