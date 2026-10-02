@@ -56,20 +56,20 @@ No set contains an undecided call. A direction map is applied by rewriting bound
 
 **Figure 1.** Share of models that grow under each direction source, against the bounds already in the model files. The three panels share a source ordering; each has its own baseline.
 
-| Source | Core | vs base | GSM glucose | GSM auxotrophy |
-|---|---:|---:|---:|---:|
-| **on-disk baseline** | **3,461** | -- | **4,347** | **5,399** |
-| Group contribution | 3,486 | +25 | 9 | 107 |
-| dGPredictor | 3,806 | +345 | 0 | 0 |
-| eQuilibrator | 3,948 | +487 | 0 | 515 |
-| LLM council | 3,300 | -161 | 108 | 213 |
-| gold | 3,339 | -122 | 2,502 | 4,618 |
-| silver | 3,828 | +367 | 0 | 2,009 |
-| bronze | 3,483 | +22 | 153 | 178 |
-| gold + silver | 3,686 | +225 | 0 | 1,866 |
-| gold + silver + bronze | 3,556 | +95 | 0 | 55 |
+| Source | Core | Core Δ rxn | GSM glucose | GSM glucose Δ rxn | GSM auxotrophy | GSM auxotrophy Δ rxn |
+|---|---:|---:|---:|---:|---:|---:|
+| **on-disk baseline** | **3,461** | -- | **4,347** | -- | **5,399** | -- |
+| Group contribution | 3,486 | 2,443 | 9 | 6 | 107 | 104 |
+| dGPredictor | 3,806 | 3,364 | 0 | 0 | 0 | 0 |
+| eQuilibrator | 3,948 | 3,311 | 0 | 0 | 515 | 515 |
+| LLM council | 3,300 | 2,261 | 108 | 80 | 213 | 213 |
+| gold | 3,339 | 2,890 | 2,502 | 1,328 | 4,618 | 4,291 |
+| silver | 3,828 | 3,038 | 0 | 0 | 2,009 | 1,990 |
+| bronze | 3,483 | 2,613 | 153 | 85 | 178 | 177 |
+| gold + silver | 3,686 | 3,188 | 0 | 0 | 1,866 | 1,863 |
+| gold + silver + bronze | 3,556 | 3,106 | 0 | 0 | 55 | 55 |
 
-Models that grow, of 5,683 core and 5,420 genome-scale. Zero models failed to load in any run.
+Models that grow, of 5,683 core and 5,420 genome-scale. Δ rxn shows the number of reactions with changed direction from on-disk bounds. Zero models failed to load in any run.
 
 ### On the core models, most sources help
 
@@ -109,13 +109,13 @@ A total collapse is as likely to be a defect as a result, so it was diagnosed ra
 
 **Figure 3.** Share of tested genome-scale models in which constraining one reaction alone abolishes growth. Rates are from a 73-model scan and shift by a few points between samples; the ranking of the first does not.
 
-**One reaction explains most of it.** The thiamine phosphomethylpyrimidine kinase (rxn03108) is present in every genome-scale model and lethal in 72 of 73. eQuilibrator computes +15.59 kcal/mol for it and therefore calls it reverse. That number is not wrong: the phosphoryl transfer is uphill in isolation. But the enzyme is an ATP-driven kinase in thiamine biosynthesis and must run forward, so constraining it to the thermodynamically favoured direction removes thiamine and with it biomass. Both LLM routes call this reaction forward.
+**One reaction explains most of it.** The thiamine phosphomethylpyrimidine kinase (rxn03108) is present in every genome-scale model and lethal in 72 of 73. On-disk direction: reversible (=). eQuilibrator: reverse (<), computing +15.59 kcal/mol. That number is not wrong: the phosphoryl transfer is uphill in isolation. But the enzyme is an ATP-driven kinase in thiamine biosynthesis and must run forward, so constraining it to the thermodynamically favoured direction removes thiamine and with it biomass. LLM council calls it forward (>) instead, reasoning from biology. Silver also calls it reverse and amplifies the collapse.
 
-ATP sulfurylase (rxn00379) is the same failure with better evidence: graded **gold** from an openTECR measurement, +11 kcal/mol, called reverse by eQuilibrator, dGPredictor and Claude. In the cell it runs forward because pyrophosphatase removes the pyrophosphate product. The measurement is right and the direction call is right in isolation; the constraint is still wrong. It is a milder case, present in 67% of models and lethal in about one in eight of those.
+ATP sulfurylase (rxn00379) is the same failure with better evidence: on-disk direction reversible (=), graded **gold** from an openTECR measurement, +11 kcal/mol. Called reverse by eQuilibrator (<), dGPredictor (<), and gold tier (<). In the cell it runs forward because pyrophosphatase removes the pyrophosphate product. The measurement is right and the direction call is right in isolation; the constraint is still wrong. It is a milder case, present in 67% of models and lethal in about one in eight of those.
 
 Removing the top three reactions from the eQuilibrator map restores 137 of 381 growers in a 480-model sample, from zero. The collapse is not diffuse over-constraint; it is a handful of obligatory, cofactor-driven reactions.
 
-**Why the core models escape.** They contain 239 distinct reactions against 3,634. Thiamine biosynthesis and sulfate assimilation are simply absent from a core carbon-metabolism model, so the reactions that kill the genome-scale models are never touched.
+**Why the core models escape.** They contain 239 distinct reactions against 3,634. Thiamine biosynthesis and sulfate assimilation are simply absent from a core carbon-metabolism model, so the reactions that kill the genome-scale models are never touched. Accordingly, the core models show no single-reaction collapse pattern: even eQuilibrator loses only 487 models (14%) and dGPredictor loses 345 (10%), versus 5,420 genome-scale models (100%) on glucose minimal. The collapse is entirely a function of larger networks encountering obligatory reactions that the thermodynamic estimates misclassify.
 
 **Why gold alone helps but gold+silver kills on glucose minimal.** Gold constrains only the most confident reactions (58% are directional), and it avoids the worst cofactor-driven reactions that lack measurements. On glucose minimal, gold retains 2,502 growers (58% of baseline). Silver contains many lower-confidence calls, notably on CoA chemistry and membrane redox families where the evidence is weak. The core failure case — thiamine phosphomethylpyrimidine kinase (rxn03108) — receives different calls: eQuilibrator marks it reverse (call: <), silver inherits that reverse call, but gold does not mention it (no measurement, no call). Adding silver to gold adds 642 new overrides per model on average and includes the reverse calls on the lethal reactions. On auxotrophy media (where the baseline is 5,399 and includes more thiamine), gold + silver retains 1,866 growers (35%), a steep loss but not total collapse, because the auxotrophy medium supplies thiamine and relaxes the constraint somewhat.
 
