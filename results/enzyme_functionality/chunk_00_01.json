@@ -1,0 +1,152 @@
+{
+  "3.2.1.22": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Alpha-galactosidase/melibiase (EuropePMC search for EC 3.2.1.22 + bifunctional/multifunctional/trifunctional) returns only unrelated hits (ginsenoside pharmacology, postbiotics, phageome genomics); no literature describes a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.50": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "3-alpha-hydroxysteroid dehydrogenase is described as a 'multifunctional oxidoreductase' (PMID 1714456) because it metabolizes steroids, PAHs, and prostaglandins with broad substrate specificity -- this is substrate promiscuity within one oxidoreductase activity, not a second fused EC-classified catalytic activity (same exclusion logic as the hexokinase moonlighting example).",
+    "evidence": "PMID 1714456 (cited to explain the exclusion, not as support for a second catalytic activity)"
+  },
+  "1.4.3.4": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Monoamine oxidase (tryptamine:oxygen oxidoreductase) search returns only unrelated hits (phytochemical reviews, metabolomics); no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.12.12": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Naphthalene dioxygenase returned zero EuropePMC hits for the bifunctional/multifunctional/trifunctional query; it is a well-characterized multi-subunit Rieske non-heme iron dioxygenase with a single catalytic (dioxygenation) activity, not a fused second EC activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.1.11": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Classic ATP-dependent 6-phosphofructokinase (PFK-1). Literature on the PFK superfamily and isozymes (PfkA/PfkB, acetylation studies) describes structural/regulatory diversity but no fused second catalytic activity; the famous bifunctional enzyme PFK-2/FBPase-2 is a distinct EC (2.7.1.105/3.1.3.46), not this one.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.3.47": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "ATP phosphohydrolase (P-type ATPase) search returned zero hits for bifunctional/multifunctional/trifunctional; no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.105": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Monocyclic monoterpene ketone monooxygenase (Baeyer-Villiger-type) search returned zero hits for bifunctional/multifunctional/trifunctional; no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.20": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Maltase/alpha-glucosidase search returns mostly unrelated alpha-glucosidase-inhibition papers. Human maltase-glucoamylase (MGAM) has two tandem catalytic domains, but both are classified under the same EC 3.2.1.20 activity (not two distinct EC-numbered activities), so it does not meet the bifunctional definition here.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.1.48": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Uridine (uridine-cytidine) kinase search surfaces papers on broad nucleoside phosphorylation (e.g. yeast UMP kinase phosphorylating AMP/CMP) -- broad substrate range within one kinase activity, not a second fused EC-classified catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.3.21": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "ATP phosphohydrolase (ABC-transporter-type ATPase) search returned zero hits for bifunctional/multifunctional/trifunctional; no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.2.1.131": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Lycopene hydro-lyase (carotenoid hydratase, e.g. CrtC) search returns only a general hydratase-biocatalysis review with no mention of a fused second catalytic activity for this specific enzyme.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.88": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Flavonoid 3'-hydroxylase (cytochrome P450 CYP75B-type) search returns unrelated plant transcriptome/genomics papers; no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.2.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Palmitoyl-CoA hydrolase (acyl-CoA thioesterase) search surfaces a general thioesterase-family review and unrelated papers; no literature describes this specific EC fused with a second distinct catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.1.5": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Apyrase/ATP diphosphohydrolase (e.g. CD39/NTPDase family) search returns unrelated papers; NTPDases hydrolyze both ATP and ADP via the same phosphohydrolase activity (not two distinct EC-classified activities), so no fused second catalytic activity is indicated.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.2.3.1": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "A paper on human enzymes active in multiple metabolic pathways (PMID 32751059) uses EC 1.2.3.1 (aldehyde oxidase) as a case study of a hub enzyme involved in several pathways via broad substrate specificity -- this is pathway-level pleiotropy/moonlighting association, not a second fused catalytic (EC-classified) activity.",
+    "evidence": "PMID 32751059 (cited to explain the exclusion, not as support for a second catalytic activity)"
+  },
+  "2.4.2.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Purine nucleoside phosphorylase search returns unrelated microbiology/genomics papers (nucleoside degradation by bacteria, antiviral nucleoside reviews); no evidence of a second fused catalytic activity on this well-characterized homotrimeric enzyme.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.1.15": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Nucleoside-triphosphatase search returns unrelated papers (probiotics, soil microbiome, plant transcriptomics); no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.5.8": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Quinate dehydrogenase (quinone, PQQ/membrane-bound type) search returns a single unrelated Candida albicans multi-omics paper; no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.129": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Alpha-carotene 3-hydroxylase search surfaces general carotenoid-biosynthesis papers (astaxanthin, rhodoxanthin synthase in other enzymes) but none describe this specific hydroxylase EC as carrying a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.2.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Purine (adenosine) nucleosidase search returns unrelated bacterial genomics/probiotic papers and a deazaguanine-biosynthesis review; no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.170": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Sterol-4alpha-carboxylate 3-dehydrogenase (decarboxylating) (e.g. human NSDHL) performs dehydrogenation and decarboxylation as a single EC-defined reaction mechanism, not two separately EC-classified fused activities; search hits were unrelated (lipidomics, terpene biotransformation, transcriptomics).",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.107": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Limonene 1,2-monooxygenase (e.g. P450cin-type) search returned zero hits for bifunctional/multifunctional/trifunctional; no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.3.1.115": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Malonyl-CoA:flavone-7-O-glucoside 6''-O-malonyltransferase search returns unrelated plant transcriptome papers (soybean disease resistance, sainfoin flower color, seed germination); no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.1.83": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Monoterpene epsilon-lactone hydrolase search returned zero hits for bifunctional/multifunctional/trifunctional; no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.21": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Cellobiose glucohydrolase (beta-glucosidase) search surfaces many 'bifunctional' hits, but on inspection these describe either engineered/chimeric fusion biocatalysts (e.g. magnetic Ru-cellulase nanoparticle hybrids) or natural fusions of a different enzyme pair (endo-glucanase/mannanase), not a native single polypeptide carrying EC 3.2.1.21 plus a second distinct fused catalytic EC activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "1.14.13.125": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This is a cytochrome P450-type monooxygenase (e.g., CYP79-family Trp N-hydroxylase in glucosinolate/IAOx biosynthesis) performing a single monooxygenation chemistry. No literature describes a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.20": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "2,4-dichlorophenol hydroxylase (TfdB-type) is a single-domain FAD-dependent monooxygenase. The one EuropePMC hit returned (ubiquinone biosynthesis monooxygenase in Arabidopsis) is unrelated to this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.54": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "This EC (steroid/ketosteroid monooxygenase, e.g. progesterone monooxygenase from Cylindrocarpon radicicola) performs several sequential monooxygenation/lactonization steps on the same steroid scaffold via a single P450-type active site; this is substrate/step promiscuity within one catalytic mechanism, not a fusion of two distinct EC-type activities. No bifunctional/trifunctional literature was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.64": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "4-hydroxybenzoate 1-hydroxylase (decarboxylating) is a single-activity flavin-dependent monooxygenase found in catabolic pathways; no bifunctional/multifunctional/trifunctional literature exists for this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.78": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Ent-kaurene oxidase (CYP701A family) is a single P450 monooxygenase domain catalyzing sequential oxidations of the same substrate class in gibberellin biosynthesis; no fused second catalytic activity is reported.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.81": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Mg-protoporphyrin IX monomethyl ester (oxidative) cyclase is a single monooxygenase-type activity in the chlorophyll Mg-branch; the few literature hits are pathway reviews/genome papers with no claim of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.85": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Pterocarpan synthase (plant P450 involved in pterocarpan phytoalexin biosynthesis) is a single monooxygenase/cyclase activity; no bifunctional or multifunctional literature found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.15.4": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Steroid 11beta-monooxygenase (CYP11B1, adrenodoxin-dependent) is a single mitochondrial P450 monooxygenase activity; the only hit returned was a generic pharmacology enzyme-list reference, not evidence of a second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.17.1.2": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Isopentenyl-diphosphate:NAD(P)+ oxidoreductase is a single redox activity in isoprenoid precursor metabolism; search hits were generic isoprenoid-pathway/transcriptome papers with no mention of a fused second catalytic domain.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.17.5.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Caffeine dehydrogenase is a molybdopterin-dependent heterodimeric enzyme (CDHA/CDHB subunits) but carries a single catalytic activity (caffeine to trimethyluric acid oxidation); no bifunctional/multifunctional literature found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.2.1.16": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Succinate-semialdehyde dehydrogenase (SSADH, GABA shunt) is a well-characterized single-activity aldehyde dehydrogenase; literature hits returned were unrelated metabolomics/genomics papers, not evidence of a second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.2.1.18": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Malonate/methylmalonate-semialdehyde dehydrogenase (acetylating) couples oxidative decarboxylation with CoA-acylation within one EC-defined reaction mechanism/active site, which is not a fusion of two distinct EC-type activities; no bifunctional/trifunctional claims found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.2.1.32": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "2-Hydroxymuconate-semialdehyde dehydrogenase (meta-cleavage pathway) is a single-activity NAD+-dependent aldehyde dehydrogenase; the one hit returned concerned an unrelated isomerohydrolase/isomero-oxygenase in the visual cycle.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.2.1.68": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Coniferyl-aldehyde dehydrogenase is a single-activity NAD(P)+-dependent aldehyde dehydrogenase in lignin-related catabolism; returned hits were unrelated plant genomics/transcriptomics papers.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.2.3.9": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "4-Hydroxy-3-methoxybenzoate (vanillate-type):oxygen oxidoreductase is a single-activity oxidase; no literature of any kind, let alone bifunctional/multifunctional claims, was returned for this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.2.4.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "EC 1.2.4.1 designates only the E1 (pyruvate decarboxylase) component of the pyruvate dehydrogenase multi-enzyme complex; E1 itself (alpha/beta heterotetramer in most organisms) carries a single catalytic activity distinct from the separately-encoded E2/E3 components, and no literature describes E1 as a single fused bi/trifunctional polypeptide.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.2.5.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Pyruvate dehydrogenase (cytochrome-linked), found in some bacteria, carries a single quinone/cytochrome-reducing decarboxylase activity; the one hit returned was an unrelated cattle genome metabolic-reconstruction paper.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.3.1.19": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "cis-1,2-Dihydrobenzene-1,2-diol dehydrogenase (aromatic ring degradation pathway, e.g. BnzE/XylL-type) is a single-activity NAD+-dependent dehydrogenase; no literature of any kind was returned for this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.3.1.20": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Human trans-dihydrodiol dehydrogenase (AKR1C family) shows broad substrate promiscuity across dihydrodiols, steroids (3alpha-/20alpha-HSD activity), and bile acids, but all are the same NADP(H)-dependent oxidoreduction chemistry in one active site, not a second distinct EC-type catalytic activity — this is substrate promiscuity, not bifunctionality.",
+    "evidence": "PMID 9173902, PMID 11104674 describe multi-substrate AKR1C isoenzyme activity, not a fused second catalytic activity"
+  },
+  "1.3.3.1": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Fumarate-dependent dihydroorotate dehydrogenase (class 1A, cytosolic, e.g. in Plasmodium/Lactococcus) is a single-activity flavoenzyme; class 1B forms a heterotetrameric complex with a separate PyrK subunit (distinct gene, NADH:flavin oxidoreductase) for electron transfer, which is a multi-subunit complex rather than a single fused bifunctional catalytic polypeptide, and no literature explicitly calls this a 'bifunctional enzyme'.",
+    "evidence": "none found explicitly calling it bifunctional, defaulted to monofunctional"
+  },
+  "1.3.5.6": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Zeta-carotene desaturase (ZDS) catalyzes carotenoid desaturation as a single FAD-dependent activity in the carotenoid biosynthesis pathway; returned hits were unrelated plant/cyanobacteria carotenoid studies, none claiming a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.4.1.21": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Aspartate dehydrogenase (NAD+-dependent deaminating oxidoreductase, found in some bacteria/archaea as an alternative to the aspartokinase pathway) is a single-activity enzyme; no literature of any kind was returned for this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.4.3.5": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Pyridoxamine/pyridoxine 5'-phosphate oxidase (PNPOx/PdxH) is a single FMN-dependent oxidase activity; the pdxH-tyrS 'complex operon' hit describes adjacent but separately-encoded genes in an operon, not a fused bifunctional protein.",
+    "evidence": "PMID 1356963 describes an operon of two separate genes (pdxH, tyrS), not a fused enzyme"
+  },
+  "1.5.3.12": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Dihydrobenzophenanthridine (dihydrosanguinarine) oxidase is a single FAD-dependent oxidase step in benzophenanthridine alkaloid biosynthesis; the one hit returned was a transcriptome survey of pathway genes, not evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.6.99.5": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "NADH dehydrogenase (quinone), i.e. a single-subunit alternative/type-II NADH:quinone oxidoreductase (NDH-2), carries one catalytic activity with no proton-pumping or second enzymatic function; no literature of any kind was returned for this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  }
+}

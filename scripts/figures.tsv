@@ -32,3 +32,5 @@ graded_fba	plot_graded_fba.py		bars
 thermo_method_flowcharts	plot_method_flowcharts.py		diagram
 direction_influence	plot_direction_influence.py		influence,v201
 llm_vs_recommended_confusion	plot_llm_vs_recommended_confusion.py		diagram
+enzyme_functionality_category_counts	plot_enzyme_functionality_category_counts.py		bars
+enzyme_functionality_ec_coverage	plot_enzyme_functionality_ec_coverage.py		pareto

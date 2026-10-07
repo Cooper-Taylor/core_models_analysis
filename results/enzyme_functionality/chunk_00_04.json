@@ -1,0 +1,152 @@
+{
+  "2.5.1.31": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Ditrans,polycis-polyprenyl (undecaprenyl) diphosphate synthase catalyzes a single prenyltransferase condensation reaction; EuropePMC search for bifunctional/multifunctional/trifunctional usage alongside this EC returned no relevant hits describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.1.45": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Dienelactone hydrolase (carboxymethylenebutenolidase) is a classic single-activity alpha/beta-hydrolase acting in the catechol/chlorocatechol degradation pathways; literature search found no description of a second fused catalytic activity, only generic hydrolase-superfamily reviews.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.126": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Coniferin beta-D-glucosidase releases coniferyl alcohol from its glucoside for lignin polymerization via a single glycosidase activity; the cloning/characterization literature (e.g. Dharmawardhana et al. 1999, PMID 10412914) describes only this hydrolytic function, with no second catalytic activity reported.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.1.6": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Nucleoside-diphosphatase (UDP phosphohydrolase) catalyzes a single phosphoanhydride hydrolysis reaction; no literature surfaced describing a fused second catalytic activity for this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.3.33": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "This EC corresponds to a P-type, silver-exporting ATPase (Ag+-translocating ATPase, e.g. CopB-type); like other single-ion-transporting P-type ATPases it performs one catalytic activity (ATP hydrolysis coupled to cation transport) and no bifunctional/fused-activity literature was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.2.1.74": {
+    "category": "polyfunctional",
+    "confidence": "high",
+    "rationale": "Long-chain-enoyl-CoA hydratase (EC 4.2.1.74) is the hydratase activity of the mitochondrial trifunctional protein (MTP/TFP, HADHA/HADHB), a hetero-tetrameric complex where the alpha-subunit fuses long-chain enoyl-CoA hydratase with long-chain 3-hydroxyacyl-CoA dehydrogenase activity and is stably complexed with the beta-subunit's 3-ketoacyl-CoA thiolase activity; this is explicitly described in the literature as a 'trifunctional beta-oxidation complex' and causes 'Mitochondrial Trifunctional Protein deficiency' when defective.",
+    "evidence": "PMID 8323290 (trifunctional beta-oxidation complex explicitly linked to EC 4.2.1.74); PMID 41500837 (Mitochondrial Trifunctional Protein deficiency); PMID 39012716 (analogous M. tuberculosis trifunctional enzyme)"
+  },
+  "1.1.1.42": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "NADP-dependent isocitrate dehydrogenase catalyzes a single oxidative decarboxylation reaction; its regulatory phosphorylation in E. coli is performed in trans by the separate bifunctional enzyme AceK (IDH kinase/phosphatase), not by IDH itself, so IDH remains monofunctional.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.10.99.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This EC corresponds to NRH:quinone oxidoreductase 2 (NQO2), a single-activity flavin-independent quinone reductase using dihydronicotinamide riboside as electron donor; no literature describes a second fused catalytic activity (its melatonin-binding role is a non-catalytic ligand interaction, not a second enzymatic function).",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.13.11.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Catechol 1,2-dioxygenase performs a single intradiol ring-cleavage reaction in the beta-ketoadipate pathway; literature search for bifunctional/multifunctional usage returned only unrelated hits (e.g. a truncated phage dioxygenase lacking a dimerization domain), with no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.13.11.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Catechol 2,3-dioxygenase performs a single extradiol ring-cleavage reaction; no literature evidence of a fused second catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.11.13": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Gibberellin 2beta-dioxygenase is a single-domain Fe(II)/2-oxoglutarate-dependent dioxygenase catalyzing one hydroxylation reaction; search for bifunctional/multifunctional evidence returned no relevant hits tying a second catalytic activity to this enzyme.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.11.9": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Flavanone 3-hydroxylase is a single-domain 2-oxoglutarate-dependent dioxygenase in flavonoid biosynthesis; literature search found no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Salicylate hydroxylase (salicylate 1-monooxygenase, e.g. NahG) is a single-component FAD-dependent monooxygenase; no literature evidence of a second fused catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.50": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Search on this EC number surfaced chlorophenol/pentachlorophenol degradation literature (consistent with a monooxygenase in that pathway rather than the mannitol dehydrogenase name listed as the example reaction, suggesting a possible label mismatch in the manifest); regardless, all monooxygenases of this class act via a single catalytic hydroxylation activity with no bifunctional/multifunctional literature found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.7": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Phenol 2-monooxygenase catalyzes a single NADPH-dependent aromatic hydroxylation; no literature evidence of a fused second catalytic activity was found, despite some phenol hydroxylases being multi-subunit, each subunit contributes to the same single monooxygenation chemistry.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.18.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Methane,quinol:oxygen oxidoreductase (particulate methane monooxygenase, pMMO) is a multi-subunit membrane complex but performs one catalytic activity (methane hydroxylation); no literature evidence of a distinct second fused catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.17.5.1": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Phenylacetyl-CoA:quinone oxidoreductase catalyzes a single electron-transfer/oxidation step; targeted searches combining this enzyme name with quinone oxidoreductase and anaerobic phenylacetate degradation terms returned no hits describing it as bifunctional or polyfunctional.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.2.1.28": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "4-Hydroxybenzaldehyde dehydrogenase (NAD+) catalyzes a single aldehyde oxidation reaction; no literature evidence of a fused second catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.2.1.7": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Benzaldehyde dehydrogenase (NADP+) catalyzes a single aldehyde oxidation reaction as part of the plant benzoic acid beta-oxidative pathway; no evidence of a second fused catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.3.5.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Dihydroorotate dehydrogenase (quinone), the membrane-bound class 1B/2 form (e.g. bacterial PyrD), catalyzes a single FMN-dependent oxidation step in pyrimidine biosynthesis; no literature evidence of a fused second catalytic activity was found for this specific quinone-dependent form.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.8.1.4": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Dihydrolipoamide dehydrogenase (E3) is a single FAD-dependent oxidoreductase activity shared as a subunit across the pyruvate dehydrogenase, 2-oxoglutarate dehydrogenase, branched-chain ketoacid dehydrogenase, and glycine cleavage complexes; literature on 'moonlighting' E3 functions (e.g. protease-like or apoptosis-related roles in some organisms) describes non-catalytic/regulatory roles rather than a second fused EC-type catalytic activity, so per the moonlighting exclusion rule it remains monofunctional.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.8.5.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Thiosulfate:quinone oxidoreductase catalyzes a single sulfur-oxidation electron-transfer reaction feeding into the respiratory quinone pool; no literature evidence of a fused second catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.271": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-glucose:crocetin glucosyltransferase (a UGT involved in crocin biosynthesis) catalyzes a single glycosyl-transfer reaction; no literature evidence of a fused second catalytic activity was found, only unrelated multifunctional-material-science hits.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.5.1.32": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Geranylgeranyl-diphosphate:geranylgeranyl-diphosphate geranylgeranyltransferase catalyzes a single prenyl-condensation reaction; no literature evidence of a fused second catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.5.1.74": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "1,4-Dihydroxy-2-naphthoate octaprenyltransferase (MenA) catalyzes a single prenyl-transfer reaction in menaquinone biosynthesis; no literature evidence of a fused second catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "4.2.1.30": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Glycerol dehydratase (B12-dependent) is a heterotrimeric enzyme carrying a single dehydration activity; no literature surfaced describing a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.2.1.33": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "3-Isopropylmalate dehydratase (isopropylmalate isomerase, LeuC/LeuD) is an aconitase-family enzyme whose single catalytic activity is split across two subunits, not two distinct fused activities; search hits concerned unrelated aconitase-superfamily enzymes.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.2.3.51": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Beta-phellandrene synthase is a single-domain class I monoterpene synthase; literature search returned unrelated results with no evidence of a fused second catalytic domain (unlike some bifunctional diterpene synthases).",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.3.1.15": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "2,3-Diaminopropionate ammonia-lyase is a PLP-dependent lyase; no literature indicates a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.4.1.11": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "L-Methionine gamma-lyase is a standalone PLP-dependent lyase; search hits concerned a different, related enzyme (cystathionine gamma-lyase/MccB) with promiscuous lyase activities, not EC 4.4.1.11 fused to a second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "5.1.1.10": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Glutamine racemase is a cofactor-independent racemase with a single catalytic activity; no literature found of a fused second activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "5.1.3.14": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "EC 5.1.3.14 is the non-hydrolysing UDP-GlcNAc 2-epimerase (e.g., bacterial WecB/RffE), distinct from the hydrolysing epimerase (EC 3.2.1.183) that is fused to N-acetylmannosamine kinase in the mammalian bifunctional GNE protein; EC 5.1.3.14 itself carries no fused kinase domain.",
+    "evidence": "none found specific to a 5.1.3.14 fusion; distinguished by EC definition from the bifunctional GNE enzyme (EC 3.2.1.183/2.7.1.60)"
+  },
+  "5.3.1.20": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-Ribose aldose-ketose-isomerase (D-ribose isomerase) is a simple sugar isomerase; no evidence of a second fused catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "5.3.1.4": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "L-Arabinose isomerase literature covers enzyme engineering and industrial applications (e.g., tagatose/rare-sugar production) with no report of a second catalytic activity fused to the enzyme.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "5.3.1.7": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-Mannose isomerase is a standard sugar isomerase; no literature indicates a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "5.4.99.3": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "2-Acetolactate methylmutase (acetolactate mutase) is a rare, poorly characterized enzyme; literature volume is very low and no evidence of a second fused catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "5.5.1.18": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Carotenoid psi-end group lyase (decyclizing) is a rare carotenoid-pathway enzyme with sparse literature; no evidence of a second fused catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "5.5.1.4": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "1D-myo-Inositol-3-phosphate lyase (isomerizing), i.e. myo-inositol-1-phosphate synthase (MIPS), has a well-documented secondary role, but a 2026 paper explicitly frames this as MIPS 'moonlighting' in nuclear gene regulation (catalysis-independent), matching the moonlighting-exclusion rule rather than a second catalytic EC activity.",
+    "evidence": "PMID 42197589 (describes moonlighting nuclear gene-regulation role, not a second catalytic activity)"
+  },
+  "6.3.5.4": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Asparagine synthetase (glutamine-hydrolyzing) carries an N-terminal glutaminase domain, but this glutamine-hydrolysis step is intrinsic to the single IUBMB-defined EC 6.3.5.4 reaction itself (as with other glutamine amidotransferase-fused synthetases), not a second independently-classified fused EC activity as in classic bifunctional enzymes; literature on asparagine synthetase's 'multifaceted functions' describes non-catalytic regulatory/immunity/stress roles (moonlighting).",
+    "evidence": "PMID 41681527 (describes regulatory/moonlighting roles, not a classic second fused catalytic activity)"
+  },
+  "1.1.1.102": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Sphinganine:NADP+ 3-oxidoreductase (3-ketodihydrosphingosine reductase) is a simple SDR-family reductase with no reported second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.104": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "4-Hydroxy-L-proline:NAD+ oxidoreductase (hydroxyproline dehydrogenase) returned zero relevant literature hits for any fused second activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.113": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "L-Xylose:NADP+ 1-oxidoreductase (L-xylulose reductase/DCXR) is described in the literature as 'multifunctional' only due to broad carbonyl-substrate promiscuity (diacetyl, pentanedione, xylulose) under one NADPH-dependent reduction chemistry, not a second distinct catalytic EC activity.",
+    "evidence": "PMID 28595002 (broad substrate promiscuity, not a fused second catalytic activity)"
+  },
+  "1.1.1.114": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-Apiitol:NAD+ 1-oxidoreductase is a rare, minimally characterized dehydrogenase with no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.116": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-Arabinose:NAD+ 1-oxidoreductase is a simple sugar dehydrogenase; no literature indicates a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.118": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-Glucose:NAD+ 1-oxidoreductase (glucose 1-dehydrogenase) is a standard single-activity dehydrogenase with no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.122": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-threo-Aldose:NAD+ 1-oxidoreductase is a generic aldose dehydrogenase with no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.140": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-Sorbitol-6-phosphate 2-dehydrogenase is a single-activity SDR-family enzyme with no literature evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.144": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Perillyl-alcohol:NAD+ oxidoreductase is a monoterpenoid alcohol dehydrogenase; no literature indicates a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.157": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "(S)-3-Hydroxybutanoyl-CoA:NADP+ oxidoreductase (short-chain 3-hydroxyacyl-CoA dehydrogenase, e.g. Clostridial Hbd) is a standalone single-activity enzyme, distinct from the unrelated long-chain mitochondrial trifunctional protein (which has different EC numbers and substrate specificity).",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.160": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This is an obscure xenobiotic (beta-blocker-metabolite-like) aryl-alcohol:NADP+ oxidoreductase with essentially no dedicated literature; no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  }
+}

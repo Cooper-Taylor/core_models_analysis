@@ -1,0 +1,152 @@
+{
+  "1.1.1.174": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "2-hydroxycyclohexan-1-one:NAD+ oxidoreductase is an obscure single-activity dehydrogenase; literature search for bifunctional/multifunctional/trifunctional context returned zero hits.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.179": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-xylose:NADP+ 1-oxidoreductase (xylose reductase) shows no credible evidence of a fused second catalytic activity; the single hit found concerned an unrelated short-chain dehydrogenase (SalM).",
+    "evidence": "PMID 20736169 (unrelated enzyme, not supporting bifunctionality); otherwise none found, defaulted to monofunctional"
+  },
+  "1.1.1.18": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "myo-Inositol:NAD+ 2-oxidoreductase (inositol dehydrogenase) search hits were unrelated genomics/metagenomics papers; no description of a fused second catalytic domain was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.188": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This prostaglandin-related NADP-oxidoreductase overlaps with aldo-keto reductase family members (e.g., AKR1B3) that show broad substrate promiscuity (acting as PGF2alpha synthase), but this is substrate promiscuity of one catalytic mechanism, not a second fused catalytic activity.",
+    "evidence": "PMID 20093363 (substrate promiscuity, not a fused second activity)"
+  },
+  "1.1.1.19": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "L-Gulonate:NADP+ 6-oxidoreductase has no literature indicating a second fused catalytic activity; the only hit found was an unrelated moth pheromone transcriptome study.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.2": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "EC 1.1.1.2 (NADP-dependent alcohol dehydrogenase) is predominantly a single-activity oxidoreductase; the classic bifunctional aldehyde/alcohol dehydrogenase fusions (AdhE-type, e.g. a rare hyperthermophilic Fe-ADH) are atypical exceptions generally associated with NAD-dependent EC 1.1.1.1/1.2.1.10 activity rather than the defining behavior of this EC.",
+    "evidence": "PMID 33441766 describes an atypical bifunctional Fe-ADH but is not representative of EC 1.1.1.2 generally; defaulted to monofunctional"
+  },
+  "1.1.1.200": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-Sorbitol 6-phosphate:NADP+ 1-oxidoreductase returned zero literature hits for bifunctional/multifunctional/trifunctional context, consistent with a simple single-activity dehydrogenase.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.215": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "5-dehydro-D-gluconate:NADP+ 2-oxidoreductase returned zero literature hits for bifunctional/multifunctional/trifunctional context.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.221": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This obscure plant oxidoreductase (ionol-related) returned zero literature hits suggesting a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.227": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "(-)-Borneol:NAD+ oxidoreductase (borneol dehydrogenase) returned zero literature hits for bifunctional/multifunctional/trifunctional context.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.234": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "(2S)-Flavan-4-ol:NADP+ 4-oxidoreductase hits were unrelated plant stress/transcriptomics studies; no evidence of a fused second catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.240": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "N-Acetyl-D-glucosamine:NAD+ 1-oxidoreductase returned zero literature hits for bifunctional/multifunctional/trifunctional context.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.251": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Galactitol-1-phosphate:NAD+ oxidoreductase had only one unrelated hit (E. coli chemostat flux study); no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.274": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "2-dehydro-D-gluconate:NADP+ 2-oxidoreductase hits were unrelated (EC annotation ambiguity commentary, Salmonella comparative genomics); no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.282": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Literature explicitly distinguishes this NADPH-specific shikimate dehydrogenase (AroE) as catalyzing only the single reduction of 3-dehydroshikimate to shikimate, contrasted against the separate paralogous protein YdiB (quinate/shikimate dehydrogenase, not this EC) that is broadly substrate-promiscuous; AroE itself carries no second fused catalytic activity.",
+    "evidence": "PMID 15735308; PMID 12837789 (both confirm AroE is single-activity, contrasted with the distinct YdiB protein)"
+  },
+  "1.1.1.284": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "S-(hydroxymethyl)glutathione dehydrogenase (glutathione-dependent formaldehyde dehydrogenase / class III ADH) uses one catalytic mechanism across related thiol-adduct substrates (including S-nitrosoglutathione reduction); this is substrate promiscuity, not a second distinct EC-type catalytic activity. No fusion evidence found in search hits (unrelated thiol biology/microbiome papers).",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.287": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-arabinitol:NADP+ oxidoreductase returned zero literature hits for bifunctional/multifunctional/trifunctional context.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.31": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "3-Hydroxy-2-methylpropanoate:NAD+ oxidoreductase (3-hydroxyisobutyrate dehydrogenase) hits concerned a related but distinct enzyme (ketol-acid reductoisomerase) in the same structural superfamily, not a fused second catalytic activity in this enzyme itself.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.312": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This obscure dehydrogenase (5-carboxymethyl-2-hydroxymuconic-semialdehyde:NAD+ oxidoreductase) had only one unrelated hit (soil pollution microbiome study); no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.314": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This obscure KEGG-reaction-named oxidoreductase had only one unrelated hit (seaweed terpenome gene survey); no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.4": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "(R,R)-Butane-2,3-diol:NAD+ oxidoreductase (butanediol dehydrogenase) literature focuses on substrate/stereo-specificity of a single catalytic activity (acetoin/2,3-butanediol interconversion); no fused second catalytic activity described.",
+    "evidence": "PMID 37644496 (substrate specificity of single activity, not bifunctionality)"
+  },
+  "1.1.1.44": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "6-phospho-D-gluconate:NADP+ 2-oxidoreductase (decarboxylating) is a well-characterized single concerted oxidative-decarboxylation activity; despite many hits, none described a genuine fused second catalytic activity (most were unrelated genomics/annotation papers).",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.49": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Glucose-6-phosphate dehydrogenase (G6PD) is extensively studied as a single-activity oxidoreductase (first step of pentose phosphate pathway); search hits (including a dedicated structural review) describe no fused second catalytic domain.",
+    "evidence": "PMID 39259139 (structural review, describes single activity, no fusion)"
+  },
+  "1.1.1.79": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Glycolate/glyoxylate:NADP+ oxidoreductase hits were unrelated pathway reviews (serine biosynthesis branches, TCA anaplerosis); no evidence of a fused second catalytic activity. Known broad substrate range (glyoxylate/hydroxypyruvate) reflects promiscuity of one mechanism, not two fused EC activities.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.87": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Homoisocitrate dehydrogenase (decarboxylating) had only one unrelated hit (Euglena metabolic pathway review); no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  }
+}

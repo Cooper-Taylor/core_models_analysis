@@ -1,0 +1,152 @@
+{
+  "2.6.1.13": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Ornithine aminotransferase (OAT) literature search returned no evidence of a second fused catalytic activity; hits were generic reviews of polyamine/proline metabolism mentioning 'multifunctional' pathways, not the enzyme itself.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.3.62": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Myo-inositol-hexakisphosphate 3-phosphohydrolase (3-phytase) literature shows no fused second catalytic domain; the one topical hit concerned inositol phosphate kinases, a distinct enzyme family, not this phosphatase.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.10": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Sucrose glucohydrolase / oligo-1,6-glucosidase search returned only unrelated microbiology/genomics papers; no description of a second catalytic activity fused to this glycosidase.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.2.8": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Uridine ribohydrolase (uridine nucleosidase) returned zero hits for bifunctional/multifunctional/trifunctional co-occurrence, consistent with a simple single-activity nucleoside hydrolase.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.4.13.18": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Xaa-His dipeptidase (carnosine dipeptidase 2 / CNDP2) hydrolyzes carnosine-like dipeptides; literature on CNDP2-mediated synthesis of N-lactoyl-phenylalanine (Lac-Phe) describes a reverse/condensation use of the same hydrolase active site (a moonlighting-like alternate reaction), not a second, distinct, separately-EC-classified catalytic activity fused into the protein.",
+    "evidence": "PMID 41098976 (review describing CNDP2-mediated Lac-Phe synthesis as same-enzyme reverse activity, not a fused second EC activity)"
+  },
+  "3.5.1.4": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Acetamide amidohydrolase (amidase) search returned only unrelated microbial genomics/agriculture papers; no evidence of a second fused catalytic activity for this hydrolase.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.1.9": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "NAD+ phosphohydrolase (NAD+ diphosphatase/nucleotide pyrophosphatase) literature (e.g. classic liver microsome studies) treats it as a simple hydrolase with no reported fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.3.31": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "ATP phosphohydrolase (transport-associated ATPase) search returned only a single unrelated nitrile-metabolism paper; no literature describing a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.7.1.8": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "2,6-dioxo-6-phenylhexa-3-enoate benzoylhydrolase (BphD-type meta-cleavage product hydrolase in biphenyl/PCB degradation) showed no literature evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.1.1.28": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Aromatic-L-amino-acid (tryptophan) decarboxylase acts on multiple substrates (L-DOPA, 5-HTP, tryptophan) via a single decarboxylation mechanism; no literature describes a second, distinct fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.2.1.66": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Search for this EC returned almost no specific literature (one generic review on multidomain chimeric enzymes in general); no evidence found of a fused second catalytic activity for this lyase.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "6.3.2.17": {
+    "category": "bifunctional",
+    "confidence": "high",
+    "rationale": "Folylpolyglutamate synthase (FPGS) activity is classically fused with dihydrofolate synthase (DHFS, EC 6.3.2.12) in a single polypeptide (FolC) in bacteria, plants, and apicomplexan parasites such as Plasmodium falciparum, explicitly described in the literature as a bifunctional DHFS-FPGS enzyme.",
+    "evidence": "PMID 20350571 (\"Characterisation of the bifunctional dihydrofolate synthase-folylpolyglutamate synthase from Plasmodium falciparum\")"
+  },
+  "1.1.1.15": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-Glucitol/D-xylulose:NAD+ oxidoreductase search returned only unrelated E. coli genetic-linkage-map papers; no fused second catalytic activity reported.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.5.4": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "FAD-dependent malate dehydrogenase (membrane-associated quinone-linked dehydrogenase) search returned only unrelated genome/metabolism papers; no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.99.5": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "sn-Glycerol-3-phosphate:(acceptor) oxidoreductase (membrane-bound glycerol-3-phosphate dehydrogenase, GlpD/GlpABC) search returned only unrelated genomics/lipid-metabolism papers; no fused second catalytic activity described.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.13.11.52": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Tryptophan 2,3-dioxygenase (TDO) search surfaced general proline/tryptophan-metabolism reviews but no description of a second fused catalytic activity on this heme dioxygenase.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.13.99.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "L-Tryptophan:oxygen 2'-oxidoreductase (side-chain-cleaving) returned zero hits for bifunctional/multifunctional/trifunctional co-occurrence, consistent with a single-activity oxidoreductase.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.11.12": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Gibberellin,2-oxoglutarate:oxygen oxidoreductase (2-ODD family GA oxidase) search returned only unrelated plant transcriptomics papers; although some GA oxidases catalyze multiple sequential oxidation steps, these use the same dioxygenase mechanism, not a second distinct EC-classified activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.11.19": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Leucoanthocyanidin dioxygenase (anthocyanidin synthase, LDOX/ANS) search returned only plant flavonoid-pathway papers describing it as one of several distinct enzymes in the pathway; no fused second catalytic activity reported.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.11.22": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Flavanone,2-oxoglutarate:oxygen oxidoreductase (flavanone 3-hydroxylase, F3H) search returned only unrelated flavonoid-transcriptomics papers; no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.151": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "(+)-Linalool,NADH:oxygen oxidoreductase (linalool 8-hydroxylase, a cytochrome P450 monooxygenase) returned zero hits for bifunctional/multifunctional/trifunctional co-occurrence.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.21": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Flavonoid,NADPH:oxygen oxidoreductase (flavonoid 3'-hydroxylase, F3'H, a cytochrome P450) search returned only unrelated plant transcriptomics papers; no fused second catalytic activity described.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.89": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Formononetin,NADPH:oxygen oxidoreductase (isoflavone 2'-hydroxylase, a cytochrome P450) search returned only one unrelated proteomics paper; no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.17.3.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Xanthine oxidase (XO) interconverts with xanthine dehydrogenase (XDH) by post-translational modification/proteolysis of the same gene product, but both forms catalyze the same core purine-oxidation chemistry differing only in electron acceptor (O2 vs NAD+), not a second chemically distinct fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.3.1.21": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Cholesterol:NAD+ delta7-oxidoreductase search returned only general cholesterol-biosynthesis/metabolism reviews; no evidence of a second fused catalytic activity for this oxidoreductase.",
+    "evidence": "none found, defaulted to monofunctional"
+  }
+}

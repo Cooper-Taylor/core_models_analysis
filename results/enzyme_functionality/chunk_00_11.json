@@ -1,0 +1,152 @@
+{
+  "1.5.3.17": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Polyamine oxidase (N1-acetylspermine oxidase, PAOX) catalyzes a single FAD-dependent oxidation; no EuropePMC hits at all for a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.7.3.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Urate oxidase (uricase) is a single-activity oxidase; search returned 21 hits but none describe a second fused catalytic activity, only unrelated metagenomics/transcriptomics co-occurrences.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.7.5.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Nitrate reductase (quinone), e.g. the NarGHI respiratory complex, is a multi-subunit enzyme but performs one catalytic activity (nitrate to nitrite via quinol oxidation); no literature of a second fused catalytic activity surfaced.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.1.1.115": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "(S)-coclaurine N-methyltransferase (benzylisoquinoline alkaloid biosynthesis) is a single SAM-dependent methyltransferase activity; zero EuropePMC hits for bifunctional/multifunctional/trifunctional co-occurrence.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.3.1.133": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Hydroxycinnamoyl-CoA:quinate transferase (HCT) is a single BAHD-family acyltransferase activity; the 27 search hits were unrelated (transcriptomics, proteomics, thiolase-deficiency papers), none describing a second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.3.1.176": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "This thiolase activity is carried by SCPx, a peroxisomal protein fusing a 3-ketoacyl-CoA thiolase domain with a C-terminal sterol carrier protein-2 (SCP2) domain; SCP2 is a non-catalytic lipid-binding/transfer domain, not a second catalytic (EC) activity, so this does not meet the bifunctional bar despite being a two-domain fusion protein.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.3.1.57": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Diamine/putrescine N-acetyltransferase (a GNAT-family acetyltransferase) carries a single acyl-transfer activity; no hits describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.3.1.84": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Alcohol O-acetyltransferase (phenylethanol acetyltransferase, e.g. yeast ATF1) is a single acyltransferase activity; search hits concerned unrelated wax-synthase/thioesterase reviews, none ascribing a second catalytic activity to this enzyme.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.3.2.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Gamma-glutamyltransferase (GGT) performs a single gamma-glutamyl transfer/hydrolase activity (including converting leukotriene C4 to D4); it is autoproteolytically processed into large/small subunits but this is not a second catalytic activity, and none of the 35 hits suggested one.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.10": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Fructan:fructan 1-fructosyltransferase (1-SST, GH32 family, plant inulin/levan biosynthesis) is a single glycosyltransferase activity; the 26 hits were about levan applications/production, not enzyme fusion.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.111": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-glucose:coniferyl-alcohol glucosyltransferase (coniferin synthesis) is a single UGT-family glycosyltransferase activity; the 4 hits were unrelated lignin/transcriptome studies.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.240": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Flavonol-3-O-glucoside glucosyltransferase is a single UGT-family glycosyltransferase activity; zero EuropePMC hits for any fused second activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.35": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-glucose:phenol beta-D-glucosyltransferase is a single glycosyltransferase activity; only 2 hits returned, neither relevant to a fused second activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.91": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-glucose:flavonol 3-O-glucosyltransferase (UF3GT) is a single glycosyltransferase activity; the 3 hits were unrelated transcriptome papers.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.2.4": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Thymidine phosphorylase has a single phosphorolysis activity; its identity with platelet-derived endothelial cell growth factor (PD-ECGF) is a non-catalytic moonlighting/signaling role, explicitly excluded from bifunctional classification per the worked-example rule.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.5.1.21": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Squalene synthase catalyzes a two-step head-to-head condensation/NADPH reduction mechanism but this is classified and treated in the literature as one single catalytic (EC) activity, not two fused distinct enzyme activities; the 28 hits were unrelated plant/biosynthesis papers.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.5.1.39": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "4-hydroxybenzoate polyprenyltransferase (COQ2, ubiquinone biosynthesis) is a single prenyltransferase activity; only 3 hits returned, none relevant to enzyme fusion.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.5.1.56": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "N-acetylneuraminate synthase (NeuB/sialic acid synthase) is a single PEP-condensing activity; a targeted search for fusion with CMP-Neu5Ac synthetase (NeuA) or other sialylation enzymes found no evidence of a fused second catalytic domain.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.6.1.57": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Aromatic-amino-acid (phenylalanine) aminotransferase is a single PLP-dependent transaminase activity; the 14 hits were unrelated microalgae/biofactory and transcriptome studies.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.1.151": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Inositol-polyphosphate multikinase family enzymes show broad substrate 'catalytic versatility' phosphorylating several inositol-phosphate positions, but this is substrate promiscuity within one kinase activity, not a second fused catalytic (EC) activity like the genuinely bifunctional PPIP5K kinase/phosphatase family.",
+    "evidence": "PMID 14567754 (review of inositol phosphate kinase catalytic versatility, describing broad specificity rather than a second distinct catalytic domain)"
+  },
+  "2.7.1.162": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "GlcNAc-1-phosphotransferase is a multi-subunit complex (alpha2beta2gamma2, GNPTAB/GNPTG) with a single phosphotransferase activity; the downstream 'uncovering enzyme' (NAGPA) that removes the GlcNAc cap is a separate, unfused protein, confirming no second catalytic activity is fused into this enzyme.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.1.23": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "NAD kinase (GTP-specific) is a single phosphotransferase activity; the 12 hits were unrelated NADPH-regeneration and metabolomics studies.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.1.46": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "L-arabinokinase is a single phosphotransferase activity; only 1 unrelated hit returned.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.4.24": {
+    "category": "bifunctional",
+    "confidence": "high",
+    "rationale": "Diphosphoinositol-pentakisphosphate kinase (PPIP5K/Vip1 family) is explicitly documented as a bifunctional enzyme fusing an N-terminal ATP-grasp kinase domain (synthesizing 1,5-InsP8 from 5-InsP7) with a C-terminal histidine-acid-phosphatase-like domain that hydrolyzes the same pyrophosphate bond back off, both being genuine catalytic activities in the same polypeptide.",
+    "evidence": "PMID 31776069 (\"A two-way switch for inositol pyrophosphate signaling: ... a unique, bifunctional kinase/phosphatase\"); PMID 24152294"
+  },
+  "2.7.7.37": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "UTP:aldose-1-phosphate nucleotidyltransferase returned zero EuropePMC hits under any query form, with no indication in the literature of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  }
+}

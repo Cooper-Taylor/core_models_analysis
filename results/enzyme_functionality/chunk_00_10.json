@@ -1,0 +1,152 @@
+{
+  "1.1.1.272": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "(R)-2-hydroxyacid:NAD+ oxidoreductase is a standalone NAD-linked dehydrogenase. No literature surfaced describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.324": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "8-hydroxygeraniol dehydrogenase (plant monoterpene biosynthesis, e.g. iridoid pathway) acts as a single NADP-dependent oxidoreductase. Search hits were unrelated transcriptomic/metabolite surveys, not reports of a fused second activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.48": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-galactose 1-dehydrogenase is a standalone NADP-linked oxidoreductase; the one hit retrieved was a general E. coli gene-function catalog, not evidence of a fused second activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.67": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Mannitol dehydrogenase (NAD+) is a standalone oxidoreductase in bacterial/fungal mannitol catabolism. Retrieved hits were unrelated genome-scale/metabolic surveys, not reports of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.3.39": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Nucleoside oxidase (H2O2-forming) is a standalone flavin-dependent oxidase. No literature found suggesting a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.5.6": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Nitrate-inducible (respiratory, quinone-linked) formate dehydrogenase catalytic subunit (e.g. FdnG) performs a single oxidoreductase activity; it assembles into a multi-subunit respiratory complex with separate electron-transfer subunits rather than being a single polypeptide fused with a second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.99.11": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Mannitol dehydrogenase (cytochrome-linked) is a standalone oxidoreductase. No literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.11.1.13": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Manganese peroxidase is a standalone heme peroxidase used in lignin/dye degradation. Literature mentions combining it with other enzymes for 'multifunctional' industrial processes, but this is enzyme-cocktail usage, not a fused second catalytic activity in one polypeptide.",
+    "evidence": "none found specific to a fused second activity; PMID 37726830 discusses combined (not fused) pretreatment/saccharification use"
+  },
+  "1.11.1.7": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Generic peroxidase (methanol/phenol:H2O2 oxidoreductase, e.g. horseradish peroxidase class) is a standalone heme enzyme. Numerous hits returned but none describe a second fused catalytic activity; 'multifunctional' mentions refer to broad substrate range or engineered nanozymes, not natural enzyme fusion.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.11.1.9": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Glutathione peroxidase (e.g. GPx1/GPx4) is a standalone selenoenzyme. Literature on GPx4 describes moonlighting structural roles (sperm mitochondrial capsule protein, ferroptosis regulation) and broad substrate range, but not a second catalytic EC-type activity, so per the hexokinase-style exclusion rule it remains monofunctional.",
+    "evidence": "none found describing a second catalytic activity; GPx4 moonlighting/structural roles are non-catalytic and excluded per task criteria"
+  },
+  "1.13.11.39": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Biphenyl-2,3-diol 1,2-dioxygenase (BphC, extradiol ring-cleavage dioxygenase) is a standalone single-activity enzyme in the biphenyl degradation operon. No literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.12.18": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Biphenyl 2,3-dioxygenase (BphA) is a multi-component Rieske non-heme iron oxygenase system (terminal oxygenase + ferredoxin + reductase as separate polypeptides), not a single polypeptide carrying two fused catalytic EC activities. A Rieske-oxygenase family review highlights diverse chemistries across the family but not fusion within this single enzyme.",
+    "evidence": "none found describing fusion; PMID 40875782 (Rieske oxygenase family review) discusses family diversity, not fusion in this enzyme"
+  },
+  "1.14.13.106": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "(+)-epi-isozizaene 5-monooxygenase is a standalone bacterial cytochrome P450 in pentalenolactone-type sesquiterpene biosynthesis. No literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.144": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This EC (CYP720B-type diterpene oxidase) itself represents three sequential monooxygenations of the same chemical type (alcohol to acid) under a single P450 catalytic mechanism, not two distinct fused EC-class activities. Retrieved literature covers diterpenoid pathway reviews, none reporting a second, mechanistically distinct catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.41": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "L-tyrosine N-monooxygenase (CYP79-type, e.g. glucosinolate/cyanogenic glycoside biosynthesis) is a standalone cytochrome P450. No literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.79": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Ent-kaurenoic acid oxidase (CYP88A, gibberellin biosynthesis) performs three sequential oxidations of the same carbon under one P450 mechanism; this is defined within a single EC entry rather than two distinct fused catalytic EC activities. A Ginkgo P450-cluster paper calls related enzymes 'multifunctional' in the sense of multi-step oxidation chemistry, not fusion of two different EC-class activities.",
+    "evidence": "none found describing fusion of two distinct EC activities; PMID 36050299 describes multi-step oxidation chemistry, not EC fusion"
+  },
+  "1.2.1.27": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Methylmalonate-semialdehyde dehydrogenase (acylating) is a standalone aldehyde dehydrogenase-superfamily enzyme. Retrieved hits were general ALDH superfamily reviews and unrelated organism studies, not evidence of a fused second activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.2.1.29": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Aryl-aldehyde dehydrogenase is a standalone NAD-dependent dehydrogenase; the single hit retrieved was a general ALDH superfamily review with no mention of fusion.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.2.4.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "2-Oxoglutarate dehydrogenase (E1 component) catalyzes a single decarboxylation activity and functions as part of the multi-subunit 2-oxoglutarate dehydrogenase complex (with separate E2 and E3 polypeptides) rather than as a single polypeptide fused with a second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.3.1.32": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This NAD-linked 3-oxoadipate-type oxidoreductase is a standalone enzyme; retrieved hits (enzyme-promiscuity review, Corynebacterium metabolic-engineering paper) show no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.3.1.70": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "This NAD(P)-dependent oxidoreductase (isoprenoid/sterol-pathway related per retrieved hits) returned no reports of a fused second catalytic activity; all hits were tangential carotenoid/ergosterol pathway papers not discussing this EC's domain architecture directly.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.3.8.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "4,4'-Diapophytoene desaturase (CrtN, staphyloxanthin/carotenoid biosynthesis) acts as a standalone FAD-dependent desaturase separate from the CrtM synthase in the pathway; no literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.4.1.9": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Leucine dehydrogenase is a standalone NAD-dependent amino-acid dehydrogenase. Literature describes artificial protein-engineering fusions with glucose dehydrogenase for industrial cofactor-regeneration biocatalysis, but this is a synthetic construct, not a naturally occurring fused bifunctional enzyme.",
+    "evidence": "PMID 33407464 describes an engineered (non-natural) LeuDH-GDH fusion construct; not evidence of natural bifunctionality"
+  },
+  "1.4.3.6": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Semicarbazide-sensitive amine oxidase (SSAO/VAP-1) is literally termed a 'multifunctional protein' because it also acts as a cell-surface vascular adhesion protein mediating leukocyte binding, but this adhesion role is a non-catalytic (moonlighting) function, not a second catalytic EC-type activity, so it is excluded per task criteria.",
+    "evidence": "PMID 12686159 describes SSAO/VAP-1 dual role as amine oxidase + non-catalytic vascular adhesion protein (moonlighting, excluded)"
+  },
+  "1.5.1.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Pyrroline-5-carboxylate reductase (ProC) is a standalone NAD(P)H-dependent reductase. Recent literature discusses broadened substrate versatility (promiscuity) for this same reduction chemistry, not a second distinct fused catalytic activity.",
+    "evidence": "PMID 41683478 describes substrate promiscuity, not a second fused catalytic activity"
+  }
+}

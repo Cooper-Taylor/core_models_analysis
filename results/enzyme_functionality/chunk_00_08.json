@@ -1,0 +1,152 @@
+{
+  "1.14.13.39": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Nitric oxide synthase catalyzes one overall monooxygenase reaction (L-arginine/NADPH/O2 -> NO + citrulline); its fused oxygenase and diflavin reductase domains supply electrons for that single reaction rather than constituting a second independently EC-classified catalytic activity.",
+    "evidence": "PMID 41719409 (describes NOS as a multidomain redox enzyme with oxygenase + coupled diflavin reductase domains, but not as carrying a second fused catalytic EC activity); no bifunctional/polyfunctional literature found."
+  },
+  "1.14.13.69": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "This EC corresponds to the benzoyl-CoA 2,3-epoxidase oxygenase component (BoxB), which acts together with a separate electron-donating reductase (BoxA) as a two-protein system rather than a single fused bifunctional polypeptide.",
+    "evidence": "PMID 20452977 (BoxB oxygenase 'in conjunction with' a distinct FAD/Fe-S reductase BoxA, i.e. two separate polypeptides, not a fusion)."
+  },
+  "1.14.13.8": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Dimethylaniline monooxygenase (flavin-containing monooxygenase, FMO family) is a single-domain monooxygenase with no literature evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.86": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This cytochrome P450 (isoflavone synthase-type aryl migration/hydroxylation enzyme) shows no literature describing a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.90": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Zeaxanthin epoxidase (plant ZEP) is reported as a single-activity NADH-dependent monooxygenase; no evidence of a second fused catalytic EC activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.15.6": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Cholesterol side-chain cleavage enzyme (P450scc/CYP11A1) performs three sequential oxidation steps within one catalytic cycle of a single monooxygenase, not two distinct fused EC-classified activities.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.2.1.44": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Cinnamoyl-CoA reductase literature describes only its single reductase activity in lignin biosynthesis, with no fused second catalytic activity reported.",
+    "evidence": "none found, defaulted to monofunctional (e.g. PMID 40963837 covers only CCR reductase activity)"
+  },
+  "1.2.2.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Quinone-linked formate dehydrogenase (e.g. FDH-N/FDH-O) is a respiratory complex with distinct subunits but a single catalytic (formate oxidation) reaction; no second fused catalytic activity found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.2.4.4": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This EC designates only the E1 (decarboxylase) component of the branched-chain 2-oxoacid dehydrogenase complex; E1, E2 (EC 2.3.1.168) and E3 (EC 1.8.1.4) are separate polypeptides each carrying their own single EC activity, not one fused bifunctional chain.",
+    "evidence": "none found describing E1 fusion with a second catalytic activity; complex architecture is multi-subunit, not single-chain bifunctional"
+  },
+  "1.3.1.29": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "cis-1,2-Dihydronaphthalene-1,2-diol dehydrogenase (naphthalene degradation pathway) is reported with a single dehydrogenase activity and no fused second catalytic function.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.3.1.8": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "NADPH-dependent trans-2-enoyl-CoA reductase activity (e.g. TECR in fatty acid elongation/β-oxidation auxiliary steps) has no literature evidence of a second fused catalytic EC activity on the same protein.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.3.5.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "The fumarate reductase/succinate dehydrogenase complex has multiple subunits (flavoprotein, Fe-S protein, membrane anchors) but catalyzes a single interconversion reaction; no second distinct fused catalytic activity is reported.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.3.99.13": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Very-long/long-chain acyl-CoA dehydrogenase (VLCAD) is characterized purely as a β-oxidation dehydrogenase with no second fused catalytic activity.",
+    "evidence": "PMID 7479827 (VLCAD characterization describes only the single dehydrogenase/oxidoreductase activity)"
+  },
+  "1.4.3.19": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Glycine oxidase is a single-activity FAD-dependent oxidase with no literature evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.4.3.22": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Diamine/putrescine oxidase (copper amine oxidase) literature concerns its single oxidative deamination activity and the signaling role of its NO/product output, not a second catalytic activity on the enzyme itself.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.7.99.4": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Membrane-bound quinol-dependent nitrate reductase (e.g. NarGHI) is a multi-subunit respiratory complex catalyzing one reduction reaction; no second fused catalytic activity reported.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.2.1.6": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Acetolactate synthase (AHAS) has catalytic and regulatory subunits but performs a single condensation reaction; no evidence of a second distinct fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.3.1.119": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "This EC is the condensing (ketoacyl-CoA synthase) step of very-long-chain fatty acid elongation; literature notes it functions within a multi-enzyme elongase complex alongside a separate dehydratase protein, but the condensing enzyme itself is not described as a single polypeptide fused with a second catalytic activity.",
+    "evidence": "PMID 7548117 (leek icosanoyl-CoA synthase complex contains an immunologically distinct, separate dehydratase protein, i.e. multiple separate enzymes in a complex rather than one fused bifunctional chain)"
+  },
+  "2.3.1.45": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Sialate O-acetyltransferase literature describes a single transferase activity responsible for sialic acid O-acetylation; no second fused catalytic activity is reported.",
+    "evidence": "none found, defaulted to monofunctional (general reviews PMID 31683930, 30509400 describe only the single acetyltransferase activity)"
+  },
+  "2.4.1.126": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-glucose:sinapate glucosyltransferase is a single-activity plant glycosyltransferase with no literature evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.20": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Cellobiose phosphorylase is reported with a single phosphorylase activity in carbohydrate degradation literature; no fused second catalytic activity found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.22": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Lactose synthase activity arises from beta-1,4-galactosyltransferase (B4GALT1) whose substrate specificity is modulated by the non-catalytic regulatory protein alpha-lactalbumin; alpha-lactalbumin contributes no catalytic activity of its own, so this is a single-activity enzyme with a regulatory partner, not a fused bifunctional enzyme.",
+    "evidence": "none found describing a second catalytic activity; PMID 1935889 covers only B4GALT1 structure/localization"
+  },
+  "2.4.1.227": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "MurG (lipid II GlcNAc transferase in peptidoglycan biosynthesis) is reported as a single-activity glycosyltransferase with no second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.238": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Anthocyanin 3'-O-glucosyltransferase is a single-activity plant glycosyltransferase with no literature evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.276": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Zeaxanthin glucosyltransferase is a single-activity glycosyltransferase (carotenoid glycosylation) with no reported second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  }
+}

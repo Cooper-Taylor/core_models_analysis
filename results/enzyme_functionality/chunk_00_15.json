@@ -1,0 +1,152 @@
+{
+  "1.7.1.4": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "NAD(P)H-dependent nitrite reductase (NirBD-type assimilatory siroheme/[4Fe-4S] enzyme) performs a single six-electron reduction of nitrite to ammonia without release of free intermediates. EuropePMC search for bifunctional/multifunctional hits returned only unrelated genomics/microbiome papers mentioning organism-level 'multifunctionality', none describing a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.3.1.110": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Feruloyl-CoA:tyramine N-(hydroxycinnamoyl)transferase is a single-domain plant BAHD-family acyltransferase catalyzing one acyl-transfer reaction in hydroxycinnamic acid amide biosynthesis. Search for bifunctional/multifunctional/trifunctional literature returned zero hits.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.3.1.15": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Glycerol-3-phosphate O-acyltransferase (GPAT) catalyzes a single acylation step initiating glycerolipid biosynthesis; retrieved literature (e.g. peanut AhGPAT9 study) describes it strictly as this single transferase activity with no fused second catalytic domain.",
+    "evidence": "PMID 36844041 (describes GPAT as single acyltransferase activity, no bifunctionality mentioned)"
+  },
+  "2.3.1.171": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Malonyl-CoA:anthocyanidin-3-O-glucoside 6''-O-malonyltransferase is a single-activity BAHD-family plant acyltransferase in anthocyanin decoration pathways. The one relevant hit was a general flavonoid-biosynthesis review with no mention of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.3.1.65": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Bile acid-CoA:amino acid N-acyltransferase (BAAT) catalyzes a single conjugation reaction (bile-acyl-CoA + glycine/taurine); literature search found no reports of a second, distinct fused EC-classified catalytic activity, only general bile-acid metabolism/cholestasis reviews.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.3.1.79": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Acetyl-CoA:maltose O-acetyltransferase is a small single-domain GNAT-family acetyltransferase (related to E. coli MacA/LacA) with one catalytic activity. No bifunctional/multifunctional/trifunctional literature hits were found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.3.3.11": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Propanoyl-CoA:glyoxylate C-propanoyltransferase is a 2-methylcitrate-synthase-family Claisen condensing enzyme (methylcitrate cycle) performing one C-C bond-forming condensation. Searches on the EC number and on 'methylcitrate synthase' bifunctional returned only pathway/crosstalk reviews, no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.116": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-glucose:pelargonidin 3-O-rutinoside 5-O-glucosyltransferase is a single-domain plant family-1 UGT performing one glucosylation step in anthocyanin decoration. No bifunctional/multifunctional/trifunctional literature hits were found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.158": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDPglucose:13-hydroxydocosanoate 13-beta-D-glucosyltransferase is a single-activity plant UGT glycosylating a fatty-acid hydroxyl group. No bifunctional/multifunctional/trifunctional literature hits were found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.178": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDPglucose:4-hydroxymandelonitrile glucosyltransferase (e.g. sorghum UGT85B1 in dhurrin biosynthesis) is a single-domain family-1 glycosyltransferase. No bifunctional/multifunctional/trifunctional literature hits were found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.230": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "2-alpha-D-glucosyl-D-glucose:phosphate beta-D-glucosyltransferase (a glucan/disaccharide phosphorylase-type GT) performs a single phosphorolytic glucosyl-transfer reaction. Retrieved hits concerned unrelated microbial genome/CAZyme surveys, with no fused second catalytic activity described.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.237": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-glucose:flavonol 7-O-beta-D-glucosyltransferase is a single-activity plant UGT; the one hit was a general phytohormone/metabolic-network paper with no claim of enzyme fusion.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.239": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-glucose:flavonol-3-O-glucoside 2''-O-beta-D-glucosyltransferase is a single-domain plant glycosyltransferase performing one sequential glucosylation step on an existing glucoside. No evidence of a fused second catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.245": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "ADP-glucose:D-glucose 1-alpha-D-glucosyltransferase is a single glycosyltransferase activity (trehalose-biosynthesis-related glucan GT family). Hits covered general alpha-glucan enzyme architecture/evolution reviews with no description of this enzyme being fused to a second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.249": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-glucose:delphinidin 3'-O-beta-D-glucosyltransferase is a single-activity plant anthocyanin UGT. No bifunctional/multifunctional/trifunctional literature hits were found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.279": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "3-O-alpha-D-glucopyranosyl-D-glucopyranose:phosphate beta-D-glucosyltransferase is a single-activity glucan phosphorylase-type enzyme (kojibiose-phosphorylase-like). Retrieved hits were unrelated chitinase/genome survey papers, with no fused second catalytic activity described.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.281": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "4-O-beta-D-mannopyranosyl-D-glucopyranose:phosphate alpha-D-mannosyltransferase (mannosylglucose phosphorylase, GH130-related beta-1,4-mannooligosaccharide pathway) carries a single transferase activity; the retrieved hit concerned a distinct pathway partner enzyme (cellobiose 2-epimerase), not a fusion within this enzyme.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.31": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "3-beta-D-glucosyl-D-glucose:phosphate alpha-D-glucosyltransferase (a cellobiose/laminaribiose-type phosphorylase, GH94 family) catalyzes a single phosphorolytic glucosyl-transfer reaction. Retrieved disaccharide-phosphorylase literature describes it as a single modular catalytic activity, not fused to a second EC activity.",
+    "evidence": "PMID 28687766; PMID 33665389 (disaccharide phosphorylase review describing single catalytic mechanism)"
+  },
+  "2.4.1.44": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "No specific literature on a fused second catalytic activity was found for this EC number; retrieved hits were an old Salmonella genetic map and an unrelated 1978 paper, neither discussing enzyme domain fusion. Defaulted to the baseline monofunctional call for this glycosyltransferase.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.58": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "No literature describing a fused second catalytic activity was found for this EC number; the single retrieved hit concerned an unrelated human skin microbiome dataset. Defaulted to the baseline monofunctional call for this glycosyltransferase.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.64": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Alpha,alpha-trehalose phosphorylase catalyzes a single phosphorolytic cleavage/synthesis of trehalose. Retrieved disaccharide-phosphorylase review and genome-survey hits describe it as a single catalytic module with no second fused EC activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.9": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Sucrose:2,1-beta-D-fructan 1-beta-D-fructosyltransferase (levansucrase/inulosucrase, GH68 family) performs fructosyl-transfer polymerization; its well-known side hydrolase (invertase-like) activity arises from the same single active site and transition state, not a second fused EC-classified catalytic domain. Retrieved hits describing 'dual-enzyme' FOS production used two separate co-incubated enzymes, not one bifunctional protein.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.2.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Thymidine phosphorylase has a single catalytic activity (phosphorolysis of thymidine); its identity with platelet-derived endothelial cell growth factor (PD-ECGF)/gliostatin is a non-catalytic angiogenic moonlighting role, not a second EC-type catalytic activity, so per the classification rules it remains monofunctional.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.2.43": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "ArnT-type lipid IVA 4-amino-4-deoxy-L-arabinopyranosyltransferase is a single-activity undecaprenyl-phosphate-linked sugar transferase in the lipid A modification/polymyxin-resistance pathway. No bifunctional/multifunctional/trifunctional literature hits were found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.2.8": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Hypoxanthine-guanine phosphoribosyltransferase (HGPRT/HPRT1) catalyzes a single phosphoribosyl-transfer reaction in purine salvage. The 'purinosome' hit refers to a transient non-covalent multi-enzyme metabolon assembled from several distinct enzymes, not a single fused bifunctional polypeptide, so HGPRT itself remains monofunctional.",
+    "evidence": "none found, defaulted to monofunctional"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "1.4.1.12": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "This is a specialized NAD(P)-linked oxidoreductase (5-aminopentanoate:lipoate oxidoreductase, cyclizing) acting in anaerobic lysine/5-aminovalerate fermentation pathways; no literature describing a second fused catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.4.3.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Corresponds to D-amino-acid oxidase/glycine oxidase-type flavoenzyme activity; searches for bifunctional/multifunctional literature returned no hits connecting this EC to a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.5.1.3": {
+    "category": "bifunctional",
+    "confidence": "high",
+    "rationale": "Dihydrofolate reductase (EC 1.5.1.3) is fused with thymidylate synthase into a single bifunctional polypeptide (DHFR-TS) in protozoan parasites (Leishmania, Trypanosoma, Plasmodium) and plants, a well-documented example of two distinct catalytic activities on one chain.",
+    "evidence": "PMID 37107025 (explicitly: 'The bifunctional enzyme Dihydrofolate reductase-thymidylate synthase (DHFR-TS)')"
+  },
+  "2.3.1.74": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Chalcone synthase (CHS) is a single-domain type III polyketide synthase that performs iterative condensation and cyclization within one active site; no literature indicates a second distinct fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.170": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-glucose:isoflavone 7-O-glucosyltransferase is a single-activity plant glycosyltransferase (UGT family); no bifunctional/multifunctional literature was found for this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.185": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-glucose:flavanone 7-O-glucosyltransferase is a dedicated flavonoid glycosyltransferase; no evidence of a second fused catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.202": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-glucose:DIBOA-type benzoxazinone glucosyltransferase is a single-activity plant secondary-metabolite glycosyltransferase; no literature on a second fused catalytic activity was found (search returned zero hits).",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.236": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-L-rhamnose:flavanone-7-O-glucoside rhamnosyltransferase is a single-activity plant glycosyltransferase; no bifunctional/multifunctional literature was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.5.1.48": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Cystathionine gamma-synthase (O-succinylhomoserine lyase) catalyzes gamma-replacement chemistry as a single PLP-dependent activity within the methionine biosynthesis pathway; literature discusses it alongside cystathionine beta-lyase as a separate pathway enzyme, not as a fused second catalytic domain.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.1.15": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Ribokinase (ATP:D-ribose 5-phosphotransferase) is a single-activity carbohydrate kinase; no literature describes a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.7.64": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "UTP:beta-L-arabinose-1-phosphate uridylyltransferase is a dedicated nucleotide-sugar biosynthesis enzyme; no bifunctional/multifunctional literature was found for this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.8.2.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Corresponds to aryl sulfotransferase, a single-activity sulfotransferase (PAPS-dependent or PAPS-independent) used in detoxification/polyphenol sulfation; no evidence of a second fused catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.1.53": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "N-acetyl-9-O-acetylneuraminate 9-O-acetylhydrolase (sialate O-acetylesterase) is a single-activity carbohydrate esterase; no literature on a fused second catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.3.10": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Glucose-1-phosphatase is a single-activity phosphomonoesterase; no bifunctional/multifunctional literature was found for this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.3.25": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Myo-inositol monophosphatase (IMPase) is a single-activity phosphatase central to the phosphatidylinositol cycle and lithium pharmacology; no evidence of a second fused catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.108": {
+    "category": "bifunctional",
+    "confidence": "high",
+    "rationale": "In mammals, lactase activity (EC 3.2.1.108) is fused with phlorizin hydrolase/glycosylceramidase activity (EC 3.2.1.62) in a single brush-border polypeptide, lactase-phlorizin hydrolase (LPH), containing two distinct catalytic domains.",
+    "evidence": "PMID 2460343 (reports pre-pro-LPH as 'EC 3.2.1.23-62', i.e. carrying both lactase and phlorizin-hydrolase activities on one chain); PMID 3109375"
+  },
+  "3.2.1.122": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Trehalose-6-phosphate hydrolase (TreC-type) is a single-activity glycoside hydrolase in bacterial trehalose catabolism; no literature on a fused second catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.14": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Chitinase is a single-activity glycoside hydrolase; searches for bifunctional/multifunctional/fused chitinase literature returned only unrelated hits (general chitinolytic organism studies), with no description of a second fused catalytic activity for this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.86": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "6-phospho-beta-glucosidase is a single-activity PTS-linked glycoside hydrolase in bacterial disaccharide catabolism; no evidence of a second fused catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.1.52": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Diphosphoinositol-polyphosphate phosphohydrolase (DIPP/Nudt3) belongs to the Nudix hydrolase family; literature describes some Nudix-family members (including Nudt3) also acting on mRNA 5' caps, but this is characterized as substrate ambiguity/promiscuity of the same Nudix hydrolase active site/chemistry rather than a second distinct fused catalytic domain, so it does not meet the bar for bifunctional.",
+    "evidence": "PMID 23184251 ('Substrate ambiguity among the nudix hydrolases'); PMID 26932476 (Nudt3 mRNA decapping, same hydrolase mechanism, not a separate fused activity)"
+  },
+  "3.6.1.8": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "ATP phosphohydrolase/ATP diphosphatase (apyrase-type) activity; no bifunctional/multifunctional literature was found for this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.3.42": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "ATP phosphohydrolase (transport-linked ATPase) activity; no bifunctional/multifunctional literature was found for this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.1.1.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Pyruvate decarboxylase is a single-activity thiamine-diphosphate-dependent decarboxylase central to fermentation; no literature describes a fused second catalytic activity for this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.2.1.114": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "2-Hydroxybutane-1,2,4-tricarboxylate hydro-lyase (a homocitrate/homoaconitate-type dehydratase in lysine/coenzyme biosynthesis pathways) is a single-activity hydro-lyase; no bifunctional/multifunctional literature was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.2.1.119": {
+    "category": "monofunctional",
+    "confidence": "low",
+    "rationale": "This EC has very sparse literature coverage (example reaction name is only a KEGG reaction ID, R05595, with no clear common name surfaced by search); no evidence of a fused second catalytic activity was found, so it defaults to monofunctional.",
+    "evidence": "none found, defaulted to monofunctional"
+  }
+}

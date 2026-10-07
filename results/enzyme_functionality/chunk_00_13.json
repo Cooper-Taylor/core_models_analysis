@@ -1,0 +1,152 @@
+{
+  "1.1.1.149": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "20alpha-hydroxysteroid dehydrogenase is a single-domain aldo-keto reductase (AKR) superfamily enzyme; literature search found no credible report of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.153": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This EC corresponds to sepiapterin reductase, a single-domain short-chain dehydrogenase/reductase (SDR) family enzyme catalyzing the terminal steps of tetrahydrobiopterin synthesis; no second catalytic activity is reported.",
+    "evidence": "PMID 9405351 (crystal structure, single active site), PMID 16510994; none found for a fused second activity, defaulted to monofunctional"
+  },
+  "1.1.1.183": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Geraniol dehydrogenase is a simple NADP-dependent oxidoreductase in monoterpene catabolism with no literature suggesting a second catalytic domain.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.255": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Mannitol dehydrogenase (NAD+-dependent) is a straightforward single-activity sugar-alcohol dehydrogenase; no bifunctional/multifunctional fusion evidence was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.256": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Confirmed via KEGG that EC 1.1.1.256 is fluoren-9-ol dehydrogenase (fluoren-9-ol:NAD(P)+ oxidoreductase), a single-activity enzyme in bacterial fluorene/PAH degradation pathways with no reported second catalytic domain.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.262": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "NAD-dependent threonine 4-phosphate dehydrogenase (PdxA-like step in vitamin B6/threonine-phosphate metabolism) is described as a single-activity dehydrogenase; no fusion evidence found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.283": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "(S)-lactaldehyde:NADP+ oxidoreductase (methylglyoxal/lactaldehyde reductase) is a single-domain aldo-keto reductase with no reported second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.285": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This dehydrogenase acts in the plant deoxymugineic acid (phytosiderophore) biosynthesis pathway as a single-activity NAD-dependent oxidoreductase; no fusion evidence found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.286": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "NAD-dependent (decarboxylating) isocitrate dehydrogenase is a classic single-activity TCA-cycle-associated enzyme (often oligomeric/allosteric but not catalytically fused with a second EC activity); no bifunctional evidence found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.325": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "L-threo-7,8-dihydrobiopterin:NADP+ oxidoreductase is a single-activity dehydrogenase involved in tetrahydrobiopterin regeneration/salvage; no fusion evidence found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.77": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "1,2-ethanediol/lactaldehyde (propanediol) dehydrogenase (e.g. FucO/PduQ-type enzymes) is a single-activity NAD-linked oxidoreductase; search hits were incidental co-occurrences, none describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.85": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This methylmalate/isopropylmalate-type NAD-dependent dehydrogenase is a single-activity decarboxylating dehydrogenase; the 14 co-occurrence hits found were unrelated to this enzyme having a second catalytic domain.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.3.17": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Choline oxidase's IUBMB-defined reaction (choline + 2 O2 + H2O -> betaine + 2 H2O2) already officially unifies both sequential oxidation half-reactions (choline->betaine aldehyde->glycine betaine) under the single EC 1.1.3.17 entry; an older (1991) paper calls it 'bifunctional' in this loose sense, but there are not two classically-separate EC-numbered activities fused together, so it is scored monofunctional per the task's criteria.",
+    "evidence": "PMID 1987142 (uses the word 'bifunctional' but both steps fall under the single EC 1.1.3.17 definition per IUBMB)"
+  },
+  "1.1.3.28": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Inosine:oxygen 5'-oxidoreductase is a simple single-activity oxidase; no literature found describing a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.3.40": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Mannitol:oxygen oxidoreductase (cyclizing) is a single-activity flavin oxidase; no fusion evidence found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.5.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Membrane-bound PQQ-dependent glucose dehydrogenase is a well-characterized single-activity quinoprotein; no bifunctional/multifunctional fusion evidence found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.99.28": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-glucose:D-fructose oxidoreductase (periplasmic glucose-fructose oxidoreductase, e.g. in Zymomonas) is a single-activity enzyme; no fusion evidence found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.10.3.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Laccase (p-diphenol oxidase) is a multicopper oxidase with broad substrate range but a single catalytic mechanism/activity; the many co-occurrence hits concerned substrate versatility and physiological roles (lignin biosynthesis, stress response), not a second fused EC activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.11.1.11": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "L-ascorbate peroxidase is a single heme-peroxidase catalytic activity; a targeted search for fused ascorbate peroxidase/cytochrome c peroxidase hybrids found only general peroxidase-catalase superfamily evolution reviews, not evidence of a fused second activity in this enzyme.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.11.1.14": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Lignin peroxidase (diarylpropane:oxygen,hydrogen-peroxide oxidoreductase) is a single-activity heme peroxidase; search hits concerned general peroxidase/lignocellulose degradation topics, not a fused second catalytic activity in this enzyme.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.11.1.21": {
+    "category": "bifunctional",
+    "confidence": "high",
+    "rationale": "EC 1.11.1.21 is catalase-peroxidase (KatG), extensively documented in the literature as a bifunctional heme enzyme that performs both a catalatic (H2O2 dismutation, classically EC 1.11.1.6 catalase chemistry) and a peroxidatic (classical peroxidase) reaction within the same active site of a single polypeptide.",
+    "evidence": "PMID 37507921 ('Catalase-peroxidases (KatGs) are unique bifunctional oxidoreductases... allowing both the peroxidatic and catalatic reaction modes'); PMID 24846396 (hybrid heme peroxidase-catalase superfamily review)"
+  },
+  "1.13.11.18": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Confirmed via KEGG/IUBMB that EC 1.13.11.18 is persulfide dioxygenase (ETHE1), a single iron-dependent dioxygenase activity; the second step of its overall reaction (release of glutathione + sulfite) is an explicitly non-enzymatic, spontaneous hydrolysis, not a second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.13.11.8": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Protocatechuate 4,5-dioxygenase is a single ring-cleaving dioxygenase activity; no literature found describing a second fused catalytic activity for this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.12.13": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "2-halobenzoate 1,2-dioxygenase is a single-activity multicomponent dioxygenase system; no bifunctional/multifunctional fusion evidence found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.100": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This is CYP7B1, an oxysterol 7alpha-hydroxylase cytochrome P450 monooxygenase. Literature describes it performing one catalytic hydroxylation activity across multiple tissues with multiple physiological/disease associations, which is pleiotropy of a single catalytic function rather than a second fused catalytic activity.",
+    "evidence": "PMID 19687010 ('CYP7B1: one cytochrome P450, two human genetic diseases, and multiple physiological functions' — describes one catalytic activity with diverse physiological roles, not a second enzymatic activity)"
+  }
+}

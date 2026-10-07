@@ -1,0 +1,152 @@
+{
+  "2.6.1.21": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-alanine:2-oxoglutarate aminotransferase (D-amino acid aminotransferase) is a standard PLP-dependent fold-type IV transaminase with a single catalytic activity; no literature reports a second fused catalytic domain.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.6.1.5": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Aromatic (phenylalanine) aminotransferase is a classic single-activity PLP transaminase; searches for bifunctional/multifunctional fusion returned no relevant hits.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.6.1.58": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "L-phenylalanine:pyruvate aminotransferase is a single-activity aromatic aminotransferase with no reported second catalytic activity in the literature.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.6.1.7": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Kynurenine aminotransferase catalyzes a single transamination reaction; no evidence of a fused second catalytic domain was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.1.147": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "ADP-dependent glucokinase is a single-activity sugar kinase (ADP-dependent kinase family found in archaea); no bifunctional/multifunctional fusion reported.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.1.16": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Ribulokinase is a single-activity carbohydrate kinase in arabinose/ribulose catabolism; literature search found no fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.1.25": {
+    "category": "bifunctional",
+    "confidence": "high",
+    "rationale": "In animals and fungi, APS kinase (EC 2.7.1.25) is fused with ATP sulfurylase (EC 2.7.7.4) into a single polypeptide, PAPS synthase (PAPSS), which carries both distinct catalytic activities needed to make PAPS from ATP and sulfate.",
+    "evidence": "PMID 39760098, PMID 34712849"
+  },
+  "2.7.1.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "ATP:D-fructose 1-phosphotransferase (ketohexokinase/fructokinase) is a single-activity carbohydrate kinase; no fused second catalytic activity reported.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.1.33": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Pantothenate kinase (PanK/CoaA) itself is monofunctional; literature on the CoA pathway explicitly distinguishes PanK from the separate bifunctional phosphopantothenoylcysteine ligase/decarboxylase (PPCS-PPCDC) enzyme further down the pathway.",
+    "evidence": "PMID 29518650"
+  },
+  "2.7.1.4": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "ATP:D-fructose 6-phosphotransferase (fructokinase) is a single-activity sugar kinase with no reported fused second catalytic domain.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.4.21": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Inositol hexakisphosphate kinase (IP6K) catalyzes a single phosphotransfer activity; a review on inositol phosphate kinase 'versatility' discusses multiple distinct kinase enzymes rather than a single fused multi-activity polypeptide.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.7.48": {
+    "category": "bifunctional",
+    "confidence": "medium",
+    "rationale": "In flaviviruses (Zika, dengue, West Nile, yellow fever), the RNA-directed RNA polymerase activity (EC 2.7.7.48) is fused in the same NS5 polypeptide with an N-terminal RNA cap methyltransferase domain (EC 2.1.1.56/2.1.1.57), two distinct catalytic activities in one protein; many other RNA viruses covered by this EC have standalone monofunctional RdRps, so confidence is medium rather than high.",
+    "evidence": "PMID 38397115, PMID 39445035"
+  },
+  "2.7.7.6": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "DNA-directed RNA polymerase is catalytically a single-activity enzyme; bacterial/eukaryotic RNA polymerases are multi-subunit complexes of separate gene products rather than a single polypeptide fusing two distinct catalytic activities, so this does not meet the bifunctional bar.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.7.7": {
+    "category": "polyfunctional",
+    "confidence": "high",
+    "rationale": "Classic bacterial/family-A DNA polymerase I (e.g. E. coli, Taq, Mycobacterium) fuses three distinct catalytic activities into one polypeptide: 5'->3' polymerase (EC 2.7.7.7), 3'->5' proofreading exonuclease, and 5'->3' exonuclease (nick-translation/FEN); literature on domain dissection (e.g. S. pneumoniae Pol I lacking the 3'-5' exo domain, Mycobacterial Pol1's FEN/EXO-POL architecture) confirms these are separable, genuinely fused catalytic domains rather than moonlighting.",
+    "evidence": "PMID 1548239, PMID 32034423"
+  },
+  "2.7.7.8": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Polynucleotide phosphorylase (PNPase) is a single-activity phosphorolytic exoribonuclease/polymerase enzyme; it participates in multi-protein degradosome complexes with separate gene products (e.g. RNase E, RhlB), which is not the same as a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.8.13": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "MraY (phospho-MurNAc-pentapeptide translocase) catalyzes a single phosphotransferase reaction in peptidoglycan lipid I synthesis; no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.8.3.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Acetyl-CoA:propanoate CoA-transferase catalyzes a single CoA-transfer reaction; no literature describes a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.8.3.8": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Butanoyl-CoA:acetate CoA-transferase (butyrate-acetoacetate CoA-transferase) is a single-activity CoA-transferase with no reported fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.1.17": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Gluconolactonase (D-glucono-1,5-lactone lactonohydrolase) catalyzes a single hydrolysis reaction in the pentose phosphate/oxidative pathway; no fused second catalytic activity reported.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.3.11": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Standalone fructose-1,6-bisphosphatase (FBPase-1, EC 3.1.3.11) is a distinct, unrelated enzyme from the bifunctional PFK-2/FBPase-2 (6-phosphofructo-2-kinase/fructose-2,6-bisphosphatase, EC 2.7.1.105/3.1.3.46); searches targeting 3.1.3.11 specifically found no bifunctional fusion reports.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.3.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "NADP+ 2'-phosphohydrolase activity overlaps with general acid phosphatase activity but is a single catalytic (hydrolase) function; no fused second catalytic activity reported.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.3.27": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Phosphatidylglycerophosphatase (PGP phosphatase) catalyzes a single dephosphorylation step in phospholipid biosynthesis; no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.3.4": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Phosphatidate phosphatase (e.g. lipin) has a known moonlighting role as a transcriptional co-regulator in the nucleus, but that is a non-catalytic regulatory function, not a second fused catalytic activity, so it stays monofunctional per the moonlighting exclusion rule.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.4.16": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "2',3'-cyclic-nucleotide 3'-phosphodiesterase (CNPase) is associated with myelin structure, but that is a structural/localization role, not a second catalytic activity; only the single phosphodiesterase activity is catalytic.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.4.37": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "2',3'-cyclic-nucleotide 2'-phosphodiesterase catalyzes a single hydrolysis reaction; no literature reports a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  }
+}

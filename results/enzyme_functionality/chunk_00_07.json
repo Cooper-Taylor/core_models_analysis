@@ -1,0 +1,152 @@
+{
+  "4.2.1.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Aconitase catalyzes a single isomerization (citrate <-> isocitrate via cis-aconitate); cytosolic aconitase doubles as iron regulatory protein-1 (IRP1), an RNA-binding moonlighting role, not a second catalytic activity.",
+    "evidence": "PMID:39337438 (review of mitochondrial/cytosolic aconitase functions, describes IRP1 moonlighting as RNA-binding, not catalytic)"
+  },
+  "5.3.1.9": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Glucose-6-phosphate isomerase performs one isomerase reaction; its extracellular 'neuroleukin'/autocrine motility factor role is a non-catalytic signaling/moonlighting function, matching the hexokinase-type exclusion criterion.",
+    "evidence": "PMID:35135854 (describes 'neurotrophic function of Glucose-6-Phosphate Isomerase', a moonlighting cytokine-like role, no second EC activity)"
+  },
+  "6.2.1.7": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Bile acid-CoA ligase (cholate:CoA ligase) is a single-activity acyl-CoA synthetase; no literature was found describing a fused second catalytic domain.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "6.3.2.11": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Carnosine synthase (identified as ATP-grasp domain-containing protein ATPGD1) is a single ATP-grasp ligase forming one amide bond (AMP-forming); no second catalytic activity is reported.",
+    "evidence": "PMID:20097752 (molecular identification of carnosine synthase as ATPGD1, single ligase activity)"
+  },
+  "1.1.1.119": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Glucose 1-dehydrogenase (NADP+) is a simple single-activity sugar dehydrogenase; no literature describing a fused second catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.120": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Galactose dehydrogenase (NADP+) is a single-activity sugar dehydrogenase; no bifunctional/multifunctional literature was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.124": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Mannitol 2-dehydrogenase (NAD+) performs a single oxidoreductase reaction; searches returned only pathway-context reviews mentioning the enzyme as one step among many, not evidence of a fused second activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.138": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "This mannitol dehydrogenase (distinct stereospecific isoform from 1.1.1.124) likewise shows no literature evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.146": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "11-beta-hydroxysteroid dehydrogenase (cortisol/cortisone interconversion) is a well-characterized single-activity SDR enzyme; the bidirectional dehydrogenase/reductase behavior of HSD11B1 is the same EC-type reaction run in either direction, not a second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.181": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "7alpha-hydroxysteroid/7alpha-hydroxycholesterol dehydrogenase performs a single oxidoreductase reaction in bile-acid metabolism; no credible literature links this specific enzyme to a fused second catalytic domain (an unrelated bifunctional HSD17B4 hit from the search was a keyword coincidence, not about this EC).",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.195": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Cinnamyl-alcohol/coniferyl-alcohol dehydrogenase (CAD) is a well-studied single-activity lignin-pathway oxidoreductase with no reported fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.222": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Phenyllactate dehydrogenase is a single-activity aromatic 2-hydroxyacid dehydrogenase; no bifunctional/multifunctional literature was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.237": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Aromatic-lactate dehydrogenase (phenyllactate dehydrogenase family member) is a single-activity oxidoreductase; no fused second catalytic activity reported in the literature.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.246": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Medicarpin reductase (plant pterocarpan biosynthesis) is a single-activity NADPH-dependent reductase; no evidence of a second fused catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.297": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Menthol/menthane-diol dehydrogenase is a single-activity terpenoid oxidoreductase; no literature on a fused second catalytic activity was found (zero relevant hits).",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.307": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Xylitol dehydrogenase (NADP+) is a single-activity sugar-alcohol oxidoreductase; no bifunctional/multifunctional literature was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.53": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "3alpha-hydroxysteroid dehydrogenase (B-specific) is a single-activity SDR/AKR-family steroid oxidoreductase; no literature describing a fused second catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.62": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Estradiol 17beta-dehydrogenase activity (EC 1.1.1.62) is carried by several single-domain SDR isozymes (e.g. HSD17B1/2/6); although a related family member (HSD17B4/MFE-2, 'D-bifunctional protein') genuinely fuses a 17beta-HSD-like dehydrogenase domain with an enoyl-CoA hydratase domain, no literature was found directly assigning EC 1.1.1.62 itself to that bifunctional protein, so the default monofunctional call applies to this EC.",
+    "evidence": "PMID:20673864 (describes HSD17B4/DBP as a distinct bifunctional peroxisomal protein, but not co-cited with EC 1.1.1.62)"
+  },
+  "1.1.3.9": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Galactose oxidase is a single-activity copper radical oxidase; no bifunctional/multifunctional literature was found (zero relevant hits).",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.99.18": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Cellobiose dehydrogenase is a two-domain flavocytochrome (FAD dehydrogenase domain plus heme b cytochrome domain), but the heme domain functions as an internal electron-transfer relay to external acceptors rather than carrying an independent, classically EC-assigned catalytic activity, so the enzyme catalyzes one overall reaction (cellobiose:acceptor 1-oxidoreductase).",
+    "evidence": "PMID:23329127 (describes the flavocytochrome two-domain architecture of CDH as a single biocatalyst, not two distinct catalytic activities)"
+  },
+  "1.10.3.1": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Catechol oxidase (diphenol oxidase) is a single-activity type-3 copper oxidase; no literature describing a fused second catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.11.1.6": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Standard catalase (EC 1.11.1.6) catalyzes H2O2 dismutation as its sole classified activity; the genuinely bifunctional catalase-peroxidase (KatG) is a distinct enzyme under a different EC number (1.11.1.21), not this one.",
+    "evidence": "none found specific to EC 1.11.1.6 fusion with a second catalytic domain, defaulted to monofunctional"
+  },
+  "1.14.11.23": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Flavonol synthase (a 2-oxoglutarate-dependent dioxygenase) is reported to show catalytic promiscuity/overlap with flavanone 3-hydroxylase (F3H) activity at a single active site in some plants, but this is substrate promiscuity of one domain rather than a literature-established fused second catalytic domain, so it remains monofunctional by the stated criteria.",
+    "evidence": "28 EuropePMC hits on FLS/F3H dual activity describe single-active-site catalytic promiscuity, not domain fusion; defaulted to monofunctional"
+  },
+  "1.14.13.112": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Sterol C-23 hydroxylase (brassinosteroid biosynthesis, cytochrome P450-type monooxygenase) is a single-activity enzyme; no bifunctional/multifunctional literature was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.124": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Phenylalanine N-monooxygenase (CYP79-type, N-hydroxylating/decarboxylating, glucosinolate biosynthesis) is a single-activity P450 enzyme; no literature on a fused second catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  }
+}

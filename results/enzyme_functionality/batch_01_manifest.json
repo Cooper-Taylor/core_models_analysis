@@ -1,0 +1,2555 @@
+{
+  "batch_index": 1,
+  "n_ecs": 500,
+  "n_chunks": 20,
+  "chunks": [
+    [
+      {
+        "ec": "1.1.2.8",
+        "n_reactions": 3,
+        "example_reaction_name": "R05062"
+      },
+      {
+        "ec": "1.1.3.10",
+        "n_reactions": 3,
+        "example_reaction_name": "D-glucose:oxygen 2-oxidoreductase"
+      },
+      {
+        "ec": "1.1.3.15",
+        "n_reactions": 3,
+        "example_reaction_name": "Glycolate:oxygen 2-oxidoreductase"
+      },
+      {
+        "ec": "1.1.3.23",
+        "n_reactions": 3,
+        "example_reaction_name": "thiamine:oxygen 5-oxidoreductase"
+      },
+      {
+        "ec": "1.1.3.8",
+        "n_reactions": 3,
+        "example_reaction_name": "R00647"
+      },
+      {
+        "ec": "1.1.5.5",
+        "n_reactions": 3,
+        "example_reaction_name": "alcohol:quinone oxidoreductase"
+      },
+      {
+        "ec": "1.1.98.2",
+        "n_reactions": 3,
+        "example_reaction_name": "D-glucose-6-phosphate:F420 1-oxidoreductase"
+      },
+      {
+        "ec": "1.1.99.13",
+        "n_reactions": 3,
+        "example_reaction_name": "Sucrose:(acceptor) 3-oxidoreductase"
+      },
+      {
+        "ec": "1.1.99.16",
+        "n_reactions": 3,
+        "example_reaction_name": "FAD-dependent malate dehydrogenase"
+      },
+      {
+        "ec": "1.1.99.2",
+        "n_reactions": 3,
+        "example_reaction_name": "2-Hydroxyglutarate:(acceptor) 2-oxidoreductase"
+      },
+      {
+        "ec": "1.10.3.11",
+        "n_reactions": 3,
+        "example_reaction_name": "cyanide-insensitive oxidase"
+      },
+      {
+        "ec": "1.10.3.4",
+        "n_reactions": 3,
+        "example_reaction_name": "2-aminophenol:oxygen oxidoreductase (dimerizing)"
+      },
+      {
+        "ec": "1.11.1.8",
+        "n_reactions": 3,
+        "example_reaction_name": "iodide:hydrogen-peroxide oxidoreductase"
+      },
+      {
+        "ec": "1.13.11.12",
+        "n_reactions": 3,
+        "example_reaction_name": "Linoleate:oxygen 13-oxidoreductase"
+      },
+      {
+        "ec": "1.13.11.3",
+        "n_reactions": 3,
+        "example_reaction_name": "Protocatechuate:oxygen 3,4-oxidoreductase (decyclizing)"
+      },
+      {
+        "ec": "1.13.11.34",
+        "n_reactions": 3,
+        "example_reaction_name": "Arachidonate:oxygen 5-oxidoreductase"
+      },
+      {
+        "ec": "1.13.11.35",
+        "n_reactions": 3,
+        "example_reaction_name": "1,2,3-Trihydroxybenzene:oxygen 1,2-oxidoreductase (decyclizing)"
+      },
+      {
+        "ec": "1.13.11.46",
+        "n_reactions": 3,
+        "example_reaction_name": "4-hydroxyphenylpyruvate:oxygen oxidoreductase (decarboxylating)"
+      },
+      {
+        "ec": "1.13.99.1",
+        "n_reactions": 3,
+        "example_reaction_name": "myo-Inositol:oxygen oxidoreductase"
+      },
+      {
+        "ec": "1.14.11.21",
+        "n_reactions": 3,
+        "example_reaction_name": "deoxyamidinoproclavaminate,2-oxoglutarate:oxygen oxidoreductase (3-hydroxylating)"
+      },
+      {
+        "ec": "1.14.11.33",
+        "n_reactions": 3,
+        "example_reaction_name": "RXN0-984.c"
+      },
+      {
+        "ec": "1.14.11.6",
+        "n_reactions": 3,
+        "example_reaction_name": "Thymine,2-oxoglutarate:oxygen oxidoreductase (7-hydroxylating)"
+      },
+      {
+        "ec": "1.14.12.11",
+        "n_reactions": 3,
+        "example_reaction_name": "toluene,NADH:oxygen oxidoreductase (1,2-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.121",
+        "n_reactions": 3,
+        "example_reaction_name": "(-)-vetispiradiene,NADPH:oxygen 2alpha-oxidoreductase"
+      },
+      {
+        "ec": "1.14.13.122",
+        "n_reactions": 3,
+        "example_reaction_name": "chlorophyllide-a,NADPH:oxygen 7(1)-oxidoreductase (hydroxylating)"
+      }
+    ],
+    [
+      {
+        "ec": "1.14.13.133",
+        "n_reactions": 3,
+        "example_reaction_name": "pentalenene,NADPH:oxygen 13-oxidoreductase (hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.134",
+        "n_reactions": 3,
+        "example_reaction_name": "beta-amyrin,NADPH:oxygen 11-oxidoreductase (hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.17",
+        "n_reactions": 3,
+        "example_reaction_name": "Cholesterol,NADPH:oxygen oxidoreductase (7alpha-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.36",
+        "n_reactions": 3,
+        "example_reaction_name": "trans-5-O-(4-coumaroyl)-D-quinate,NADPH:oxygen oxidoreductase (3'-hydorxylating)"
+      },
+      {
+        "ec": "1.14.13.48",
+        "n_reactions": 3,
+        "example_reaction_name": "(-)-Limonene,NADPH:oxygen oxidoreductase (6-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.53",
+        "n_reactions": 3,
+        "example_reaction_name": "formononetin,NADPH:oxygen oxidoreductase (2'-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.9",
+        "n_reactions": 3,
+        "example_reaction_name": "L-Kynurenine,NADPH:oxygen oxidoreductase (3-hydroxylating)"
+      },
+      {
+        "ec": "1.14.14.5",
+        "n_reactions": 3,
+        "example_reaction_name": "RXN0-6973.c"
+      },
+      {
+        "ec": "1.14.14.9",
+        "n_reactions": 3,
+        "example_reaction_name": "4-hydroxyphenylacetate,NADH:oxygen oxidoreductase (3-hydroxylating)"
+      },
+      {
+        "ec": "1.14.21.3",
+        "n_reactions": 3,
+        "example_reaction_name": "(S)-N-methylcoclaurine, NADPH:oxygen oxidoreductase (C-O phenol-coupling)"
+      },
+      {
+        "ec": "1.14.21.8",
+        "n_reactions": 3,
+        "example_reaction_name": "calycosin,NADPH:oxygen oxidoreductase (methylenedioxy-bridge-forming)"
+      },
+      {
+        "ec": "1.14.99.10",
+        "n_reactions": 3,
+        "example_reaction_name": "17alpha-Hydroxypregnenolone,hydrogen-donor:oxygen oxidoreductase (21-hydroxylating)"
+      },
+      {
+        "ec": "1.14.99.9",
+        "n_reactions": 3,
+        "example_reaction_name": "20alpha-Hydroxycholesterol,hydrogen-donor:oxygen oxidoreductase (17-alpha-hydroxylating)"
+      },
+      {
+        "ec": "1.17.1.3",
+        "n_reactions": 3,
+        "example_reaction_name": "(2R,3S)-catechin:NADP+ 4-oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.10",
+        "n_reactions": 3,
+        "example_reaction_name": "acetaldehyde:NAD+ oxidoreductase (CoA-acetylating)"
+      },
+      {
+        "ec": "1.2.1.19",
+        "n_reactions": 3,
+        "example_reaction_name": "3-aminopropanal:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.22",
+        "n_reactions": 3,
+        "example_reaction_name": "pyruvaldehyde:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.25",
+        "n_reactions": 3,
+        "example_reaction_name": "3-methyl-2-oxobutanoate:NAD+ oxidoreductase (CoA-mehtylpropanoylating)"
+      },
+      {
+        "ec": "1.2.1.38",
+        "n_reactions": 3,
+        "example_reaction_name": "N-acetyl-L-glutamate-5-semialdehyde:NADP+ 5-oxidoreductase (phosphrylating)"
+      },
+      {
+        "ec": "1.2.1.4",
+        "n_reactions": 3,
+        "example_reaction_name": "Acetaldehyde:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.45",
+        "n_reactions": 3,
+        "example_reaction_name": "5-carboxymethyl-2-hydroxymuconic-semialdehyde:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.2.3.7",
+        "n_reactions": 3,
+        "example_reaction_name": "indole-3-acetaldehyde:oxygen oxidoreductase"
+      },
+      {
+        "ec": "1.2.99.3",
+        "n_reactions": 3,
+        "example_reaction_name": "acetaldehyde:pyrroloquinoline-quinone oxidoreductase"
+      },
+      {
+        "ec": "1.20.4.2",
+        "n_reactions": 3,
+        "example_reaction_name": "gluthathione:methylarsonate oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.2",
+        "n_reactions": 3,
+        "example_reaction_name": "5,6-Dihydrouracil:NADP+ oxidoreductase"
+      }
+    ],
+    [
+      {
+        "ec": "1.3.1.44",
+        "n_reactions": 3,
+        "example_reaction_name": "Butanoyl-CoA:(acceptor) 2,3-oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.56",
+        "n_reactions": 3,
+        "example_reaction_name": "cis-3-phenylcyclohexa-3,5-diene-1,2-diol:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.81",
+        "n_reactions": 3,
+        "example_reaction_name": "(-)-menthone:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.3.8.1",
+        "n_reactions": 3,
+        "example_reaction_name": "Butanoyl-CoA:(acceptor) 2,3-oxidoreductase"
+      },
+      {
+        "ec": "1.3.99.1",
+        "n_reactions": 3,
+        "example_reaction_name": "Succinate:(acceptor) oxidoreductase"
+      },
+      {
+        "ec": "1.3.99.2",
+        "n_reactions": 3,
+        "example_reaction_name": "Butanoyl-CoA:oxygen 2-oxidoreductase"
+      },
+      {
+        "ec": "1.4.1.18",
+        "n_reactions": 3,
+        "example_reaction_name": "L-Lysine:NAD+ 6-oxidoreductase (deaminating)"
+      },
+      {
+        "ec": "1.4.3.16",
+        "n_reactions": 3,
+        "example_reaction_name": "L-Aspartic acid:oxygen oxidoreductase (deaminating)"
+      },
+      {
+        "ec": "1.5.1.20",
+        "n_reactions": 3,
+        "example_reaction_name": "methylenetetrahydrofolate reductase 1 (MTHFR1)"
+      },
+      {
+        "ec": "1.5.1.30",
+        "n_reactions": 3,
+        "example_reaction_name": "reduced-riboflavin:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.5.1.41",
+        "n_reactions": 3,
+        "example_reaction_name": "FMNH2:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.5.3.13",
+        "n_reactions": 3,
+        "example_reaction_name": "N1-acetylspermine:oxygen oxidoreductase (3-acetamidopropanal-forming)"
+      },
+      {
+        "ec": "1.5.3.14",
+        "n_reactions": 3,
+        "example_reaction_name": "spermidine:(acceptor) oxidoreductase"
+      },
+      {
+        "ec": "1.5.3.16",
+        "n_reactions": 3,
+        "example_reaction_name": "N1-acetylspermine:oxygen oxidoreductase (3-acetamidopropanal-forming)"
+      },
+      {
+        "ec": "1.6.5.8",
+        "n_reactions": 3,
+        "example_reaction_name": "NADH:ubiquinone oxidoreductase (Na+-translocating)"
+      },
+      {
+        "ec": "1.7.1.14",
+        "n_reactions": 3,
+        "example_reaction_name": "nitrous-oxide:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.8.1.10",
+        "n_reactions": 3,
+        "example_reaction_name": "NADPH:CoA-glutathione oxidoreductase"
+      },
+      {
+        "ec": "1.8.1.2",
+        "n_reactions": 3,
+        "example_reaction_name": "hydrogen-sulfide:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.8.1.9",
+        "n_reactions": 3,
+        "example_reaction_name": "L-cysteine,glutathione:NADP+ oxidoreductase (disulfide-forming)"
+      },
+      {
+        "ec": "1.8.4.4",
+        "n_reactions": 3,
+        "example_reaction_name": "Glutathione:L-cystine oxidoreductase"
+      },
+      {
+        "ec": "1.8.4.9",
+        "n_reactions": 3,
+        "example_reaction_name": "AMP,sulfite:glutathione-disulfide oxidoreductase (adenosine-5'-phosphosulfate-forming)"
+      },
+      {
+        "ec": "2.1.1.13",
+        "n_reactions": 3,
+        "example_reaction_name": "5-Methyltetrahydrofolate:L-homocysteine S-methyltransferase"
+      },
+      {
+        "ec": "2.1.2.11",
+        "n_reactions": 3,
+        "example_reaction_name": "2-dehydropantoate formaldehyde-lyase (3-methyl-2-oxobutanoate-forming)"
+      },
+      {
+        "ec": "2.1.3.2",
+        "n_reactions": 3,
+        "example_reaction_name": "carbamoyl-phosphate:L-aspartate carbamoyltransferase"
+      },
+      {
+        "ec": "2.1.3.3",
+        "n_reactions": 3,
+        "example_reaction_name": "Carbamoyl-phosphate:L-ornithine carbamoyltransferase"
+      }
+    ],
+    [
+      {
+        "ec": "2.1.4.1",
+        "n_reactions": 3,
+        "example_reaction_name": "L-Arginine:glycine amidinotransferase"
+      },
+      {
+        "ec": "2.2.1.3",
+        "n_reactions": 3,
+        "example_reaction_name": "D-Xylulose-5-phosphate:formaldehyde glycolaldehydetransferase"
+      },
+      {
+        "ec": "2.3.1.103",
+        "n_reactions": 3,
+        "example_reaction_name": "1-O-sinapoyl-beta-D-glucose:1-O-sinapoyl-beta-D-glucose 1-O-sinapoyltransferase"
+      },
+      {
+        "ec": "2.3.1.126",
+        "n_reactions": 3,
+        "example_reaction_name": "Caffeoyl-CoA:isocitrate 3-O-(3,4-dihydroxycinnamoyl)transferase"
+      },
+      {
+        "ec": "2.3.1.143",
+        "n_reactions": 3,
+        "example_reaction_name": "1-O-Galloyl-beta-D-glucose:1,2,3,6-tetrakis-O-galloyl-beta-D-glucose 4-O-galloyltransferase"
+      },
+      {
+        "ec": "2.3.1.168",
+        "n_reactions": 3,
+        "example_reaction_name": "2-methylpropanoyl-CoA:enzyme N6-(dihydrolipoyl)lysine S-(2-methylpropanoyl)transferase"
+      },
+      {
+        "ec": "2.3.1.32",
+        "n_reactions": 3,
+        "example_reaction_name": "Acetyl-phosphate:L-lysine N6-acetyltransferase"
+      },
+      {
+        "ec": "2.3.1.37",
+        "n_reactions": 3,
+        "example_reaction_name": "succinyl-CoA:glycine C-succinyltransferase (decarboxylating)"
+      },
+      {
+        "ec": "2.3.1.44",
+        "n_reactions": 3,
+        "example_reaction_name": "Acetyl-CoA:N-acetylneuraminate 4-O-acetyltransferase"
+      },
+      {
+        "ec": "2.3.1.51",
+        "n_reactions": 3,
+        "example_reaction_name": "1-acylglycerolphosphate acyltransferase"
+      },
+      {
+        "ec": "2.3.1.61",
+        "n_reactions": 3,
+        "example_reaction_name": "2-oxoadipate dehydrogenase complex"
+      },
+      {
+        "ec": "2.3.1.69",
+        "n_reactions": 3,
+        "example_reaction_name": "Acetyl-CoA:monoterpenol O-acetyltransferase"
+      },
+      {
+        "ec": "2.3.1.7",
+        "n_reactions": 3,
+        "example_reaction_name": "Acetyl-CoA:carnitine O-acetyltransferase"
+      },
+      {
+        "ec": "2.3.1.72",
+        "n_reactions": 3,
+        "example_reaction_name": "Indole-3-acetyl-beta-1-D-glucoside:myo-inositol indoleacetyltransferase"
+      },
+      {
+        "ec": "2.3.1.9",
+        "n_reactions": 3,
+        "example_reaction_name": "acetyl-CoA:propanoyl-CoA 2-C-acetyltransferase"
+      },
+      {
+        "ec": "2.3.1.90",
+        "n_reactions": 3,
+        "example_reaction_name": "1-O-galloyl-beta-D-glucose:1-O-galloyl-beta-D-glucose O-galloyltransferase"
+      },
+      {
+        "ec": "2.3.1.91",
+        "n_reactions": 3,
+        "example_reaction_name": "1-O-(4-Hydroxy-3,5-dimethoxycinnamoyl)-beta-D-glucose:choline 1-O-(4-Hydroxy-3,5-dimethoxycinnamoyl)transferase"
+      },
+      {
+        "ec": "2.3.1.92",
+        "n_reactions": 3,
+        "example_reaction_name": "1-O-Sinapoyl-beta-D-glucose:(S)-malate O-sinapoyltransferase"
+      },
+      {
+        "ec": "2.4.1.1",
+        "n_reactions": 3,
+        "example_reaction_name": "1,4-alpha-D-Glucan:orthophosphate alpha-D-glucosyltransferase"
+      },
+      {
+        "ec": "2.4.1.120",
+        "n_reactions": 3,
+        "example_reaction_name": "UDPglucose:sinapate D-glucosyltransferase"
+      },
+      {
+        "ec": "2.4.1.14",
+        "n_reactions": 3,
+        "example_reaction_name": "UDP-glucose:D-fructose-6-phosphate 2-alpha-D-glucosyltransferase"
+      },
+      {
+        "ec": "2.4.1.15",
+        "n_reactions": 3,
+        "example_reaction_name": "UDP-glucose:D-glucose-6-phosphate 1-alpha-D-glucosyltransferase"
+      },
+      {
+        "ec": "2.4.1.166",
+        "n_reactions": 3,
+        "example_reaction_name": "raffinose:raffinose 1F-alpha-D-galactosyltransferase"
+      },
+      {
+        "ec": "2.4.1.193",
+        "n_reactions": 3,
+        "example_reaction_name": "UDPglucose:(25S)-5beta-spirostan-3beta-ol 3-O-beta-glucosyltransferase"
+      },
+      {
+        "ec": "2.4.1.209",
+        "n_reactions": 3,
+        "example_reaction_name": "UDPglucose:cis-p-coumarate beta-D-glucosyltransferase"
+      }
+    ],
+    [
+      {
+        "ec": "2.4.1.210",
+        "n_reactions": 3,
+        "example_reaction_name": "UDP-glucose:limonin glucosyltransferase"
+      },
+      {
+        "ec": "2.4.1.211",
+        "n_reactions": 3,
+        "example_reaction_name": "beta-D-Galactopyranosyl-(13)-N-acetyl-D-hexosamine:phosphate galactosyltransferase"
+      },
+      {
+        "ec": "2.4.1.216",
+        "n_reactions": 3,
+        "example_reaction_name": "trehalose 6-phosphate:phosphate b-D-glucosyltransferase"
+      },
+      {
+        "ec": "2.4.1.247",
+        "n_reactions": 3,
+        "example_reaction_name": "beta-D-galactosyl-(1->4)-L-rhamnose:phosphate 1-alpha-D-galactosyltransferase"
+      },
+      {
+        "ec": "2.4.1.272",
+        "n_reactions": 3,
+        "example_reaction_name": "UDP-galactose:soyasapogenol B 3-O-glucuronide beta-D-galactosyltransferase"
+      },
+      {
+        "ec": "2.4.1.36",
+        "n_reactions": 3,
+        "example_reaction_name": "GDPglucose:D-glucose-6-phosphate 1-alpha-D-glucosyltransferase"
+      },
+      {
+        "ec": "2.4.1.7",
+        "n_reactions": 3,
+        "example_reaction_name": "sucrose:phosphate alpha-D-glucosyltransferase"
+      },
+      {
+        "ec": "2.4.1.81",
+        "n_reactions": 3,
+        "example_reaction_name": "UDPglucose:5,7,3',4'-tetrahydroxyflavone 7-O-beta-D-glucosyltransferase"
+      },
+      {
+        "ec": "2.4.1.90",
+        "n_reactions": 3,
+        "example_reaction_name": "UDP-galactose:N-acetyl-D-glucosamine 4-beta-D-galactosyltransferase"
+      },
+      {
+        "ec": "2.4.1.99",
+        "n_reactions": 3,
+        "example_reaction_name": "sucrose:sucrose 1'-beta-D-fructosyltransferase"
+      },
+      {
+        "ec": "2.4.2.34",
+        "n_reactions": 3,
+        "example_reaction_name": "UDP-L-arabinose:indol-3-ylacetyl-myo-inositol L-arabinosyltransferase"
+      },
+      {
+        "ec": "2.4.2.35",
+        "n_reactions": 3,
+        "example_reaction_name": "UDP-D-xylose:flavonol-3-O-glycoside 2''-O-beta-D-xylosyltransferase"
+      },
+      {
+        "ec": "2.4.2.7",
+        "n_reactions": 3,
+        "example_reaction_name": "AMP:diphosphate phospho-D-ribosyltransferase"
+      },
+      {
+        "ec": "2.5.1.16",
+        "n_reactions": 3,
+        "example_reaction_name": "S-adenosylmethioninamine:putrescine 3-aminopropyltransferase"
+      },
+      {
+        "ec": "2.5.1.17",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP:cob(I)alamin Co-beta-adenosyltransferase"
+      },
+      {
+        "ec": "2.5.1.36",
+        "n_reactions": 3,
+        "example_reaction_name": "Trihydroxypterocarpan dimethylallyltransferase"
+      },
+      {
+        "ec": "2.5.1.47",
+        "n_reactions": 3,
+        "example_reaction_name": "O3-acetyl-L-serine:hydrogen-sulfide 2-amino-2-carboxyethyltransferase"
+      },
+      {
+        "ec": "2.5.1.49",
+        "n_reactions": 3,
+        "example_reaction_name": "O-acetyl-L-homoserine:methanethiol 3-amino-3-carboxypropyltransferase"
+      },
+      {
+        "ec": "2.5.1.53",
+        "n_reactions": 3,
+        "example_reaction_name": "O3-acetyl-L-serine:uracil 1-(2-amino-2-carboxyethyl)transferase"
+      },
+      {
+        "ec": "2.5.1.96",
+        "n_reactions": 3,
+        "example_reaction_name": "farnesyl-diphosphate:farnesyl-diphosphate farnesyltransferase"
+      },
+      {
+        "ec": "2.6.1.11",
+        "n_reactions": 3,
+        "example_reaction_name": "N2-Acetyl-L-ornithine:2-oxoglutarate aminotransferase"
+      },
+      {
+        "ec": "2.6.1.19",
+        "n_reactions": 3,
+        "example_reaction_name": "beta-alanine:2-oxoglutarate aminotransferase"
+      },
+      {
+        "ec": "2.6.1.23",
+        "n_reactions": 3,
+        "example_reaction_name": "4-Hydroxy-L-glutamate:2-oxoglutarate aminotransferase"
+      },
+      {
+        "ec": "2.6.1.33",
+        "n_reactions": 3,
+        "example_reaction_name": "dTDP-4-acetamido-4,6-dideoxy-D-glucose:2-oxoglutarate aminotransferase"
+      },
+      {
+        "ec": "2.6.1.40",
+        "n_reactions": 3,
+        "example_reaction_name": "(R)-3-Amino-2-methylpropanoate:2-oxoglutarate aminotransferase"
+      }
+    ],
+    [
+      {
+        "ec": "2.6.1.44",
+        "n_reactions": 3,
+        "example_reaction_name": "L-Alanine:glyoxylate aminotransferase"
+      },
+      {
+        "ec": "2.6.1.54",
+        "n_reactions": 3,
+        "example_reaction_name": "Pyridoxamine-5'-phosphate:2-oxoglutarate aminotransferase"
+      },
+      {
+        "ec": "2.6.1.8",
+        "n_reactions": 3,
+        "example_reaction_name": "2,5-Diaminopentanoate:2-oxoglutarate aminotransferase"
+      },
+      {
+        "ec": "2.6.1.82",
+        "n_reactions": 3,
+        "example_reaction_name": "putrescine:2-oxoglutarate aminotransferase"
+      },
+      {
+        "ec": "2.6.1.9",
+        "n_reactions": 3,
+        "example_reaction_name": "L-Phenylalanine:2-oxoglutarate aminotransferase"
+      },
+      {
+        "ec": "2.7.1.119",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP:hygromycin-B 7''-O-phosphotransferase"
+      },
+      {
+        "ec": "2.7.1.21",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP:thymidine 5'-phosphotransferase"
+      },
+      {
+        "ec": "2.7.1.35",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP:pyridoxal 5'-phosphotransferase"
+      },
+      {
+        "ec": "2.7.1.42",
+        "n_reactions": 3,
+        "example_reaction_name": "D-Glucose-1-phosphate:riboflavin 5'-phosphotransferase"
+      },
+      {
+        "ec": "2.7.1.43",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP:D-glucuronate 1-phosphotransferase"
+      },
+      {
+        "ec": "2.7.1.5",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP:L-xylulose 1-phosphotransferase"
+      },
+      {
+        "ec": "2.7.1.56",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP:D-fructose-1-phosphate 6-phosphotransferase"
+      },
+      {
+        "ec": "2.7.1.6",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP:D-galactose 1-phosphotransferase"
+      },
+      {
+        "ec": "2.7.1.63",
+        "n_reactions": 3,
+        "example_reaction_name": "Polyphosphate:D-glucose 6-phosphotransferase"
+      },
+      {
+        "ec": "2.7.1.85",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP:cellobiose 6-phosphotransferase"
+      },
+      {
+        "ec": "2.7.1.91",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP:sphingosine 1-phosphotransferase"
+      },
+      {
+        "ec": "2.7.2.2",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP:carbamate phosphotransferase"
+      },
+      {
+        "ec": "2.7.2.8",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP:N-acetyl-L-glutamate 5-phosphotransferase"
+      },
+      {
+        "ec": "2.7.3.5",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP:lombricine N-phosphotransferase"
+      },
+      {
+        "ec": "2.7.4.12",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP:5-hydroxymethyldeoxycytidylate phosphotransferase"
+      },
+      {
+        "ec": "2.7.4.14",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP:UMP phosphotransferase"
+      },
+      {
+        "ec": "2.7.6.2",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP:thiamine-diphosphate phosphotransferase"
+      },
+      {
+        "ec": "2.7.7.12",
+        "n_reactions": 3,
+        "example_reaction_name": "UDP-glucose:alpha-D-galactose-1-phosphate uridylyltransferase"
+      },
+      {
+        "ec": "2.7.7.30",
+        "n_reactions": 3,
+        "example_reaction_name": "GTP:beta-L-fucose-1-phosphate guanylyltransferase"
+      },
+      {
+        "ec": "2.7.7.69",
+        "n_reactions": 3,
+        "example_reaction_name": "R07678"
+      }
+    ],
+    [
+      {
+        "ec": "2.7.8.31",
+        "n_reactions": 3,
+        "example_reaction_name": "UDP-glucose:ditrans,octacis-undecaprenyl-phosphate glucose phosphotransferase"
+      },
+      {
+        "ec": "2.8.3.7",
+        "n_reactions": 3,
+        "example_reaction_name": "Succinyl-CoA:citramalate CoA-transferase"
+      },
+      {
+        "ec": "3.1.1.33",
+        "n_reactions": 3,
+        "example_reaction_name": "6-Acetyl-D-glucose acetylhydrolase"
+      },
+      {
+        "ec": "3.1.1.6",
+        "n_reactions": 3,
+        "example_reaction_name": "13-[O(2')-beta-D-glucopyranosyl-beta-D-glucopyranosyloxy]docosanoate O(6'')-acetate-esterase"
+      },
+      {
+        "ec": "3.1.3.1",
+        "n_reactions": 3,
+        "example_reaction_name": "Glycerone phosphate phosphohydrolase"
+      },
+      {
+        "ec": "3.1.3.21",
+        "n_reactions": 3,
+        "example_reaction_name": "sn-glycerol-3-phosphate phosphohydrolase"
+      },
+      {
+        "ec": "3.1.3.29",
+        "n_reactions": 3,
+        "example_reaction_name": "N-Acetylneuraminate 9-phosphate phosphohydrolase"
+      },
+      {
+        "ec": "3.1.3.3",
+        "n_reactions": 3,
+        "example_reaction_name": "O-phospho-L-serine phosphohydrolase"
+      },
+      {
+        "ec": "3.1.3.6",
+        "n_reactions": 3,
+        "example_reaction_name": "adenosine 3'-phosphate phosphohydrolase"
+      },
+      {
+        "ec": "3.1.3.68",
+        "n_reactions": 3,
+        "example_reaction_name": "D-Fructose 1,6-bisphosphate phosphohydrolase"
+      },
+      {
+        "ec": "3.1.3.74",
+        "n_reactions": 3,
+        "example_reaction_name": "pyridoxal-5'-phosphate phosphohydrolase"
+      },
+      {
+        "ec": "3.1.3.77",
+        "n_reactions": 3,
+        "example_reaction_name": "2,3-diketo-5-methylthiopentyl-1-phosphate keto---enol-isomerase"
+      },
+      {
+        "ec": "3.1.8.1",
+        "n_reactions": 3,
+        "example_reaction_name": "R05421"
+      },
+      {
+        "ec": "3.2.1.104",
+        "n_reactions": 3,
+        "example_reaction_name": "Cholesteryl-beta-D-glucoside glucohydrolase"
+      },
+      {
+        "ec": "3.2.1.105",
+        "n_reactions": 3,
+        "example_reaction_name": "Strictosidine beta-D-glucohydrolase"
+      },
+      {
+        "ec": "3.2.1.117",
+        "n_reactions": 3,
+        "example_reaction_name": "amygdalin beta-glucosidase"
+      },
+      {
+        "ec": "3.2.1.119",
+        "n_reactions": 3,
+        "example_reaction_name": "R03642"
+      },
+      {
+        "ec": "3.2.1.15",
+        "n_reactions": 3,
+        "example_reaction_name": "Poly(1,4-alpha-D-galacturonate) galacturonohydrolase"
+      },
+      {
+        "ec": "3.2.1.159",
+        "n_reactions": 3,
+        "example_reaction_name": "3,6-anhydro-alpha-L-galactosidase"
+      },
+      {
+        "ec": "3.2.1.175",
+        "n_reactions": 3,
+        "example_reaction_name": "beta-D-glucopyranosyl abscisate glucohydrolase"
+      },
+      {
+        "ec": "3.2.1.3",
+        "n_reactions": 3,
+        "example_reaction_name": "1,3-beta-D-Glucan glucanohydrolase"
+      },
+      {
+        "ec": "3.2.1.4",
+        "n_reactions": 3,
+        "example_reaction_name": "1,4-(1,3;1,4)-beta-D-Glucan 4-glucanohydrolase"
+      },
+      {
+        "ec": "3.2.1.42",
+        "n_reactions": 3,
+        "example_reaction_name": "GDP-glucose glucohydrolase"
+      },
+      {
+        "ec": "3.2.1.48",
+        "n_reactions": 3,
+        "example_reaction_name": "sucrose glucohydrolase"
+      },
+      {
+        "ec": "3.2.1.55",
+        "n_reactions": 3,
+        "example_reaction_name": "alpha-L-arabinan arabinofuranohydrolase"
+      }
+    ],
+    [
+      {
+        "ec": "3.2.1.67",
+        "n_reactions": 3,
+        "example_reaction_name": "R07413"
+      },
+      {
+        "ec": "3.2.1.93",
+        "n_reactions": 3,
+        "example_reaction_name": "alpha,alpha-Trehalose-6-phosphate phosphoglucohydrolase"
+      },
+      {
+        "ec": "3.2.2.14",
+        "n_reactions": 3,
+        "example_reaction_name": "Nicotinamide D-ribonucleotide phosphoribohydrolase"
+      },
+      {
+        "ec": "3.2.2.2",
+        "n_reactions": 3,
+        "example_reaction_name": "Inosine ribohydrolase"
+      },
+      {
+        "ec": "3.2.2.6",
+        "n_reactions": 3,
+        "example_reaction_name": "NAD nucleosidase, mitochondrial"
+      },
+      {
+        "ec": "3.2.2.7",
+        "n_reactions": 3,
+        "example_reaction_name": "Adenosine ribohydrolase"
+      },
+      {
+        "ec": "3.3.2.9",
+        "n_reactions": 3,
+        "example_reaction_name": "cis-stilbene-oxide hydrolase"
+      },
+      {
+        "ec": "3.5.1.101",
+        "n_reactions": 3,
+        "example_reaction_name": "(S)-piperazine-2-carboxamide amidohydrolase"
+      },
+      {
+        "ec": "3.5.1.16",
+        "n_reactions": 3,
+        "example_reaction_name": "N2-Acetyl-L-ornithine amidohydrolase"
+      },
+      {
+        "ec": "3.5.1.38",
+        "n_reactions": 3,
+        "example_reaction_name": "L-Glutamine amidohydrolase"
+      },
+      {
+        "ec": "3.5.1.6",
+        "n_reactions": 3,
+        "example_reaction_name": "N-Carbamoyl-beta-alanine amidohydrolase"
+      },
+      {
+        "ec": "3.5.2.1",
+        "n_reactions": 3,
+        "example_reaction_name": "Barbiturate amidohydrolase"
+      },
+      {
+        "ec": "3.5.2.2",
+        "n_reactions": 3,
+        "example_reaction_name": "5,6-Dihydrothymine amidohydrolase"
+      },
+      {
+        "ec": "3.5.3.21",
+        "n_reactions": 3,
+        "example_reaction_name": "Methylenediurea aminohydrolase"
+      },
+      {
+        "ec": "3.5.4.5",
+        "n_reactions": 3,
+        "example_reaction_name": "Cytidine aminohydrolase"
+      },
+      {
+        "ec": "3.5.99.5",
+        "n_reactions": 3,
+        "example_reaction_name": "2-aminomuconate aminohydrolase"
+      },
+      {
+        "ec": "3.5.99.6",
+        "n_reactions": 3,
+        "example_reaction_name": "D-glucosamine-6-phosphate aminohydrolase (ketol isomerizing)"
+      },
+      {
+        "ec": "3.6.1.20",
+        "n_reactions": 3,
+        "example_reaction_name": "5'-acetylphosphoadenosine acetylhydrolase"
+      },
+      {
+        "ec": "3.6.1.22",
+        "n_reactions": 3,
+        "example_reaction_name": "NAD+ phosphohydrolase"
+      },
+      {
+        "ec": "3.6.1.39",
+        "n_reactions": 3,
+        "example_reaction_name": "UTP phosphohydrolase"
+      },
+      {
+        "ec": "3.6.1.7",
+        "n_reactions": 3,
+        "example_reaction_name": "Acetyl phosphate phosphohydrolase"
+      },
+      {
+        "ec": "3.6.3.14",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP phosphohydrolase"
+      },
+      {
+        "ec": "3.6.3.28",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP phosphohydrolase"
+      },
+      {
+        "ec": "3.6.3.40",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP phosphohydrolase"
+      },
+      {
+        "ec": "3.6.3.6",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP phosphohydrolase"
+      }
+    ],
+    [
+      {
+        "ec": "3.6.3.8",
+        "n_reactions": 3,
+        "example_reaction_name": "ATP phosphohydrolase"
+      },
+      {
+        "ec": "3.7.1.14",
+        "n_reactions": 3,
+        "example_reaction_name": "2-Hydroxy-6-oxonona-2,4-diene-1,9-dioate succinylhydrolase"
+      },
+      {
+        "ec": "4.1.1.3",
+        "n_reactions": 3,
+        "example_reaction_name": "oxaloacetate carboxy-lyase (pyruvate-forming)"
+      },
+      {
+        "ec": "4.1.1.37",
+        "n_reactions": 3,
+        "example_reaction_name": "Uroporphyrinogen-III carboxy-lyase"
+      },
+      {
+        "ec": "4.1.1.39",
+        "n_reactions": 3,
+        "example_reaction_name": "3-phospho-D-glycerate carboxy-lyase (dimerizing; D-ribulose-1,5-bisphosphate-forming)"
+      },
+      {
+        "ec": "4.1.1.9",
+        "n_reactions": 3,
+        "example_reaction_name": "malonyl-CoA carboxy-lyase (acetyl-CoA-forming)"
+      },
+      {
+        "ec": "4.1.2.22",
+        "n_reactions": 3,
+        "example_reaction_name": "D-fructose-6-phosphate D-erythrose-4-phosphate-lyase (adding phosphate; acetyl-phosphate-forming)"
+      },
+      {
+        "ec": "4.1.2.5",
+        "n_reactions": 3,
+        "example_reaction_name": "L-threonine acetaldehyde-lyase (glycine-forming)"
+      },
+      {
+        "ec": "4.1.3.1",
+        "n_reactions": 3,
+        "example_reaction_name": "isocitrate glyoxylate-lyase (succinate-forming)"
+      },
+      {
+        "ec": "4.1.3.24",
+        "n_reactions": 3,
+        "example_reaction_name": "(3S)-citramalyl-CoA pyruvate-lyase (acetyl-CoA-forming)"
+      },
+      {
+        "ec": "4.1.3.27",
+        "n_reactions": 3,
+        "example_reaction_name": "chorismate pyruvate-lyase (amino-accepting; anthranilate-forming)"
+      },
+      {
+        "ec": "4.2.1.105",
+        "n_reactions": 3,
+        "example_reaction_name": "2-hydroxy-2,3-dihydrogenistein hydro-lyase (genistein-forming)"
+      },
+      {
+        "ec": "4.2.1.20",
+        "n_reactions": 3,
+        "example_reaction_name": "L-serine hydro-lyase (adding indole; L-tryptophan-forming)"
+      },
+      {
+        "ec": "4.2.1.28",
+        "n_reactions": 3,
+        "example_reaction_name": "propane-1,2-diol hydro-lyase"
+      },
+      {
+        "ec": "4.2.1.54",
+        "n_reactions": 3,
+        "example_reaction_name": "Lactoyl-CoA hydro-lyase"
+      },
+      {
+        "ec": "4.2.1.55",
+        "n_reactions": 3,
+        "example_reaction_name": "(S)-3-Hydroxybutanoyl-CoA hydro-lyase"
+      },
+      {
+        "ec": "4.2.1.78",
+        "n_reactions": 3,
+        "example_reaction_name": "3,4-Dihydroxyphenylacetaldehyde hydro-lyase (adding dopamine)"
+      },
+      {
+        "ec": "4.2.2.6",
+        "n_reactions": 3,
+        "example_reaction_name": "R_4__4_Deoxy_beta_D_gluc_4_enuronosyl__D_galacturonate_lyase"
+      },
+      {
+        "ec": "4.2.3.18",
+        "n_reactions": 3,
+        "example_reaction_name": "ent-Copalyl-diphosphate diphosphate-lyase [ent-sandaracopimara-8(14),15-diene-forming]"
+      },
+      {
+        "ec": "4.3.1.17",
+        "n_reactions": 3,
+        "example_reaction_name": "L-serine ammonia-lyase"
+      },
+      {
+        "ec": "4.3.1.25",
+        "n_reactions": 3,
+        "example_reaction_name": "L-phenylalanine ammonia-lyase (trans-cinnamate-forming)"
+      },
+      {
+        "ec": "4.4.1.2",
+        "n_reactions": 3,
+        "example_reaction_name": "L-homocysteine hydrogen-sulfide-lyase (deaminating; 2-oxobutanoate-forming)"
+      },
+      {
+        "ec": "4.4.1.21",
+        "n_reactions": 3,
+        "example_reaction_name": "S-(5-deoxy-D-ribos-5-yl)-L-homocysteine homocysteine-lyase"
+      },
+      {
+        "ec": "4.4.1.23",
+        "n_reactions": 3,
+        "example_reaction_name": "(R)-2-hydroxypropyl-CoM:2-mercaptoethanesulfonate lyase (epoxyalkane-ring-forming)"
+      },
+      {
+        "ec": "4.4.1.24",
+        "n_reactions": 3,
+        "example_reaction_name": "3-sulfolactate bisulfite-lyase"
+      }
+    ],
+    [
+      {
+        "ec": "5.1.1.9",
+        "n_reactions": 3,
+        "example_reaction_name": "lysine racemase"
+      },
+      {
+        "ec": "5.1.3.11",
+        "n_reactions": 3,
+        "example_reaction_name": "Cellobiose 2-epimerase"
+      },
+      {
+        "ec": "5.3.1.14",
+        "n_reactions": 3,
+        "example_reaction_name": "L-Rhamnose ketol-isomerase"
+      },
+      {
+        "ec": "5.3.1.28",
+        "n_reactions": 3,
+        "example_reaction_name": "D-glycero-beta-D-manno-heptose-7-phosphate aldose-ketose-isomerase"
+      },
+      {
+        "ec": "5.3.1.6",
+        "n_reactions": 3,
+        "example_reaction_name": "D-ribose-5-phosphate aldose-ketose-isomerase"
+      },
+      {
+        "ec": "5.3.3.10",
+        "n_reactions": 3,
+        "example_reaction_name": "5-Carboxymethyl-2-hydroxymuconate delta2,delta4-2-oxo,delta3-isomerase"
+      },
+      {
+        "ec": "5.3.3.4",
+        "n_reactions": 3,
+        "example_reaction_name": "5-oxo-2,5-dihydrofuran-2-acetate delta3-delat2-isomerase"
+      },
+      {
+        "ec": "5.3.3.8",
+        "n_reactions": 3,
+        "example_reaction_name": "3-cis-Dodecenoyl-CoA delta3-cis-delta2-trans-isomerase"
+      },
+      {
+        "ec": "5.4.3.3",
+        "n_reactions": 3,
+        "example_reaction_name": "(3S)-3,6-Diaminohexanoate 5,6-aminomutase"
+      },
+      {
+        "ec": "6.2.1.17",
+        "n_reactions": 3,
+        "example_reaction_name": "Propanoate:CoA ligase (AMP-forming)"
+      },
+      {
+        "ec": "6.2.1.5",
+        "n_reactions": 3,
+        "example_reaction_name": "Succinate:CoA ligase (ADP-forming)"
+      },
+      {
+        "ec": "6.3.1.12",
+        "n_reactions": 3,
+        "example_reaction_name": "Aslfm"
+      },
+      {
+        "ec": "6.3.2.14",
+        "n_reactions": 3,
+        "example_reaction_name": "2,3-Dihydroxybenzoate:L-serine ligase"
+      },
+      {
+        "ec": "6.3.2.5",
+        "n_reactions": 3,
+        "example_reaction_name": "(R)-4'-Phosphopantothenate:L-cysteine ligase"
+      },
+      {
+        "ec": "6.3.5.2",
+        "n_reactions": 3,
+        "example_reaction_name": "Xanthosine-5'-phosphate:ammonia ligase (AMP-forming)"
+      },
+      {
+        "ec": "6.4.1.3",
+        "n_reactions": 3,
+        "example_reaction_name": "Propanoyl-CoA:carbon-dioxide ligase (ADP-forming)"
+      },
+      {
+        "ec": "1.1.1.103",
+        "n_reactions": 2,
+        "example_reaction_name": "L-threonine:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.11",
+        "n_reactions": 2,
+        "example_reaction_name": "D-Mannitol:NAD+ 2-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.112",
+        "n_reactions": 2,
+        "example_reaction_name": "Indan-1-ol:NAD+ 1-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.123",
+        "n_reactions": 2,
+        "example_reaction_name": "L-Sorbose:NADP+ 5-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.130",
+        "n_reactions": 2,
+        "example_reaction_name": "3-Dehydro-L-gulonate:NAD+ 2-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.131",
+        "n_reactions": 2,
+        "example_reaction_name": "D-Mannonate:NAD+ 6-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.133",
+        "n_reactions": 2,
+        "example_reaction_name": "dTDP-6-deoxy-L-mannose:NADP+ 4-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.135",
+        "n_reactions": 2,
+        "example_reaction_name": "GDP-6-deoxy-D-talose:NAD+ 4-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.137",
+        "n_reactions": 2,
+        "example_reaction_name": "D-Ribitol-5-phosphate:NAD+ 2-oxidoreductase"
+      }
+    ],
+    [
+      {
+        "ec": "1.1.1.141",
+        "n_reactions": 2,
+        "example_reaction_name": "(5Z,13E)-(15S)-11alpha,15-Dihydroxy-9-oxoprost-13-enoate:NAD+15-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.147",
+        "n_reactions": 2,
+        "example_reaction_name": "16alpha-Hydroxysteroid:NAD+ 16-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.148",
+        "n_reactions": 2,
+        "example_reaction_name": "Estradiol-17alpha:NAD+ 17-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.152",
+        "n_reactions": 2,
+        "example_reaction_name": "3alpha-Hydroxy-5beta-androstan-17-one:NAD+ oxidoreductase (B-specific)"
+      },
+      {
+        "ec": "1.1.1.158",
+        "n_reactions": 2,
+        "example_reaction_name": "UDP-N-acetylmuramate:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.161",
+        "n_reactions": 2,
+        "example_reaction_name": "5beta-Cholestane-3alpha,7alpha,12alpha,26-tetraol:NAD+ 26-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.162",
+        "n_reactions": 2,
+        "example_reaction_name": "Erythritol:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.17",
+        "n_reactions": 2,
+        "example_reaction_name": "D-Mannitol-1-phosphate:NAD+ 5-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.175",
+        "n_reactions": 2,
+        "example_reaction_name": "D-xylose:NAD+ 1-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.186",
+        "n_reactions": 2,
+        "example_reaction_name": "dTDP-D-galactose:NAD+ 6-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.187",
+        "n_reactions": 2,
+        "example_reaction_name": "GDP-6-deoxy-D-mannose:NAD+ 4-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.196",
+        "n_reactions": 2,
+        "example_reaction_name": "(5Z,13E)-(15S)-9alpha,11alpha,15-Trihydroxyprosta-5,13-dienoate:NAD+ 15-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.201",
+        "n_reactions": 2,
+        "example_reaction_name": "7beta-Hydroxysteroid:NADP+ 7-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.202",
+        "n_reactions": 2,
+        "example_reaction_name": "Propane-1,3-diol:NAD+ 1-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.209",
+        "n_reactions": 2,
+        "example_reaction_name": "Androsterone:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.22",
+        "n_reactions": 2,
+        "example_reaction_name": "UDP-glucose:NAD+ 6-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.223",
+        "n_reactions": 2,
+        "example_reaction_name": "(-)-trans-isopiperitenol:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.232",
+        "n_reactions": 2,
+        "example_reaction_name": "(15S)-15-Hydroxy-5,8,11-cis-13-trans-icosatetraenoate:NAD+ 15-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.25",
+        "n_reactions": 2,
+        "example_reaction_name": "Shikimate:NADP+ 3-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.261",
+        "n_reactions": 2,
+        "example_reaction_name": "sn-Glycerol-1-phosphate:NAD 2-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.264",
+        "n_reactions": 2,
+        "example_reaction_name": "L-Idonate:NAD oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.265",
+        "n_reactions": 2,
+        "example_reaction_name": "3-Methylbutanol:NAD(P) oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.27",
+        "n_reactions": 2,
+        "example_reaction_name": "3-Mercaptolactate:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.275",
+        "n_reactions": 2,
+        "example_reaction_name": "(+)-trans-carveol: NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.276",
+        "n_reactions": 2,
+        "example_reaction_name": "L-serine:NADP+ 3-oxidoreductase"
+      }
+    ],
+    [
+      {
+        "ec": "1.1.1.281",
+        "n_reactions": 2,
+        "example_reaction_name": "GDP-6-deoxy-D-mannose:NAD+ 4-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.289",
+        "n_reactions": 2,
+        "example_reaction_name": "D-glucitol:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.292",
+        "n_reactions": 2,
+        "example_reaction_name": "1,5-anhydro-D-mannitol:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.302",
+        "n_reactions": 2,
+        "example_reaction_name": "2,5-diamino-6-(5-phospho-D-ribitylamino)pyrimidin-4(3H)-one:NAD+ 1'-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.306",
+        "n_reactions": 2,
+        "example_reaction_name": "S-(hydroxymethyl)mycothiol:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.315",
+        "n_reactions": 2,
+        "example_reaction_name": "11-cis-retinol:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.316",
+        "n_reactions": 2,
+        "example_reaction_name": "L-galactose:NAD+ 1-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.320",
+        "n_reactions": 2,
+        "example_reaction_name": "(S)-benzoin:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.322",
+        "n_reactions": 2,
+        "example_reaction_name": "(-)-endo-fenchol:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.323",
+        "n_reactions": 2,
+        "example_reaction_name": "(+)-thujan-3-ol:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.332",
+        "n_reactions": 2,
+        "example_reaction_name": "chanoclavine-I:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.334",
+        "n_reactions": 2,
+        "example_reaction_name": "ecgonine methyl ester:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.336",
+        "n_reactions": 2,
+        "example_reaction_name": "UDP-N-acetyl-D-mannosamine:NAD+ 1-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.352",
+        "n_reactions": 2,
+        "example_reaction_name": "RXN-9483.c"
+      },
+      {
+        "ec": "1.1.1.36",
+        "n_reactions": 2,
+        "example_reaction_name": "(R)-3-Hydroxybutanoyl-CoA:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.360",
+        "n_reactions": 2,
+        "example_reaction_name": "D-Galactose:NADP+ 1-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.38",
+        "n_reactions": 2,
+        "example_reaction_name": "(S)-malate:NAD+ oxidoreductase (decarboxylating)"
+      },
+      {
+        "ec": "1.1.1.40",
+        "n_reactions": 2,
+        "example_reaction_name": "(S)-Malate:NADP+ oxidoreductase(oxaloacetate-decarboxylating)"
+      },
+      {
+        "ec": "1.1.1.41",
+        "n_reactions": 2,
+        "example_reaction_name": "Isocitrate:NAD+ oxidoreductase (decarboxylating)"
+      },
+      {
+        "ec": "1.1.1.43",
+        "n_reactions": 2,
+        "example_reaction_name": "6-Phospho-2-dehydro-D-gluconate:NAD+ 2-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.47",
+        "n_reactions": 2,
+        "example_reaction_name": "beta-D-Glucose:NAD+ 1-oxoreductase"
+      },
+      {
+        "ec": "1.1.1.5",
+        "n_reactions": 2,
+        "example_reaction_name": "Acetoin:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.57",
+        "n_reactions": 2,
+        "example_reaction_name": "D-Mannonate:NAD+ 5-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.69",
+        "n_reactions": 2,
+        "example_reaction_name": "D-Gluconate:NAD+ 5-oxidoreductase"
+      },
+      {
+        "ec": "1.1.1.75",
+        "n_reactions": 2,
+        "example_reaction_name": "(R)-1-Aminopropan-2-ol:NAD+ oxidoreductase"
+      }
+    ],
+    [
+      {
+        "ec": "1.1.1.92",
+        "n_reactions": 2,
+        "example_reaction_name": "D-Glycerate:NAD+ oxidoreductase (carboxylating)"
+      },
+      {
+        "ec": "1.1.1.95",
+        "n_reactions": 2,
+        "example_reaction_name": "R08198"
+      },
+      {
+        "ec": "1.1.2.3",
+        "n_reactions": 2,
+        "example_reaction_name": "lactate oxidation"
+      },
+      {
+        "ec": "1.1.3.11",
+        "n_reactions": 2,
+        "example_reaction_name": "L-Sorbose:oxygen 5-oxidoreductase"
+      },
+      {
+        "ec": "1.1.3.29",
+        "n_reactions": 2,
+        "example_reaction_name": "N-acetyl-D-glucosamine:oxygen 1-oxidoreductase"
+      },
+      {
+        "ec": "1.1.3.5",
+        "n_reactions": 2,
+        "example_reaction_name": "beta-D-Glucose:oxygen 1-oxidoreductase"
+      },
+      {
+        "ec": "1.1.3.6",
+        "n_reactions": 2,
+        "example_reaction_name": "Cholesterol:oxygen oxidoreductase"
+      },
+      {
+        "ec": "1.1.99.1",
+        "n_reactions": 2,
+        "example_reaction_name": "CHLREDRAFT_140509 hypothetical protein  [SP:A8JHB7_CHLRE]"
+      },
+      {
+        "ec": "1.1.99.24",
+        "n_reactions": 2,
+        "example_reaction_name": "(S)-3-Hydroxybutanoate:2-oxoglutarate oxidoreductase"
+      },
+      {
+        "ec": "1.10.1.1",
+        "n_reactions": 2,
+        "example_reaction_name": "(+/-)-trans-acenaphthene-1,2-diol:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.10.3.3",
+        "n_reactions": 2,
+        "example_reaction_name": "L-ascorbate:oxygen oxidoreductase"
+      },
+      {
+        "ec": "1.11.1.19",
+        "n_reactions": 2,
+        "example_reaction_name": "DyP"
+      },
+      {
+        "ec": "1.13.11.11",
+        "n_reactions": 2,
+        "example_reaction_name": "L-tryptophan:oxygen 2,3-oxidoreductase (decyclizing)"
+      },
+      {
+        "ec": "1.13.11.16",
+        "n_reactions": 2,
+        "example_reaction_name": "R04376"
+      },
+      {
+        "ec": "1.13.11.27",
+        "n_reactions": 2,
+        "example_reaction_name": "Phenylpyruvate:oxygen oxidoreductase (hydroxylating,decarboxylating)"
+      },
+      {
+        "ec": "1.13.11.29",
+        "n_reactions": 2,
+        "example_reaction_name": "3,4-Dihydroxy-L-phenylalanine:oxygen 4,5-oxidoreductase (recyclizing)"
+      },
+      {
+        "ec": "1.13.11.30",
+        "n_reactions": 2,
+        "example_reaction_name": "3,4-Dihydroxy-L-phenylalanine:oxygen 2,3-oxidoreductase (recyclizing)"
+      },
+      {
+        "ec": "1.13.11.33",
+        "n_reactions": 2,
+        "example_reaction_name": "Arachidonate:oxygen 15-oxidoreductase"
+      },
+      {
+        "ec": "1.13.11.37",
+        "n_reactions": 2,
+        "example_reaction_name": "Benzene-1,2,4-triol:oxygen 1,2-oxidoreductase (decyclizing)"
+      },
+      {
+        "ec": "1.13.11.38",
+        "n_reactions": 2,
+        "example_reaction_name": "1-Hydroxy-2-naphthoate:oxygen 1,2-oxidoreductase (decyclizing)"
+      },
+      {
+        "ec": "1.13.11.40",
+        "n_reactions": 2,
+        "example_reaction_name": "Arachidonate:oxygen 8-oxidoreductase"
+      },
+      {
+        "ec": "1.13.11.41",
+        "n_reactions": 2,
+        "example_reaction_name": "2,4'-dihydroxyacetophenone oxidoreductase (C-C-bond-cleaving)"
+      },
+      {
+        "ec": "1.13.11.44",
+        "n_reactions": 2,
+        "example_reaction_name": "linoleate:oxygen (8R)-oxidoreductase"
+      },
+      {
+        "ec": "1.13.11.45",
+        "n_reactions": 2,
+        "example_reaction_name": "linoleate:oxygen 11S-oxidoreductase"
+      },
+      {
+        "ec": "1.13.11.51",
+        "n_reactions": 2,
+        "example_reaction_name": "9'-cis-Neoxanthin:9-cis-epoxycarotenoid dioxygenase"
+      }
+    ],
+    [
+      {
+        "ec": "1.13.11.58",
+        "n_reactions": 2,
+        "example_reaction_name": "linoleate:oxygen 9-oxidoreductase"
+      },
+      {
+        "ec": "1.13.11.65",
+        "n_reactions": 2,
+        "example_reaction_name": "zeaxanthin:oxygen 15,15'-oxidoreductase (bond-cleaving, cis-isomerizing)"
+      },
+      {
+        "ec": "1.13.11.67",
+        "n_reactions": 2,
+        "example_reaction_name": "8'-apo-beta-Carotenol:O2 oxidoreductase"
+      },
+      {
+        "ec": "1.13.11.74",
+        "n_reactions": 2,
+        "example_reaction_name": "R05405"
+      },
+      {
+        "ec": "1.13.11.76",
+        "n_reactions": 2,
+        "example_reaction_name": "RXN-8836.c"
+      },
+      {
+        "ec": "1.13.11.77",
+        "n_reactions": 2,
+        "example_reaction_name": "oleate:oxygen (10S)-oxidoreductase"
+      },
+      {
+        "ec": "1.13.12.12",
+        "n_reactions": 2,
+        "example_reaction_name": "8'-apo-beta-Carotenol:O2 oxidoreductase"
+      },
+      {
+        "ec": "1.13.12.14",
+        "n_reactions": 2,
+        "example_reaction_name": "chlorophyllide-a,NADPH:oxygen 7(1)-oxidoreductase (hydroxylating)"
+      },
+      {
+        "ec": "1.14.11.1",
+        "n_reactions": 2,
+        "example_reaction_name": "4-Trimethylammoniobutanoate,2-oxoglutarate:oxygen oxidoreductase (3-hydroxylating)"
+      },
+      {
+        "ec": "1.14.11.11",
+        "n_reactions": 2,
+        "example_reaction_name": "L-Hyoscyamine,2-oxoglytarate:oxygen oxidoreductase ((6S)-hydroxylating)"
+      },
+      {
+        "ec": "1.14.11.14",
+        "n_reactions": 2,
+        "example_reaction_name": "(6S)-6-Hydroxyhyoscyamine,2-oxoglutarate oxidoreductase (epoxide-forming)"
+      },
+      {
+        "ec": "1.14.11.15",
+        "n_reactions": 2,
+        "example_reaction_name": "(Gibberellin-20),2-oxoglutarate:oxygen oxidoreductase (3beta-hydroxylating)"
+      },
+      {
+        "ec": "1.14.11.25",
+        "n_reactions": 2,
+        "example_reaction_name": "mugineic acid,2-oxoglutarate:oxygen oxidoreductase (3-hydroxylating)"
+      },
+      {
+        "ec": "1.14.11.28",
+        "n_reactions": 2,
+        "example_reaction_name": "L-proline,2-oxoglutarate:oxygen oxidoreductase (3-hydroxylating)"
+      },
+      {
+        "ec": "1.14.11.32",
+        "n_reactions": 2,
+        "example_reaction_name": "codeine,2-oxoglutarate:oxygen oxidoreductase (3-O-demethylating)"
+      },
+      {
+        "ec": "1.14.11.35",
+        "n_reactions": 2,
+        "example_reaction_name": "1-deoxypentalenate dioxygenase"
+      },
+      {
+        "ec": "1.14.11.36",
+        "n_reactions": 2,
+        "example_reaction_name": "pentalenolactone-D,2-oxoglutarate:oxygen oxidoreductase"
+      },
+      {
+        "ec": "1.14.11.43",
+        "n_reactions": 2,
+        "example_reaction_name": "(S)-2-(4-chloro-2-dichlorophenoxy)propanoate,2-oxoglutarate:oxygen oxidoreductase (pyruvate-forming)"
+      },
+      {
+        "ec": "1.14.11.8",
+        "n_reactions": 2,
+        "example_reaction_name": "N6,N6,N6-Trimethyl-L-lysine,2-oxoglutarate:oxygen oxidoreductase (3-hydroxylating)"
+      },
+      {
+        "ec": "1.14.12.1",
+        "n_reactions": 2,
+        "example_reaction_name": "Anthranilate,NADH:oxygen oxidoreductase (1,2-hydroxylating, deaminating, decarboxylating)"
+      },
+      {
+        "ec": "1.14.12.16",
+        "n_reactions": 2,
+        "example_reaction_name": "quinolin-2-ol, NADH:oxygen oxidoreductase (5,6-hydroxylating)"
+      },
+      {
+        "ec": "1.14.12.17",
+        "n_reactions": 2,
+        "example_reaction_name": "nitric oxide, NAD(P)H2:oxygen oxidoreductase"
+      },
+      {
+        "ec": "1.14.12.19",
+        "n_reactions": 2,
+        "example_reaction_name": "3-phenylpropanoate,NADH:oxygen oxidoreductase (2,3-hydroxylating)"
+      },
+      {
+        "ec": "1.14.12.22",
+        "n_reactions": 2,
+        "example_reaction_name": "9H-carbazole,NADH:oxygen oxidoreductase (2,3-hydroxylating)"
+      },
+      {
+        "ec": "1.14.12.4",
+        "n_reactions": 2,
+        "example_reaction_name": "3-hydroxy-2-methylpyridine-5-carboxylate,NADH:oxygen oxidoreductase (decyclizing)"
+      }
+    ],
+    [
+      {
+        "ec": "1.14.12.9",
+        "n_reactions": 2,
+        "example_reaction_name": "4-chlorophenylacetate,NADH:oxygen oxidoreductase (3,4-hydroxylating,"
+      },
+      {
+        "ec": "1.14.13.103",
+        "n_reactions": 2,
+        "example_reaction_name": "sophoraflavanone-B,NADPH:oxygen oxidoreductase (2'-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.11",
+        "n_reactions": 2,
+        "example_reaction_name": "trans-cinnamate,NADPH:oxygen oxidoreductase (4-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.113",
+        "n_reactions": 2,
+        "example_reaction_name": "urate,NADH:oxygen oxidoreductase (5-hydroxyisourate forming)"
+      },
+      {
+        "ec": "1.14.13.115",
+        "n_reactions": 2,
+        "example_reaction_name": "(+)-columbianetin,NADPH:oxygen oxidoreductase"
+      },
+      {
+        "ec": "1.14.13.117",
+        "n_reactions": 2,
+        "example_reaction_name": "L-isoleucine,NADPH:oxygen oxidoreductase (N-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.119",
+        "n_reactions": 2,
+        "example_reaction_name": "5-epiaristolochene,NADPH:oxygen oxidoreductase (1- and 3-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.126",
+        "n_reactions": 2,
+        "example_reaction_name": "calcitriol,NADPH:oxygen oxidoreductase (24-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.127",
+        "n_reactions": 2,
+        "example_reaction_name": "3-(3-hydroxyphenyl)propanoate,NADH:oxygen oxidoreductase (2-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.128",
+        "n_reactions": 2,
+        "example_reaction_name": "7-methylxanthine:oxygen oxidoreductase (demethylating)"
+      },
+      {
+        "ec": "1.14.13.135",
+        "n_reactions": 2,
+        "example_reaction_name": "1-hydroxy-2-naphthoate,NADH:oxygen oxidoreductase (2-hydroxylating, decarboxylating)"
+      },
+      {
+        "ec": "1.14.13.137",
+        "n_reactions": 2,
+        "example_reaction_name": "indole,NADPH:oxygen oxidoreductase (2-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.138",
+        "n_reactions": 2,
+        "example_reaction_name": "indolin-2-one,NADPH:oxygen oxidoreductase (3-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.139",
+        "n_reactions": 2,
+        "example_reaction_name": "3-hydroxyindolin-2-one,NADPH:oxygen oxidoreductase (2-hydroxy-2H-1,4-benzoxazin-3(4H)-one-forming)"
+      },
+      {
+        "ec": "1.14.13.140",
+        "n_reactions": 2,
+        "example_reaction_name": "2-hydroxy-2H-1,4-benzoxazin-3(4H)-one,NADPH:oxygen oxidoreductase (N-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.141",
+        "n_reactions": 2,
+        "example_reaction_name": "cholest-4-en-3-one,NADH:oxygen oxidoreductase (26-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.148",
+        "n_reactions": 2,
+        "example_reaction_name": "N,N,N-trimethylamine,NADPH:oxygen oxidoreductase (N-oxide-forming)"
+      },
+      {
+        "ec": "1.14.13.160",
+        "n_reactions": 2,
+        "example_reaction_name": "(2,2,3-trimethyl-5-oxocyclopent-3-enyl)acetyl-CoA 1,5-monooxygenase"
+      },
+      {
+        "ec": "1.14.13.161",
+        "n_reactions": 2,
+        "example_reaction_name": "(+)-camphor 6-exo-hydroxylase"
+      },
+      {
+        "ec": "1.14.13.170",
+        "n_reactions": 2,
+        "example_reaction_name": "1-deoxy-11-oxopentalenate oxygenase"
+      },
+      {
+        "ec": "1.14.13.171",
+        "n_reactions": 2,
+        "example_reaction_name": "1-deoxy-11-oxopentalenate monooxygenase (neopentalenolactone D producing)"
+      },
+      {
+        "ec": "1.14.13.18",
+        "n_reactions": 2,
+        "example_reaction_name": "4-hydroxyphenylacetate,NADH:oxygen oxidoreductase (1-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.181",
+        "n_reactions": 2,
+        "example_reaction_name": "13-deoxydaunorubicin,NADPH:oxygen oxidoreductase (13-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.187",
+        "n_reactions": 2,
+        "example_reaction_name": "dTDP-beta-L-evernosamine,NADPH:oxygen oxidoreductase (N-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.19",
+        "n_reactions": 2,
+        "example_reaction_name": "taxifolin,NADH:oxygen oxidoreductase (8-hydroxylating)"
+      }
+    ],
+    [
+      {
+        "ec": "1.14.13.190",
+        "n_reactions": 2,
+        "example_reaction_name": "miltiradiene,NADPH:oxygen oxidoreductase (ferruginol forming)"
+      },
+      {
+        "ec": "1.14.13.22",
+        "n_reactions": 2,
+        "example_reaction_name": "Cyclohexanone,NADPH:oxygen oxidoreductase (6-hydroxylating 1,2-lactonizing)"
+      },
+      {
+        "ec": "1.14.13.24",
+        "n_reactions": 2,
+        "example_reaction_name": "3-hydroxybenzoate,NADH:oxygen oxidoreductase (6-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.25",
+        "n_reactions": 2,
+        "example_reaction_name": "Methane,NADH:oxygen oxidoreductase (hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.27",
+        "n_reactions": 2,
+        "example_reaction_name": "4-aminobenzoate,NADH:oxygen oxidoreductase (1-hydroxylating, decarboxylating)"
+      },
+      {
+        "ec": "1.14.13.29",
+        "n_reactions": 2,
+        "example_reaction_name": "4-nitrophenol,NADH:oxygen oxidoreductase (2-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.3",
+        "n_reactions": 2,
+        "example_reaction_name": "4-hydroxyphenylacetate,NADH:oxygen oxidoreductase (3-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.30",
+        "n_reactions": 2,
+        "example_reaction_name": "(6Z,8E,10E,14Z)-(5S,12R)-5,12-Dihydroxyicosa-6,8,10,14-tetraenoate,NADPH:oxygen oxidoreductase (20-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.31",
+        "n_reactions": 2,
+        "example_reaction_name": "nitrophenol oxygenase"
+      },
+      {
+        "ec": "1.14.13.33",
+        "n_reactions": 2,
+        "example_reaction_name": "4-hydroxybenzoate,NADH:oxygen oxidoreductase (3-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.37",
+        "n_reactions": 2,
+        "example_reaction_name": "(S)-N-methylcanadine,NADPH:oxygen oxidoreductase (14-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.38",
+        "n_reactions": 2,
+        "example_reaction_name": "anhydrotetracycline,NADPH:oxygen oxidoreductase (6-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.40",
+        "n_reactions": 2,
+        "example_reaction_name": "anthranilyl-CoA,NADH:oxygen oxidoreductase (de-aromatizing)"
+      },
+      {
+        "ec": "1.14.13.44",
+        "n_reactions": 2,
+        "example_reaction_name": "2-hydroxybiphenyl,NADH:oxygen oxidoreductase (3-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.52",
+        "n_reactions": 2,
+        "example_reaction_name": "formononetin,NADPH:oxygen oxidoreductase (3'-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.63",
+        "n_reactions": 2,
+        "example_reaction_name": "3-hydroxyphenylacetate,NADH:oxygen oxidoreductase (6-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.74",
+        "n_reactions": 2,
+        "example_reaction_name": "7-deoxyloganin,NADPH:oxygen oxidoreductase (7a-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.84",
+        "n_reactions": 2,
+        "example_reaction_name": "(4-hydroxyphenyl)ethan-1-one,NADPH:oxygen oxidoreductase (ester-forming)"
+      },
+      {
+        "ec": "1.14.13.87",
+        "n_reactions": 2,
+        "example_reaction_name": "liquiritigenin,NADPH:oxygen oxidoreductase (licodione-forming)"
+      },
+      {
+        "ec": "1.14.13.91",
+        "n_reactions": 2,
+        "example_reaction_name": "10-deoxysarpagine,NADPH:oxygen oxidoreductase (10-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.92",
+        "n_reactions": 2,
+        "example_reaction_name": "phenylacetone,NADPH:oxygen oxidoreductase"
+      },
+      {
+        "ec": "1.14.13.94",
+        "n_reactions": 2,
+        "example_reaction_name": "lithocholate,NADPH:oxygen oxidoreductase (6beta-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.96",
+        "n_reactions": 2,
+        "example_reaction_name": "5beta-cholestane-3alpha,7alpha-diol,NADPH:oxygen oxidoreductase(12alpha-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.97",
+        "n_reactions": 2,
+        "example_reaction_name": "taurochenodeoxycholate,NADPH:oxygen oxidoreductase(6alpha-hydroxylating)"
+      },
+      {
+        "ec": "1.14.13.99",
+        "n_reactions": 2,
+        "example_reaction_name": "24-Hydroxycholesterol,NADPH:oxygen oxidoreductase(7alpha-hydroxylating)"
+      }
+    ],
+    [
+      {
+        "ec": "1.14.14.8",
+        "n_reactions": 2,
+        "example_reaction_name": "anthranilate,FAD:oxygen oxidoreductase (3-hydroxylating)"
+      },
+      {
+        "ec": "1.14.15.5",
+        "n_reactions": 2,
+        "example_reaction_name": "corticosterone 18-hydroxylase"
+      },
+      {
+        "ec": "1.14.16.6",
+        "n_reactions": 2,
+        "example_reaction_name": "(S)-2-Hydroxy-2-phenylacetate,tetrahydrobiopterin:oxygen oxidoreductase (4-hydroxylating)"
+      },
+      {
+        "ec": "1.14.17.1",
+        "n_reactions": 2,
+        "example_reaction_name": "3,4-dihydroxyphenetylamine,ascorbate:oxygen oxidoreductase (beta-hydroxylating)"
+      },
+      {
+        "ec": "1.14.17.4",
+        "n_reactions": 2,
+        "example_reaction_name": "1-aminocyclopropane-1-carboxylate oxygenase (ethylene-forming)"
+      },
+      {
+        "ec": "1.14.18.2",
+        "n_reactions": 2,
+        "example_reaction_name": "CMP-N-acetylneuraminate hydroxylase"
+      },
+      {
+        "ec": "1.14.20.2",
+        "n_reactions": 2,
+        "example_reaction_name": "(2R)-4-hydroxy-3-oxo-3,4-dihydro-2H-1,4-benzoxazin-2-yl beta-D-glucopyranoside:oxygen oxidoreductase (7-hydroxylating)"
+      },
+      {
+        "ec": "1.14.21.7",
+        "n_reactions": 2,
+        "example_reaction_name": "flaviolin,NADPH:oxygen oxidoreductase"
+      },
+      {
+        "ec": "1.14.99.2",
+        "n_reactions": 2,
+        "example_reaction_name": "kynurenate:oxygen oxidoreductase (hydroxylating)"
+      },
+      {
+        "ec": "1.14.99.31",
+        "n_reactions": 2,
+        "example_reaction_name": "n-tetradecanoyl-CoA, NADPH2:O2 oxidoreductase [11-(E) desaturating]"
+      },
+      {
+        "ec": "1.14.99.32",
+        "n_reactions": 2,
+        "example_reaction_name": "n-tetradecanoyl-CoA, NADH:O2 oxidoreductase [11-(Z) desaturating]"
+      },
+      {
+        "ec": "1.14.99.33",
+        "n_reactions": 2,
+        "example_reaction_name": "crepenynate synthase"
+      },
+      {
+        "ec": "1.14.99.34",
+        "n_reactions": 2,
+        "example_reaction_name": "monoprenyl isoflavone monooxygenase"
+      },
+      {
+        "ec": "1.14.99.45",
+        "n_reactions": 2,
+        "example_reaction_name": "Zeinoxanthin,hydrogen-donor:oxygen oxidoreductase (3'-hydroxylating)"
+      },
+      {
+        "ec": "1.14.99.46",
+        "n_reactions": 2,
+        "example_reaction_name": "uracil,FMNH2:oxygen oxidoreductase (uracil hydroxylating, ring-opening)"
+      },
+      {
+        "ec": "1.17.1.1",
+        "n_reactions": 2,
+        "example_reaction_name": "CDP-4-dehydro-3,6-dideoxy-D-glucose:NAD+ 3-oxydoreductase"
+      },
+      {
+        "ec": "1.17.1.4",
+        "n_reactions": 2,
+        "example_reaction_name": "hypoxanthine:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.17.99.5",
+        "n_reactions": 2,
+        "example_reaction_name": "lithocholate:FAD oxidoreductase (7alpha-dehydroxylating)"
+      },
+      {
+        "ec": "1.18.99.1",
+        "n_reactions": 2,
+        "example_reaction_name": "hydrogenase (ubiquinone-8: 2 protons) (periplasm)"
+      },
+      {
+        "ec": "1.2.1.15",
+        "n_reactions": 2,
+        "example_reaction_name": "3-Oxopropanoate:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.20",
+        "n_reactions": 2,
+        "example_reaction_name": "glutarate-semialdehyde:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.21",
+        "n_reactions": 2,
+        "example_reaction_name": "glycolaldehyde:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.23",
+        "n_reactions": 2,
+        "example_reaction_name": "pyruvaldehyde:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.26",
+        "n_reactions": 2,
+        "example_reaction_name": "2,5-dioxopentanoate:NADP+ 5-oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.31",
+        "n_reactions": 2,
+        "example_reaction_name": "L-2-Aminoadipate-6-semialdehyde:NAD+ 6-oxidoreductase"
+      }
+    ],
+    [
+      {
+        "ec": "1.2.1.36",
+        "n_reactions": 2,
+        "example_reaction_name": "retinal:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.39",
+        "n_reactions": 2,
+        "example_reaction_name": "Phenylacetaldehyde:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.40",
+        "n_reactions": 2,
+        "example_reaction_name": "3alpha,7alpha,12alpha-Trihydroxy-5beta-cholestan-26-al:NAD+ 26-oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.41",
+        "n_reactions": 2,
+        "example_reaction_name": "L-glutamate-5-semialdehyde:NADP+ 5-oxidoreductase (phosphorylating)"
+      },
+      {
+        "ec": "1.2.1.49",
+        "n_reactions": 2,
+        "example_reaction_name": "2-Oxopropanal:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.57",
+        "n_reactions": 2,
+        "example_reaction_name": "butanal:NAD+ oxidoreductase (CoA-acylating)"
+      },
+      {
+        "ec": "1.2.1.59",
+        "n_reactions": 2,
+        "example_reaction_name": "D-glyceraldehyde-3-phosphate:NAD+ oxidoreductase (phosphorylating)"
+      },
+      {
+        "ec": "1.2.1.64",
+        "n_reactions": 2,
+        "example_reaction_name": "4-hydroxybenzaldehyde:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.67",
+        "n_reactions": 2,
+        "example_reaction_name": "vanillin:NAD oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.74",
+        "n_reactions": 2,
+        "example_reaction_name": "Abietadienal:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.77",
+        "n_reactions": 2,
+        "example_reaction_name": "3,4-didehydroadipyl-CoA semialdehyde:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.8",
+        "n_reactions": 2,
+        "example_reaction_name": "p-cumic alcohol:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.85",
+        "n_reactions": 2,
+        "example_reaction_name": "2-Hydroxymuconate semialdehyde:NAD+ 6-oxidoreductase"
+      },
+      {
+        "ec": "1.2.1.87",
+        "n_reactions": 2,
+        "example_reaction_name": "butanal:NAD+ oxidoreductase (CoA-acylating)"
+      },
+      {
+        "ec": "1.2.3.11",
+        "n_reactions": 2,
+        "example_reaction_name": "Retinal:oxygen oxidoreductase"
+      },
+      {
+        "ec": "1.2.3.13",
+        "n_reactions": 2,
+        "example_reaction_name": "4-hydroxyphenylpyruvate:oxygen oxidoreductase (decarboxylating)"
+      },
+      {
+        "ec": "1.2.3.8",
+        "n_reactions": 2,
+        "example_reaction_name": "Pyridoxal:oxygen 4-oxidoreductase"
+      },
+      {
+        "ec": "1.2.99.5",
+        "n_reactions": 2,
+        "example_reaction_name": "R08060"
+      },
+      {
+        "ec": "1.23.1.1",
+        "n_reactions": 2,
+        "example_reaction_name": "RXN-12451.c"
+      },
+      {
+        "ec": "1.23.1.2",
+        "n_reactions": 2,
+        "example_reaction_name": "(+)-lariciresinol lyase"
+      },
+      {
+        "ec": "1.3.1.1",
+        "n_reactions": 2,
+        "example_reaction_name": "5,6-Dihydrouracil:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.105",
+        "n_reactions": 2,
+        "example_reaction_name": "RXN-9565.c"
+      },
+      {
+        "ec": "1.3.1.22",
+        "n_reactions": 2,
+        "example_reaction_name": "5alpha-pregnane-3,20-dione:NADP+ 5-oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.24",
+        "n_reactions": 2,
+        "example_reaction_name": "Bilirubin:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.25",
+        "n_reactions": 2,
+        "example_reaction_name": "(1R,6S)-1,6-dihydroxycyclohexa-2,4-diene-1-carboxylate:NAD+ oxidoreductase (decarboxylating)"
+      }
+    ],
+    [
+      {
+        "ec": "1.3.1.26",
+        "n_reactions": 2,
+        "example_reaction_name": "2,3,4,5-Tetrahydrodipicolinate:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.30",
+        "n_reactions": 2,
+        "example_reaction_name": "5alpha-pregnane-3,20-dione:NADP+ 5-oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.31",
+        "n_reactions": 2,
+        "example_reaction_name": "butanoate:NAD+ delta2-oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.40",
+        "n_reactions": 2,
+        "example_reaction_name": "2,6-dioxo-6-phenylhexanoate:NADP+ delta2-oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.42",
+        "n_reactions": 2,
+        "example_reaction_name": "8-[(1R,2R)-3-oxo-2-{(Z)-pent-2-enyl}cyclopentyl]octanoate:NADP+ 4-oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.47",
+        "n_reactions": 2,
+        "example_reaction_name": "1,2-dihydrosantonin:NAD+ 1,2-oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.48",
+        "n_reactions": 2,
+        "example_reaction_name": "(5Z)-(15S)-11alpha-hydroxy-9,15-dioxoprostanoate:NAD+ delta13-oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.5",
+        "n_reactions": 2,
+        "example_reaction_name": "NAD(P)H: cucurbitacin B delta23-oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.53",
+        "n_reactions": 2,
+        "example_reaction_name": "(3S,4R)-3,4-dihydroxycyclohexa-1,5-diene-1,4-dicarboxylate:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.67",
+        "n_reactions": 2,
+        "example_reaction_name": "cis-1,2-Dihydroxy-4-methylcyclohexa-3,5-diene-1-carboxylate:NAD+ oxidoreductase (decarboxylating)"
+      },
+      {
+        "ec": "1.3.1.74",
+        "n_reactions": 2,
+        "example_reaction_name": "n-alkanal:NAD(P)+ 2-oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.79",
+        "n_reactions": 2,
+        "example_reaction_name": "L-arogenate:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.82",
+        "n_reactions": 2,
+        "example_reaction_name": "(+)-cis-isopulegone:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.85",
+        "n_reactions": 2,
+        "example_reaction_name": "ethylmalonyl-CoA:NADP+ oxidoreductase (decarboxylating)"
+      },
+      {
+        "ec": "1.3.1.87",
+        "n_reactions": 2,
+        "example_reaction_name": "3-(cis-5,6-dihydroxycyclohexa-1,3-dien-1-yl)propanoate:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.3.1.93",
+        "n_reactions": 2,
+        "example_reaction_name": "R07761"
+      },
+      {
+        "ec": "1.3.1.97",
+        "n_reactions": 2,
+        "example_reaction_name": "RXN-13291.c"
+      },
+      {
+        "ec": "1.3.1.98",
+        "n_reactions": 2,
+        "example_reaction_name": "UDP-N-acetylmuramate:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.3.3.11",
+        "n_reactions": 2,
+        "example_reaction_name": "6-(2-Amino-2-carboxyethyl)-7,8-dioxo-7,8-dihydroquinoline-2,4-dicarboxylate:oxygen oxidoreductase (cyclizing)"
+      },
+      {
+        "ec": "1.3.3.13",
+        "n_reactions": 2,
+        "example_reaction_name": "cyclo(L-leucyl-L-phenylalanyl):oxygen oxidoreductase"
+      },
+      {
+        "ec": "1.3.3.3",
+        "n_reactions": 2,
+        "example_reaction_name": "Coproporphyrinogen:oxygen oxidoreductase(decarboxylating)"
+      },
+      {
+        "ec": "1.3.3.4",
+        "n_reactions": 2,
+        "example_reaction_name": "Protoporphyrinogen oxidase"
+      },
+      {
+        "ec": "1.3.3.9",
+        "n_reactions": 2,
+        "example_reaction_name": "loganin:oxygen oxidoreductase (ring cleaving)"
+      },
+      {
+        "ec": "1.3.98.1",
+        "n_reactions": 2,
+        "example_reaction_name": "(S)-dihydroorotate:fumarate oxidoreductase"
+      },
+      {
+        "ec": "1.3.99.10",
+        "n_reactions": 2,
+        "example_reaction_name": "3-methylbutanoyl-CoA:(acceptor) 2,3-oxidoreductase"
+      }
+    ],
+    [
+      {
+        "ec": "1.3.99.27",
+        "n_reactions": 2,
+        "example_reaction_name": "1-hydroxy-1,2-dihydrolycopene:acceptor oxidoreductase"
+      },
+      {
+        "ec": "1.3.99.6",
+        "n_reactions": 2,
+        "example_reaction_name": "3-Oxo-5beta-steroid:NADP+ delta4-oxidoreductase"
+      },
+      {
+        "ec": "1.3.99.7",
+        "n_reactions": 2,
+        "example_reaction_name": "Glutaryl-CoA:(acceptor) 2,3-oxidoreductase (decarboxylating)"
+      },
+      {
+        "ec": "1.4.1.1",
+        "n_reactions": 2,
+        "example_reaction_name": "glycine:NAD+ oxidoreductase (deaminating)"
+      },
+      {
+        "ec": "1.4.1.11",
+        "n_reactions": 2,
+        "example_reaction_name": "L-erythro-3,5-diaminohexanoate:NAD+ oxidoreductase (deaminating)"
+      },
+      {
+        "ec": "1.4.1.13",
+        "n_reactions": 2,
+        "example_reaction_name": "L-Glutamate:NADP+ oxidoreductase (transaminating)"
+      },
+      {
+        "ec": "1.4.1.17",
+        "n_reactions": 2,
+        "example_reaction_name": "N-methyl-L-alanine:NADP+ oxidoreductase (demethylating, deaminating)"
+      },
+      {
+        "ec": "1.4.1.19",
+        "n_reactions": 2,
+        "example_reaction_name": "L-Tryptophan:NAD+ oxidoreductase (deaminating)"
+      },
+      {
+        "ec": "1.4.1.20",
+        "n_reactions": 2,
+        "example_reaction_name": "L-phenylalanine:NAD+ oxidoreductase (deaminating)"
+      },
+      {
+        "ec": "1.4.3.15",
+        "n_reactions": 2,
+        "example_reaction_name": "D-Glutamate:oxygen oxidoreductase (deaminating)"
+      },
+      {
+        "ec": "1.4.3.23",
+        "n_reactions": 2,
+        "example_reaction_name": "7-chloro-L-tryptophan:oxygen oxidoreductase"
+      },
+      {
+        "ec": "1.4.9.2",
+        "n_reactions": 2,
+        "example_reaction_name": "Tyramine:oxygen oxidoreductase(deaminating)(flavin-containing)"
+      },
+      {
+        "ec": "1.4.99.4",
+        "n_reactions": 2,
+        "example_reaction_name": "Tyramine:oxygen oxidoreductase(deaminating)(flavin-containing)"
+      },
+      {
+        "ec": "1.5.1.1",
+        "n_reactions": 2,
+        "example_reaction_name": "L-proline:NAD+ 2-oxidoreductase"
+      },
+      {
+        "ec": "1.5.1.25",
+        "n_reactions": 2,
+        "example_reaction_name": "thiomorpholine-3-carboxylate:NAD+ 5,6-oxidoreductase"
+      },
+      {
+        "ec": "1.5.1.29",
+        "n_reactions": 2,
+        "example_reaction_name": "FMNH2:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.5.1.33",
+        "n_reactions": 2,
+        "example_reaction_name": "5,6,7,8-Tetrahydrobiopterin:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.5.1.34",
+        "n_reactions": 2,
+        "example_reaction_name": "5,6,7,8-tetrahydropteridine:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.5.1.39",
+        "n_reactions": 2,
+        "example_reaction_name": "FMNH2:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.5.1.40",
+        "n_reactions": 2,
+        "example_reaction_name": "reduced coenzyme F420:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.5.1.43",
+        "n_reactions": 2,
+        "example_reaction_name": "carboxyspermidine:NADP+ oxidoreductase"
+      },
+      {
+        "ec": "1.5.3.11",
+        "n_reactions": 2,
+        "example_reaction_name": "N1-acetylspermine:oxygen oxidoreductase (3-acetamidopropanal-forming)"
+      },
+      {
+        "ec": "1.5.99.12",
+        "n_reactions": 2,
+        "example_reaction_name": "RXN-4641.c"
+      },
+      {
+        "ec": "1.5.99.8",
+        "n_reactions": 2,
+        "example_reaction_name": "L-erythro-4-Hydroxyglutamate:NAD+ oxidoreductase"
+      },
+      {
+        "ec": "1.6.1.1",
+        "n_reactions": 2,
+        "example_reaction_name": "NADPH:NAD+ oxidoreductase"
+      }
+    ]
+  ],
+  "cost_estimate": {
+    "n_ecs": 500,
+    "n_chunks": 20,
+    "est_input_tokens": 2132000,
+    "est_output_tokens": 617500,
+    "est_cost_low_usd": 10.44,
+    "est_cost_high_usd": 18.79
+  }
+}

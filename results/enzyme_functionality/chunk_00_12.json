@@ -1,0 +1,152 @@
+{
+  "2.8.3.12": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "(E)-Glutaconate CoA-transferase literature search returned no evidence of a second fused catalytic activity; hits were unrelated metabolic-pathway papers.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.1.19": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-Glucuronolactone lactonohydrolase (gluconolactonase) is treated as a standalone hydrolase in the literature; no bifunctional/polyfunctional fusion was described.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.1.5": {
+    "category": "polyfunctional",
+    "confidence": "high",
+    "rationale": "Lysophospholipase L1 is the activity of E. coli TAP/TesA, repeatedly described in the literature as 'thioesterase I/protease I/lysophospholipase L1', a single SGNH-hydrolase-fold polypeptide with genuinely distinct catalytic activities (acyl-CoA thioesterase, a peptidase/protease, and lysophospholipase).",
+    "evidence": "PMID 12842470, PMID 15697222, PMID 16972310, PMID 17604237"
+  },
+  "3.1.3.12": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Trehalose-6-phosphate (mycolyl-trehalose-6-phosphate) phosphatase is a standalone HAD-family phosphatase in the literature retrieved; no evidence of a second fused catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.31": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Beta-glucuronidase (bilirubin diglucuronide glucuronosohydrolase, GUSB) is a standalone lysosomal/bacterial hydrolase; search results were unrelated to any second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.56": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "No literature hits at all were returned for this glucuronidase (heparan-sulfate related) combined with bifunctional/multifunctional/trifunctional terms.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.4.17.13": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Murein L,D-carboxypeptidase is a standalone periplasmic peptidase; the single retrieved hit was unrelated (horizontal gene transfer review), with no fusion evidence.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.5.1.97": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Acyl-homoserine-lactone acylase search returned only unrelated microbiome papers; no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.5.4.16": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "GTP cyclohydrolase I (GTP 7,8-8,9-dihydrolase) returned many hits but none describing a fused second catalytic activity for this enzyme; it is a homo-decamer with a single catalytic function.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.3.34": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This EC covers an ABC-transporter-type ATP phosphohydrolase; literature hits were unrelated and no second catalytic activity fused to the ATPase was described.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.7.1.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Kynureninase (L-kynurenine hydrolase) is a standalone PLP-dependent enzyme; retrieved hits (pathway-reconstruction papers) gave no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.2.1.107": {
+    "category": "bifunctional",
+    "confidence": "high",
+    "rationale": "This hydro-lyase activity on trihydroxycholestanoyl-CoA is one of the two catalytic activities of the peroxisomal D-bifunctional protein (MFE-2), which fuses 2-enoyl-CoA hydratase 2 and (R)-3-hydroxyacyl-CoA dehydrogenase activities in a single polypeptide for bile-acid/fatty-acid beta-oxidation.",
+    "evidence": "PMID 11964182"
+  },
+  "4.2.3.32": {
+    "category": "bifunctional",
+    "confidence": "high",
+    "rationale": "In fungal gibberellin biosynthesis (e.g. Gibberella/Fusarium fujikuroi), ent-copalyl diphosphate synthase is fused with ent-kaurene synthase into a single 'bifunctional ent-copalyl diphosphate synthase/ent-kaurene synthase' polypeptide (CPS/KS), explicitly named as such in the literature.",
+    "evidence": "PMID 11472927"
+  },
+  "5.1.3.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-glucose 4-epimerase (GalE) is consistently described as a standalone NAD-dependent epimerase; no fused second catalytic activity was reported in the retrieved literature.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "5.1.3.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-glucose 1-epimerase (mutarotase) literature hits were unrelated microbial/ecology papers; no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "5.3.1.12": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-glucuronate isomerase (UxaC) is a standalone cupin-fold isomerase in hexuronate catabolism; retrieved hits (e.g. UxaE characterization) do not describe a fused second catalytic activity for this specific enzyme.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "5.3.1.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-arabinose (L-arabinose) isomerase (AraA) is a standalone hexameric isomerase; no literature evidence of a fused second catalytic activity was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "5.3.3.5": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Cholestenol Delta-isomerase (emopamil-binding protein, EBP) is a standalone ER-membrane isomerase in sterol biosynthesis; retrieved hits were unrelated with no fusion evidence.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "5.4.2.2": {
+    "category": "bifunctional",
+    "confidence": "medium",
+    "rationale": "In most organisms phosphoglucomutase is monofunctional, but a 2025 cryo-EM/biophysical study reports a natural bifunctional phosphoglucomutase/phosphomannomutase from the archaeon Thermococcus kodakarensis, a single polypeptide carrying both PGM (EC 5.4.2.2) and PMM (EC 5.4.2.8) catalytic activities.",
+    "evidence": "PMID 40149855"
+  },
+  "5.5.1.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Muconate cycloisomerase (2,5-dihydro-5-oxofuran-2-acetate lyase) is a standalone enzyme of the beta-ketoadipate pathway; retrieved hits describe only single-activity cycloisomerases with no fusion evidence.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "5.5.1.19": {
+    "category": "bifunctional",
+    "confidence": "high",
+    "rationale": "In fungi (e.g. Rhodosporidium/Rhodotorula, Xanthophyllomyces), lycopene cyclase and phytoene synthase activities are encoded by a single gene, crtYB/Car2, producing a documented bifunctional phytoene synthase/lycopene cyclase polypeptide.",
+    "evidence": "PMID 24677129"
+  },
+  "6.2.1.4": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Succinate-CoA ligase (GDP-forming) functions as an alpha/beta heterooligomeric complex that catalyzes a single reaction type; this is a multi-subunit assembly, not a fusion of two distinct catalytic (EC) activities, and no such fusion was reported in the literature.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.100": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "3-oxoacyl-[acyl-carrier-protein] reductase (FabG) is modeled here as the standalone bacterial-type reductase of FAS II; literature hits concerned unrelated SDR enzymes and gave no evidence of a second fused catalytic activity for this standalone enzyme.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.111": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "No literature hits at all were returned for (S)-3-(Imidazol-5-yl)lactate:NAD+ oxidoreductase combined with bifunctional/multifunctional/trifunctional terms.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.115": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-Ribose:NADP+ 1-oxidoreductase is a standalone short-chain dehydrogenase/reductase (e.g. SalM); the single retrieved hit described only a single catalytic activity with no fusion evidence.",
+    "evidence": "none found, defaulted to monofunctional"
+  }
+}

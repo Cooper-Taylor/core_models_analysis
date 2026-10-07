@@ -1,0 +1,152 @@
+{
+  "2.4.1.63": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDPglucose:2-hydroxy-2-methylpropanenitrile beta-D-glucosyltransferase (cyanohydrin glucosyltransferase) is a single-activity plant glycosyltransferase; Europe PMC search returned zero hits for bifunctional/multifunctional/trifunctional framing.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.6.1.42": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Branched-chain amino acid aminotransferase (BCAT) is a well-characterized single-activity PLP aminotransferase; search hits were generic metabolomics/proteomics papers mentioning BCAT in passing, none describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.1.40": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Pyruvate kinase (ATP/GTP:pyruvate 2-O-phosphotransferase) is a canonical single-activity glycolytic kinase; the 113 EuropePMC hits were unrelated papers (exosomes, lactonase promiscuity, pharmacology guide) with no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.1.1.81": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Quorum-quenching N-acyl-homoserine lactonase is a single hydrolytic activity; literature (e.g. PMID 39328773) discusses catalytic promiscuity/substrate redundancy across AHL substrates, which is broad substrate specificity within one activity, not a second fused catalytic activity.",
+    "evidence": "PMID 39328773 (describes substrate promiscuity, not bifunctionality); otherwise none found, defaulted to monofunctional"
+  },
+  "3.1.2.4": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "EC 3.1.2.4 (methylmalonyl-CoA hydrolase family CoA-thioester hydrolase) returned only unrelated chitin/nitrogen-cycling papers in EuropePMC with no mention of a fused second catalytic activity; example_reaction_name in the manifest (KEGG id R03157) gave no additional specific identity to search.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.165": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "No bifunctional/multifunctional evidence surfaced for EC 3.2.1.165 in EuropePMC (hits were about chitin/chitosan degradation unrelated to this EC); note the manifest's example_reaction_name ('D-Mannitol:NAD+ 2-oxidoreductase', an EC 1.1.1.x-style name) appears mismatched to the 3.2.1.x glycosidase class, likely a data artifact, but this does not change the monofunctional default since no second-activity evidence was found either way.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.3.2.10": {
+    "category": "bifunctional",
+    "confidence": "high",
+    "rationale": "Soluble epoxide hydrolase (sEH/EPHX2, EC 3.3.2.10) is explicitly documented as a bifunctional enzyme with two distinct catalytic activities in separate domains: C-terminal epoxide hydrolase activity and N-terminal lipid phosphatase activity (acting on lysophosphatidic acids), each a genuine catalytic function rather than moonlighting.",
+    "evidence": "PMID 32063836 ('The bifunctional enzyme soluble epoxide hydrolase (sEH)... has two different catalytic activities, each assigned to one of its terminal domains: the C-terminal domain presents hydrolase activity, whereas the N-terminal domain exhibits phosphatase activity'); also PMID 42086723, PMID 31660733"
+  },
+  "3.5.1.24": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Taurocholate amidohydrolase / bile salt hydrolase (BSH) is a well-characterized single cysteine-hydrolase activity; the 19 EuropePMC hits were probiotic genome characterization papers describing BSH as a standalone activity with no fused second catalytic function.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.1.21": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "GDP-mannose mannosylhydrolase is a single pyrophosphatase/glycosylhydrolase activity; only one unrelated EuropePMC hit (quinoa drought transcriptomics) returned, no bifunctional evidence.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.1.45": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-glucose glucohydrolase/pyrophosphatase is a single hydrolytic activity; the one EuropePMC hit describes two separate enzymes (GpgS synthase and a distinct glycosyltransferase) in a pathway, not a single bifunctional protein for this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.7.1.9": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "2-hydroxymuconate-semialdehyde formylhydrolase is a single hydrolase activity in the catechol meta-cleavage pathway; the single EuropePMC hit was an unrelated soil pollution paper, no bifunctional evidence.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.2.1.80": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "2-oxopent-4-enoate hydratase (EC 4.2.1.80, meta-cleavage pathway hydratase) returned only tangential hits (e.g. a FAHD1 acylpyruvase characterization unrelated to this specific EC); no credible evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.2.1.9": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Dihydroxy-acid dehydratase (DHAD), the 2,3-dihydroxy-3-methylbutanoate hydro-lyase of branched-chain amino acid biosynthesis, is a well-known standalone Fe-S cluster dehydratase; EuropePMC hits (Entner-Doudoroff pathway, antifungal targets, diatom amino acid biosynthesis) show no fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.4.1.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "L-cysteine hydrogen-sulfide-lyase / cystathionine gamma-lyase (CGL) is a well-characterized standalone PLP-dependent lyase; the 47 EuropePMC hits (H2S biology, methionine biosynthesis reviews) show no fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.4.1.8": {
+    "category": "bifunctional",
+    "confidence": "medium",
+    "rationale": "A characterized ortholog of cystathionine beta-lyase, MalY from Lactobacillus sakei, is explicitly reported as a bifunctional enzyme: it catalyzes both amino acid racemase activity (broad substrate range) and beta-lyase activity at the same PLP-binding active site, with distinct catalytic residues implicated in each (Lys233 essential for both, Tyr123 specific to racemase activity). This is ortholog-specific evidence rather than a universal property of all EC 4.4.1.8 enzymes, hence medium confidence.",
+    "evidence": "PMID 29563907 ('Ls-MalY is a novel bifunctional amino acid racemase with multiple substrate specificity; both the amino acid racemase and β-lyase reactions of Ls-MalY were catalyzed at the same active site')"
+  },
+  "5.3.1.5": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-glucose aldose-ketose-isomerase (xylose/glucose isomerase) is a well-known standalone isomerase; the 28 EuropePMC hits were unrelated (metagenomics, chimeric-enzyme minireview, thermodynamics) with no bifunctional evidence specific to this enzyme.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "5.5.1.7": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Chloromuconate cycloisomerase-type lyase (decyclizing) is a single catalytic activity in aromatic-compound degradation pathways; the 2 EuropePMC hits were unrelated bioinformatics papers, no bifunctional evidence.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "6.2.1.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Acetate-CoA ligase (acetyl-CoA synthetase, AMP-forming) is a well-known standalone ligase; the 43 EuropePMC hits were unrelated metabolism papers with no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "6.2.1.12": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "4-Coumarate-CoA ligase (4CL), a key phenylpropanoid-pathway enzyme, is a well-characterized standalone AMP-forming ligase; the 49 EuropePMC hits (flower-color transcriptomics, MIO-enzyme evolution) show no fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "6.3.5.5": {
+    "category": "polyfunctional",
+    "confidence": "high",
+    "rationale": "EC 6.3.5.5 (glutamine-hydrolyzing carbamoyl-phosphate synthetase) is the first of three fused catalytic domains in the mammalian/metazoan CAD protein, a 1.5 MDa multimeric 'pyrimidine factory' that also carries aspartate transcarbamylase and dihydroorotase activities on the same polypeptide -- directly matching the polyfunctional/trifunctional definition.",
+    "evidence": "PMID 34288185 ('CAD is a 1.5 MDa particle... divided into different enzymatic domains, each catalyzing one of the initial reactions for de novo biosynthesis of pyrimidine nucleotides: glutaminase-dependent Carbamoyl phosphate synthetase, Aspartate transcarbamoylase, and Dihydroorotase')"
+  },
+  "1.1.1.14": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Sorbitol dehydrogenase (D-glucitol:NAD+ 2-oxidoreductase) is a well-known standalone zinc-dependent dehydrogenase; the 14 EuropePMC hits (Fructobacillus genomics, xylitol dehydrogenase structure, renal tumor proteomics) show no fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.203": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-galacturonate dehydrogenase (D-galacturonate:NAD+ 1-oxidoreductase) is a single-activity sugar-acid dehydrogenase; only 2 unrelated EuropePMC hits returned (indigo-reducing bacteria, a protein-function-prediction tool), no bifunctional evidence.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.219": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Dihydroflavonol 4-reductase (DFR), a flavonoid/anthocyanin biosynthesis enzyme, is a well-known standalone NADPH-dependent reductase; the 32 EuropePMC hits were pathway-level transcriptomics/metabolomics papers (tea, alfalfa, pomegranate, Portulaca) mentioning DFR among many genes, with no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.23": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "L-histidinol dehydrogenase (HDH) performs two sequential NAD+-dependent oxidation steps (alcohol to aldehyde to carboxylic acid) at a single active site, and structural papers loosely call it 'bifunctional' for this reason, but both steps fall under the single EC 1.1.1.23 designation rather than two classically separate EC-numbered activities fused together (the task's bifunctional definition), so this does not meet the bar for bifunctional; a related but distinct histidine-pathway enzyme (HISN2, PRA-cyclohydrolase/PRA-pyrophosphatase) is genuinely bifunctional but is a different EC, not 1.1.1.23.",
+    "evidence": "PMID 28874718 and PMID 33958623 use 'bifunctional' language, but it refers either to HDH's intrinsic two-step single-EC oxidation mechanism or to a different enzyme (HISN2) in the same pathway, not a fused second EC-classified activity on EC 1.1.1.23 itself; defaulted to monofunctional"
+  },
+  "1.1.1.271": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "GDP-L-fucose synthase (GDP-L-fucose:NADP+ 4-oxidoreductase, 3,5-epimerizing) performs an epimerization plus reduction, but both steps are encompassed by the single EC 1.1.1.271 designation at one active site rather than two classically separate EC-numbered activities fused together; EuropePMC hits (fucose metabolism/salvage pathway papers) show no evidence of a distinct second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  }
+}

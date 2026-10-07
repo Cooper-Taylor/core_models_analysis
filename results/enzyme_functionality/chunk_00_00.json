@@ -1,0 +1,152 @@
+{
+  "1.2.1.5": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Generic NAD(P)+-dependent aldehyde dehydrogenase; distinct from the acetylating acetaldehyde dehydrogenase activity (EC 1.2.1.10) that is fused in bifunctional AdhE. No literature describes a second fused catalytic activity for this EC.",
+    "evidence": "none found specific to EC 1.2.1.5; PMID 40301148 (ALDH superfamily review) reports no fusion for this activity"
+  },
+  "1.1.1.71": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "NADP+-dependent alcohol dehydrogenase, characterized across many organisms as a standalone enzyme. No literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.3.44": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Generic ABC-type transport ATPase (ATP phosphohydrolase); searches returned no reports of a fused second catalytic activity beyond ATP hydrolysis coupled to transport.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.3.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Ca2+-transporting ATPase (P-type ion pump); standalone ion-motive ATPase activity with no reported second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.3.17": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Carbohydrate/monosaccharide-transporting ATPase; no literature describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.3.18": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Transport-associated ATPase; EuropePMC search returned zero relevant hits, consistent with a narrowly characterized, monofunctional transporter ATPase.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.3.23": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Polyamine/other-substrate-transporting ATPase; EuropePMC search returned zero relevant hits, consistent with a monofunctional transporter ATPase.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.14.1": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Unspecific monooxygenase covering the broad cytochrome P450 superfamily; the vast majority require a separate partner reductase. A rare self-sufficient fusion (e.g. P450 BM3/CYP102A1, fusing heme and reductase domains) exists but is an atypical bacterial variant, not characteristic of this EC class.",
+    "evidence": "none found indicating fusion is characteristic of the class; CYP102A1/P450BM3 self-sufficient fusion is a known but non-representative exception"
+  },
+  "2.4.1.241": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-galactose-dependent digalactosyldiacylglycerol synthase, a standalone glycosyltransferase; no literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.6.5.2": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "NADH:quinone oxidoreductase (respiratory Complex I / NDH-1); although a large multi-subunit complex, all subunits cooperate in one overall electron-transfer/proton-pumping catalytic activity rather than two distinct EC-type activities.",
+    "evidence": "none found specific to this EC describing a second fused catalytic activity"
+  },
+  "2.7.1.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Hexokinase; literature on its role in sugar/glucose signaling (e.g. plant HXK nuclear signaling) is a regulatory/moonlighting function, not a second EC-type catalytic activity, per the explicit worked example in the task instructions.",
+    "evidence": "none found for a second catalytic activity; sugar-signaling literature (e.g. PMID 42796823) describes moonlighting, excluded by instructions"
+  },
+  "1.14.13.72": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "EC 1.14.13.72 is a transferred/obsolete entry, now reclassified as EC 1.14.18.9 (4alpha-methylsterol monooxygenase, ergosterol/sterol C4-demethylation pathway); no fusion with another catalytic activity is described.",
+    "evidence": "ExPASy ENZYME entry confirms transfer to EC 1.14.18.9; no bifunctional/multifunctional literature found"
+  },
+  "1.2.1.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Generic NAD+-dependent (non-acetylating) aldehyde dehydrogenase; distinct from AdhE's acetylating activity (EC 1.2.1.10). No literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.1": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Alcohol dehydrogenase is overwhelmingly characterized as a standalone, monofunctional enzyme across eukaryotes and most bacteria. A well-known exception, bacterial/protozoal AdhE, fuses this activity with acetylating acetaldehyde dehydrogenase (EC 1.2.1.10) on one polypeptide, but this is a specific anaerobic-fermentation variant rather than the characteristic form of EC 1.1.1.1.",
+    "evidence": "PMID 38875756 (bifunctional AdhE in Cryptosporidium, cited as a known exception, not the default form); ExPASy EC 1.1.1.1 cross-references several ADHE_* UniProt entries"
+  },
+  "1.3.3.6": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Acyl-CoA oxidase (peroxisomal beta-oxidation entry enzyme, e.g. ACOX1/ACOX2); no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.35": {
+    "category": "polyfunctional",
+    "confidence": "high",
+    "rationale": "3-hydroxyacyl-CoA dehydrogenase activity is one of three fused catalytic domains -- enoyl-CoA hydratase (EC 4.2.1.17), Delta3,Delta2-enoyl-CoA isomerase (EC 5.3.3.8), and this dehydrogenase -- on the single-polypeptide peroxisomal enzyme EHHADH (UniProt Q08426), which UniProt itself describes as a 'peroxisomal trifunctional enzyme'. This is distinct from the monofunctional long-chain-specific dehydrogenase (EC 1.1.1.211).",
+    "evidence": "UniProt Q08426 (EHHADH/PBE/MFE1); ExPASy EC 1.1.1.35 notes 'broad specificity to acyl chain-length (cf. EC 1.1.1.211)'"
+  },
+  "2.4.1.17": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-glucuronosyltransferase (UGT superfamily); broad substrate promiscuity is well documented but no literature describes a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "6.2.1.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Butanoate-CoA ligase (medium/long-chain acyl-CoA synthetase); no literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.21": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Aldose reductase/alditol:NAD+ oxidoreductase (aldo-keto reductase family); no literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.145": {
+    "category": "bifunctional",
+    "confidence": "high",
+    "rationale": "3beta-hydroxysteroid dehydrogenase/Delta5-Delta4-isomerase (3beta-HSD, e.g. HSD3B1/HSD3B2) is a single polypeptide experimentally shown to carry out both the NAD+-dependent 3beta-dehydrogenase reaction and the steroid double-bond isomerase reaction sequentially on one active site/enzyme.",
+    "evidence": "PMID 7673125 (NADH-induced conformational change mediating sequential 3beta-HSD/isomerase activities); PMID 10514560"
+  },
+  "4.2.1.17": {
+    "category": "polyfunctional",
+    "confidence": "high",
+    "rationale": "Enoyl-CoA hydratase activity is one of three catalytic domains (hydratase + Delta3,Delta2-enoyl-CoA isomerase EC 5.3.3.8 + 3-hydroxyacyl-CoA dehydrogenase EC 1.1.1.35) fused on the single-polypeptide peroxisomal enzyme EHHADH; it is also the HADHA (alpha-subunit) activity of the mitochondrial trifunctional protein complex, paired with the HADHB thiolase subunit.",
+    "evidence": "UniProt Q08426 (EHHADH); PMID 41500837, 39088276, 40790338 (mitochondrial trifunctional protein / HADHA)"
+  },
+  "2.3.1.16": {
+    "category": "polyfunctional",
+    "confidence": "medium",
+    "rationale": "This 3-ketoacyl-CoA thiolase activity is carried by HADHB, the beta-subunit of the mitochondrial trifunctional protein (a stable hetero-octameric complex) whose alpha-subunit (HADHA) additionally carries enoyl-CoA hydratase and long-chain 3-hydroxyacyl-CoA dehydrogenase activities, giving the complex three fused catalytic activities. A free-standing monofunctional form (e.g. peroxisomal ACAA1) also exists under this same EC, hence medium confidence.",
+    "evidence": "PMID 41500837, 39088276, 40790338 (mitochondrial trifunctional protein deficiency, HADHB); ExPASy EC 2.3.1.16 cross-references ECHB_* (HADHB) UniProt entries"
+  },
+  "5.3.3.1": {
+    "category": "bifunctional",
+    "confidence": "high",
+    "rationale": "Steroid Delta-isomerase activity in this reaction context is the second catalytic activity of the single-polypeptide 3beta-hydroxysteroid dehydrogenase/Delta5-Delta4-isomerase enzyme (3beta-HSD), which also carries the EC 1.1.1.145 dehydrogenase activity.",
+    "evidence": "PMID 7673125 (sequential 3beta-HSD/isomerase activities on one enzyme); PMID 10514560"
+  },
+  "2.7.8.29": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "L-serine-phosphatidylethanolamine phosphatidyltransferase (phosphatidylserine synthase); no literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.1.1.65": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Phosphatidylserine decarboxylase (PISD); no literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  }
+}

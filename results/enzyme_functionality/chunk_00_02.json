@@ -1,0 +1,152 @@
+{
+  "3.2.1.74": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Glucan 1,4-beta-glucosidase (exo-acting beta-1,4-glucanase/glucoamylase) is described as a single hydrolytic activity throughout the literature; EuropePMC turns up various unrelated bifunctional GH enzymes but none tie a fused second catalytic activity to this EC.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.1.19": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Nucleoside-triphosphate diphosphatase (GTP diphosphohydrolase) is reported as a standalone hydrolase with no literature describing a fused second catalytic domain.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.3.22": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "This EC covers a transport-coupled ATP phosphohydrolase (ABC/P-type transporter ATPase domain); no EuropePMC records reference this EC number directly, and transport ATPase domains are generically single-activity (ATP hydrolysis coupled to translocation).",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.13.70": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Sterol 14-alpha-demethylase (CYP51) is a classic monofunctional cytochrome P450 monooxygenase; literature on CYP51 cloning/characterization shows no fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.173": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "UDP-glucose:sterol 3-O-beta-D-glucosyltransferase is reported as a single-activity glycosyltransferase with no fusion partner described in the literature.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.8": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Maltose phosphorylase is a well-characterized single-activity glycoside phosphorylase; no literature ties it to a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.5.1.18": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Glutathione S-transferases are frequently termed 'multifunctional' in the literature, but this refers to broad substrate promiscuity across many xenobiotics/endogenous compounds within the same transferase chemistry, not a second fused catalytic EC activity.",
+    "evidence": "PMID 41697321 (describes GSTs as 'multifunctional' in the substrate-promiscuity sense only); none found for fused second catalytic activity, defaulted to monofunctional"
+  },
+  "2.6.1.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Aspartate aminotransferase is a textbook single-activity PLP-dependent transaminase; no evidence of a fused second catalytic domain.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.1.74": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Deoxycytidine kinase (dCK) is naturally monofunctional; the only 'bifunctional' hit found is an artificially engineered dCK-UMP/CMP-kinase fusion protein built for gemcitabine gene therapy, not a naturally occurring fusion.",
+    "evidence": "PMID 22093835 (engineered, non-natural fusion construct, excluded per instructions); native enzyme defaulted to monofunctional"
+  },
+  "3.1.3.5": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "5'-Nucleotidases are described as 'multifunctional' due to broad substrate specificity (many phosphorylated metabolites), but this is substrate promiscuity within the same dephosphorylation chemistry, not a second distinct fused catalytic activity.",
+    "evidence": "PMID 34568961 (review calls 5'-nucleotidases 'multifunctional' only in the substrate-range sense); defaulted to monofunctional"
+  },
+  "3.2.1.23": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Beta-galactosidase (e.g., LacZ, GLB1) is overwhelmingly treated as a single hydrolytic activity; one isolated report of a bacterial beta-galactosidase/alpha-L-arabinopyranosidase with dual glycosidase promiscuity was found but represents a single strain-specific case, not a defining feature of this EC class.",
+    "evidence": "PMC10673005 (single-strain dual-activity GH enzyme; not representative of the EC generally); defaulted to monofunctional"
+  },
+  "1.1.1.117": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-arabinose 1-dehydrogenase (NAD+) is reported as a standalone oxidoreductase; no literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.213": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "3-alpha-hydroxysteroid dehydrogenase is called 'multifunctional' in older literature only regarding its broad substrate range (steroids, PAHs, prostaglandins) under the same oxidoreductase chemistry, not a second fused catalytic EC activity.",
+    "evidence": "PMID 7515872 (broad-substrate 'multifunctional roles', not a fused second activity); defaulted to monofunctional"
+  },
+  "1.1.1.296": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "This is an obscure, sparsely studied terpene-alcohol dehydrogenase (menth-8-en-2-ol:NAD+ oxidoreductase); EuropePMC returns zero records for this EC, consistent with no documented fusion partner.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.46": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "L-arabinose 1-dehydrogenase is reported as a standalone short-chain dehydrogenase/reductase; no evidence of a fused second catalytic activity in the sparse literature available.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.5.1.12": {
+    "category": "bifunctional",
+    "confidence": "high",
+    "rationale": "In most Gram-negative bacteria, this activity (P5C/glutamate-gamma-semialdehyde dehydrogenase) is fused with proline dehydrogenase (EC 1.5.5.2) into a single bifunctional flavoenzyme called PutA, with spatially separated but linked active sites and documented substrate channeling.",
+    "evidence": "PMID 22201760 (Singh & Tanner, 'PutAs are bifunctional enzymes... proline dehydrogenase and pyrroline-5-carboxylate dehydrogenase active sites'); PMID 16452403; PMID 27742866"
+  },
+  "1.6.5.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "NADH:quinone oxidoreductase (Complex I) is a large multi-subunit assembly but carries a single catalytic activity (electron transfer from NADH to quinone coupled to proton pumping); no second distinct catalytic EC-type activity is described.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.2.1.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Transketolase is a well-characterized single-activity thiamine-diphosphate-dependent transferase with no literature describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.13": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Sucrose synthase catalyzes a single reversible glycosyltransferase reaction; no literature ties it to a second fused catalytic EC-type activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.7.1.59": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "N-acetylglucosamine kinase is explicitly contrasted in the literature as a distinct, separate enzyme from the genuinely bifunctional UDP-N-acetylglucosamine 2-epimerase/N-acetylmannosamine kinase (GNE), confirming it is not itself fused with a second activity.",
+    "evidence": "PMID 9523722 ('comparison with UDP-N-acetylglucosamine 2-epimerase/N-acetylmannosamine kinase' as a separate bifunctional enzyme, distinguishing GlcNAc kinase as monofunctional)"
+  },
+  "2.7.4.6": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Nucleoside-diphosphate kinase (NDPK/NME1) has well-documented moonlighting roles (gene regulation, apoptosis signaling, metastasis suppression) but no credible evidence of a second genuinely fused catalytic EC-type activity; the moonlighting roles are regulatory, not catalytic-domain fusions.",
+    "evidence": "PMID 35170678 (review of NDPK 'regulatory roles' - moonlighting, excluded per instructions); defaulted to monofunctional"
+  },
+  "3.1.1.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Carboxylesterase is a standard single-activity hydrolase; the only 'bifunctional' hit found refers to an unrelated bifunctional plasmid expression system, not the enzyme itself.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.211": {
+    "category": "polyfunctional",
+    "confidence": "high",
+    "rationale": "Long-chain 3-hydroxyacyl-CoA dehydrogenase (LCHAD) activity resides on the HADHA subunit of the mitochondrial trifunctional protein (MTP), a hetero-octameric complex (HADHA+HADHB) that fuses three catalytic activities: long-chain enoyl-CoA hydratase, long-chain 3-hydroxyacyl-CoA dehydrogenase (this EC), and long-chain 3-ketoacyl-CoA thiolase; LCHAD deficiency is caused by variants in either HADHA or HADHB of this single complex.",
+    "evidence": "PMID 41155433 ('How Genes Meet Diet in LCHAD Deficiency'); PMID 42037206 ('LCHADD... caused by biallelic pathogenic variants in HADHA or HADHB')"
+  },
+  "1.1.1.51": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Testosterone:NAD+ 17-oxidoreductase activity is catalyzed by multiple standalone short-chain dehydrogenase/reductase enzymes (e.g., bacterial 3(17)-beta-HSDs); no literature was found tying this specific EC to a fused second catalytic activity (distinct from the unrelated bifunctional P450 CYP17A1, which is a different EC/enzyme).",
+    "evidence": "none found specifically for EC 1.1.1.51 fusion; defaulted to monofunctional"
+  },
+  "1.14.13.15": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This mitochondrial cytochrome P450 (CYP27A1-type sterol 26/27-hydroxylase) performs sequential oxidations (hydroxylation, then further oxidation) via the same monooxygenase active site/mechanism, which is classically treated as one catalytic activity, not a second distinct fused EC-type activity.",
+    "evidence": "PMID 18791760 (describes P450 cholesterol hydroxylases' single monooxygenase mechanism); defaulted to monofunctional"
+  }
+}

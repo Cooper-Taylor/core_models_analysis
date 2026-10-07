@@ -1,0 +1,152 @@
+{
+  "1.21.3.6": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Literature on this chalcone-oxidizing polyphenol oxidase/aurone synthase activity describes a moonlighting proteolytic side-activity and roles in aurone pigment formation, not a second fused catalytic (EC-type) activity. No evidence of a genuinely fused second enzymatic domain was found.",
+    "evidence": "PMID 36703476 (polyphenol oxidase moonlighting protease activity, excluded as non-catalytic-fusion); PMID 25109778"
+  },
+  "1.3.1.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "3-oxo-5beta-steroid:NADP+ delta4-oxidoreductase (AKR1D1-type steroid 5beta-reductase) literature search returned no evidence of a second fused catalytic activity; it functions as a standalone oxidoreductase in steroid/bile-acid metabolism.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.3.1.72": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Cholesterol:NADP+ Delta24-oxidoreductase (sterol Delta24-reductase family) search returned general sterol/fatty-acid-oxidation review hits with no description of a second fused catalytic domain.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.3.99.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Propanoyl-CoA:(acceptor) 2,3-oxidoreductase (acyl-CoA dehydrogenase family) search returned only general fatty-acid oxidation/mitochondrial disorder reviews; no evidence of a second fused catalytic activity on the same polypeptide.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.26": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Stachyose fructohydrolase (invertase/beta-fructofuranosidase) search returned many unrelated hits (sucrose metabolism, plant physiology) but no description of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.3.39": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "ATP phosphohydrolase (ABC-transporter-type ATPase) search returned zero hits for bifunctional/multifunctional/trifunctional co-occurrence; such ATPase subunits are standard single-activity nucleotide hydrolases.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.1.3.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "N-acetylneuraminate lyase (sialic acid aldolase) literature covers its biosynthetic/biotechnological role but no fused second catalytic activity on a single polypeptide.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "5.1.3.8": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "N-acylglucosamine/cellobiose-type 2-epimerase search returned hits on epimerization mechanism and unrelated PHA-synthase fusion work; no credible evidence this epimerase itself carries a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "5.5.1.6": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Chalcone isomerase (flavanone lyase, decyclizing) is extensively studied in flavonoid biosynthesis; searches for bifunctional/fused activity returned only unrelated hits (other bifunctional transcription factors, general pathway papers), with no description of a second catalytic activity fused to CHI.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.121": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "D-Glucose:NAD+ 1-oxidoreductase (aldose/glucose dehydrogenase) search returned only a generic non-homologous-isofunctional-enzymes review; no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.270": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This NAD-dependent sterol dehydrogenase (ergosterol-pathway type) returned only incidental co-occurrence hits (ergosterol/astaxanthin engineering papers) with no description of a fused second catalytic domain.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.1.86": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Ketol-acid reductoisomerase is explicitly called a 'bifunctional enzyme' in the literature because it performs an isomerization (alkyl migration) followed by an NADPH-dependent reduction, but both steps occur at one active site under a single EC number (1.1.1.86) with no classically separate EC-numbered isomerase activity ever isolated as its own enzyme, so it does not meet the two-distinct-EC-fused-activities bar and is treated as monofunctional (analogous to tyrosinase's mono/diphenolase duality).",
+    "evidence": "PMID 15654896 ('Probing the mechanism of the bifunctional enzyme ketol-acid reductoisomerase...') — single EC, obligate two-step mechanism, not a fusion of two separately-numbered enzymes"
+  },
+  "1.1.1.90": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Cyclohexanol:NAD+ oxidoreductase search returned only unrelated hits (fermentation microbiome, olive-oil aldehyde synthase papers); no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.1.5.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "sn-Glycerol-3-phosphate:(acceptor) 2-oxidoreductase (membrane-bound, quinone-linked G3P dehydrogenase, e.g. GlpD) search returned only unrelated genome/flavoproteome hits; this enzyme is a standard single-activity respiratory dehydrogenase.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.12.10": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Benzoate 1,2-dioxygenase systems are classically multi-subunit/multi-component (separate reductase, ferredoxin, and oxygenase proteins) rather than a single fused polypeptide with two catalytic EC activities; no literature describing a genuine fusion was found.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.14.18.1": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Tyrosinase (catechol oxidase) performs both monophenolase (cresolase) and diphenolase (catecholase) chemistry, but both are part of the single EC 1.14.18.1 definition at one binuclear copper active site rather than a fusion of two separately EC-numbered enzymes, so it is treated as monofunctional.",
+    "evidence": "PMID 41596661 (review describing tyrosinase's dual hydroxylation/oxidation chemistry as one EC 1.14.18.1 activity)"
+  },
+  "1.14.21.6": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This NADH-dependent cholestadienol/cholesterol reductase search returned only an unrelated tardigrade transcriptome hit; no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.3.1.38": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Hexadecanoyl-CoA:NADP+ trans-2-oxidoreductase (acyl-CoA/enoyl reductase of the fatty-acid elongase system) is encoded as a separate single-activity protein from the other elongase-cycle enzymes (condensation, dehydration); no fused second catalytic activity was found in the literature.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "1.4.3.2": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "L-amino-acid oxidase is well studied (snake venom LAAOs, etc.) as a single FAD-dependent oxidative-deamination activity; one report of a Pseudomonas L-AAO/monooxygenase variant catalyzing both oxidative deamination and oxidative decarboxylation reflects substrate-dependent promiscuity of a single active site in one specific organism rather than an established fusion of two classically distinct EC-numbered enzymes, so the default monofunctional call is kept.",
+    "evidence": "PMID 29511608 (Pseudomonas sp. AIU 813 L-AAO/monooxygenase dual chemistry, narrow/non-definitive); otherwise none found"
+  },
+  "1.4.3.21": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Tyramine oxidase (flavin-containing primary amine oxidase) search returned only unrelated fermentation/microbiome hits; no evidence of a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.3.1.152": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This plant hydroxycinnamoyl/cinnamoyl-glucose O-acyltransferase returned zero hits for bifunctional/multifunctional/trifunctional co-occurrence; plant BAHD-family acyltransferases of this type are single-activity enzymes.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.3.1.153": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This plant anthocyanin acyltransferase (hydroxycinnamoyl-CoA:anthocyanidin glucoside hydroxycinnamoyltransferase) returned zero hits for bifunctional/multifunctional/trifunctional co-occurrence; single-activity BAHD acyltransferase.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "2.4.1.129": {
+    "category": "bifunctional",
+    "confidence": "high",
+    "rationale": "Peptidoglycan glycosyltransferase activity (EC 2.4.1.129) is classically fused with D,D-transpeptidase activity (EC 3.4.16.4) in the Class A penicillin-binding proteins (e.g. E. coli PBP1A/PBP1B), a textbook example of a bifunctional cell-wall-synthesis enzyme extensively documented in the literature.",
+    "evidence": "331 EuropePMC hits for 'penicillin-binding protein' AND bifunctional AND transglycosylase AND transpeptidase; e.g. PMID 42650739 (peptidoglycan remodeling review describing bifunctional PG synthases)"
+  },
+  "2.4.1.25": {
+    "category": "bifunctional",
+    "confidence": "medium",
+    "rationale": "The mammalian glycogen debranching enzyme (AGL/GDE) literature explicitly states the protein 'is bifunctional in that it exhibits both 4-alpha-glucanotransferase [EC 2.4.1.25] and amylo-alpha-1,6-glucosidase [EC 3.2.1.33] activity at two distinct catalytic sites' on one polypeptide; note this fused form is specific to the mammalian debranching enzyme, while bacterial/plant amylomaltases (e.g. MalQ, DPE1) using this same EC are monofunctional.",
+    "evidence": "PMID 35192094 ('Glycogen debranching pathway deduced from substrate specificity of glycogen debranching enzyme'); PMID 40593796 ('Molecular architecture and catalytic mechanism of human glycogen debranching enzyme')"
+  },
+  "2.5.1.1": {
+    "category": "bifunctional",
+    "confidence": "medium",
+    "rationale": "A 2023 structural/functional study reports a 'metal-dependent, bifunctional isoprenyl diphosphate synthase' in leaf beetle that genuinely produces both geranyl diphosphate (short-chain, EC 2.5.1.1 activity) and farnesyl diphosphate (EC 2.5.1.10 activity) as released products from one polypeptide, though this fused behavior is reported in specific insect lineages rather than as the universal property of GPP synthases (many bacterial/plant GPP synthases are monofunctional).",
+    "evidence": "PMID 37308711 ('Metal-dependent enzyme symmetry guides the biosynthetic flux of terpene precursors')"
+  }
+}

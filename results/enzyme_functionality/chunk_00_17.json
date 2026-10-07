@@ -1,0 +1,152 @@
+{
+  "3.10.1.1": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "N-sulfoglucosamine sulfohydrolase (SGSH) is a lysosomal sulfatase; EuropePMC hits for bifunctional/multifunctional context were about broader lysosomal disease biology, not a fused second catalytic activity in this enzyme.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.118": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Prunasin beta-glucosidase (plant/bacterial GH1 beta-glucosidase) literature describes a single glucohydrolase activity; no evidence of a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.137": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Mannan mannohydrolase (exo-alpha-mannanase) is a single-activity glycoside hydrolase; no literature hits suggesting a fused second catalytic domain.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.179": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This is a rare, specific unsaturated-glucuronyl hydrolase acting on a defined oligosaccharide; no literature found describing it at all beyond nomenclature, and no fusion evidence.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.28": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Trehalase (alpha,alpha-trehalose glucohydrolase) literature is extensive but all retrieved hits concern unrelated multifunctional contexts (lysosomal disease, biocontrol fungi); no description of a second fused catalytic activity in trehalase itself.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.52": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Beta-N-acetylhexosaminidase/chitobiase hydrolyzes GlcNAc-beta(1-4)GlcNAc; search hits concerned general chitinolytic enzyme systems (multiple separate enzymes acting together), not a single fused bifunctional polypeptide.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.66": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Quercitrinase (quercitrin 3-L-rhamnohydrolase) is a narrowly characterized flavonoid-rhamnosidase with no literature suggesting a second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.1.80": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Levanase/inulinase (beta-D-fructan fructohydrolase) literature describes a single fructan-hydrolyzing activity; retrieved hits were about unrelated biomass-degrading enzyme systems, not fusion within this enzyme.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.2.10": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "CMP phosphoribohydrolase (CMP glycohydrolase) is a rare, narrowly defined nucleoside hydrolase with no literature indicating a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.2.2.3": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Uridine ribohydrolase (uridine nucleosidase) shows no evidence of fusion; search hits were unrelated epoxide-hydrolase papers matched only on generic 'bifunctional' keyword noise.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.4.16.4": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Low-molecular-weight murein D,D-carboxypeptidases (e.g. E. coli PBP5/PBP6) act as single-activity serine D-Ala-D-Ala carboxypeptidases; literature search found no description of a genuinely fused second catalytic activity under this EC (the classic 'bifunctional PBPs' are glycosyltransferase/transpeptidases, a distinct EC combination, not this carboxypeptidase reaction).",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.5.1.100": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "(R)-piperazine-2-carboxamide amidohydrolase is an obscure, narrowly characterized enzyme; no literature at all was found describing a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.5.1.14": {
+    "category": "bifunctional",
+    "confidence": "medium",
+    "rationale": "A hyperthermostable zinc metalloenzyme from Pyrococcus horikoshii was explicitly characterized and named 'bifunctional carboxypeptidase/aminoacylase', with the aminoacylase activity corresponding to EC 3.5.1.14 fused with a distinct carboxypeptidase activity in one polypeptide and active site. This is documented in one archaeal ortholog rather than shown to be universal across EC 3.5.1.14 orthologs (e.g. bacterial ArgE is typically monofunctional).",
+    "evidence": "PMID 11157230"
+  },
+  "3.6.1.17": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "Bis(5'-adenosyl)-tetraphosphatase (Ap4A hydrolase) is typically a small single-domain Nudix or HIT-family hydrolase; no literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "3.6.3.25": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "This EC covers the ATP-hydrolyzing nucleotide-binding subunit of a sulfate ABC transporter (e.g. CysA); it performs a single ATPase catalytic activity as part of a multi-subunit transport complex, not a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.1.1.15": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Glutamate decarboxylase (GAD) is a well-characterized PLP-dependent enzyme with a single decarboxylase activity; no literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.1.1.77": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "4-Oxalocrotonate decarboxylase functions within a multi-enzyme catabolic pathway (e.g. with 4-oxalocrotonate tautomerase) but literature describes these as separate interacting enzymes, not a single fused bifunctional polypeptide.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.1.1.93": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Pyrrole-2-carboxylate decarboxylase is a narrowly characterized enzyme with no literature suggesting a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.1.2.13": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Fructose-1,6-bisphosphate aldolase has a single aldolase catalytic activity; reported secondary roles (e.g. cytoskeletal/V-ATPase binding) are non-catalytic moonlighting functions, not a second fused catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.1.2.27": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Sphingosine-1-phosphate lyase is a single-activity PLP-dependent lyase; no literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.1.2.30": {
+    "category": "bifunctional",
+    "confidence": "high",
+    "rationale": "This EC corresponds to the 17,20-lyase activity of cytochrome P450c17 (CYP17A1), which is extensively documented to carry a second, distinct fused catalytic activity, 17alpha-hydroxylase (EC 1.14.14.19), in the same polypeptide; deficiency of both activities together is a well-known clinical entity ('combined 17alpha-hydroxylase/17,20-lyase deficiency').",
+    "evidence": "PMID 25697092, PMID 19793597, PMID 19470621"
+  },
+  "4.1.2.38": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Benzaldehyde lyase is a single-activity ThDP-dependent lyase widely used in biocatalysis; no literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.1.3.17": {
+    "category": "monofunctional",
+    "confidence": "medium",
+    "rationale": "4-Hydroxy-4-methyl-2-oxoglutarate/4-carboxy-4-hydroxy-2-oxoadipate aldolase (RraA-family) also shows oxaloacetate decarboxylation and pyruvate alpha-proton exchange side-activities, but these occur at the same single active site via the same class II metal-dependent mechanism (mechanistic promiscuity), and the literature does not describe them as a classically fused two-domain bifunctional enzyme; RraA's separate RNase E regulatory role is non-catalytic moonlighting.",
+    "evidence": "PMID 20843800 (notes secondary oxaloacetate decarboxylation/proton-exchange activity at the same active site, not termed bifunctional)"
+  },
+  "4.2.1.104": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Cyanate hydratase (cyanase) is a single-activity lyase with no literature found describing a fused second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  },
+  "4.2.1.22": {
+    "category": "monofunctional",
+    "confidence": "high",
+    "rationale": "Cystathionine beta-synthase has a single PLP-dependent catalytic activity; its heme-binding and AdoMet-sensing CBS domains are regulatory, not a second catalytic activity.",
+    "evidence": "none found, defaulted to monofunctional"
+  }
+}
