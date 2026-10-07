@@ -1,0 +1,33 @@
+{
+  "provenance": {
+    "msdb_dev_sha": "078a395f",
+    "snapshot": "/scratch/ctaylor/tmp/devsnap_078a395f"
+  },
+  "n_reactions_total": 56006,
+  "n_obsolete_excluded": 7622,
+  "n_recommended_unknown_excluded": 24342,
+  "n_llm_missing_excluded": 2758,
+  "n_llm_abstained_excluded": 794,
+  "n_comparable": 20490,
+  "matrix": {
+    ">|>": 9760,
+    "<|<": 355,
+    "=|>": 6098,
+    "=|<": 692,
+    "=|=": 1909,
+    "<|>": 1308,
+    "<|=": 147,
+    ">|=": 159,
+    ">|<": 62
+  },
+  "group_counts": {
+    "reversible_vs_forward": 6098,
+    "reversible_vs_reverse": 692,
+    "forward_vs_reversible": 159,
+    "forward_vs_reverse": 62,
+    "reverse_vs_reversible": 147,
+    "reverse_vs_forward": 1308
+  },
+  "n_agree": 12024,
+  "n_mismatch": 8466
+}
