@@ -1,0 +1,487 @@
+[
+ {
+  "id": "rxn36627",
+  "enzyme_name": "aldehyde dehydrogenase [NAD(P)+] (EC 1.2.1.5) - generic ALDH class entry, no specific protein assignable",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "MetaCyc generic class reaction ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN; the EC 1.2.1.5 / ALDH superfamily spans bacteria, plants and animals as homodimers/tetramers with one catalytic site per subunit.",
+  "confidence": "medium",
+  "rationale": "EC 1.2.1.5 ALDH is a single-activity NAD(P)+ oxidoreductase family (one catalytic Cys/Glu site per subunit); the famous bifunctional relative AdhE (acylating ALDH + alcohol dehydrogenase) sits in EC 1.2.1.10/1.1.1.1, not here. No specific protein can be assigned to this entry: it is a MetaCyc '.metaexp' generic-class expansion that paired the diterpene aldehyde dehydroabietadienal with the chemically unrelated fatty acid 11E,13E-eicosadienoate, leaving the written equation 1 H and 7 charge units unbalanced.",
+  "evidence_pmids": [
+   "40301148",
+   "34055881",
+   "25666131"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ALDH-catalysed aldehyde -> carboxylate oxidation is mechanistically irreversible (only subfamilies acting on activated acyl groups run reductively), so ModelSEED's '<' - a free carboxylate reduced to an aldehyde by NADPH - has no enzymatic basis, even though the two compounds here are not a real substrate/product pair."
+ },
+ {
+  "id": "rxn36628",
+  "enzyme_name": "aldehyde dehydrogenase [NAD(P)+] (EC 1.2.1.5) - generic ALDH class entry, no specific protein assignable",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "MetaCyc generic class reaction ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN; the EC 1.2.1.5 / ALDH superfamily spans bacteria, plants and animals as homodimers/tetramers with one catalytic site per subunit.",
+  "confidence": "medium",
+  "rationale": "EC 1.2.1.5 ALDH is a single-activity NAD(P)+ oxidoreductase family (one catalytic Cys/Glu site per subunit); the famous bifunctional relative AdhE (acylating ALDH + alcohol dehydrogenase) sits in EC 1.2.1.10/1.1.1.1, not here. No specific protein can be assigned to this entry: it is a MetaCyc '.metaexp' generic-class expansion that paired the diterpene aldehyde dehydroabietadienal with the chemically unrelated fatty acid 11E,13E-eicosadienoate, leaving the written equation 1 H and 7 charge units unbalanced.",
+  "evidence_pmids": [
+   "40301148",
+   "34055881",
+   "25666131"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ALDH-catalysed aldehyde -> carboxylate oxidation is mechanistically irreversible (only subfamilies acting on activated acyl groups run reductively), so ModelSEED's '<' - a free carboxylate reduced to an aldehyde by NADH - has no enzymatic basis, even though the two compounds here are not a real substrate/product pair."
+ },
+ {
+  "id": "rxn36629",
+  "enzyme_name": "aldehyde dehydrogenase [NAD(P)+] (EC 1.2.1.5) - generic ALDH class entry, no specific protein assignable",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "MetaCyc generic class reaction ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN; the EC 1.2.1.5 / ALDH superfamily spans bacteria, plants and animals as homodimers/tetramers with one catalytic site per subunit.",
+  "confidence": "medium",
+  "rationale": "EC 1.2.1.5 ALDH is a single-activity NAD(P)+ oxidoreductase family (one catalytic Cys/Glu site per subunit); the famous bifunctional relative AdhE (acylating ALDH + alcohol dehydrogenase) sits in EC 1.2.1.10/1.1.1.1, not here. No specific protein can be assigned to this entry: it is a MetaCyc '.metaexp' generic-class expansion that paired the diterpene aldehyde dehydroabietadienal with the chemically unrelated fatty acid (11Z,13E)-eicosadienoate, leaving the written equation 1 H and 7 charge units unbalanced.",
+  "evidence_pmids": [
+   "40301148",
+   "34055881",
+   "25666131"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ALDH-catalysed aldehyde -> carboxylate oxidation is mechanistically irreversible (only subfamilies acting on activated acyl groups run reductively), so ModelSEED's '<' - a free carboxylate reduced to an aldehyde by NADPH - has no enzymatic basis, even though the two compounds here are not a real substrate/product pair."
+ },
+ {
+  "id": "rxn36630",
+  "enzyme_name": "aldehyde dehydrogenase [NAD(P)+] (EC 1.2.1.5) - generic ALDH class entry, no specific protein assignable",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "MetaCyc generic class reaction ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN; the EC 1.2.1.5 / ALDH superfamily spans bacteria, plants and animals as homodimers/tetramers with one catalytic site per subunit.",
+  "confidence": "medium",
+  "rationale": "EC 1.2.1.5 ALDH is a single-activity NAD(P)+ oxidoreductase family (one catalytic Cys/Glu site per subunit); the famous bifunctional relative AdhE (acylating ALDH + alcohol dehydrogenase) sits in EC 1.2.1.10/1.1.1.1, not here. No specific protein can be assigned to this entry: it is a MetaCyc '.metaexp' generic-class expansion that paired the diterpene aldehyde dehydroabietadienal with the chemically unrelated fatty acid (11Z,13E)-eicosadienoate, leaving the written equation 1 H and 7 charge units unbalanced.",
+  "evidence_pmids": [
+   "40301148",
+   "34055881",
+   "25666131"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ALDH-catalysed aldehyde -> carboxylate oxidation is mechanistically irreversible (only subfamilies acting on activated acyl groups run reductively), so ModelSEED's '<' - a free carboxylate reduced to an aldehyde by NADH - has no enzymatic basis, even though the two compounds here are not a real substrate/product pair."
+ },
+ {
+  "id": "rxn36631",
+  "enzyme_name": "aldehyde dehydrogenase [NAD(P)+] (EC 1.2.1.5) - generic ALDH class entry, no specific protein assignable",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "MetaCyc generic class reaction ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN; the EC 1.2.1.5 / ALDH superfamily spans bacteria, plants and animals as homodimers/tetramers with one catalytic site per subunit.",
+  "confidence": "medium",
+  "rationale": "EC 1.2.1.5 ALDH is a single-activity NAD(P)+ oxidoreductase family (one catalytic Cys/Glu site per subunit); the famous bifunctional relative AdhE (acylating ALDH + alcohol dehydrogenase) sits in EC 1.2.1.10/1.1.1.1, not here. No specific protein can be assigned to this entry: it is a MetaCyc '.metaexp' generic-class expansion that paired the diterpene aldehyde dehydroabietadienal with the chemically unrelated fatty acid (11E,13Z)-eicosadienoate, leaving the written equation 1 H and 7 charge units unbalanced.",
+  "evidence_pmids": [
+   "40301148",
+   "34055881",
+   "25666131"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ALDH-catalysed aldehyde -> carboxylate oxidation is mechanistically irreversible (only subfamilies acting on activated acyl groups run reductively), so ModelSEED's '<' - a free carboxylate reduced to an aldehyde by NADPH - has no enzymatic basis, even though the two compounds here are not a real substrate/product pair."
+ },
+ {
+  "id": "rxn36632",
+  "enzyme_name": "aldehyde dehydrogenase [NAD(P)+] (EC 1.2.1.5) - generic ALDH class entry, no specific protein assignable",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "MetaCyc generic class reaction ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN; the EC 1.2.1.5 / ALDH superfamily spans bacteria, plants and animals as homodimers/tetramers with one catalytic site per subunit.",
+  "confidence": "medium",
+  "rationale": "EC 1.2.1.5 ALDH is a single-activity NAD(P)+ oxidoreductase family (one catalytic Cys/Glu site per subunit); the famous bifunctional relative AdhE (acylating ALDH + alcohol dehydrogenase) sits in EC 1.2.1.10/1.1.1.1, not here. No specific protein can be assigned to this entry: it is a MetaCyc '.metaexp' generic-class expansion that paired the diterpene aldehyde dehydroabietadienal with the chemically unrelated fatty acid (11E,13Z)-eicosadienoate, leaving the written equation 1 H and 7 charge units unbalanced.",
+  "evidence_pmids": [
+   "40301148",
+   "34055881",
+   "25666131"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ALDH-catalysed aldehyde -> carboxylate oxidation is mechanistically irreversible (only subfamilies acting on activated acyl groups run reductively), so ModelSEED's '<' - a free carboxylate reduced to an aldehyde by NADH - has no enzymatic basis, even though the two compounds here are not a real substrate/product pair."
+ },
+ {
+  "id": "rxn36633",
+  "enzyme_name": "aldehyde dehydrogenase [NAD(P)+] (EC 1.2.1.5) - generic ALDH class entry, no specific protein assignable",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "MetaCyc generic class reaction ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN; the EC 1.2.1.5 / ALDH superfamily spans bacteria, plants and animals as homodimers/tetramers with one catalytic site per subunit.",
+  "confidence": "medium",
+  "rationale": "EC 1.2.1.5 ALDH is a single-activity NAD(P)+ oxidoreductase family (one catalytic Cys/Glu site per subunit); the famous bifunctional relative AdhE (acylating ALDH + alcohol dehydrogenase) sits in EC 1.2.1.10/1.1.1.1, not here. No specific protein can be assigned to this entry: it is a MetaCyc '.metaexp' generic-class expansion that paired the diterpene aldehyde isopimaradienal with the chemically unrelated fatty acid 11Z,13Z-eicosadienoate, leaving the written equation 1 H and 5 charge units unbalanced.",
+  "evidence_pmids": [
+   "40301148",
+   "34055881",
+   "25666131"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ALDH-catalysed aldehyde -> carboxylate oxidation is mechanistically irreversible (only subfamilies acting on activated acyl groups run reductively), so ModelSEED's '<' - a free carboxylate reduced to an aldehyde by NADPH - has no enzymatic basis, even though the two compounds here are not a real substrate/product pair."
+ },
+ {
+  "id": "rxn36634",
+  "enzyme_name": "aldehyde dehydrogenase [NAD(P)+] (EC 1.2.1.5) - generic ALDH class entry, no specific protein assignable",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "MetaCyc generic class reaction ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN; the EC 1.2.1.5 / ALDH superfamily spans bacteria, plants and animals as homodimers/tetramers with one catalytic site per subunit.",
+  "confidence": "medium",
+  "rationale": "EC 1.2.1.5 ALDH is a single-activity NAD(P)+ oxidoreductase family (one catalytic Cys/Glu site per subunit); the famous bifunctional relative AdhE (acylating ALDH + alcohol dehydrogenase) sits in EC 1.2.1.10/1.1.1.1, not here. No specific protein can be assigned to this entry: it is a MetaCyc '.metaexp' generic-class expansion that paired the diterpene aldehyde isopimaradienal with the chemically unrelated fatty acid 11Z,13Z-eicosadienoate, leaving the written equation 1 H and 5 charge units unbalanced.",
+  "evidence_pmids": [
+   "40301148",
+   "34055881",
+   "25666131"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ALDH-catalysed aldehyde -> carboxylate oxidation is mechanistically irreversible (only subfamilies acting on activated acyl groups run reductively), so ModelSEED's '<' - a free carboxylate reduced to an aldehyde by NADH - has no enzymatic basis, even though the two compounds here are not a real substrate/product pair."
+ },
+ {
+  "id": "rxn36635",
+  "enzyme_name": "aldehyde dehydrogenase [NAD(P)+] (EC 1.2.1.5) - generic ALDH class entry, no specific protein assignable",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "MetaCyc generic class reaction ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN; the EC 1.2.1.5 / ALDH superfamily spans bacteria, plants and animals as homodimers/tetramers with one catalytic site per subunit.",
+  "confidence": "medium",
+  "rationale": "EC 1.2.1.5 ALDH is a single-activity NAD(P)+ oxidoreductase family (one catalytic Cys/Glu site per subunit); the famous bifunctional relative AdhE (acylating ALDH + alcohol dehydrogenase) sits in EC 1.2.1.10/1.1.1.1, not here. No specific protein can be assigned to this entry: it is a MetaCyc '.metaexp' generic-class expansion that paired the diterpene aldehyde isopimaradienal with the chemically unrelated fatty acid 11E,13E-eicosadienoate, leaving the written equation 1 H and 5 charge units unbalanced.",
+  "evidence_pmids": [
+   "40301148",
+   "34055881",
+   "25666131"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ALDH-catalysed aldehyde -> carboxylate oxidation is mechanistically irreversible (only subfamilies acting on activated acyl groups run reductively), so ModelSEED's '<' - a free carboxylate reduced to an aldehyde by NADPH - has no enzymatic basis, even though the two compounds here are not a real substrate/product pair."
+ },
+ {
+  "id": "rxn36636",
+  "enzyme_name": "aldehyde dehydrogenase [NAD(P)+] (EC 1.2.1.5) - generic ALDH class entry, no specific protein assignable",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "MetaCyc generic class reaction ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN; the EC 1.2.1.5 / ALDH superfamily spans bacteria, plants and animals as homodimers/tetramers with one catalytic site per subunit.",
+  "confidence": "medium",
+  "rationale": "EC 1.2.1.5 ALDH is a single-activity NAD(P)+ oxidoreductase family (one catalytic Cys/Glu site per subunit); the famous bifunctional relative AdhE (acylating ALDH + alcohol dehydrogenase) sits in EC 1.2.1.10/1.1.1.1, not here. No specific protein can be assigned to this entry: it is a MetaCyc '.metaexp' generic-class expansion that paired the diterpene aldehyde isopimaradienal with the chemically unrelated fatty acid 11E,13E-eicosadienoate, leaving the written equation 1 H and 5 charge units unbalanced.",
+  "evidence_pmids": [
+   "40301148",
+   "34055881",
+   "25666131"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ALDH-catalysed aldehyde -> carboxylate oxidation is mechanistically irreversible (only subfamilies acting on activated acyl groups run reductively), so ModelSEED's '<' - a free carboxylate reduced to an aldehyde by NADH - has no enzymatic basis, even though the two compounds here are not a real substrate/product pair."
+ },
+ {
+  "id": "rxn36637",
+  "enzyme_name": "aldehyde dehydrogenase [NAD(P)+] (EC 1.2.1.5) - generic ALDH class entry, no specific protein assignable",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "MetaCyc generic class reaction ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN; the EC 1.2.1.5 / ALDH superfamily spans bacteria, plants and animals as homodimers/tetramers with one catalytic site per subunit.",
+  "confidence": "medium",
+  "rationale": "EC 1.2.1.5 ALDH is a single-activity NAD(P)+ oxidoreductase family (one catalytic Cys/Glu site per subunit); the famous bifunctional relative AdhE (acylating ALDH + alcohol dehydrogenase) sits in EC 1.2.1.10/1.1.1.1, not here. No specific protein can be assigned to this entry: it is a MetaCyc '.metaexp' generic-class expansion that paired the diterpene aldehyde isopimaradienal with the chemically unrelated fatty acid (11Z,13E)-eicosadienoate, leaving the written equation 1 H and 5 charge units unbalanced.",
+  "evidence_pmids": [
+   "40301148",
+   "34055881",
+   "25666131"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ALDH-catalysed aldehyde -> carboxylate oxidation is mechanistically irreversible (only subfamilies acting on activated acyl groups run reductively), so ModelSEED's '<' - a free carboxylate reduced to an aldehyde by NADPH - has no enzymatic basis, even though the two compounds here are not a real substrate/product pair."
+ },
+ {
+  "id": "rxn36638",
+  "enzyme_name": "aldehyde dehydrogenase [NAD(P)+] (EC 1.2.1.5) - generic ALDH class entry, no specific protein assignable",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "MetaCyc generic class reaction ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN; the EC 1.2.1.5 / ALDH superfamily spans bacteria, plants and animals as homodimers/tetramers with one catalytic site per subunit.",
+  "confidence": "medium",
+  "rationale": "EC 1.2.1.5 ALDH is a single-activity NAD(P)+ oxidoreductase family (one catalytic Cys/Glu site per subunit); the famous bifunctional relative AdhE (acylating ALDH + alcohol dehydrogenase) sits in EC 1.2.1.10/1.1.1.1, not here. No specific protein can be assigned to this entry: it is a MetaCyc '.metaexp' generic-class expansion that paired the diterpene aldehyde isopimaradienal with the chemically unrelated fatty acid (11Z,13E)-eicosadienoate, leaving the written equation 1 H and 5 charge units unbalanced.",
+  "evidence_pmids": [
+   "40301148",
+   "34055881",
+   "25666131"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ALDH-catalysed aldehyde -> carboxylate oxidation is mechanistically irreversible (only subfamilies acting on activated acyl groups run reductively), so ModelSEED's '<' - a free carboxylate reduced to an aldehyde by NADH - has no enzymatic basis, even though the two compounds here are not a real substrate/product pair."
+ },
+ {
+  "id": "rxn36639",
+  "enzyme_name": "aldehyde dehydrogenase [NAD(P)+] (EC 1.2.1.5) - generic ALDH class entry, no specific protein assignable",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "MetaCyc generic class reaction ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN; the EC 1.2.1.5 / ALDH superfamily spans bacteria, plants and animals as homodimers/tetramers with one catalytic site per subunit.",
+  "confidence": "medium",
+  "rationale": "EC 1.2.1.5 ALDH is a single-activity NAD(P)+ oxidoreductase family (one catalytic Cys/Glu site per subunit); the famous bifunctional relative AdhE (acylating ALDH + alcohol dehydrogenase) sits in EC 1.2.1.10/1.1.1.1, not here. No specific protein can be assigned to this entry: it is a MetaCyc '.metaexp' generic-class expansion that paired the diterpene aldehyde isopimaradienal with the chemically unrelated fatty acid (11E,13Z)-eicosadienoate, leaving the written equation 1 H and 5 charge units unbalanced.",
+  "evidence_pmids": [
+   "40301148",
+   "34055881",
+   "25666131"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ALDH-catalysed aldehyde -> carboxylate oxidation is mechanistically irreversible (only subfamilies acting on activated acyl groups run reductively), so ModelSEED's '<' - a free carboxylate reduced to an aldehyde by NADPH - has no enzymatic basis, even though the two compounds here are not a real substrate/product pair."
+ },
+ {
+  "id": "rxn36640",
+  "enzyme_name": "aldehyde dehydrogenase [NAD(P)+] (EC 1.2.1.5) - generic ALDH class entry, no specific protein assignable",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "MetaCyc generic class reaction ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN; the EC 1.2.1.5 / ALDH superfamily spans bacteria, plants and animals as homodimers/tetramers with one catalytic site per subunit.",
+  "confidence": "medium",
+  "rationale": "EC 1.2.1.5 ALDH is a single-activity NAD(P)+ oxidoreductase family (one catalytic Cys/Glu site per subunit); the famous bifunctional relative AdhE (acylating ALDH + alcohol dehydrogenase) sits in EC 1.2.1.10/1.1.1.1, not here. No specific protein can be assigned to this entry: it is a MetaCyc '.metaexp' generic-class expansion that paired the diterpene aldehyde isopimaradienal with the chemically unrelated fatty acid (11E,13Z)-eicosadienoate, leaving the written equation 1 H and 5 charge units unbalanced.",
+  "evidence_pmids": [
+   "40301148",
+   "34055881",
+   "25666131"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ALDH-catalysed aldehyde -> carboxylate oxidation is mechanistically irreversible (only subfamilies acting on activated acyl groups run reductively), so ModelSEED's '<' - a free carboxylate reduced to an aldehyde by NADH - has no enzymatic basis, even though the two compounds here are not a real substrate/product pair."
+ },
+ {
+  "id": "rxn36834",
+  "enzyme_name": "NAD(P)H:quinone oxidoreductase / DT-diaphorase (NQO1; bacterial WrbA-type), EC 1.6.5.2",
+  "gene_symbols": [
+   "NQO1",
+   "wrbA"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Human NQO1 (homodimeric FAD flavoprotein) and the WrbA-type FMN homologues of bacteria and plants; MetaCyc generic NQOR-RXN, so no particular protein is tied to this entry.",
+  "confidence": "medium",
+  "rationale": "EC 1.6.5.2 quinone reductases are single-activity flavoproteins performing obligate two-electron quinone reduction; NQO1's widely cited 'multifunctionality' is non-catalytic (FAD-binding/conformational stability, p53-p73-ODC stabilisation, mRNA binding) and is excluded here as moonlighting. The entry is a MetaCyc '.metaexp' expansion that paired the quinone 2-methyl-3-(3-methyl-2-butenyl)naphthoquinone (C16H16O2) with the unrelated quinol geranylhydroquinone (C16H22O2) - they differ by far more than the 2 H of a redox couple - and the equation is 1 H and 5 charge units unbalanced.",
+  "evidence_pmids": [
+   "34537677",
+   "34947831"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "NQO1/WrbA-type enzymes reduce quinones with NADPH in a ping-pong mechanism and do not oxidise quinols with NAD(P)+, so ModelSEED's '<' is the non-enzymatic direction."
+ },
+ {
+  "id": "rxn36835",
+  "enzyme_name": "NAD(P)H:quinone oxidoreductase / DT-diaphorase (NQO1; bacterial WrbA-type), EC 1.6.5.2",
+  "gene_symbols": [
+   "NQO1",
+   "wrbA"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Human NQO1 (homodimeric FAD flavoprotein) and the WrbA-type FMN homologues of bacteria and plants; MetaCyc generic NQOR-RXN, so no particular protein is tied to this entry.",
+  "confidence": "medium",
+  "rationale": "EC 1.6.5.2 quinone reductases are single-activity flavoproteins performing obligate two-electron quinone reduction; NQO1's widely cited 'multifunctionality' is non-catalytic (FAD-binding/conformational stability, p53-p73-ODC stabilisation, mRNA binding) and is excluded here as moonlighting. The entry is a MetaCyc '.metaexp' expansion that paired the quinone 2-methyl-3-(3-methyl-2-butenyl)naphthoquinone (C16H16O2) with the unrelated quinol geranylhydroquinone (C16H22O2) - they differ by far more than the 2 H of a redox couple - and the equation is 1 H and 5 charge units unbalanced.",
+  "evidence_pmids": [
+   "34537677",
+   "34947831"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "NQO1/WrbA-type enzymes reduce quinones with NADH in a ping-pong mechanism and do not oxidise quinols with NAD(P)+, so ModelSEED's '<' is the non-enzymatic direction."
+ },
+ {
+  "id": "rxn36836",
+  "enzyme_name": "NAD(P)H:quinone oxidoreductase / DT-diaphorase (NQO1; bacterial WrbA-type), EC 1.6.5.2",
+  "gene_symbols": [
+   "NQO1",
+   "wrbA"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Human NQO1 (homodimeric FAD flavoprotein) and the WrbA-type FMN homologues of bacteria and plants; MetaCyc generic NQOR-RXN, so no particular protein is tied to this entry.",
+  "confidence": "medium",
+  "rationale": "EC 1.6.5.2 quinone reductases are single-activity flavoproteins performing obligate two-electron quinone reduction; NQO1's widely cited 'multifunctionality' is non-catalytic (FAD-binding/conformational stability, p53-p73-ODC stabilisation, mRNA binding) and is excluded here as moonlighting. The entry is a MetaCyc '.metaexp' expansion that paired the quinone chlorobiumquinone (C47H64O3) with the unrelated quinol 2-octaprenyl-6-methoxy-1,4-benzoquinol (C47H72O3) - they differ by far more than the 2 H of a redox couple - and the equation is 1 H and 7 charge units unbalanced.",
+  "evidence_pmids": [
+   "34537677",
+   "34947831"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "NQO1/WrbA-type enzymes reduce quinones with NADPH in a ping-pong mechanism and do not oxidise quinols with NAD(P)+, so ModelSEED's '<' is the non-enzymatic direction."
+ },
+ {
+  "id": "rxn36837",
+  "enzyme_name": "NAD(P)H:quinone oxidoreductase / DT-diaphorase (NQO1; bacterial WrbA-type), EC 1.6.5.2",
+  "gene_symbols": [
+   "NQO1",
+   "wrbA"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Human NQO1 (homodimeric FAD flavoprotein) and the WrbA-type FMN homologues of bacteria and plants; MetaCyc generic NQOR-RXN, so no particular protein is tied to this entry.",
+  "confidence": "medium",
+  "rationale": "EC 1.6.5.2 quinone reductases are single-activity flavoproteins performing obligate two-electron quinone reduction; NQO1's widely cited 'multifunctionality' is non-catalytic (FAD-binding/conformational stability, p53-p73-ODC stabilisation, mRNA binding) and is excluded here as moonlighting. The entry is a MetaCyc '.metaexp' expansion that paired the quinone chlorobiumquinone (C47H64O3) with the unrelated quinol 2-octaprenyl-6-methoxy-1,4-benzoquinol (C47H72O3) - they differ by far more than the 2 H of a redox couple - and the equation is 1 H and 7 charge units unbalanced.",
+  "evidence_pmids": [
+   "34537677",
+   "34947831"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "NQO1/WrbA-type enzymes reduce quinones with NADH in a ping-pong mechanism and do not oxidise quinols with NAD(P)+, so ModelSEED's '<' is the non-enzymatic direction."
+ },
+ {
+  "id": "rxn37053",
+  "enzyme_name": "zeta-carotene desaturase (ZDS / CrtQb), EC 1.3.5.6",
+  "gene_symbols": [
+   "ZDS",
+   "zds1",
+   "crtQb",
+   "SCD1"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Plants (Capsicum annuum, Arabidopsis, maize) and cyanobacteria (Anabaena PCC 7120, Synechocystis PCC 6803).",
+  "confidence": "high",
+  "rationale": "Purified recombinant ZDS from Capsicum and from Anabaena carries one FAD-dependent, quinone-coupled desaturase activity; this entry is 9,9'-di-cis-zeta-carotene -> 7,9,9'-tri-cis-neurosporene (first of the two ZDS desaturations), i.e. the same activity used twice, not two distinct ones. ZDS is a separate polypeptide from PDS, Z-ISO and CrtISO, so none of the neighbouring pathway steps are fused to it.",
+  "evidence_pmids": [
+   "10491195",
+   "8617254",
+   "9914519"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "cofactors_stripped",
+  "direction_note": "ZDS's physiological electron acceptor is plastoquinone (Em' ~ +80 mV), but the '.metaexp' expansion substituted phylloquinone/vitamin K1 (Em' ~ -170 mV), which inverts the computed dG and is the likely reason eQuilibrator calls '<' for a desaturation that runs forward in vivo."
+ },
+ {
+  "id": "rxn37058",
+  "enzyme_name": "zeta-carotene desaturase (ZDS / CrtQb), EC 1.3.5.6",
+  "gene_symbols": [
+   "ZDS",
+   "zds1",
+   "crtQb",
+   "SCD1"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Plants (Capsicum annuum, Arabidopsis, maize) and cyanobacteria (Anabaena PCC 7120, Synechocystis PCC 6803).",
+  "confidence": "high",
+  "rationale": "Purified recombinant ZDS from Capsicum and from Anabaena carries one FAD-dependent, quinone-coupled desaturase activity; this entry is 7,9,9'-tri-cis-neurosporene -> 7,9,7',9'-tetra-cis-lycopene (second of the two ZDS desaturations), i.e. the same activity used twice, not two distinct ones. ZDS is a separate polypeptide from PDS, Z-ISO and CrtISO, so none of the neighbouring pathway steps are fused to it.",
+  "evidence_pmids": [
+   "10491195",
+   "8617254",
+   "9914519"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "cofactors_stripped",
+  "direction_note": "ZDS's physiological electron acceptor is plastoquinone (Em' ~ +80 mV), but the '.metaexp' expansion substituted phylloquinone/vitamin K1 (Em' ~ -170 mV), which inverts the computed dG and is the likely reason eQuilibrator calls '<' for a desaturation that runs forward in vivo."
+ },
+ {
+  "id": "rxn37128",
+  "enzyme_name": "zeta-carotene desaturase (ZDS / CrtQb), EC 1.3.5.6",
+  "gene_symbols": [
+   "ZDS",
+   "zds1",
+   "crtQb",
+   "SCD1"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Plants (Capsicum annuum, Arabidopsis, maize) and cyanobacteria (Anabaena PCC 7120, Synechocystis PCC 6803).",
+  "confidence": "high",
+  "rationale": "Purified recombinant ZDS from Capsicum and from Anabaena carries one FAD-dependent, quinone-coupled desaturase activity; this entry is 9,9'-di-cis-zeta-carotene -> 7,9,7',9'-tetra-cis-lycopene, the lumped overall EC 1.3.5.6 reaction (both desaturations by the same enzyme), i.e. the same activity used twice, not two distinct ones. ZDS is a separate polypeptide from PDS, Z-ISO and CrtISO, so none of the neighbouring pathway steps are fused to it.",
+  "evidence_pmids": [
+   "10491195",
+   "8617254",
+   "9914519"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "cofactors_stripped",
+  "direction_note": "ZDS's physiological electron acceptor is plastoquinone (Em' ~ +80 mV), but the '.metaexp' expansion substituted phylloquinone/vitamin K1 (Em' ~ -170 mV), which inverts the computed dG and is the likely reason eQuilibrator calls '<' for a desaturation that runs forward in vivo."
+ },
+ {
+  "id": "rxn37351",
+  "enzyme_name": "flavonol 3-O-glucoside 2''-O-beta-D-glucosyltransferase (UGT79B6 in Arabidopsis, UGT79B31 in Petunia), EC 2.4.1.239",
+  "gene_symbols": [
+   "UGT79B6",
+   "UGT79B31"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Arabidopsis thaliana (AraCyc RXN-8289, kaempferol glycoside biosynthesis); orthologue UGT79B31 in Petunia hybrida; the pea (Pisum sativum) triglucoside route uses three separate glucosyltransferases.",
+  "confidence": "high",
+  "rationale": "Arabidopsis ugt79b6 mutants lack exactly this product (kaempferol/quercetin 3-O-glucosyl(1->2)glucosides) and are complemented by Petunia UGT79B31, a single-domain family-1 UGT with one glycosyl-transfer activity; in pea the successive glucosylations are run by three separate enzymes rather than one multifunctional protein. The written equation is otherwise sound, carrying only a spurious product-side H+ (1 H / 1 charge unit), which does not affect the direction call.",
+  "evidence_pmids": [
+   "29214446",
+   "6462109"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "UDP-sugar glycosyl transfer is pulled forward by UDP release and is effectively irreversible toward the glucoside, so ModelSEED's '<' (diglucoside + UDP regenerating UDP-glucose) is not the enzymatic direction."
+ },
+ {
+  "id": "rxn37732",
+  "enzyme_name": "unidentified - no characterised 'phenylacetaldoxime hydrolase' exists",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "AraCyc RXN-13537 (Arabidopsis thaliana); the only enzymes KEGG associates with (Z)-phenylacetaldoxime (C16075) are aldoxime dehydratase (EC 4.8.1.4, giving phenylacetonitrile) and CYP79/CYP71 P450s.",
+  "confidence": "low",
+  "rationale": "No protein has been shown to hydrolyse phenylacetaldoxime to phenylacetaldehyde: in planta PAOx is consumed by aldoxime dehydratase / CYP71 enzymes to the nitrile en route to phenylacetic acid, and KEGG lists no reaction matching this entry. The written products are also chemically fabricated - ammonium plus H2O2 generated from water is a disproportionation no enzyme performs; a genuine oxime hydrolysis would release hydroxylamine, and an oxidase-type deamination would consume O2.",
+  "evidence_pmids": [
+   "33959967",
+   "36678978",
+   "39545989"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "cofactors_stripped",
+  "direction_note": "Aldoximes are made from amino acids by CYP79s and consumed downstream, never assembled from an aldehyde plus ammonium and peroxide, so ModelSEED's '<' is biologically impossible whatever the written dG says; the +54 to +62 kJ/mol comes entirely from the fictitious water -> H2O2 oxidation standing in for O2."
+ },
+ {
+  "id": "rxn38690",
+  "enzyme_name": "pyridoxal 5'-phosphate synthase, synthase subunit Pdx1/PdxS (EC 4.3.3.6), working with the glutaminase subunit Pdx2/PdxT (EC 3.5.1.2)",
+  "gene_symbols": [
+   "pdxS",
+   "pdxT",
+   "PDX1",
+   "PDX2"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "DXP-independent vitamin B6 pathway of most bacteria, archaea, fungi, plants and apicomplexans; Pdx1 and Pdx2 assemble into a 12:12 complex (Bacillus subtilis, Staphylococcus aureus, Methanosarcina acetivorans, Plasmodium).",
+  "confidence": "medium",
+  "rationale": "The definition (glutamine + a triose phosphate + a pentose phosphate -> PLP + glutamate) is the PLP synthase reaction, and Pdx1 accepts Ru5P/DHAP as well as R5P/G3P; the glutaminase activity sits on the separate Pdx2 polypeptide of the complex, which per protocol is a multi-subunit complex and not a fused bifunctional chain. Pdx1 itself runs a long multi-step imine chemistry across two sites (P1/P2) but has a single overall catalytic activity, and the entry's EC 2.4.2.- is a mis-assignment.",
+  "evidence_pmids": [
+   "39589128",
+   "38782204",
+   "35360887"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "PLP synthase is a committed biosynthetic enzyme whose glutamine hydrolysis and imine chemistry make it irreversible, so ModelSEED's '<' (PLP + glutamate regenerating glutamine, DHAP and Ru5P) has no enzymatic basis; the product side is also missing Pi and 3 H2O (8 H, 7 O, 1 P short)."
+ },
+ {
+  "id": "rxn38695",
+  "enzyme_name": "NAD+ kinase (NadK / PpnK; human NADK and mitochondrial NADK2), EC 2.7.1.23",
+  "gene_symbols": [
+   "nadK",
+   "ppnK",
+   "NADK",
+   "NADK2"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Bacteria (E. coli NadK, Mycobacterium tuberculosis homotetramer), archaea (Pyrococcus, Archaeoglobus) and human cytosolic NADK / mitochondrial NADK2.",
+  "confidence": "medium",
+  "rationale": "Enzyme identity is inferred from the definition - ATP + NAD+ -> NADP+ (+ ADP) is the NAD kinase reaction, the sole route to NADP+ de novo - and NadK/PpnK enzymes are single-activity homotetrameric kinases; the polyphosphate-utilising forms merely accept a different phosphoryl donor rather than carrying a second catalytic activity. This unnamed ModelSEED entry omits ADP entirely (10 C, 5 N, 3 P of the equation unaccounted for), so no real reaction is described.",
+  "evidence_pmids": [
+   "36512915",
+   "15629142",
+   "34629356"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "NAD kinase is physiologically irreversible (ATP-driven phosphoryl transfer; NADP+ is dephosphorylated by separate phosphatases, not by running the kinase backwards), so ModelSEED's '<' is wrong - but with ADP missing the written equation cannot carry a meaningful direction at all."
+ }
+]

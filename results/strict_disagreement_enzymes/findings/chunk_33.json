@@ -1,0 +1,433 @@
+[
+ {
+  "id": "rxn33912",
+  "enzyme_name": "Long-chain acyl-CoA synthetase (long-chain fatty acid--CoA ligase, LACS/ACSL/FadD)",
+  "gene_symbols": [
+   "LCS1",
+   "LCS2",
+   "LACS",
+   "ACSL",
+   "fadD"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call); LACS family surveyed across plants (Arabidopsis LACS2/LACS4), animals (ACSL) and bacteria (FadD).",
+  "confidence": "medium",
+  "rationale": "EC 6.2.1.3 acyl-CoA synthetases are single-activity adenylate-forming ligases: the acyl-adenylate and thioester half-reactions are two steps of ONE ligase activity, not two activities, and no second catalytic activity is reported for LACS/ACSL/FadD (FATP2's fatty-acid transport role is transport, not catalysis, and is excluded). Only medium confidence because the equation carries no acyl substrate at all, so the specific isoform cannot be pinned.",
+  "evidence_pmids": [
+   "33631795",
+   "32085442",
+   "29867143",
+   "20530735"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "The entire acyl substrate/product pair is missing (ModelSEED status MI:C:-21/H:-32/N:-7/O:-15/P:-3/S:-1, i.e. the whole CoA moiety is unaccounted for on the product side), so this is an ATP->AMP+PPi activation stub rather than a reaction; the real ligase is pulled essentially irreversibly forward by pyrophosphatase, which supports the LLM's '>' and makes ModelSEED's '<' (AMP+PPi -> ATP+CoA) impossible."
+ },
+ {
+  "id": "rxn33969",
+  "enzyme_name": "GTP cyclohydrolase I (GCHI; plant/algal bimodular form)",
+  "gene_symbols": [
+   "GCHI",
+   "folE",
+   "GCH1",
+   "fol2"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call); plant GCHI (tomato, Arabidopsis) is a ~50 kDa polypeptide with two tandem GCHI-like domains, unlike the homodecameric ~26 kDa microbial/mammalian enzyme.",
+  "confidence": "high",
+  "rationale": "Plant/algal GCHI is bimodular - two fused GCHI-like domains in one uncleaved chain - but that is a tandem duplication of the SAME activity, not two distinct ones: neither domain is active alone and the dimeric holoenzyme shows only GTP cyclohydrolase I activity (Basset 2002). Therefore monofunctional under the protocol's definition.",
+  "evidence_pmids": [
+   "12221287"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "The true product is 7,8-dihydroneopterin 3'-triphosphate, not the monophosphate used here, so PPi is missing (ModelSEED status MI:H:-2/O:-6/P:-2) - a separate pyrophosphohydrolase step has been silently absorbed; regardless, GCHI is a committed, effectively irreversible ring-expansion/formate-release step, so the LLM's '>' is right."
+ },
+ {
+  "id": "rxn34005",
+  "enzyme_name": "Plant/algal-type adenosine 5'-phosphosulfate (APS) reductase, APR (adenylyl-sulfate reductase, glutathione; EC 1.8.4.9)",
+  "gene_symbols": [
+   "APR",
+   "APR1",
+   "APR2",
+   "APR3",
+   "APR-B"
+  ],
+  "functionality": "bifunctional",
+  "distinct_activities": [
+   "adenylyl-sulfate reductase (glutathione), EC 1.8.4.9 - N-terminal [4Fe-4S] reductase domain",
+   "glutaredoxin / thiol-disulfide oxidoreductase - C-terminal Grx domain (reduces hydroxyethyl disulfide and donates electrons to ribonucleotide reductase in isolation)"
+  ],
+  "organism_context": "Green algae and plants; demonstrated for Enteromorpha (Ulva) intestinalis APR, a close algal relative of the Chlamydomonas enzyme. Reaction is from the JM_Creinhardtii published Chlamydomonas reinhardtii model and carries no gene call.",
+  "confidence": "high",
+  "rationale": "Algal/plant APR is a single polypeptide of two fused domains: an N-terminal APS-reduction domain and a C-terminal glutaredoxin domain that carries genuine, independently demonstrable glutaredoxin catalysis (HED reduction and electron donation to ribonucleotide reductase when expressed alone). This is a fused two-activity chain, not a multi-subunit complex, so bifunctional.",
+  "evidence_pmids": [
+   "17209569",
+   "30319669",
+   "24100135"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' almost certainly comes from importing the IUBMB equation for EC 1.8.4.9 verbatim ('AMP + sulfite + GSSG = APS + 2 GSH'), which is written in the non-physiological sense; the enzyme is a committed reductase of assimilatory sulfate reduction and runs '>' - and note the substrate should be APS, not PAPS, which is why a phosphate is missing (ModelSEED status MI:H:2/O:-3/P:-1)."
+ },
+ {
+  "id": "rxn34008",
+  "enzyme_name": "Assimilatory sulfite reductase (NADPH-dependent SiR holoenzyme, CysJ flavoprotein + CysI siroheme hemoprotein; the algal physiological counterpart is ferredoxin-sulfite reductase SIR, EC 1.8.7.1)",
+  "gene_symbols": [
+   "cysI",
+   "cysJ",
+   "SIR"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "E. coli NADPH-SiR is an alpha8beta4 holoenzyme of two SEPARATE polypeptides (SiRFP/CysJ diflavin reductase, SiRHP/CysI siroheme-[4Fe4S] hemoprotein). Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call) - Chlamydomonas actually uses a single-chain ferredoxin-dependent sulfite reductase, so the NADPH EC here is likely a mis-assignment.",
+  "confidence": "high",
+  "rationale": "The six-electron sulfite reduction sits on the CysI/SiRHP siroheme subunit; the FAD/FMN diflavin partner is a separate polypeptide, so this is a multi-subunit complex and is excluded from bifunctional per the protocol (and CysJ's two flavins are one electron-transfer activity, not two). The algal single-chain ferredoxin-SiR is likewise monofunctional.",
+  "evidence_pmids": [
+   "26088143",
+   "40140349",
+   "30654136"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Three waters are missing from the product side (ModelSEED status MI:H:-6/O:-3); the six-electron reduction of sulfite to sulfide at 3 NADPH is massively exergonic and physiologically one-way, so the LLM's '>' is correct and ModelSEED's '<' would amount to oxidising sulfide with NADP+."
+ },
+ {
+  "id": "rxn34104",
+  "enzyme_name": "unidentified ATP-driven Valine transporter (export; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven valine export (0 -> 1) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34105) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34105",
+  "enzyme_name": "unidentified ATP-driven Valine transporter (import; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven valine import (1 -> 0) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34104) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34107",
+  "enzyme_name": "unidentified ATP-driven Alanine transporter (import; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven alanine import (1 -> 0) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34108",
+  "enzyme_name": "unidentified ATP-driven Glycine transporter (export; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven glycine export (0 -> 1) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34109) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34109",
+  "enzyme_name": "unidentified ATP-driven Glycine transporter (import; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven glycine import (1 -> 0) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34108) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34112",
+  "enzyme_name": "unidentified ATP-driven Aspartate transporter (export; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven aspartate export (0 -> 1) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34113) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34113",
+  "enzyme_name": "unidentified ATP-driven Aspartate transporter (import; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven aspartate import (1 -> 0) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34112) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34114",
+  "enzyme_name": "unidentified ATP-driven Glutamine transporter (export; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven glutamine export (0 -> 1) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34115) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34115",
+  "enzyme_name": "unidentified ATP-driven Glutamine transporter (import; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven glutamine import (1 -> 0) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34114) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34119",
+  "enzyme_name": "unidentified ATP-driven L-Tryptophan transporter (import; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven L-Tryptophan import (1 -> 0) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34120",
+  "enzyme_name": "unidentified ATP-driven Leucine transporter (export; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven leucine export (0 -> 1) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34121) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34121",
+  "enzyme_name": "unidentified ATP-driven Leucine transporter (import; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven leucine import (1 -> 0) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34120) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34122",
+  "enzyme_name": "unidentified ATP-driven L-Threonine transporter (export; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven L-Threonine export (0 -> 1) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34123",
+  "enzyme_name": "unidentified ATP-driven Isoleucine transporter (export; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven isoleucine export (0 -> 1) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34124) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34124",
+  "enzyme_name": "unidentified ATP-driven Isoleucine transporter (import; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven isoleucine import (1 -> 0) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34123) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34125",
+  "enzyme_name": "unidentified ATP-driven Proline transporter (export; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven proline export (0 -> 1) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34126) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34126",
+  "enzyme_name": "unidentified ATP-driven Proline transporter (import; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven proline import (1 -> 0) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34125) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34128",
+  "enzyme_name": "unidentified ATP-driven Phenylalanine transporter (export; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven phenylalanine export (0 -> 1) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34129) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34129",
+  "enzyme_name": "unidentified ATP-driven Phenylalanine transporter (import; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven phenylalanine import (1 -> 0) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34128) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34130",
+  "enzyme_name": "unidentified ATP-driven L-Tyrosine transporter (export; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven L-Tyrosine export (0 -> 1) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34131) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ },
+ {
+  "id": "rxn34131",
+  "enzyme_name": "unidentified ATP-driven L-Tyrosine transporter (import; no gene, EC number or database xref in the entry)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Chlamydomonas reinhardtii (JM_Creinhardtii published model; reaction entry carries no gene call)",
+  "confidence": "low",
+  "rationale": "Model placeholder for ATP-driven L-Tyrosine import (1 -> 0) with no gene, EC or xref, so the catalysing protein cannot be identified; if it is meant as an ABC importer, those are multi-subunit assemblies (e.g. LivJHMGF = one binding protein, two permeases, two ATPases), which the protocol excludes from bifunctional. Algal/plant amino-acid uptake is in any case predominantly H+-coupled secondary transport rather than direct ATP hydrolysis.",
+  "evidence_pmids": [
+   "19470745"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ATP-hydrolysis-driven transport is irreversible in the hydrolysis direction, so ModelSEED's '<' would require the carrier to resynthesise ATP from an amino-acid gradient; the LLM's '>' is the only physiologically possible sense, though this reaction and its mirror image (rxn34130) both run '>' and together form an ATP-dissipating futile cycle, which is probably why one of the pair was flipped. The equation also drops Pi and H2O from the ATP hydrolysis (ModelSEED status MI:O:-3/P:-1|CI:1), so the thermodynamic estimates driving the '<' call were computed on an unbalanced half-reaction."
+ }
+]

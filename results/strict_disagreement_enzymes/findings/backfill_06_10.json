@@ -1,0 +1,627 @@
+[
+  {
+    "id": "rxn03331",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03370",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn03377",
+    "direction_verdict": "llm",
+    "equation_defect": "lumped_multienzyme"
+  },
+  {
+    "id": "rxn03399",
+    "direction_verdict": "llm",
+    "equation_defect": "lumped_multienzyme"
+  },
+  {
+    "id": "rxn03402",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03403",
+    "direction_verdict": "llm",
+    "equation_defect": "source_disowned"
+  },
+  {
+    "id": "rxn03443",
+    "direction_verdict": "unclear",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn03480",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn03481",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03482",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03501",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03526",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03531",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03539",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn03545",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03567",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03568",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03694",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03698",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03753",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn03755",
+    "direction_verdict": "llm",
+    "equation_defect": "source_disowned"
+  },
+  {
+    "id": "rxn03759",
+    "direction_verdict": "unclear",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn03768",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn03769",
+    "direction_verdict": "llm",
+    "equation_defect": "lumped_multienzyme"
+  },
+  {
+    "id": "rxn03776",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03777",
+    "direction_verdict": "llm",
+    "equation_defect": "lumped_multienzyme"
+  },
+  {
+    "id": "rxn03784",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03789",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn03793",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03794",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn03801",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03812",
+    "direction_verdict": "unclear",
+    "equation_defect": "source_disowned"
+  },
+  {
+    "id": "rxn03813",
+    "direction_verdict": "llm",
+    "equation_defect": "mass_unbalanced"
+  },
+  {
+    "id": "rxn03815",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn03824",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03825",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn03840",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03845",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03855",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03858",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03859",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03873",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03914",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn03940",
+    "direction_verdict": "llm",
+    "equation_defect": "mass_unbalanced"
+  },
+  {
+    "id": "rxn03945",
+    "direction_verdict": "llm",
+    "equation_defect": "mass_unbalanced"
+  },
+  {
+    "id": "rxn04012",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04027",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04031",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04032",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04047",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04053",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04069",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04076",
+    "direction_verdict": "llm",
+    "equation_defect": "source_disowned"
+  },
+  {
+    "id": "rxn04090",
+    "direction_verdict": "llm",
+    "equation_defect": "source_disowned"
+  },
+  {
+    "id": "rxn04116",
+    "direction_verdict": "llm",
+    "equation_defect": "source_disowned"
+  },
+  {
+    "id": "rxn04118",
+    "direction_verdict": "llm",
+    "equation_defect": "source_disowned"
+  },
+  {
+    "id": "rxn04120",
+    "direction_verdict": "llm",
+    "equation_defect": "lumped_multienzyme"
+  },
+  {
+    "id": "rxn04123",
+    "direction_verdict": "llm",
+    "equation_defect": "source_disowned"
+  },
+  {
+    "id": "rxn04151",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04163",
+    "direction_verdict": "llm",
+    "equation_defect": "mass_unbalanced"
+  },
+  {
+    "id": "rxn04186",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04187",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04188",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04193",
+    "direction_verdict": "llm",
+    "equation_defect": "lumped_multienzyme"
+  },
+  {
+    "id": "rxn04194",
+    "direction_verdict": "llm",
+    "equation_defect": "source_disowned"
+  },
+  {
+    "id": "rxn04239",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04272",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04273",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04279",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04281",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04282",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04283",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04297",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04300",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04303",
+    "direction_verdict": "llm",
+    "equation_defect": "source_disowned"
+  },
+  {
+    "id": "rxn04304",
+    "direction_verdict": "llm",
+    "equation_defect": "lumped_multienzyme"
+  },
+  {
+    "id": "rxn04305",
+    "direction_verdict": "llm",
+    "equation_defect": "mass_unbalanced"
+  },
+  {
+    "id": "rxn04306",
+    "direction_verdict": "llm",
+    "equation_defect": "lumped_multienzyme"
+  },
+  {
+    "id": "rxn04319",
+    "direction_verdict": "llm",
+    "equation_defect": "lumped_multienzyme"
+  },
+  {
+    "id": "rxn04320",
+    "direction_verdict": "llm",
+    "equation_defect": "lumped_multienzyme"
+  },
+  {
+    "id": "rxn04399",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04400",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04422",
+    "direction_verdict": "llm",
+    "equation_defect": "mass_unbalanced"
+  },
+  {
+    "id": "rxn04439",
+    "direction_verdict": "llm",
+    "equation_defect": "mass_unbalanced"
+  },
+  {
+    "id": "rxn04440",
+    "direction_verdict": "llm",
+    "equation_defect": "mass_unbalanced"
+  },
+  {
+    "id": "rxn04474",
+    "direction_verdict": "llm",
+    "equation_defect": "mass_unbalanced"
+  },
+  {
+    "id": "rxn04479",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04510",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04512",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04514",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04526",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04527",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04530",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04558",
+    "direction_verdict": "llm",
+    "equation_defect": "lumped_multienzyme"
+  },
+  {
+    "id": "rxn04562",
+    "direction_verdict": "llm",
+    "equation_defect": "mass_unbalanced"
+  },
+  {
+    "id": "rxn04563",
+    "direction_verdict": "llm",
+    "equation_defect": "mass_unbalanced"
+  },
+  {
+    "id": "rxn04573",
+    "direction_verdict": "llm",
+    "equation_defect": "lumped_multienzyme"
+  },
+  {
+    "id": "rxn04581",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04588",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04594",
+    "direction_verdict": "llm",
+    "equation_defect": "mass_unbalanced"
+  },
+  {
+    "id": "rxn04649",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04664",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04672",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04681",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04689",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04707",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04708",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04710",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04711",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04721",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04731",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04742",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04752",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04767",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04777",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04778",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04779",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04780",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04788",
+    "direction_verdict": "llm",
+    "equation_defect": "none"
+  },
+  {
+    "id": "rxn04799",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04802",
+    "direction_verdict": "unclear",
+    "equation_defect": "cofactors_stripped"
+  },
+  {
+    "id": "rxn04812",
+    "direction_verdict": "llm",
+    "equation_defect": "lumped_multienzyme"
+  },
+  {
+    "id": "rxn04813",
+    "direction_verdict": "llm",
+    "equation_defect": "lumped_multienzyme"
+  },
+  {
+    "id": "rxn04815",
+    "direction_verdict": "llm",
+    "equation_defect": "lumped_multienzyme"
+  },
+  {
+    "id": "rxn04824",
+    "direction_verdict": "llm",
+    "equation_defect": "cofactors_stripped"
+  }
+]

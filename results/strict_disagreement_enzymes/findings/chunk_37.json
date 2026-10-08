@@ -1,0 +1,477 @@
+[
+ {
+  "id": "rxn36602",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde levopimaradienal (C20H30O) into the unrelated straight-chain fatty acid 11Z, 13Z-eicosadienoate (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of levopimaradienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36603",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde levopimaradienal (C20H30O) into the unrelated straight-chain fatty acid 11E, 13E-eicosadienoate (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of levopimaradienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36604",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde levopimaradienal (C20H30O) into the unrelated straight-chain fatty acid 11E, 13E-eicosadienoate (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of levopimaradienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36605",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde levopimaradienal (C20H30O) into the unrelated straight-chain fatty acid an eicosadienoate isomer (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of levopimaradienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36606",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde levopimaradienal (C20H30O) into the unrelated straight-chain fatty acid an eicosadienoate isomer (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of levopimaradienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36607",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde levopimaradienal (C20H30O) into the unrelated straight-chain fatty acid an eicosadienoate isomer (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of levopimaradienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36608",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde levopimaradienal (C20H30O) into the unrelated straight-chain fatty acid an eicosadienoate isomer (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of levopimaradienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36609",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde neoabietadienal (C20H30O) into the unrelated straight-chain fatty acid 11Z, 13Z-eicosadienoate (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of neoabietadienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36610",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde neoabietadienal (C20H30O) into the unrelated straight-chain fatty acid 11Z, 13Z-eicosadienoate (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of neoabietadienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36611",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde neoabietadienal (C20H30O) into the unrelated straight-chain fatty acid 11E, 13E-eicosadienoate (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of neoabietadienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36612",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde neoabietadienal (C20H30O) into the unrelated straight-chain fatty acid 11E, 13E-eicosadienoate (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of neoabietadienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36613",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde neoabietadienal (C20H30O) into the unrelated straight-chain fatty acid an eicosadienoate isomer (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of neoabietadienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36614",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde neoabietadienal (C20H30O) into the unrelated straight-chain fatty acid an eicosadienoate isomer (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of neoabietadienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36615",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde neoabietadienal (C20H30O) into the unrelated straight-chain fatty acid an eicosadienoate isomer (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of neoabietadienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36616",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde neoabietadienal (C20H30O) into the unrelated straight-chain fatty acid an eicosadienoate isomer (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of neoabietadienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36617",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde Palustradienal (C20H30O) into the unrelated straight-chain fatty acid 11Z, 13Z-eicosadienoate (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of Palustradienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36618",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde Palustradienal (C20H30O) into the unrelated straight-chain fatty acid 11Z, 13Z-eicosadienoate (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of Palustradienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36619",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde Palustradienal (C20H30O) into the unrelated straight-chain fatty acid 11E, 13E-eicosadienoate (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of Palustradienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36620",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde Palustradienal (C20H30O) into the unrelated straight-chain fatty acid 11E, 13E-eicosadienoate (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of Palustradienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36621",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde Palustradienal (C20H30O) into the unrelated straight-chain fatty acid an eicosadienoate isomer (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of Palustradienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36622",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde Palustradienal (C20H30O) into the unrelated straight-chain fatty acid an eicosadienoate isomer (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of Palustradienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36623",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde Palustradienal (C20H30O) into the unrelated straight-chain fatty acid an eicosadienoate isomer (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of Palustradienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36624",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde Palustradienal (C20H30O) into the unrelated straight-chain fatty acid an eicosadienoate isomer (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of Palustradienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36625",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde dehydroabietadienal (C20H28O) into the unrelated straight-chain fatty acid 11Z, 13Z-eicosadienoate (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of dehydroabietadienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ },
+ {
+  "id": "rxn36626",
+  "enzyme_name": "none identified for this substrate/product pair; nominally EC 1.2.1.5 aldehyde dehydrogenase [NAD(P)+] (ALDH), with conifer diterpene aldehyde dehydrogenase and CYP720B1/CYP720B4 the real oxidants of the aldehyde substrate",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifer diterpene resin acid biosynthesis (Abies grandis, Pinus contorta, Pinus taeda, Picea sitchensis); ModelSEED entry is a MetaCyc generic-reaction expansion, not an organism-specific reaction",
+  "confidence": "medium",
+  "rationale": "No enzyme catalyses this pairing: the entry is a combinatorial instance (\"metaexp\") of MetaCyc's generic ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN that turns the tricyclic diterpene aldehyde dehydroabietadienal (C20H28O) into the unrelated straight-chain fatty acid 11Z, 13Z-eicosadienoate (C20H35O2-), a skeleton change no dehydrogenase performs. The genuine catalysts of dehydroabietadienal-type oxidation in conifers are a soluble NAD+-dependent diterpene aldehyde dehydrogenase (characterised only in cell-free extracts, never cloned, so its domain architecture is unknown) and the multisubstrate P450 CYP720B1/CYP720B4, whose \"multifunctionality\" is iterative oxidation of one carbon at a single active site rather than two fused catalytic domains.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "21994349",
+   "31689469"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both candidate catalysts run aldehyde -> carboxylate essentially irreversibly and NAD(P)H reduction of a carboxylate back to an aldehyde requires an ATP-dependent carboxylic acid reductase, so ModelSEED's reverse-only call has no enzymological basis, though the mismatched product makes the direction largely moot."
+ }
+]

@@ -1,0 +1,481 @@
+[
+ {
+  "id": "rxn41379",
+  "enzyme_name": "Glutathione-cystine transhydrogenase (thiol-disulfide oxidoreductase; glutaredoxin/thioltransferase class, EC 1.8.4.4)",
+  "gene_symbols": [
+   "GLRX",
+   "grxA",
+   "TXNDC17"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Activity characterised in rat intestinal mucosa and liver; the modern molecular counterparts are glutaredoxins and TRP14, which reduce L-cystine with GSH.",
+  "confidence": "medium",
+  "rationale": "A single thiol-disulfide exchange active site reduces cystine with two GSH; glutaredoxin's additional roles (deglutathionylation, iron-sulfur cluster delivery) are the same chemistry or non-catalytic, so it stays monofunctional.",
+  "evidence_pmids": [
+   "4724592",
+   "5808323",
+   "24778250",
+   "33932870"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "GSSG, the disulfide product that makes cystine reduction go, is absent from the ModelSEED equation (status MI:C:-20/H:-26/N:-6/O:-12/S:-2|CI:6), so the +435 kJ/mol GC estimate behind ModelSEED's reverse call is an artefact; with the GSH/GSSG pool held high in vivo the flux is always toward L-cysteine."
+ },
+ {
+  "id": "rxn41500",
+  "enzyme_name": "Aryl (phenol) sulfotransferase, EC 2.8.2.1 - cytosolic SULT acting on the isoflavan equol",
+  "gene_symbols": [
+   "SULT1A1",
+   "SULT1E1",
+   "SULT2A1"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Human liver/intestinal cytosolic sulfotransferases acting on the gut-microbial daidzein metabolite (S)-equol; equol-4'-sulfate and equol monosulfates are documented human plasma metabolites.",
+  "confidence": "medium",
+  "rationale": "Cytosolic SULTs are single-domain PAPS-dependent transferases with one catalytic activity; no second catalytic function is reported for the SULT1/SULT2 families.",
+  "evidence_pmids": [
+   "31086672",
+   "30822161"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "PAPS is a high-energy sulfuryl donor and sulfonation is physiologically unidirectional; nothing in SULT enzymology supports regenerating PAPS from PAP plus an aryl sulfate, which is what ModelSEED's reverse call requires."
+ },
+ {
+  "id": "rxn41502",
+  "enzyme_name": "Tetrachlorohydroquinone reductive dehalogenase PcpC (glutathione S-transferase family)",
+  "gene_symbols": [
+   "pcpC"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Sphingobium (Sphingomonas/Flavobacterium) chlorophenolicum and Sphingomonas sp. UG30, pentachlorophenol degradation pathway.",
+  "confidence": "medium",
+  "rationale": "PcpC is a single GST-fold polypeptide that runs successive reductive dehalogenations by the same glutathione-conjugate chemistry; repeated rounds on different chlorinated hydroquinones are substrate promiscuity, not a second catalytic activity.",
+  "evidence_pmids": [
+   "8478329",
+   "19682569",
+   "30505947"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "The second GSH attacks the glutathionyl-hydroquinone conjugate to release the dechlorinated hydroquinone plus GSSG, but GSSG is missing from the equation (status MI:C:-20/H:-25/N:-6/O:-12/S:-2|CI:7), which is what produced the +416 kJ/mol estimate behind ModelSEED's reverse call."
+ },
+ {
+  "id": "rxn41531",
+  "enzyme_name": "Tryptophanase (tryptophan indole-lyase, EC 4.1.99.1)",
+  "gene_symbols": [
+   "tnaA"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Escherichia coli and other enteric/anaerobic bacteria; MetaCyc assigns this half-reaction to TRYPDEG-PWY (L-tryptophan degradation II via pyruvate).",
+  "confidence": "high",
+  "rationale": "A single PLP active site performs beta-elimination; its activity on cysteine, serine and S-methylcysteine is substrate promiscuity at the same site, not a second catalytic activity. Called from established enzymology rather than a new search.",
+  "evidence_pmids": [],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "Tryptophanase is reversible in vitro at high indole/pyruvate/NH3, but in the degradative pathway this entry belongs to the flux is L-Trp -> indole + 2-aminoacrylate, pulled on by hydrolysis of the aminoacrylate to pyruvate + NH3; the opposite (biosynthetic) use of this half-reaction belongs to tryptophan synthase, where the aminoacrylate never leaves the enzyme."
+ },
+ {
+  "id": "rxn41532",
+  "enzyme_name": "Unassigned cyclisation step of the pvc (paerucumarin/pseudoverdine) pathway forming 2-isocyano-6,7-dihydroxycoumarin",
+  "gene_symbols": [
+   "pvcA",
+   "pvcB",
+   "pvcC",
+   "pvcD"
+  ],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Pseudomonas aeruginosa pvcABCD operon (PA2254-PA2257).",
+  "confidence": "low",
+  "rationale": "PvcA (isonitrile synthase, Rossmann fold) and PvcB (Fe(II)/2-oxoglutarate oxygenase) are separate single-activity polypeptides acting upstream, and this particular ring-closure/tautomerisation of the isocyano-quinone to the coumarin is not assigned to a characterised protein and may be spontaneous.",
+  "evidence_pmids": [
+   "18824174",
+   "34658601"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "The pathway runs toward the coumarin (2-isocyano-6,7-dihydroxycoumarin is the pvc end product), so the acyclic isocyanopropenoate is the substrate and ring closure is the forward direction; ModelSEED's reverse call rests on a dGPredictor-only estimate with no group-contribution coverage."
+ },
+ {
+  "id": "rxn41572",
+  "enzyme_name": "Unidentified ATP-dependent ascorbate kinase",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "",
+  "confidence": "low",
+  "rationale": "No protein could be tied to this activity: PubMed returns zero records for 'ascorbate kinase' or 'ascorbic acid kinase' in title/abstract, and the known route to phosphorylated ascorbate is the PEP-dependent ascorbate PTS (UlaABC), not an ATP kinase.",
+  "evidence_pmids": [],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "The phosphorylated ascorbate product is simply absent (status MI:C:-6/H:-6/O:-9/P:-1|CI:3), leaving ATP -> ADP as the only chemistry the estimator sees; any genuine ATP-dependent phosphorylation runs in the ATP-consuming direction, so ModelSEED's reverse call cannot be right."
+ },
+ {
+  "id": "rxn41592",
+  "enzyme_name": "Kaempferol 3-O-glucoside 6''-O-feruloyltransferase, a BAHD-family hydroxycinnamoyl-CoA:flavonol-glucoside acyltransferase",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Plant flavonol acylglucoside biosynthesis (MetaCyc PWY-7168, Arabidopsis-type kaempferol derivatives); the specific gene is not pinned down by the literature searches.",
+  "confidence": "low",
+  "rationale": "BAHD acyltransferases are single-domain, single-active-site (HXXXD/DFGWG) acyl-CoA-dependent transferases with one catalytic activity; family-level assignment only, no specific protein identified.",
+  "evidence_pmids": [
+   "41904984",
+   "41988947"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "The feruloyl-CoA thioester is the activated donor, so acyl transfer onto the glucose 6''-OH is the downhill direction; running it backwards would mean synthesising a CoA thioester from an ordinary ester, which BAHD enzymes do not do without an energy input."
+ },
+ {
+  "id": "rxn41612",
+  "enzyme_name": "Firefly luciferase (luciferin 4-monooxygenase, Luc) - adenylation half-reaction",
+  "gene_symbols": [
+   "luc",
+   "LUC1"
+  ],
+  "functionality": "bifunctional",
+  "distinct_activities": [
+   "firefly luciferase / luciferin 4-monooxygenase (EC 1.13.12.7)",
+   "long-chain fatty acyl-CoA synthetase (EC 6.2.1.3)"
+  ],
+  "organism_context": "Photinus pyralis and other luminous beetles; beetle luciferases evolved from insect fatty acyl-CoA synthetases and extant luciferases often retain measurable ACS activity on one polypeptide.",
+  "confidence": "high",
+  "rationale": "One ANL-superfamily chain carries both the light-emitting luciferase activity and a genuine, retained fatty acyl-CoA synthetase activity (the ancestral function) - two distinct catalytic activities, not moonlighting. This entry is the L-luciferin branch, which luciferase adenylates and then thioesterifies to L-luciferyl-CoA rather than oxidising to light.",
+  "evidence_pmids": [
+   "31828943",
+   "33268373"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "Adenylation is the committed first half-reaction of both luciferase activities and is pulled forward by pyrophosphate hydrolysis; the reverse would require pyrophosphorolysis of luciferyl-adenylate, which is not the physiological flux. The bifunctionality is relevant here: it is the acyl-CoA-synthetase side of the enzyme that handles this (4R)/L-luciferin substrate."
+ },
+ {
+  "id": "rxn41640",
+  "enzyme_name": "cis-p-Coumarate glucosyltransferase (UDP-glucose-dependent family-1 glycosyltransferase, EC 2.4.1.209)",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Plant UGT; no specific gene could be recovered - PubMed returns nothing for 'cis-p-coumarate' plus glucosyltransferase.",
+  "confidence": "low",
+  "rationale": "Family-1 UGTs are single-domain GT-B enzymes with one sugar-transfer activity; assignment here rests on the EC number rather than on an identified protein.",
+  "evidence_pmids": [],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "The coumaroyl glucoside product (C15H17O8) is missing from the equation (status MI:C:-15/H:-17/O:-8|CI:1), so the direction call was made on ATP-like leftovers; UDP-glucose is the activated donor and glucosylation is the forward, downhill direction."
+ },
+ {
+  "id": "rxn41647",
+  "enzyme_name": "Unidentified decarboxylative phenylcoumaran ring-opening enzyme converting (-)-DCA-CC to the stilbene DCA-S",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Sphingobium sp. SYK-6 (now S. lignivorans) dehydrodiconiferyl alcohol / beta-5 lignin dimer catabolism; Takahashi et al. demonstrated the decarboxylation and Calpha-Cbeta cleavage but identified no gene for this step, and the analogous ring opening in Novosphingobium aromaticivorans is done by a different enzyme (the gamma-formaldehyde lyase PcfL, which releases formaldehyde rather than CO2).",
+  "confidence": "low",
+  "rationale": "The catalysing protein is still unassigned in the SYK-6 pathway, so functionality cannot be judged; the closest characterised counterpart, PcfL, is a single-activity lyase.",
+  "evidence_pmids": [
+   "24916011",
+   "39012147",
+   "40908941"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "The catabolic flux releases CO2 and opens the ring to the stilbene, which lignostilbene dioxygenase then cleaves; a decarboxylation that loses CO2 to a downstream irreversible dioxygenase step cannot run backwards, so ModelSEED's reverse call is wrong despite eQuilibrator's +13.5 kJ/mol."
+ },
+ {
+  "id": "rxn41859",
+  "enzyme_name": "Sirohydrochlorin cobaltochelatase CbiK / CbiX (class II chelatase, EC 4.99.1.3)",
+  "gene_symbols": [
+   "cbiK",
+   "cbiX"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Anaerobic cobalamin producers (Salmonella enterica CbiK; Bacillus megaterium and archaeal CbiX/CbiX-short), early-cobalt-insertion branch of adenosylcobalamin biosynthesis.",
+  "confidence": "high",
+  "rationale": "CbiK/CbiX insert Co(II) into sirohydrochlorin at a single active site; the long CbiX C-terminal histidine-rich region is a metal-binding extension, not a second catalytic activity (the genuinely multifunctional sibling, siroheme synthase CysG/Met8p, catalyses different reactions with Fe).",
+  "evidence_pmids": [
+   "33096143",
+   "32054833"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Cobalt-sirohydrochlorin, the whole product, is missing (status MI:C:-42/Co:-1/H:-36/N:-4/O:-16|CI:8), leaving 'Co2+ + sirohydrochlorin -> 2 H+'; metal insertion into the tetrapyrrole is physiologically unidirectional, so the reverse call is an artefact."
+ },
+ {
+  "id": "rxn41916",
+  "enzyme_name": "Inulosucrase (sucrose:2,1-beta-D-fructan 1-beta-D-fructosyltransferase, EC 2.4.1.9)",
+  "gene_symbols": [
+   "inuJ",
+   "ftf"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Lactic acid bacteria (e.g. Lactobacillus johnsonii InuJ), glycoside hydrolase family GH68.",
+  "confidence": "medium",
+  "rationale": "GH68 fructosyltransferases use one fructosyl-enzyme intermediate; transfer to a growing fructan versus to water (hydrolysis) is the same catalytic activity with a different acceptor, not a second function. Enzyme identified only from the EC number on the entry.",
+  "evidence_pmids": [],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Both the fructan acceptor and the extended fructan product are gone - the entry has collapsed to 'sucrose -> glucose' (status MI:C:-6/H:-10/O:-5). Sucrose is the activated donor, so glucose release is forward; glucose cannot be resynthesised into sucrose by this enzyme without the fructan."
+ },
+ {
+  "id": "rxn41960",
+  "enzyme_name": "(-)-Medicocarpin (medicarpin 3-O-glucoside) beta-glucosidase, a plant GH1 glucosidase",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Medicago sativa / M. truncatula isoflavonoid phytoalexin conjugate turnover (MetaCyc PWY-2561); no specific gene recovered - searches on 'medicocarpin' and on Medicago isoflavone-conjugate glucosidases returned nothing usable.",
+  "confidence": "low",
+  "rationale": "GH1 beta-glucosidases are single-domain (beta/alpha)8 enzymes with one hydrolytic activity; the assignment here is from the chemistry (glucoside + H2O -> aglycone + glucose) rather than from an identified protein.",
+  "evidence_pmids": [],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "Glucoside hydrolysis is strongly downhill and is how the phytoalexin is released from its storage conjugate; the opposite direction in planta goes through a UDP-glucose-dependent UGT, which is a different reaction, so free glucose + medicarpin -> medicocarpin (ModelSEED's call) has no enzyme behind it."
+ },
+ {
+  "id": "rxn42012",
+  "enzyme_name": "Microsomal epoxide hydrolase (mEH, EPHX1)",
+  "gene_symbols": [
+   "EPHX1"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Mammalian liver endoplasmic reticulum; benzo[a]pyrene 4,5-oxide (the K-region epoxide) is a classical mEH substrate.",
+  "confidence": "high",
+  "rationale": "A single alpha/beta-hydrolase-fold catalytic site (Asp-His-Glu plus two tyrosines) opens the epoxide; mEH's reported role as a sodium-dependent bile-acid transporter is moonlighting, not a second catalytic activity, so it stays monofunctional. Called from established enzymology.",
+  "evidence_pmids": [],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "Hydrolytic opening of a strained arene oxide to the trans-dihydrodiol is irreversible; re-forming the epoxide from the diol is not something any hydrolase does, so ModelSEED's reverse call is unsupported (it rests on a dGPredictor-only estimate with no group-contribution coverage)."
+ },
+ {
+  "id": "rxn42024",
+  "enzyme_name": "Hydroxycinnamoyl-CoA:quinate hydroxycinnamoyltransferase (HQT/HCT, EC 2.3.1.133), BAHD family",
+  "gene_symbols": [
+   "HQT",
+   "HCT"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Plants - tomato, tobacco, sweet potato, coffee, globe artichoke; chlorogenic acid biosynthesis.",
+  "confidence": "medium",
+  "rationale": "HQT/HCT are single-domain BAHD acyltransferases with one HXXXD-based acyl-transfer site; broad acceptor tolerance (quinate vs shikimate) is promiscuity, not bifunctionality.",
+  "evidence_pmids": [
+   "42075364",
+   "37063176",
+   "40909896"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "The p-coumaroylquinate ester product is missing (status MI:C:-16/H:-17/O:-8|CI:1), so there is nothing for the reaction to run back from. Worth flagging that this family genuinely does operate in reverse in planta (HCT regenerates caffeoyl-CoA from the shikimate ester in lignin biosynthesis), so a corrected, balanced version of this entry could reasonably be reversible rather than strictly forward."
+ },
+ {
+  "id": "rxn42037",
+  "enzyme_name": "SAM-dependent O-methyltransferase of the nocamycin (ncm) post-tailoring set",
+  "gene_symbols": [
+   "ncmE",
+   "ncmD",
+   "ncmG",
+   "ncmO",
+   "ncmP"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Saccharothrix syringae NRRL B-16468 nocamycin gene cluster; Mo et al. assign five enzymes (NcmEDGOP) to post-tailoring but do not say which one is the methyltransferase, so the specific protein is not pinned.",
+  "confidence": "low",
+  "rationale": "Class I SAM-dependent methyltransferases are single-Rossmann-domain, single-activity enzymes; assignment is at the family level only because the cluster paper does not resolve which ncm gene performs this methylation.",
+  "evidence_pmids": [
+   "28599654",
+   "33391238"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "SAM-dependent methyl transfer is effectively irreversible (SAM is the high-energy donor and SAH is the spent product), so the biosynthetic direction nocamycin E -> BU-2313B is the only one with enzymology behind it."
+ },
+ {
+  "id": "rxn42049",
+  "enzyme_name": "Hydration of dehydro(indol-3-yl)acetonitrile to the aryl cyanohydrin - likely non-enzymatic, within the FOX1-catalysed oxidation of indole-3-acetonitrile",
+  "gene_symbols": [
+   "FOX1",
+   "CYP82C2"
+  ],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Arabidopsis thaliana 4-hydroxyindole-3-carbonyl nitrile (4-OH-ICN) pathogen-defence pathway, whose aryl cyanohydrin intermediate Rajniak et al. describe explicitly.",
+  "confidence": "low",
+  "rationale": "The step is a water addition across a highly electrophilic dehydro-nitrile and is most likely spontaneous rather than catalysed by a dedicated protein, so no enzyme can be assigned; the flanking two-electron oxidations are done by the FAD-dependent oxidase FOX1.",
+  "evidence_pmids": [
+   "26352477"
+  ],
+  "direction_verdict": "modelseed",
+  "equation_defect": "none",
+  "direction_note": "ModelSEED is right here: the pathway runs indole-3-acetonitrile -> dehydro-nitrile -> aryl cyanohydrin -> indole-3-carbonyl nitrile, i.e. water adds to the dehydro species, and a cross-conjugated methide-type nitrile would in any case be quenched by water rather than regenerated from the alcohol. The LLM council's forward (dehydration) call inverts the biosynthetic flow; eQuilibrator (+10.4 kJ/mol for the dehydration) agrees with ModelSEED."
+ },
+ {
+  "id": "rxn42073",
+  "enzyme_name": "Cystine C-S lyase (PLP-dependent beta-elimination by cystathionine beta/gamma-lyase-type enzymes, e.g. cystalysin, CTH/CSE)",
+  "gene_symbols": [
+   "CTH",
+   "metC",
+   "hly (cystalysin)"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Treponema denticola cystalysin and mammalian cystathionine gamma-lyase both carry out cystine C-S lysis; the resulting 2-aminoacrylate is the reactive species Rid/RidA proteins quench.",
+  "confidence": "medium",
+  "rationale": "One PLP active site performs the beta-elimination; the ability of these enzymes to act on cystathionine, cysteine and cystine is substrate promiscuity at the same site, and cystalysin's haemolytic behaviour is a downstream consequence of H2S production, not a second catalytic activity.",
+  "evidence_pmids": [
+   "10880431",
+   "26369582",
+   "29440255"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "Beta-elimination from the PLP-cystine aldimine is pulled forward because the released 2-aminoacrylate tautomerises/hydrolyses on to pyruvate + ammonia; recondensing free thiocysteine with free aminoacrylate, which ModelSEED's reverse call implies, is not an enzymatic reaction."
+ },
+ {
+  "id": "rxn42076",
+  "enzyme_name": "Type III pantothenate kinase (PanK-III / CoaX, EC 2.7.1.33)",
+  "gene_symbols": [
+   "coaX",
+   "coaA (type III)"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Bacteria lacking PanK-I/II (Helicobacter pylori, Bacillus anthracis, Thermotoga maritima and many pathogens).",
+  "confidence": "high",
+  "rationale": "PanK-III is a standalone ASKHA/acetate-kinase-fold phosphotransferase with one activity; the bifunctional enzyme of this pathway is the downstream CoaBC (phosphopantothenoylcysteine synthetase/decarboxylase), which is a different reaction. Called from established enzymology.",
+  "evidence_pmids": [],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "4'-Phosphopantothenate is absent (status MI:C:-9/H:-14/N:-1/O:-8/P:-1|CI:4), so the thermodynamic estimate is really for a bare ATP -> ADP conversion; a kinase runs in the ATP-consuming direction, so ModelSEED's reverse call is an artefact of the broken stoichiometry."
+ },
+ {
+  "id": "rxn42088",
+  "enzyme_name": "Human carboxylesterase 1 (hCE1/CES1) - cocaine/ethanol transesterification to cocaethylene",
+  "gene_symbols": [
+   "CES1"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Human liver carboxylesterase 1; cocaethylene formation in co-users of cocaine and ethanol.",
+  "confidence": "high",
+  "rationale": "CES1 is a single alpha/beta-hydrolase-fold Ser-His-Glu esterase; hydrolysis and ethanol transesterification go through the same acyl-enzyme intermediate, so this is one catalytic activity with an alternative acyl acceptor, not bifunctionality.",
+  "evidence_pmids": [
+   "23386599",
+   "35448887"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "Methanol, the leaving alcohol, is missing (status MI:C:-1/H:-4/O:-1). The enzymology is transesterification of the cocaine methyl ester with ethanol, driven by the large ethanol excess in a drinking subject, so cocaethylene is the product, not the substrate."
+ },
+ {
+  "id": "rxn42151",
+  "enzyme_name": "Ind3, a phenylacetate-CoA-ligase-like (ANL-superfamily) enzyme that drives indolmycin oxazolinone assembly; Ind6 acts as gatekeeper",
+  "gene_symbols": [
+   "ind3",
+   "ind6"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Streptomyces indolmycin producers; Du, Alkhalaf & Ryan reconstituted the pathway in vitro.",
+  "confidence": "low",
+  "rationale": "Ind3 is a single adenylating-domain ligase that condenses indolmycenic acid with dehydroarginine and drives the ring closure; Ind6's additional chaperone-like, outcome-directing role is explicitly not a second catalytic activity, and this ammonia-releasing cyclisation may itself be spontaneous once the amide is formed.",
+  "evidence_pmids": [
+   "25730866"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "Cyclisation with loss of ammonia is the committed, irreversible assembly of the oxazolinone ring; adding ammonia back onto indolmycin B to reopen the ring is not a reaction the pathway runs."
+ },
+ {
+  "id": "rxn42164",
+  "enzyme_name": "Unassigned oxidative step of the fsr (8-O-methylfusarubin) pathway converting 8-O-methylanhydrofusarubinlactol to 8-O-methylfusarubinlactone",
+  "gene_symbols": [
+   "fsr1",
+   "fsr2",
+   "fsr3"
+  ],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Fusarium fujikuroi fsr naphthoquinone/fusarubin cluster (PKS fsr1, O-methyltransferase fsr2, monooxygenase fsr3); Studt et al. proposed the pathway from deletion phenotypes without assigning every tailoring step.",
+  "confidence": "low",
+  "rationale": "The specific fsr gene product for this step is not assigned in the literature, so functionality cannot be judged; the candidate (FSR3) is a single-activity FAD-dependent monooxygenase.",
+  "evidence_pmids": [
+   "22492438"
+  ],
+  "direction_verdict": "modelseed",
+  "equation_defect": "cofactors_stripped",
+  "direction_note": "ModelSEED is right here. The lactone (C16H14O8) carries one more oxygen than the anhydro-lactol (C16H14O7) at identical H count (status MI:O:-1), so the transformation is an oxygenation/oxidation of the lactol to the lactone; the redox partners (O2 plus NAD(P)H, or water plus NAD(P)+) have been stripped out. The LLM council's forward call would be a reductive deoxygenation of the lactone, which no enzyme in this cluster performs."
+ },
+ {
+  "id": "rxn42187",
+  "enzyme_name": "Rid-family imine deaminase (Rid2/Rid3 subfamilies) hydrolysing 2-iminoarginine downstream of D-arginine dehydrogenase DauA; the hydrolysis also proceeds non-enzymatically",
+  "gene_symbols": [
+   "ridA",
+   "rid2",
+   "rid3",
+   "dauA"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Pseudomonas aeruginosa D-arginine degradation (PWY-6422); Hodge-Hanson & Downs showed Rid2/Rid3 proteins, but not RidA/Rid1, deaminate iminoarginine generated in situ by DauA.",
+  "confidence": "medium",
+  "rationale": "Rid proteins are small single-domain chorismate-mutase-fold deaminases with one catalytic activity; the same hydrolysis occurs slowly without protein, so enzymes here only accelerate a spontaneous step.",
+  "evidence_pmids": [
+   "28957411"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "Hydrolytic deamination of an imino acid to the 2-oxo acid plus ammonia is effectively irreversible and happens spontaneously in water, so the reverse direction ModelSEED recommends has no physical basis."
+ },
+ {
+  "id": "rxn42192",
+  "enzyme_name": "Isoepoxydon synthase of the patulin (pat) cluster - gene not firmly assigned",
+  "gene_symbols": [
+   "patF",
+   "patH",
+   "patI",
+   "patO"
+  ],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Penicillium expansum / Aspergillus clavatus patulin pathway (PWY-7490); the CYP619 P450s PatH and PatI are characterised for the earlier m-cresol and m-hydroxybenzyl alcohol hydroxylations, and PatN is the downstream isoepoxydon dehydrogenase, but no protein is firmly tied to isoepoxydon formation.",
+  "confidence": "low",
+  "rationale": "The catalysing protein for this step of the patulin pathway remains unassigned, so functionality is genuinely unknown rather than monofunctional by default.",
+  "evidence_pmids": [
+   "22069602",
+   "19383676"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "cofactors_stripped",
+  "direction_note": "The entry is named for the product (isoepoxydon) and sits in a biosynthetic pathway whose next step, PatN, consumes isoepoxydon, so the forward (synthase) direction is correct. The equation balances only because MetaCyc uses H2O in place of the O2 plus reductant a dearomatising epoxidation actually requires, which is exactly what removes the irreversibility from the thermodynamic estimate."
+ },
+ {
+  "id": "rxn42241",
+  "enzyme_name": "Tetraketide synthase / olivetol synthase (TKS, OLS), a type III polyketide synthase - derailment release of the tetraketide as its pyrone",
+  "gene_symbols": [
+   "TKS",
+   "OLS",
+   "OAC"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Cannabis sativa cannabinoid precursor pathway (MetaCyc PWY-7105); without its partner olivetolic acid cyclase (OAC, a separate DABB-fold polypeptide) TKS releases the linear tetraketide as the pyrone.",
+  "confidence": "medium",
+  "rationale": "Type III PKSs run iterative condensation and cyclisation at one Cys-His-Asn active site on a single chain - one catalytic activity; OAC is a separate protein, so the TKS/OAC pair is a two-protein system, not a fused bifunctional enzyme.",
+  "evidence_pmids": [
+   "31605668",
+   "34068935"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "Lactonisation releases the CoA thioester and is irreversible - the free pyrone cannot re-acylate coenzyme A - so the only direction with enzymology behind it is tetraketide-CoA -> CoA + pyrone."
+ }
+]

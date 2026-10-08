@@ -1,0 +1,1651 @@
+{
+ "total_reactions": 1370,
+ "researched": 1370,
+ "missing": 0,
+ "by_functionality": {
+  "monofunctional": 790,
+  "unknown": 481,
+  "bifunctional": 73,
+  "polyfunctional": 26
+ },
+ "by_confidence": {
+  "high": 429,
+  "low": 401,
+  "medium": 540
+ },
+ "by_tier": {
+  "named": 658,
+  "xref_only": 626,
+  "opaque": 86
+ },
+ "by_mismatch_group": {
+  "forward_vs_reverse": 62,
+  "reverse_vs_forward": 1308
+ },
+ "with_direction_note": 1363,
+ "by_enzymology_supports": {
+  "llm": 1252,
+  "neither": 54,
+  "unclear": 35,
+  "modelseed": 29
+ },
+ "by_equation_defect": {
+  "none": 504,
+  "source_disowned": 78,
+  "cofactors_stripped": 251,
+  "mass_unbalanced": 430,
+  "lumped_multienzyme": 107
+ },
+ "modelseed_flags_imbalance": 710,
+ "defect_vs_modelseed_status": {
+  "none": {
+   "modelseed_flags_imbalance": 28,
+   "modelseed_says_ok": 476
+  },
+  "cofactors_stripped": {
+   "modelseed_flags_imbalance": 131,
+   "modelseed_says_ok": 120
+  },
+  "mass_unbalanced": {
+   "modelseed_flags_imbalance": 422,
+   "modelseed_says_ok": 8
+  },
+  "lumped_multienzyme": {
+   "modelseed_flags_imbalance": 92,
+   "modelseed_says_ok": 15
+  },
+  "source_disowned": {
+   "modelseed_flags_imbalance": 37,
+   "modelseed_says_ok": 41
+  }
+ },
+ "grade_vs_imbalance": {
+  "gold": {
+   "total": 49,
+   "modelseed_flags_imbalance": 36
+  },
+  "silver": {
+   "total": 422,
+   "modelseed_flags_imbalance": 188
+  },
+  "bronze": {
+   "total": 899,
+   "modelseed_flags_imbalance": 486
+  }
+ },
+ "verdict_by_group": {
+  "forward_vs_reverse": {
+   "llm": 31,
+   "neither": 13,
+   "unclear": 6,
+   "modelseed": 12
+  },
+  "reverse_vs_forward": {
+   "neither": 41,
+   "llm": 1221,
+   "modelseed": 17,
+   "unclear": 29
+  }
+ },
+ "defect_by_group": {
+  "forward_vs_reverse": {
+   "none": 35,
+   "source_disowned": 4,
+   "cofactors_stripped": 14,
+   "mass_unbalanced": 7,
+   "lumped_multienzyme": 2
+  },
+  "reverse_vs_forward": {
+   "source_disowned": 74,
+   "mass_unbalanced": 423,
+   "none": 469,
+   "cofactors_stripped": 237,
+   "lumped_multienzyme": 105
+  }
+ },
+ "modelseed_imbalance_enrichment": {
+  "all_non_obsolete": {
+   "n": 48384,
+   "flagged": 8125,
+   "pct": 16.8
+  },
+  "all_recommended_vs_llm_mismatches": {
+   "n": 8466,
+   "flagged": 1128,
+   "pct": 13.3
+  },
+  "strict_disagreements": {
+   "n": 1370,
+   "flagged": 710,
+   "pct": 51.8
+  },
+  "enrichment_vs_baseline": 3.08,
+  "flag_codes_in_strict_set": {
+   "CI": 560,
+   "MI": 491
+  }
+ },
+ "metacyc_source_direction": {
+  "available": true,
+  "matched": 709,
+  "of_total": 1370,
+  "source_writes_forward_modelseed_recommends_reverse": 491,
+  "pct_forward_overridden": 69.3,
+  "source_direction_agrees_with_llm": 502,
+  "pct_source_agrees_with_llm": 70.8,
+  "source_direction_agrees_with_recommendation": 45,
+  "pct_source_agrees_with_recommendation": 6.3,
+  "breakdown_source_recommended_llm": {
+   ">|<|>": 491,
+   "=|<|>": 157,
+   "<|<|>": 26,
+   ">|>|<": 19,
+   "<|>|<": 11,
+   "=|>|<": 5
+  }
+ },
+ "sam_methyltransferase_sign": {
+  "sam_reactions": 93,
+  "with_estimate": 93,
+  "positive_uphill": 92,
+  "pct_positive": 98.9,
+  "median_dg_kj_mol": 32.81,
+  "expected_sign": "negative (SAM->SAH methyl transfer is strongly exergonic)",
+  "identical_values_reused": {
+   "29.04": 11,
+   "32.81": 10,
+   "32.25": 10,
+   "43.88": 5,
+   "33.87": 4,
+   "27.32": 4,
+   "30.84": 3,
+   "34.69": 2,
+   "44.89": 2,
+   "31.08": 2,
+   "36.1": 2,
+   "25.16": 2,
+   "27.8": 2,
+   "23.35": 2
+  }
+ },
+ "dropped_compounds": {
+  "reactions_with_an_identifiable_missing_compound": 349,
+  "most_commonly_dropped": {
+   "cpd00001 (H2O)": 55,
+   "cpd00111 (Oxidized glutathione)": 39,
+   "cpd04099 (Phosphonate)": 38,
+   "cpd00269 (2-Oxoadipate)": 16,
+   "cpd00008 (ADP)": 16,
+   "cpd00055 (Formaldehyde)": 14,
+   "cpd00027 (D-Glucose)": 14,
+   "cpd00011 (CO2)": 13,
+   "cpd00012 (PPi)": 9,
+   "cpd00007 (O2)": 9
+  },
+  "per_reaction": {
+   "rxn03803": {
+    "missing_compound": "cpd00013",
+    "name": "NH3"
+   },
+   "rxn07340": {
+    "missing_compound": "cpd01024",
+    "name": "Methane"
+   },
+   "rxn47533": {
+    "missing_compound": "cpd01024",
+    "name": "Methane"
+   },
+   "rxn00277": {
+    "missing_compound": "cpd00011",
+    "name": "CO2"
+   },
+   "rxn00496": {
+    "missing_compound": "cpd00055",
+    "name": "Formaldehyde"
+   },
+   "rxn00969": {
+    "missing_compound": "cpd00099",
+    "name": "Cl-"
+   },
+   "rxn01470": {
+    "missing_compound": "cpd28345",
+    "name": "x-pyrophosphate-group"
+   },
+   "rxn02777": {
+    "missing_compound": "cpd33132",
+    "name": "ozone"
+   },
+   "rxn02987": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn03189": {
+    "missing_compound": "cpd01024",
+    "name": "Methane"
+   },
+   "rxn03776": {
+    "missing_compound": "cpd00055",
+    "name": "Formaldehyde"
+   },
+   "rxn03784": {
+    "missing_compound": "cpd00015",
+    "name": "FAD"
+   },
+   "rxn03812": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn03813": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn03940": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn03945": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn04116": {
+    "missing_compound": "cpd00055",
+    "name": "Formaldehyde"
+   },
+   "rxn04118": {
+    "missing_compound": "cpd00055",
+    "name": "Formaldehyde"
+   },
+   "rxn04120": {
+    "missing_compound": "cpd00571",
+    "name": "Glucarate"
+   },
+   "rxn04187": {
+    "missing_compound": "cpd00012",
+    "name": "PPi"
+   },
+   "rxn04188": {
+    "missing_compound": "cpd00012",
+    "name": "PPi"
+   },
+   "rxn04194": {
+    "missing_compound": "cpd00012",
+    "name": "PPi"
+   },
+   "rxn04272": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn04273": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn04304": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn04305": {
+    "missing_compound": "cpd00297",
+    "name": "dTDP"
+   },
+   "rxn04306": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn04439": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn04440": {
+    "missing_compound": "cpd00978",
+    "name": "dUDP"
+   },
+   "rxn04562": {
+    "missing_compound": "cpd00012",
+    "name": "PPi"
+   },
+   "rxn04581": {
+    "missing_compound": "cpd00029",
+    "name": "Acetate"
+   },
+   "rxn04594": {
+    "missing_compound": "cpd00007",
+    "name": "O2"
+   },
+   "rxn04664": {
+    "missing_compound": "cpd00099",
+    "name": "Cl-"
+   },
+   "rxn04802": {
+    "missing_compound": "cpd01024",
+    "name": "Methane"
+   },
+   "rxn04812": {
+    "missing_compound": "cpd00053",
+    "name": "L-Glutamine"
+   },
+   "rxn04813": {
+    "missing_compound": "cpd00053",
+    "name": "L-Glutamine"
+   },
+   "rxn04815": {
+    "missing_compound": "cpd00053",
+    "name": "L-Glutamine"
+   },
+   "rxn04921": {
+    "missing_compound": "cpd00053",
+    "name": "L-Glutamine"
+   },
+   "rxn04922": {
+    "missing_compound": "cpd00007",
+    "name": "O2"
+   },
+   "rxn05019": {
+    "missing_compound": "cpd02980",
+    "name": "(6S)-6-beta-Hydroxy-1,4,5,6-tetrahydronicotinamide-adenine dinucleotide 2'-phosphate"
+   },
+   "rxn05020": {
+    "missing_compound": "cpd02980",
+    "name": "(6S)-6-beta-Hydroxy-1,4,5,6-tetrahydronicotinamide-adenine dinucleotide 2'-phosphate"
+   },
+   "rxn05800": {
+    "missing_compound": "cpd00269",
+    "name": "2-Oxoadipate"
+   },
+   "rxn05816": {
+    "missing_compound": "cpd00713",
+    "name": "3',5'-Cyclic dAMP"
+   },
+   "rxn05817": {
+    "missing_compound": "cpd00294",
+    "name": "dAMP"
+   },
+   "rxn05819": {
+    "missing_compound": "cpd24443",
+    "name": "thymidine 3'5'-cyclic monophosphate"
+   },
+   "rxn05840": {
+    "missing_compound": "cpd00294",
+    "name": "dAMP"
+   },
+   "rxn05846": {
+    "missing_compound": "cpd00018",
+    "name": "AMP"
+   },
+   "rxn05847": {
+    "missing_compound": "cpd00206",
+    "name": "dCMP"
+   },
+   "rxn05848": {
+    "missing_compound": "cpd00299",
+    "name": "dUMP"
+   },
+   "rxn05852": {
+    "missing_compound": "cpd00269",
+    "name": "2-Oxoadipate"
+   },
+   "rxn05907": {
+    "missing_compound": "cpd00269",
+    "name": "2-Oxoadipate"
+   },
+   "rxn06050": {
+    "missing_compound": "cpd00269",
+    "name": "2-Oxoadipate"
+   },
+   "rxn06073": {
+    "missing_compound": "cpd00012",
+    "name": "PPi"
+   },
+   "rxn06121": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn06153": {
+    "missing_compound": "cpd01836",
+    "name": "N-Ethylglycocyamine"
+   },
+   "rxn06165": {
+    "missing_compound": "cpd00269",
+    "name": "2-Oxoadipate"
+   },
+   "rxn06307": {
+    "missing_compound": "cpd00340",
+    "name": "2,5-Dioxopentanoate"
+   },
+   "rxn06318": {
+    "missing_compound": "cpd00027",
+    "name": "D-Glucose"
+   },
+   "rxn06411": {
+    "missing_compound": "cpd00081",
+    "name": "Sulfite"
+   },
+   "rxn06533": {
+    "missing_compound": "cpd00806",
+    "name": "L-Fuculose1-phosphate"
+   },
+   "rxn06535": {
+    "missing_compound": "cpd00340",
+    "name": "2,5-Dioxopentanoate"
+   },
+   "rxn06566": {
+    "missing_compound": "cpd01844",
+    "name": "Propionyl phosphate"
+   },
+   "rxn06583": {
+    "missing_compound": "cpd00509",
+    "name": "deoxyribose-1-phosphate"
+   },
+   "rxn06612": {
+    "missing_compound": "cpd09364",
+    "name": "cADPR"
+   },
+   "rxn06618": {
+    "missing_compound": "cpd00269",
+    "name": "2-Oxoadipate"
+   },
+   "rxn06627": {
+    "missing_compound": "cpd00338",
+    "name": "5-Aminolevulinate"
+   },
+   "rxn06659": {
+    "missing_compound": "cpd00027",
+    "name": "D-Glucose"
+   },
+   "rxn06718": {
+    "missing_compound": "cpd11452",
+    "name": "peptido_BS"
+   },
+   "rxn06899": {
+    "missing_compound": "cpd00978",
+    "name": "dUDP"
+   },
+   "rxn07031": {
+    "missing_compound": "cpd00269",
+    "name": "2-Oxoadipate"
+   },
+   "rxn07070": {
+    "missing_compound": "cpd16008",
+    "name": "peptidoglycan subunit (for Mycobacterium tuberculosis)"
+   },
+   "rxn07078": {
+    "missing_compound": "cpd00008",
+    "name": "ADP"
+   },
+   "rxn07090": {
+    "missing_compound": "cpd00071",
+    "name": "Acetaldehyde"
+   },
+   "rxn07094": {
+    "missing_compound": "cpd01726",
+    "name": "6-Acetyl-D-glucose"
+   },
+   "rxn07121": {
+    "missing_compound": "cpd00011",
+    "name": "CO2"
+   },
+   "rxn07170": {
+    "missing_compound": "cpd00099",
+    "name": "Cl-"
+   },
+   "rxn07467": {
+    "missing_compound": "cpd00012",
+    "name": "PPi"
+   },
+   "rxn07507": {
+    "missing_compound": "cpd00011",
+    "name": "CO2"
+   },
+   "rxn07547": {
+    "missing_compound": "cpd00269",
+    "name": "2-Oxoadipate"
+   },
+   "rxn07556": {
+    "missing_compound": "cpd00020",
+    "name": "Pyruvate"
+   },
+   "rxn07557": {
+    "missing_compound": "cpd00269",
+    "name": "2-Oxoadipate"
+   },
+   "rxn07570": {
+    "missing_compound": "cpd00269",
+    "name": "2-Oxoadipate"
+   },
+   "rxn07588": {
+    "missing_compound": "cpd00011",
+    "name": "CO2"
+   },
+   "rxn07597": {
+    "missing_compound": "cpd00011",
+    "name": "CO2"
+   },
+   "rxn07629": {
+    "missing_compound": "cpd06201",
+    "name": "Sulfur dioxide"
+   },
+   "rxn07706": {
+    "missing_compound": "cpd00012",
+    "name": "PPi"
+   },
+   "rxn07731": {
+    "missing_compound": "cpd00055",
+    "name": "Formaldehyde"
+   },
+   "rxn07831": {
+    "missing_compound": "cpd00007",
+    "name": "O2"
+   },
+   "rxn07911": {
+    "missing_compound": "cpd00011",
+    "name": "CO2"
+   },
+   "rxn09356": {
+    "missing_compound": "cpd00055",
+    "name": "Formaldehyde"
+   },
+   "rxn09983": {
+    "missing_compound": "cpd00076",
+    "name": "Sucrose"
+   },
+   "rxn11221": {
+    "missing_compound": "cpd00340",
+    "name": "2,5-Dioxopentanoate"
+   },
+   "rxn11223": {
+    "missing_compound": "cpd00011",
+    "name": "CO2"
+   },
+   "rxn11630": {
+    "missing_compound": "cpd00011",
+    "name": "CO2"
+   },
+   "rxn11685": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn11812": {
+    "missing_compound": "cpd00888",
+    "name": "N-Methylethanolamine phosphate"
+   },
+   "rxn11836": {
+    "missing_compound": "cpd01101",
+    "name": "Carbamate"
+   },
+   "rxn11846": {
+    "missing_compound": "cpd00378",
+    "name": "Formamide"
+   },
+   "rxn11867": {
+    "missing_compound": "cpd24445",
+    "name": "dithiophosphate"
+   },
+   "rxn11884": {
+    "missing_compound": "cpd00012",
+    "name": "PPi"
+   },
+   "rxn11905": {
+    "missing_compound": "cpd00012",
+    "name": "PPi"
+   },
+   "rxn12062": {
+    "missing_compound": "cpd00242",
+    "name": "H2CO3"
+   },
+   "rxn12065": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn12072": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn12073": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn12079": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn12089": {
+    "missing_compound": "cpd00007",
+    "name": "O2"
+   },
+   "rxn12108": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn12122": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn12131": {
+    "missing_compound": "cpd00055",
+    "name": "Formaldehyde"
+   },
+   "rxn12134": {
+    "missing_compound": "cpd00332",
+    "name": "Mevalonic acid"
+   },
+   "rxn12138": {
+    "missing_compound": "cpd00137",
+    "name": "Citrate"
+   },
+   "rxn12139": {
+    "missing_compound": "cpd00875",
+    "name": "KDO"
+   },
+   "rxn12143": {
+    "missing_compound": "cpd00055",
+    "name": "Formaldehyde"
+   },
+   "rxn12152": {
+    "missing_compound": "cpd00007",
+    "name": "O2"
+   },
+   "rxn12299": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn13007": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn13297": {
+    "missing_compound": "cpd00382",
+    "name": "Melitose"
+   },
+   "rxn13299": {
+    "missing_compound": "cpd00382",
+    "name": "Melitose"
+   },
+   "rxn14329": {
+    "missing_compound": "cpd00027",
+    "name": "D-Glucose"
+   },
+   "rxn14366": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn15366": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn15452": {
+    "missing_compound": "cpd00269",
+    "name": "2-Oxoadipate"
+   },
+   "rxn15453": {
+    "missing_compound": "cpd00269",
+    "name": "2-Oxoadipate"
+   },
+   "rxn15755": {
+    "missing_compound": "cpd00020",
+    "name": "Pyruvate"
+   },
+   "rxn15832": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn15837": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn15843": {
+    "missing_compound": "cpd00011",
+    "name": "CO2"
+   },
+   "rxn15869": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn15871": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn15896": {
+    "missing_compound": "cpd00029",
+    "name": "Acetate"
+   },
+   "rxn15921": {
+    "missing_compound": "cpd00011",
+    "name": "CO2"
+   },
+   "rxn15931": {
+    "missing_compound": "cpd00029",
+    "name": "Acetate"
+   },
+   "rxn15936": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn15955": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn15956": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn16015": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn16061": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn17379": {
+    "missing_compound": "cpd00269",
+    "name": "2-Oxoadipate"
+   },
+   "rxn17491": {
+    "missing_compound": "cpd15628",
+    "name": "Ser-Met"
+   },
+   "rxn17510": {
+    "missing_compound": "cpd16008",
+    "name": "peptidoglycan subunit (for Mycobacterium tuberculosis)"
+   },
+   "rxn17702": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn19698": {
+    "missing_compound": "cpd00013",
+    "name": "NH3"
+   },
+   "rxn21084": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn21155": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn21175": {
+    "missing_compound": "cpd00055",
+    "name": "Formaldehyde"
+   },
+   "rxn21338": {
+    "missing_compound": "cpd01101",
+    "name": "Carbamate"
+   },
+   "rxn21339": {
+    "missing_compound": "cpd00035",
+    "name": "L-Alanine"
+   },
+   "rxn21363": {
+    "missing_compound": "cpd00033",
+    "name": "Glycine"
+   },
+   "rxn21364": {
+    "missing_compound": "cpd00281",
+    "name": "GABA"
+   },
+   "rxn21376": {
+    "missing_compound": "cpd02657",
+    "name": "2,1' dianhydride"
+   },
+   "rxn21436": {
+    "missing_compound": "cpd00299",
+    "name": "dUMP"
+   },
+   "rxn21597": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn22034": {
+    "missing_compound": "cpd00141",
+    "name": "Propionate"
+   },
+   "rxn22747": {
+    "missing_compound": "cpd00076",
+    "name": "Sucrose"
+   },
+   "rxn22859": {
+    "missing_compound": "cpd02657",
+    "name": "2,1' dianhydride"
+   },
+   "rxn23208": {
+    "missing_compound": "cpd00040",
+    "name": "Glyoxalate"
+   },
+   "rxn23328": {
+    "missing_compound": "cpd02657",
+    "name": "2,1' dianhydride"
+   },
+   "rxn24659": {
+    "missing_compound": "cpd00055",
+    "name": "Formaldehyde"
+   },
+   "rxn25070": {
+    "missing_compound": "cpd00029",
+    "name": "Acetate"
+   },
+   "rxn25263": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn25376": {
+    "missing_compound": "cpd04869",
+    "name": "Etidronic acid"
+   },
+   "rxn25574": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn25592": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn25624": {
+    "missing_compound": "cpd00055",
+    "name": "Formaldehyde"
+   },
+   "rxn25676": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn26315": {
+    "missing_compound": "cpd01836",
+    "name": "N-Ethylglycocyamine"
+   },
+   "rxn27075": {
+    "missing_compound": "cpd28144",
+    "name": "S2O42-"
+   },
+   "rxn27077": {
+    "missing_compound": "cpd00011",
+    "name": "CO2"
+   },
+   "rxn28399": {
+    "missing_compound": "cpd00011",
+    "name": "CO2"
+   },
+   "rxn28417": {
+    "missing_compound": "cpd03166",
+    "name": "Phosphinate"
+   },
+   "rxn28420": {
+    "missing_compound": "cpd00071",
+    "name": "Acetaldehyde"
+   },
+   "rxn28467": {
+    "missing_compound": "cpd00168",
+    "name": "2,3-Dihydroxybenzoate"
+   },
+   "rxn30283": {
+    "missing_compound": "cpd00340",
+    "name": "2,5-Dioxopentanoate"
+   },
+   "rxn30284": {
+    "missing_compound": "cpd00162",
+    "name": "Aminoethanol"
+   },
+   "rxn30285": {
+    "missing_compound": "cpd00123",
+    "name": "3-Methyl-2-oxobutanoate"
+   },
+   "rxn30286": {
+    "missing_compound": "cpd01027",
+    "name": "Oxamate"
+   },
+   "rxn30626": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn30700": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn30707": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn30819": {
+    "missing_compound": "cpd00007",
+    "name": "O2"
+   },
+   "rxn30941": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn30954": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn30989": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn30990": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn30991": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn30992": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn31390": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn31421": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn31456": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn31472": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn31646": {
+    "missing_compound": "cpd00008",
+    "name": "ADP"
+   },
+   "rxn31656": {
+    "missing_compound": "cpd00008",
+    "name": "ADP"
+   },
+   "rxn31661": {
+    "missing_compound": "cpd00008",
+    "name": "ADP"
+   },
+   "rxn31664": {
+    "missing_compound": "cpd00008",
+    "name": "ADP"
+   },
+   "rxn31690": {
+    "missing_compound": "cpd00008",
+    "name": "ADP"
+   },
+   "rxn31691": {
+    "missing_compound": "cpd00008",
+    "name": "ADP"
+   },
+   "rxn31702": {
+    "missing_compound": "cpd00008",
+    "name": "ADP"
+   },
+   "rxn31704": {
+    "missing_compound": "cpd00008",
+    "name": "ADP"
+   },
+   "rxn31708": {
+    "missing_compound": "cpd00008",
+    "name": "ADP"
+   },
+   "rxn31717": {
+    "missing_compound": "cpd00008",
+    "name": "ADP"
+   },
+   "rxn31718": {
+    "missing_compound": "cpd00008",
+    "name": "ADP"
+   },
+   "rxn31719": {
+    "missing_compound": "cpd00008",
+    "name": "ADP"
+   },
+   "rxn31722": {
+    "missing_compound": "cpd00008",
+    "name": "ADP"
+   },
+   "rxn31734": {
+    "missing_compound": "cpd00008",
+    "name": "ADP"
+   },
+   "rxn32348": {
+    "missing_compound": "cpd00269",
+    "name": "2-Oxoadipate"
+   },
+   "rxn33850": {
+    "missing_compound": "cpd00009",
+    "name": "Phosphate"
+   },
+   "rxn34005": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34008": {
+    "missing_compound": "cpd33132",
+    "name": "ozone"
+   },
+   "rxn34104": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34105": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34107": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34108": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34109": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34112": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34113": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34114": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34115": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34119": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34120": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34121": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34122": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34123": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34124": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34125": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34126": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34128": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34129": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34130": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34131": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34132": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34133": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34134": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34135": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34136": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn34137": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn35574": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn38695": {
+    "missing_compound": "cpd00008",
+    "name": "ADP"
+   },
+   "rxn39913": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn40213": {
+    "missing_compound": "cpd00055",
+    "name": "Formaldehyde"
+   },
+   "rxn40614": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn40626": {
+    "missing_compound": "cpd11452",
+    "name": "peptido_BS"
+   },
+   "rxn40885": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn40893": {
+    "missing_compound": "cpd00027",
+    "name": "D-Glucose"
+   },
+   "rxn40896": {
+    "missing_compound": "cpd27213",
+    "name": "heptosyl-Kdo2-lipid IVA"
+   },
+   "rxn40954": {
+    "missing_compound": "cpd00248",
+    "name": "Quinate"
+   },
+   "rxn41145": {
+    "missing_compound": "cpd00007",
+    "name": "O2"
+   },
+   "rxn41218": {
+    "missing_compound": "cpd02657",
+    "name": "2,1' dianhydride"
+   },
+   "rxn41241": {
+    "missing_compound": "cpd00027",
+    "name": "D-Glucose"
+   },
+   "rxn41379": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn41502": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn41572": {
+    "missing_compound": "cpd00072",
+    "name": "D-fructose-6-phosphate"
+   },
+   "rxn41640": {
+    "missing_compound": "cpd01858",
+    "name": "Ampelopsin"
+   },
+   "rxn41859": {
+    "missing_compound": "cpd08368",
+    "name": "Cobalt-precorrin 2"
+   },
+   "rxn41916": {
+    "missing_compound": "cpd00269",
+    "name": "2-Oxoadipate"
+   },
+   "rxn42024": {
+    "missing_compound": "cpd00565",
+    "name": "Coniferin"
+   },
+   "rxn42076": {
+    "missing_compound": "cpd02201",
+    "name": "4-phosphopantothenate"
+   },
+   "rxn42088": {
+    "missing_compound": "cpd00055",
+    "name": "Formaldehyde"
+   },
+   "rxn42164": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn42326": {
+    "missing_compound": "cpd00040",
+    "name": "Glyoxalate"
+   },
+   "rxn42474": {
+    "missing_compound": "cpd00269",
+    "name": "2-Oxoadipate"
+   },
+   "rxn42547": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn42634": {
+    "missing_compound": "cpd00027",
+    "name": "D-Glucose"
+   },
+   "rxn42898": {
+    "missing_compound": "cpd00027",
+    "name": "D-Glucose"
+   },
+   "rxn42917": {
+    "missing_compound": "cpd08051",
+    "name": "S-(2,4-Dinitrophenyl)glutathione"
+   },
+   "rxn42949": {
+    "missing_compound": "cpd00027",
+    "name": "D-Glucose"
+   },
+   "rxn42952": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn43003": {
+    "missing_compound": "cpd00027",
+    "name": "D-Glucose"
+   },
+   "rxn43099": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn43310": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn43316": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn43511": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn43607": {
+    "missing_compound": "cpd00027",
+    "name": "D-Glucose"
+   },
+   "rxn43652": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn44131": {
+    "missing_compound": "cpd00027",
+    "name": "D-Glucose"
+   },
+   "rxn44141": {
+    "missing_compound": "cpd02766",
+    "name": "gamma-L-Glutamyl-L-cysteinyl-beta-alanine"
+   },
+   "rxn44142": {
+    "missing_compound": "cpd00072",
+    "name": "D-fructose-6-phosphate"
+   },
+   "rxn44480": {
+    "missing_compound": "cpd00932",
+    "name": "5-O--1-Carboxyvinyl-3-phosphoshikimate"
+   },
+   "rxn44513": {
+    "missing_compound": "cpd00027",
+    "name": "D-Glucose"
+   },
+   "rxn44761": {
+    "missing_compound": "cpd00071",
+    "name": "Acetaldehyde"
+   },
+   "rxn44981": {
+    "missing_compound": "cpd00279",
+    "name": "Acetoacetyl-CoA"
+   },
+   "rxn45158": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn45224": {
+    "missing_compound": "cpd00072",
+    "name": "D-fructose-6-phosphate"
+   },
+   "rxn45522": {
+    "missing_compound": "cpd00007",
+    "name": "O2"
+   },
+   "rxn45528": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn45566": {
+    "missing_compound": "cpd02622",
+    "name": "1,2-Bis-O-sinapoyl-beta-D-glucoside"
+   },
+   "rxn45706": {
+    "missing_compound": "cpd02883",
+    "name": "4-(4-Deoxy-beta-D-gluc-4-enuronosyl)-D-galacturonate"
+   },
+   "rxn45838": {
+    "missing_compound": "cpd02438",
+    "name": "Methyl CoM"
+   },
+   "rxn45871": {
+    "missing_compound": "cpd00005",
+    "name": "NADPH"
+   },
+   "rxn45894": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn46275": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn46374": {
+    "missing_compound": "cpd01995",
+    "name": "Deacetylcephalosporin C"
+   },
+   "rxn46468": {
+    "missing_compound": "cpd00343",
+    "name": "N-Carbamoyl-L-aspartate"
+   },
+   "rxn46550": {
+    "missing_compound": "cpd00044",
+    "name": "3-phosphoadenylylsulfate"
+   },
+   "rxn46603": {
+    "missing_compound": "cpd02139",
+    "name": "7''-O-Phosphohygromycin"
+   },
+   "rxn46608": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn46643": {
+    "missing_compound": "cpd00293",
+    "name": "N-Acetyl-D-glucosamine 6-phosphate"
+   },
+   "rxn46680": {
+    "missing_compound": "cpd00071",
+    "name": "Acetaldehyde"
+   },
+   "rxn46850": {
+    "missing_compound": "cpd08625",
+    "name": "5-Hydroxyisourate"
+   },
+   "rxn47153": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn47399": {
+    "missing_compound": "cpd00616",
+    "name": "Pretyrosine"
+   },
+   "rxn47518": {
+    "missing_compound": "cpd00027",
+    "name": "D-Glucose"
+   },
+   "rxn47736": {
+    "missing_compound": "cpd00027",
+    "name": "D-Glucose"
+   },
+   "rxn47793": {
+    "missing_compound": "cpd02546",
+    "name": "CMP-KDO"
+   },
+   "rxn47909": {
+    "missing_compound": "cpd04092",
+    "name": "Actinorhodin"
+   },
+   "rxn48111": {
+    "missing_compound": "cpd00343",
+    "name": "N-Carbamoyl-L-aspartate"
+   },
+   "rxn48120": {
+    "missing_compound": "cpd02438",
+    "name": "Methyl CoM"
+   },
+   "rxn48170": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn48239": {
+    "missing_compound": "cpd00457",
+    "name": "Phosphocholine"
+   },
+   "rxn48284": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn48444": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn48479": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn53888": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn53889": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn53890": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn54354": {
+    "missing_compound": "cpd04099",
+    "name": "Phosphonate"
+   },
+   "rxn55539": {
+    "missing_compound": "cpd00011",
+    "name": "CO2"
+   },
+   "rxn57141": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn57298": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn57689": {
+    "missing_compound": "cpd15651",
+    "name": "Enterobacterial common antigen polysaccharide (Ecoli)"
+   },
+   "rxn57711": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn58324": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn58530": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn58642": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn58695": {
+    "missing_compound": "cpd00616",
+    "name": "Pretyrosine"
+   },
+   "rxn58957": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn58965": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn59144": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn59322": {
+    "missing_compound": "cpd02438",
+    "name": "Methyl CoM"
+   },
+   "rxn59410": {
+    "missing_compound": "cpd00055",
+    "name": "Formaldehyde"
+   },
+   "rxn59423": {
+    "missing_compound": "cpd01024",
+    "name": "Methane"
+   },
+   "rxn59428": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn59440": {
+    "missing_compound": "cpd00007",
+    "name": "O2"
+   },
+   "rxn59471": {
+    "missing_compound": "cpd00001",
+    "name": "H2O"
+   },
+   "rxn59473": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn59552": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn59635": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn59774": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn59789": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn59799": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn59903": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn59924": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn60044": {
+    "missing_compound": "cpd43523",
+    "name": "a succinylated cyclic beta-1,2-glucan"
+   },
+   "rxn60093": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn60141": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn60390": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn60443": {
+    "missing_compound": "cpd11452",
+    "name": "peptido_BS"
+   },
+   "rxn60568": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   },
+   "rxn60695": {
+    "missing_compound": "cpd00111",
+    "name": "Oxidized glutathione"
+   }
+  }
+ },
+ "mechanical_defect_signatures": {
+  "combinatorial_expansions": {
+   "in_strict_set": 126,
+   "by_namespace": {
+    "metaexp": 117,
+    "chlamyexp": 8,
+    "maizeexp": 1
+   },
+   "in_whole_database": 3149,
+   "pct_of_strict_set": 9.2,
+   "pct_of_database": 6.51,
+   "enrichment_vs_baseline": 1.4
+  },
+  "orphan_adp": {
+   "in_strict_set": 17,
+   "in_whole_database": 21,
+   "share_of_all_database_cases_that_are_in_this_set": 81.0,
+   "enrichment_vs_baseline": 28.6,
+   "reaction_ids": [
+    "rxn07078",
+    "rxn31646",
+    "rxn31656",
+    "rxn31661",
+    "rxn31664",
+    "rxn31690",
+    "rxn31691",
+    "rxn31702",
+    "rxn31704",
+    "rxn31705",
+    "rxn31708",
+    "rxn31717",
+    "rxn31718",
+    "rxn31719",
+    "rxn31722",
+    "rxn31734",
+    "rxn38695"
+   ]
+  },
+  "most_common_mass_imbalance_signatures": {
+   "O:-3, P:-1": 37,
+   "C:-20, H:-26, N:-6, O:-12, S:-2": 35,
+   "O:-1": 21,
+   "H:4, N:1, O:-1": 10,
+   "C:-6, H:-6, O:-6": 10,
+   "C:-6, H:-11, O:-5": 8,
+   "H:-1, O:-1": 8,
+   "C:-10, H:-12, N:-5, O:-10, P:-2": 8
+  }
+ },
+ "verdict_backfill_needed": [],
+ "multifunctional_total": 99,
+ "problems": [
+  "note: backfilled 550 field(s) across 275 pre-protocol reactions from findings/backfill_*.json"
+ ],
+ "functionality_by_group": {
+  "forward_vs_reverse": {
+   "monofunctional": 34,
+   "unknown": 25,
+   "bifunctional": 3
+  },
+  "reverse_vs_forward": {
+   "unknown": 456,
+   "monofunctional": 756,
+   "bifunctional": 70,
+   "polyfunctional": 26
+  }
+ }
+}

@@ -1,0 +1,17 @@
+panel	key	group	value
+verdict	neither	reverse_vs_forward	41
+verdict	llm	reverse_vs_forward	1221
+verdict	modelseed	reverse_vs_forward	17
+verdict	unclear	reverse_vs_forward	29
+verdict	llm	forward_vs_reverse	31
+verdict	neither	forward_vs_reverse	13
+verdict	unclear	forward_vs_reverse	6
+verdict	modelseed	forward_vs_reverse	12
+defect	none	-	504
+defect	cofactors_stripped	-	251
+defect	mass_unbalanced	-	430
+defect	lumped_multienzyme	-	107
+defect	source_disowned	-	78
+imbalance	all_non_obsolete	-	8125/48384 (16.8%)
+imbalance	all_recommended_vs_llm_mismatches	-	1128/8466 (13.3%)
+imbalance	strict_disagreements	-	710/1370 (51.8%)

@@ -1,0 +1,446 @@
+[
+ {
+  "id": "rxn59552",
+  "enzyme_name": "glutathione peroxidase (GPx4-type phospholipid-hydroperoxide glutathione peroxidase)",
+  "gene_symbols": [
+   "GPX4"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "",
+  "confidence": "high",
+  "rationale": "GSH-dependent reduction of the lipid hydroperoxide 12(R)-HpETE to the alcohol 12(R)-HETE; MetaCyc RXN-21584 carries no EC but the chemistry is identical to the EC 1.11.1.12 entries in this block. GPx4 is a single-domain selenoenzyme with one catalytic activity - its second role as a structural mitochondrial-capsule polymer in sperm is moonlighting, not a second catalytic activity.",
+  "evidence_pmids": [
+   "25922076",
+   "39825220"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "cofactors_stripped",
+  "direction_note": "Irreversibility comes from the 2 GSH -> GSSG oxidation, and GSSG (cpd00111) is absent from the ModelSEED product side, so every DeltaG estimator sees a bare R-OOH -> R-OH + H2O half-equation and votes '<'."
+ },
+ {
+  "id": "rxn59564",
+  "enzyme_name": "none identified - thermal/spontaneous Cope rearrangement of (-)-hedycaryol to elemol",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "plant and bacterial sesquiterpene metabolism; hedycaryol is the product of hedycaryol synthase",
+  "confidence": "medium",
+  "rationale": "No enzyme is known to catalyse this step: the germacrane (hedycaryol) -> elemane (elemol) conversion is the classic uncatalysed [3,3] Cope rearrangement that occurs on heating, and MetaCyc RXN-20458 lists no EC and no enzyme. The terpene synthase upstream makes hedycaryol; elemol appears without further catalysis.",
+  "evidence_pmids": [
+   "35239190"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "The Cope rearrangement runs downhill toward the ring-strain-relieved elemane, so hedycaryol -> elemol is the only direction observed; the eQuilibrator +36 kJ/mol is a group-contribution artefact for two C15H26O isomers."
+ },
+ {
+  "id": "rxn59576",
+  "enzyme_name": "none identified - spontaneous intramolecular cyclodehydration of phosphocreatine to phosphorylcreatinine",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "vertebrate muscle / creatine metabolism",
+  "confidence": "medium",
+  "rationale": "MetaCyc RXN-22062 lists no EC and no enzyme; the guanidino nitrogen attacks the carboxylate intramolecularly to close the creatinine ring with loss of water, the same non-enzymatic chemistry that converts creatine to creatinine. No protein has been shown to catalyse it.",
+  "evidence_pmids": [],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "ModelSEED's '<' would mean hydrating the cyclic amidine of phosphorylcreatinine back to phosphocreatine, which is not an observed spontaneous process; the cyclisation direction is the one that happens."
+ },
+ {
+  "id": "rxn59620",
+  "enzyme_name": "PtaA, periplasmic transaminase A (pyoverdine glutamate-side-chain transaminase)",
+  "gene_symbols": [
+   "ptaA"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Pseudomonas fluorescens A506, Pseudomonas aeruginosa and other fluorescent pseudomonads; Tat-exported periplasmic enzyme",
+  "confidence": "high",
+  "rationale": "PtaA is a homodimeric PLP-dependent class-III aminotransferase that converts the fluorophore-bound glutamic acid residue of pyoverdine to the alpha-ketoglutaric acid form; a ptaA deletion selectively loses that pyoverdine variant. One catalytic activity - homodimerisation is not bifunctionality.",
+  "evidence_pmids": [
+   "28912270",
+   "30386787"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED mapped MetaCyc's glutamate-pyoverdine I onto its generic 'Pyoverdine I' (cpd11359), leaving the equation CH3N short (status MI:C:1/H:3/N:1); MetaCyc itself writes this as reversible (<=>), and transamination is near-equilibrium, but the physiological flux is toward the alpha-ketoglutarate form, so '<' is still the wrong committed direction."
+ },
+ {
+  "id": "rxn59623",
+  "enzyme_name": "beta-glucosidase acting on (+)-pinoresinol diglucoside (lignan deglucosylase)",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Phomopsis sp. XP-8 and plant/gut-bacterial beta-glucosidases (Forsythia, Sesamum, Eubacterium-type lignan converters)",
+  "confidence": "medium",
+  "rationale": "Sequential beta-glucosidic hydrolysis of the two glucose units of pinoresinol diglucoside, via the monoglucoside, to free (+)-pinoresinol; glycoside hydrolases of this type are single-domain, single-activity enzymes. MetaCyc's 'EC 2.4.1.-' tag on RXN-22409 is a mis-assignment - the written chemistry is hydrolysis, not glycosyl transfer.",
+  "evidence_pmids": [
+   "26331720"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "Glycoside hydrolysis is irreversible in water; ModelSEED's '<' would require condensing free D-glucose onto pinoresinol, which needs a UDP-sugar donor, not glucose + water. Note the entry lumps two hydrolytic cycles of the same enzyme into one reaction."
+ },
+ {
+  "id": "rxn59626",
+  "enzyme_name": "none identified - spontaneous hydrolysis of the prostacyclin enol ether",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "mammalian eicosanoid (omega-3 / EPA-derived prostanoid) metabolism",
+  "confidence": "medium",
+  "rationale": "Prostaglandin I3, like PGI2, is a chemically unstable vinyl ether that hydrolyses to the 6-oxo-PGF1alpha congener with a half-life of minutes at physiological pH; MetaCyc RXN-23491 lists no EC and no enzyme, and 6-oxo-PGF1alpha is used as the standard non-enzymatic breakdown marker of prostacyclins.",
+  "evidence_pmids": [
+   "39825220"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "Hydrolytic ring opening of the enol ether to a hemiketal/6-keto is effectively irreversible; nothing re-forms prostacyclin from 6-oxo-PGF1alpha, so ModelSEED's '<' is chemically impossible."
+ },
+ {
+  "id": "rxn59635",
+  "enzyme_name": "glutathione peroxidase (GPx4-type phospholipid-hydroperoxide glutathione peroxidase)",
+  "gene_symbols": [
+   "GPX4"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "",
+  "confidence": "high",
+  "rationale": "GSH-dependent reduction of the lipid hydroperoxide 15(S)-HpEPE to the alcohol 15(S)-HEPE; MetaCyc RXN-23474 assigns EC 1.11.1.12. GPx4 is a single-domain selenoenzyme with one catalytic activity - its second role as a structural mitochondrial-capsule polymer in sperm is moonlighting, not a second catalytic activity.",
+  "evidence_pmids": [
+   "25922076",
+   "39825220"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "cofactors_stripped",
+  "direction_note": "Irreversibility comes from the 2 GSH -> GSSG oxidation, and GSSG (cpd00111) is absent from the ModelSEED product side, so every DeltaG estimator sees a bare R-OOH -> R-OH + H2O half-equation and votes '<'."
+ },
+ {
+  "id": "rxn59645",
+  "enzyme_name": "none - inorganic dissolution/hydration of arsenic trioxide to arsenous acid/arsenite",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "abiotic aqueous chemistry; relevant to arsenite detoxification and to Trisenox pharmacology",
+  "confidence": "high",
+  "rationale": "As2O3 + 3 H2O -> 2 As(OH)3 is the dissolution of the solid oxide, a purely inorganic hydration with no protein involved; MetaCyc RXN-22313 lists no EC and no enzyme.",
+  "evidence_pmids": [],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "At the micromolar, near-neutral conditions of a metabolic model, dissolved arsenite is the only species present - solid As2O3 does not precipitate - so the dissolution direction is correct and '<' is wrong."
+ },
+ {
+  "id": "rxn59681",
+  "enzyme_name": "unidentified amidohydrolase of the nitroguanidine degradation pathway (1-nitrobiuret hydrolase)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Variovorax sp. strain VC1, aerobic nitroguanidine mineralisation",
+  "confidence": "low",
+  "rationale": "No protein has been purified for 1-nitrobiuret hydrolysis; the Variovorax VC1 work is a mineralisation/physiology study that never isolated the enzyme. MetaCyc's EC 3.5.1.131 tag borrows 1-carboxybiuret hydrolase (AtzE), which is a heterotetramer of a catalytic AtzE subunit plus an accessory AtzG subunit characterised on a different (non-nitro) substrate - a complex, not a fused bifunctional chain, and only an analogy here.",
+  "evidence_pmids": [
+   "22563908"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "Hydrolytic amide cleavage releasing free ammonia is irreversible under cellular conditions regardless of which amidohydrolase runs it, so ModelSEED's '<' (ammonia condensation) is wrong."
+ },
+ {
+  "id": "rxn59774",
+  "enzyme_name": "glutathione peroxidase (GPx4-type phospholipid-hydroperoxide glutathione peroxidase)",
+  "gene_symbols": [
+   "GPX4"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "",
+  "confidence": "high",
+  "rationale": "GSH-dependent reduction of the lipid hydroperoxide (11S)-HpDHA to the alcohol 11-HDoHE; MetaCyc RXN-23506 assigns EC 1.11.1.12. GPx4 is a single-domain selenoenzyme with one catalytic activity - its second role as a structural mitochondrial-capsule polymer in sperm is moonlighting, not a second catalytic activity.",
+  "evidence_pmids": [
+   "25922076",
+   "39825220"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "cofactors_stripped",
+  "direction_note": "Irreversibility comes from the 2 GSH -> GSSG oxidation, and GSSG (cpd00111) is absent from the ModelSEED product side, so every DeltaG estimator sees a bare R-OOH -> R-OH + H2O half-equation and votes '<'."
+ },
+ {
+  "id": "rxn59789",
+  "enzyme_name": "glutathione peroxidase (GPx4-type phospholipid-hydroperoxide glutathione peroxidase)",
+  "gene_symbols": [
+   "GPX4"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "plant oxylipin metabolism (13-LOX products of linolenate)",
+  "confidence": "medium",
+  "rationale": "GSH-dependent reduction of the lipid hydroperoxide 13(S)-HpOTre (13-hydroperoxylinolenate) to the alcohol 13(S)-HOTrE; MetaCyc RXN-23471 assigns EC 1.11.1.12. GPx4 is a single-domain selenoenzyme with one catalytic activity - its second role as a structural mitochondrial-capsule polymer in sperm is moonlighting, not a second catalytic activity. Caveat: in plants most GPX-family proteins are in practice thioredoxin-dependent rather than GSH-dependent peroxidases, so the GSH stoichiometry MetaCyc writes here may itself be an approximation - but either way it is a single-activity peroxidase.",
+  "evidence_pmids": [
+   "25922076",
+   "39825220"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "cofactors_stripped",
+  "direction_note": "Irreversibility comes from the 2 GSH -> GSSG oxidation, and GSSG (cpd00111) is absent from the ModelSEED product side, so every DeltaG estimator sees a bare R-OOH -> R-OH + H2O half-equation and votes '<'."
+ },
+ {
+  "id": "rxn59795",
+  "enzyme_name": "BbuA, gamma-butyrobetainyl-CoA:trimethylamine lyase (flavin-dependent TMA lyase)",
+  "gene_symbols": [
+   "bbuA"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Emergencia timonensis and other anaerobic human gut bacteria carrying the bbu cluster; reconstituted in Escherichia fergusonii",
+  "confidence": "high",
+  "rationale": "Rajakovich et al. showed the bbu cluster converts gamma-butyrobetaine to TMA and that the TMA-generating step is a new type of flavin-dependent lyase cleaving the C-N bond of gamma-butyrobetainyl-CoA to crotonyl-CoA + TMA - a single redox-neutral catalytic activity. The upstream CoA transferase and the activase are separate proteins, not fused domains.",
+  "evidence_pmids": [
+   "34362844",
+   "37737636"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "This is the committed TMA-releasing step of anaerobic carnitine catabolism; free TMA is volatile and is exported/oxidised, so the elimination direction is the physiological one. The flavin is catalytic and redox-neutral, so its absence from the equation is not a defect."
+ },
+ {
+  "id": "rxn59799",
+  "enzyme_name": "methylarsonate (MMA(V)) reductase - human omega-class glutathione transferase GSTO1-1",
+  "gene_symbols": [
+   "GSTO1"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "human (GSTO1-1 is the characterised MMA(V) reductase, EC 1.20.4.2); bacterial ArsC-family reductases carry out analogous chemistry",
+  "confidence": "medium",
+  "rationale": "GSTO1-1 reduces methylarsonate to methylarsonite using 2 GSH via its Cys32 active site. It is often called 'multifunctional' (thiol transferase, dehydroascorbate reductase, deglutathionylase, MMA(V) reductase), but these are substrate promiscuity of one GSH-dependent active site, not two catalytic domains, so monofunctional under this protocol.",
+  "evidence_pmids": [
+   "34959192",
+   "38791319"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "cofactors_stripped",
+  "direction_note": "GSSG (cpd00111) is missing from the products - ModelSEED's own status flags exactly one GSSG deficit - so the GSH/GSSG couple that makes the arsenate reduction irreversible is invisible to the DeltaG estimators, which is why dGPredictor returns +182 kJ/mol and votes '<'."
+ },
+ {
+  "id": "rxn59845",
+  "enzyme_name": "none identified - spontaneous hydrolysis of the thiocarboxylic acid of thioplatensimycin",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "Streptomyces platensis platensimycin/platencin biosynthesis",
+  "confidence": "medium",
+  "rationale": "MetaCyc RXN-21740 lists no EC and no enzyme. In the characterised pathway the thioacid is *made*, not hydrolysed: PtmA3 activates the carboxylate as a CoA thioester and PtmU4 transfers sulfur, and PtmC (an arylamine N-acetyltransferase homologue) couples the thioacid arylamine. Loss of H2S from a thiocarboxylic acid in water is an uncatalysed chemical decay.",
+  "evidence_pmids": [
+   "29915173",
+   "33314918"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "The reverse as written - condensing free H2S onto the platensimycin carboxylate - is not how the thioacid is made biologically (that needs CoA activation plus a sulfur-transfer protein), so ModelSEED's '<' misrepresents the pathway."
+ },
+ {
+  "id": "rxn59853",
+  "enzyme_name": "erythromycin esterase (EreA / EreB / EreC), macrolide lactone hydrolase",
+  "gene_symbols": [
+   "ereA",
+   "ereB",
+   "ereC"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Escherichia coli, Providencia stuartii, Enterobacter hormaechei, Delftia lacustris; integron-borne macrolide resistance determinants",
+  "confidence": "high",
+  "rationale": "Ere enzymes form their own group within the hydrolase superfamily and catalyse one reaction - hydrolytic opening of the erythromycin macrolactone ring, with His46 (EreB numbering) as the general base activating the water nucleophile. Single catalytic activity. (ModelSEED's 'Abomacetin' label on cpd01313 is a synonym issue; MetaCyc CPD-13804 is erythromycin A.)",
+  "evidence_pmids": [
+   "22303981",
+   "14506050"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "Macrolactone hydrolysis is the drug-inactivation step and is irreversible in water; re-lactonising the seco-acid is not an Ere activity, so ModelSEED's '<' is wrong."
+ },
+ {
+  "id": "rxn59903",
+  "enzyme_name": "glutathione peroxidase (GPx4-type phospholipid-hydroperoxide glutathione peroxidase)",
+  "gene_symbols": [
+   "GPX4"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "human",
+  "confidence": "high",
+  "rationale": "GSH-dependent reduction of the lipid hydroperoxide 15(S)-HPETE to the alcohol 15(S)-HETE; MetaCyc RXN66-490 (HumanCyc) assigns EC 1.11.1.12. GPx4 is a single-domain selenoenzyme with one catalytic activity - its second role as a structural mitochondrial-capsule polymer in sperm is moonlighting, not a second catalytic activity.",
+  "evidence_pmids": [
+   "25922076",
+   "39825220"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "cofactors_stripped",
+  "direction_note": "Irreversibility comes from the 2 GSH -> GSSG oxidation, and GSSG (cpd00111) is absent from the ModelSEED product side, so every DeltaG estimator sees a bare R-OOH -> R-OH + H2O half-equation and votes '<'."
+ },
+ {
+  "id": "rxn59916",
+  "enzyme_name": "MmcS, mitomycin carbamoyltransferase (9a-O-carbamoyltransferase of the mitosane core)",
+  "gene_symbols": [
+   "mmcS"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Streptomyces lavendulae NRRL 2564, mitomycin C biosynthetic gene cluster",
+  "confidence": "low",
+  "rationale": "The mitomycin C cluster encodes a single carbamoyltransferase, MmcS, annotated for installation of the C-10 carbamoyl group on the mitosane core; MetaCyc tags RXN-20324 only as EC 2.1.3.-. The assignment rests on cluster annotation rather than on a purified-enzyme assay, hence low confidence on identity (no evidence of any second catalytic domain).",
+  "evidence_pmids": [
+   "10099135",
+   "34833880"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "Carbamoyl phosphate is a high-energy donor and its hydrolytic release of Pi makes carbamoyl transfer essentially irreversible; ModelSEED's '<' would have the cell re-synthesise carbamoyl phosphate from Pi, which does not happen."
+ },
+ {
+  "id": "rxn59924",
+  "enzyme_name": "glutathione peroxidase (GPx4-type phospholipid-hydroperoxide glutathione peroxidase)",
+  "gene_symbols": [
+   "GPX4"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "",
+  "confidence": "high",
+  "rationale": "GSH-dependent reduction of the lipid hydroperoxide (4S)-HpDHA to the alcohol 4-HDoHE; MetaCyc RXN-23503 assigns EC 1.11.1.12. GPx4 is a single-domain selenoenzyme with one catalytic activity - its second role as a structural mitochondrial-capsule polymer in sperm is moonlighting, not a second catalytic activity.",
+  "evidence_pmids": [
+   "25922076",
+   "39825220"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "cofactors_stripped",
+  "direction_note": "Irreversibility comes from the 2 GSH -> GSSG oxidation, and GSSG (cpd00111) is absent from the ModelSEED product side, so every DeltaG estimator sees a bare R-OOH -> R-OH + H2O half-equation and votes '<'."
+ },
+ {
+  "id": "rxn60027",
+  "enzyme_name": "unidentified SAM-dependent N-methyltransferase (galacamine 3-N-methyltransferase)",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "unknown - galacamine is an aminocyclitol/aminoglycoside-type metabolite (C12H26N2O8) with no literature record found",
+  "confidence": "low",
+  "rationale": "Neither 'galacamine' nor '3-N-methylgalacamine' returns any Europe PMC or PubMed record, and MetaCyc RXN-23144 gives only EC 2.1.1.- with no enzyme; the catalysing protein cannot be identified, so 'unknown' is the honest answer rather than assuming a monofunctional MTase.",
+  "evidence_pmids": [],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "Independent of enzyme identity, SAM -> SAH methyl transfer is strongly exergonic and treated as irreversible, so the SAM-consuming direction is right and '<' is wrong."
+ },
+ {
+  "id": "rxn60044",
+  "enzyme_name": "Cgm, cyclic beta-1,2-glucan succinyltransferase",
+  "gene_symbols": [
+   "cgm"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Brucella abortus (and Rhizobiales generally); inner-membrane protein in the Cgs/Cgt/Cgm periplasmic glucan machinery",
+  "confidence": "medium",
+  "rationale": "Cgm O-succinylates the cyclic beta-1,2-glucan after Cgs synthesises it and Cgt exports it; it carries a single acyltransferase activity. The polyfunctional protein in this pathway is the glucan synthase Cgs (initiation/elongation/cyclisation), which is a different protein and catalyses a different reaction.",
+  "evidence_pmids": [
+   "25733613",
+   "16816173"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED dropped the succinylated glucan product entirely (status MI:C:-116/H:-186/O:-96), so the equation reads 'succinyl-CoA + glucan -> CoA' with no acyl acceptor; the thioester-driven acyl transfer is irreversible forward, and no DeltaG computed on this stub is meaningful."
+ },
+ {
+  "id": "rxn60056",
+  "enzyme_name": "CbiZ, adenosylcobinamide amidohydrolase (cobyric acid-forming)",
+  "gene_symbols": [
+   "cbiZ"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Rhodobacter sphaeroides and CbiZ-containing archaea/bacteria; the committed step of cobamide remodelling",
+  "confidence": "high",
+  "rationale": "CbiZ hydrolyses the aminopropanol amide linkage of adenosylpseudocobalamin to give adenosylcobyric acid plus the adenine-aminopropanol-phosphate fragment - exactly this reaction, and notably it accepts AdopseudoCbl but not AdoCbl. A single amidohydrolase activity (EC 3.5.1.90).",
+  "evidence_pmids": [
+   "19889098",
+   "39404452"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "Amide hydrolysis is irreversible; re-forming the cobamide amide bond requires the ATP-dependent CbiB/CobS/CobU route, not the reverse of CbiZ, so ModelSEED's '<' is wrong."
+ },
+ {
+  "id": "rxn60080",
+  "enzyme_name": "none - non-enzymatic interconversion of dimethylmonothioarsinate (DMMTA(V)) and dimethylarsinate (DMA(V))",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "mammalian/gut arsenic metabolism in sulfidic environments; DMMTA is a thiolated arsenical metabolite",
+  "confidence": "medium",
+  "rationale": "MetaCyc RXN-22391 lists no EC and no enzyme; thiolated arsenicals form by direct chemical exchange of an As=O for As=S with H2S/sulfide (microbially supplied, not enzymatically catalysed on the arsenical) and hydrolyse back in sulfide-free water.",
+  "evidence_pmids": [
+   "24624948"
+  ],
+  "direction_verdict": "neither",
+  "equation_defect": "none",
+  "direction_note": "This is a chemical equilibrium whose direction is set by the sulfide pool, not by any enzyme: hydrolysis dominates in sulfide-free solution, thiolation dominates in sulfidic gut/anaerobic conditions, so neither a hard '>' nor a hard '<' is right."
+ },
+ {
+  "id": "rxn60087",
+  "enzyme_name": "beta-D-glucosidase (prunin hydrolase; the beta-glucosidase component of naringinase)",
+  "gene_symbols": [],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Aspergillus niger / Penicillium decumbens naringinase preparations and plant and gut-bacterial beta-glucosidases",
+  "confidence": "medium",
+  "rationale": "Prunin (naringenin 7-O-beta-D-glucoside) is hydrolysed to naringenin + glucose by the beta-D-glucosidase activity of naringinase. Naringinase is a two-component system of a separate alpha-L-rhamnosidase and a separate beta-D-glucosidase subunit, which under this protocol is a complex, not a fused bifunctional enzyme, so the subunit running this step is monofunctional. MetaCyc's 'EC 3.2.1.62' (glycosylceramidase) tag on RXN-22891 looks like a mis-assignment for what is a 3.2.1.21-type hydrolysis.",
+  "evidence_pmids": [
+   "41097078",
+   "40509268"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "Glycoside hydrolysis in water is irreversible; the reverse would require a UDP-glucose donor and a glycosyltransferase, not free D-glucose, so ModelSEED's '<' is chemically wrong."
+ },
+ {
+  "id": "rxn60093",
+  "enzyme_name": "glutathione peroxidase (GPx4-type phospholipid-hydroperoxide glutathione peroxidase)",
+  "gene_symbols": [
+   "GPX4"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "",
+  "confidence": "high",
+  "rationale": "GSH-dependent reduction of the lipid hydroperoxide 15(S)-HpETrE to the alcohol 15(S)-HETrE; MetaCyc RXN-23443 assigns EC 1.11.1.12. GPx4 is a single-domain selenoenzyme with one catalytic activity - its second role as a structural mitochondrial-capsule polymer in sperm is moonlighting, not a second catalytic activity.",
+  "evidence_pmids": [
+   "25922076",
+   "39825220"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "cofactors_stripped",
+  "direction_note": "Irreversibility comes from the 2 GSH -> GSSG oxidation, and GSSG (cpd00111) is absent from the ModelSEED product side, so every DeltaG estimator sees a bare R-OOH -> R-OH + H2O half-equation and votes '<'."
+ },
+ {
+  "id": "rxn60109",
+  "enzyme_name": "Tmt1p, trans-aconitate 3-methyltransferase (acting on its major endogenous substrate 3-isopropylmalate)",
+  "gene_symbols": [
+   "TMT1",
+   "YER175C"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Saccharomyces cerevisiae; MetaCyc RXN3O-9965, EC 2.1.1.145",
+  "confidence": "high",
+  "rationale": "Katz et al. identified (2R,3S)-3-isopropylmalate as the major endogenous substrate of yeast Tmt1, methyl-esterified with kinetics comparable to trans-aconitate (Km 127 vs 53 uM), giving exactly the 1-methyl ester written here. Two substrates in two pathways, but one catalytic activity - SAM-dependent carboxyl methyl esterification - so monofunctional, not bifunctional.",
+  "evidence_pmids": [
+   "15147181",
+   "11695919"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "none",
+  "direction_note": "SAM-dependent methyl transfer with SAH release is effectively irreversible; the reverse would be a methyl-ester transfer onto SAH, which Tmt1 does not do."
+ }
+]

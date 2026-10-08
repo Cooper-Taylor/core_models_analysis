@@ -1,0 +1,479 @@
+[
+ {
+  "id": "rxn36512",
+  "enzyme_name": "no enzyme as written; nearest real catalyst is Artemisia annua aldehyde dehydrogenase 1 (ALDH1), which oxidises (11R)-dihydroartemisinic aldehyde to dihydroartemisinic acid",
+  "gene_symbols": [
+   "ALDH1",
+   "AaALDH1"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Artemisia annua glandular trichomes (plant ALDH family enzyme of the artemisinin pathway)",
+  "confidence": "medium",
+  "rationale": "This is MetaCyc's class-level reaction ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN expanded combinatorially, so the substrate (11R)-dihydroartemisinic aldehyde (C15H24O, a cyclic sesquiterpenoid) is paired with the unrelated straight-chain fatty acid Pentadecylic acid (C15H29O2-) and the equation is also one hydrogen short - no single protein catalyses it as written. The enzyme that performs the intended aldehyde oxidation, A. annua ALDH1, is a standalone single-activity NAD+ aldehyde dehydrogenase used as a one-step pathway enzyme in every heterologous reconstruction; no second catalytic domain has been reported for it.",
+  "evidence_pmids": [
+   "40301148",
+   "27296645"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible."
+ },
+ {
+  "id": "rxn36513",
+  "enzyme_name": "no enzyme as written; nearest real catalyst is Artemisia annua aldehyde dehydrogenase 1 (ALDH1), which oxidises (11R)-dihydroartemisinic aldehyde to dihydroartemisinic acid",
+  "gene_symbols": [
+   "ALDH1",
+   "AaALDH1"
+  ],
+  "functionality": "monofunctional",
+  "distinct_activities": [],
+  "organism_context": "Artemisia annua glandular trichomes (plant ALDH family enzyme of the artemisinin pathway)",
+  "confidence": "medium",
+  "rationale": "This is MetaCyc's class-level reaction ALDEHYDE-DEHYDROGENASE-NADORNOP+-RXN expanded combinatorially, so the substrate (11R)-dihydroartemisinic aldehyde (C15H24O, a cyclic sesquiterpenoid) is paired with the unrelated straight-chain fatty acid Pentadecylic acid (C15H29O2-) and the equation is also one hydrogen short - no single protein catalyses it as written. The enzyme that performs the intended aldehyde oxidation, A. annua ALDH1, is a standalone single-activity NAD+ aldehyde dehydrogenase used as a one-step pathway enzyme in every heterologous reconstruction; no second catalytic domain has been reported for it.",
+  "evidence_pmids": [
+   "40301148",
+   "27296645"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible."
+ },
+ {
+  "id": "rxn36564",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde Abietal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid 8,11,14-Icosatrienoate (C20H33O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36565",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde Abietal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid 8,11,14-Icosatrienoate (C20H33O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36566",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde levopimaradienal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid 8,11,14-Icosatrienoate (C20H33O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36567",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde levopimaradienal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid 8,11,14-Icosatrienoate (C20H33O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36568",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde neoabietadienal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid 8,11,14-Icosatrienoate (C20H33O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36569",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde neoabietadienal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid 8,11,14-Icosatrienoate (C20H33O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36570",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde Palustradienal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid 8,11,14-Icosatrienoate (C20H33O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36571",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde Palustradienal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid 8,11,14-Icosatrienoate (C20H33O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36572",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde dehydroabietadienal (C20H28O, tricyclic) with the unrelated straight-chain C20 fatty acid 8,11,14-Icosatrienoate (C20H33O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36573",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde dehydroabietadienal (C20H28O, tricyclic) with the unrelated straight-chain C20 fatty acid 8,11,14-Icosatrienoate (C20H33O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36574",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde Isopimaradienal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid 8,11,14-Icosatrienoate (C20H33O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36575",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde Isopimaradienal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid 8,11,14-Icosatrienoate (C20H33O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36580",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde neoabietadienal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid eicosatetraenoate (C20H31O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36581",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde neoabietadienal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid eicosatetraenoate (C20H31O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36593",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde Abietal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid 11Z, 13Z-eicosadienoate (C20H35O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36594",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde Abietal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid 11Z, 13Z-eicosadienoate (C20H35O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36595",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde Abietal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid 11E, 13E-eicosadienoate (C20H35O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36596",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde Abietal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid 11E, 13E-eicosadienoate (C20H35O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36597",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde Abietal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid (11Z,13E)-eicosadienoate (C20H35O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36598",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde Abietal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid (11Z,13E)-eicosadienoate (C20H35O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36599",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde Abietal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid (11E,13Z)-eicosadienoate (C20H35O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36600",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde Abietal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid (11E,13Z)-eicosadienoate (C20H35O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ },
+ {
+  "id": "rxn36601",
+  "enzyme_name": "no enzyme as written; nearest real activity is the soluble NAD+-dependent abietadienal (diterpene aldehyde) dehydrogenase of conifer diterpene resin acid biosynthesis",
+  "gene_symbols": [],
+  "functionality": "unknown",
+  "distinct_activities": [],
+  "organism_context": "conifers - soluble ALDH activity demonstrated in Abies grandis and Pinus contorta stem extracts; in Pinus taeda the same C18 oxidation is instead run by the P450 CYP720B1/PtAO",
+  "confidence": "low",
+  "rationale": "Combinatorial expansion of MetaCyc's class-level ALDH reaction has paired the conifer diterpene aldehyde levopimaradienal (C20H30O, tricyclic) with the unrelated straight-chain C20 fatty acid 11Z, 13Z-eicosadienoate (C20H35O2-), and the equation is one hydrogen short, so no protein catalyses it as written. The nearest genuine catalyst, the soluble NAD+-dependent abietadienal dehydrogenase of Abies grandis, was only ever demonstrated as an activity in cell-free extracts and never cloned, while in pine the same net oxidation is carried out by the multisubstrate P450 CYP720B1 (consecutive oxidations at one active site, not a fused bifunctional enzyme), so the domain architecture of the actual catalyst cannot be settled.",
+  "evidence_pmids": [
+   "8311462",
+   "15911762",
+   "26936895",
+   "40301148"
+  ],
+  "direction_verdict": "llm",
+  "equation_defect": "mass_unbalanced",
+  "direction_note": "ModelSEED's '<' would make this an NAD(P)H-driven reduction of a carboxylate back to an aldehyde, which no NAD(P)+ aldehyde dehydrogenase does (acid reduction needs an activated acyl group or an ATP-dependent carboxylic acid reductase); the large positive dG that drove the '<' call is an artifact of the mis-paired product, because oxidation of an aldehyde to its own carboxylate is strongly exergonic and mechanistically irreversible. The conifer alternative (CYP720B1) is an O2/NADPH-dependent monooxygenase that is likewise strictly oxidative."
+ }
+]

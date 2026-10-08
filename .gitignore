@@ -107,3 +107,9 @@ results/influence_v201/
 
 # Plot-script intermediate caches, regenerable by the figure that writes them.
 *_sources.pkl
+
+# Strict-disagreement enzyme research: regenerable intermediates
+# (findings/ and research_queue.json ARE tracked -- the findings are the
+# expensive literature results and the queue defines the work; chunks/ is
+# just the queue re-sliced for subagents by build_strict_disagreement_queue.py)
+results/strict_disagreement_enzymes/chunks/
