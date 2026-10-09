@@ -154,13 +154,48 @@ def ctx_text(r: dict) -> str:
     return " ".join([r.get("organism_context") or "", " ".join(r.get("pathways") or [])])
 
 
-def main() -> None:
+def load_sound_and_llm_sound() -> tuple[list[dict], list[dict], int]:
+    """Reload the deliverable and return (sound, llm_sound, n_total) -- shared
+    with other scripts (e.g. analyze_strict_disagreement_residual_pathways.py)
+    so the equation_defect/enzymology_supports filter never drifts between them.
+    """
     data = json.load(open(DELIVERABLE))
     rxns = data["reactions"]
     sound = [r for r in rxns if r["direction_conflict"].get("equation_defect") == "none"]
     llm_sound = [r for r in sound if r["direction_conflict"].get("enzymology_supports") == "llm"]
+    return sound, llm_sound, len(rxns)
 
-    out = {"n_total": len(rxns), "n_sound": len(sound), "n_llm_sound": len(llm_sound)}
+
+def claim_systematic_clusters(llm_sound: list[dict]) -> tuple[list[dict], list[dict]]:
+    """Claim reactions to the 5 systematic clusters in priority order (see
+    SYSTEMATIC_CLUSTERS). Returns (cluster_stat_dicts, residual_reactions) --
+    shared with other scripts so the residual definition never drifts.
+    """
+    claimed: set[str] = set()
+    clusters = []
+    for label, defect_class, predicate in SYSTEMATIC_CLUSTERS:
+        members = [r for r in llm_sound if r["modelseed_id"] not in claimed and predicate(r)]
+        ids = {r["modelseed_id"] for r in members}
+        claimed.update(ids)
+        src = Counter(thermo(r).get("source") for r in members)
+        grade = Counter(thermo(r).get("grade") for r in members)
+        dominant_source, dominant_n = src.most_common(1)[0]
+        clusters.append({
+            "cluster": label, "defect_class": defect_class, "n": len(members),
+            "source_breakdown": counter_dict(src),
+            "dominant_source": dominant_source,
+            "dominant_source_purity": round(dominant_n / len(members), 3),
+            "grade_breakdown": counter_dict(grade),
+            "examples": [r["modelseed_id"] for r in members[:5]],
+        })
+    residual = [r for r in llm_sound if r["modelseed_id"] not in claimed]
+    return clusters, residual
+
+
+def main() -> None:
+    sound, llm_sound, n_total = load_sound_and_llm_sound()
+
+    out = {"n_total": n_total, "n_sound": len(sound), "n_llm_sound": len(llm_sound)}
 
     out["sound_by_mismatch_group"] = counter_dict(
         Counter(r["direction_conflict"]["mismatch_group"] for r in sound))
@@ -202,25 +237,10 @@ def main() -> None:
     out["llm_sound_enzyme_families"] = families
 
     # --- the 5 non-overlapping systematic clusters + residual -----------
-    claimed: set[str] = set()
-    clusters = []
-    for label, defect_class, predicate in SYSTEMATIC_CLUSTERS:
-        members = [r for r in llm_sound if r["modelseed_id"] not in claimed and predicate(r)]
-        ids = {r["modelseed_id"] for r in members}
-        claimed.update(ids)
-        src = Counter(thermo(r).get("source") for r in members)
-        grade = Counter(thermo(r).get("grade") for r in members)
-        dominant_source, dominant_n = src.most_common(1)[0]
-        clusters.append({
-            "cluster": label, "defect_class": defect_class, "n": len(members),
-            "source_breakdown": counter_dict(src),
-            "dominant_source": dominant_source,
-            "dominant_source_purity": round(dominant_n / len(members), 3),
-            "grade_breakdown": counter_dict(grade),
-            "examples": [r["modelseed_id"] for r in members[:5]],
-        })
+    clusters, residual = claim_systematic_clusters(llm_sound)
     out["systematic_clusters"] = clusters
-    n_clustered = len(claimed)
+    claimed_ids = {r["modelseed_id"] for r in llm_sound} - {r["modelseed_id"] for r in residual}
+    n_clustered = len(claimed_ids)
     out["systematic_clusters_total"] = n_clustered
     out["systematic_clusters_share_of_llm_sound"] = round(n_clustered / len(llm_sound), 4)
     by_defect_class = Counter()
@@ -228,9 +248,8 @@ def main() -> None:
         by_defect_class[c["defect_class"]] += c["n"]
     out["systematic_clusters_by_defect_class"] = counter_dict(by_defect_class)
 
-    residual = [r for r in llm_sound if r["modelseed_id"] not in claimed]
     n_spec_residual = sum(1 for r in residual if SPECIALIZED_PAT.search(ctx_text(r)))
-    n_spec_clustered = sum(1 for r in llm_sound if r["modelseed_id"] in claimed
+    n_spec_clustered = sum(1 for r in llm_sound if r["modelseed_id"] in claimed_ids
                             and SPECIALIZED_PAT.search(ctx_text(r)))
     out["systematic_clusters_residual"] = {
         "n": len(residual),
@@ -293,7 +312,7 @@ def main() -> None:
                      f"{c['dominant_source']}\t{c['dominant_source_purity']}\n")
         fh.write(f"Residual (case-specific enzymology)\t{len(residual)}\tnone\tmixed\t\n")
 
-    print(f"sound (equation_defect=none): {len(sound)}/{len(rxns)}")
+    print(f"sound (equation_defect=none): {len(sound)}/{n_total}")
     print(f"llm-correct within sound: {len(llm_sound)}")
     print()
     print("systematic clusters (priority-claimed, non-overlapping):")

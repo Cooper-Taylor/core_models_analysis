@@ -1,0 +1,1448 @@
+{
+  "n_residual": 248,
+  "n_pathway_annotated": 150,
+  "n_text_inferred": 22,
+  "n_no_pathway_identifiable": 76,
+  "categories": [
+    {
+      "category": "Xenobiotic / pollutant biodegradation",
+      "n": 86,
+      "share_of_residual": 0.3468,
+      "provenance": {
+        "pathway-annotated": 77,
+        "text-inferred": 9
+      },
+      "thermo_source": {
+        "dGP": 59,
+        "eQ": 27
+      },
+      "examples": [
+        "rxn03485",
+        "rxn03681",
+        "rxn03693",
+        "rxn04023",
+        "rxn16011",
+        "rxn41454"
+      ]
+    },
+    {
+      "category": "No pathway identifiable",
+      "n": 76,
+      "share_of_residual": 0.3065,
+      "provenance": {
+        "none": 76
+      },
+      "thermo_source": {
+        "dGP": 45,
+        "eQ": 30,
+        "opentecr": 1
+      },
+      "examples": [
+        "rxn11599",
+        "rxn47952",
+        "rxn59463",
+        "rxn01885",
+        "rxn02515",
+        "rxn02871"
+      ]
+    },
+    {
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "n": 40,
+      "share_of_residual": 0.1613,
+      "provenance": {
+        "pathway-annotated": 38,
+        "text-inferred": 2
+      },
+      "thermo_source": {
+        "eQ": 24,
+        "dGP": 16
+      },
+      "examples": [
+        "rxn01758",
+        "rxn07441",
+        "rxn01230",
+        "rxn02544",
+        "rxn02837",
+        "rxn04282"
+      ]
+    },
+    {
+      "category": "Amino acid metabolism",
+      "n": 18,
+      "share_of_residual": 0.0726,
+      "provenance": {
+        "pathway-annotated": 18
+      },
+      "thermo_source": {
+        "dGP": 12,
+        "eQ": 6
+      },
+      "examples": [
+        "rxn00651",
+        "rxn01365",
+        "rxn01581",
+        "rxn01639",
+        "rxn01654",
+        "rxn01843"
+      ]
+    },
+    {
+      "category": "Cofactor / vitamin / coenzyme biosynthesis",
+      "n": 7,
+      "share_of_residual": 0.0282,
+      "provenance": {
+        "pathway-annotated": 4,
+        "text-inferred": 3
+      },
+      "thermo_source": {
+        "dGP": 3,
+        "eQ": 3,
+        "opentecr": 1
+      },
+      "examples": [
+        "rxn07307",
+        "rxn03840",
+        "rxn05117",
+        "rxn05119",
+        "rxn10598",
+        "rxn41265"
+      ]
+    },
+    {
+      "category": "Fatty acid / lipid metabolism",
+      "n": 6,
+      "share_of_residual": 0.0242,
+      "provenance": {
+        "pathway-annotated": 5,
+        "text-inferred": 1
+      },
+      "thermo_source": {
+        "eQ": 5,
+        "dGP": 1
+      },
+      "examples": [
+        "rxn57269",
+        "rxn00946",
+        "rxn01802",
+        "rxn03251",
+        "rxn03253",
+        "rxn04027"
+      ]
+    },
+    {
+      "category": "Nucleotide metabolism",
+      "n": 4,
+      "share_of_residual": 0.0161,
+      "provenance": {
+        "pathway-annotated": 2,
+        "text-inferred": 2
+      },
+      "thermo_source": {
+        "dGP": 2,
+        "eQ": 2
+      },
+      "examples": [
+        "rxn00837",
+        "rxn42791",
+        "rxn57879",
+        "rxn58390"
+      ]
+    },
+    {
+      "category": "Steroid / sterol / bile-acid metabolism",
+      "n": 4,
+      "share_of_residual": 0.0161,
+      "provenance": {
+        "pathway-annotated": 2,
+        "text-inferred": 2
+      },
+      "thermo_source": {
+        "eQ": 4
+      },
+      "examples": [
+        "rxn23147",
+        "rxn44501",
+        "rxn55967",
+        "rxn55993"
+      ]
+    },
+    {
+      "category": "Glycan / cell-envelope metabolism",
+      "n": 4,
+      "share_of_residual": 0.0161,
+      "provenance": {
+        "text-inferred": 3,
+        "pathway-annotated": 1
+      },
+      "thermo_source": {
+        "eQ": 3,
+        "dGP": 1
+      },
+      "examples": [
+        "rxn08074",
+        "rxn08897",
+        "rxn08931",
+        "rxn21376"
+      ]
+    },
+    {
+      "category": "Carbohydrate / central carbon metabolism",
+      "n": 3,
+      "share_of_residual": 0.0121,
+      "provenance": {
+        "pathway-annotated": 3
+      },
+      "thermo_source": {
+        "dGP": 3
+      },
+      "examples": [
+        "rxn00996",
+        "rxn01177",
+        "rxn02917"
+      ]
+    }
+  ],
+  "per_reaction": [
+    {
+      "modelseed_id": "rxn00837",
+      "category": "Nucleotide metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn00996",
+      "category": "Carbohydrate / central carbon metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn01177",
+      "category": "Carbohydrate / central carbon metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn01758",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn02917",
+      "category": "Carbohydrate / central carbon metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03485",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03681",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03693",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn04023",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn07307",
+      "category": "Cofactor / vitamin / coenzyme biosynthesis",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn07441",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn11599",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn16011",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn23147",
+      "category": "Steroid / sterol / bile-acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn41454",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn43905",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn47607",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn47952",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn48951",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn52687",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn57269",
+      "category": "Fatty acid / lipid metabolism",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn59463",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn00428",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn00651",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn00946",
+      "category": "Fatty acid / lipid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn01225",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn01230",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn01365",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn01547",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn01581",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn01639",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn01654",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn01802",
+      "category": "Fatty acid / lipid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn01843",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn01885",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn02229",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn02359",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn02515",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn02525",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn02544",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn02774",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn02837",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn02866",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn02871",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn02987",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn03153",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03155",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03251",
+      "category": "Fatty acid / lipid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03253",
+      "category": "Fatty acid / lipid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03263",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn03331",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03501",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn03567",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03568",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03694",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03698",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03776",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03784",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn03793",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03801",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03824",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03840",
+      "category": "Cofactor / vitamin / coenzyme biosynthesis",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn03845",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03855",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03858",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03859",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03873",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn03914",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn04027",
+      "category": "Fatty acid / lipid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn04031",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn04032",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn04151",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn04279",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn04282",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn04300",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn04649",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn04672",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn04710",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn04721",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn04731",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn04742",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn04777",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn04778",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn04779",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn04780",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn04788",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn05037",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn05117",
+      "category": "Cofactor / vitamin / coenzyme biosynthesis",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn05119",
+      "category": "Cofactor / vitamin / coenzyme biosynthesis",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn07544",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn07620",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn07774",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn07906",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn08074",
+      "category": "Glycan / cell-envelope metabolism",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn08897",
+      "category": "Glycan / cell-envelope metabolism",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn08931",
+      "category": "Glycan / cell-envelope metabolism",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn10598",
+      "category": "Cofactor / vitamin / coenzyme biosynthesis",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn11779",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn11842",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn12147",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn13395",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn14022",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn15997",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn16030",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn16047",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn16073",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn16082",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn16083",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn16084",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn16088",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn16130",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn16131",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn16180",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn16247",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn16280",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn16329",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn16400",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn16500",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn16504",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn16677",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn19346",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn19477",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn20717",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn20743",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn20744",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn20860",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn20861",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn20897",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn20898",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn20902",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn20921",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn21355",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn21376",
+      "category": "Glycan / cell-envelope metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn21778",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn22016",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn22034",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn22106",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn22319",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn23360",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn23757",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn23777",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn23882",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn24016",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn24317",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn24592",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn24755",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn24825",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn24962",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn25600",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn25894",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn27442",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn37351",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn39313",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn39847",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn40127",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn40378",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn40544",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn40560",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn41199",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn41265",
+      "category": "Cofactor / vitamin / coenzyme biosynthesis",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn41362",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn41531",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn41532",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn41592",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn41647",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn42012",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn42073",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn42151",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn42187",
+      "category": "Amino acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn42241",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn42791",
+      "category": "Nucleotide metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn43180",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn43244",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn43626",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn43783",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn44120",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn44166",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn44426",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn44501",
+      "category": "Steroid / sterol / bile-acid metabolism",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn44700",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn44893",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn45132",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn45430",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn45685",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn45721",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn45918",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn45928",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn46080",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn46678",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn46745",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn47118",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn47261",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn47384",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn47568",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn47948",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn48015",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn48074",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn48099",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn48158",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn48167",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn48545",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "pathway-annotated"
+    },
+    {
+      "modelseed_id": "rxn49414",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn49813",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn50031",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn50155",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn51247",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn52560",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn52561",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn53243",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn53268",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn53288",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn53944",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn54401",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn55521",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn55523",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn55559",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn55881",
+      "category": "Cofactor / vitamin / coenzyme biosynthesis",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn55967",
+      "category": "Steroid / sterol / bile-acid metabolism",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn55993",
+      "category": "Steroid / sterol / bile-acid metabolism",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn56302",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn56733",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn56754",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn56891",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn57094",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn57255",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn57879",
+      "category": "Nucleotide metabolism",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn58390",
+      "category": "Nucleotide metabolism",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn58815",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn58913",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn59025",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn59070",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn59479",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn59505",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn59519",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn59564",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn59626",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn59645",
+      "category": "Xenobiotic / pollutant biodegradation",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn59681",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn59795",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn59845",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn59853",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn60056",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn60119",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn60243",
+      "category": "Secondary metabolite biosynthesis (plant/microbial)",
+      "provenance": "text-inferred"
+    },
+    {
+      "modelseed_id": "rxn60286",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn60300",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn60325",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    },
+    {
+      "modelseed_id": "rxn60327",
+      "category": "No pathway identifiable",
+      "provenance": "none"
+    }
+  ]
+}

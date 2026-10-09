@@ -337,6 +337,88 @@ generic enzyme-family breakdown — including the mixed-source families used
 as a contrast earlier (dehydrogenase, isomerase, lyase, reductase, hydratase)
 — is still in `sound_subset_families.tsv` / `llm_sound_enzyme_families`.)*
 
+### What biological pathways the 248 residual reactions actually belong to
+
+No further thermo-source *mechanism* was hiding in the residual, but that
+doesn't mean the 248 are a random scatter of central metabolism. Each
+reaction's `pathways` field (KEGG + MetaCyc, populated for 155/248) was
+pulled and bucketed by keyword; the 93 without one got a weaker fallback pass
+over `enzyme_name`/`rationale`/`organism_context` (22 more recovered that
+way). Over half the residual sits in just two biological networks:
+
+![Horizontal stacked bar chart of the 248 residual reactions by biological pathway category. Xenobiotic/pollutant biodegradation (86, 35%) and secondary metabolite biosynthesis (40, 16%) are the two largest named categories; "no pathway identifiable" (76, 31%, grey) is the next largest; the rest -- amino acid, cofactor/vitamin, fatty acid/lipid, glycan, steroid, nucleotide, and carbohydrate metabolism -- are small. Bars are split into a darker segment (curated KEGG/MetaCyc annotation) and a lighter segment (text-inferred, no curated annotation).](figures/strict_disagreement_residual_pathways.png)
+
+| pathway category | n | share | dominant source |
+|---|---:|---:|---|
+| **Xenobiotic / pollutant biodegradation** | **86** | **34.7%** | dGP (59), eQ (27) |
+| No pathway identifiable | 76 | 30.6% | mixed |
+| **Secondary metabolite biosynthesis** (plant/microbial) | **40** | **16.1%** | eQ (24), dGP (16) |
+| Amino acid metabolism | 18 | 7.3% | dGP (12), eQ (6) |
+| Cofactor / vitamin / coenzyme biosynthesis | 7 | 2.8% | mixed |
+| Fatty acid / lipid metabolism | 6 | 2.4% | eQ (5) |
+| Nucleotide metabolism | 4 | 1.6% | mixed |
+| Steroid / sterol / bile-acid metabolism | 4 | 1.6% | eQ (4) |
+| Glycan / cell-envelope metabolism | 4 | 1.6% | mixed |
+| Carbohydrate / central carbon metabolism | 3 | 1.2% | dGP (3) |
+
+**#1, bacterial xenobiotic/pollutant catabolism (86, 34.7%)** — a single
+coherent biological network, not a grab-bag:
+
+| sub-theme | n |
+|---|---:|
+| chlorinated aromatics (chlorobenzene/chlorocatechol/**chloromuconate cycloisomerase**/PCB-type) | 37 |
+| other halogenated/aromatic (fluorobenzoate, mercury detox, drug metabolism/P450, thiocyanate, nicotine, caprolactam) | 18 |
+| PAHs (naphthalene, toluene, polycyclic aromatics) | 16 |
+| pesticides/herbicides (atrazine/triazine, DDT) | 11 |
+| nitroaromatics | 4 |
+
+The enzymology is dehalogenases, ring-cleavage dioxygenases/hydrolases, and
+cycloisomerases (e.g. `rxn43905`/`rxn47607`/`rxn03693`, chloromuconate
+cycloisomerase variants; `rxn00428`, dichloromethane dehalogenase/GST;
+`rxn03485`, NahD naphthalene degradation) — classic environmental-microbiology
+catabolic pathways, each usually characterised from a single soil/environmental
+isolate study, often decades old.
+
+**#2, plant/microbial secondary metabolite biosynthesis (40, 16.1%)**:
+
+| sub-theme | n (overlapping) |
+|---|---:|
+| phenylpropanoid/flavonoid/flavonol | 12 |
+| terpenoid/carotenoid | 8 |
+| antibiotic/phytoalexin | 8 |
+| alkaloid | 4 |
+| other (polyketide, lignan, glucosinolate, N/S-containing secondary compounds) | 36 |
+
+The same biological space as the SAM-methyltransferase and glycoside-hydrolase
+defect clusters above — this is the fraction of plant/microbial specialised
+metabolism that *isn't* explained by either of those two specific defects.
+
+**Why this refines, rather than contradicts, the rejected hypothesis above**:
+the earlier test asked whether specialised/novel chemistry is concentrated
+*in* the residual rather than the clusters, and it isn't (45% vs. 24%) — the
+clusters are, if anything, more plant-secondary-metabolism-heavy. This
+section asks a different question — what *is* in the residual, on its own
+terms — and the answer is that over half of it (126/248, 50.8%) is exactly
+the kind of chemistry most likely to be sparse in any thermo source's
+training data: one-off environmental-pollutant degradation pathways and
+plant/fungal specialised metabolites, each usually characterised in a single
+old paper rather than as part of a large, well-studied reaction family. Both
+observations are true at once: novelty predicts *disagreement* strongly
+(pulling in both the clusters and most of the residual), but it does not by
+itself predict *which thermo source* produces the wrong confident answer —
+that part is the coverage/uncertainty asymmetry described above.
+
+The remaining **76 (30.6%)** have no identifiable pathway even after the
+text-mining fallback — genuinely assorted orphan/legacy enzymology (murein
+endopeptidases, ferritin ferroxidase, jasmonate biosynthesis, penicillin
+acylase), with no further single theme.
+
+*(Figure and tables: `scripts/analyze_strict_disagreement_residual_pathways.py`
+→ `results/strict_disagreement_enzymes/residual_pathways.json` / `.tsv`;
+figure drawn by `scripts/plot_strict_disagreement_residual_pathways.py`,
+registered in `scripts/figures.tsv` as
+`strict_disagreement_residual_pathways`.)*
+
 ## The 481 `unknown` calls
 
 These are honest, not unresearched. They break down as: reactions KEGG or
@@ -365,6 +447,10 @@ results/strict_disagreement_enzymes/
                                       breakdown (supplementary contrast table)
   sound_subset_clusters.tsv          figure source data: the 5 non-overlapping
                                       systematic clusters + residual (headline chart)
+  residual_pathways.json             biological pathway/network breakdown of the
+                                      248 residual reactions, by KEGG/MetaCyc
+                                      annotation + text-mining fallback
+  residual_pathways.tsv              figure source data for the pathway chart
   research_queue.json                the work definition (1,370 entries)
   findings/chunk_NN.json             raw per-chunk literature findings (55)
   findings/backfill_*.json           structured verdicts for chunks 00-10
@@ -413,6 +499,10 @@ python3 scripts/regen_figures.py strict_disagreement_enzymes
 # research, just re-derived from the deliverable above
 python3 scripts/analyze_strict_disagreement_sound_subset.py
 python3 scripts/regen_figures.py strict_disagreement_sound_families
+
+# biological pathway/network breakdown of the 248 residual reactions
+python3 scripts/analyze_strict_disagreement_residual_pathways.py
+python3 scripts/regen_figures.py strict_disagreement_residual_pathways
 ```
 
 ## Method
