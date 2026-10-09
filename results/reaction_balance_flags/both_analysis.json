@@ -1,0 +1,17 @@
+{
+  "n": 3213,
+  "n_no_ec": 1968,
+  "n_fractional_coefficient": 95,
+  "n_transport": 142,
+  "n_3plus_elements_imbalanced": 2111,
+  "elements_imbalanced_distribution": {
+    "1": 325,
+    "2": 777,
+    "3": 591,
+    "4": 368,
+    "5": 798,
+    "6": 227,
+    "7": 105,
+    "8": 22
+  }
+}

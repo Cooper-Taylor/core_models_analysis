@@ -1,0 +1,106 @@
+{
+  "n": 2067,
+  "n_residual_matches_known_compound": 945,
+  "top_matches": [
+    {
+      "id": "cpd26928",
+      "name": "Deaminated-Amine-Donors",
+      "n_reactions": 292
+    },
+    {
+      "id": "cpd11964",
+      "name": "1-Haloalkane",
+      "n_reactions": 106
+    },
+    {
+      "id": "cpd01916",
+      "name": "L-Rhamno-1,4-lactone",
+      "n_reactions": 76
+    },
+    {
+      "id": "cpd03956",
+      "name": "Ethylene",
+      "n_reactions": 29
+    },
+    {
+      "id": "cpd02657",
+      "name": "2,1' dianhydride",
+      "n_reactions": 26
+    },
+    {
+      "id": "cpd00055",
+      "name": "Formaldehyde",
+      "n_reactions": 17
+    },
+    {
+      "id": "cpd03580",
+      "name": "Alkenate",
+      "n_reactions": 16
+    },
+    {
+      "id": "cpd00076",
+      "name": "Sucrose",
+      "n_reactions": 16
+    },
+    {
+      "id": "cpd00007",
+      "name": "O2",
+      "n_reactions": 14
+    },
+    {
+      "id": "cpd08344",
+      "name": "Propene",
+      "n_reactions": 12
+    },
+    {
+      "id": "cpd00057",
+      "name": "Alcohol",
+      "n_reactions": 12
+    },
+    {
+      "id": "cpd11927",
+      "name": "Acid amide",
+      "n_reactions": 11
+    },
+    {
+      "id": "cpd14865",
+      "name": "Dehydrosqualene",
+      "n_reactions": 11
+    },
+    {
+      "id": "cpd00335",
+      "name": "Dehydroascorbate",
+      "n_reactions": 11
+    },
+    {
+      "id": "cpd00025",
+      "name": "H2O2",
+      "n_reactions": 9
+    },
+    {
+      "id": "cpd00027",
+      "name": "D-Glucose",
+      "n_reactions": 8
+    },
+    {
+      "id": "cpd01737",
+      "name": "Deoxyribonolactone",
+      "n_reactions": 7
+    },
+    {
+      "id": "cpd12759",
+      "name": "Poly-gamma-D-glutamate",
+      "n_reactions": 7
+    },
+    {
+      "id": "cpd12077",
+      "name": "Rubber",
+      "n_reactions": 7
+    },
+    {
+      "id": "cpd00229",
+      "name": "Glycolaldehyde",
+      "n_reactions": 6
+    }
+  ]
+}

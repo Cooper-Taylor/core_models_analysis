@@ -1,0 +1,132 @@
+{
+  "n": 6781,
+  "n_distinct_bad_compounds": 4158,
+  "top_compounds": [
+    {
+      "id": "cpd22290",
+      "name": "Acceptor",
+      "n_reactions": 967
+    },
+    {
+      "id": "cpd42232",
+      "name": "oxidized [NADPH--hemoprotein reductase]",
+      "n_reactions": 638
+    },
+    {
+      "id": "cpd42231",
+      "name": "reduced [NADPH--hemoprotein reductase]",
+      "n_reactions": 638
+    },
+    {
+      "id": "cpd41770",
+      "name": "reduced [2Fe-2S]-[ferredoxin]",
+      "n_reactions": 176
+    },
+    {
+      "id": "cpd41769",
+      "name": "oxidized [2Fe-2S]-[ferredoxin]",
+      "n_reactions": 176
+    },
+    {
+      "id": "cpd41998",
+      "name": "Fe(II)-[cytochrome b5]",
+      "n_reactions": 145
+    },
+    {
+      "id": "cpd41999",
+      "name": "Fe(III)-[cytochrome b5]",
+      "n_reactions": 144
+    },
+    {
+      "id": "cpd12576",
+      "name": "Reduced electron-transferring flavoprotein",
+      "n_reactions": 78
+    },
+    {
+      "id": "cpd43296",
+      "name": "L-lysyl-[protein]",
+      "n_reactions": 70
+    },
+    {
+      "id": "cpd11723",
+      "name": "Reduced adrenodoxin",
+      "n_reactions": 60
+    },
+    {
+      "id": "cpd11724",
+      "name": "Oxidized adrenodoxin",
+      "n_reactions": 60
+    },
+    {
+      "id": "cpd42062",
+      "name": "oxidized [electron-transfer flavoprotein]",
+      "n_reactions": 60
+    },
+    {
+      "id": "cpd41933",
+      "name": "Fe(II)-[cytochrome c]",
+      "n_reactions": 45
+    },
+    {
+      "id": "cpd42687",
+      "name": "Fe(III)-[cytochrome c]",
+      "n_reactions": 45
+    },
+    {
+      "id": "cpd12264",
+      "name": "Oxidized flavoprotein",
+      "n_reactions": 40
+    },
+    {
+      "id": "cpd12238",
+      "name": "Reduced flavoprotein",
+      "n_reactions": 40
+    },
+    {
+      "id": "cpd16831",
+      "name": "thioredoxin-dithiol",
+      "n_reactions": 36
+    },
+    {
+      "id": "cpd43312",
+      "name": "L-seryl-[protein]",
+      "n_reactions": 31
+    },
+    {
+      "id": "cpd41809",
+      "name": "L-cysteinyl-[protein]",
+      "n_reactions": 31
+    },
+    {
+      "id": "cpd30087",
+      "name": "1-octadec-9-enoyl-sn-glycerol 3-phosphate",
+      "n_reactions": 30
+    },
+    {
+      "id": "cpd43292",
+      "name": "L-histidyl-[protein]",
+      "n_reactions": 29
+    },
+    {
+      "id": "cpd43502",
+      "name": "a ubiquinol",
+      "n_reactions": 27
+    },
+    {
+      "id": "cpd12173",
+      "name": "Reduced flavodoxin",
+      "n_reactions": 26
+    },
+    {
+      "id": "cpd19168",
+      "name": "C15602",
+      "n_reactions": 26
+    },
+    {
+      "id": "cpd27255",
+      "name": "Holo-ACP-Synthases",
+      "n_reactions": 26
+    }
+  ],
+  "top10_reaction_hits": 3092
+}

@@ -1,0 +1,5 @@
+group	n_total	n_identified_pattern	n_residual	pattern_label
+CPDFORMERROR	6781	3092	3689	top-10 generic cofactor placeholders
+CI only	2824	778	2046	combinatorial-expansion template bug
+MI only	2067	945	1122	residual matches a known compound (dropped product)
+CI+MI both	3213	1102	2111	single/double-element imbalance (simpler cases)
