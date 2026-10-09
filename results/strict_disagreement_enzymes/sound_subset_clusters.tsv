@@ -1,0 +1,7 @@
+cluster	n	defect_class	dominant_source	dominant_source_purity
+SAM-dependent methyltransferase	81	dGPredictor: activated-cofactor group transfer	dGP	0.988
+PAPS-dependent sulfotransferase	35	dGPredictor: activated-cofactor group transfer	dGP	1.0
+Glycoside hydrolase (broad)	54	eQuilibrator: structural motif	eQ	1.0
+Quinone/quinol-coupled redox	12	eQuilibrator: structural motif	eQ	1.0
+ATP/ADP/phosphate-coupled group transfer	35	dGPredictor: activated-cofactor group transfer	dGP	0.886
+Residual (case-specific enzymology)	248	none	mixed	

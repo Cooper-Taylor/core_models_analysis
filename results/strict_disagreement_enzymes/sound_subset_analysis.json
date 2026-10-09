@@ -1,0 +1,931 @@
+{
+  "n_total": 1370,
+  "n_sound": 504,
+  "n_llm_sound": 465,
+  "sound_by_mismatch_group": {
+    "reverse_vs_forward": 469,
+    "forward_vs_reverse": 35
+  },
+  "sound_by_enzymology_supports": {
+    "llm": 465,
+    "modelseed": 19,
+    "neither": 14,
+    "unclear": 6
+  },
+  "sound_by_functionality": {
+    "monofunctional": 357,
+    "unknown": 108,
+    "bifunctional": 34,
+    "polyfunctional": 5
+  },
+  "sound_by_confidence": {
+    "high": 198,
+    "medium": 185,
+    "low": 121
+  },
+  "sound_by_thermo_grade": {
+    "bronze": 343,
+    "silver": 158,
+    "gold": 3
+  },
+  "sound_by_thermo_assessment": {
+    "unconfident": 426,
+    "self-confident": 75,
+    "measured": 3
+  },
+  "sound_by_thermo_source": {
+    "dGP": 299,
+    "eQ": 202,
+    "opentecr": 3
+  },
+  "llm_sound_enzyme_families": [
+    {
+      "family": "methyltransferase",
+      "n": 81,
+      "source_breakdown": {
+        "dGP": 80,
+        "eQ": 1
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 0.988,
+      "grade_breakdown": {
+        "bronze": 81
+      },
+      "examples": [
+        "rxn01373",
+        "rxn02771",
+        "rxn02959",
+        "rxn03063",
+        "rxn03208"
+      ]
+    },
+    {
+      "family": "(no family term / unidentified)",
+      "n": 67,
+      "source_breakdown": {
+        "eQ": 35,
+        "dGP": 31,
+        "opentecr": 1
+      },
+      "dominant_source": "eQ",
+      "dominant_source_purity": 0.522,
+      "grade_breakdown": {
+        "bronze": 40,
+        "silver": 26,
+        "gold": 1
+      },
+      "examples": [
+        "rxn01022",
+        "rxn01639",
+        "rxn01760",
+        "rxn01843",
+        "rxn02515"
+      ]
+    },
+    {
+      "family": "hydrolase",
+      "n": 54,
+      "source_breakdown": {
+        "eQ": 28,
+        "dGP": 26
+      },
+      "dominant_source": "eQ",
+      "dominant_source_purity": 0.519,
+      "grade_breakdown": {
+        "bronze": 38,
+        "silver": 16
+      },
+      "examples": [
+        "rxn11599",
+        "rxn02525",
+        "rxn02871",
+        "rxn03801",
+        "rxn03845"
+      ]
+    },
+    {
+      "family": "glucosidase",
+      "n": 43,
+      "source_breakdown": {
+        "eQ": 43
+      },
+      "dominant_source": "eQ",
+      "dominant_source_purity": 1.0,
+      "grade_breakdown": {
+        "silver": 43
+      },
+      "examples": [
+        "rxn01889",
+        "rxn02574",
+        "rxn02816",
+        "rxn03402",
+        "rxn03481"
+      ]
+    },
+    {
+      "family": "dehydrogenase",
+      "n": 34,
+      "source_breakdown": {
+        "eQ": 19,
+        "dGP": 15
+      },
+      "dominant_source": "eQ",
+      "dominant_source_purity": 0.559,
+      "grade_breakdown": {
+        "bronze": 21,
+        "silver": 13
+      },
+      "examples": [
+        "rxn01758",
+        "rxn16011",
+        "rxn57269",
+        "rxn00616",
+        "rxn00946"
+      ]
+    },
+    {
+      "family": "sulfotransferase",
+      "n": 34,
+      "source_breakdown": {
+        "dGP": 34
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 1.0,
+      "grade_breakdown": {
+        "bronze": 34
+      },
+      "examples": [
+        "rxn01357",
+        "rxn01907",
+        "rxn02628",
+        "rxn02801",
+        "rxn02941"
+      ]
+    },
+    {
+      "family": "transferase",
+      "n": 31,
+      "source_breakdown": {
+        "dGP": 23,
+        "eQ": 8
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 0.742,
+      "grade_breakdown": {
+        "bronze": 29,
+        "silver": 2
+      },
+      "examples": [
+        "rxn03803",
+        "rxn07441",
+        "rxn00428",
+        "rxn01654",
+        "rxn01885"
+      ]
+    },
+    {
+      "family": "synthase",
+      "n": 21,
+      "source_breakdown": {
+        "dGP": 15,
+        "eQ": 4,
+        "opentecr": 2
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 0.714,
+      "grade_breakdown": {
+        "bronze": 14,
+        "silver": 5,
+        "gold": 2
+      },
+      "examples": [
+        "rxn07307",
+        "rxn03840",
+        "rxn04027",
+        "rxn04186",
+        "rxn04187"
+      ]
+    },
+    {
+      "family": "isomerase",
+      "n": 17,
+      "source_breakdown": {
+        "dGP": 10,
+        "eQ": 7
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 0.588,
+      "grade_breakdown": {
+        "bronze": 10,
+        "silver": 7
+      },
+      "examples": [
+        "rxn03485",
+        "rxn03693",
+        "rxn41454",
+        "rxn43905",
+        "rxn47607"
+      ]
+    },
+    {
+      "family": "lyase",
+      "n": 15,
+      "source_breakdown": {
+        "dGP": 12,
+        "eQ": 3
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 0.8,
+      "grade_breakdown": {
+        "bronze": 12,
+        "silver": 3
+      },
+      "examples": [
+        "rxn00651",
+        "rxn01365",
+        "rxn02837",
+        "rxn02987",
+        "rxn03263"
+      ]
+    },
+    {
+      "family": "reductase",
+      "n": 12,
+      "source_breakdown": {
+        "eQ": 9,
+        "dGP": 3
+      },
+      "dominant_source": "eQ",
+      "dominant_source_purity": 0.75,
+      "grade_breakdown": {
+        "silver": 7,
+        "bronze": 5
+      },
+      "examples": [
+        "rxn00837",
+        "rxn04151",
+        "rxn04279",
+        "rxn04282",
+        "rxn04300"
+      ]
+    },
+    {
+      "family": "hydratase",
+      "n": 11,
+      "source_breakdown": {
+        "dGP": 10,
+        "eQ": 1
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 0.909,
+      "grade_breakdown": {
+        "bronze": 9,
+        "silver": 2
+      },
+      "examples": [
+        "rxn00996",
+        "rxn01177",
+        "rxn02917",
+        "rxn03681",
+        "rxn04023"
+      ]
+    },
+    {
+      "family": "oxidase",
+      "n": 11,
+      "source_breakdown": {
+        "dGP": 10,
+        "eQ": 1
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 0.909,
+      "grade_breakdown": {
+        "bronze": 11
+      },
+      "examples": [
+        "rxn22016",
+        "rxn24592",
+        "rxn40560",
+        "rxn41362",
+        "rxn46080"
+      ]
+    },
+    {
+      "family": "deaminase",
+      "n": 4,
+      "source_breakdown": {
+        "dGP": 3,
+        "eQ": 1
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 0.75,
+      "grade_breakdown": {
+        "bronze": 3,
+        "silver": 1
+      },
+      "examples": [
+        "rxn01225",
+        "rxn01547",
+        "rxn43783",
+        "rxn48158"
+      ]
+    },
+    {
+      "family": "kinase",
+      "n": 4,
+      "source_breakdown": {
+        "eQ": 2,
+        "dGP": 2
+      },
+      "dominant_source": "eQ",
+      "dominant_source_purity": 0.5,
+      "grade_breakdown": {
+        "bronze": 3,
+        "silver": 1
+      },
+      "examples": [
+        "rxn01538",
+        "rxn02569",
+        "rxn03108",
+        "rxn46447"
+      ]
+    },
+    {
+      "family": "synthetase",
+      "n": 4,
+      "source_breakdown": {
+        "dGP": 3,
+        "eQ": 1
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 0.75,
+      "grade_breakdown": {
+        "bronze": 3,
+        "silver": 1
+      },
+      "examples": [
+        "rxn04053",
+        "rxn25528",
+        "rxn44823",
+        "rxn55559"
+      ]
+    },
+    {
+      "family": "peptidase",
+      "n": 4,
+      "source_breakdown": {
+        "eQ": 3,
+        "dGP": 1
+      },
+      "dominant_source": "eQ",
+      "dominant_source_purity": 0.75,
+      "grade_breakdown": {
+        "bronze": 2,
+        "silver": 2
+      },
+      "examples": [
+        "rxn08897",
+        "rxn08931",
+        "rxn56302",
+        "rxn60325"
+      ]
+    },
+    {
+      "family": "dioxygenase",
+      "n": 3,
+      "source_breakdown": {
+        "dGP": 3
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 1.0,
+      "grade_breakdown": {
+        "bronze": 3
+      },
+      "examples": [
+        "rxn03153",
+        "rxn03155",
+        "rxn48015"
+      ]
+    },
+    {
+      "family": "mutase",
+      "n": 3,
+      "source_breakdown": {
+        "dGP": 3
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 1.0,
+      "grade_breakdown": {
+        "bronze": 3
+      },
+      "examples": [
+        "rxn03501",
+        "rxn07544",
+        "rxn14022"
+      ]
+    },
+    {
+      "family": "monooxygenase",
+      "n": 3,
+      "source_breakdown": {
+        "dGP": 2,
+        "eQ": 1
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 0.667,
+      "grade_breakdown": {
+        "silver": 2,
+        "bronze": 1
+      },
+      "examples": [
+        "rxn03784",
+        "rxn09219",
+        "rxn41612"
+      ]
+    },
+    {
+      "family": "ligase",
+      "n": 3,
+      "source_breakdown": {
+        "dGP": 2,
+        "eQ": 1
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 0.667,
+      "grade_breakdown": {
+        "silver": 3
+      },
+      "examples": [
+        "rxn04272",
+        "rxn04273",
+        "rxn42151"
+      ]
+    },
+    {
+      "family": "acyltransferase",
+      "n": 3,
+      "source_breakdown": {
+        "eQ": 3
+      },
+      "dominant_source": "eQ",
+      "dominant_source_purity": 1.0,
+      "grade_breakdown": {
+        "bronze": 3
+      },
+      "examples": [
+        "rxn41592",
+        "rxn47118",
+        "rxn47948"
+      ]
+    },
+    {
+      "family": "glycosidase",
+      "n": 2,
+      "source_breakdown": {
+        "eQ": 2
+      },
+      "dominant_source": "eQ",
+      "dominant_source_purity": 1.0,
+      "grade_breakdown": {
+        "bronze": 1,
+        "silver": 1
+      },
+      "examples": [
+        "rxn22972",
+        "rxn48341"
+      ]
+    },
+    {
+      "family": "cyclase",
+      "n": 1,
+      "source_breakdown": {
+        "eQ": 1
+      },
+      "dominant_source": "eQ",
+      "dominant_source_purity": 1.0,
+      "grade_breakdown": {
+        "bronze": 1
+      },
+      "examples": [
+        "rxn07620"
+      ]
+    }
+  ],
+  "systematic_clusters": [
+    {
+      "cluster": "SAM-dependent methyltransferase",
+      "defect_class": "dGPredictor: activated-cofactor group transfer",
+      "n": 81,
+      "source_breakdown": {
+        "dGP": 80,
+        "eQ": 1
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 0.988,
+      "grade_breakdown": {
+        "bronze": 81
+      },
+      "examples": [
+        "rxn01373",
+        "rxn02771",
+        "rxn02959",
+        "rxn03063",
+        "rxn03208"
+      ]
+    },
+    {
+      "cluster": "PAPS-dependent sulfotransferase",
+      "defect_class": "dGPredictor: activated-cofactor group transfer",
+      "n": 35,
+      "source_breakdown": {
+        "dGP": 35
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 1.0,
+      "grade_breakdown": {
+        "bronze": 35
+      },
+      "examples": [
+        "rxn01357",
+        "rxn01907",
+        "rxn02628",
+        "rxn02801",
+        "rxn02941"
+      ]
+    },
+    {
+      "cluster": "Glycoside hydrolase (broad)",
+      "defect_class": "eQuilibrator: structural motif",
+      "n": 54,
+      "source_breakdown": {
+        "eQ": 54
+      },
+      "dominant_source": "eQ",
+      "dominant_source_purity": 1.0,
+      "grade_breakdown": {
+        "silver": 50,
+        "bronze": 4
+      },
+      "examples": [
+        "rxn01760",
+        "rxn01889",
+        "rxn02574",
+        "rxn02816",
+        "rxn03402"
+      ]
+    },
+    {
+      "cluster": "Quinone/quinol-coupled redox",
+      "defect_class": "eQuilibrator: structural motif",
+      "n": 12,
+      "source_breakdown": {
+        "eQ": 12
+      },
+      "dominant_source": "eQ",
+      "dominant_source_purity": 1.0,
+      "grade_breakdown": {
+        "bronze": 7,
+        "silver": 5
+      },
+      "examples": [
+        "rxn08656",
+        "rxn09219",
+        "rxn21666",
+        "rxn22681",
+        "rxn22683"
+      ]
+    },
+    {
+      "cluster": "ATP/ADP/phosphate-coupled group transfer",
+      "defect_class": "dGPredictor: activated-cofactor group transfer",
+      "n": 35,
+      "source_breakdown": {
+        "dGP": 31,
+        "eQ": 3,
+        "opentecr": 1
+      },
+      "dominant_source": "dGP",
+      "dominant_source_purity": 0.886,
+      "grade_breakdown": {
+        "bronze": 25,
+        "silver": 9,
+        "gold": 1
+      },
+      "examples": [
+        "rxn03803",
+        "rxn00616",
+        "rxn01022",
+        "rxn01538",
+        "rxn02569"
+      ]
+    }
+  ],
+  "systematic_clusters_total": 217,
+  "systematic_clusters_share_of_llm_sound": 0.4667,
+  "systematic_clusters_by_defect_class": {
+    "dGPredictor: activated-cofactor group transfer": 151,
+    "eQuilibrator: structural motif": 66
+  },
+  "systematic_clusters_residual": {
+    "n": 248,
+    "share_of_llm_sound": 0.5333,
+    "thermo_source": {
+      "dGP": 142,
+      "eQ": 104,
+      "opentecr": 2
+    },
+    "thermo_grade": {
+      "bronze": 175,
+      "silver": 71,
+      "gold": 2
+    },
+    "confidence": {
+      "high": 98,
+      "medium": 82,
+      "low": 68
+    },
+    "research_tier": {
+      "named": 127,
+      "xref_only": 119,
+      "opaque": 2
+    },
+    "secondary_metabolism_hypothesis_test": {
+      "description": "Tested whether the residual's errors concentrate in plant/fungal/secondary-metabolite chemistry (molecular novelty underrepresented in thermo-source training data). REJECTED: the specialized-context signal is HIGHER inside the 5 systematic clusters than in the residual -- it correlates with cluster membership (plant secondary metabolism heavily uses SAM-methyltransferases and glycoside hydrolases), not with what's left unexplained.",
+      "specialized_context_share_in_residual": 0.2379,
+      "specialized_context_share_in_clusters": 0.4516
+    }
+  },
+  "direction_mechanism_tags_all_465": {
+    "n": 465,
+    "tagged_at_least_one": 282,
+    "tags": [
+      {
+        "mechanism": "named canonical pathway role",
+        "n": 175,
+        "share": 0.3763,
+        "examples": [
+          "rxn00837",
+          "rxn03485",
+          "rxn03693",
+          "rxn03803",
+          "rxn04023"
+        ]
+      },
+      {
+        "mechanism": "pathway channeling / downstream pull",
+        "n": 65,
+        "share": 0.1398,
+        "examples": [
+          "rxn52687",
+          "rxn00651",
+          "rxn01022",
+          "rxn01581",
+          "rxn01654"
+        ]
+      },
+      {
+        "mechanism": "dehydration / hydration / elimination / condensation",
+        "n": 56,
+        "share": 0.1204,
+        "examples": [
+          "rxn00996",
+          "rxn01177",
+          "rxn02917",
+          "rxn03681",
+          "rxn04023"
+        ]
+      },
+      {
+        "mechanism": "ATP/NTP or phosphoanhydride coupling",
+        "n": 25,
+        "share": 0.0538,
+        "examples": [
+          "rxn01538",
+          "rxn01885",
+          "rxn02569",
+          "rxn03108",
+          "rxn04053"
+        ]
+      },
+      {
+        "mechanism": "redox-partner / quinone potential mismatch",
+        "n": 23,
+        "share": 0.0495,
+        "examples": [
+          "rxn00837",
+          "rxn00616",
+          "rxn00946",
+          "rxn02359",
+          "rxn02866"
+        ]
+      },
+      {
+        "mechanism": "spontaneous / non-enzymatic step involved",
+        "n": 18,
+        "share": 0.0387,
+        "examples": [
+          "rxn43905",
+          "rxn47607",
+          "rxn01230",
+          "rxn01365",
+          "rxn03402"
+        ]
+      },
+      {
+        "mechanism": "hydrolysis of a high-energy / glycosidic bond",
+        "n": 14,
+        "share": 0.0301,
+        "examples": [
+          "rxn02229",
+          "rxn04272",
+          "rxn41592",
+          "rxn42241",
+          "rxn43626"
+        ]
+      },
+      {
+        "mechanism": "empirically measured / experimentally observed",
+        "n": 13,
+        "share": 0.028,
+        "examples": [
+          "rxn00996",
+          "rxn01177",
+          "rxn02917",
+          "rxn48951",
+          "rxn52687"
+        ]
+      },
+      {
+        "mechanism": "O2-dependent oxygenation/oxidation",
+        "n": 12,
+        "share": 0.0258,
+        "examples": [
+          "rxn00946",
+          "rxn03567",
+          "rxn03698",
+          "rxn03784",
+          "rxn09219"
+        ]
+      },
+      {
+        "mechanism": "cyclization / carbocation / terpene chemistry",
+        "n": 12,
+        "share": 0.0258,
+        "examples": [
+          "rxn02837",
+          "rxn03063",
+          "rxn04186",
+          "rxn04187",
+          "rxn04188"
+        ]
+      },
+      {
+        "mechanism": "decarboxylation (CO2 loss)",
+        "n": 5,
+        "share": 0.0108,
+        "examples": [
+          "rxn01802",
+          "rxn03501",
+          "rxn03776",
+          "rxn14022",
+          "rxn41647"
+        ]
+      }
+    ]
+  },
+  "direction_mechanism_tags_residual_only": {
+    "n": 248,
+    "tagged_at_least_one": 171,
+    "tags": [
+      {
+        "mechanism": "named canonical pathway role",
+        "n": 99,
+        "share": 0.3992,
+        "examples": [
+          "rxn00837",
+          "rxn03485",
+          "rxn03693",
+          "rxn04023",
+          "rxn07307"
+        ]
+      },
+      {
+        "mechanism": "dehydration / hydration / elimination / condensation",
+        "n": 46,
+        "share": 0.1855,
+        "examples": [
+          "rxn00996",
+          "rxn01177",
+          "rxn02917",
+          "rxn03681",
+          "rxn04023"
+        ]
+      },
+      {
+        "mechanism": "pathway channeling / downstream pull",
+        "n": 43,
+        "share": 0.1734,
+        "examples": [
+          "rxn52687",
+          "rxn00651",
+          "rxn01581",
+          "rxn01654",
+          "rxn01885"
+        ]
+      },
+      {
+        "mechanism": "spontaneous / non-enzymatic step involved",
+        "n": 16,
+        "share": 0.0645,
+        "examples": [
+          "rxn43905",
+          "rxn47607",
+          "rxn01230",
+          "rxn01365",
+          "rxn24317"
+        ]
+      },
+      {
+        "mechanism": "redox-partner / quinone potential mismatch",
+        "n": 12,
+        "share": 0.0484,
+        "examples": [
+          "rxn00837",
+          "rxn00946",
+          "rxn02359",
+          "rxn02866",
+          "rxn03251"
+        ]
+      },
+      {
+        "mechanism": "O2-dependent oxygenation/oxidation",
+        "n": 11,
+        "share": 0.0444,
+        "examples": [
+          "rxn00946",
+          "rxn03567",
+          "rxn03698",
+          "rxn03784",
+          "rxn22016"
+        ]
+      },
+      {
+        "mechanism": "hydrolysis of a high-energy / glycosidic bond",
+        "n": 10,
+        "share": 0.0403,
+        "examples": [
+          "rxn02229",
+          "rxn41592",
+          "rxn42241",
+          "rxn43626",
+          "rxn44426"
+        ]
+      },
+      {
+        "mechanism": "empirically measured / experimentally observed",
+        "n": 9,
+        "share": 0.0363,
+        "examples": [
+          "rxn00996",
+          "rxn01177",
+          "rxn02917",
+          "rxn48951",
+          "rxn52687"
+        ]
+      },
+      {
+        "mechanism": "ATP/NTP or phosphoanhydride coupling",
+        "n": 9,
+        "share": 0.0363,
+        "examples": [
+          "rxn01885",
+          "rxn22034",
+          "rxn40378",
+          "rxn49813",
+          "rxn55559"
+        ]
+      },
+      {
+        "mechanism": "decarboxylation (CO2 loss)",
+        "n": 5,
+        "share": 0.0202,
+        "examples": [
+          "rxn01802",
+          "rxn03501",
+          "rxn03776",
+          "rxn14022",
+          "rxn41647"
+        ]
+      },
+      {
+        "mechanism": "cyclization / carbocation / terpene chemistry",
+        "n": 2,
+        "share": 0.0081,
+        "examples": [
+          "rxn02837",
+          "rxn40378"
+        ]
+      }
+    ]
+  }
+}
