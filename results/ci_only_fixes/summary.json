@@ -1,0 +1,86 @@
+{
+  "msdb_sha": "078a395f",
+  "n_ci_only": 2824,
+  "n_solved": 389,
+  "n_ambiguous": 2,
+  "n_unresolved": 2433,
+  "pair_family_counts": {
+    "NADP / NADPH": 156,
+    "NAD / NADH": 126,
+    "Other electron carrier": 19,
+    "Cytochrome": 22,
+    "Ferredoxin": 66
+  },
+  "coefficient_change_examples": [
+    [
+      [
+        1.0,
+        2
+      ],
+      187
+    ],
+    [
+      [
+        2.0,
+        1
+      ],
+      71
+    ],
+    [
+      [
+        1.0,
+        3
+      ],
+      45
+    ],
+    [
+      [
+        1.0,
+        4
+      ],
+      23
+    ],
+    [
+      [
+        1.0,
+        6
+      ],
+      19
+    ],
+    [
+      [
+        1.0,
+        5
+      ],
+      14
+    ],
+    [
+      [
+        6.0,
+        3
+      ],
+      5
+    ],
+    [
+      [
+        1.0,
+        7
+      ],
+      4
+    ],
+    [
+      [
+        3.0,
+        2
+      ],
+      3
+    ],
+    [
+      [
+        3.0,
+        1
+      ],
+      3
+    ]
+  ]
+}

@@ -1,0 +1,5 @@
+id	old_status	old_equation	reactant	reactant_name	product	product_name	old_coef_react	new_coef_react	old_coef_prod	new_coef_prod
+rxn14159	CI:2	(1) cpd00006[0] + (2) cpd11620[0] <=> (1) cpd00005[0] + (2) cpd11621[0]	cpd00006	NADP	cpd00005	NADPH	1.0	2	1.0	2
+rxn14159	CI:2	(1) cpd00006[0] + (2) cpd11620[0] <=> (1) cpd00005[0] + (2) cpd11621[0]	cpd11620	Reducedferredoxin	cpd11621	Oxidizedferredoxin	2.0	1	2.0	1
+rxn31414	CI:-4	(5) cpd00006[0] + (3) cpd11620[0] <=> (5) cpd00005[0] + (3) cpd11621[0]	cpd00006	NADP	cpd00005	NADPH	5.0	3	5.0	3
+rxn31414	CI:-4	(5) cpd00006[0] + (3) cpd11620[0] <=> (5) cpd00005[0] + (3) cpd11621[0]	cpd11620	Reducedferredoxin	cpd11621	Oxidizedferredoxin	3.0	5	3.0	5
