@@ -1,0 +1,42 @@
+{
+  "provenance": {
+    "msdb_dev_sha": "078a395f",
+    "snapshot": "/scratch/ctaylor/tmp/devsnap_078a395f",
+    "status_filter": "status tokens == {'OK'} or == {'CI'} only"
+  },
+  "n_reactions_total": 56006,
+  "n_obsolete_excluded": 7622,
+  "n_status_excluded": 12088,
+  "n_status_excluded_by_group": {
+    "CI+MI": 3213,
+    "MI_only": 2067,
+    "CPDFORMERROR": 6781,
+    "CK_combo": 26,
+    "EMPTY": 1
+  },
+  "n_recommended_unknown_excluded": 13997,
+  "n_llm_missing_excluded": 2754,
+  "n_llm_abstained_excluded": 460,
+  "n_comparable": 19085,
+  "matrix": {
+    ">|>": 8923,
+    "<|<": 331,
+    "=|>": 6091,
+    "=|<": 692,
+    "=|=": 1909,
+    "<|>": 832,
+    "<|=": 129,
+    ">|=": 131,
+    ">|<": 47
+  },
+  "group_counts": {
+    "reversible_vs_forward": 6091,
+    "reversible_vs_reverse": 692,
+    "forward_vs_reversible": 131,
+    "forward_vs_reverse": 47,
+    "reverse_vs_reversible": 129,
+    "reverse_vs_forward": 832
+  },
+  "n_agree": 11163,
+  "n_mismatch": 7922
+}
