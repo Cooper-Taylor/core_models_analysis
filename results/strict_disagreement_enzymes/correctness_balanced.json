@@ -1,0 +1,111 @@
+{
+  "description": "Strict-disagreement enzymology verdicts (which side the literature backs), re-tabulated after excluding mass-imbalanced reactions (status MI or CI+MI), matching the OK/CI-only filter used for the confusion-matrix rebuild.",
+  "status_filter": "modelseed_status tokens == {'OK'} or == {'CI'} only",
+  "status_combinations_present": {
+    "OK": 660,
+    "CI+MI": 341,
+    "MI": 150,
+    "CI": 219
+  },
+  "n_total": 1370,
+  "n_kept": 879,
+  "n_excluded": 491,
+  "by_group": {
+    "OK_CI_only": {
+      "forward_vs_reverse": {
+        "n": 47,
+        "counts": {
+          "llm": 26,
+          "modelseed": 11,
+          "neither": 7,
+          "unclear": 3
+        },
+        "pct": {
+          "llm": 55.3,
+          "modelseed": 23.4,
+          "neither": 14.9,
+          "unclear": 6.4
+        }
+      },
+      "reverse_vs_forward": {
+        "n": 832,
+        "counts": {
+          "llm": 778,
+          "modelseed": 13,
+          "neither": 29,
+          "unclear": 12
+        },
+        "pct": {
+          "llm": 93.5,
+          "modelseed": 1.6,
+          "neither": 3.5,
+          "unclear": 1.4
+        }
+      }
+    },
+    "all_1370": {
+      "forward_vs_reverse": {
+        "n": 62,
+        "counts": {
+          "llm": 31,
+          "modelseed": 12,
+          "neither": 13,
+          "unclear": 6
+        },
+        "pct": {
+          "llm": 50.0,
+          "modelseed": 19.4,
+          "neither": 21.0,
+          "unclear": 9.7
+        }
+      },
+      "reverse_vs_forward": {
+        "n": 1308,
+        "counts": {
+          "llm": 1221,
+          "modelseed": 17,
+          "neither": 41,
+          "unclear": 29
+        },
+        "pct": {
+          "llm": 93.3,
+          "modelseed": 1.3,
+          "neither": 3.1,
+          "unclear": 2.2
+        }
+      }
+    }
+  },
+  "pooled": {
+    "OK_CI_only": {
+      "n": 879,
+      "counts": {
+        "llm": 804,
+        "modelseed": 24,
+        "neither": 36,
+        "unclear": 15
+      },
+      "pct": {
+        "llm": 91.5,
+        "modelseed": 2.7,
+        "neither": 4.1,
+        "unclear": 1.7
+      }
+    },
+    "all_1370": {
+      "n": 1370,
+      "counts": {
+        "llm": 1252,
+        "modelseed": 29,
+        "neither": 54,
+        "unclear": 35
+      },
+      "pct": {
+        "llm": 91.4,
+        "modelseed": 2.1,
+        "neither": 3.9,
+        "unclear": 2.6
+      }
+    }
+  }
+}
