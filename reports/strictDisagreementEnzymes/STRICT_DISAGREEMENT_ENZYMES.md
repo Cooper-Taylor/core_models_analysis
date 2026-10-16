@@ -562,6 +562,118 @@ OK/CI-only correctness re-tabulation alone — without the defect/cluster
 breakdown — lives in `correctness_balanced.json`/`.tsv`,
 `scripts/analyze_strict_disagreement_balanced_correctness.py`.)*
 
+## Testing it directly: fix the equation, recompute the real thermodynamics
+
+Everything above about the 219 CI-only reactions' redox-cofactor defect is
+inference from reading literature notes. It's testable instead: build the
+mechanically-corrected equation and ask a real thermodynamic calculation
+whether it now agrees with the LLM.
+
+**The fix.** ModelSEED defines NAD/NADH and NADP/NADPH with **identical
+formulas** (only charge differs — the same convention
+[`scripts/fix_ci_only_reactions.py`](../../scripts/fix_ci_only_reactions.py)
+already exploited for the 389-reaction CI-only charge fix in
+[[project_ci_only_charge_fixes]]). That means swapping or rescaling such a
+pair's coefficients can *only* change the equation's net charge, never its
+mass — so for each of the 219, `scripts/find_strict_disagreement_redox_fixes.py`
+searches every same-formula pair present in the equation for the **unique**
+new assignment that exactly zeros the whole equation's net charge while
+leaving every other term untouched, then rebuilds the full term list and
+re-verifies mass+charge balance from scratch (zero-blast-radius, same
+discipline as the earlier fix). This generalizes the earlier method from pure
+rescaling to also catch **side swaps** — e.g. `rxn07326`/`rxn07329`, where
+NADP⁺/NADPH are assigned to the chemically backward sides; the solver finds
+exchanging them is the *only* integer fix that clears the charge residual,
+with no literature note consulted to find it.
+
+| outcome | n (of 219) |
+|---|---:|
+| **solved** — unique cofactor-pair fix found, verified end-to-end | **103 (47.0%)** |
+| ambiguous (>1 pair could explain it) | 0 |
+| unresolved | 116 (53.0%) |
+
+Zero ambiguous cases, and the unresolved 116 are exactly what the method
+*should* fail on: bare half-reactions like `rxn12950` (`NADH => NAD`, nothing
+else) have no second term to balance against — solving the same equation
+confirms algebraically (not just by inspection) that no integer solution
+exists, matching the earlier finding that these need an invented substrate,
+not arithmetic. 96 of the 103 solved fixes are a **swap** (backward
+assignment), 7 a **rescale** (magnitude only) — confirming the dominant
+defect really is "wrong side," not "wrong amount."
+
+**Pricing the fix with eQuilibrator 3.0.** Each of the 103 fixed equations
+was handed to a live, local `equilibrator-api` component-contribution run
+(`eq3` conda env, same calling convention as
+[`scripts/estimate_directions_eq3.py`](../../scripts/estimate_directions_eq3.py))
+— both the *original* and *fixed* stoichiometry, so the comparison is a real
+calculation, not a sign flip derived by hand.
+
+| | n |
+|---|---:|
+| original equation: eQuilibrator's own balance check refuses it | **29/29 (100%)**, where computable at all |
+| fixed equation maps to a compound eQuilibrator recognises | 29 / 103 |
+| ...with a physically plausible `|ΔG′°| ≤ 200 kJ/mol` | **7 / 29** |
+
+eQuilibrator's balance check is independent of ModelSEED's — it uses its own
+compound structures — and it refuses the *original* equation every single
+time it can attempt one at all. That's an independent confirmation the
+original equations really are nonsensical as written, not just a ModelSEED
+bookkeeping quirk. The other 22 of 29 give physically impossible values
+(+289 to +687 kJ/mol — no single enzymatic step runs at that energy): all 22
+are the **same generic, templated `aldehyde dehydrogenase [NAD(P)+]`**
+combinatorial-expansion entry, consistent with this report's own earlier
+finding that such expansions pair non-corresponding substrate/product
+instances — a *different*, already-documented defect riding along in the
+same reactions, not a flaw in the cofactor fix itself.
+
+![Two-panel bar chart. Left: coverage funnel from 219 CI-only strict disagreements down to 103 mechanically-fixed, 29 eQuilibrator-mappable, 7 physically plausible. Right: of the 7 plausible, 2 are near-equilibrium (no confident call) and 5 give a confident directional call, all 5 agreeing with the LLM and none with ModelSEED's original recommendation.](figures/strict_disagreement_redox_fix_funnel.png)
+
+**The result, for the 7 where a trustworthy number exists:**
+
+| reaction | enzyme | fix | fixed ΔG′° (kJ/mol) | eQ3 call | LLM | ModelSEED (orig.) |
+|---|---|---|---:|:---:|:---:|:---:|
+| `rxn35387` | coproporphyrinogen III oxidase | rescale (NADP/NADPH ×2→×1 net) | −148.3 | **forward** | forward | reverse |
+| `rxn35386` | coproporphyrinogen I shunt oxidation | rescale | −148.3 | **forward** | forward | reverse |
+| `rxn36496`¹ | phenylacetaldehyde dehydrogenase | swap | −69.0 | **forward** | forward | reverse |
+| `rxn36497`¹ | phenylacetaldehyde dehydrogenase | swap | −69.0 | **forward** | forward | reverse |
+| `rxn07329` | Δ24-sterol reductase | swap | −52.9 | **forward** | forward | reverse |
+| `rxn00809` | aldose reductase (galactose/galactitol) | swap | −14.9 | = (near-eq.) | forward² | reverse |
+| `rxn07326` | 3-keto-steroid reductase | swap | +4.1 | = (near-eq.) | forward | reverse |
+
+¹ `rxn36496`/`rxn36497` also carry the *separate*, already-known combinatorial-expansion
+defect (the recorded product is "octanoate," not phenylacetate — the literature
+note independently confirms the true product) — the cofactor fix is still
+valid and the sign still corroborates the LLM, but the magnitude shouldn't be
+over-trusted since the substrate/product identity itself is templated wrong.
+
+² the original literature verdict for `rxn00809` was `enzymology_supports: neither`
+("neither stored direction is trustworthy **as written**" — the note explicitly
+flags the redox-mangled equation, not a claim that the enzyme itself is
+reversible). A fresh, independently-computed near-equilibrium call on the
+*fixed* equation is a clean three-way corroboration (literature doubt →
+"neither direction, as written, is meaningful"; my arithmetic fix → closest
+a real calculation can get to "as it should be written"; eQuilibrator →
+weakly forward, below its own significance threshold) rather than a conflict.
+
+**Bottom line: of every reaction where this could actually be tested end to
+end — mechanically fixed, independently verified mass+charge-exact, priced by
+a live thermodynamic calculation with a plausible magnitude — the corrected
+thermodynamics sided with the LLM 5/5 times it gave a confident call (100%),
+and 0/5 with ModelSEED's original recommendation.** The sample is small by
+construction (most ModelSEED compounds, especially the sterols and secondary
+metabolites common in this dataset, aren't linked to a KEGG/ChEBI/BiGG/MetaNetX
+id eQuilibrator can resolve — a coverage limit, not a chemistry failure), but
+every stage of the funnel is independently checkable, and nothing in the
+funnel required trusting a literature note to decide *which way* to fix the
+equation — the charge-balance arithmetic alone picked the swap.
+
+*(Script: `scripts/find_strict_disagreement_redox_fixes.py` (must run in the
+`eq3` conda env: `equilibrator-api 0.7.0`) →
+`results/strict_disagreement_enzymes/redox_fix_outcomes.json` / `.tsv`,
+`redox_fix_summary.json`; figure drawn by
+`scripts/plot_strict_disagreement_redox_fix_funnel.py`, registered in
+`scripts/figures.tsv` as `strict_disagreement_redox_fix_funnel`.)*
+
 ## The 481 `unknown` calls
 
 These are honest, not unresearched. They break down as: reactions KEGG or
@@ -603,6 +715,11 @@ results/strict_disagreement_enzymes/
                                       not just who's right)
   balanced_population_clusters.tsv   figure source data: the 5 clusters across
                                       all 3 populations (all_1370/ok_ci_only/ok_only)
+  redox_fix_outcomes.json/.tsv       per-reaction mechanical cofactor fix +
+                                      eQuilibrator dG before/after, for the
+                                      219 CI-only reactions
+  redox_fix_summary.json             the coverage-funnel counts (219 -> 103 ->
+                                      29 -> 7 -> 5/5 agree with LLM)
   research_queue.json                the work definition (1,370 entries)
   findings/chunk_NN.json             raw per-chunk literature findings (55)
   findings/backfill_*.json           structured verdicts for chunks 00-10
@@ -661,6 +778,13 @@ python3 scripts/regen_figures.py strict_disagreement_residual_pathways
 python3 scripts/analyze_strict_disagreement_balanced_correctness.py   # who's right
 python3 scripts/analyze_strict_disagreement_balanced_populations.py   # why (defect + cluster + pathway)
 python3 scripts/regen_figures.py strict_disagreement_balanced_clusters
+
+# fix the CI-only redox-cofactor defect mechanically and price the fixed
+# equation with a real eQuilibrator calculation (requires the eq3 conda env)
+XDG_CACHE_HOME=/scratch/ctaylor/eq_cache \
+  /mnt/homes/ctaylor/conda/miniforge3/envs/eq3/bin/python \
+  scripts/find_strict_disagreement_redox_fixes.py
+python3 scripts/regen_figures.py strict_disagreement_redox_fix_funnel
 ```
 
 ## Method

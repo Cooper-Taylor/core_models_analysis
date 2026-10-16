@@ -1,0 +1,220 @@
+modelseed_id	outcome	kind	eq3_dg_old_kj_mol	eq3_dg_new_kj_mol	eq3_lnri_new	plausible_magnitude	llm_direction	modelseed_direction	eq3_direction_old	eq3_direction_new	verdict
+rxn02017	unresolved										
+rxn04521	unresolved										
+rxn07790	unresolved										
+rxn07791	unresolved										
+rxn11517	unresolved										
+rxn12950	unresolved										
+rxn12951	unresolved										
+rxn16011	unresolved										
+rxn00809	solved	swap	None	-14.948586410845564	-3.0167150720347817	True	>	<	None	=	near_equilibrium
+rxn01759	unresolved										
+rxn02072	unresolved										
+rxn02556	unresolved										
+rxn02793	unresolved										
+rxn03443	unresolved										
+rxn03768	unresolved										
+rxn03789	unresolved										
+rxn03793	unresolved										
+rxn03794	unresolved										
+rxn03815	unresolved										
+rxn03825	unresolved										
+rxn04069	unresolved										
+rxn04151	unresolved										
+rxn04239	unresolved										
+rxn04279	unresolved										
+rxn04281	unresolved										
+rxn04282	unresolved										
+rxn04300	unresolved										
+rxn04303	unresolved										
+rxn04479	unresolved										
+rxn04510	unresolved										
+rxn04514	unresolved										
+rxn04526	unresolved										
+rxn04527	unresolved										
+rxn04707	unresolved										
+rxn04708	unresolved										
+rxn04767	unresolved										
+rxn04824	unresolved										
+rxn06494	unresolved										
+rxn07298	unresolved										
+rxn07301	unresolved										
+rxn07304	unresolved										
+rxn07305	unresolved										
+rxn07323	unresolved										
+rxn07326	solved	swap	None	4.133713938309256	0.8342084527892435	True	>	<	None	=	near_equilibrium
+rxn07329	solved	swap	None	-52.94927571199196	-10.685483811218512	True	>	<	None	>	agrees_with_llm
+rxn07351	unresolved										
+rxn07408	unresolved										
+rxn07501	unresolved										
+rxn07551	unresolved										
+rxn07553	unresolved										
+rxn08074	unresolved										
+rxn11118	unresolved										
+rxn11523	unresolved										
+rxn11818	unresolved										
+rxn11849	unresolved										
+rxn12074	unresolved										
+rxn12076	unresolved										
+rxn12109	unresolved										
+rxn12111	unresolved										
+rxn12824	unresolved										
+rxn13819	unresolved										
+rxn14105	unresolved										
+rxn15702	unresolved										
+rxn15704	unresolved										
+rxn15758	unresolved										
+rxn15868	unresolved										
+rxn15895	unresolved										
+rxn16017	unresolved										
+rxn16035	unresolved										
+rxn16038	unresolved										
+rxn16195	unresolved										
+rxn16249	unresolved										
+rxn16250	unresolved										
+rxn16251	unresolved										
+rxn16252	unresolved										
+rxn16689	unresolved										
+rxn20728	unresolved										
+rxn20736	unresolved										
+rxn20815	unresolved										
+rxn20898	unresolved										
+rxn21781	unresolved										
+rxn23206	unresolved										
+rxn23207	unresolved										
+rxn23267	unresolved										
+rxn24017	unresolved										
+rxn24020	unresolved										
+rxn24277	unresolved										
+rxn24592	unresolved										
+rxn24905	unresolved										
+rxn25124	unresolved										
+rxn25127	unresolved										
+rxn25388	unresolved										
+rxn25391	unresolved										
+rxn25442	unresolved										
+rxn25505	unresolved										
+rxn25535	unresolved										
+rxn26099	unresolved										
+rxn26316	solved	rescale	None	None	None		>	<	None		unmapped
+rxn26778	unresolved										
+rxn26790	unresolved										
+rxn26842	unresolved										
+rxn26843	unresolved										
+rxn30727	unresolved										
+rxn30784	unresolved										
+rxn30790	unresolved										
+rxn32136	unresolved										
+rxn33772	unresolved										
+rxn35386	solved	rescale	None	-148.25281961124233	-14.959157444760374	True	>	<	None	>	agrees_with_llm
+rxn35387	solved	rescale	None	-148.25282704386564	-14.959158194734524	True	>	<	None	>	agrees_with_llm
+rxn35652	unresolved										
+rxn36363	solved	swap	None	511.19130018843794	41.26459740307412	False	>	<	None	<	implausible_magnitude
+rxn36364	solved	swap	None	511.19987656839226	41.26528970919486	False	>	<	None	<	implausible_magnitude
+rxn36365	solved	swap	None	None	None		>	<	None		unmapped
+rxn36366	solved	swap	None	None	None		>	<	None		unmapped
+rxn36367	solved	swap	None	None	None		>	<	None		unmapped
+rxn36368	solved	swap	None	None	None		>	<	None		unmapped
+rxn36369	solved	swap	None	517.9930653602216	41.81365232897063	False	>	<	None	<	implausible_magnitude
+rxn36370	solved	swap	None	518.001641740176	41.81434463509137	False	>	<	None	<	implausible_magnitude
+rxn36371	solved	swap	None	None	None		>	<	None		unmapped
+rxn36372	solved	swap	None	None	None		>	<	None		unmapped
+rxn36373	solved	swap	None	445.5761712077285	35.96798558682906	False	>	<	None	<	implausible_magnitude
+rxn36374	solved	swap	None	445.584747587681	35.96867789294966	False	>	<	None	<	implausible_magnitude
+rxn36381	unresolved										
+rxn36382	unresolved										
+rxn36416	solved	swap	None	567.3954091032961	57.25191116410163	False	>	<	None	<	implausible_magnitude
+rxn36417	solved	swap	None	567.4018413882618	57.25256020108982	False	>	<	None	<	implausible_magnitude
+rxn36418	solved	swap	None	None	None		>	<	None		unmapped
+rxn36419	solved	swap	None	None	None		>	<	None		unmapped
+rxn36420	solved	swap	None	None	None		>	<	None		unmapped
+rxn36421	solved	swap	None	None	None		>	<	None		unmapped
+rxn36422	solved	swap	None	574.1971742750798	57.93822982147227	False	>	<	None	<	implausible_magnitude
+rxn36423	solved	swap	None	574.2036065600473	57.938878858460654	False	>	<	None	<	implausible_magnitude
+rxn36424	solved	swap	None	None	None		>	<	None		unmapped
+rxn36425	solved	swap	None	None	None		>	<	None		unmapped
+rxn36426	solved	swap	None	501.78028012258665	50.631146393795305	False	>	<	None	<	implausible_magnitude
+rxn36427	solved	swap	None	501.7867124075524	50.631795430783505	False	>	<	None	<	implausible_magnitude
+rxn36440	solved	swap	None	None	None		>	<	None		unmapped
+rxn36441	solved	swap	None	None	None		>	<	None		unmapped
+rxn36442	unresolved										
+rxn36443	unresolved										
+rxn36483	solved	swap	None	None	None		>	<	None		unmapped
+rxn36496	solved	swap	None	-69.02844262740939	-6.965178430587642	True	>	<	None	>	agrees_with_llm
+rxn36497	solved	swap	None	-69.02201034244183	-6.964529393599261	True	>	<	None	>	agrees_with_llm
+rxn36510	solved	swap	None	289.2784181057914	29.18906644179333	False	>	<	None	<	implausible_magnitude
+rxn36511	solved	swap	None	289.2848503907576	29.189715478781572	False	>	<	None	<	implausible_magnitude
+rxn36512	solved	swap	None	344.7527315647228	46.38212304729585	False	>	<	None	<	implausible_magnitude
+rxn36513	solved	swap	None	344.75701975469997	46.38269996906314	False	>	<	None	<	implausible_magnitude
+rxn36564	solved	swap	None	679.8040949880891	137.18857442558215	False	>	<	None	<	implausible_magnitude
+rxn36565	solved	swap	None	679.8062390830779	137.18900711690767	False	>	<	None	<	implausible_magnitude
+rxn36566	solved	swap	None	None	None		>	<	None		unmapped
+rxn36567	solved	swap	None	None	None		>	<	None		unmapped
+rxn36568	solved	swap	None	None	None		>	<	None		unmapped
+rxn36569	solved	swap	None	None	None		>	<	None		unmapped
+rxn36570	solved	swap	None	686.6058601598742	138.56121174032373	False	>	<	None	<	implausible_magnitude
+rxn36571	solved	swap	None	686.6080042548627	138.56164443164917	False	>	<	None	<	implausible_magnitude
+rxn36572	solved	swap	None	None	None		>	<	None		unmapped
+rxn36573	solved	swap	None	None	None		>	<	None		unmapped
+rxn36574	solved	swap	None	614.1889660073792	123.94704488496942	False	>	<	None	<	implausible_magnitude
+rxn36575	solved	swap	None	614.191110102368	123.94747757629493	False	>	<	None	<	implausible_magnitude
+rxn36580	unresolved										
+rxn36581	unresolved										
+rxn36593	solved	swap	None	None	None		>	<	None		unmapped
+rxn36594	solved	swap	None	None	None		>	<	None		unmapped
+rxn36595	solved	swap	None	None	None		>	<	None		unmapped
+rxn36596	solved	swap	None	None	None		>	<	None		unmapped
+rxn36597	solved	swap	None	None	None		>	<	None		unmapped
+rxn36598	solved	swap	None	None	None		>	<	None		unmapped
+rxn36599	solved	swap	None	None	None		>	<	None		unmapped
+rxn36600	solved	swap	None	None	None		>	<	None		unmapped
+rxn36601	solved	swap	None	None	None		>	<	None		unmapped
+rxn36602	solved	swap	None	None	None		>	<	None		unmapped
+rxn36603	solved	swap	None	None	None		>	<	None		unmapped
+rxn36604	solved	swap	None	None	None		>	<	None		unmapped
+rxn36605	solved	swap	None	None	None		>	<	None		unmapped
+rxn36606	solved	swap	None	None	None		>	<	None		unmapped
+rxn36607	solved	swap	None	None	None		>	<	None		unmapped
+rxn36608	solved	swap	None	None	None		>	<	None		unmapped
+rxn36609	solved	swap	None	None	None		>	<	None		unmapped
+rxn36610	solved	swap	None	None	None		>	<	None		unmapped
+rxn36611	solved	swap	None	None	None		>	<	None		unmapped
+rxn36612	solved	swap	None	None	None		>	<	None		unmapped
+rxn36613	solved	swap	None	None	None		>	<	None		unmapped
+rxn36614	solved	swap	None	None	None		>	<	None		unmapped
+rxn36615	solved	swap	None	None	None		>	<	None		unmapped
+rxn36616	solved	swap	None	None	None		>	<	None		unmapped
+rxn36617	solved	swap	None	None	None		>	<	None		unmapped
+rxn36618	solved	swap	None	None	None		>	<	None		unmapped
+rxn36619	solved	swap	None	None	None		>	<	None		unmapped
+rxn36620	solved	swap	None	None	None		>	<	None		unmapped
+rxn36621	solved	swap	None	None	None		>	<	None		unmapped
+rxn36622	solved	swap	None	None	None		>	<	None		unmapped
+rxn36623	solved	swap	None	None	None		>	<	None		unmapped
+rxn36624	solved	swap	None	None	None		>	<	None		unmapped
+rxn36625	solved	swap	None	None	None		>	<	None		unmapped
+rxn36626	solved	swap	None	None	None		>	<	None		unmapped
+rxn36627	solved	swap	None	None	None		>	<	None		unmapped
+rxn36628	solved	swap	None	None	None		>	<	None		unmapped
+rxn36629	solved	swap	None	None	None		>	<	None		unmapped
+rxn36630	solved	swap	None	None	None		>	<	None		unmapped
+rxn36631	solved	swap	None	None	None		>	<	None		unmapped
+rxn36632	solved	swap	None	None	None		>	<	None		unmapped
+rxn36633	solved	swap	None	None	None		>	<	None		unmapped
+rxn36634	solved	swap	None	None	None		>	<	None		unmapped
+rxn36635	solved	swap	None	None	None		>	<	None		unmapped
+rxn36636	solved	swap	None	None	None		>	<	None		unmapped
+rxn36637	solved	swap	None	None	None		>	<	None		unmapped
+rxn36638	solved	swap	None	None	None		>	<	None		unmapped
+rxn36639	solved	swap	None	None	None		>	<	None		unmapped
+rxn36640	solved	swap	None	None	None		>	<	None		unmapped
+rxn36834	solved	rescale	None	None	None		>	<	None		unmapped
+rxn36835	solved	rescale	None	None	None		>	<	None		unmapped
+rxn36836	solved	rescale	None	None	None		>	<	None		unmapped
+rxn36837	solved	rescale	None	None	None		>	<	None		unmapped
+rxn38865	unresolved										
+rxn38891	unresolved										
+rxn39721	unresolved										
+rxn39813	unresolved										
+rxn39902	unresolved										
+rxn47276	unresolved										

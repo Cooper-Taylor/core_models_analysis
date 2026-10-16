@@ -1,0 +1,14 @@
+{
+  "msdb_sha": "078a395f",
+  "n_ci_only": 219,
+  "n_solved": 103,
+  "n_ambiguous": 0,
+  "n_unresolved": 116,
+  "n_eq3_computed_for_fixed_equation": 29,
+  "n_eq3_original_refused_as_unbalanced": 29,
+  "n_implausible_magnitude_excluded": 22,
+  "n_near_equilibrium": 2,
+  "n_directional": 5,
+  "n_fixed_agrees_with_llm": 5,
+  "n_fixed_agrees_with_modelseed": 0
+}
