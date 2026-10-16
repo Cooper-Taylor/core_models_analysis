@@ -45,3 +45,4 @@ reaction_balance_flag_counts	plot_reaction_balance_flags.py		bars
 reaction_balance_group_tractability	plot_reaction_balance_group_tractability.py		bars
 ci_only_fix_outcomes	plot_ci_only_fix_outcomes.py		bars
 ci_only_fix_families	plot_ci_only_fix_families.py		bars
+strict_disagreement_residual_subclusters	plot_strict_disagreement_residual_subclusters.py		bars,enzymes

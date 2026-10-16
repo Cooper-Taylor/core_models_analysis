@@ -1,0 +1,1133 @@
+{
+  "description": "Sub-structure of the 'Residual (case-specific enzymology)' bucket, and a proof that the residual is the SAME nested set of reactions across all three populations of strict_disagreement_balanced_clusters.png.",
+  "nesting": {
+    "rows": [
+      {
+        "outer": "all_1370",
+        "inner": "ok_ci_only",
+        "inner_is_subset_of_outer": true,
+        "n_outer": 1370,
+        "n_inner": 879,
+        "n_dropped": 491,
+        "n_gained_by_inner": 0,
+        "dropped_ids": null
+      },
+      {
+        "outer": "ok_ci_only",
+        "inner": "ok_only",
+        "inner_is_subset_of_outer": true,
+        "n_outer": 879,
+        "n_inner": 660,
+        "n_dropped": 219,
+        "n_gained_by_inner": 0,
+        "dropped_ids": null
+      }
+    ],
+    "sound": [
+      {
+        "outer": "all_1370",
+        "inner": "ok_ci_only",
+        "inner_is_subset_of_outer": true,
+        "n_outer": 504,
+        "n_inner": 486,
+        "n_dropped": 18,
+        "n_gained_by_inner": 0,
+        "dropped_ids": null
+      },
+      {
+        "outer": "ok_ci_only",
+        "inner": "ok_only",
+        "inner_is_subset_of_outer": true,
+        "n_outer": 486,
+        "n_inner": 476,
+        "n_dropped": 10,
+        "n_gained_by_inner": 0,
+        "dropped_ids": null
+      }
+    ],
+    "llm_sound": [
+      {
+        "outer": "all_1370",
+        "inner": "ok_ci_only",
+        "inner_is_subset_of_outer": true,
+        "n_outer": 465,
+        "n_inner": 448,
+        "n_dropped": 17,
+        "n_gained_by_inner": 0,
+        "dropped_ids": null
+      },
+      {
+        "outer": "ok_ci_only",
+        "inner": "ok_only",
+        "inner_is_subset_of_outer": true,
+        "n_outer": 448,
+        "n_inner": 438,
+        "n_dropped": 10,
+        "n_gained_by_inner": 0,
+        "dropped_ids": null
+      }
+    ],
+    "residual": [
+      {
+        "outer": "all_1370",
+        "inner": "ok_ci_only",
+        "inner_is_subset_of_outer": true,
+        "n_outer": 248,
+        "n_inner": 242,
+        "n_dropped": 6,
+        "n_gained_by_inner": 0,
+        "dropped_ids": [
+          "rxn02987",
+          "rxn03776",
+          "rxn03784",
+          "rxn21376",
+          "rxn22034",
+          "rxn47384"
+        ]
+      },
+      {
+        "outer": "ok_ci_only",
+        "inner": "ok_only",
+        "inner_is_subset_of_outer": true,
+        "n_outer": 242,
+        "n_inner": 233,
+        "n_dropped": 9,
+        "n_gained_by_inner": 0,
+        "dropped_ids": [
+          "rxn03793",
+          "rxn04151",
+          "rxn04279",
+          "rxn04282",
+          "rxn04300",
+          "rxn08074",
+          "rxn16011",
+          "rxn20898",
+          "rxn24592"
+        ]
+      }
+    ]
+  },
+  "residual_dropped_reactions": [
+    {
+      "modelseed_id": "rxn02987",
+      "dropped_between": "all_1370 -> ok_ci_only",
+      "modelseed_status": "MI:O:-1",
+      "imbalance_flags": [
+        "MI"
+      ],
+      "thermo_source": "dGP",
+      "enzyme_name": "beta-Hydroxy-beta-isohexenylglutaryl-CoA lyase (3-hydroxy-3-(4-methylpent-3-en-1-yl)glutaryl-CoA:acetate lyase)"
+    },
+    {
+      "modelseed_id": "rxn03776",
+      "dropped_between": "all_1370 -> ok_ci_only",
+      "modelseed_status": "MI:C:-1/H:-1/O:-1|CI:1",
+      "imbalance_flags": [
+        "CI",
+        "MI"
+      ],
+      "thermo_source": "dGP",
+      "enzyme_name": "unidentified DDA-oxidising activity (bis(4-chlorophenyl)acetate -> 4,4'-dichlorobenzophenone)"
+    },
+    {
+      "modelseed_id": "rxn03784",
+      "dropped_between": "all_1370 -> ok_ci_only",
+      "modelseed_status": "MI:C:-27/H:-30/N:-9/O:-15/P:-2|CI:3",
+      "imbalance_flags": [
+        "CI",
+        "MI"
+      ],
+      "thermo_source": "dGP",
+      "enzyme_name": "styrene monooxygenase (two-component StyA/StyB; naturally fused StyA2B in Rhodococcus opacus 1CP)"
+    },
+    {
+      "modelseed_id": "rxn21376",
+      "dropped_between": "all_1370 -> ok_ci_only",
+      "modelseed_status": "MI:C:-12/H:-21/O:-10|CI:-1",
+      "imbalance_flags": [
+        "CI",
+        "MI"
+      ],
+      "thermo_source": "dGP",
+      "enzyme_name": "Arabinogalactan UDP-galactofuranosyltransferase 2 (GlfT2, Rv3808c)"
+    },
+    {
+      "modelseed_id": "rxn22034",
+      "dropped_between": "all_1370 -> ok_ci_only",
+      "modelseed_status": "MI:C:-3/H:-2/O:-2|CI:2",
+      "imbalance_flags": [
+        "CI",
+        "MI"
+      ],
+      "thermo_source": "dGP",
+      "enzyme_name": "phytochelatin synthase 1 (AtPCS1/CAD1), acting as a glutathione-S-conjugate carboxypeptidase (deglycinase)"
+    },
+    {
+      "modelseed_id": "rxn47384",
+      "dropped_between": "all_1370 -> ok_ci_only",
+      "modelseed_status": "MI:C:55/H:87/O:6/P:2|CI:-3",
+      "imbalance_flags": [
+        "CI",
+        "MI"
+      ],
+      "thermo_source": "dGP",
+      "enzyme_name": "GDP-L-colitose-dependent alpha-colitosyltransferase (not identified)"
+    },
+    {
+      "modelseed_id": "rxn03793",
+      "dropped_between": "ok_ci_only -> ok_only",
+      "modelseed_status": "CI:-2",
+      "imbalance_flags": [
+        "CI"
+      ],
+      "thermo_source": "dGP",
+      "enzyme_name": "trans-1,2-dichloroethene reductive dehalogenase (TdrA)"
+    },
+    {
+      "modelseed_id": "rxn04151",
+      "dropped_between": "ok_ci_only -> ok_only",
+      "modelseed_status": "CI:-4",
+      "imbalance_flags": [
+        "CI"
+      ],
+      "thermo_source": "eQ",
+      "enzyme_name": "unidentified gut-bacterial urobilinoid reductase (BilR/BilV-family reductases act upstream)"
+    },
+    {
+      "modelseed_id": "rxn04279",
+      "dropped_between": "ok_ci_only -> ok_only",
+      "modelseed_status": "CI:-2",
+      "imbalance_flags": [
+        "CI"
+      ],
+      "thermo_source": "eQ",
+      "enzyme_name": "(-)-isopiperitenone reductase (ISPR)"
+    },
+    {
+      "modelseed_id": "rxn04282",
+      "dropped_between": "ok_ci_only -> ok_only",
+      "modelseed_status": "CI:-2",
+      "imbalance_flags": [
+        "CI"
+      ],
+      "thermo_source": "eQ",
+      "enzyme_name": "(+)-pulegone reductase (PGR)"
+    },
+    {
+      "modelseed_id": "rxn04300",
+      "dropped_between": "ok_ci_only -> ok_only",
+      "modelseed_status": "CI:-2",
+      "imbalance_flags": [
+        "CI"
+      ],
+      "thermo_source": "eQ",
+      "enzyme_name": "dTDP-4-dehydro-6-deoxy-D-allose/gulose 4-ketoreductase (TylD; GerKI; MydI), EC 1.1.1.364"
+    },
+    {
+      "modelseed_id": "rxn08074",
+      "dropped_between": "ok_ci_only -> ok_only",
+      "modelseed_status": "CI:-2",
+      "imbalance_flags": [
+        "CI"
+      ],
+      "thermo_source": "eQ",
+      "enzyme_name": "NagZ, cytoplasmic beta-N-acetylglucosaminidase (EC 3.2.1.52)"
+    },
+    {
+      "modelseed_id": "rxn16011",
+      "dropped_between": "ok_ci_only -> ok_only",
+      "modelseed_status": "CI:2",
+      "imbalance_flags": [
+        "CI"
+      ],
+      "thermo_source": "eQ",
+      "enzyme_name": "Alcohol dehydrogenase (cytosolic NAD+-dependent class I ADH)"
+    },
+    {
+      "modelseed_id": "rxn20898",
+      "dropped_between": "ok_ci_only -> ok_only",
+      "modelseed_status": "CI:-2",
+      "imbalance_flags": [
+        "CI"
+      ],
+      "thermo_source": "dGP",
+      "enzyme_name": "3-chlorobenzoate-3,4-dihydro-3,4-diol dehydrogenase (CbaC)"
+    },
+    {
+      "modelseed_id": "rxn24592",
+      "dropped_between": "ok_ci_only -> ok_only",
+      "modelseed_status": "CI:2",
+      "imbalance_flags": [
+        "CI"
+      ],
+      "thermo_source": "dGP",
+      "enzyme_name": "catalase HPII / hydroperoxidase II (KatE) - autocatalytic protoheme IX to cis-heme d self-modification"
+    }
+  ],
+  "populations": {
+    "all_1370": {
+      "n_rows": 1370,
+      "n_sound": 504,
+      "n_llm_sound": 465,
+      "n_residual": 248,
+      "subclusters": [
+        {
+          "cluster": "Chloromuconate cycloisomerase",
+          "defect_class": "dGPredictor",
+          "n": 10,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "dGP": 10
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 10
+          },
+          "modelseed_ids": [
+            "rxn03693",
+            "rxn03694",
+            "rxn04649",
+            "rxn15997",
+            "rxn16083",
+            "rxn20861",
+            "rxn41454",
+            "rxn43905",
+            "rxn44166",
+            "rxn47607"
+          ]
+        },
+        {
+          "cluster": "Dienelactone hydrolase",
+          "defect_class": "eQuilibrator",
+          "n": 5,
+          "dominant_source": "eQ",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "eQ": 5
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 5
+          },
+          "modelseed_ids": [
+            "rxn03801",
+            "rxn16082",
+            "rxn16084",
+            "rxn19477",
+            "rxn20860"
+          ]
+        },
+        {
+          "cluster": "Ring aminohydrolase / hydrolytic deaminase",
+          "defect_class": "dGPredictor",
+          "n": 19,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 0.9474,
+          "thermo_source": {
+            "dGP": 18,
+            "eQ": 1
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 12,
+            "Amino acid metabolism": 4,
+            "No pathway identifiable": 2,
+            "Cofactor / vitamin / coenzyme biosynthesis": 1
+          },
+          "modelseed_ids": [
+            "rxn01225",
+            "rxn01547",
+            "rxn01654",
+            "rxn02525",
+            "rxn03845",
+            "rxn03855",
+            "rxn03858",
+            "rxn03859",
+            "rxn04031",
+            "rxn04777",
+            "rxn04778",
+            "rxn04779",
+            "rxn04780",
+            "rxn16504",
+            "rxn39313",
+            "rxn42187",
+            "rxn43783",
+            "rxn48158",
+            "rxn55881"
+          ]
+        },
+        {
+          "cluster": "Triple-bond hydratase (alkyne / nitrile)",
+          "defect_class": "dGPredictor",
+          "n": 11,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "dGP": 11
+          },
+          "pathways": {
+            "No pathway identifiable": 4,
+            "Carbohydrate / central carbon metabolism": 3,
+            "Xenobiotic / pollutant biodegradation": 3,
+            "Amino acid metabolism": 1
+          },
+          "modelseed_ids": [
+            "rxn00996",
+            "rxn01177",
+            "rxn01365",
+            "rxn02917",
+            "rxn03681",
+            "rxn04023",
+            "rxn23777",
+            "rxn47261",
+            "rxn47952",
+            "rxn51247",
+            "rxn59463"
+          ]
+        },
+        {
+          "cluster": "cis-Dihydrodiol dehydrogenase",
+          "defect_class": "dGPredictor",
+          "n": 7,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "dGP": 7
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 7
+          },
+          "modelseed_ids": [
+            "rxn03567",
+            "rxn03568",
+            "rxn03698",
+            "rxn04672",
+            "rxn20897",
+            "rxn20898",
+            "rxn25894"
+          ]
+        },
+        {
+          "cluster": "Epoxide hydrolase",
+          "defect_class": "dGPredictor",
+          "n": 6,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 0.8333,
+          "thermo_source": {
+            "dGP": 5,
+            "eQ": 1
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 5,
+            "No pathway identifiable": 1
+          },
+          "modelseed_ids": [
+            "rxn11842",
+            "rxn16030",
+            "rxn16073",
+            "rxn16247",
+            "rxn16280",
+            "rxn42012"
+          ]
+        },
+        {
+          "cluster": "Flavonol glycoside acyl / glucosyl transfer",
+          "defect_class": "eQuilibrator",
+          "n": 6,
+          "dominant_source": "eQ",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "eQ": 6
+          },
+          "pathways": {
+            "Secondary metabolite biosynthesis (plant/microbial)": 6
+          },
+          "modelseed_ids": [
+            "rxn24755",
+            "rxn37351",
+            "rxn41592",
+            "rxn44426",
+            "rxn47118",
+            "rxn47948"
+          ]
+        },
+        {
+          "cluster": "Hydrolytic / reductive dehalogenase",
+          "defect_class": "dGPredictor",
+          "n": 5,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "dGP": 5
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 4,
+            "No pathway identifiable": 1
+          },
+          "modelseed_ids": [
+            "rxn00428",
+            "rxn02515",
+            "rxn03793",
+            "rxn07906",
+            "rxn20921"
+          ]
+        },
+        {
+          "cluster": "HCCA isomerase (naphthalene, NahD)",
+          "defect_class": "eQuilibrator",
+          "n": 5,
+          "dominant_source": "eQ",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "eQ": 5
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 5
+          },
+          "modelseed_ids": [
+            "rxn03485",
+            "rxn03914",
+            "rxn04721",
+            "rxn04731",
+            "rxn04742"
+          ]
+        },
+        {
+          "cluster": "Acyl-CoA dehydrogenase (beta-oxidation)",
+          "defect_class": "eQuilibrator",
+          "n": 4,
+          "dominant_source": "eQ",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "eQ": 4
+          },
+          "pathways": {
+            "Fatty acid / lipid metabolism": 4
+          },
+          "modelseed_ids": [
+            "rxn00946",
+            "rxn03251",
+            "rxn03253",
+            "rxn57269"
+          ]
+        }
+      ],
+      "n_subclustered": 78,
+      "share_of_residual_subclustered": 0.3145,
+      "n_leftover": 170,
+      "leftover_thermo_source": {
+        "dGP": 86,
+        "eQ": 82,
+        "opentecr": 2
+      },
+      "residual_topology": {
+        "hydrolysis (H2O substrate, no cofactor)": 94,
+        "intramolecular (no H2O, no cofactor)": 74,
+        "cofactor-coupled": 58,
+        "condensation / dehydration (H2O product)": 22
+      },
+      "residual_pathways": {
+        "Xenobiotic / pollutant biodegradation": 86,
+        "No pathway identifiable": 76,
+        "Secondary metabolite biosynthesis (plant/microbial)": 40,
+        "Amino acid metabolism": 18,
+        "Cofactor / vitamin / coenzyme biosynthesis": 7,
+        "Fatty acid / lipid metabolism": 6,
+        "Nucleotide metabolism": 4,
+        "Steroid / sterol / bile-acid metabolism": 4,
+        "Glycan / cell-envelope metabolism": 4,
+        "Carbohydrate / central carbon metabolism": 3
+      }
+    },
+    "ok_ci_only": {
+      "n_rows": 879,
+      "n_sound": 486,
+      "n_llm_sound": 448,
+      "n_residual": 242,
+      "subclusters": [
+        {
+          "cluster": "Chloromuconate cycloisomerase",
+          "defect_class": "dGPredictor",
+          "n": 10,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "dGP": 10
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 10
+          },
+          "modelseed_ids": [
+            "rxn03693",
+            "rxn03694",
+            "rxn04649",
+            "rxn15997",
+            "rxn16083",
+            "rxn20861",
+            "rxn41454",
+            "rxn43905",
+            "rxn44166",
+            "rxn47607"
+          ]
+        },
+        {
+          "cluster": "Dienelactone hydrolase",
+          "defect_class": "eQuilibrator",
+          "n": 5,
+          "dominant_source": "eQ",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "eQ": 5
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 5
+          },
+          "modelseed_ids": [
+            "rxn03801",
+            "rxn16082",
+            "rxn16084",
+            "rxn19477",
+            "rxn20860"
+          ]
+        },
+        {
+          "cluster": "Ring aminohydrolase / hydrolytic deaminase",
+          "defect_class": "dGPredictor",
+          "n": 19,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 0.9474,
+          "thermo_source": {
+            "dGP": 18,
+            "eQ": 1
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 12,
+            "Amino acid metabolism": 4,
+            "No pathway identifiable": 2,
+            "Cofactor / vitamin / coenzyme biosynthesis": 1
+          },
+          "modelseed_ids": [
+            "rxn01225",
+            "rxn01547",
+            "rxn01654",
+            "rxn02525",
+            "rxn03845",
+            "rxn03855",
+            "rxn03858",
+            "rxn03859",
+            "rxn04031",
+            "rxn04777",
+            "rxn04778",
+            "rxn04779",
+            "rxn04780",
+            "rxn16504",
+            "rxn39313",
+            "rxn42187",
+            "rxn43783",
+            "rxn48158",
+            "rxn55881"
+          ]
+        },
+        {
+          "cluster": "Triple-bond hydratase (alkyne / nitrile)",
+          "defect_class": "dGPredictor",
+          "n": 11,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "dGP": 11
+          },
+          "pathways": {
+            "No pathway identifiable": 4,
+            "Carbohydrate / central carbon metabolism": 3,
+            "Xenobiotic / pollutant biodegradation": 3,
+            "Amino acid metabolism": 1
+          },
+          "modelseed_ids": [
+            "rxn00996",
+            "rxn01177",
+            "rxn01365",
+            "rxn02917",
+            "rxn03681",
+            "rxn04023",
+            "rxn23777",
+            "rxn47261",
+            "rxn47952",
+            "rxn51247",
+            "rxn59463"
+          ]
+        },
+        {
+          "cluster": "cis-Dihydrodiol dehydrogenase",
+          "defect_class": "dGPredictor",
+          "n": 7,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "dGP": 7
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 7
+          },
+          "modelseed_ids": [
+            "rxn03567",
+            "rxn03568",
+            "rxn03698",
+            "rxn04672",
+            "rxn20897",
+            "rxn20898",
+            "rxn25894"
+          ]
+        },
+        {
+          "cluster": "Epoxide hydrolase",
+          "defect_class": "dGPredictor",
+          "n": 6,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 0.8333,
+          "thermo_source": {
+            "dGP": 5,
+            "eQ": 1
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 5,
+            "No pathway identifiable": 1
+          },
+          "modelseed_ids": [
+            "rxn11842",
+            "rxn16030",
+            "rxn16073",
+            "rxn16247",
+            "rxn16280",
+            "rxn42012"
+          ]
+        },
+        {
+          "cluster": "Flavonol glycoside acyl / glucosyl transfer",
+          "defect_class": "eQuilibrator",
+          "n": 6,
+          "dominant_source": "eQ",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "eQ": 6
+          },
+          "pathways": {
+            "Secondary metabolite biosynthesis (plant/microbial)": 6
+          },
+          "modelseed_ids": [
+            "rxn24755",
+            "rxn37351",
+            "rxn41592",
+            "rxn44426",
+            "rxn47118",
+            "rxn47948"
+          ]
+        },
+        {
+          "cluster": "Hydrolytic / reductive dehalogenase",
+          "defect_class": "dGPredictor",
+          "n": 5,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "dGP": 5
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 4,
+            "No pathway identifiable": 1
+          },
+          "modelseed_ids": [
+            "rxn00428",
+            "rxn02515",
+            "rxn03793",
+            "rxn07906",
+            "rxn20921"
+          ]
+        },
+        {
+          "cluster": "HCCA isomerase (naphthalene, NahD)",
+          "defect_class": "eQuilibrator",
+          "n": 5,
+          "dominant_source": "eQ",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "eQ": 5
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 5
+          },
+          "modelseed_ids": [
+            "rxn03485",
+            "rxn03914",
+            "rxn04721",
+            "rxn04731",
+            "rxn04742"
+          ]
+        },
+        {
+          "cluster": "Acyl-CoA dehydrogenase (beta-oxidation)",
+          "defect_class": "eQuilibrator",
+          "n": 4,
+          "dominant_source": "eQ",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "eQ": 4
+          },
+          "pathways": {
+            "Fatty acid / lipid metabolism": 4
+          },
+          "modelseed_ids": [
+            "rxn00946",
+            "rxn03251",
+            "rxn03253",
+            "rxn57269"
+          ]
+        }
+      ],
+      "n_subclustered": 78,
+      "share_of_residual_subclustered": 0.3223,
+      "n_leftover": 164,
+      "leftover_thermo_source": {
+        "eQ": 82,
+        "dGP": 80,
+        "opentecr": 2
+      },
+      "residual_topology": {
+        "hydrolysis (H2O substrate, no cofactor)": 93,
+        "intramolecular (no H2O, no cofactor)": 71,
+        "cofactor-coupled": 56,
+        "condensation / dehydration (H2O product)": 22
+      },
+      "residual_pathways": {
+        "Xenobiotic / pollutant biodegradation": 85,
+        "No pathway identifiable": 73,
+        "Secondary metabolite biosynthesis (plant/microbial)": 39,
+        "Amino acid metabolism": 18,
+        "Cofactor / vitamin / coenzyme biosynthesis": 7,
+        "Fatty acid / lipid metabolism": 6,
+        "Nucleotide metabolism": 4,
+        "Steroid / sterol / bile-acid metabolism": 4,
+        "Carbohydrate / central carbon metabolism": 3,
+        "Glycan / cell-envelope metabolism": 3
+      }
+    },
+    "ok_only": {
+      "n_rows": 660,
+      "n_sound": 476,
+      "n_llm_sound": 438,
+      "n_residual": 233,
+      "subclusters": [
+        {
+          "cluster": "Chloromuconate cycloisomerase",
+          "defect_class": "dGPredictor",
+          "n": 10,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "dGP": 10
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 10
+          },
+          "modelseed_ids": [
+            "rxn03693",
+            "rxn03694",
+            "rxn04649",
+            "rxn15997",
+            "rxn16083",
+            "rxn20861",
+            "rxn41454",
+            "rxn43905",
+            "rxn44166",
+            "rxn47607"
+          ]
+        },
+        {
+          "cluster": "Dienelactone hydrolase",
+          "defect_class": "eQuilibrator",
+          "n": 5,
+          "dominant_source": "eQ",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "eQ": 5
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 5
+          },
+          "modelseed_ids": [
+            "rxn03801",
+            "rxn16082",
+            "rxn16084",
+            "rxn19477",
+            "rxn20860"
+          ]
+        },
+        {
+          "cluster": "Ring aminohydrolase / hydrolytic deaminase",
+          "defect_class": "dGPredictor",
+          "n": 19,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 0.9474,
+          "thermo_source": {
+            "dGP": 18,
+            "eQ": 1
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 12,
+            "Amino acid metabolism": 4,
+            "No pathway identifiable": 2,
+            "Cofactor / vitamin / coenzyme biosynthesis": 1
+          },
+          "modelseed_ids": [
+            "rxn01225",
+            "rxn01547",
+            "rxn01654",
+            "rxn02525",
+            "rxn03845",
+            "rxn03855",
+            "rxn03858",
+            "rxn03859",
+            "rxn04031",
+            "rxn04777",
+            "rxn04778",
+            "rxn04779",
+            "rxn04780",
+            "rxn16504",
+            "rxn39313",
+            "rxn42187",
+            "rxn43783",
+            "rxn48158",
+            "rxn55881"
+          ]
+        },
+        {
+          "cluster": "Triple-bond hydratase (alkyne / nitrile)",
+          "defect_class": "dGPredictor",
+          "n": 11,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "dGP": 11
+          },
+          "pathways": {
+            "No pathway identifiable": 4,
+            "Carbohydrate / central carbon metabolism": 3,
+            "Xenobiotic / pollutant biodegradation": 3,
+            "Amino acid metabolism": 1
+          },
+          "modelseed_ids": [
+            "rxn00996",
+            "rxn01177",
+            "rxn01365",
+            "rxn02917",
+            "rxn03681",
+            "rxn04023",
+            "rxn23777",
+            "rxn47261",
+            "rxn47952",
+            "rxn51247",
+            "rxn59463"
+          ]
+        },
+        {
+          "cluster": "cis-Dihydrodiol dehydrogenase",
+          "defect_class": "dGPredictor",
+          "n": 6,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "dGP": 6
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 6
+          },
+          "modelseed_ids": [
+            "rxn03567",
+            "rxn03568",
+            "rxn03698",
+            "rxn04672",
+            "rxn20897",
+            "rxn25894"
+          ]
+        },
+        {
+          "cluster": "Epoxide hydrolase",
+          "defect_class": "dGPredictor",
+          "n": 6,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 0.8333,
+          "thermo_source": {
+            "dGP": 5,
+            "eQ": 1
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 5,
+            "No pathway identifiable": 1
+          },
+          "modelseed_ids": [
+            "rxn11842",
+            "rxn16030",
+            "rxn16073",
+            "rxn16247",
+            "rxn16280",
+            "rxn42012"
+          ]
+        },
+        {
+          "cluster": "Flavonol glycoside acyl / glucosyl transfer",
+          "defect_class": "eQuilibrator",
+          "n": 6,
+          "dominant_source": "eQ",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "eQ": 6
+          },
+          "pathways": {
+            "Secondary metabolite biosynthesis (plant/microbial)": 6
+          },
+          "modelseed_ids": [
+            "rxn24755",
+            "rxn37351",
+            "rxn41592",
+            "rxn44426",
+            "rxn47118",
+            "rxn47948"
+          ]
+        },
+        {
+          "cluster": "Hydrolytic / reductive dehalogenase",
+          "defect_class": "dGPredictor",
+          "n": 4,
+          "dominant_source": "dGP",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "dGP": 4
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 3,
+            "No pathway identifiable": 1
+          },
+          "modelseed_ids": [
+            "rxn00428",
+            "rxn02515",
+            "rxn07906",
+            "rxn20921"
+          ]
+        },
+        {
+          "cluster": "HCCA isomerase (naphthalene, NahD)",
+          "defect_class": "eQuilibrator",
+          "n": 5,
+          "dominant_source": "eQ",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "eQ": 5
+          },
+          "pathways": {
+            "Xenobiotic / pollutant biodegradation": 5
+          },
+          "modelseed_ids": [
+            "rxn03485",
+            "rxn03914",
+            "rxn04721",
+            "rxn04731",
+            "rxn04742"
+          ]
+        },
+        {
+          "cluster": "Acyl-CoA dehydrogenase (beta-oxidation)",
+          "defect_class": "eQuilibrator",
+          "n": 4,
+          "dominant_source": "eQ",
+          "dominant_source_purity": 1.0,
+          "thermo_source": {
+            "eQ": 4
+          },
+          "pathways": {
+            "Fatty acid / lipid metabolism": 4
+          },
+          "modelseed_ids": [
+            "rxn00946",
+            "rxn03251",
+            "rxn03253",
+            "rxn57269"
+          ]
+        }
+      ],
+      "n_subclustered": 76,
+      "share_of_residual_subclustered": 0.3262,
+      "n_leftover": 157,
+      "leftover_thermo_source": {
+        "dGP": 79,
+        "eQ": 76,
+        "opentecr": 2
+      },
+      "residual_topology": {
+        "hydrolysis (H2O substrate, no cofactor)": 92,
+        "intramolecular (no H2O, no cofactor)": 64,
+        "cofactor-coupled": 55,
+        "condensation / dehydration (H2O product)": 22
+      },
+      "residual_pathways": {
+        "Xenobiotic / pollutant biodegradation": 81,
+        "No pathway identifiable": 71,
+        "Secondary metabolite biosynthesis (plant/microbial)": 37,
+        "Amino acid metabolism": 18,
+        "Cofactor / vitamin / coenzyme biosynthesis": 7,
+        "Fatty acid / lipid metabolism": 6,
+        "Nucleotide metabolism": 4,
+        "Steroid / sterol / bile-acid metabolism": 4,
+        "Carbohydrate / central carbon metabolism": 3,
+        "Glycan / cell-envelope metabolism": 2
+      }
+    }
+  },
+  "rejected_hypotheses": {
+    "near_equilibrium_chemistry": {
+      "hypothesis": "The residual is reactions whose true |dG'o| is near zero, so any estimator noise flips the sign -- which would make the residual a precision problem, not a coverage problem.",
+      "verdict": "REJECTED",
+      "residual_dg": {
+        "n": 248,
+        "n_with_dg": 246,
+        "median_abs_dg": 28.37,
+        "q1_abs_dg": 14.51,
+        "q3_abs_dg": 46.53,
+        "n_near_equilibrium_abs_dg_lt_10": 25,
+        "share_near_equilibrium": 0.1016,
+        "median_reported_sigma": 6.8
+      },
+      "clustered_dg": {
+        "n": 217,
+        "n_with_dg": 216,
+        "median_abs_dg": 32.25,
+        "q1_abs_dg": 15.38,
+        "q3_abs_dg": 52.4,
+        "n_near_equilibrium_abs_dg_lt_10": 2,
+        "share_near_equilibrium": 0.0093,
+        "median_reported_sigma": 17.51
+      },
+      "note": "Median |dG'o| is essentially the same in both (residual vs the five clusters), and only ~10% of the residual is under 10 kJ/mol. The residual is NOT near-equilibrium chemistry. The one real difference runs the other way: the residual's driving estimates carry a much SMALLER reported uncertainty than the clustered ones, i.e. they are wrong while claiming to be precise."
+    },
+    "duplicate_enzyme_entries": {
+      "hypothesis": "The residual is inflated by many near-duplicate ModelSEED entries of a few enzymes, so '248 individually documented enzymes' overstates its diversity.",
+      "verdict": "MOSTLY REJECTED",
+      "n_residual": 248,
+      "n_distinct_normalised_enzyme_names": 216,
+      "n_sharing_a_name_with_another": 38,
+      "share_sharing_a_name": 0.1532,
+      "largest_repeats": [
+        {
+          "enzyme": "chloromuconate cycloisomerase",
+          "n": 8
+        },
+        {
+          "enzyme": "microsomal epoxide hydrolase",
+          "n": 4
+        },
+        {
+          "enzyme": "dienelactone hydrolase",
+          "n": 4
+        }
+      ],
+      "note": "216 distinct normalised enzyme names across 248 reactions -- the 'individually documented' framing is ~85% accurate. The one real exception is chloromuconate cycloisomerase (8 entries by name, 10 by the cluster predicate), which is why it is the single largest sub-cluster below."
+    }
+  }
+}

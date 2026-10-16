@@ -12,17 +12,29 @@ strict_disagreement_sound_families.png, one per population:
   ok_only     438 LLM-correct/equation-sound reactions within the 660 whose
               status carries no flag at all (OK, nothing else)
 
-These three "sound" populations are NOT nested subsets of each other (the
-equation_defect label is a literature judgment, modelseed_status is an
-automated check, and they disagree on 18 reactions -- see
-analyze_strict_disagreement_balanced_populations.py's docstring), so this
-figure is the actual test of whether the two-cluster story is an artifact of
-one particular sound/unsound split. It isn't: SAM (81), PAPS (35), and
-glycosidase (54) are IDENTICAL across all three panels, quinone drops by
-exactly 1 (one quinone reaction is CI-flagged and so absent from ok_only),
-and ATP (24) and the residual (465/248 -> 448/242 -> 438/233) move only by
-the small number of reactions that carry an MI/CI+MI status despite a
-literature-sound equation, or vice versa.
+CORRECTION (these three panels are nested; an earlier version of this
+docstring said they were not). The 879 and 660 POPULATIONS are not subsets
+of the 504 equation-sound set -- that much is true, they are cut on a
+different axis. But the three sets actually drawn here are strictly nested:
+438 <= 448 <= 465 LLM-correct/equation-sound, and 233 <= 242 <= 248
+residual, with nothing gained at any step. That is forced, not coincidental:
+each population is a row-subset of the one before it (660 OK-only rows
+subset-of 879 OK-or-CI rows subset-of all 1,370), and every filter applied
+downstream -- equation_defect, enzymology_supports, the 5 cluster predicates
+-- is a pure per-reaction predicate, so it commutes with subsetting. The
+"18 reactions the two filters disagree on" is exactly the one-way nesting
+gap 504 -> 486, not a crossover. Proof:
+analyze_strict_disagreement_residual_subclusters.py (`nesting` block).
+
+So read this figure as ONE robustness check, not three independent
+re-derivations: it tests whether the clusters are CONCENTRATED in the
+reactions a balance filter strips out, which would make them an artifact of
+dirty stoichiometry. They are not. Of the 27 reactions removed going from
+all_1370 to ok_only, 0 land in SAM, 0 in PAPS, 0 in the glycosidases, 1 in
+quinone, 11 in ATP, and 15 in the residual -- so SAM (81), PAPS (35) and
+glycosidase (54) are bit-for-bit identical across the panels. The panels
+share ~94% of their reactions by construction and could not have disagreed
+much; what matters is that no cluster collapsed.
 
 Data: results/strict_disagreement_enzymes/balanced_population_clusters.tsv,
 written by analyze_strict_disagreement_balanced_populations.py. Same

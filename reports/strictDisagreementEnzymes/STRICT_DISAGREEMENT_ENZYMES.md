@@ -297,7 +297,16 @@ revisiting how eQuilibrator estimates ΔG′° for glycosidic-bond hydrolysis an
 the quinone/quinol couple, would resolve nearly half of the 465 in two
 changes, without touching a single stoichiometric equation.
 
-### The other 53.3%: tested for a further pattern, found none
+### The other 53.3%: no *sixth large* cluster
+
+> **Superseded in part.** This subsection's claim that the residual holds
+> "no further single-mechanism bug" is true only at the scale searched here
+> (clusters the size of the big five). A finer search — ranking enzyme-name
+> tokens by thermo-source purity instead of matching guessed chemistry —
+> finds **ten smaller sub-clusters covering 78 of the 248 (31.5%), eight of
+> them 100% single-source**. See
+> [Inside the residual](#inside-the-residual-ten-sub-clusters-and-the-same-ones-in-every-population).
+> The tested-and-rejected novelty hypothesis below still stands.
 
 The remaining **248 reactions (53.3%)** are the true residual after claiming
 reactions to the five clusters above in priority order (no double-counting).
@@ -323,9 +332,11 @@ any standard-state ΔG′° estimate: these sources compute free energy at 1 M
 reference concentrations, not real cellular ones, so a reaction that looks
 marginal (or even wrong-signed) at standard state can still run firmly
 forward in vivo when its product is immediately consumed by the next pathway
-enzyme or its substrate pool is kept high. There's no second bug to find
-here — it's 248 individually-documented enzymes whose physiological
-direction was never recoverable from a standard-state ΔG′° alone.
+enzyme or its substrate pool is kept high. No *large* second bug is hiding
+here. (The finer pass linked above does find ten small source-pure pockets
+covering 31.5% of these 248; the 170 that survive even that search are the
+individually-documented enzymes whose physiological direction was never
+recoverable from a standard-state ΔG′° alone.)
 
 *(Figure and all tables in this subsection: `scripts/analyze_strict_disagreement_sound_subset.py`
 → `results/strict_disagreement_enzymes/sound_subset_clusters.tsv` /
@@ -436,10 +447,36 @@ reactions ModelSEED itself does not flag as mass-imbalanced.
 This gives two populations, analysed identically
 (`scripts/analyze_strict_disagreement_balanced_populations.py`):
 **OK-or-CI-only (879)** and the stricter **OK-only, no flags at all (660)**.
-Neither is a subset of the 504 equation-sound set above — the two filters
-disagree on 18 reactions (17 literature-sound reactions the database itself
-flags `CI+MI`, 1 flagged `MI`) — so this is a genuine re-derivation, not a
-relabeling of the same split.
+
+Neither *population* is a subset of the 504 equation-sound set above — they
+are cut on a different axis, and 18 literature-sound reactions carry a
+database flag (17 `CI+MI`, 1 `MI`). But the sets this section actually
+compares — the equation-sound, LLM-correct, and residual subsets *within*
+each population — **are strictly nested**, and that matters for how much
+the agreement between them is worth:
+
+| | all 1,370 | OK or CI-only | OK only | nested? |
+|---|---:|---:|---:|:---:|
+| population rows | 1,370 | 879 | 660 | ✅ 660 ⊆ 879 ⊆ 1,370 |
+| equation-sound | 504 | 486 | 476 | ✅ 476 ⊆ 486 ⊆ 504 |
+| …and LLM-correct | 465 | 448 | 438 | ✅ 438 ⊆ 448 ⊆ 465 |
+| …residual after the 5 clusters | 248 | 242 | 233 | ✅ 233 ⊆ 242 ⊆ 248 |
+
+Nothing ever enters a stricter population that was absent from a looser one
+(`gained = 0` at every level, verified in
+`analyze_strict_disagreement_residual_subclusters.py`). That is forced: each
+population is a row-subset of the one before it, and every filter applied
+downstream — `equation_defect == "none"`, `enzymology_supports == "llm"`,
+the five cluster predicates — is a pure per-reaction predicate, so it
+commutes with subsetting. The 18-reaction "disagreement" between the filters
+is exactly the one-way nesting gap 504 → 486, not a crossover.
+
+**Read the three-panel comparison below accordingly.** It is a real
+robustness check on one thing — whether the clusters are *concentrated* in
+the reactions a balance filter removes, which would make them an artifact of
+dirty stoichiometry — and they are not. It is **not** three independent
+re-derivations: the panels share 94% of their reactions by construction and
+could not have disagreed much.
 
 ### Who's right barely moves
 
@@ -526,10 +563,164 @@ imbalance either way), and the combined share explained is stable within
 0.7 points. The residual's pathway breakdown is equally stable — xenobiotic
 biodegradation 34.7%→35.1%→34.8%, "no pathway identifiable" 30.6%→30.2%→30.5%,
 secondary-metabolite biosynthesis 16.1%→16.1%→15.9% (all 1,370 → OK/CI-only →
-OK-only). **The two-defect-class finding is not an artifact of which
-balance filter defines "sound" — it is the same ~47% of these disagreements
-under three different, independently-motivated definitions of a clean
-reaction.**
+OK-only). **The two-defect-class finding is not an artifact of a dirty
+subpopulation: the clusters are not concentrated in the reactions a balance
+filter strips out.** Stated carefully — because the three panels are nested
+subsets (above), the stability of these numbers is largely forced, and the
+only informative content is *where* the 27 removed reactions land. They land
+almost nowhere: 0 in SAM, 0 in PAPS, 0 in the glycoside hydrolases, 1 in
+quinone, 11 in the ATP cluster, 15 in the residual. Had a cluster been built
+on reactions ModelSEED flags as imbalanced, that cluster would have
+collapsed here; none did.
+
+### Inside the residual: ten sub-clusters, and the same ones in every population
+
+Two questions the figure above leaves open: is its grey residual bar the
+*same reactions* in each panel, and does that bar have structure of its own?
+
+**Same reactions — exactly.** 233 ⊆ 242 ⊆ 248, nothing gained at any step
+(the nesting table earlier in this section). The OK-only residual is not a
+population that resembles the unfiltered one; it *is* the unfiltered one
+minus 15 named reactions. Those 15 are worth reading, because they are a
+clean illustration of what each filter removes:
+
+- **248 → 242** drops 6 reactions ModelSEED flags mass-imbalanced
+  (`rxn02987`, `rxn03776`, `rxn03784`, `rxn21376`, `rxn22034`, `rxn47384`) —
+  all 6 dGPredictor-driven, mostly large combinatorial transferase entries
+  whose formulas do not sum.
+- **242 → 233** drops 9 charge-imbalanced ones, and **8 of the 9 are off by
+  exactly ±2 charge** (`CI:-2` / `CI:2`) on an NAD(P)H- or proton-coupled
+  redox step — `rxn04279`/`rxn04282` (monoterpene reductases),
+  `rxn16011` (alcohol dehydrogenase), `rxn24592` (catalase). This is the
+  same redox-cofactor bookkeeping defect diagnosed for the CI-only
+  population above, reaching into the residual.
+
+Neither filter removes a *kind* of chemistry from the residual, which is why
+every number below is near-identical across the three populations.
+
+**And the residual does have structure.** It was described earlier as having
+"no further single-mechanism pattern," which was true at the scale that
+search ran at — nothing the size of the SAM (81) or glycoside (54) clusters.
+Searched finer, by ranking every enzyme-name token appearing ≥4 times by
+thermo-source purity rather than by guessing chemistry first, **ten
+sub-clusters emerge covering 78 of the 248 (31.5%)** — smaller than the big
+five (4–19 reactions each), but not weaker: eight of the ten are **100%
+single-source**.
+
+**How to read this figure** — it is deliberately *one* panel where the
+figure above it is three. Three panels here would be three near-copies of
+the same reactions, which is exactly the nesting trap this section is
+warning about; drawing it once and marking the difference is the honest
+encoding:
+
+- **solid bar** = reactions present in **all three** populations (the
+  OK-only count — ModelSEED's own status flag is clean)
+- **pale tip** = the reactions a stricter balance filter removes (present in
+  all 1,370 but not in OK-only). Only two of the ten sub-clusters have one
+  at all, one reaction each.
+- **orange / blue** = which thermo source produced the wrong confident call,
+  the same mapping as the five-cluster figures above
+- **the strip across the top** = what the whole 248 is made of (58
+  dGPredictor-pure + 20 eQuilibrator-pure sub-clustered, 170 not), on its
+  own scale, because at 170 the remainder is ~9× the largest sub-cluster and
+  would otherwise squash the ten bars the figure is about into the left
+  tenth of the panel. Both scales start at zero; neither is broken.
+
+![Horizontal bar chart of ten sub-clusters inside the 248-reaction residual, coloured orange for dGPredictor-pure and blue for eQuilibrator-pure, with a full-width composition strip above showing 58 dGPredictor + 20 eQuilibrator sub-clustered against 170 still unexplained. Ring aminohydrolase/hydrolytic deaminase (19) is the largest, then triple-bond hydratase (11) and chloromuconate cycloisomerase (10). Two bars carry a pale tip marking the single reaction each loses under the strictest balance filter.](figures/strict_disagreement_residual_subclusters.png)
+
+| sub-cluster | all 1,370 | OK/CI-only | OK-only | source | purity |
+|---|---:|---:|---:|---|---:|
+| Ring aminohydrolase / hydrolytic deaminase | 19 | 19 | 19 | dGP | 95% |
+| Triple-bond hydratase (alkyne / nitrile) | 11 | 11 | 11 | dGP | 100% |
+| Chloromuconate cycloisomerase | 10 | 10 | 10 | dGP | 100% |
+| *cis*-Dihydrodiol dehydrogenase | 7 | 7 | 6 | dGP | 100% |
+| Epoxide hydrolase | 6 | 6 | 6 | dGP | 83% |
+| Flavonol glycoside acyl / glucosyl transfer | 6 | 6 | 6 | eQ | 100% |
+| Hydrolytic / reductive dehalogenase | 5 | 5 | 4 | dGP | 100% |
+| Dienelactone hydrolase | 5 | 5 | 5 | eQ | 100% |
+| HCCA isomerase (naphthalene, NahD) | 5 | 5 | 5 | eQ | 100% |
+| Acyl-CoA dehydrogenase (β-oxidation) | 4 | 4 | 4 | eQ | 100% |
+| **sub-clustered total** | **78** | **78** | **76** | | |
+| still unexplained | 170 | 164 | 157 | dGP 86 / eQ 82 | — |
+
+Across all ten sub-clusters only two rows move at all, by one reaction each
+(*cis*-dihydrodiol dehydrogenase and dehalogenase, both losing a `CI`-flagged
+member); the other 13 of the 15 removed reactions fall in the unexplained
+remainder. So the answer to "are the OK/CI and OK-only residuals similar to
+the unfiltered one" is that they are not merely similar — they are the same
+reactions, and the sub-structure inside them is the same sub-structure.
+
+**The chemistry is different from the big five.** The five systematic
+clusters were activated-cofactor group transfer (SAM, PAPS, ATP) plus two
+structural motifs (glycoside, quinone). These ten are **hydrolytic and
+ring-rearrangement chemistry on xenobiotic substrates** — C–N hydrolysis on
+a heteroaromatic ring, C–X cleavage, epoxide opening, triple-bond hydration,
+ring cycloisomerisation. Cutting the residual by equation topology rather
+than enzyme name says the same thing about the whole bucket, not just the
+sub-clustered third:
+
+| equation topology | n | share |
+|---|---:|---:|
+| hydrolysis (H₂O substrate, no cofactor) | 94 | 37.9% |
+| intramolecular (no H₂O, no cofactor) | 74 | 29.8% |
+| cofactor-coupled | 58 | 23.4% |
+| condensation / dehydration (H₂O product) | 22 | 8.9% |
+
+Two-thirds of the residual (168/248) is chemistry with **no cofactor at
+all** — precisely the reactions for which the big five's "this cofactor's
+group-transfer potential was mis-assigned" explanation has nothing to grip.
+
+**The sharpest single observation: two consecutive steps of one pathway,
+split across two thermo sources.** Chloromuconate cycloisomerase (10/10
+dGPredictor) and dienelactone hydrolase (5/5 eQuilibrator) are adjacent
+enzymes in the chlorocatechol *modified ortho*-cleavage pathway —
+chloromuconate → dienelactone → maleylacetate, the consecutive `clcB` →
+`clcD` steps of the canonical chlorocatechol gene cluster (PMID
+[12218013](https://pubmed.ncbi.nlm.nih.gov/12218013/)). ModelSEED's cascade picks a
+different thermo source for each step and gets the direction wrong at both,
+with perfect per-step source purity. That is very hard to read as fifteen
+independent judgment calls, and easy to read as two per-source coverage gaps
+on the same stretch of chlorinated-aromatic chemistry. More broadly, the ten
+sub-clusters claim **44 of the 86 xenobiotic-biodegradation reactions** —
+over half of the residual's largest pathway bucket.
+
+**Two hypotheses tested here that did not hold**, reported because they were
+checked:
+
+- *The residual is near-equilibrium chemistry* (small true |ΔG′°|, so
+  estimator noise flips the sign) — **rejected**. Median |ΔG′°| from the
+  driving source is 28.4 kJ/mol in the residual vs 32.2 in the five
+  clusters, and only 10.2% of the residual is under 10 kJ/mol. The one real
+  difference runs the *other* way: the residual's driving estimates carry a
+  **much smaller reported uncertainty** (median σ 6.8 vs 17.5 kJ/mol). These
+  are confident, precise, wrong numbers — which is worse for the cascade
+  than noisy ones, because no uncertainty-based gate would catch them.
+- *The residual is inflated by duplicate entries of a few enzymes* —
+  **mostly rejected**. 216 distinct normalised enzyme names across 248
+  reactions; 15.3% share a name with another. The "248 individually
+  documented enzymes" framing holds, with one real exception —
+  chloromuconate cycloisomerase appears 8 times by name (10 by the cluster
+  predicate), which is exactly why it is the largest ring-chemistry
+  sub-cluster.
+
+**What this does and does not change.** It does not move the headline: 46.7%
+of the LLM-correct, equation-sound disagreements still trace to the two big
+defect classes, and the 170 reactions still left over (dGP 86 / eQ 82, a
+near-perfect split of the residual's own baseline) remain individually
+documented enzymology. What it changes is the characterisation of the other
+half as unstructured. It is not unstructured — it is *finely* structured,
+into many small source-pure pockets of hydrolytic and xenobiotic chemistry
+rather than a few large cofactor-defined ones. For the practical question of
+what to fix, that is a different and harder prescription than the big five:
+not one sign convention, but per-source coverage on whole catabolic
+pathways.
+
+*(Script: `scripts/analyze_strict_disagreement_residual_subclusters.py` →
+`results/strict_disagreement_enzymes/residual_subclusters.json` / `.tsv`
+(nesting proof, per-population sub-cluster membership, rejected hypotheses);
+figure drawn by `scripts/plot_strict_disagreement_residual_subclusters.py`,
+registered in `scripts/figures.tsv` as
+`strict_disagreement_residual_subclusters`.)*
 
 ### Bottom line for both populations
 
@@ -715,6 +906,14 @@ results/strict_disagreement_enzymes/
                                       not just who's right)
   balanced_population_clusters.tsv   figure source data: the 5 clusters across
                                       all 3 populations (all_1370/ok_ci_only/ok_only)
+  residual_subclusters.json          proof that the residual is strictly nested
+                                      across the 3 populations (233/242/248,
+                                      nothing gained) + the 10 fine-grained
+                                      source-pure sub-clusters inside it,
+                                      equation-topology cut, and 2 rejected
+                                      hypotheses (near-equilibrium, duplicates)
+  residual_subclusters.tsv           figure source data: 10 sub-clusters +
+                                      leftover, all 3 populations
   redox_fix_outcomes.json/.tsv       per-reaction mechanical cofactor fix +
                                       eQuilibrator dG before/after, for the
                                       219 CI-only reactions
@@ -778,6 +977,11 @@ python3 scripts/regen_figures.py strict_disagreement_residual_pathways
 python3 scripts/analyze_strict_disagreement_balanced_correctness.py   # who's right
 python3 scripts/analyze_strict_disagreement_balanced_populations.py   # why (defect + cluster + pathway)
 python3 scripts/regen_figures.py strict_disagreement_balanced_clusters
+
+# prove the residual is the SAME nested set in all 3 populations, then
+# sub-cluster it (10 source-pure pockets) -- reads only the deliverable
+python3 scripts/analyze_strict_disagreement_residual_subclusters.py
+python3 scripts/regen_figures.py strict_disagreement_residual_subclusters
 
 # fix the CI-only redox-cofactor defect mechanically and price the fixed
 # equation with a real eQuilibrator calculation (requires the eq3 conda env)

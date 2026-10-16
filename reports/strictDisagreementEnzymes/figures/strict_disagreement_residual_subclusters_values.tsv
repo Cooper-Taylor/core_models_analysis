@@ -1,0 +1,12 @@
+cluster	defect_class	n_all_1370	n_ok_ci_only	n_ok_only	dominant_source	dominant_source_purity	n_residual_all_1370
+Ring aminohydrolase / hydrolytic deaminase	dGPredictor	19	19	19	dGP	0.9474	248
+Triple-bond hydratase (alkyne / nitrile)	dGPredictor	11	11	11	dGP	1.0000	248
+Chloromuconate cycloisomerase	dGPredictor	10	10	10	dGP	1.0000	248
+cis-Dihydrodiol dehydrogenase	dGPredictor	7	7	6	dGP	1.0000	248
+Epoxide hydrolase	dGPredictor	6	6	6	dGP	0.8333	248
+Hydrolytic / reductive dehalogenase	dGPredictor	5	5	4	dGP	1.0000	248
+Flavonol glycoside acyl / glucosyl transfer	eQuilibrator	6	6	6	eQ	1.0000	248
+Dienelactone hydrolase	eQuilibrator	5	5	5	eQ	1.0000	248
+HCCA isomerase (naphthalene, NahD)	eQuilibrator	5	5	5	eQ	1.0000	248
+Acyl-CoA dehydrogenase (beta-oxidation)	eQuilibrator	4	4	4	eQ	1.0000	248
+Still unexplained	none	170	164	157		0	248

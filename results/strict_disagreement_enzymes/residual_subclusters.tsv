@@ -1,0 +1,34 @@
+population	cluster	defect_class	n	n_residual_total	dominant_source	dominant_source_purity
+all_1370	Chloromuconate cycloisomerase	dGPredictor	10	248	dGP	1.0000
+all_1370	Dienelactone hydrolase	eQuilibrator	5	248	eQ	1.0000
+all_1370	Ring aminohydrolase / hydrolytic deaminase	dGPredictor	19	248	dGP	0.9474
+all_1370	Triple-bond hydratase (alkyne / nitrile)	dGPredictor	11	248	dGP	1.0000
+all_1370	cis-Dihydrodiol dehydrogenase	dGPredictor	7	248	dGP	1.0000
+all_1370	Epoxide hydrolase	dGPredictor	6	248	dGP	0.8333
+all_1370	Flavonol glycoside acyl / glucosyl transfer	eQuilibrator	6	248	eQ	1.0000
+all_1370	Hydrolytic / reductive dehalogenase	dGPredictor	5	248	dGP	1.0000
+all_1370	HCCA isomerase (naphthalene, NahD)	eQuilibrator	5	248	eQ	1.0000
+all_1370	Acyl-CoA dehydrogenase (beta-oxidation)	eQuilibrator	4	248	eQ	1.0000
+all_1370	Still unexplained	none	170	248		0
+ok_ci_only	Chloromuconate cycloisomerase	dGPredictor	10	242	dGP	1.0000
+ok_ci_only	Dienelactone hydrolase	eQuilibrator	5	242	eQ	1.0000
+ok_ci_only	Ring aminohydrolase / hydrolytic deaminase	dGPredictor	19	242	dGP	0.9474
+ok_ci_only	Triple-bond hydratase (alkyne / nitrile)	dGPredictor	11	242	dGP	1.0000
+ok_ci_only	cis-Dihydrodiol dehydrogenase	dGPredictor	7	242	dGP	1.0000
+ok_ci_only	Epoxide hydrolase	dGPredictor	6	242	dGP	0.8333
+ok_ci_only	Flavonol glycoside acyl / glucosyl transfer	eQuilibrator	6	242	eQ	1.0000
+ok_ci_only	Hydrolytic / reductive dehalogenase	dGPredictor	5	242	dGP	1.0000
+ok_ci_only	HCCA isomerase (naphthalene, NahD)	eQuilibrator	5	242	eQ	1.0000
+ok_ci_only	Acyl-CoA dehydrogenase (beta-oxidation)	eQuilibrator	4	242	eQ	1.0000
+ok_ci_only	Still unexplained	none	164	242		0
+ok_only	Chloromuconate cycloisomerase	dGPredictor	10	233	dGP	1.0000
+ok_only	Dienelactone hydrolase	eQuilibrator	5	233	eQ	1.0000
+ok_only	Ring aminohydrolase / hydrolytic deaminase	dGPredictor	19	233	dGP	0.9474
+ok_only	Triple-bond hydratase (alkyne / nitrile)	dGPredictor	11	233	dGP	1.0000
+ok_only	cis-Dihydrodiol dehydrogenase	dGPredictor	6	233	dGP	1.0000
+ok_only	Epoxide hydrolase	dGPredictor	6	233	dGP	0.8333
+ok_only	Flavonol glycoside acyl / glucosyl transfer	eQuilibrator	6	233	eQ	1.0000
+ok_only	Hydrolytic / reductive dehalogenase	dGPredictor	4	233	dGP	1.0000
+ok_only	HCCA isomerase (naphthalene, NahD)	eQuilibrator	5	233	eQ	1.0000
+ok_only	Acyl-CoA dehydrogenase (beta-oxidation)	eQuilibrator	4	233	eQ	1.0000
+ok_only	Still unexplained	none	157	233		0
