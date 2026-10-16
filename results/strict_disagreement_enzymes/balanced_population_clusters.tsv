@@ -1,0 +1,19 @@
+population	cluster	n	n_llm_sound_total
+all_1370	SAM-dependent methyltransferase	81	465
+all_1370	PAPS-dependent sulfotransferase	35	465
+all_1370	Glycoside hydrolase (broad)	54	465
+all_1370	Quinone/quinol-coupled redox	12	465
+all_1370	ATP/ADP/phosphate-coupled group transfer	35	465
+all_1370	Residual (case-specific enzymology)	248	465
+ok_ci_only	SAM-dependent methyltransferase	81	448
+ok_ci_only	PAPS-dependent sulfotransferase	35	448
+ok_ci_only	Glycoside hydrolase (broad)	54	448
+ok_ci_only	Quinone/quinol-coupled redox	12	448
+ok_ci_only	ATP/ADP/phosphate-coupled group transfer	24	448
+ok_ci_only	Residual (case-specific enzymology)	242	448
+ok_only	SAM-dependent methyltransferase	81	438
+ok_only	PAPS-dependent sulfotransferase	35	438
+ok_only	Glycoside hydrolase (broad)	54	438
+ok_only	Quinone/quinol-coupled redox	11	438
+ok_only	ATP/ADP/phosphate-coupled group transfer	24	438
+ok_only	Residual (case-specific enzymology)	233	438

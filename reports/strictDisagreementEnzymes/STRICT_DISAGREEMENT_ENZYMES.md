@@ -419,6 +419,149 @@ figure drawn by `scripts/plot_strict_disagreement_residual_pathways.py`,
 registered in `scripts/figures.tsv` as
 `strict_disagreement_residual_pathways`.)*
 
+## Classifying disagreement on ModelSEED's OWN status flag, not literature judgment
+
+Everything above filters "sound" by `equation_defect`, a literature verdict.
+A sharper, assumption-free cut uses the **database's own automated
+mass/charge-balance check** (`modelseed_status`) instead: keep only
+reactions ModelSEED itself does not flag as mass-imbalanced.
+
+| `modelseed_status` tokens | meaning | n (of 1,370) | kept? |
+|---|---|---:|:---:|
+| `OK` | fully balanced | 660 | ✅ |
+| `CI` | charge-imbalanced, mass already balanced | 219 | ✅ |
+| `MI` | mass-imbalanced | 150 | ❌ |
+| `CI+MI` | mass- and charge-imbalanced | 341 | ❌ |
+
+This gives two populations, analysed identically
+(`scripts/analyze_strict_disagreement_balanced_populations.py`):
+**OK-or-CI-only (879)** and the stricter **OK-only, no flags at all (660)**.
+Neither is a subset of the 504 equation-sound set above — the two filters
+disagree on 18 reactions (17 literature-sound reactions the database itself
+flags `CI+MI`, 1 flagged `MI`) — so this is a genuine re-derivation, not a
+relabeling of the same split.
+
+### Who's right barely moves
+
+| population | n | LLM right | ModelSEED right | neither | unclear |
+|---|---:|---:|---:|---:|---:|
+| all 1,370 | 1,370 | 1,252 (91.4%) | 29 (2.1%) | 54 (3.9%) | 35 (2.6%) |
+| **OK or CI-only** | **879** | **804 (91.5%)** | 24 (2.7%) | 36 (4.1%) | 15 (1.7%) |
+| **OK only** | **660** | **600 (90.9%)** | 23 (3.5%) | 27 (4.1%) | 10 (1.5%) |
+
+Excluding every mass-imbalanced reaction barely changes the headline split.
+**Mass imbalance is not why the recommendation is usually wrong** — it's a
+*correlate* (enriched 3.1× in the full 1,370, section 2 above), not the
+mechanism. Something else is driving the 90%+ failure rate even when the
+stoichiometry is completely clean.
+
+### Why: two populations, two different dominant defects
+
+| | equation sound | cofactors stripped | mass unbalanced (literature) | source disowned | lumped multi-enzyme |
+|---|---:|---:|---:|---:|---:|
+| OK or CI-only (879) | 486 (55.3%) | 204 (23.2%) | 120 (13.7%) | 51 (5.8%) | 18 (2.0%) |
+| OK only (660) | 476 (72.1%) | 120 (18.2%) | 8 (1.2%) | 41 (6.2%) | 15 (2.3%) |
+| CI-only (219, the difference) | 10 (4.6%) | 84 (38.4%) | 112 (51.1%) | 10 (4.6%) | 3 (1.4%) |
+
+The literature re-derives a "mass unbalanced" verdict for 120 of the 879
+despite ModelSEED's own checker saying the formulas sum correctly — and
+**112 of those 120 (93%) are concentrated entirely in the 219 CI-flagged
+reactions** (51.1% of CI-only, vs. 1.2% of OK-only). Reading the actual notes
+for those 112 (`modelseed_status` always `CI`, never `OK`):
+
+- **97% (109/112) explicitly describe a redox-cofactor bookkeeping error**,
+  and **96% (108/112) involve a NAD(H)/NADP(H)/FAD-family cofactor**. Two
+  recurring patterns: a **bare half-reaction** with the cofactor and nothing
+  else (`rxn12950`: `NADH => NAD`, a "free NADH sink" with no real substrate
+  pair — the committed memory on this pipeline already names this as a
+  stripped-substrate bug, see `project_ci_only_charge_fixes`), and an
+  **oxidized/reduced form written on the wrong side** (`rxn07326`,
+  `rxn07329`: ModelSEED pairs NADP⁺ with the *reduced* sterol and NADPH with
+  the *oxidized* one, inverting the apparent redox direction and, with it,
+  the sign of the thermodynamic estimate the cascade trusts).
+- The LLM council is right on **106/112 (95%)** of these — never ModelSEED.
+  ModelSEED's own charge-imbalance flag is, in effect, already pointing at
+  the broken bookkeeping; the cascade just doesn't use that signal to
+  abstain.
+- This sits alongside, and is mechanistically the same family as, the 84
+  **`cofactors_stripped`** CI-only reactions (e.g. `rxn02017`, `rxn07790`,
+  `rxn07791`) where the NAD(P)⁺/NAD(P)H pair is dropped **entirely**, not
+  just misassigned — same failure mode, different severity. Together,
+  **196/219 CI-only reactions (89.5%)** are one of these two redox-cofactor
+  defects. **Charge imbalance in this dataset is overwhelmingly a symptom of
+  a mishandled redox cofactor, not an independent data-quality issue.**
+
+The 8 OK-only "mass unbalanced" reactions are a different, much smaller
+phenomenon: combinatorial-expansion templating bugs that happen to still
+balance formulaically. `rxn38853`/`rxn38902`/`rxn38973` all hydrolyse dGTP
+but template the *adenine* product series (ADP/AMP) instead of the matching
+dGDP/dGMP/guanine one; `rxn38863`/`rxn38866` pair N-acetyl-L-glutamate with
+combinatorially mismatched amino-acid products. In every one of these the
+literature verdict still sides with the LLM's direction, because the
+*chemical class* (a hydrolase/kinase running essentially irreversibly) is
+unambiguous even though the specific substrate/product pairing is wrong.
+
+### The systematic thermo-source clusters are not an artifact of the sound/unsound split
+
+Re-running the 465-reaction mechanism analysis from the section above —
+mechanism-tagging `direction_conflict.note`, then the 5 non-overlapping
+dGPredictor/eQuilibrator clusters — on the equation-sound, LLM-correct
+subset of **each** status population reproduces it almost exactly:
+
+![Three small-multiple horizontal bar panels, one per population (all 1,370 equation-sound, OK-or-CI-only status, OK-only status), each showing the same 5 systematic clusters plus a residual bar. SAM methyltransferase (81), PAPS sulfotransferase (35), and glycoside hydrolase (54) are identical in every panel; quinone/quinol redox drops from 12 to 11 in the OK-only panel; ATP/phosphate-coupled group transfer and the residual shift only slightly between panels.](figures/strict_disagreement_balanced_clusters.png)
+
+| cluster | all 1,370 (n=465) | OK/CI-only (n=448) | OK-only (n=438) |
+|---|---:|---:|---:|
+| SAM methyltransferase | 81 | 81 | 81 |
+| PAPS sulfotransferase | 35 | 35 | 35 |
+| Glycoside hydrolase (broad) | 54 | 54 | 54 |
+| Quinone/quinol-coupled redox | 12 | 12 | 11 |
+| ATP/phosphate-coupled group transfer | 35 | 24 | 24 |
+| **dGPredictor + eQuilibrator clusters, combined** | **217 (46.7%)** | **206 (46.0%)** | **205 (46.8%)** |
+| Residual (case-specific) | 248 (53.3%) | 242 (54.0%) | 233 (53.2%) |
+
+The SAM, PAPS and glycoside-hydrolase clusters are **bit-for-bit identical**
+across all three populations (none of those reactions carry a flagged
+imbalance either way), and the combined share explained is stable within
+0.7 points. The residual's pathway breakdown is equally stable — xenobiotic
+biodegradation 34.7%→35.1%→34.8%, "no pathway identifiable" 30.6%→30.2%→30.5%,
+secondary-metabolite biosynthesis 16.1%→16.1%→15.9% (all 1,370 → OK/CI-only →
+OK-only). **The two-defect-class finding is not an artifact of which
+balance filter defines "sound" — it is the same ~47% of these disagreements
+under three different, independently-motivated definitions of a clean
+reaction.**
+
+### Bottom line for both populations
+
+| | OK or CI-only (879) | OK only (660) |
+|---|---|---|
+| equation genuinely sound | 486 (55.3%) | 476 (72.1%) |
+| → of those, LLM-correct | 448 (92.2% of sound) | 438 (92.0% of sound) |
+| → explained by the 2 systematic thermo-source clusters | 206 (46.0% of LLM-sound) | 205 (46.8% of LLM-sound) |
+| → unexplained residual (mostly xenobiotic/secondary-metabolism, standard-state-ΔG′° blind spots) | 242 | 233 |
+| redox-cofactor bookkeeping defect (mangled or stripped) | 196 of 219 CI reactions (89.5%) | n/a (CI excluded) |
+| other literature-found defect (stripped/disowned/lumped, non-redox) | ~197 | ~176 |
+
+Removing charge-imbalanced reactions (879→660) removes almost nothing except
+the 219-reaction CI population itself, whose disagreements are their own,
+cleanly diagnosed phenomenon (redox-cofactor bookkeeping, 89.5% of it). What
+remains in the OK-only 660 is the same story the 504-reaction equation-sound
+analysis already told: ~46% of the clean, LLM-correct disagreements trace to
+two specific, fixable thermo-source defects (dGPredictor on activated
+cofactors, eQuilibrator on glycosidic/quinone motifs), and the other half is
+individually-documented enzymology — much of it standard-state ΔG′° simply
+not reflecting real intracellular pull (pathway channeling) or coverage gaps
+in one-off xenobiotic/secondary-metabolite chemistry.
+
+*(Script: `scripts/analyze_strict_disagreement_balanced_populations.py` →
+`results/strict_disagreement_enzymes/balanced_population_analysis.json` /
+`balanced_population_clusters.tsv`; figure drawn by
+`scripts/plot_strict_disagreement_balanced_clusters.py`, registered in
+`scripts/figures.tsv` as `strict_disagreement_balanced_clusters`. The earlier
+OK/CI-only correctness re-tabulation alone — without the defect/cluster
+breakdown — lives in `correctness_balanced.json`/`.tsv`,
+`scripts/analyze_strict_disagreement_balanced_correctness.py`.)*
+
 ## The 481 `unknown` calls
 
 These are honest, not unresearched. They break down as: reactions KEGG or
@@ -451,6 +594,15 @@ results/strict_disagreement_enzymes/
                                       248 residual reactions, by KEGG/MetaCyc
                                       annotation + text-mining fallback
   residual_pathways.tsv              figure source data for the pathway chart
+  correctness_balanced.json/.tsv     correctness verdicts re-tabulated over the
+                                      OK/CI-only 879 (status-based, not
+                                      equation_defect-based)
+  balanced_population_analysis.json  full defect/cluster/pathway breakdown for
+                                      the OK/CI-only 879 and OK-only 660
+                                      status populations (classifying WHY,
+                                      not just who's right)
+  balanced_population_clusters.tsv   figure source data: the 5 clusters across
+                                      all 3 populations (all_1370/ok_ci_only/ok_only)
   research_queue.json                the work definition (1,370 entries)
   findings/chunk_NN.json             raw per-chunk literature findings (55)
   findings/backfill_*.json           structured verdicts for chunks 00-10
@@ -503,6 +655,12 @@ python3 scripts/regen_figures.py strict_disagreement_sound_families
 # biological pathway/network breakdown of the 248 residual reactions
 python3 scripts/analyze_strict_disagreement_residual_pathways.py
 python3 scripts/regen_figures.py strict_disagreement_residual_pathways
+
+# classify WHY disagreement happens on ModelSEED's own status-flag populations
+# (879 OK/CI-only, 660 OK-only) instead of the literature equation_defect split
+python3 scripts/analyze_strict_disagreement_balanced_correctness.py   # who's right
+python3 scripts/analyze_strict_disagreement_balanced_populations.py   # why (defect + cluster + pathway)
+python3 scripts/regen_figures.py strict_disagreement_balanced_clusters
 ```
 
 ## Method
