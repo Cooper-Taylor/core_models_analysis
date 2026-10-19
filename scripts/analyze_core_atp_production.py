@@ -18,9 +18,19 @@ This matters because ``results/results.csv`` -- the baseline every other
 analysis reads -- optimises **bio1**, and on a single complete medium that
 puts 0 of the 299 archaeal core models at non-zero biomass. Reporting that
 number without ``bio2`` beside it invites the reading that the archaeal core
-models are broken, when the manuscript never asked them to carry biomass flux
-on one rich medium: it asked them to make ATP, and it tested that across 54
-minimal media formulations (Supplementary Table 1), not one.
+models are broken.
+
+They are not, because **ModelSEED never asks a core model to grow.** The
+core-stage criterion is ATP production -- "Production of ATP from ADP and
+phosphate in at least one media is verified for the reconstructed core model"
+-- tested across 54 minimal media formulations (Supplementary Table 1), and
+core-level gap-filling is performed only for ATP: "If gap-filling is necessary
+for ATP production, we gap-fill the core model in all ATP biosynthesis media
+formulations." Biomass gap-filling happens only after the model is expanded to
+the genome scale, against auxotrophy or glucose minimal media. So a core model
+with zero biomass flux has not failed anything ModelSEED asked of it, and the
+grower fraction derived from bio1 is a convention of this repo rather than a
+pipeline pass rate.
 
 This script therefore re-solves every core model twice on the same complete
 medium the baseline uses, once per objective, and reports the pass rates split

@@ -50,6 +50,13 @@ feasible solution with zero flux to biomass, never a solver failure.
 > genome-scale panels. Compare the *shape* of each distribution and the grower
 > fraction across panels; compare flux values only within a panel.
 
+> **The core grower fraction is not a ModelSEED pass rate.** ModelSEED never
+> requires a core model to carry biomass flux and never gap-fills one to do so
+> — the core-stage criterion is ATP production across 54 minimal media, and
+> growth gap-filling happens only at genome scale. Optimising biomass on core
+> models is a convention of this repo, adopted to give the thermodynamic
+> variants a common baseline. See §3 before quoting the 60.9% anywhere.
+
 ![biomass distribution](baselineBiomassTaxonomy/figures/baseline_biomass_taxonomy/biomass_distribution.png)
 
 **What the shapes say.** Normalising each panel by its own median (bottom axis
@@ -212,21 +219,58 @@ consumes ATP). So the ATP criterion is strictly weaker than the biomass
 criterion, and the baseline grower fraction is a *biomass* statistic, not the
 manuscript's validation statistic.
 
-Two caveats follow, and both matter for how the archaeal zero is reported:
+### ModelSEED never asks a core model to grow
 
-1. **The manuscript tests core models across 54 minimal media formulations**
-   (Supplementary Table 1 — `Glc.O2`, `H2.CO2`, `H2.Ac`, `For.SO4.H2`, `ANME`,
-   `Methane`, `Methanol.H2`, `Trimethylamine.H2`, `Light`, …), and passes a
-   model if ATP is produced in **at least one** of them. The baseline here uses
-   **one** complete medium. 32.4% of archaea pass the ATP test on that single
-   medium; the manuscript's 54-media protocol would pass substantially more.
-2. The complete medium does contain H₂ and CO₂, but **not** methanol, methane
-   or formate — so methylotrophic and acetoclastic methanogens have no
-   substrate on it regardless of how their model is built.
+This is the part most easily got wrong, so it is worth stating flatly:
+**biomass flux is not a criterion ModelSEED applies to core models at any
+point, and core models are never gap-filled to achieve it.** The core stage
+tests ATP production and gap-fills only for ATP; growth gap-filling happens
+after expansion to the genome scale. From the paper:
+
+> "Our pipeline applies these templates to build a core model of each microbe
+> of interest and **tests the core model against 54 minimal media
+> formulations**, representing a broad range of energy biosynthesis life
+> strategies. […] **Production of ATP from ADP and phosphate in at least one
+> media is verified** for the reconstructed core model, where core models
+> without such production are gap-filled to produce ATP."
+
+> "If no gap-filling is required for ATP production, meaning **ATP is produced
+> in at least one of the conditions tested**, we expand the model to the genome
+> scale. **If gap-filling is necessary for ATP production, we gap-fill the core
+> model in all ATP biosynthesis media formulations.**"
+
+> *Figure 1 legend* — "**ATP production is tested across 54 media
+> formulations** representing diverse energy biosynthesis strategies, with
+> gap-filling performed as necessary to ensure ATP production in at least one
+> condition. The core metabolism model is then expanded to the genome scale,
+> followed by gap-filling in the default auxotrophy medium or an optional
+> user-specified medium."
+
+Supplementary Table 1 is titled *"Minimal media formulation for ATP production
+testing"* and holds exactly 54 media columns × 33 exchange compounds:
+`Glc.O2`, `Ac.O2`, … `H2.CO2`, `H2.Ac`, `For.SO4.H2`, `H2.SO4`, `ANME`,
+`Methane`, `Methanol.H2`, `Trimethylamine.H2`, `Light`, and `empty`.
+
+Three consequences for how the 60.9% and the archaeal zero should be read:
+
+1. **The criterion is ATP (`bio2`), not biomass (`bio1`)** — and it is
+   satisfied by **at least one** of the 54 media, not all of them. A
+   hydrogenotrophic methanogen that passes only on `H2.CO2` is a pass.
+2. **The baseline in this report uses one complete medium.** 32.4% of archaea
+   pass the ATP test on that single medium; the 54-media protocol, which
+   includes the methanogenic and sulfate-reducing conditions, passes
+   substantially more. The complete medium carries H₂ and CO₂ but **not**
+   methanol, methane or formate, so methylotrophic and acetoclastic methanogens
+   have no substrate on it regardless of how their model is built.
+3. **The 60.9% core grower rate is this repo's convention, not a ModelSEED
+   target.** Optimising `bio1` on core models is something we do to have a
+   baseline for comparing thermodynamic variants. The 39% that do not grow were
+   never gap-filled to grow, so their zero is not evidence of a defect.
 
 The honest statement is therefore: *on a single complete medium, with biomass
 as the objective, no archaeal core model carries flux* — not *archaeal core
-models cannot produce ATP*, and not *the archaeal template is broken*.
+models cannot produce ATP*, not *the archaeal template is broken*, and not
+*these models fail ModelSEED's core criterion*.
 
 A similar reading applies to the other 0%/low-% core rows (Mycoplasmatota 0%,
 Chlamydiota 1.1%, Spirochaetota 6.9%, Thermotogota 0%): these are obligate
@@ -256,10 +300,12 @@ Elsewhere: `results/ncbi_taxonomy_fill.csv` (the 125 recovered lineages),
 
 ## 5. Caveats
 
-- The core panel's complete medium is **this repo's** baseline convention, not
-  the manuscript's core protocol (54 minimal media). It is the right baseline
-  for comparing thermodynamic variants against each other, which is what it
-  was built for; it is not the right baseline for judging core-model quality.
+- The core panel's complete medium, and the use of biomass as the objective at
+  all, are **this repo's** baseline conventions. ModelSEED's core-stage
+  criterion is ATP production across 54 minimal media (§3). This baseline is
+  the right one for comparing thermodynamic variants against each other, which
+  is what it was built for; it is **not** a measure of core-model quality, and
+  a low grower rate in it is not a ModelSEED failure.
 - The two genome-scale media sets are **not over an identical genome list**:
   each contains one genome the other lacks (`GCF_000010505.1` in GMM only,
   `GCF_000376625.1` in auxotrophy only). Both deposits hold 5,420 models; their
