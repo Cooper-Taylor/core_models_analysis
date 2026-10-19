@@ -1,0 +1,53 @@
+phylum	n_genomes_union	n_core	n_full	core_growers	core_grower_frac	full_gmm_growers	full_gmm_grower_frac	full_auxo_growers	full_auxo_grower_frac
+Pseudomonadota	2366	2366	2365	1963	0.8297	2356	0.9962	2364	0.9996
+Bacillota	1002	1002	1002	372	0.3713	317	0.3164	993	0.991
+Actinomycetota	717	717	717	552	0.7699	429	0.5983	710	0.9902
+Bacteroidota	330	330	330	201	0.6091	329	0.997	329	0.997
+Methanobacteriota	203	203	153	0	0.0	152	0.9935	152	0.9935
+Campylobacterota	181	180	181	147	0.8167	181	1.0	181	1.0
+Mycoplasmatota	147	147	147	0	0.0	119	0.8095	146	0.9932
+Cyanobacteriota	118	118	0	79	0.6695	0		0	
+Chlamydiota	93	93	93	1	0.0108	92	0.9892	92	0.9892
+Spirochaetota	72	72	72	5	0.0694	67	0.9306	72	1.0
+Thermodesulfobacteriota	69	69	69	27	0.3913	69	1.0	69	1.0
+Thermoproteota	66	66	1	0	0.0	1	1.0	1	1.0
+Thermotogota	33	33	33	0	0.0	11	0.3333	33	1.0
+Deinococcota	31	31	31	23	0.7419	14	0.4516	30	0.9677
+Planctomycetota	29	29	29	15	0.5172	29	1.0	29	1.0
+Chloroflexota	28	28	28	5	0.1786	18	0.6429	28	1.0
+Fusobacteriota	24	24	24	0	0.0	22	0.9167	24	1.0
+Myxococcota	22	22	22	21	0.9545	22	1.0	22	1.0
+Chlorobiota	15	15	15	9	0.6	15	1.0	15	1.0
+Nitrososphaerota	15	15	0	0	0.0	0		0	
+Verrucomicrobiota	14	14	14	5	0.3571	14	1.0	14	1.0
+Acidobacteriota	13	13	13	11	0.8462	13	1.0	13	1.0
+Aquificota	13	13	13	0	0.0	13	1.0	13	1.0
+Bdellovibrionota	13	13	13	9	0.6923	13	1.0	13	1.0
+Thermoplasmatota	13	13	0	0	0.0	0		0	
+Nitrospirota	9	9	9	1	0.1111	9	1.0	9	1.0
+Deferribacterota	5	5	5	5	1.0	5	1.0	5	1.0
+Synergistota	5	5	5	0	0.0	5	1.0	5	1.0
+Elusimicrobiota	4	4	4	0	0.0	4	1.0	4	1.0
+Rhodothermota	4	4	4	3	0.75	4	1.0	4	1.0
+Gemmatimonadota	3	3	3	3	1.0	3	1.0	3	1.0
+Dictyoglomota	2	2	2	0	0.0	0	0.0	2	1.0
+Fibrobacterota	2	2	2	0	0.0	2	1.0	2	1.0
+Ignavibacteriota	2	2	2	1	0.5	2	1.0	2	1.0
+Thermodesulfobiota	2	2	2	0	0.0	2	1.0	2	1.0
+Thermomicrobiota	2	2	2	0	0.0	0	0.0	2	1.0
+Unassigned	2	2	2	0	0.0	2	1.0	2	1.0
+Armatimonadota	1	1	1	0	0.0	1	1.0	1	1.0
+Balneolota	1	1	1	1	1.0	1	1.0	1	1.0
+Caldisericota	1	1	1	0	0.0	1	1.0	1	1.0
+Calditrichota	1	1	1	1	1.0	1	1.0	1	1.0
+Candidatus Cloacimonadota	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Omnitrophota	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Saccharimonadota	1	1	1	0	0.0	1	1.0	1	1.0
+Chrysiogenota	1	1	1	1	1.0	1	1.0	1	1.0
+Coprothermobacterota	1	1	1	0	0.0	0	0.0	1	1.0
+Kiritimatiellota	1	1	1	0	0.0	1	1.0	1	1.0
+Lentisphaerota	1	1	1	0	0.0	1	1.0	1	1.0
+Microcaldota	1	1	0	0	0.0	0		0	
+Minisyncoccota	1	1	1	0	0.0	1	1.0	1	1.0
+Promethearchaeota	1	1	1	0	0.0	1	1.0	1	1.0
+Thermosulfidibacterota	1	1	1	0	0.0	1	1.0	1	1.0

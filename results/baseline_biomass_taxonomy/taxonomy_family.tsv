@@ -1,0 +1,519 @@
+family	n_genomes_union	n_core	n_full	core_growers	core_grower_frac	full_gmm_growers	full_gmm_grower_frac	full_auxo_growers	full_auxo_grower_frac
+Enterobacteriaceae	280	280	280	261	0.9321	279	0.9964	280	1.0
+Bacillaceae	169	169	169	165	0.9763	121	0.716	167	0.9882
+Streptococcaceae	154	154	154	48	0.3117	1	0.0065	153	0.9935
+Burkholderiaceae	147	147	147	145	0.9864	147	1.0	147	1.0
+Lactobacillaceae	129	129	129	14	0.1085	4	0.031	124	0.9612
+Flavobacteriaceae	123	123	123	89	0.7236	122	0.9919	123	1.0
+Pseudomonadaceae	113	113	113	110	0.9735	113	1.0	113	1.0
+Corynebacteriaceae	101	101	101	98	0.9703	80	0.7921	101	1.0
+Mycobacteriaceae	95	95	95	94	0.9895	94	0.9895	95	1.0
+Staphylococcaceae	91	91	91	15	0.1648	69	0.7582	91	1.0
+Chlamydiaceae	88	88	88	0	0.0	88	1.0	88	1.0
+Pasteurellaceae	76	76	76	35	0.4605	76	1.0	76	1.0
+Helicobacteraceae	74	74	74	68	0.9189	74	1.0	74	1.0
+Lysobacteraceae	74	74	74	73	0.9865	72	0.973	73	0.9865
+Yersiniaceae	73	73	73	70	0.9589	73	1.0	73	1.0
+Streptomycetaceae	72	72	72	72	1.0	72	1.0	72	1.0
+Unassigned	68	68	58	18	0.2647	47	0.8103	58	1.0
+Vibrionaceae	66	66	66	61	0.9242	66	1.0	66	1.0
+Microbacteriaceae	65	65	65	50	0.7692	5	0.0769	62	0.9538
+Moraxellaceae	64	64	64	63	0.9844	64	1.0	64	1.0
+Rhizobiaceae	64	64	64	48	0.75	64	1.0	64	1.0
+Campylobacteraceae	63	62	63	49	0.7903	63	1.0	63	1.0
+Bifidobacteriaceae	60	60	60	1	0.0167	0	0.0	60	1.0
+Clostridiaceae	59	59	59	0	0.0	19	0.322	59	1.0
+Paenibacillaceae	58	58	58	56	0.9655	22	0.3793	58	1.0
+Comamonadaceae	57	57	57	53	0.9298	57	1.0	57	1.0
+Roseobacteraceae	56	56	56	54	0.9643	56	1.0	56	1.0
+Erwiniaceae	51	51	51	28	0.549	50	0.9804	51	1.0
+Alcaligenaceae	48	48	48	44	0.9167	48	1.0	48	1.0
+Rickettsiaceae	47	47	47	0	0.0	47	1.0	47	1.0
+Brucellaceae	46	46	46	40	0.8696	46	1.0	46	1.0
+Acetobacteraceae	45	45	45	34	0.7556	45	1.0	45	1.0
+Francisellaceae	45	45	45	40	0.8889	43	0.9556	45	1.0
+Metamycoplasmataceae	43	43	43	0	0.0	43	1.0	42	0.9767
+Micrococcaceae	43	43	43	36	0.8372	23	0.5349	42	0.9767
+Paracoccaceae	43	43	43	40	0.9302	43	1.0	43	1.0
+Listeriaceae	42	42	42	0	0.0	0	0.0	42	1.0
+Neisseriaceae	38	38	38	24	0.6316	38	1.0	38	1.0
+Pseudonocardiaceae	37	37	37	37	1.0	36	0.973	36	0.973
+Thermococcaceae	36	36	0	0	0.0	0		0	
+Weeksellaceae	36	36	36	26	0.7222	36	1.0	36	1.0
+Anaplasmataceae	34	34	34	0	0.0	33	0.9706	34	1.0
+Shewanellaceae	34	34	34	34	1.0	34	1.0	34	1.0
+Alteromonadaceae	33	33	33	31	0.9394	33	1.0	33	1.0
+Nitrobacteraceae	32	32	32	32	1.0	32	1.0	32	1.0
+Oxalobacteraceae	32	32	32	30	0.9375	32	1.0	32	1.0
+Sulfolobaceae	32	32	0	0	0.0	0		0	
+Methanosarcinaceae	31	31	31	0	0.0	31	1.0	31	1.0
+Nocardiaceae	31	31	31	31	1.0	31	1.0	31	1.0
+Propionibacteriaceae	31	31	31	8	0.2581	15	0.4839	31	1.0
+Halomonadaceae	30	30	30	19	0.6333	30	1.0	30	1.0
+Enterococcaceae	29	29	29	0	0.0	0	0.0	29	1.0
+Morganellaceae	29	29	29	28	0.9655	29	1.0	29	1.0
+Pectobacteriaceae	29	29	29	29	1.0	29	1.0	29	1.0
+Sphingobacteriaceae	27	27	27	21	0.7778	27	1.0	27	1.0
+Borreliaceae	26	26	26	0	0.0	23	0.8846	26	1.0
+Mycoplasmoidaceae	26	26	26	0	0.0	26	1.0	26	1.0
+Sphingomonadaceae	26	26	26	22	0.8462	26	1.0	26	1.0
+Spiroplasmataceae	26	26	26	0	0.0	18	0.6923	26	1.0
+Anoxybacillaceae	25	25	25	25	1.0	22	0.88	25	1.0
+Mycoplasmataceae	25	25	25	0	0.0	19	0.76	25	1.0
+Aeromonadaceae	24	24	24	23	0.9583	24	1.0	24	1.0
+Bartonellaceae	23	23	23	19	0.8261	23	1.0	23	1.0
+Caryophanaceae	22	22	22	16	0.7273	5	0.2273	22	1.0
+Desulfovibrionaceae	22	22	22	0	0.0	22	1.0	22	1.0
+Erythrobacteraceae	22	22	22	22	1.0	22	1.0	22	1.0
+Haloferacaceae	22	22	22	0	0.0	22	1.0	22	1.0
+Lachnospiraceae	22	22	22	0	0.0	0	0.0	22	1.0
+Legionellaceae	22	22	22	16	0.7273	22	1.0	22	1.0
+Methanobacteriaceae	22	22	22	0	0.0	22	1.0	22	1.0
+Methylobacteriaceae	22	22	22	21	0.9545	22	1.0	22	1.0
+Pseudoalteromonadaceae	22	22	22	21	0.9545	22	1.0	22	1.0
+Caulobacteraceae	21	21	21	20	0.9524	21	1.0	21	1.0
+Arcobacteraceae	20	20	20	19	0.95	20	1.0	20	1.0
+Actinomycetaceae	19	19	19	9	0.4737	0	0.0	18	0.9474
+Micromonosporaceae	19	19	19	17	0.8947	17	0.8947	19	1.0
+Chitinophagaceae	18	18	18	16	0.8889	18	1.0	18	1.0
+Natrialbaceae	18	18	18	0	0.0	18	1.0	18	1.0
+Thermotogaceae	18	18	18	0	0.0	6	0.3333	18	1.0
+Bacteroidaceae	17	17	17	8	0.4706	17	1.0	17	1.0
+Synechococcaceae	17	17	0	5	0.2941	0		0	
+Hymenobacteraceae	16	16	16	8	0.5	16	1.0	16	1.0
+Oscillospiraceae	16	16	16	0	0.0	1	0.0625	16	1.0
+Prochlorococcaceae	16	16	0	2	0.125	0		0	
+Deinococcaceae	15	15	15	11	0.7333	1	0.0667	15	1.0
+Ectothiorhodospiraceae	15	15	14	11	0.7333	14	1.0	14	1.0
+Phyllobacteriaceae	15	15	15	15	1.0	15	1.0	15	1.0
+Sphingobiaceae	15	15	15	15	1.0	15	1.0	15	1.0
+Thermaceae	15	15	15	11	0.7333	12	0.8	14	0.9333
+Thermoanaerobacteraceae	15	15	15	0	0.0	2	0.1333	15	1.0
+Zoogloeaceae	15	15	15	15	1.0	15	1.0	15	1.0
+Chlorobiaceae	14	14	14	8	0.5714	14	1.0	14	1.0
+Dehalococcoidaceae	14	14	14	0	0.0	14	1.0	14	1.0
+Fusobacteriaceae	14	14	14	0	0.0	14	1.0	14	1.0
+Haloarculaceae	14	14	14	0	0.0	14	1.0	14	1.0
+Leptospiraceae	14	14	14	3	0.2143	14	1.0	14	1.0
+Nocardioidaceae	14	14	14	7	0.5	4	0.2857	14	1.0
+Nostocaceae	14	14	0	14	1.0	0		0	
+Piscirickettsiaceae	14	14	14	7	0.5	14	1.0	14	1.0
+Rhodanobacteraceae	13	13	13	13	1.0	13	1.0	13	1.0
+Carnobacteriaceae	12	12	12	0	0.0	0	0.0	12	1.0
+Chromatiaceae	12	12	12	10	0.8333	12	1.0	12	1.0
+Desulfitobacteriaceae	12	12	12	3	0.25	1	0.0833	12	1.0
+Marinobacteraceae	12	12	12	10	0.8333	12	1.0	12	1.0
+Methanococcaceae	12	12	12	0	0.0	12	1.0	12	1.0
+Treponemataceae	12	12	12	0	0.0	12	1.0	12	1.0
+Acholeplasmataceae	11	11	11	0	0.0	7	0.6364	11	1.0
+Desulfurococcaceae	11	11	1	0	0.0	1	1.0	1	1.0
+Geobacteraceae	11	11	11	10	0.9091	11	1.0	11	1.0
+Gordoniaceae	11	11	11	11	1.0	11	1.0	11	1.0
+Hafniaceae	11	11	11	11	1.0	11	1.0	11	1.0
+Methylococcaceae	11	11	11	6	0.5455	11	1.0	11	1.0
+Oceanospirillaceae	11	11	11	10	0.9091	11	1.0	11	1.0
+Rhodospirillaceae	11	11	11	9	0.8182	11	1.0	11	1.0
+Thermoproteaceae	11	11	0	0	0.0	0		0	
+Azospirillaceae	10	10	10	10	1.0	10	1.0	10	1.0
+Chromobacteriaceae	10	10	10	10	1.0	10	1.0	10	1.0
+Colwelliaceae	10	10	10	8	0.8	10	1.0	10	1.0
+Coxiellaceae	10	10	10	0	0.0	10	1.0	10	1.0
+Entomoplasmataceae	10	10	10	0	0.0	3	0.3	10	1.0
+Halobacteriaceae	10	10	10	0	0.0	10	1.0	10	1.0
+Leptotrichiaceae	10	10	10	0	0.0	8	0.8	10	1.0
+Nitrosomonadaceae	10	10	10	10	1.0	10	1.0	10	1.0
+Prevotellaceae	10	10	10	0	0.0	10	1.0	10	1.0
+Sphaerotilaceae	10	10	10	9	0.9	10	1.0	10	1.0
+Sphingopyxidaceae	10	10	10	10	1.0	10	1.0	10	1.0
+Acidobacteriaceae	9	9	9	7	0.7778	9	1.0	9	1.0
+Aerococcaceae	9	9	9	0	0.0	0	0.0	9	1.0
+Blattabacteriaceae	9	9	9	0	0.0	9	1.0	9	1.0
+Caldicellulosiruptoraceae	9	9	9	0	0.0	5	0.5556	9	1.0
+Cellulomonadaceae	9	9	9	9	1.0	0	0.0	9	1.0
+Dermabacteraceae	9	9	9	8	0.8889	0	0.0	9	1.0
+Erysipelotrichaceae	9	9	9	0	0.0	0	0.0	9	1.0
+Pseudobdellovibrionaceae	9	9	9	5	0.5556	9	1.0	9	1.0
+Aquificaceae	8	8	8	0	0.0	8	1.0	8	1.0
+Archaeoglobaceae	8	8	0	0	0.0	0		0	
+Brachyspiraceae	8	8	8	0	0.0	8	1.0	8	1.0
+Candidatus Nanopelagicaceae	8	8	8	0	0.0	0	0.0	7	0.875
+Cellvibrionaceae	8	8	8	4	0.5	8	1.0	8	1.0
+Hyphomicrobiaceae	8	8	8	8	1.0	8	1.0	8	1.0
+Merismopediaceae	8	8	0	8	1.0	0		0	
+Methylophilaceae	8	8	8	4	0.5	8	1.0	8	1.0
+Nitrospiraceae	8	8	8	1	0.125	8	1.0	8	1.0
+Planctomycetaceae	8	8	8	3	0.375	8	1.0	8	1.0
+Stappiaceae	8	8	8	7	0.875	8	1.0	8	1.0
+Sulfurospirillaceae	8	8	8	8	1.0	8	1.0	8	1.0
+Zymomonadaceae	8	8	8	0	0.0	8	1.0	8	1.0
+Acidithiobacillaceae	7	7	7	7	1.0	7	1.0	7	1.0
+Cyclobacteriaceae	7	7	7	7	1.0	7	1.0	7	1.0
+Eggerthellaceae	7	7	7	2	0.2857	0	0.0	7	1.0
+Fervidobacteriaceae	7	7	7	0	0.0	0	0.0	7	1.0
+Geminocystaceae	7	7	0	7	1.0	0		0	
+Methanocaldococcaceae	7	7	7	0	0.0	7	1.0	7	1.0
+Nitrosopumilaceae	7	7	0	0	0.0	0		0	
+Promicromonosporaceae	7	7	7	7	1.0	0	0.0	7	1.0
+Veillonellaceae	7	7	7	3	0.4286	7	1.0	7	1.0
+Alicyclobacillaceae	6	6	6	5	0.8333	4	0.6667	6	1.0
+Aphanothecaceae	6	6	0	5	0.8333	0		0	
+Candidatus Johnevansiaceae	6	6	6	0	0.0	6	1.0	6	1.0
+Cytophagaceae	6	6	6	4	0.6667	6	1.0	6	1.0
+Devosiaceae	6	6	6	5	0.8333	6	1.0	6	1.0
+Intrasporangiaceae	6	6	6	2	0.3333	2	0.3333	6	1.0
+Methylocystaceae	6	6	6	6	1.0	6	1.0	6	1.0
+Microbulbiferaceae	6	6	6	6	1.0	6	1.0	6	1.0
+Myxococcaceae	6	6	6	6	1.0	6	1.0	6	1.0
+Peptostreptococcaceae	6	6	6	0	0.0	1	0.1667	6	1.0
+Pirellulaceae	6	6	6	6	1.0	6	1.0	6	1.0
+Rikenellaceae	6	6	6	0	0.0	6	1.0	6	1.0
+Selenomonadaceae	6	6	6	5	0.8333	6	1.0	6	1.0
+Sulfurimonadaceae	6	6	6	1	0.1667	6	1.0	6	1.0
+Thermodesulfobacteriaceae	6	6	6	0	0.0	6	1.0	6	1.0
+Xanthobacteraceae	6	6	6	6	1.0	6	1.0	6	1.0
+Alcanivoracaceae	5	5	5	2	0.4	5	1.0	5	1.0
+Alloboseaceae	5	5	5	5	1.0	5	1.0	5	1.0
+Anaerovoracaceae	5	5	5	0	0.0	0	0.0	5	1.0
+Candidatus Pseudothioglobaceae	5	5	5	0	0.0	5	1.0	5	1.0
+Dietziaceae	5	5	5	5	1.0	5	1.0	5	1.0
+Frankiaceae	5	5	5	3	0.6	5	1.0	5	1.0
+Idiomarinaceae	5	5	5	5	1.0	5	1.0	5	1.0
+Nocardiopsidaceae	5	5	5	5	1.0	4	0.8	5	1.0
+Porphyromonadaceae	5	5	5	0	0.0	5	1.0	4	0.8
+Spirochaetaceae	5	5	5	2	0.4	3	0.6	5	1.0
+Spirosomataceae	5	5	5	5	1.0	5	1.0	5	1.0
+Thermoactinomycetaceae	5	5	5	5	1.0	1	0.2	5	1.0
+Acetivibrionaceae	4	4	4	0	0.0	3	0.75	4	1.0
+Amoebophilaceae	4	4	4	0	0.0	4	1.0	4	1.0
+Anaerolineaceae	4	4	4	0	0.0	2	0.5	4	1.0
+Anaeromyxobacteraceae	4	4	4	4	1.0	4	1.0	4	1.0
+Archangiaceae	4	4	4	4	1.0	4	1.0	4	1.0
+Atopobiaceae	4	4	4	2	0.5	0	0.0	4	1.0
+Aurantimonadaceae	4	4	4	4	1.0	4	1.0	4	1.0
+Brevibacteriaceae	4	4	4	2	0.5	2	0.5	4	1.0
+Bruguierivoracaceae	4	4	4	1	0.25	4	1.0	4	1.0
+Budviciaceae	4	4	4	4	1.0	4	1.0	4	1.0
+Candidatus Pelagibacteraceae	4	4	4	0	0.0	4	1.0	4	1.0
+Eubacteriaceae	4	4	4	0	0.0	0	0.0	4	1.0
+Gallionellaceae	4	4	4	4	1.0	3	0.75	4	1.0
+Gemellaceae	4	4	4	0	0.0	0	0.0	4	1.0
+Isosphaeraceae	4	4	4	2	0.5	4	1.0	4	1.0
+Kangiellaceae	4	4	4	0	0.0	4	1.0	4	1.0
+Methanomicrobiaceae	4	4	0	0	0.0	0		0	
+Microcystaceae	4	4	0	3	0.75	0		0	
+Natronincolaceae	4	4	4	0	0.0	2	0.5	4	1.0
+Nautiliaceae	4	4	4	0	0.0	4	1.0	4	1.0
+Nitrososphaeraceae	4	4	0	0	0.0	0		0	
+Opitutaceae	4	4	4	3	0.75	4	1.0	4	1.0
+Ornithinimicrobiaceae	4	4	4	4	1.0	1	0.25	4	1.0
+Peptococcaceae	4	4	4	3	0.75	1	0.25	4	1.0
+Peptoniphilaceae	4	4	4	0	0.0	0	0.0	4	1.0
+Petrotogaceae	4	4	4	0	0.0	3	0.75	4	1.0
+Polyangiaceae	4	4	4	4	1.0	4	1.0	4	1.0
+Rhodocyclaceae	4	4	4	4	1.0	4	1.0	4	1.0
+Sphingorhabdaceae	4	4	4	4	1.0	4	1.0	4	1.0
+Sporomusaceae	4	4	4	2	0.5	3	0.75	4	1.0
+Streptosporangiaceae	4	4	4	4	1.0	2	0.5	4	1.0
+Sulfuricellaceae	4	4	4	1	0.25	4	1.0	4	1.0
+Tannerellaceae	4	4	4	2	0.5	4	1.0	4	1.0
+Thalassospiraceae	4	4	4	4	1.0	4	1.0	4	1.0
+Thermofilaceae	4	4	0	0	0.0	0		0	
+Acidaminococcaceae	3	3	3	0	0.0	3	1.0	3	1.0
+Acidiferrobacteraceae	3	3	3	2	0.6667	3	1.0	3	1.0
+Beijerinckiaceae	3	3	3	3	1.0	3	1.0	3	1.0
+Calotrichaceae	3	3	0	3	1.0	0		0	
+Chloroflexaceae	3	3	3	2	0.6667	0	0.0	3	1.0
+Clostridiales Family XVII. Incertae Sedis	3	3	3	0	0.0	0	0.0	3	1.0
+Desulfobulbaceae	3	3	3	1	0.3333	3	1.0	3	1.0
+Desulfosarcinaceae	3	3	3	3	1.0	3	1.0	3	1.0
+Desulfuromonadaceae	3	3	3	3	1.0	3	1.0	3	1.0
+Dysgonomonadaceae	3	3	3	0	0.0	3	1.0	3	1.0
+Endomicrobiaceae	3	3	3	0	0.0	3	1.0	3	1.0
+Flammeovirgaceae	3	3	3	3	1.0	3	1.0	3	1.0
+Gemmataceae	3	3	3	2	0.6667	3	1.0	3	1.0
+Gemmatimonadaceae	3	3	3	3	1.0	3	1.0	3	1.0
+Geodermatophilaceae	3	3	3	3	1.0	0	0.0	3	1.0
+Halanaerobiaceae	3	3	3	0	0.0	1	0.3333	3	1.0
+Halieaceae	3	3	3	1	0.3333	3	1.0	3	1.0
+Hydrogenothermaceae	3	3	3	0	0.0	3	1.0	3	1.0
+Hyphomonadaceae	3	3	3	3	1.0	3	1.0	3	1.0
+Kosmotogaceae	3	3	3	0	0.0	1	0.3333	3	1.0
+Leadbetterellaceae	3	3	3	3	1.0	3	1.0	3	1.0
+Leptolyngbyaceae	3	3	0	3	1.0	0		0	
+Methanocellaceae	3	3	3	0	0.0	3	1.0	3	1.0
+Methanoregulaceae	3	3	2	0	0.0	2	1.0	2	1.0
+Methanotrichaceae	3	3	3	0	0.0	2	0.6667	2	0.6667
+Methylacidiphilaceae	3	3	3	0	0.0	3	1.0	3	1.0
+Moritellaceae	3	3	3	3	1.0	3	1.0	3	1.0
+Neomoorellaceae	3	3	3	0	0.0	0	0.0	2	0.6667
+Orbaceae	3	3	3	2	0.6667	3	1.0	3	1.0
+Oscillatoriaceae	3	3	0	3	1.0	0		0	
+Parachlamydiaceae	3	3	3	1	0.3333	3	1.0	3	1.0
+Pyrodictiaceae	3	3	0	0	0.0	0		0	
+Rhizorhabdaceae	3	3	3	3	1.0	3	1.0	3	1.0
+Rhodothermaceae	3	3	3	2	0.6667	3	1.0	3	1.0
+Roseomonadaceae	3	3	3	3	1.0	3	1.0	3	1.0
+Sedimentisphaeraceae	3	3	3	0	0.0	3	1.0	3	1.0
+Sphaerochaetaceae	3	3	3	0	0.0	3	1.0	3	1.0
+Spongiibacteraceae	3	3	3	1	0.3333	3	1.0	3	1.0
+Sulfurovaceae	3	3	3	1	0.3333	3	1.0	3	1.0
+Syntrophomonadaceae	3	3	3	0	0.0	0	0.0	3	1.0
+Syntrophotaleaceae	3	3	3	3	1.0	3	1.0	3	1.0
+Thermosynechococcaceae	3	3	0	0	0.0	0		0	
+Acidilobaceae	2	2	0	0	0.0	0		0	
+Acidocellaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Akkermansiaceae	2	2	2	0	0.0	2	1.0	2	1.0
+Aphanizomenonaceae	2	2	0	2	1.0	0		0	
+Aquaspirillaceae	2	2	2	1	0.5	2	1.0	2	1.0
+Azonexaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Blastochloridaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Blastomonadaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Breznakiellaceae	2	2	2	0	0.0	2	1.0	2	1.0
+Candidatus Midichloriaceae	2	2	2	0	0.0	2	1.0	2	1.0
+Cellulosilyticaceae	2	2	2	0	0.0	0	0.0	2	1.0
+Chelatococcaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Chitinibacteraceae	2	2	2	2	1.0	2	1.0	2	1.0
+Chroococcaceae	2	2	0	2	1.0	0		0	
+Coleofasciculaceae	2	2	0	2	1.0	0		0	
+Coriobacteriaceae	2	2	2	0	0.0	0	0.0	2	1.0
+Dermacoccaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Dermocarpellaceae	2	2	0	2	1.0	0		0	
+Desulfobacteraceae	2	2	2	2	1.0	2	1.0	2	1.0
+Desulfocapsaceae	2	2	2	1	0.5	2	1.0	2	1.0
+Desulfomicrobiaceae	2	2	2	0	0.0	2	1.0	2	1.0
+Desulfurobacteriaceae	2	2	2	0	0.0	2	1.0	2	1.0
+Dictyoglomaceae	2	2	2	0	0.0	0	0.0	2	1.0
+Dongiaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Ferroplasmaceae	2	2	0	0	0.0	0		0	
+Fibrobacteraceae	2	2	2	0	0.0	2	1.0	2	1.0
+Fictibacillaceae	2	2	2	2	1.0	0	0.0	2	1.0
+Filifactoraceae	2	2	2	0	0.0	1	0.5	2	1.0
+Geovibrionaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Gloeobacteraceae	2	2	0	1	0.5	0		0	
+Hahellaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Halobacteriovoraceae	2	2	2	2	1.0	2	1.0	2	1.0
+Halobacteroidaceae	2	2	2	0	0.0	1	0.5	2	1.0
+Halothecacae	2	2	0	2	1.0	0		0	
+Halothiobacillaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Heliobacteriaceae	2	2	2	1	0.5	2	1.0	2	1.0
+Maricaulaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Mariprofundaceae	2	2	2	0	0.0	2	1.0	2	1.0
+Methanomassiliicoccaceae	2	2	0	0	0.0	0		0	
+Muribaculaceae	2	2	2	0	0.0	2	1.0	2	1.0
+Nakamurellaceae	2	2	2	1	0.5	0	0.0	2	1.0
+Natronomonadaceae	2	2	2	0	0.0	2	1.0	2	1.0
+Nevskiaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Nodosilineaceae	2	2	0	0	0.0	0		0	
+Odoribacteraceae	2	2	2	0	0.0	2	1.0	2	1.0
+Parvibaculaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Phreatobacteraceae	2	2	2	2	1.0	2	1.0	2	1.0
+Prolixibacteraceae	2	2	2	0	0.0	2	1.0	2	1.0
+Pseudanabaenaceae	2	2	0	1	0.5	0		0	
+Psychromonadaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Roseiflexaceae	2	2	2	0	0.0	0	0.0	2	1.0
+Rubrobacteraceae	2	2	2	0	0.0	0	0.0	2	1.0
+Saccharospirillaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Sedimenticolaceae	2	2	2	1	0.5	2	1.0	2	1.0
+Sphingosinicellaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Sterolibacteriaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Sutterellaceae	2	2	2	0	0.0	2	1.0	2	1.0
+Synergistaceae	2	2	2	0	0.0	2	1.0	2	1.0
+Syntrophobacteraceae	2	2	2	1	0.5	2	1.0	2	1.0
+Tepidanaerobacteraceae	2	2	2	0	0.0	0	0.0	2	1.0
+Thermodesulfobiaceae	2	2	2	0	0.0	2	1.0	2	1.0
+Thermomonosporaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Thermoplasmataceae	2	2	0	0	0.0	0		0	
+Thiotrichaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Tropherymataceae	2	2	2	0	0.0	0	0.0	2	1.0
+Tsukamurellaceae	2	2	2	2	1.0	2	1.0	2	1.0
+Turicibacteraceae	2	2	2	0	0.0	0	0.0	2	1.0
+Winmispiraceae	2	2	2	0	0.0	2	1.0	2	1.0
+Abyssicoccaceae	1	1	1	0	0.0	0	0.0	1	1.0
+Acaryochloridaceae	1	1	0	1	1.0	0		0	
+Acetomicrobiaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Acidilutibacteraceae	1	1	1	0	0.0	0	0.0	1	1.0
+Acidimicrobiaceae	1	1	1	1	1.0	0	0.0	1	1.0
+Acidothermaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Actinopolysporaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Acutalibacteraceae	1	1	1	0	0.0	0	0.0	1	1.0
+Ahrensiaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Allobogoriellaceae	1	1	1	1	1.0	0	0.0	1	1.0
+Allostellaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Aminobacteriaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Anaerohalosphaeraceae	1	1	1	0	0.0	1	1.0	1	1.0
+Anaerotignaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Bacteriovoracaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Baekduiaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Barnesiellaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Bernardetiaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Beutenbergiaceae	1	1	1	1	1.0	0	0.0	1	1.0
+Bradymonadaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Caldilineaceae	1	1	1	1	1.0	0	0.0	1	1.0
+Caldisericaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Caldisphaeraceae	1	1	0	0	0.0	0		0	
+Calditerrivibrionaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Calditrichaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Candidatus Babeliaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Brocadiaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Cloacimonadaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Hepatoplasmataceae	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Izemoplasmataceae	1	1	1	0	0.0	0	0.0	1	1.0
+Candidatus Korarchaeaceae	1	1	0	0	0.0	0		0	
+Candidatus Korobacteraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Candidatus Nucleicultricaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Paracaedibacteraceae	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Promineifilaceae	1	1	1	1	1.0	0	0.0	1	1.0
+Candidatus Puniceispirillaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Candidatus Saccharimonadaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Thermobaculaceae	1	1	1	0	0.0	0	0.0	1	1.0
+Cardiobacteriaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Catenulisporaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Chloracidobacteriaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Chloroherpetonaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Christensenellaceae	1	1	1	0	0.0	0	0.0	1	1.0
+Chroococcidiopsidaceae	1	1	0	1	1.0	0		0	
+Chrysiogenaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Clostridiales Family XVI. Incertae Sedis	1	1	1	0	0.0	1	1.0	1	1.0
+Conexibacteraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Conexivisphaeraceae	1	1	0	0	0.0	0		0	
+Coprothermobacteraceae	1	1	1	0	0.0	0	0.0	1	1.0
+Coraliomargaritaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Crocinitomicaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Cuniculiplasmataceae	1	1	0	0	0.0	0		0	
+Cyanothecaceae	1	1	0	1	1.0	0		0	
+Cyclonatronaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Cymatolegaceae	1	1	0	1	1.0	0		0	
+Deferribacteraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Dermatophilaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Desulfallaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Desulfarculaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfatibacillaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Desulfobaccaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfococcaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Desulfohalobiaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfomonilaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Desulforudaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfosudaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfotomaculaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfurellaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Egibacteraceae	1	1	1	0	0.0	0	0.0	1	1.0
+Elusimicrobiaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Emcibacteraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Euzebyaceae	1	1	1	1	1.0	0	0.0	1	1.0
+Ferrimonadaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Fervidicoccaceae	1	1	0	0	0.0	0		0	
+Fimbriimonadaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Flectobacillaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Flexistipitaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Fulvivirgaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Geitlerinemataceae	1	1	0	1	1.0	0		0	
+Geminicoccaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Geoalkalibacteraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Glycomycetaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Gomontiellaceae	1	1	0	1	1.0	0		0	
+Gottschalkiaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Granulosicoccaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Halalkalicoccaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Haliscomenobacteraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Halothermotrichaceae	1	1	1	0	0.0	0	0.0	1	1.0
+Hapalosiphonaceae	1	1	0	1	1.0	0		0	
+Hippeaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Holosporaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Hoyosellaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Hydrogenophilaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Ichthyobacteriaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Ignavibacteriaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Ilumatobacteraceae	1	1	1	1	1.0	0	0.0	1	1.0
+Immundisolibacteraceae	1	1	1	0	0.0	1	1.0	1	1.0
+Jonesiaceae	1	1	1	0	0.0	0	0.0	1	1.0
+Ketobacteraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Kineosporiaceae	1	1	1	1	1.0	0	0.0	1	1.0
+Kiritimatiellaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Kofleriaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Kribbellaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Ktedonosporobacteraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Kytococcaceae	1	1	1	0	0.0	0	0.0	1	1.0
+Labilitrichaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Lacipirellulaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Lawsonellaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Limnochordaceae	1	1	1	1	1.0	0	0.0	1	1.0
+Litorivicinaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Magnetococcaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Magnetospirillaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Mahellaceae	1	1	1	0	0.0	0	0.0	1	1.0
+Mangrovivirgaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Marinifilaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Marinilabiliaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Marivirgaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Melioribacteraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Mesoaciditogaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Methanocorpusculaceae	1	1	0	0	0.0	0		0	
+Methanomethylophilaceae	1	1	0	0	0.0	0		0	
+Methanopyraceae	1	1	1	0	0.0	1	1.0	1	1.0
+Methanospirillaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Methanothermaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Microcoleaceae	1	1	0	1	1.0	0		0	
+Nanosynbacteraceae	1	1	1	0	0.0	1	1.0	1	1.0
+Natranaerobiaceae	1	1	1	0	0.0	0	0.0	1	1.0
+Natronoarchaeaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Nitratiruptoraceae	1	1	1	0	0.0	1	1.0	1	1.0
+Nitrosotaleaceae	1	1	0	0	0.0	0		0	
+Nodulariaceae	1	1	0	1	1.0	0		0	
+Novispirillaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Oleiphilaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Owenweeksiaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Paludibacteraceae	1	1	1	0	0.0	1	1.0	1	1.0
+Parasphingopyxidaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Parvularculaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Peptoclostridiaceae	1	1	1	0	0.0	0	0.0	1	1.0
+Persicobacteraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Phycisphaeraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Picrophilaceae	1	1	0	0	0.0	0		0	
+Pleomorphomonadaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Pleurocapsaceae	1	1	0	1	1.0	0		0	
+Promethearchaeaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Pseudohongiellaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Rhodobiaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Rhodocytophagaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Rivulariaceae	1	1	0	1	1.0	0		0	
+Salinibacteraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Salinisphaeraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Salinivirgaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Sandaracinaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Sanguibacteraceae	1	1	1	1	1.0	0	0.0	1	1.0
+Saprospiraceae	1	1	1	0	0.0	1	1.0	1	1.0
+Segniliparaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Silvanigrellaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Simkaniaceae	1	1	1	0	0.0	0	0.0	0	0.0
+Sirenicapillariaceae	1	1	0	1	1.0	0		0	
+Solibacteraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Sphaerobacteraceae	1	1	1	0	0.0	0	0.0	1	1.0
+Sporichthyaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Sporolactobacillaceae	1	1	1	0	0.0	0	0.0	1	1.0
+Steroidobacteraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Symbiobacteriaceae	1	1	1	1	1.0	0	0.0	1	1.0
+Syntrophaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Tepidiformaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Thalassoporaceae	1	1	0	0	0.0	0		0	
+Thermincolaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Thermodesulfatatoraceae	1	1	1	0	0.0	1	1.0	1	1.0
+Thermodesulfovibrionaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Thermoguttaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Thermohalobacteraceae	1	1	1	0	0.0	1	1.0	1	1.0
+Thermomicrobiaceae	1	1	1	0	0.0	0	0.0	1	1.0
+Thermosediminibacteraceae	1	1	1	0	0.0	0	0.0	1	1.0
+Thermostichaceae	1	1	0	0	0.0	0		0	
+Thermosulfidibacteraceae	1	1	1	0	0.0	1	1.0	1	1.0
+Thermotaleaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Thermovirgaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Thioalkalibacteraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Thiobacillaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Thiohalobacteraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Tolypothrichaceae	1	1	0	1	1.0	0		0	
+Trueperaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Verrucomicrobiaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Vicinamibacteraceae	1	1	1	1	1.0	1	1.0	1	1.0
+Vulgatibacteraceae	1	1	1	0	0.0	1	1.0	1	1.0
+Waddliaceae	1	1	1	0	0.0	1	1.0	1	1.0
+Wenzhouxiangellaceae	1	1	1	1	1.0	1	1.0	1	1.0
+Woeseiaceae	1	1	1	0	0.0	1	1.0	1	1.0

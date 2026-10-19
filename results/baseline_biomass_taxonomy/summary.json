@@ -1,0 +1,1488 @@
+{
+ "growth_threshold": 1e-06,
+ "panels": {
+  "core": {
+   "panel": "core",
+   "model_set": "Core models (5,683)",
+   "media": "ModelSEED complete media (KBaseMedia.cpd, 347 compounds)",
+   "provenance": "results/results.csv",
+   "n_models": 5683,
+   "n_growers": 3461,
+   "frac_growers": 0.609,
+   "n_zero_growth": 2222,
+   "n_non_optimal": 0,
+   "n": 3461,
+   "min": 2.0302441409184695,
+   "q1": 35.323144960888385,
+   "median": 52.29764472327256,
+   "mean": 52.39044451723736,
+   "q3": 71.95098698766438,
+   "max": 87.21121348365895,
+   "sd": 20.676907730014342,
+   "cv": 0.3946694463188088,
+   "iqr": 36.627842026775994
+  },
+  "full_gmm": {
+   "panel": "full_gmm",
+   "model_set": "Genome-scale models (5,420)",
+   "media": "Glucose minimal media (Carbon-D-Glucose, -10 mmol/gDW/h)",
+   "provenance": "results/influence_v201/gsm_gmm/growth.json [on_disk]",
+   "n_models": 5420,
+   "n_growers": 4347,
+   "frac_growers": 0.802,
+   "n_zero_growth": 1073,
+   "n_non_optimal": 0,
+   "n": 4347,
+   "min": 0.012351029478449765,
+   "q1": 0.9234206895317435,
+   "median": 1.1784112987367905,
+   "mean": 1.0412617350767501,
+   "q3": 1.2511390713231965,
+   "max": 1.3612754723195672,
+   "sd": 0.2871618722635614,
+   "cv": 0.27578260353761586,
+   "iqr": 0.32771838179145296
+  },
+  "full_auxo": {
+   "panel": "full_auxo",
+   "model_set": "Genome-scale models (5,420)",
+   "media": "Auxotrophy media (-10 mmol/gDW/h)",
+   "provenance": "results/influence_v201/gsm_auxo/growth.json [on_disk]",
+   "n_models": 5420,
+   "n_growers": 5399,
+   "frac_growers": 0.9961,
+   "n_zero_growth": 21,
+   "n_non_optimal": 0,
+   "n": 5399,
+   "min": 0.020631120915774123,
+   "q1": 0.6050027084781892,
+   "median": 1.3647602866441446,
+   "mean": 1.318907842140152,
+   "q3": 1.896263489203318,
+   "max": 3.274997845245801,
+   "sd": 0.7793076186248898,
+   "cv": 0.5908734437125879,
+   "iqr": 1.2912607807251288
+  }
+ },
+ "genome_sets": {
+  "core": 5683,
+  "full": 5421,
+  "shared": 5420,
+  "core_only": 263,
+  "full_only": 1,
+  "union": 5684
+ },
+ "taxonomy": {
+  "superkingdom": {
+   "n_distinct": 2,
+   "n_unassigned_genomes": 0,
+   "top": [
+    {
+     "taxon": "Bacteria",
+     "core": 5384,
+     "full": 5266,
+     "union": 5385,
+     "core_growers": 3461,
+     "full_gmm_growers": 4193,
+     "full_auxo_growers": 5245
+    },
+    {
+     "taxon": "Archaea",
+     "core": 299,
+     "full": 155,
+     "union": 299,
+     "core_growers": 0,
+     "full_gmm_growers": 154,
+     "full_auxo_growers": 154
+    }
+   ]
+  },
+  "phylum": {
+   "n_distinct": 51,
+   "n_unassigned_genomes": 2,
+   "top": [
+    {
+     "taxon": "Pseudomonadota",
+     "core": 2366,
+     "full": 2365,
+     "union": 2366,
+     "core_growers": 1963,
+     "full_gmm_growers": 2356,
+     "full_auxo_growers": 2364
+    },
+    {
+     "taxon": "Bacillota",
+     "core": 1002,
+     "full": 1002,
+     "union": 1002,
+     "core_growers": 372,
+     "full_gmm_growers": 317,
+     "full_auxo_growers": 993
+    },
+    {
+     "taxon": "Actinomycetota",
+     "core": 717,
+     "full": 717,
+     "union": 717,
+     "core_growers": 552,
+     "full_gmm_growers": 429,
+     "full_auxo_growers": 710
+    },
+    {
+     "taxon": "Bacteroidota",
+     "core": 330,
+     "full": 330,
+     "union": 330,
+     "core_growers": 201,
+     "full_gmm_growers": 329,
+     "full_auxo_growers": 329
+    },
+    {
+     "taxon": "Methanobacteriota",
+     "core": 203,
+     "full": 153,
+     "union": 203,
+     "core_growers": 0,
+     "full_gmm_growers": 152,
+     "full_auxo_growers": 152
+    },
+    {
+     "taxon": "Campylobacterota",
+     "core": 180,
+     "full": 181,
+     "union": 181,
+     "core_growers": 147,
+     "full_gmm_growers": 181,
+     "full_auxo_growers": 181
+    },
+    {
+     "taxon": "Mycoplasmatota",
+     "core": 147,
+     "full": 147,
+     "union": 147,
+     "core_growers": 0,
+     "full_gmm_growers": 119,
+     "full_auxo_growers": 146
+    },
+    {
+     "taxon": "Cyanobacteriota",
+     "core": 118,
+     "full": 0,
+     "union": 118,
+     "core_growers": 79,
+     "full_gmm_growers": 0,
+     "full_auxo_growers": 0
+    },
+    {
+     "taxon": "Chlamydiota",
+     "core": 93,
+     "full": 93,
+     "union": 93,
+     "core_growers": 1,
+     "full_gmm_growers": 92,
+     "full_auxo_growers": 92
+    },
+    {
+     "taxon": "Spirochaetota",
+     "core": 72,
+     "full": 72,
+     "union": 72,
+     "core_growers": 5,
+     "full_gmm_growers": 67,
+     "full_auxo_growers": 72
+    },
+    {
+     "taxon": "Thermodesulfobacteriota",
+     "core": 69,
+     "full": 69,
+     "union": 69,
+     "core_growers": 27,
+     "full_gmm_growers": 69,
+     "full_auxo_growers": 69
+    },
+    {
+     "taxon": "Thermoproteota",
+     "core": 66,
+     "full": 1,
+     "union": 66,
+     "core_growers": 0,
+     "full_gmm_growers": 1,
+     "full_auxo_growers": 1
+    },
+    {
+     "taxon": "Thermotogota",
+     "core": 33,
+     "full": 33,
+     "union": 33,
+     "core_growers": 0,
+     "full_gmm_growers": 11,
+     "full_auxo_growers": 33
+    },
+    {
+     "taxon": "Deinococcota",
+     "core": 31,
+     "full": 31,
+     "union": 31,
+     "core_growers": 23,
+     "full_gmm_growers": 14,
+     "full_auxo_growers": 30
+    },
+    {
+     "taxon": "Planctomycetota",
+     "core": 29,
+     "full": 29,
+     "union": 29,
+     "core_growers": 15,
+     "full_gmm_growers": 29,
+     "full_auxo_growers": 29
+    },
+    {
+     "taxon": "Chloroflexota",
+     "core": 28,
+     "full": 28,
+     "union": 28,
+     "core_growers": 5,
+     "full_gmm_growers": 18,
+     "full_auxo_growers": 28
+    },
+    {
+     "taxon": "Fusobacteriota",
+     "core": 24,
+     "full": 24,
+     "union": 24,
+     "core_growers": 0,
+     "full_gmm_growers": 22,
+     "full_auxo_growers": 24
+    },
+    {
+     "taxon": "Myxococcota",
+     "core": 22,
+     "full": 22,
+     "union": 22,
+     "core_growers": 21,
+     "full_gmm_growers": 22,
+     "full_auxo_growers": 22
+    },
+    {
+     "taxon": "Chlorobiota",
+     "core": 15,
+     "full": 15,
+     "union": 15,
+     "core_growers": 9,
+     "full_gmm_growers": 15,
+     "full_auxo_growers": 15
+    },
+    {
+     "taxon": "Nitrososphaerota",
+     "core": 15,
+     "full": 0,
+     "union": 15,
+     "core_growers": 0,
+     "full_gmm_growers": 0,
+     "full_auxo_growers": 0
+    },
+    {
+     "taxon": "Verrucomicrobiota",
+     "core": 14,
+     "full": 14,
+     "union": 14,
+     "core_growers": 5,
+     "full_gmm_growers": 14,
+     "full_auxo_growers": 14
+    },
+    {
+     "taxon": "Acidobacteriota",
+     "core": 13,
+     "full": 13,
+     "union": 13,
+     "core_growers": 11,
+     "full_gmm_growers": 13,
+     "full_auxo_growers": 13
+    },
+    {
+     "taxon": "Aquificota",
+     "core": 13,
+     "full": 13,
+     "union": 13,
+     "core_growers": 0,
+     "full_gmm_growers": 13,
+     "full_auxo_growers": 13
+    },
+    {
+     "taxon": "Bdellovibrionota",
+     "core": 13,
+     "full": 13,
+     "union": 13,
+     "core_growers": 9,
+     "full_gmm_growers": 13,
+     "full_auxo_growers": 13
+    },
+    {
+     "taxon": "Thermoplasmatota",
+     "core": 13,
+     "full": 0,
+     "union": 13,
+     "core_growers": 0,
+     "full_gmm_growers": 0,
+     "full_auxo_growers": 0
+    }
+   ]
+  },
+  "class": {
+   "n_distinct": 108,
+   "n_unassigned_genomes": 97,
+   "top": [
+    {
+     "taxon": "Gammaproteobacteria",
+     "core": 1281,
+     "full": 1280,
+     "union": 1281,
+     "core_growers": 1083,
+     "full_gmm_growers": 1274,
+     "full_auxo_growers": 1279
+    },
+    {
+     "taxon": "Bacilli",
+     "core": 764,
+     "full": 764,
+     "union": 764,
+     "core_growers": 352,
+     "full_gmm_growers": 249,
+     "full_auxo_growers": 756
+    },
+    {
+     "taxon": "Actinomycetes",
+     "core": 696,
+     "full": 696,
+     "union": 696,
+     "core_growers": 544,
+     "full_gmm_growers": 427,
+     "full_auxo_growers": 689
+    },
+    {
+     "taxon": "Alphaproteobacteria",
+     "core": 656,
+     "full": 656,
+     "union": 656,
+     "core_growers": 503,
+     "full_gmm_growers": 655,
+     "full_auxo_growers": 656
+    },
+    {
+     "taxon": "Betaproteobacteria",
+     "core": 418,
+     "full": 418,
+     "union": 418,
+     "core_growers": 369,
+     "full_gmm_growers": 416,
+     "full_auxo_growers": 418
+    },
+    {
+     "taxon": "Clostridia",
+     "core": 190,
+     "full": 190,
+     "union": 190,
+     "core_growers": 9,
+     "full_gmm_growers": 42,
+     "full_auxo_growers": 189
+    },
+    {
+     "taxon": "Epsilonproteobacteria",
+     "core": 178,
+     "full": 179,
+     "union": 179,
+     "core_growers": 146,
+     "full_gmm_growers": 179,
+     "full_auxo_growers": 179
+    },
+    {
+     "taxon": "Flavobacteriia",
+     "core": 174,
+     "full": 174,
+     "union": 174,
+     "core_growers": 116,
+     "full_gmm_growers": 173,
+     "full_auxo_growers": 174
+    },
+    {
+     "taxon": "Cyanophyceae",
+     "core": 116,
+     "full": 0,
+     "union": 116,
+     "core_growers": 79,
+     "full_gmm_growers": 0,
+     "full_auxo_growers": 0
+    },
+    {
+     "taxon": "Unassigned",
+     "core": 97,
+     "full": 90,
+     "union": 97,
+     "core_growers": 7,
+     "full_gmm_growers": 84,
+     "full_auxo_growers": 89
+    },
+    {
+     "taxon": "Chlamydiia",
+     "core": 93,
+     "full": 93,
+     "union": 93,
+     "core_growers": 1,
+     "full_gmm_growers": 92,
+     "full_auxo_growers": 92
+    },
+    {
+     "taxon": "Mollicutes",
+     "core": 76,
+     "full": 76,
+     "union": 76,
+     "core_growers": 0,
+     "full_gmm_growers": 50,
+     "full_auxo_growers": 76
+    },
+    {
+     "taxon": "Halobacteria",
+     "core": 69,
+     "full": 69,
+     "union": 69,
+     "core_growers": 0,
+     "full_gmm_growers": 69,
+     "full_auxo_growers": 69
+    },
+    {
+     "taxon": "Thermoprotei",
+     "core": 65,
+     "full": 1,
+     "union": 65,
+     "core_growers": 0,
+     "full_gmm_growers": 1,
+     "full_auxo_growers": 1
+    },
+    {
+     "taxon": "Bacteroidia",
+     "core": 58,
+     "full": 58,
+     "union": 58,
+     "core_growers": 12,
+     "full_gmm_growers": 58,
+     "full_auxo_growers": 57
+    },
+    {
+     "taxon": "Spirochaetia",
+     "core": 58,
+     "full": 58,
+     "union": 58,
+     "core_growers": 2,
+     "full_gmm_growers": 53,
+     "full_auxo_growers": 58
+    },
+    {
+     "taxon": "Cytophagia",
+     "core": 51,
+     "full": 51,
+     "union": 51,
+     "core_growers": 35,
+     "full_gmm_growers": 51,
+     "full_auxo_growers": 51
+    },
+    {
+     "taxon": "Methanomicrobia",
+     "core": 46,
+     "full": 40,
+     "union": 46,
+     "core_growers": 0,
+     "full_gmm_growers": 39,
+     "full_auxo_growers": 39
+    },
+    {
+     "taxon": "Thermococci",
+     "core": 36,
+     "full": 0,
+     "union": 36,
+     "core_growers": 0,
+     "full_gmm_growers": 0,
+     "full_auxo_growers": 0
+    },
+    {
+     "taxon": "Thermotogae",
+     "core": 33,
+     "full": 33,
+     "union": 33,
+     "core_growers": 0,
+     "full_gmm_growers": 11,
+     "full_auxo_growers": 33
+    },
+    {
+     "taxon": "Deinococci",
+     "core": 31,
+     "full": 31,
+     "union": 31,
+     "core_growers": 23,
+     "full_gmm_growers": 14,
+     "full_auxo_growers": 30
+    },
+    {
+     "taxon": "Sphingobacteriia",
+     "core": 27,
+     "full": 27,
+     "union": 27,
+     "core_growers": 21,
+     "full_gmm_growers": 27,
+     "full_auxo_growers": 27
+    },
+    {
+     "taxon": "Desulfovibrionia",
+     "core": 25,
+     "full": 25,
+     "union": 25,
+     "core_growers": 0,
+     "full_gmm_growers": 25,
+     "full_auxo_growers": 25
+    },
+    {
+     "taxon": "Fusobacteriia",
+     "core": 24,
+     "full": 24,
+     "union": 24,
+     "core_growers": 0,
+     "full_gmm_growers": 22,
+     "full_auxo_growers": 24
+    },
+    {
+     "taxon": "Methanobacteria",
+     "core": 23,
+     "full": 23,
+     "union": 23,
+     "core_growers": 0,
+     "full_gmm_growers": 23,
+     "full_auxo_growers": 23
+    }
+   ]
+  },
+  "order": {
+   "n_distinct": 235,
+   "n_unassigned_genomes": 42,
+   "top": [
+    {
+     "taxon": "Enterobacterales",
+     "core": 481,
+     "full": 481,
+     "union": 481,
+     "core_growers": 432,
+     "full_gmm_growers": 479,
+     "full_auxo_growers": 481
+    },
+    {
+     "taxon": "Caryophanales",
+     "core": 431,
+     "full": 431,
+     "union": 431,
+     "core_growers": 290,
+     "full_gmm_growers": 244,
+     "full_auxo_growers": 429
+    },
+    {
+     "taxon": "Lactobacillales",
+     "core": 333,
+     "full": 333,
+     "union": 333,
+     "core_growers": 62,
+     "full_gmm_growers": 5,
+     "full_auxo_growers": 327
+    },
+    {
+     "taxon": "Burkholderiales",
+     "core": 301,
+     "full": 301,
+     "union": 301,
+     "core_growers": 286,
+     "full_gmm_growers": 301,
+     "full_auxo_growers": 301
+    },
+    {
+     "taxon": "Hyphomicrobiales",
+     "core": 260,
+     "full": 260,
+     "union": 260,
+     "core_growers": 231,
+     "full_gmm_growers": 260,
+     "full_auxo_growers": 260
+    },
+    {
+     "taxon": "Mycobacteriales",
+     "core": 249,
+     "full": 249,
+     "union": 249,
+     "core_growers": 244,
+     "full_gmm_growers": 227,
+     "full_auxo_growers": 249
+    },
+    {
+     "taxon": "Campylobacterales",
+     "core": 173,
+     "full": 174,
+     "union": 174,
+     "core_growers": 146,
+     "full_gmm_growers": 174,
+     "full_auxo_growers": 174
+    },
+    {
+     "taxon": "Flavobacteriales",
+     "core": 174,
+     "full": 174,
+     "union": 174,
+     "core_growers": 116,
+     "full_gmm_growers": 173,
+     "full_auxo_growers": 174
+    },
+    {
+     "taxon": "Micrococcales",
+     "core": 157,
+     "full": 157,
+     "union": 157,
+     "core_growers": 124,
+     "full_gmm_growers": 36,
+     "full_auxo_growers": 153
+    },
+    {
+     "taxon": "Pseudomonadales",
+     "core": 127,
+     "full": 127,
+     "union": 127,
+     "core_growers": 121,
+     "full_gmm_growers": 127,
+     "full_auxo_growers": 127
+    },
+    {
+     "taxon": "Alteromonadales",
+     "core": 110,
+     "full": 110,
+     "union": 110,
+     "core_growers": 105,
+     "full_gmm_growers": 110,
+     "full_auxo_growers": 110
+    },
+    {
+     "taxon": "Eubacteriales",
+     "core": 110,
+     "full": 110,
+     "union": 110,
+     "core_growers": 9,
+     "full_gmm_growers": 28,
+     "full_auxo_growers": 110
+    },
+    {
+     "taxon": "Rhodobacterales",
+     "core": 101,
+     "full": 101,
+     "union": 101,
+     "core_growers": 96,
+     "full_gmm_growers": 101,
+     "full_auxo_growers": 101
+    },
+    {
+     "taxon": "Sphingomonadales",
+     "core": 93,
+     "full": 93,
+     "union": 93,
+     "core_growers": 81,
+     "full_gmm_growers": 93,
+     "full_auxo_growers": 93
+    },
+    {
+     "taxon": "Chlamydiales",
+     "core": 88,
+     "full": 88,
+     "union": 88,
+     "core_growers": 0,
+     "full_gmm_growers": 88,
+     "full_auxo_growers": 88
+    },
+    {
+     "taxon": "Lysobacterales",
+     "core": 87,
+     "full": 87,
+     "union": 87,
+     "core_growers": 86,
+     "full_gmm_growers": 85,
+     "full_auxo_growers": 86
+    },
+    {
+     "taxon": "Rickettsiales",
+     "core": 85,
+     "full": 85,
+     "union": 85,
+     "core_growers": 1,
+     "full_gmm_growers": 84,
+     "full_auxo_growers": 85
+    },
+    {
+     "taxon": "Pasteurellales",
+     "core": 76,
+     "full": 76,
+     "union": 76,
+     "core_growers": 35,
+     "full_gmm_growers": 76,
+     "full_auxo_growers": 76
+    },
+    {
+     "taxon": "Kitasatosporales",
+     "core": 72,
+     "full": 72,
+     "union": 72,
+     "core_growers": 72,
+     "full_gmm_growers": 72,
+     "full_auxo_growers": 72
+    },
+    {
+     "taxon": "Halobacteriales",
+     "core": 69,
+     "full": 69,
+     "union": 69,
+     "core_growers": 0,
+     "full_gmm_growers": 69,
+     "full_auxo_growers": 69
+    },
+    {
+     "taxon": "Mycoplasmoidales",
+     "core": 69,
+     "full": 69,
+     "union": 69,
+     "core_growers": 0,
+     "full_gmm_growers": 69,
+     "full_auxo_growers": 68
+    },
+    {
+     "taxon": "Vibrionales",
+     "core": 66,
+     "full": 66,
+     "union": 66,
+     "core_growers": 61,
+     "full_gmm_growers": 66,
+     "full_auxo_growers": 66
+    },
+    {
+     "taxon": "Moraxellales",
+     "core": 64,
+     "full": 64,
+     "union": 64,
+     "core_growers": 63,
+     "full_gmm_growers": 64,
+     "full_auxo_growers": 64
+    },
+    {
+     "taxon": "Thiotrichales",
+     "core": 61,
+     "full": 61,
+     "union": 61,
+     "core_growers": 49,
+     "full_gmm_growers": 59,
+     "full_auxo_growers": 61
+    },
+    {
+     "taxon": "Bifidobacteriales",
+     "core": 60,
+     "full": 60,
+     "union": 60,
+     "core_growers": 1,
+     "full_gmm_growers": 0,
+     "full_auxo_growers": 60
+    }
+   ]
+  },
+  "family": {
+   "n_distinct": 517,
+   "n_unassigned_genomes": 68,
+   "top": [
+    {
+     "taxon": "Enterobacteriaceae",
+     "core": 280,
+     "full": 280,
+     "union": 280,
+     "core_growers": 261,
+     "full_gmm_growers": 279,
+     "full_auxo_growers": 280
+    },
+    {
+     "taxon": "Bacillaceae",
+     "core": 169,
+     "full": 169,
+     "union": 169,
+     "core_growers": 165,
+     "full_gmm_growers": 121,
+     "full_auxo_growers": 167
+    },
+    {
+     "taxon": "Streptococcaceae",
+     "core": 154,
+     "full": 154,
+     "union": 154,
+     "core_growers": 48,
+     "full_gmm_growers": 1,
+     "full_auxo_growers": 153
+    },
+    {
+     "taxon": "Burkholderiaceae",
+     "core": 147,
+     "full": 147,
+     "union": 147,
+     "core_growers": 145,
+     "full_gmm_growers": 147,
+     "full_auxo_growers": 147
+    },
+    {
+     "taxon": "Lactobacillaceae",
+     "core": 129,
+     "full": 129,
+     "union": 129,
+     "core_growers": 14,
+     "full_gmm_growers": 4,
+     "full_auxo_growers": 124
+    },
+    {
+     "taxon": "Flavobacteriaceae",
+     "core": 123,
+     "full": 123,
+     "union": 123,
+     "core_growers": 89,
+     "full_gmm_growers": 122,
+     "full_auxo_growers": 123
+    },
+    {
+     "taxon": "Pseudomonadaceae",
+     "core": 113,
+     "full": 113,
+     "union": 113,
+     "core_growers": 110,
+     "full_gmm_growers": 113,
+     "full_auxo_growers": 113
+    },
+    {
+     "taxon": "Corynebacteriaceae",
+     "core": 101,
+     "full": 101,
+     "union": 101,
+     "core_growers": 98,
+     "full_gmm_growers": 80,
+     "full_auxo_growers": 101
+    },
+    {
+     "taxon": "Mycobacteriaceae",
+     "core": 95,
+     "full": 95,
+     "union": 95,
+     "core_growers": 94,
+     "full_gmm_growers": 94,
+     "full_auxo_growers": 95
+    },
+    {
+     "taxon": "Staphylococcaceae",
+     "core": 91,
+     "full": 91,
+     "union": 91,
+     "core_growers": 15,
+     "full_gmm_growers": 69,
+     "full_auxo_growers": 91
+    },
+    {
+     "taxon": "Chlamydiaceae",
+     "core": 88,
+     "full": 88,
+     "union": 88,
+     "core_growers": 0,
+     "full_gmm_growers": 88,
+     "full_auxo_growers": 88
+    },
+    {
+     "taxon": "Pasteurellaceae",
+     "core": 76,
+     "full": 76,
+     "union": 76,
+     "core_growers": 35,
+     "full_gmm_growers": 76,
+     "full_auxo_growers": 76
+    },
+    {
+     "taxon": "Helicobacteraceae",
+     "core": 74,
+     "full": 74,
+     "union": 74,
+     "core_growers": 68,
+     "full_gmm_growers": 74,
+     "full_auxo_growers": 74
+    },
+    {
+     "taxon": "Lysobacteraceae",
+     "core": 74,
+     "full": 74,
+     "union": 74,
+     "core_growers": 73,
+     "full_gmm_growers": 72,
+     "full_auxo_growers": 73
+    },
+    {
+     "taxon": "Yersiniaceae",
+     "core": 73,
+     "full": 73,
+     "union": 73,
+     "core_growers": 70,
+     "full_gmm_growers": 73,
+     "full_auxo_growers": 73
+    },
+    {
+     "taxon": "Streptomycetaceae",
+     "core": 72,
+     "full": 72,
+     "union": 72,
+     "core_growers": 72,
+     "full_gmm_growers": 72,
+     "full_auxo_growers": 72
+    },
+    {
+     "taxon": "Unassigned",
+     "core": 68,
+     "full": 58,
+     "union": 68,
+     "core_growers": 18,
+     "full_gmm_growers": 47,
+     "full_auxo_growers": 58
+    },
+    {
+     "taxon": "Vibrionaceae",
+     "core": 66,
+     "full": 66,
+     "union": 66,
+     "core_growers": 61,
+     "full_gmm_growers": 66,
+     "full_auxo_growers": 66
+    },
+    {
+     "taxon": "Microbacteriaceae",
+     "core": 65,
+     "full": 65,
+     "union": 65,
+     "core_growers": 50,
+     "full_gmm_growers": 5,
+     "full_auxo_growers": 62
+    },
+    {
+     "taxon": "Moraxellaceae",
+     "core": 64,
+     "full": 64,
+     "union": 64,
+     "core_growers": 63,
+     "full_gmm_growers": 64,
+     "full_auxo_growers": 64
+    },
+    {
+     "taxon": "Rhizobiaceae",
+     "core": 64,
+     "full": 64,
+     "union": 64,
+     "core_growers": 48,
+     "full_gmm_growers": 64,
+     "full_auxo_growers": 64
+    },
+    {
+     "taxon": "Campylobacteraceae",
+     "core": 62,
+     "full": 63,
+     "union": 63,
+     "core_growers": 49,
+     "full_gmm_growers": 63,
+     "full_auxo_growers": 63
+    },
+    {
+     "taxon": "Bifidobacteriaceae",
+     "core": 60,
+     "full": 60,
+     "union": 60,
+     "core_growers": 1,
+     "full_gmm_growers": 0,
+     "full_auxo_growers": 60
+    },
+    {
+     "taxon": "Clostridiaceae",
+     "core": 59,
+     "full": 59,
+     "union": 59,
+     "core_growers": 0,
+     "full_gmm_growers": 19,
+     "full_auxo_growers": 59
+    },
+    {
+     "taxon": "Paenibacillaceae",
+     "core": 58,
+     "full": 58,
+     "union": 58,
+     "core_growers": 56,
+     "full_gmm_growers": 22,
+     "full_auxo_growers": 58
+    }
+   ]
+  },
+  "genus": {
+   "n_distinct": 1464,
+   "n_unassigned_genomes": 50,
+   "top": [
+    {
+     "taxon": "Streptococcus",
+     "core": 135,
+     "full": 135,
+     "union": 135,
+     "core_growers": 48,
+     "full_gmm_growers": 1,
+     "full_auxo_growers": 134
+    },
+    {
+     "taxon": "Bacillus",
+     "core": 112,
+     "full": 112,
+     "union": 112,
+     "core_growers": 110,
+     "full_gmm_growers": 102,
+     "full_auxo_growers": 111
+    },
+    {
+     "taxon": "Corynebacterium",
+     "core": 101,
+     "full": 101,
+     "union": 101,
+     "core_growers": 98,
+     "full_gmm_growers": 80,
+     "full_auxo_growers": 101
+    },
+    {
+     "taxon": "Pseudomonas",
+     "core": 92,
+     "full": 92,
+     "union": 92,
+     "core_growers": 90,
+     "full_gmm_growers": 92,
+     "full_auxo_growers": 92
+    },
+    {
+     "taxon": "Chlamydia",
+     "core": 88,
+     "full": 88,
+     "union": 88,
+     "core_growers": 0,
+     "full_gmm_growers": 88,
+     "full_auxo_growers": 88
+    },
+    {
+     "taxon": "Staphylococcus",
+     "core": 85,
+     "full": 85,
+     "union": 85,
+     "core_growers": 12,
+     "full_gmm_growers": 68,
+     "full_auxo_growers": 85
+    },
+    {
+     "taxon": "Burkholderia",
+     "core": 84,
+     "full": 84,
+     "union": 84,
+     "core_growers": 84,
+     "full_gmm_growers": 84,
+     "full_auxo_growers": 84
+    },
+    {
+     "taxon": "Helicobacter",
+     "core": 73,
+     "full": 73,
+     "union": 73,
+     "core_growers": 67,
+     "full_gmm_growers": 73,
+     "full_auxo_growers": 73
+    },
+    {
+     "taxon": "Escherichia",
+     "core": 65,
+     "full": 65,
+     "union": 65,
+     "core_growers": 65,
+     "full_gmm_growers": 65,
+     "full_auxo_growers": 65
+    },
+    {
+     "taxon": "Streptomyces",
+     "core": 65,
+     "full": 65,
+     "union": 65,
+     "core_growers": 65,
+     "full_gmm_growers": 65,
+     "full_auxo_growers": 65
+    },
+    {
+     "taxon": "Campylobacter",
+     "core": 62,
+     "full": 63,
+     "union": 63,
+     "core_growers": 49,
+     "full_gmm_growers": 63,
+     "full_auxo_growers": 63
+    },
+    {
+     "taxon": "Mycobacterium",
+     "core": 60,
+     "full": 60,
+     "union": 60,
+     "core_growers": 60,
+     "full_gmm_growers": 60,
+     "full_auxo_growers": 60
+    },
+    {
+     "taxon": "Bifidobacterium",
+     "core": 55,
+     "full": 55,
+     "union": 55,
+     "core_growers": 1,
+     "full_gmm_growers": 0,
+     "full_auxo_growers": 55
+    },
+    {
+     "taxon": "Vibrio",
+     "core": 54,
+     "full": 54,
+     "union": 54,
+     "core_growers": 50,
+     "full_gmm_growers": 54,
+     "full_auxo_growers": 54
+    },
+    {
+     "taxon": "Clostridium",
+     "core": 53,
+     "full": 53,
+     "union": 53,
+     "core_growers": 0,
+     "full_gmm_growers": 18,
+     "full_auxo_growers": 53
+    },
+    {
+     "taxon": "Unassigned",
+     "core": 50,
+     "full": 45,
+     "union": 50,
+     "core_growers": 21,
+     "full_gmm_growers": 37,
+     "full_auxo_growers": 45
+    },
+    {
+     "taxon": "Salmonella",
+     "core": 48,
+     "full": 48,
+     "union": 48,
+     "core_growers": 48,
+     "full_gmm_growers": 48,
+     "full_auxo_growers": 48
+    },
+    {
+     "taxon": "Paenibacillus",
+     "core": 47,
+     "full": 47,
+     "union": 47,
+     "core_growers": 45,
+     "full_gmm_growers": 13,
+     "full_auxo_growers": 47
+    },
+    {
+     "taxon": "Yersinia",
+     "core": 46,
+     "full": 46,
+     "union": 46,
+     "core_growers": 45,
+     "full_gmm_growers": 46,
+     "full_auxo_growers": 46
+    },
+    {
+     "taxon": "Brucella",
+     "core": 45,
+     "full": 45,
+     "union": 45,
+     "core_growers": 39,
+     "full_gmm_growers": 45,
+     "full_auxo_growers": 45
+    },
+    {
+     "taxon": "Klebsiella",
+     "core": 45,
+     "full": 45,
+     "union": 45,
+     "core_growers": 45,
+     "full_gmm_growers": 45,
+     "full_auxo_growers": 45
+    },
+    {
+     "taxon": "Acinetobacter",
+     "core": 44,
+     "full": 44,
+     "union": 44,
+     "core_growers": 43,
+     "full_gmm_growers": 44,
+     "full_auxo_growers": 44
+    },
+    {
+     "taxon": "Rickettsia",
+     "core": 44,
+     "full": 44,
+     "union": 44,
+     "core_growers": 0,
+     "full_gmm_growers": 44,
+     "full_auxo_growers": 44
+    },
+    {
+     "taxon": "Francisella",
+     "core": 43,
+     "full": 43,
+     "union": 43,
+     "core_growers": 38,
+     "full_gmm_growers": 41,
+     "full_auxo_growers": 43
+    },
+    {
+     "taxon": "Listeria",
+     "core": 41,
+     "full": 41,
+     "union": 41,
+     "core_growers": 0,
+     "full_gmm_growers": 0,
+     "full_auxo_growers": 41
+    }
+   ]
+  },
+  "species": {
+   "n_distinct": 4015,
+   "n_unassigned_genomes": 0,
+   "top": [
+    {
+     "taxon": "Escherichia coli",
+     "core": 61,
+     "full": 61,
+     "union": 61,
+     "core_growers": 61,
+     "full_gmm_growers": 61,
+     "full_auxo_growers": 61
+    },
+    {
+     "taxon": "Helicobacter pylori",
+     "core": 61,
+     "full": 61,
+     "union": 61,
+     "core_growers": 56,
+     "full_gmm_growers": 61,
+     "full_auxo_growers": 61
+    },
+    {
+     "taxon": "Staphylococcus aureus",
+     "core": 51,
+     "full": 51,
+     "union": 51,
+     "core_growers": 0,
+     "full_gmm_growers": 51,
+     "full_auxo_growers": 51
+    },
+    {
+     "taxon": "Chlamydia trachomatis",
+     "core": 50,
+     "full": 50,
+     "union": 50,
+     "core_growers": 0,
+     "full_gmm_growers": 50,
+     "full_auxo_growers": 50
+    },
+    {
+     "taxon": "Salmonella enterica",
+     "core": 44,
+     "full": 44,
+     "union": 44,
+     "core_growers": 44,
+     "full_gmm_growers": 44,
+     "full_auxo_growers": 44
+    },
+    {
+     "taxon": "Listeria monocytogenes",
+     "core": 33,
+     "full": 33,
+     "union": 33,
+     "core_growers": 0,
+     "full_gmm_growers": 0,
+     "full_auxo_growers": 33
+    },
+    {
+     "taxon": "Mycobacterium tuberculosis",
+     "core": 28,
+     "full": 28,
+     "union": 28,
+     "core_growers": 28,
+     "full_gmm_growers": 28,
+     "full_auxo_growers": 28
+    },
+    {
+     "taxon": "Streptococcus pneumoniae",
+     "core": 24,
+     "full": 24,
+     "union": 24,
+     "core_growers": 0,
+     "full_gmm_growers": 0,
+     "full_auxo_growers": 24
+    },
+    {
+     "taxon": "Klebsiella pneumoniae",
+     "core": 23,
+     "full": 23,
+     "union": 23,
+     "core_growers": 23,
+     "full_gmm_growers": 23,
+     "full_auxo_growers": 23
+    },
+    {
+     "taxon": "Francisella tularensis",
+     "core": 22,
+     "full": 22,
+     "union": 22,
+     "core_growers": 21,
+     "full_gmm_growers": 22,
+     "full_auxo_growers": 22
+    },
+    {
+     "taxon": "Campylobacter jejuni",
+     "core": 20,
+     "full": 21,
+     "union": 21,
+     "core_growers": 19,
+     "full_gmm_growers": 21,
+     "full_auxo_growers": 21
+    },
+    {
+     "taxon": "Corynebacterium pseudotuberculosis",
+     "core": 19,
+     "full": 19,
+     "union": 19,
+     "core_growers": 19,
+     "full_gmm_growers": 19,
+     "full_auxo_growers": 19
+    },
+    {
+     "taxon": "Acinetobacter baumannii",
+     "core": 18,
+     "full": 18,
+     "union": 18,
+     "core_growers": 18,
+     "full_gmm_growers": 18,
+     "full_auxo_growers": 18
+    },
+    {
+     "taxon": "Buchnera aphidicola",
+     "core": 18,
+     "full": 18,
+     "union": 18,
+     "core_growers": 0,
+     "full_gmm_growers": 17,
+     "full_auxo_growers": 18
+    },
+    {
+     "taxon": "Streptococcus pyogenes",
+     "core": 18,
+     "full": 18,
+     "union": 18,
+     "core_growers": 0,
+     "full_gmm_growers": 0,
+     "full_auxo_growers": 18
+    },
+    {
+     "taxon": "Chlamydia psittaci",
+     "core": 16,
+     "full": 16,
+     "union": 16,
+     "core_growers": 0,
+     "full_gmm_growers": 16,
+     "full_auxo_growers": 16
+    },
+    {
+     "taxon": "Streptococcus suis",
+     "core": 16,
+     "full": 16,
+     "union": 16,
+     "core_growers": 16,
+     "full_gmm_growers": 0,
+     "full_auxo_growers": 16
+    },
+    {
+     "taxon": "Yersinia pestis",
+     "core": 16,
+     "full": 16,
+     "union": 16,
+     "core_growers": 15,
+     "full_gmm_growers": 16,
+     "full_auxo_growers": 16
+    },
+    {
+     "taxon": "Bacillus thuringiensis",
+     "core": 15,
+     "full": 15,
+     "union": 15,
+     "core_growers": 15,
+     "full_gmm_growers": 15,
+     "full_auxo_growers": 15
+    },
+    {
+     "taxon": "Burkholderia pseudomallei",
+     "core": 15,
+     "full": 15,
+     "union": 15,
+     "core_growers": 15,
+     "full_gmm_growers": 15,
+     "full_auxo_growers": 15
+    },
+    {
+     "taxon": "Haemophilus influenzae",
+     "core": 15,
+     "full": 15,
+     "union": 15,
+     "core_growers": 0,
+     "full_gmm_growers": 15,
+     "full_auxo_growers": 15
+    },
+    {
+     "taxon": "Neisseria meningitidis",
+     "core": 15,
+     "full": 15,
+     "union": 15,
+     "core_growers": 6,
+     "full_gmm_growers": 15,
+     "full_auxo_growers": 15
+    },
+    {
+     "taxon": "Pseudomonas aeruginosa",
+     "core": 15,
+     "full": 15,
+     "union": 15,
+     "core_growers": 15,
+     "full_gmm_growers": 15,
+     "full_auxo_growers": 15
+    },
+    {
+     "taxon": "Bacillus subtilis",
+     "core": 14,
+     "full": 14,
+     "union": 14,
+     "core_growers": 14,
+     "full_gmm_growers": 14,
+     "full_auxo_growers": 14
+    },
+    {
+     "taxon": "Corynebacterium diphtheriae",
+     "core": 14,
+     "full": 14,
+     "union": 14,
+     "core_growers": 14,
+     "full_gmm_growers": 14,
+     "full_auxo_growers": 14
+    }
+   ]
+  }
+ }
+}

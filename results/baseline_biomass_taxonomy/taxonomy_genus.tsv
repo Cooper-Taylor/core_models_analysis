@@ -1,0 +1,1466 @@
+genus	n_genomes_union	n_core	n_full	core_growers	core_grower_frac	full_gmm_growers	full_gmm_grower_frac	full_auxo_growers	full_auxo_grower_frac
+Streptococcus	135	135	135	48	0.3556	1	0.0074	134	0.9926
+Bacillus	112	112	112	110	0.9821	102	0.9107	111	0.9911
+Corynebacterium	101	101	101	98	0.9703	80	0.7921	101	1.0
+Pseudomonas	92	92	92	90	0.9783	92	1.0	92	1.0
+Chlamydia	88	88	88	0	0.0	88	1.0	88	1.0
+Staphylococcus	85	85	85	12	0.1412	68	0.8	85	1.0
+Burkholderia	84	84	84	84	1.0	84	1.0	84	1.0
+Helicobacter	73	73	73	67	0.9178	73	1.0	73	1.0
+Escherichia	65	65	65	65	1.0	65	1.0	65	1.0
+Streptomyces	65	65	65	65	1.0	65	1.0	65	1.0
+Campylobacter	63	62	63	49	0.7903	63	1.0	63	1.0
+Mycobacterium	60	60	60	60	1.0	60	1.0	60	1.0
+Bifidobacterium	55	55	55	1	0.0182	0	0.0	55	1.0
+Vibrio	54	54	54	50	0.9259	54	1.0	54	1.0
+Clostridium	53	53	53	0	0.0	18	0.3396	53	1.0
+Unassigned	50	50	45	21	0.42	37	0.8222	45	1.0
+Salmonella	48	48	48	48	1.0	48	1.0	48	1.0
+Paenibacillus	47	47	47	45	0.9574	13	0.2766	47	1.0
+Yersinia	46	46	46	45	0.9783	46	1.0	46	1.0
+Brucella	45	45	45	39	0.8667	45	1.0	45	1.0
+Klebsiella	45	45	45	45	1.0	45	1.0	45	1.0
+Acinetobacter	44	44	44	43	0.9773	44	1.0	44	1.0
+Rickettsia	44	44	44	0	0.0	44	1.0	44	1.0
+Francisella	43	43	43	38	0.8837	41	0.9535	43	1.0
+Listeria	41	41	41	0	0.0	0	0.0	41	1.0
+Xanthomonas	37	37	37	37	1.0	37	1.0	37	1.0
+Shewanella	34	34	34	34	1.0	34	1.0	34	1.0
+Enterobacter	31	31	31	31	1.0	31	1.0	31	1.0
+Neisseria	30	30	30	20	0.6667	30	1.0	30	1.0
+Lactobacillus	27	27	27	4	0.1481	0	0.0	27	1.0
+Thermococcus	27	27	0	0	0.0	0		0	
+Spiroplasma	26	26	26	0	0.0	18	0.6923	26	1.0
+Mycoplasma	25	25	25	0	0.0	19	0.76	25	1.0
+Flavobacterium	24	24	24	11	0.4583	24	1.0	24	1.0
+Bartonella	22	22	22	18	0.8182	22	1.0	22	1.0
+Bordetella	22	22	22	21	0.9545	22	1.0	22	1.0
+Haemophilus	22	22	22	1	0.0455	22	1.0	22	1.0
+Legionella	22	22	22	16	0.7273	22	1.0	22	1.0
+Methanosarcina	22	22	22	0	0.0	22	1.0	22	1.0
+Mycolicibacterium	22	22	22	21	0.9545	21	0.9545	22	1.0
+Pseudoalteromonas	22	22	22	21	0.9545	22	1.0	22	1.0
+Alteromonas	21	21	21	20	0.9524	21	1.0	21	1.0
+Serratia	21	21	21	20	0.9524	21	1.0	21	1.0
+Enterococcus	20	20	20	0	0.0	0	0.0	20	1.0
+Mycoplasmoides	20	20	20	0	0.0	20	1.0	20	1.0
+Mycoplasmopsis	20	20	20	0	0.0	20	1.0	20	1.0
+Rhizobium	20	20	20	20	1.0	20	1.0	20	1.0
+Acetobacter	19	19	19	18	0.9474	19	1.0	19	1.0
+Aeromonas	19	19	19	19	1.0	19	1.0	19	1.0
+Paraburkholderia	19	19	19	19	1.0	19	1.0	19	1.0
+Bradyrhizobium	18	18	18	18	1.0	18	1.0	18	1.0
+Buchnera	18	18	18	0	0.0	17	0.9444	18	1.0
+Microbacterium	18	18	18	18	1.0	2	0.1111	18	1.0
+Rhodococcus	18	18	18	18	1.0	18	1.0	18	1.0
+Borreliella	17	17	17	0	0.0	15	0.8824	17	1.0
+Lacticaseibacillus	17	17	17	0	0.0	0	0.0	15	0.8824
+Lactococcus	17	17	17	0	0.0	0	0.0	17	1.0
+Synechococcus	17	17	0	5	0.2941	0		0	
+Citrobacter	16	16	16	16	1.0	16	1.0	16	1.0
+Geobacillus	16	16	16	16	1.0	16	1.0	16	1.0
+Pantoea	16	16	16	14	0.875	16	1.0	16	1.0
+Arthrobacter	15	15	15	14	0.9333	8	0.5333	15	1.0
+Bacteroides	15	15	15	8	0.5333	15	1.0	15	1.0
+Chryseobacterium	15	15	15	14	0.9333	15	1.0	15	1.0
+Cutibacterium	15	15	15	1	0.0667	15	1.0	15	1.0
+Deinococcus	15	15	15	11	0.7333	1	0.0667	15	1.0
+Ehrlichia	15	15	15	0	0.0	15	1.0	15	1.0
+Mannheimia	15	15	15	15	1.0	15	1.0	15	1.0
+Mesomycoplasma	15	15	15	0	0.0	15	1.0	15	1.0
+Saccharolobus	15	15	0	0	0.0	0		0	
+Sinorhizobium	15	15	15	14	0.9333	15	1.0	15	1.0
+Sphingobium	15	15	15	15	1.0	15	1.0	15	1.0
+Sphingomonas	15	15	15	15	1.0	15	1.0	15	1.0
+Thermotoga	14	14	14	0	0.0	2	0.1429	14	1.0
+Capnocytophaga	13	13	13	8	0.6154	13	1.0	13	1.0
+Fusobacterium	13	13	13	0	0.0	13	1.0	13	1.0
+Leptospira	13	13	13	2	0.1538	13	1.0	13	1.0
+Leuconostoc	13	13	13	5	0.3846	4	0.3077	12	0.9231
+Methylobacterium	13	13	13	12	0.9231	13	1.0	13	1.0
+Paracoccus	13	13	13	12	0.9231	13	1.0	13	1.0
+Pectobacterium	13	13	13	13	1.0	13	1.0	13	1.0
+Prochlorococcus	13	13	0	0	0.0	0		0	
+Shigella	13	13	13	13	1.0	13	1.0	13	1.0
+Cupriavidus	12	12	12	12	1.0	12	1.0	12	1.0
+Dehalococcoides	12	12	12	0	0.0	12	1.0	12	1.0
+Marinobacter	12	12	12	10	0.8333	12	1.0	12	1.0
+Pandoraea	12	12	12	12	1.0	12	1.0	12	1.0
+Psychrobacter	12	12	12	12	1.0	12	1.0	12	1.0
+Stenotrophomonas	12	12	12	12	1.0	11	0.9167	11	0.9167
+Treponema	12	12	12	0	0.0	12	1.0	12	1.0
+Amycolatopsis	11	11	11	11	1.0	11	1.0	11	1.0
+Cronobacter	11	11	11	11	1.0	11	1.0	11	1.0
+Gordonia	11	11	11	11	1.0	11	1.0	11	1.0
+Halomonas	11	11	11	9	0.8182	11	1.0	11	1.0
+Methanococcus	11	11	11	0	0.0	11	1.0	11	1.0
+Brevundimonas	10	10	10	10	1.0	10	1.0	10	1.0
+Hymenobacter	10	10	10	2	0.2	10	1.0	10	1.0
+Nocardia	10	10	10	10	1.0	10	1.0	10	1.0
+Sphingopyxis	10	10	10	10	1.0	10	1.0	10	1.0
+Stutzerimonas	10	10	10	10	1.0	10	1.0	10	1.0
+Thermus	10	10	10	9	0.9	9	0.9	10	1.0
+Weissella	10	10	10	1	0.1	0	0.0	8	0.8
+Agrobacterium	9	9	9	3	0.3333	9	1.0	9	1.0
+Blattabacterium	9	9	9	0	0.0	9	1.0	9	1.0
+Borrelia	9	9	9	0	0.0	8	0.8889	9	1.0
+Caldicellulosiruptor	9	9	9	0	0.0	5	0.5556	9	1.0
+Coxiella	9	9	9	0	0.0	9	1.0	9	1.0
+Dickeya	9	9	9	9	1.0	9	1.0	9	1.0
+Elizabethkingia	9	9	9	9	1.0	9	1.0	9	1.0
+Limosilactobacillus	9	9	9	0	0.0	0	0.0	9	1.0
+Mesoplasma	9	9	9	0	0.0	2	0.2222	9	1.0
+Mesorhizobium	9	9	9	9	1.0	9	1.0	9	1.0
+Mycobacteroides	9	9	9	9	1.0	9	1.0	9	1.0
+Novosphingobium	9	9	9	6	0.6667	9	1.0	9	1.0
+Ralstonia	9	9	9	9	1.0	9	1.0	9	1.0
+Wolbachia	9	9	9	0	0.0	8	0.8889	9	1.0
+Xylella	9	9	9	9	1.0	9	1.0	9	1.0
+Acidovorax	8	8	8	7	0.875	8	1.0	8	1.0
+Actinobacillus	8	8	8	3	0.375	8	1.0	8	1.0
+Actinomyces	8	8	8	3	0.375	0	0.0	7	0.875
+Azospirillum	8	8	8	8	1.0	8	1.0	8	1.0
+Brachyspira	8	8	8	0	0.0	8	1.0	8	1.0
+Candidatus Kinetoplastidibacterium	8	8	8	0	0.0	7	0.875	8	1.0
+Caulobacter	8	8	8	7	0.875	8	1.0	8	1.0
+Edwardsiella	8	8	8	8	1.0	8	1.0	8	1.0
+Erwinia	8	8	8	8	1.0	8	1.0	8	1.0
+Janthinobacterium	8	8	8	8	1.0	8	1.0	8	1.0
+Lactiplantibacillus	8	8	8	0	0.0	0	0.0	8	1.0
+Metamycoplasma	8	8	8	0	0.0	8	1.0	7	0.875
+Methanobacterium	8	8	8	0	0.0	8	1.0	8	1.0
+Mucilaginibacter	8	8	8	8	1.0	8	1.0	8	1.0
+Nocardioides	8	8	8	2	0.25	2	0.25	8	1.0
+Nostoc	8	8	0	8	1.0	0		0	
+Planococcus	8	8	8	7	0.875	0	0.0	8	1.0
+Proteus	8	8	8	8	1.0	8	1.0	8	1.0
+Providencia	8	8	8	8	1.0	8	1.0	8	1.0
+Pseudonocardia	8	8	8	8	1.0	7	0.875	7	0.875
+Pyrococcus	8	8	0	0	0.0	0		0	
+Sulfurospirillum	8	8	8	8	1.0	8	1.0	8	1.0
+Synechocystis	8	8	0	8	1.0	0		0	
+Thermoanaerobacter	8	8	8	0	0.0	1	0.125	8	1.0
+Zymomonas	8	8	8	0	0.0	8	1.0	8	1.0
+Achromobacter	7	7	7	7	1.0	7	1.0	7	1.0
+Acidithiobacillus	7	7	7	7	1.0	7	1.0	7	1.0
+Aerococcus	7	7	7	0	0.0	0	0.0	7	1.0
+Anaplasma	7	7	7	0	0.0	7	1.0	7	1.0
+Brachybacterium	7	7	7	6	0.8571	0	0.0	7	1.0
+Candidatus Carsonella	7	7	7	0	0.0	7	1.0	7	1.0
+Candidatus Phytoplasma	7	7	7	0	0.0	7	1.0	7	1.0
+Cellulomonas	7	7	7	7	1.0	0	0.0	7	1.0
+Chromobacterium	7	7	7	7	1.0	7	1.0	7	1.0
+Geobacter	7	7	7	6	0.8571	7	1.0	7	1.0
+Liberibacter	7	7	7	0	0.0	7	1.0	7	1.0
+Micromonospora	7	7	7	7	1.0	7	1.0	7	1.0
+Nitrosomonas	7	7	7	7	1.0	7	1.0	7	1.0
+Pedobacter	7	7	7	4	0.5714	7	1.0	7	1.0
+Prevotella	7	7	7	0	0.0	7	1.0	7	1.0
+Rathayibacter	7	7	7	7	1.0	3	0.4286	7	1.0
+Rhodopseudomonas	7	7	7	7	1.0	7	1.0	7	1.0
+Sphingobacterium	7	7	7	6	0.8571	7	1.0	7	1.0
+Virgibacillus	7	7	7	7	1.0	3	0.4286	7	1.0
+Aggregatibacter	6	6	6	4	0.6667	6	1.0	6	1.0
+Aliarcobacter	6	6	6	5	0.8333	6	1.0	6	1.0
+Arcobacter	6	6	6	6	1.0	6	1.0	6	1.0
+Azoarcus	6	6	6	6	1.0	6	1.0	6	1.0
+Bdellovibrio	6	6	6	5	0.8333	6	1.0	6	1.0
+Candidatus Blochmanniella	6	6	6	0	0.0	6	1.0	6	1.0
+Candidatus Planktophila	6	6	6	0	0.0	0	0.0	5	0.8333
+Colwellia	6	6	6	5	0.8333	6	1.0	6	1.0
+Companilactobacillus	6	6	6	0	0.0	0	0.0	6	1.0
+Desulfovibrio	6	6	6	0	0.0	6	1.0	6	1.0
+Erythrobacter	6	6	6	6	1.0	6	1.0	6	1.0
+Herbaspirillum	6	6	6	6	1.0	6	1.0	6	1.0
+Hydrogenophaga	6	6	6	6	1.0	6	1.0	6	1.0
+Komagataeibacter	6	6	6	6	1.0	6	1.0	6	1.0
+Leclercia	6	6	6	6	1.0	6	1.0	6	1.0
+Leptotrichia	6	6	6	0	0.0	5	0.8333	6	1.0
+Ligilactobacillus	6	6	6	0	0.0	0	0.0	6	1.0
+Lysinibacillus	6	6	6	6	1.0	3	0.5	6	1.0
+Lysobacter	6	6	6	6	1.0	6	1.0	6	1.0
+Massilia	6	6	6	5	0.8333	6	1.0	6	1.0
+Methanobrevibacter	6	6	6	0	0.0	6	1.0	6	1.0
+Methanocaldococcus	6	6	6	0	0.0	6	1.0	6	1.0
+Methanothermobacter	6	6	6	0	0.0	6	1.0	6	1.0
+Methylorubrum	6	6	6	6	1.0	6	1.0	6	1.0
+Microbulbifer	6	6	6	6	1.0	6	1.0	6	1.0
+Moraxella	6	6	6	6	1.0	6	1.0	6	1.0
+Nitrosopumilus	6	6	0	0	0.0	0		0	
+Pasteurella	6	6	6	5	0.8333	6	1.0	6	1.0
+Pediococcus	6	6	6	0	0.0	0	0.0	6	1.0
+Phaeobacter	6	6	6	6	1.0	6	1.0	6	1.0
+Priestia	6	6	6	6	1.0	5	0.8333	5	0.8333
+Pyrobaculum	6	6	0	0	0.0	0		0	
+Rhodoferax	6	6	6	6	1.0	6	1.0	6	1.0
+Riemerella	6	6	6	0	0.0	6	1.0	6	1.0
+Sporosarcina	6	6	6	4	0.6667	2	0.3333	6	1.0
+Variovorax	6	6	6	5	0.8333	6	1.0	6	1.0
+Xenorhabdus	6	6	6	6	1.0	6	1.0	6	1.0
+Actinoalloteichus	5	5	5	5	1.0	5	1.0	5	1.0
+Actinoplanes	5	5	5	5	1.0	4	0.8	5	1.0
+Alistipes	5	5	5	0	0.0	5	1.0	5	1.0
+Allobosea	5	5	5	5	1.0	5	1.0	5	1.0
+Anoxybacillus	5	5	5	5	1.0	2	0.4	5	1.0
+Archaeoglobus	5	5	0	0	0.0	0		0	
+Blautia	5	5	5	0	0.0	0	0.0	5	1.0
+Brevibacillus	5	5	5	5	1.0	5	1.0	5	1.0
+Candidatus Portiera	5	5	5	0	0.0	5	1.0	5	1.0
+Carnobacterium	5	5	5	0	0.0	0	0.0	5	1.0
+Cellulophaga	5	5	5	3	0.6	5	1.0	5	1.0
+Cellvibrio	5	5	5	1	0.2	5	1.0	5	1.0
+Chlorobium	5	5	5	3	0.6	5	1.0	5	1.0
+Clavibacter	5	5	5	5	1.0	0	0.0	3	0.6
+Desulfitobacterium	5	5	5	3	0.6	0	0.0	5	1.0
+Dietzia	5	5	5	5	1.0	5	1.0	5	1.0
+Exiguobacterium	5	5	5	1	0.2	0	0.0	5	1.0
+Gluconobacter	5	5	5	2	0.4	5	1.0	5	1.0
+Haloarcula	5	5	5	0	0.0	5	1.0	5	1.0
+Halorubrum	5	5	5	0	0.0	5	1.0	5	1.0
+Idiomarina	5	5	5	5	1.0	5	1.0	5	1.0
+Jeotgalibaca	5	5	5	0	0.0	0	0.0	5	1.0
+Kocuria	5	5	5	5	1.0	3	0.6	5	1.0
+Kosakonia	5	5	5	5	1.0	5	1.0	5	1.0
+Malaciobacter	5	5	5	5	1.0	5	1.0	5	1.0
+Maribacter	5	5	5	5	1.0	5	1.0	5	1.0
+Metallosphaera	5	5	0	0	0.0	0		0	
+Methylocystis	5	5	5	5	1.0	5	1.0	5	1.0
+Methylomonas	5	5	5	5	1.0	5	1.0	5	1.0
+Nonlabens	5	5	5	5	1.0	5	1.0	5	1.0
+Polaribacter	5	5	5	5	1.0	5	1.0	5	1.0
+Polaromonas	5	5	5	5	1.0	5	1.0	5	1.0
+Porphyromonas	5	5	5	0	0.0	5	1.0	4	0.8
+Pseudarthrobacter	5	5	5	3	0.6	2	0.4	5	1.0
+Pseudodesulfovibrio	5	5	5	0	0.0	5	1.0	5	1.0
+Pseudoduganella	5	5	5	4	0.8	5	1.0	5	1.0
+Roseovarius	5	5	5	5	1.0	5	1.0	5	1.0
+Spirosoma	5	5	5	4	0.8	5	1.0	5	1.0
+Sulfurimonas	5	5	5	1	0.2	5	1.0	5	1.0
+Tenacibaculum	5	5	5	4	0.8	5	1.0	5	1.0
+Thauera	5	5	5	5	1.0	5	1.0	5	1.0
+Thioalkalivibrio	5	5	5	5	1.0	5	1.0	5	1.0
+Acetivibrio	4	4	4	0	0.0	3	0.75	4	1.0
+Acholeplasma	4	4	4	0	0.0	0	0.0	4	1.0
+Acidianus	4	4	0	0	0.0	0		0	
+Acidipropionibacterium	4	4	4	0	0.0	0	0.0	4	1.0
+Aeromicrobium	4	4	4	4	1.0	1	0.25	4	1.0
+Anabaena	4	4	0	4	1.0	0		0	
+Anaeromyxobacter	4	4	4	4	1.0	4	1.0	4	1.0
+Azotobacter	4	4	4	4	1.0	4	1.0	4	1.0
+Bibersteinia	4	4	4	0	0.0	4	1.0	4	1.0
+Brevibacterium	4	4	4	2	0.5	2	0.5	4	1.0
+Candidatus Neoarthromitus	4	4	4	0	0.0	0	0.0	4	1.0
+Cereibacter	4	4	4	4	1.0	4	1.0	4	1.0
+Chitinophaga	4	4	4	4	1.0	4	1.0	4	1.0
+Christiangramia	4	4	4	2	0.5	4	1.0	4	1.0
+Comamonas	4	4	4	4	1.0	4	1.0	4	1.0
+Delftia	4	4	4	4	1.0	4	1.0	4	1.0
+Dokdonia	4	4	4	3	0.75	4	1.0	4	1.0
+Dyella	4	4	4	4	1.0	4	1.0	4	1.0
+Erysipelothrix	4	4	4	0	0.0	0	0.0	4	1.0
+Gemella	4	4	4	0	0.0	0	0.0	4	1.0
+Glaesserella	4	4	4	3	0.75	4	1.0	4	1.0
+Glutamicibacter	4	4	4	4	1.0	4	1.0	4	1.0
+Halobacterium	4	4	4	0	0.0	4	1.0	4	1.0
+Haloferax	4	4	4	0	0.0	4	1.0	4	1.0
+Haloplanus	4	4	4	0	0.0	4	1.0	4	1.0
+Hyphomicrobium	4	4	4	4	1.0	4	1.0	4	1.0
+Kangiella	4	4	4	0	0.0	4	1.0	4	1.0
+Kitasatospora	4	4	4	4	1.0	4	1.0	4	1.0
+Labrenzia	4	4	4	4	1.0	4	1.0	4	1.0
+Lentilactobacillus	4	4	4	3	0.75	0	0.0	4	1.0
+Leptospirillum	4	4	4	1	0.25	4	1.0	4	1.0
+Levilactobacillus	4	4	4	0	0.0	0	0.0	4	1.0
+Magnetospirillum	4	4	4	4	1.0	4	1.0	4	1.0
+Microcystis	4	4	0	3	0.75	0		0	
+Mixta	4	4	4	4	1.0	4	1.0	4	1.0
+Myroides	4	4	4	4	1.0	4	1.0	4	1.0
+Natrinema	4	4	4	0	0.0	4	1.0	4	1.0
+Neorhizobium	4	4	4	2	0.5	4	1.0	4	1.0
+Nitratidesulfovibrio	4	4	4	0	0.0	4	1.0	4	1.0
+Nitrosococcus	4	4	4	4	1.0	4	1.0	4	1.0
+Nitrospira	4	4	4	0	0.0	4	1.0	4	1.0
+Octadecabacter	4	4	4	4	1.0	4	1.0	4	1.0
+Photorhabdus	4	4	4	4	1.0	4	1.0	4	1.0
+Picosynechococcus	4	4	0	4	1.0	0		0	
+Polynucleobacter	4	4	4	3	0.75	4	1.0	4	1.0
+Prosthecochloris	4	4	4	0	0.0	4	1.0	4	1.0
+Pseudothermotoga	4	4	4	0	0.0	4	1.0	4	1.0
+Ruegeria	4	4	4	4	1.0	4	1.0	4	1.0
+Selenomonas	4	4	4	3	0.75	4	1.0	4	1.0
+Sodalis	4	4	4	1	0.25	4	1.0	4	1.0
+Sphingorhabdus	4	4	4	4	1.0	4	1.0	4	1.0
+Spiribacter	4	4	4	1	0.25	4	1.0	4	1.0
+Sulfitobacter	4	4	4	4	1.0	4	1.0	4	1.0
+Tessaracoccus	4	4	4	3	0.75	0	0.0	4	1.0
+Tetragenococcus	4	4	4	0	0.0	0	0.0	4	1.0
+Thermosipho	4	4	4	0	0.0	0	0.0	4	1.0
+Ureaplasma	4	4	4	0	0.0	4	1.0	4	1.0
+Vagococcus	4	4	4	0	0.0	0	0.0	4	1.0
+Vreelandella	4	4	4	4	1.0	4	1.0	4	1.0
+Afipia	3	3	3	3	1.0	3	1.0	3	1.0
+Agromyces	3	3	3	2	0.6667	0	0.0	3	1.0
+Alcaligenes	3	3	3	3	1.0	3	1.0	3	1.0
+Aliivibrio	3	3	3	3	1.0	3	1.0	3	1.0
+Altererythrobacter	3	3	3	3	1.0	3	1.0	3	1.0
+Aminipila	3	3	3	0	0.0	0	0.0	3	1.0
+Ancylobacter	3	3	3	3	1.0	3	1.0	3	1.0
+Aquimarina	3	3	3	3	1.0	3	1.0	3	1.0
+Arachidicoccus	3	3	3	3	1.0	3	1.0	3	1.0
+Aurantimicrobium	3	3	3	0	0.0	0	0.0	3	1.0
+Brenneria	3	3	3	3	1.0	3	1.0	3	1.0
+Caballeronia	3	3	3	3	1.0	3	1.0	3	1.0
+Calothrix	3	3	0	3	1.0	0		0	
+Candidatus Cardinium	3	3	3	0	0.0	3	1.0	3	1.0
+Candidatus Palibaumannia	3	3	3	0	0.0	3	1.0	3	1.0
+Cedecea	3	3	3	3	1.0	3	1.0	3	1.0
+Celeribacter	3	3	3	3	1.0	3	1.0	3	1.0
+Chlorobaculum	3	3	3	3	1.0	3	1.0	3	1.0
+Chloroflexus	3	3	3	2	0.6667	0	0.0	3	1.0
+Clostridioides	3	3	3	0	0.0	0	0.0	3	1.0
+Collimonas	3	3	3	3	1.0	3	1.0	3	1.0
+Corallococcus	3	3	3	3	1.0	3	1.0	3	1.0
+Curtobacterium	3	3	3	3	1.0	0	0.0	3	1.0
+Cycloclasticus	3	3	3	0	0.0	3	1.0	3	1.0
+Dehalobacter	3	3	3	0	0.0	0	0.0	3	1.0
+Desulforamulus	3	3	3	3	1.0	0	0.0	3	1.0
+Desulfosarcina	3	3	3	3	1.0	3	1.0	3	1.0
+Desulfosporosinus	3	3	3	0	0.0	1	0.3333	3	1.0
+Desulfurococcus	3	3	1	0	0.0	1	1.0	1	1.0
+Devosia	3	3	3	2	0.6667	3	1.0	3	1.0
+Echinicola	3	3	3	3	1.0	3	1.0	3	1.0
+Ectopseudomonas	3	3	3	3	1.0	3	1.0	3	1.0
+Eubacterium	3	3	3	0	0.0	0	0.0	3	1.0
+Fervidobacterium	3	3	3	0	0.0	0	0.0	3	1.0
+Flagellimonas	3	3	3	3	1.0	3	1.0	3	1.0
+Formosa	3	3	3	1	0.3333	2	0.6667	3	1.0
+Gardnerella	3	3	3	0	0.0	0	0.0	3	1.0
+Granulibacter	3	3	3	3	1.0	3	1.0	3	1.0
+Granulicella	3	3	3	1	0.3333	3	1.0	3	1.0
+Halobacillus	3	3	3	3	1.0	0	0.0	3	1.0
+Halomicrobium	3	3	3	0	0.0	3	1.0	3	1.0
+Halorhabdus	3	3	3	0	0.0	3	1.0	3	1.0
+Heyndrickxia	3	3	3	3	1.0	0	0.0	3	1.0
+Hydrogenobaculum	3	3	3	0	0.0	3	1.0	3	1.0
+Janibacter	3	3	3	1	0.3333	0	0.0	3	1.0
+Ketogulonicigenium	3	3	3	2	0.6667	3	1.0	3	1.0
+Kushneria	3	3	3	3	1.0	3	1.0	3	1.0
+Lachnoclostridium	3	3	3	0	0.0	0	0.0	3	1.0
+Lacinutrix	3	3	3	3	1.0	3	1.0	3	1.0
+Leisingera	3	3	3	3	1.0	3	1.0	3	1.0
+Lelliottia	3	3	3	3	1.0	3	1.0	3	1.0
+Leptolyngbya	3	3	0	3	1.0	0		0	
+Luteimonas	3	3	3	3	1.0	3	1.0	3	1.0
+Marinomonas	3	3	3	3	1.0	3	1.0	3	1.0
+Martelella	3	3	3	3	1.0	3	1.0	3	1.0
+Martinezella	3	3	3	3	1.0	3	1.0	3	1.0
+Methanocella	3	3	3	0	0.0	3	1.0	3	1.0
+Methanoculleus	3	3	0	0	0.0	0		0	
+Methanothrix	3	3	3	0	0.0	2	0.6667	2	0.6667
+Methylacidiphilum (ex Ratnadevi et al. 2023)	3	3	3	0	0.0	3	1.0	3	1.0
+Methylophaga	3	3	3	3	1.0	3	1.0	3	1.0
+Microlunatus	3	3	3	1	0.3333	0	0.0	3	1.0
+Microvirga	3	3	3	3	1.0	3	1.0	3	1.0
+Moritella	3	3	3	3	1.0	3	1.0	3	1.0
+Mycolicibacter	3	3	3	3	1.0	3	1.0	3	1.0
+Natrarchaeobaculum	3	3	3	0	0.0	3	1.0	3	1.0
+Natronorubrum	3	3	3	0	0.0	3	1.0	3	1.0
+Neomoorella	3	3	3	0	0.0	0	0.0	2	0.6667
+Neorickettsia	3	3	3	0	0.0	3	1.0	3	1.0
+Nitrososphaera	3	3	0	0	0.0	0		0	
+Nitrosospira	3	3	3	3	1.0	3	1.0	3	1.0
+Nocardiopsis	3	3	3	3	1.0	3	1.0	3	1.0
+Oenococcus	3	3	3	1	0.3333	0	0.0	3	1.0
+Ornithinimicrobium	3	3	3	3	1.0	1	0.3333	3	1.0
+Parageobacillus	3	3	3	3	1.0	3	1.0	3	1.0
+Paraglaciecola	3	3	3	3	1.0	3	1.0	3	1.0
+Photobacterium	3	3	3	3	1.0	3	1.0	3	1.0
+Phytobacter	3	3	3	3	1.0	3	1.0	3	1.0
+Plantactinospora	3	3	3	3	1.0	3	1.0	3	1.0
+Pluralibacter	3	3	3	3	1.0	3	1.0	3	1.0
+Porphyrobacter	3	3	3	3	1.0	3	1.0	3	1.0
+Propionibacterium	3	3	3	2	0.6667	0	0.0	3	1.0
+Pseudoxanthomonas	3	3	3	3	1.0	2	0.6667	3	1.0
+Rahnella	3	3	3	3	1.0	3	1.0	3	1.0
+Rhizorhabdus	3	3	3	3	1.0	3	1.0	3	1.0
+Rhodospirillum	3	3	3	3	1.0	3	1.0	3	1.0
+Rhodovulum	3	3	3	3	1.0	3	1.0	3	1.0
+Roseateles	3	3	3	2	0.6667	3	1.0	3	1.0
+Roseobacter	3	3	3	3	1.0	3	1.0	3	1.0
+Roseomonas	3	3	3	3	1.0	3	1.0	3	1.0
+Rothia	3	3	3	1	0.3333	0	0.0	3	1.0
+Rufibacter	3	3	3	3	1.0	3	1.0	3	1.0
+Runella	3	3	3	3	1.0	3	1.0	3	1.0
+Salinivibrio	3	3	3	3	1.0	3	1.0	3	1.0
+Salipiger	3	3	3	3	1.0	3	1.0	3	1.0
+Solibacillus	3	3	3	1	0.3333	2	0.6667	3	1.0
+Sulfolobus	3	3	0	0	0.0	0		0	
+Sulfuriferula	3	3	3	0	0.0	3	1.0	3	1.0
+Syntrophotalea	3	3	3	3	1.0	3	1.0	3	1.0
+Taylorella	3	3	3	3	1.0	3	1.0	3	1.0
+Terriglobus	3	3	3	3	1.0	3	1.0	3	1.0
+Thalassospira	3	3	3	3	1.0	3	1.0	3	1.0
+Thermaerobacter	3	3	3	0	0.0	0	0.0	3	1.0
+Thermoanaerobacterium	3	3	3	0	0.0	0	0.0	3	1.0
+Thermodesulfobacterium	3	3	3	0	0.0	3	1.0	3	1.0
+Thermofilum	3	3	0	0	0.0	0		0	
+Thiomicrospira	3	3	3	2	0.6667	3	1.0	3	1.0
+Veillonella	3	3	3	3	1.0	3	1.0	3	1.0
+Xylanimonas	3	3	3	3	1.0	0	0.0	3	1.0
+Acidaminococcus	2	2	2	0	0.0	2	1.0	2	1.0
+Acidilobus	2	2	0	0	0.0	0		0	
+Acidiphilium	2	2	2	2	1.0	2	1.0	2	1.0
+Actinosynnema	2	2	2	2	1.0	2	1.0	2	1.0
+Advenella	2	2	2	1	0.5	2	1.0	2	1.0
+Aequorivita	2	2	2	1	0.5	2	1.0	2	1.0
+Aeropyrum	2	2	0	0	0.0	0		0	
+Akkermansia	2	2	2	0	0.0	2	1.0	2	1.0
+Alcanivorax	2	2	2	2	1.0	2	1.0	2	1.0
+Alicycliphilus	2	2	2	2	1.0	2	1.0	2	1.0
+Alicyclobacillus	2	2	2	2	1.0	1	0.5	2	1.0
+Alkaliphilus	2	2	2	0	0.0	0	0.0	2	1.0
+Alloalcanivorax	2	2	2	0	0.0	2	1.0	2	1.0
+Allofrancisella	2	2	2	2	1.0	2	1.0	2	1.0
+Amedibacterium	2	2	2	0	0.0	0	0.0	2	1.0
+Aminobacter	2	2	2	2	1.0	2	1.0	2	1.0
+Andreesenella	2	2	2	0	0.0	2	1.0	2	1.0
+Aneurinibacillus	2	2	2	2	1.0	2	1.0	2	1.0
+Antarcticibacterium	2	2	2	0	0.0	2	1.0	2	1.0
+Aquitalea	2	2	2	2	1.0	2	1.0	2	1.0
+Arsenophonus	2	2	2	1	0.5	2	1.0	2	1.0
+Aurantiacibacter	2	2	2	2	1.0	2	1.0	2	1.0
+Basfia	2	2	2	0	0.0	2	1.0	2	1.0
+Blastochloris	2	2	2	2	1.0	2	1.0	2	1.0
+Blastomonas	2	2	2	2	1.0	2	1.0	2	1.0
+Butyrivibrio	2	2	2	0	0.0	0	0.0	2	1.0
+Caminibacter	2	2	2	0	0.0	2	1.0	2	1.0
+Candidatus Aciduliprofundum	2	2	0	0	0.0	0		0	
+Candidatus Endolissoclinum	2	2	2	0	0.0	2	1.0	2	1.0
+Candidatus Endomicrobiellum	2	2	2	0	0.0	2	1.0	2	1.0
+Candidatus Methylopumilus	2	2	2	0	0.0	2	1.0	2	1.0
+Candidatus Moranella	2	2	2	0	0.0	2	1.0	2	1.0
+Candidatus Nanopelagicus	2	2	2	0	0.0	0	0.0	2	1.0
+Candidatus Pelagibacter	2	2	2	0	0.0	2	1.0	2	1.0
+Candidatus Thioglobus	2	2	2	0	0.0	2	1.0	2	1.0
+Candidatus Tremblayella	2	2	2	0	0.0	2	1.0	2	1.0
+Cellulosilyticum	2	2	2	0	0.0	0	0.0	2	1.0
+Cellulosimicrobium	2	2	2	2	1.0	0	0.0	2	1.0
+Chelatococcus	2	2	2	2	1.0	2	1.0	2	1.0
+Cohnella	2	2	2	2	1.0	1	0.5	2	1.0
+Commensalibacter	2	2	2	2	1.0	2	1.0	2	1.0
+Croceicoccus	2	2	2	2	1.0	2	1.0	2	1.0
+Cryobacterium	2	2	2	2	1.0	0	0.0	2	1.0
+Cyanobium	2	2	0	2	1.0	0		0	
+Cyclobacterium	2	2	2	2	1.0	2	1.0	2	1.0
+Cytobacillus	2	2	2	2	1.0	0	0.0	2	1.0
+Dechloromonas	2	2	2	2	1.0	2	1.0	2	1.0
+Dehalogenimonas	2	2	2	0	0.0	2	1.0	2	1.0
+Dermabacter	2	2	2	2	1.0	0	0.0	2	1.0
+Desulfobulbus	2	2	2	1	0.5	2	1.0	2	1.0
+Desulfomicrobium	2	2	2	0	0.0	2	1.0	2	1.0
+Desulfuromonas	2	2	2	2	1.0	2	1.0	2	1.0
+Dialister	2	2	2	0	0.0	2	1.0	2	1.0
+Diaphorobacter	2	2	2	2	1.0	2	1.0	2	1.0
+Dictyoglomus	2	2	2	0	0.0	0	0.0	2	1.0
+Dolichospermum	2	2	0	2	1.0	0		0	
+Draconibacterium	2	2	2	0	0.0	2	1.0	2	1.0
+Eggerthella	2	2	2	2	1.0	0	0.0	2	1.0
+Eikenella	2	2	2	1	0.5	2	1.0	2	1.0
+Ferroplasma	2	2	0	0	0.0	0		0	
+Fibrobacter	2	2	2	0	0.0	2	1.0	2	1.0
+Fictibacillus	2	2	2	2	1.0	0	0.0	2	1.0
+Filomicrobium	2	2	2	2	1.0	2	1.0	2	1.0
+Flammeovirga	2	2	2	2	1.0	2	1.0	2	1.0
+Flaviflexus	2	2	2	2	1.0	0	0.0	2	1.0
+Flavisolibacter	2	2	2	2	1.0	2	1.0	2	1.0
+Flavonifractor	2	2	2	0	0.0	0	0.0	2	1.0
+Frankia	2	2	2	1	0.5	2	1.0	2	1.0
+Fructilactobacillus	2	2	2	0	0.0	0	0.0	2	1.0
+Geminocystis	2	2	0	2	1.0	0		0	
+Gemmata	2	2	2	1	0.5	2	1.0	2	1.0
+Gemmatimonas	2	2	2	2	1.0	2	1.0	2	1.0
+Geoglobus	2	2	0	0	0.0	0		0	
+Geotalea	2	2	2	2	1.0	2	1.0	2	1.0
+Gimesia	2	2	2	2	1.0	2	1.0	2	1.0
+Gloeobacter	2	2	0	1	0.5	0		0	
+Gloeothece	2	2	0	2	1.0	0		0	
+Gluconacetobacter	2	2	2	2	1.0	2	1.0	2	1.0
+Grimontia	2	2	2	2	1.0	2	1.0	2	1.0
+Hafnia	2	2	2	2	1.0	2	1.0	2	1.0
+Hahella	2	2	2	2	1.0	2	1.0	2	1.0
+Halanaeroarchaeum	2	2	2	0	0.0	2	1.0	2	1.0
+Halanaerobium	2	2	2	0	0.0	0	0.0	2	1.0
+Halarcobacter	2	2	2	2	1.0	2	1.0	2	1.0
+Halioglobus	2	2	2	0	0.0	2	1.0	2	1.0
+Halobacteriovorax	2	2	2	2	1.0	2	1.0	2	1.0
+Halodesulfurarchaeum	2	2	2	0	0.0	2	1.0	2	1.0
+Halomicronema	2	2	0	0	0.0	0		0	
+Haloquadratum	2	2	2	0	0.0	2	1.0	2	1.0
+Halorhodospira	2	2	2	2	1.0	2	1.0	2	1.0
+Halothiobacillus	2	2	2	2	1.0	2	1.0	2	1.0
+Histophilus	2	2	2	0	0.0	2	1.0	2	1.0
+Humibacter	2	2	2	1	0.5	0	0.0	2	1.0
+Hydrogenobacter	2	2	2	0	0.0	2	1.0	2	1.0
+Hydrogenovibrio	2	2	2	2	1.0	2	1.0	2	1.0
+Hypericibacter	2	2	2	2	1.0	2	1.0	2	1.0
+Ignicoccus	2	2	0	0	0.0	0		0	
+Isoptericola	2	2	2	2	1.0	0	0.0	2	1.0
+Kordia	2	2	2	2	1.0	2	1.0	2	1.0
+Kosmotoga	2	2	2	0	0.0	1	0.5	2	1.0
+Kroppenstedtia	2	2	2	2	1.0	0	0.0	2	1.0
+Kyrpidia	2	2	2	2	1.0	2	1.0	2	1.0
+Latilactobacillus	2	2	2	0	0.0	0	0.0	2	1.0
+Lawsonia	2	2	2	0	0.0	2	1.0	2	1.0
+Leifsonia	2	2	2	0	0.0	0	0.0	2	1.0
+Leucobacter	2	2	2	1	0.5	0	0.0	2	1.0
+Limnobaculum	2	2	2	2	1.0	2	1.0	2	1.0
+Limnohabitans	2	2	2	2	1.0	2	1.0	2	1.0
+Liquorilactobacillus	2	2	2	0	0.0	0	0.0	2	1.0
+Loigolactobacillus	2	2	2	0	0.0	0	0.0	2	1.0
+Luteibacter	2	2	2	2	1.0	2	1.0	2	1.0
+Macrococcoides	2	2	2	0	0.0	0	0.0	2	1.0
+Malacoplasma	2	2	2	0	0.0	2	1.0	2	1.0
+Mammaliicoccus	2	2	2	2	1.0	1	0.5	2	1.0
+Marilutibacter	2	2	2	2	1.0	2	1.0	2	1.0
+Marinitoga	2	2	2	0	0.0	2	1.0	2	1.0
+Mariprofundus	2	2	2	0	0.0	2	1.0	2	1.0
+Megasphaera	2	2	2	0	0.0	2	1.0	2	1.0
+Meiothermus	2	2	2	0	0.0	0	0.0	1	0.5
+Methanococcoides	2	2	2	0	0.0	2	1.0	2	1.0
+Methanohalophilus	2	2	2	0	0.0	2	1.0	2	1.0
+Methanolobus	2	2	2	0	0.0	2	1.0	2	1.0
+Methanoregula	2	2	2	0	0.0	2	1.0	2	1.0
+Methanosphaera	2	2	2	0	0.0	2	1.0	2	1.0
+Methylibium	2	2	2	2	1.0	2	1.0	2	1.0
+Methylococcus	2	2	2	0	0.0	2	1.0	2	1.0
+Methylotenera	2	2	2	1	0.5	2	1.0	2	1.0
+Methylovorus	2	2	2	2	1.0	2	1.0	2	1.0
+Micavibrio	2	2	2	0	0.0	2	1.0	2	1.0
+Micrococcus	2	2	2	2	1.0	0	0.0	2	1.0
+Myxococcus	2	2	2	2	1.0	2	1.0	2	1.0
+Nakamurella	2	2	2	1	0.5	0	0.0	2	1.0
+Natronobacterium	2	2	2	0	0.0	2	1.0	2	1.0
+Natronomonas	2	2	2	0	0.0	2	1.0	2	1.0
+Nautilia	2	2	2	0	0.0	2	1.0	2	1.0
+Niabella	2	2	2	1	0.5	2	1.0	2	1.0
+Nitrobacter	2	2	2	2	1.0	2	1.0	2	1.0
+Nonomuraea	2	2	2	2	1.0	1	0.5	2	1.0
+Oceanisphaera	2	2	2	1	0.5	2	1.0	2	1.0
+Oceanobacillus	2	2	2	2	1.0	0	0.0	2	1.0
+Olleya	2	2	2	2	1.0	2	1.0	2	1.0
+Olsenella	2	2	2	2	1.0	0	0.0	2	1.0
+Orientia	2	2	2	0	0.0	2	1.0	2	1.0
+Ornithobacterium	2	2	2	0	0.0	2	1.0	2	1.0
+Orrella	2	2	2	2	1.0	2	1.0	2	1.0
+Ottowia	2	2	2	2	1.0	2	1.0	2	1.0
+Oxynema	2	2	0	2	1.0	0		0	
+Paenarthrobacter	2	2	2	2	1.0	1	0.5	2	1.0
+Paenisporosarcina	2	2	2	1	0.5	0	0.0	2	1.0
+Parabacteroides	2	2	2	2	1.0	2	1.0	2	1.0
+Paracidovorax	2	2	2	2	1.0	2	1.0	2	1.0
+Pelodictyon	2	2	2	2	1.0	2	1.0	2	1.0
+Pelosinus	2	2	2	2	1.0	2	1.0	2	1.0
+Peribacillus	2	2	2	2	1.0	2	1.0	2	1.0
+Phenylobacterium	2	2	2	2	1.0	2	1.0	2	1.0
+Phocaeicola	2	2	2	0	0.0	2	1.0	2	1.0
+Phreatobacter	2	2	2	2	1.0	2	1.0	2	1.0
+Phytohabitans	2	2	2	1	0.5	1	0.5	2	1.0
+Pigmentiphaga	2	2	2	1	0.5	2	1.0	2	1.0
+Pirellula	2	2	2	2	1.0	2	1.0	2	1.0
+Piscirickettsia	2	2	2	0	0.0	2	1.0	2	1.0
+Planctomyces	2	2	2	0	0.0	2	1.0	2	1.0
+Planctopirus	2	2	2	0	0.0	2	1.0	2	1.0
+Pontibacter	2	2	2	2	1.0	2	1.0	2	1.0
+Prodigiosinella	2	2	2	2	1.0	2	1.0	2	1.0
+Protaetiibacter	2	2	2	1	0.5	0	0.0	2	1.0
+Pseudolactococcus	2	2	2	0	0.0	0	0.0	2	1.0
+Psychrobacillus	2	2	2	1	0.5	0	0.0	2	1.0
+Psychromonas	2	2	2	2	1.0	2	1.0	2	1.0
+Rhodanobacter	2	2	2	2	1.0	2	1.0	2	1.0
+Rhodobacter	2	2	2	2	1.0	2	1.0	2	1.0
+Rhodococcoides	2	2	2	2	1.0	2	1.0	2	1.0
+Rhodoluna	2	2	2	0	0.0	0	0.0	2	1.0
+Rhodothermus	2	2	2	1	0.5	2	1.0	2	1.0
+Rippkaea	2	2	0	2	1.0	0		0	
+Roseiflexus	2	2	2	0	0.0	0	0.0	2	1.0
+Rubrobacter	2	2	2	0	0.0	0	0.0	2	1.0
+Ruminiclostridium	2	2	2	0	0.0	0	0.0	2	1.0
+Ruminococcus	2	2	2	0	0.0	0	0.0	2	1.0
+Saccharomonospora	2	2	2	2	1.0	2	1.0	2	1.0
+Saccharothrix	2	2	2	2	1.0	2	1.0	2	1.0
+Salicibibacter	2	2	2	2	1.0	1	0.5	2	1.0
+Salinibacterium	2	2	2	2	1.0	0	0.0	2	1.0
+Salinimonas	2	2	2	2	1.0	2	1.0	2	1.0
+Salinispora	2	2	2	1	0.5	2	1.0	2	1.0
+Salisediminibacterium	2	2	2	2	1.0	0	0.0	2	1.0
+Schaalia	2	2	2	0	0.0	0	0.0	2	1.0
+Sedimentisphaera	2	2	2	0	0.0	2	1.0	2	1.0
+Serpentinimonas	2	2	2	2	1.0	2	1.0	2	1.0
+Shouchella	2	2	2	2	1.0	0	0.0	2	1.0
+Solidesulfovibrio	2	2	2	0	0.0	2	1.0	2	1.0
+Sorangium	2	2	2	2	1.0	2	1.0	2	1.0
+Sphaerochaeta	2	2	2	0	0.0	2	1.0	2	1.0
+Sphingosinicella	2	2	2	2	1.0	2	1.0	2	1.0
+Stanieria	2	2	0	2	1.0	0		0	
+Staphylothermus	2	2	0	0	0.0	0		0	
+Streptantibioticus	2	2	2	2	1.0	2	1.0	2	1.0
+Sulfurihydrogenibium	2	2	2	0	0.0	2	1.0	2	1.0
+Sulfurisphaera	2	2	0	0	0.0	0		0	
+Sulfurovum	2	2	2	0	0.0	2	1.0	2	1.0
+Sutterella	2	2	2	0	0.0	2	1.0	2	1.0
+Tannerella	2	2	2	0	0.0	2	1.0	2	1.0
+Tatumella	2	2	2	1	0.5	2	1.0	2	1.0
+Tepidanaerobacter	2	2	2	0	0.0	0	0.0	2	1.0
+Thalassolituus	2	2	2	2	1.0	2	1.0	2	1.0
+Thalassotalea	2	2	2	1	0.5	2	1.0	2	1.0
+Thermoclostridium	2	2	2	0	0.0	0	0.0	2	1.0
+Thermocrinis	2	2	2	0	0.0	2	1.0	2	1.0
+Thermodesulfobium	2	2	2	0	0.0	2	1.0	2	1.0
+Thermoplasma	2	2	0	0	0.0	0		0	
+Thermoproteus	2	2	0	0	0.0	0		0	
+Thermosynechococcus	2	2	0	0	0.0	0		0	
+Trichormus	2	2	0	2	1.0	0		0	
+Tropheryma	2	2	2	0	0.0	0	0.0	2	1.0
+Trueperella	2	2	2	2	1.0	0	0.0	2	1.0
+Tsukamurella	2	2	2	2	1.0	2	1.0	2	1.0
+Tumebacillus	2	2	2	1	0.5	1	0.5	2	1.0
+Turicibacter	2	2	2	0	0.0	0	0.0	2	1.0
+Vitreoscilla	2	2	2	1	0.5	2	1.0	2	1.0
+Vulcanisaeta	2	2	0	0	0.0	0		0	
+Wigglesworthia	2	2	2	0	0.0	2	1.0	2	1.0
+Williamsoniiplasma	2	2	2	0	0.0	2	1.0	2	1.0
+Winmispira	2	2	2	0	0.0	2	1.0	2	1.0
+Winogradskyella	2	2	2	1	0.5	2	1.0	2	1.0
+Abiotrophia	1	1	1	0	0.0	0	0.0	1	1.0
+Abyssicoccus	1	1	1	0	0.0	0	0.0	1	1.0
+Acaryochloris	1	1	0	1	1.0	0		0	
+Acetilactobacillus	1	1	1	0	0.0	0	0.0	1	1.0
+Acetoanaerobium	1	1	1	0	0.0	0	0.0	1	1.0
+Acetobacterium	1	1	1	0	0.0	0	0.0	1	1.0
+Acetohalobium	1	1	1	0	0.0	1	1.0	1	1.0
+Acetomicrobium	1	1	1	0	0.0	1	1.0	1	1.0
+Acidiferrobacter	1	1	1	0	0.0	1	1.0	1	1.0
+Acidihalobacter	1	1	1	0	0.0	1	1.0	1	1.0
+Acidilutibacter	1	1	1	0	0.0	0	0.0	1	1.0
+Acidimicrobium	1	1	1	1	1.0	0	0.0	1	1.0
+Acidisarcina	1	1	1	1	1.0	1	1.0	1	1.0
+Acidobacterium	1	1	1	1	1.0	1	1.0	1	1.0
+Acidothermus	1	1	1	1	1.0	1	1.0	1	1.0
+Actibacterium	1	1	1	1	1.0	1	1.0	1	1.0
+Actinobaculum	1	1	1	1	1.0	0	0.0	1	1.0
+Actinomadura	1	1	1	1	1.0	1	1.0	1	1.0
+Actinopolyspora	1	1	1	1	1.0	1	1.0	1	1.0
+Actinotignum	1	1	1	0	0.0	0	0.0	1	1.0
+Adlercreutzia	1	1	1	0	0.0	0	0.0	1	1.0
+Aeribacillus	1	1	1	1	1.0	1	1.0	1	1.0
+Aerosticca	1	1	1	1	1.0	1	1.0	1	1.0
+Aestuarium	1	1	1	1	1.0	1	1.0	1	1.0
+Agarivorans	1	1	1	0	0.0	1	1.0	1	1.0
+Agathobacter	1	1	1	0	0.0	0	0.0	1	1.0
+Agrococcus	1	1	1	1	1.0	0	0.0	1	1.0
+Ahniella	1	1	1	1	1.0	1	1.0	1	1.0
+Algoriphagus	1	1	1	1	1.0	1	1.0	1	1.0
+Alkalicoccobacillus	1	1	1	1	1.0	1	1.0	1	1.0
+Alkalihalophilus	1	1	1	1	1.0	1	1.0	1	1.0
+Alkalilimnicola	1	1	1	1	1.0	1	1.0	1	1.0
+Alkalitalea	1	1	1	0	0.0	1	1.0	1	1.0
+Alloactinosynnema	1	1	1	1	1.0	1	1.0	1	1.0
+Allochromatium	1	1	1	1	1.0	1	1.0	1	1.0
+Allocoleopsis	1	1	0	1	1.0	0		0	
+Allomeiothermus	1	1	1	1	1.0	1	1.0	1	1.0
+Allosaccharopolyspora	1	1	1	1	1.0	1	1.0	1	1.0
+Allostella	1	1	1	1	1.0	1	1.0	1	1.0
+Alloyangia	1	1	1	1	1.0	1	1.0	1	1.0
+Aminobacterium	1	1	1	0	0.0	1	1.0	1	1.0
+Ammonifex	1	1	1	0	0.0	0	0.0	1	1.0
+Amphibacillus	1	1	1	1	1.0	0	0.0	1	1.0
+Amylolactobacillus	1	1	1	0	0.0	0	0.0	1	1.0
+Anaerobutyricum	1	1	1	0	0.0	0	0.0	1	1.0
+Anaerococcus	1	1	1	0	0.0	0	0.0	1	1.0
+Anaerocolumna	1	1	1	0	0.0	0	0.0	1	1.0
+Anaerohalosphaera	1	1	1	0	0.0	1	1.0	1	1.0
+Anaerolinea	1	1	1	0	0.0	0	0.0	1	1.0
+Anaerostipes	1	1	1	0	0.0	0	0.0	1	1.0
+Anaerotignum	1	1	1	0	0.0	1	1.0	1	1.0
+Anoxybacter	1	1	1	0	0.0	0	0.0	1	1.0
+Anoxybacteroides	1	1	1	1	1.0	1	1.0	1	1.0
+Anseongella	1	1	1	0	0.0	1	1.0	1	1.0
+Antarctobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Apilactobacillus	1	1	1	0	0.0	0	0.0	1	1.0
+Aquabacterium	1	1	1	1	1.0	1	1.0	1	1.0
+Aquaspirillum	1	1	1	1	1.0	1	1.0	1	1.0
+Aquella	1	1	1	0	0.0	1	1.0	1	1.0
+Aquibium	1	1	1	1	1.0	1	1.0	1	1.0
+Aquifex	1	1	1	0	0.0	1	1.0	1	1.0
+Aquiluna	1	1	1	0	0.0	0	0.0	1	1.0
+Aquipseudomonas	1	1	1	1	1.0	1	1.0	1	1.0
+Aquirhabdus	1	1	1	1	1.0	1	1.0	1	1.0
+Aquirufa	1	1	1	0	0.0	1	1.0	1	1.0
+Aquisalimonas	1	1	0	1	1.0	0		0	
+Aquisphaera	1	1	1	1	1.0	1	1.0	1	1.0
+Arachnia	1	1	1	1	1.0	0	0.0	1	1.0
+Arcanobacterium	1	1	1	1	1.0	0	0.0	1	1.0
+Archangium	1	1	1	1	1.0	1	1.0	1	1.0
+Arcticibacterium	1	1	1	1	1.0	1	1.0	1	1.0
+Arenibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Aristophania	1	1	1	0	0.0	1	1.0	1	1.0
+Aromatoleum	1	1	1	1	1.0	1	1.0	1	1.0
+Arsenicicoccus	1	1	1	0	0.0	0	0.0	1	1.0
+Asaia	1	1	1	1	1.0	1	1.0	1	1.0
+Asticcacaulis	1	1	1	1	1.0	1	1.0	1	1.0
+Athalassotoga	1	1	1	0	0.0	1	1.0	1	1.0
+Aureibaculum	1	1	1	1	1.0	1	1.0	1	1.0
+Aureimonas	1	1	1	1	1.0	1	1.0	1	1.0
+Auritidibacter	1	1	1	0	0.0	1	1.0	1	1.0
+Avibacterium	1	1	1	0	0.0	1	1.0	1	1.0
+Azorhizobium	1	1	1	1	1.0	1	1.0	1	1.0
+Azospira	1	1	1	1	1.0	1	1.0	1	1.0
+Bacterioplanes	1	1	1	0	0.0	1	1.0	1	1.0
+Bacteriovorax	1	1	1	1	1.0	1	1.0	1	1.0
+Baekduia	1	1	1	0	0.0	1	1.0	1	1.0
+Barnesiella	1	1	1	0	0.0	1	1.0	1	1.0
+Basilea	1	1	1	1	1.0	1	1.0	1	1.0
+Beggiatoa	1	1	1	1	1.0	1	1.0	1	1.0
+Beijerinckia	1	1	1	1	1.0	1	1.0	1	1.0
+Belliella	1	1	1	1	1.0	1	1.0	1	1.0
+Bergeyella	1	1	1	0	0.0	1	1.0	1	1.0
+Bermanella	1	1	1	1	1.0	1	1.0	1	1.0
+Bernardetia	1	1	1	1	1.0	1	1.0	1	1.0
+Berryella	1	1	1	0	0.0	0	0.0	1	1.0
+Beutenbergia	1	1	1	1	1.0	0	0.0	1	1.0
+Bisgaardia	1	1	1	1	1.0	1	1.0	1	1.0
+Blastococcus	1	1	1	1	1.0	0	0.0	1	1.0
+Bombilactobacillus	1	1	1	0	0.0	0	0.0	1	1.0
+Boudabousia	1	1	1	0	0.0	0	0.0	1	1.0
+Bradymonas	1	1	1	0	0.0	1	1.0	1	1.0
+Bremerella	1	1	1	1	1.0	1	1.0	1	1.0
+Breoghania	1	1	1	0	0.0	1	1.0	1	1.0
+Brochothrix	1	1	1	0	0.0	0	0.0	1	1.0
+Brumicola	1	1	1	1	1.0	1	1.0	1	1.0
+Buttiauxella	1	1	1	1	1.0	1	1.0	1	1.0
+Butyricimonas	1	1	1	0	0.0	1	1.0	1	1.0
+Caenibius	1	1	1	1	1.0	1	1.0	1	1.0
+Caldanaerobacter	1	1	1	0	0.0	0	0.0	1	1.0
+Caldibacillus	1	1	1	1	1.0	0	0.0	1	1.0
+Caldilinea	1	1	1	1	1.0	0	0.0	1	1.0
+Caldimicrobium	1	1	1	0	0.0	1	1.0	1	1.0
+Caldimonas	1	1	1	1	1.0	1	1.0	1	1.0
+Caldisericum	1	1	1	0	0.0	1	1.0	1	1.0
+Caldisphaera	1	1	0	0	0.0	0		0	
+Calditerrivibrio	1	1	1	1	1.0	1	1.0	1	1.0
+Caldithrix	1	1	1	1	1.0	1	1.0	1	1.0
+Caldivirga	1	1	0	0	0.0	0		0	
+Caloramator	1	1	1	0	0.0	0	0.0	1	1.0
+Caloranaerobacter	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Accumulibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Candidatus Amoebophilus	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Atelocyanobacterium	1	1	0	0	0.0	0		0	
+Candidatus Azobacteroides	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Babela	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Brevifilum	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Cloacimonas	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Doolittlea	1	1	1	0	0.0	0	0.0	1	1.0
+Candidatus Fokinia	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Fukatsuia	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Gullanella	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Hepatoplasma	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Hoaglandella	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Ishikawella	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Izemoplasma	1	1	1	0	0.0	0	0.0	1	1.0
+Candidatus Johnevansia	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Karelsulcia	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Korarchaeum	1	1	0	0	0.0	0		0	
+Candidatus Korobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Candidatus Kuenenia	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Mancarchaeum	1	1	0	0	0.0	0		0	
+Candidatus Methanoplasma	1	1	0	0	0.0	0		0	
+Candidatus Methylospira	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Midichloria	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Mikella	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Nardonella	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Nasuia	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Nitrosocosmicus	1	1	0	0	0.0	0		0	
+Candidatus Nitrosoglobus	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Nitrosomarinus	1	1	0	0	0.0	0		0	
+Candidatus Nitrosopelagicus	1	1	0	0	0.0	0		0	
+Candidatus Nitrosotenuis	1	1	0	0	0.0	0		0	
+Candidatus Nitrotoga	1	1	1	1	1.0	0	0.0	1	1.0
+Candidatus Nucleicultrix	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Odyssella	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Phycorickettsia	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Profftella	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Promineifilum	1	1	1	1	1.0	0	0.0	1	1.0
+Candidatus Protochlamydia	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Pseudothioglobus	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Puniceispirillum	1	1	1	1	1.0	1	1.0	1	1.0
+Candidatus Purcelliella	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Riesia	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Ruthturnera	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Saccharimonas	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Solibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Candidatus Symbiobacter	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Syntrophocurvum	1	1	1	0	0.0	0	0.0	1	1.0
+Candidatus Tachikawaea	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Velamenicoccus	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Vesicomyidisocius	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Viadribacter	1	1	1	1	1.0	1	1.0	1	1.0
+Candidatus Walczuchella	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Xiphinematobacter	1	1	1	0	0.0	1	1.0	1	1.0
+Caproiciproducens	1	1	1	0	0.0	0	0.0	1	1.0
+Carboxydocella	1	1	1	0	0.0	1	1.0	1	1.0
+Carboxydothermus	1	1	1	0	0.0	0	0.0	1	1.0
+Castellaniella	1	1	1	1	1.0	1	1.0	1	1.0
+Catenulispora	1	1	1	1	1.0	1	1.0	1	1.0
+Chania	1	1	1	1	1.0	1	1.0	1	1.0
+Chelativorans	1	1	1	1	1.0	1	1.0	1	1.0
+Chloracidobacterium	1	1	1	1	1.0	1	1.0	1	1.0
+Chloroherpeton	1	1	1	1	1.0	1	1.0	1	1.0
+Chondrocystis	1	1	0	1	1.0	0		0	
+Chondromyces	1	1	1	1	1.0	1	1.0	1	1.0
+Christensenella	1	1	1	0	0.0	0	0.0	1	1.0
+Chromohalobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Chroococcidiopsis	1	1	0	1	1.0	0		0	
+Chryseolinea	1	1	1	0	0.0	1	1.0	1	1.0
+Citricoccus	1	1	1	1	1.0	1	1.0	1	1.0
+Citrifermentans	1	1	1	1	1.0	1	1.0	1	1.0
+Citromicrobium	1	1	1	1	1.0	1	1.0	1	1.0
+Cloacibacillus	1	1	1	0	0.0	1	1.0	1	1.0
+Cloacibacterium	1	1	1	1	1.0	1	1.0	1	1.0
+Cnuibacter	1	1	1	1	1.0	0	0.0	1	1.0
+Cobetia	1	1	1	1	1.0	1	1.0	1	1.0
+Cognaticolwellia	1	1	1	1	1.0	1	1.0	1	1.0
+Collinsella	1	1	1	0	0.0	0	0.0	1	1.0
+Conexibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Conexivisphaera	1	1	0	0	0.0	0		0	
+Coprothermobacter	1	1	1	0	0.0	0	0.0	1	1.0
+Coraliomargarita	1	1	1	1	1.0	1	1.0	1	1.0
+Coriobacterium	1	1	1	0	0.0	0	0.0	1	1.0
+Crassaminicella	1	1	1	0	0.0	1	1.0	1	1.0
+Crinalium	1	1	0	1	1.0	0		0	
+Croceibacter	1	1	1	0	0.0	1	1.0	1	1.0
+Croceibacterium	1	1	1	1	1.0	1	1.0	1	1.0
+Crocosphaera	1	1	0	1	1.0	0		0	
+Cryptobacterium	1	1	1	0	0.0	0	0.0	1	1.0
+Crystallibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Cuniculiplasma	1	1	0	0	0.0	0		0	
+Cyanobacterium	1	1	0	1	1.0	0		0	
+Cyanothece	1	1	0	1	1.0	0		0	
+Cyclonatronum	1	1	1	1	1.0	1	1.0	1	1.0
+Cystobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Cytophaga	1	1	1	0	0.0	1	1.0	1	1.0
+Dactylococcopsis	1	1	0	1	1.0	0		0	
+Deferribacter	1	1	1	1	1.0	1	1.0	1	1.0
+Defluviitoga	1	1	1	0	0.0	1	1.0	1	1.0
+Denitrobacterium	1	1	1	0	0.0	0	0.0	1	1.0
+Denitrovibrio	1	1	1	1	1.0	1	1.0	1	1.0
+Dermacoccus	1	1	1	1	1.0	1	1.0	1	1.0
+Dermatophilus	1	1	1	1	1.0	1	1.0	1	1.0
+Desulfarculus	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfatibacillum	1	1	1	1	1.0	1	1.0	1	1.0
+Desulfobacca	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfobacula	1	1	1	1	1.0	1	1.0	1	1.0
+Desulfocapsa	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfococcus	1	1	1	1	1.0	1	1.0	1	1.0
+Desulfocurvibacter	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfofarcimen	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfoglaeba	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfohalobium	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfomonile	1	1	1	0	0.0	1	1.0	1	1.0
+Desulforapulum	1	1	1	1	1.0	1	1.0	1	1.0
+Desulforudis	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfoscipio	1	1	1	1	1.0	1	1.0	1	1.0
+Desulfosudis	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfotalea	1	1	1	1	1.0	1	1.0	1	1.0
+Desulfotomaculum	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfurella	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfurispirillum	1	1	1	1	1.0	1	1.0	1	1.0
+Desulfurivibrio	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfurobacterium	1	1	1	0	0.0	1	1.0	1	1.0
+Dichelobacter	1	1	1	0	0.0	1	1.0	1	1.0
+Dinoroseobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Ditibartonella	1	1	1	1	1.0	1	1.0	1	1.0
+Dokdonella	1	1	1	1	1.0	1	1.0	1	1.0
+Dolosigranulum	1	1	1	0	0.0	0	0.0	1	1.0
+Duffyella	1	1	1	1	1.0	1	1.0	1	1.0
+Duncaniella	1	1	1	0	0.0	1	1.0	1	1.0
+Dyadobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Dysosmobacter	1	1	1	0	0.0	0	0.0	1	1.0
+Ectothiorhodospira	1	1	1	1	1.0	1	1.0	1	1.0
+Edaphobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Egibacter	1	1	1	0	0.0	0	0.0	1	1.0
+Elusimicrobium	1	1	1	0	0.0	1	1.0	1	1.0
+Empedobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Emticicia	1	1	1	1	1.0	1	1.0	1	1.0
+Endomicrobium	1	1	1	0	0.0	1	1.0	1	1.0
+Ensifer	1	1	1	1	1.0	1	1.0	1	1.0
+Enterocloster	1	1	1	0	0.0	0	0.0	1	1.0
+Entomoplasma	1	1	1	0	0.0	1	1.0	1	1.0
+Ephemeroptericola	1	1	1	1	1.0	1	1.0	1	1.0
+Epidermidibacterium	1	1	1	0	0.0	1	1.0	1	1.0
+Ethanoligenens	1	1	1	0	0.0	0	0.0	1	1.0
+Euhalothece	1	1	0	1	1.0	0		0	
+Euzebya	1	1	1	1	1.0	0	0.0	1	1.0
+Euzebyella	1	1	1	1	1.0	1	1.0	1	1.0
+Evansella	1	1	1	1	1.0	0	0.0	1	1.0
+Faecalibaculum	1	1	1	0	0.0	0	0.0	1	1.0
+Falsihalocynthiibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Fastidiosipila	1	1	1	0	0.0	0	0.0	1	1.0
+Faucicola	1	1	1	1	1.0	1	1.0	1	1.0
+Fermentimonas	1	1	1	0	0.0	1	1.0	1	1.0
+Ferrimonas	1	1	1	1	1.0	1	1.0	1	1.0
+Ferriphaselus	1	1	1	1	1.0	1	1.0	1	1.0
+Ferroglobus	1	1	0	0	0.0	0		0	
+Ferrovibrio	1	1	1	1	1.0	1	1.0	1	1.0
+Fervidicoccus	1	1	0	0	0.0	0		0	
+Fibrella	1	1	1	1	1.0	1	1.0	1	1.0
+Filifactor	1	1	1	0	0.0	1	1.0	1	1.0
+Filimonas	1	1	1	1	1.0	1	1.0	1	1.0
+Fimbriimonas	1	1	1	0	0.0	1	1.0	1	1.0
+Finegoldia	1	1	1	0	0.0	0	0.0	1	1.0
+Fischerella	1	1	0	1	1.0	0		0	
+Flavivirga	1	1	1	1	1.0	1	1.0	1	1.0
+Flexistipes	1	1	1	1	1.0	1	1.0	1	1.0
+Fluviicola	1	1	1	1	1.0	1	1.0	1	1.0
+Fluviispira	1	1	1	1	1.0	1	1.0	1	1.0
+Formicincola	1	1	1	0	0.0	1	1.0	1	1.0
+Frateuria	1	1	1	1	1.0	1	1.0	1	1.0
+Frederiksenia	1	1	1	1	1.0	1	1.0	1	1.0
+Frigidibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Frischella	1	1	1	0	0.0	1	1.0	1	1.0
+Frondihabitans	1	1	1	0	0.0	0	0.0	1	1.0
+Fuerstiella	1	1	1	1	1.0	1	1.0	1	1.0
+Gallibacterium	1	1	1	1	1.0	1	1.0	1	1.0
+Gallionella	1	1	1	1	1.0	1	1.0	1	1.0
+Geitlerinema	1	1	0	1	1.0	0		0	
+Gemmatirosa	1	1	1	1	1.0	1	1.0	1	1.0
+Geoalkalibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Geodermatophilus	1	1	1	1	1.0	0	0.0	1	1.0
+Georgenia	1	1	1	1	1.0	0	0.0	1	1.0
+Georhizobium	1	1	1	1	1.0	1	1.0	1	1.0
+Geosporobacter	1	1	1	0	0.0	1	1.0	1	1.0
+Geovibrio	1	1	1	1	1.0	1	1.0	1	1.0
+Gibbsiella	1	1	1	1	1.0	1	1.0	1	1.0
+Gilliamella	1	1	1	1	1.0	1	1.0	1	1.0
+Gillisella	1	1	1	1	1.0	1	1.0	1	1.0
+Glaciecola	1	1	1	1	1.0	1	1.0	1	1.0
+Gloeocapsa	1	1	0	1	1.0	0		0	
+Glycocaulis	1	1	1	1	1.0	1	1.0	1	1.0
+Gottschalkia	1	1	1	0	0.0	1	1.0	1	1.0
+Gracilibacillus	1	1	1	1	1.0	0	0.0	1	1.0
+Gracilinema	1	1	1	0	0.0	1	1.0	1	1.0
+Granulosicoccus	1	1	1	1	1.0	1	1.0	1	1.0
+Gryllotalpicola	1	1	1	1	1.0	0	0.0	1	1.0
+Guyparkeria	1	1	1	1	1.0	1	1.0	1	1.0
+Gynuella	1	1	1	1	1.0	1	1.0	1	1.0
+Haematobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Haematospirillum	1	1	1	1	1.0	1	1.0	1	1.0
+Halalkaliarchaeum	1	1	1	0	0.0	1	1.0	1	1.0
+Halalkalibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Halalkalibacterium (ex Joshi et al. 2022)	1	1	1	1	1.0	1	1.0	1	1.0
+Halalkalicoccus	1	1	1	0	0.0	1	1.0	1	1.0
+Halapricum	1	1	1	0	0.0	1	1.0	1	1.0
+Halarchaeum	1	1	1	0	0.0	1	1.0	1	1.0
+Haliangium	1	1	1	1	1.0	1	1.0	1	1.0
+Haliscomenobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Halobacteroides	1	1	1	0	0.0	0	0.0	1	1.0
+Halobellus	1	1	1	0	0.0	1	1.0	1	1.0
+Halocella	1	1	1	0	0.0	1	1.0	1	1.0
+Halococcoides	1	1	1	0	0.0	1	1.0	1	1.0
+Halogeometricum	1	1	1	0	0.0	1	1.0	1	1.0
+Halohasta	1	1	1	0	0.0	1	1.0	1	1.0
+Halolamina	1	1	1	0	0.0	1	1.0	1	1.0
+Halopiger	1	1	1	0	0.0	1	1.0	1	1.0
+Haloprofundus	1	1	1	0	0.0	1	1.0	1	1.0
+Halorientalis	1	1	1	0	0.0	1	1.0	1	1.0
+Halostagnicola	1	1	1	0	0.0	1	1.0	1	1.0
+Halotalea	1	1	1	1	1.0	1	1.0	1	1.0
+Haloterrigena	1	1	1	0	0.0	1	1.0	1	1.0
+Halothece	1	1	0	1	1.0	0		0	
+Halothermothrix	1	1	1	0	0.0	0	0.0	1	1.0
+Halovivax	1	1	1	0	0.0	1	1.0	1	1.0
+Hartmannibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Heliomicrobium	1	1	1	0	0.0	1	1.0	1	1.0
+Heliorestis	1	1	1	1	1.0	1	1.0	1	1.0
+Herbinix	1	1	1	0	0.0	0	0.0	1	1.0
+Herminiimonas	1	1	1	1	1.0	1	1.0	1	1.0
+Hippea	1	1	1	1	1.0	1	1.0	1	1.0
+Hirschia	1	1	1	1	1.0	1	1.0	1	1.0
+Hoeflea	1	1	1	1	1.0	1	1.0	1	1.0
+Hominimerdicola	1	1	1	0	0.0	1	1.0	1	1.0
+Homoserinimonas	1	1	1	1	1.0	0	0.0	1	1.0
+Hoylesella	1	1	1	0	0.0	1	1.0	1	1.0
+Hoyosella	1	1	1	1	1.0	1	1.0	1	1.0
+Hydrocarboniclastica	1	1	1	1	1.0	1	1.0	1	1.0
+Hydrogenophilus	1	1	1	1	1.0	1	1.0	1	1.0
+Hyperthermus	1	1	0	0	0.0	0		0	
+Hyphomonas	1	1	1	1	1.0	1	1.0	1	1.0
+Ichthyobacterium	1	1	1	0	0.0	1	1.0	1	1.0
+Ignavibacterium	1	1	1	0	0.0	1	1.0	1	1.0
+Ilumatobacter	1	1	1	1	1.0	0	0.0	1	1.0
+Ilyobacter	1	1	1	0	0.0	1	1.0	1	1.0
+Immundisolibacter	1	1	1	0	0.0	1	1.0	1	1.0
+Infirmifilum	1	1	0	0	0.0	0		0	
+Intestinibaculum	1	1	1	0	0.0	0	0.0	1	1.0
+Intestinimonas	1	1	1	0	0.0	0	0.0	1	1.0
+Intrasporangium	1	1	1	1	1.0	1	1.0	1	1.0
+Iodobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Isoalcanivorax	1	1	1	0	0.0	1	1.0	1	1.0
+Isosphaera	1	1	1	0	0.0	1	1.0	1	1.0
+Jannaschia	1	1	1	1	1.0	1	1.0	1	1.0
+Jejuibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Jeongeupia	1	1	1	1	1.0	1	1.0	1	1.0
+Jeotgalibacillus	1	1	1	1	1.0	0	0.0	1	1.0
+Jonesia	1	1	1	0	0.0	0	0.0	1	1.0
+Kerstersia	1	1	1	1	1.0	1	1.0	1	1.0
+Ketobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Kibdelosporangium	1	1	1	1	1.0	1	1.0	1	1.0
+Kineobactrum	1	1	1	1	1.0	1	1.0	1	1.0
+Kineococcus	1	1	1	1	1.0	0	0.0	1	1.0
+Kingella	1	1	1	1	1.0	1	1.0	1	1.0
+Kiritimatiella	1	1	1	0	0.0	1	1.0	1	1.0
+Kozakia	1	1	1	0	0.0	1	1.0	1	1.0
+Kribbella	1	1	1	1	1.0	1	1.0	1	1.0
+Ktedonosporobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Kurthia	1	1	1	1	1.0	0	0.0	1	1.0
+Kutzneria	1	1	1	1	1.0	1	1.0	1	1.0
+Kytococcus	1	1	1	0	0.0	0	0.0	1	1.0
+Labilibaculum	1	1	1	1	1.0	1	1.0	1	1.0
+Labilithrix	1	1	1	1	1.0	1	1.0	1	1.0
+Labrys	1	1	1	1	1.0	1	1.0	1	1.0
+Laceyella	1	1	1	1	1.0	1	1.0	1	1.0
+Lachnoanaerobaculum	1	1	1	0	0.0	0	0.0	1	1.0
+Lachnospira	1	1	1	0	0.0	0	0.0	1	1.0
+Lacimicrobium	1	1	1	1	1.0	1	1.0	1	1.0
+Lacipirellula	1	1	1	1	1.0	1	1.0	1	1.0
+Lacrimispora	1	1	1	0	0.0	0	0.0	1	1.0
+Lacunisphaera	1	1	1	1	1.0	1	1.0	1	1.0
+Lancefieldella	1	1	1	0	0.0	0	0.0	1	1.0
+Lapidilactobacillus	1	1	1	0	0.0	0	0.0	1	1.0
+Laribacter	1	1	1	0	0.0	1	1.0	1	1.0
+Lawsonella	1	1	1	0	0.0	1	1.0	1	1.0
+Leadbettera	1	1	1	0	0.0	1	1.0	1	1.0
+Leadbetterella	1	1	1	1	1.0	1	1.0	1	1.0
+Leminorella	1	1	1	1	1.0	1	1.0	1	1.0
+Lentibacillus	1	1	1	1	1.0	0	0.0	1	1.0
+Lentzea	1	1	1	1	1.0	1	1.0	1	1.0
+Leptothrix	1	1	1	1	1.0	1	1.0	1	1.0
+Limihaloglobus	1	1	1	0	0.0	1	1.0	1	1.0
+Limnochorda	1	1	1	1	1.0	0	0.0	1	1.0
+Limnoglobus	1	1	1	1	1.0	1	1.0	1	1.0
+Limnospira	1	1	0	1	1.0	0		0	
+Litorilituus	1	1	1	1	1.0	1	1.0	1	1.0
+Litorivicinus	1	1	1	0	0.0	1	1.0	1	1.0
+Lonsdalea	1	1	1	1	1.0	1	1.0	1	1.0
+Luteimicrobium	1	1	1	1	1.0	0	0.0	1	1.0
+Luteipulveratus	1	1	1	1	1.0	1	1.0	1	1.0
+Luteitalea	1	1	1	1	1.0	1	1.0	1	1.0
+Lutibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Macrococcus	1	1	1	0	0.0	0	0.0	1	1.0
+Mageeibacillus	1	1	1	0	0.0	0	0.0	1	1.0
+Magnetococcus	1	1	1	0	0.0	1	1.0	1	1.0
+Magnetospira	1	1	1	1	1.0	1	1.0	1	1.0
+Mahella	1	1	1	0	0.0	0	0.0	1	1.0
+Mameliella	1	1	1	0	0.0	1	1.0	1	1.0
+Mangrovivirga	1	1	1	1	1.0	1	1.0	1	1.0
+Maricaulis	1	1	1	1	1.0	1	1.0	1	1.0
+Marichromatium	1	1	1	1	1.0	1	1.0	1	1.0
+Maridesulfovibrio	1	1	1	0	0.0	1	1.0	1	1.0
+Mariniblastus	1	1	1	1	1.0	1	1.0	1	1.0
+Mariniflexile	1	1	1	1	1.0	1	1.0	1	1.0
+Marinilactibacillus	1	1	1	0	0.0	0	0.0	1	1.0
+Marinithermus	1	1	1	0	0.0	1	1.0	1	1.0
+Marinobacterium	1	1	1	1	1.0	1	1.0	1	1.0
+Marinovum	1	1	1	1	1.0	1	1.0	1	1.0
+Marisediminicola	1	1	1	1	1.0	0	0.0	0	0.0
+Maritalea	1	1	1	1	1.0	1	1.0	1	1.0
+Marivirga	1	1	1	1	1.0	1	1.0	1	1.0
+Marivivens	1	1	1	1	1.0	1	1.0	1	1.0
+Megamonas	1	1	1	1	1.0	1	1.0	1	1.0
+Melaminivora	1	1	1	1	1.0	1	1.0	1	1.0
+Melioribacter	1	1	1	1	1.0	1	1.0	1	1.0
+Melissococcus	1	1	1	0	0.0	0	0.0	1	1.0
+Melittangium	1	1	1	1	1.0	1	1.0	1	1.0
+Mesoflavibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Mesotoga	1	1	1	0	0.0	0	0.0	1	1.0
+Metabacillus	1	1	1	1	1.0	0	0.0	1	1.0
+Metapseudomonas	1	1	1	1	1.0	1	1.0	1	1.0
+Methanocorpusculum	1	1	0	0	0.0	0		0	
+Methanofervidicoccus	1	1	1	0	0.0	1	1.0	1	1.0
+Methanohalobium	1	1	1	0	0.0	1	1.0	1	1.0
+Methanolacinia	1	1	0	0	0.0	0		0	
+Methanomassiliicoccus	1	1	0	0	0.0	0		0	
+Methanomethylophilus	1	1	0	0	0.0	0		0	
+Methanomethylovorans	1	1	1	0	0.0	1	1.0	1	1.0
+Methanopyrus	1	1	1	0	0.0	1	1.0	1	1.0
+Methanosalsum	1	1	1	0	0.0	1	1.0	1	1.0
+Methanosphaerula	1	1	0	0	0.0	0		0	
+Methanospirillum	1	1	1	0	0.0	1	1.0	1	1.0
+Methanothermococcus	1	1	1	0	0.0	1	1.0	1	1.0
+Methanothermus	1	1	1	0	0.0	1	1.0	1	1.0
+Methanotorris	1	1	1	0	0.0	1	1.0	1	1.0
+Methylobacillus	1	1	1	0	0.0	1	1.0	1	1.0
+Methylocaldum	1	1	1	0	0.0	1	1.0	1	1.0
+Methyloceanibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Methylocella	1	1	1	1	1.0	1	1.0	1	1.0
+Methylomusa	1	1	1	0	0.0	0	0.0	1	1.0
+Methylophilus	1	1	1	1	1.0	1	1.0	1	1.0
+Methylosinus	1	1	1	1	1.0	1	1.0	1	1.0
+Methylotuvimicrobium	1	1	1	1	1.0	1	1.0	1	1.0
+Methyloversatilis	1	1	1	1	1.0	1	1.0	1	1.0
+Methylovirgula	1	1	1	1	1.0	1	1.0	1	1.0
+Methylovulum	1	1	1	0	0.0	1	1.0	1	1.0
+Microcella	1	1	1	1	1.0	0	0.0	1	1.0
+Micropruina	1	1	1	1	1.0	0	0.0	1	1.0
+Microterricola	1	1	1	0	0.0	0	0.0	1	1.0
+Minicystis	1	1	1	1	1.0	1	1.0	1	1.0
+Mobiluncus	1	1	1	0	0.0	0	0.0	1	1.0
+Modestobacter	1	1	1	1	1.0	0	0.0	1	1.0
+Mogibacterium	1	1	1	0	0.0	0	0.0	1	1.0
+Moorena	1	1	0	1	1.0	0		0	
+Morganella	1	1	1	1	1.0	1	1.0	1	1.0
+Mucinivorans	1	1	1	0	0.0	1	1.0	1	1.0
+Muribaculum	1	1	1	0	0.0	1	1.0	1	1.0
+Muriicola	1	1	1	0	0.0	1	1.0	1	1.0
+Musicola	1	1	1	1	1.0	1	1.0	1	1.0
+Mycetocola	1	1	1	1	1.0	0	0.0	1	1.0
+Mycetohabitans	1	1	1	1	1.0	1	1.0	1	1.0
+Mycoavidus	1	1	1	0	0.0	1	1.0	1	1.0
+Mycolicibacillus	1	1	1	1	1.0	1	1.0	1	1.0
+Nanosynbacter	1	1	1	0	0.0	1	1.0	1	1.0
+Natranaerobius	1	1	1	0	0.0	0	0.0	1	1.0
+Natrialba	1	1	1	0	0.0	1	1.0	1	1.0
+Natronococcus	1	1	1	0	0.0	1	1.0	1	1.0
+Neoasaia	1	1	1	0	0.0	1	1.0	1	1.0
+Neochlamydia	1	1	1	0	0.0	1	1.0	1	1.0
+Neokomagataea	1	1	1	0	0.0	1	1.0	1	1.0
+Neomicrococcus	1	1	1	0	0.0	0	0.0	0	0.0
+Neoundibacterium	1	1	1	1	1.0	1	1.0	1	1.0
+Neptunomonas	1	1	1	1	1.0	1	1.0	1	1.0
+Niallia	1	1	1	1	1.0	0	0.0	1	1.0
+Niastella	1	1	1	1	1.0	1	1.0	1	1.0
+Nibribacter	1	1	1	1	1.0	1	1.0	1	1.0
+Nibricoccus	1	1	1	1	1.0	1	1.0	1	1.0
+Nitratifractor	1	1	1	1	1.0	1	1.0	1	1.0
+Nitratireductor	1	1	1	1	1.0	1	1.0	1	1.0
+Nitratiruptor	1	1	1	0	0.0	1	1.0	1	1.0
+Nitrincola	1	1	1	1	1.0	1	1.0	1	1.0
+Nitrogeniibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Nitrosotalea	1	1	0	0	0.0	0		0	
+Nitrospirillum	1	1	1	1	1.0	1	1.0	1	1.0
+Niveispirillum	1	1	1	1	1.0	1	1.0	1	1.0
+Nodularia	1	1	0	1	1.0	0		0	
+Nostocoides	1	1	1	0	0.0	1	1.0	1	1.0
+Novibacillus	1	1	1	1	1.0	0	0.0	1	1.0
+Noviherbaspirillum	1	1	1	1	1.0	1	1.0	1	1.0
+Obesumbacterium	1	1	1	1	1.0	1	1.0	1	1.0
+Oceanicoccus	1	1	1	0	0.0	1	1.0	1	1.0
+Oceanicola	1	1	1	1	1.0	1	1.0	1	1.0
+Oceanihabitans	1	1	1	1	1.0	1	1.0	1	1.0
+Oceanimonas	1	1	1	1	1.0	1	1.0	1	1.0
+Oceanispirochaeta	1	1	1	0	0.0	0	0.0	1	1.0
+Oceanithermus	1	1	1	1	1.0	1	1.0	1	1.0
+Ochrobactrum	1	1	1	1	1.0	1	1.0	1	1.0
+Odoribacter	1	1	1	0	0.0	1	1.0	1	1.0
+Oecophyllibacter	1	1	1	0	0.0	1	1.0	1	1.0
+Oerskovia	1	1	1	1	1.0	0	0.0	1	1.0
+Oleidesulfovibrio	1	1	1	0	0.0	1	1.0	1	1.0
+Oleiphilus	1	1	1	1	1.0	1	1.0	1	1.0
+Oleispira	1	1	1	1	1.0	1	1.0	1	1.0
+Oligella	1	1	1	1	1.0	1	1.0	1	1.0
+Olivibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Opitutus	1	1	1	0	0.0	1	1.0	1	1.0
+Oryzomicrobium	1	1	1	1	1.0	1	1.0	1	1.0
+Oscillibacter	1	1	1	0	0.0	0	0.0	1	1.0
+Otariodibacter	1	1	1	0	0.0	1	1.0	1	1.0
+Owenweeksia	1	1	1	0	0.0	1	1.0	1	1.0
+Oxalobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Pacificitalea	1	1	1	1	1.0	1	1.0	1	1.0
+Paenalcaligenes	1	1	1	0	0.0	1	1.0	1	1.0
+Palaeococcus	1	1	0	0	0.0	0		0	
+Palleronia	1	1	1	1	1.0	1	1.0	1	1.0
+Paludibacter	1	1	1	0	0.0	1	1.0	1	1.0
+Paludisphaera	1	1	1	0	0.0	1	1.0	1	1.0
+Panacibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Pannonibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Parachlamydia	1	1	1	1	1.0	1	1.0	1	1.0
+Paraclostridium	1	1	1	0	0.0	1	1.0	1	1.0
+Paradevosia	1	1	1	1	1.0	1	1.0	1	1.0
+Paraflavitalea	1	1	1	1	1.0	1	1.0	1	1.0
+Parafrankia	1	1	1	1	1.0	1	1.0	1	1.0
+Paragemmobacter	1	1	1	0	0.0	1	1.0	1	1.0
+Paramagnetospirillum	1	1	1	1	1.0	1	1.0	1	1.0
+Paraphotobacterium	1	1	1	0	0.0	1	1.0	1	1.0
+Pararhodospirillum	1	1	1	1	1.0	1	1.0	1	1.0
+Parascardovia	1	1	1	0	0.0	0	0.0	1	1.0
+Parasedimentitalea	1	1	1	0	0.0	1	1.0	1	1.0
+Parasphaerochaeta	1	1	1	0	0.0	1	1.0	1	1.0
+Parasphingopyxis	1	1	1	1	1.0	1	1.0	1	1.0
+Parasynechococcus	1	1	0	0	0.0	0		0	
+Parathermosynechococcus	1	1	0	0	0.0	0		0	
+Paraurantiacibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Parazoarcus	1	1	1	1	1.0	1	1.0	1	1.0
+Paremcibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Paroceanicella	1	1	1	1	1.0	1	1.0	1	1.0
+Parolsenella	1	1	1	0	0.0	0	0.0	1	1.0
+Parvibaculum	1	1	1	1	1.0	1	1.0	1	1.0
+Parvimonas	1	1	1	0	0.0	0	0.0	1	1.0
+Parvularcula	1	1	1	0	0.0	1	1.0	1	1.0
+Paucilactobacillus	1	1	1	0	0.0	0	0.0	1	1.0
+Paucimonas	1	1	1	1	1.0	1	1.0	1	1.0
+Pelagerythrobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Pelagibacterium	1	1	1	1	1.0	1	1.0	1	1.0
+Pelobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Pelolinea	1	1	1	0	0.0	0	0.0	1	1.0
+Peptacetobacter	1	1	1	0	0.0	0	0.0	1	1.0
+Peptoclostridium	1	1	1	0	0.0	0	0.0	1	1.0
+Peptoniphilus	1	1	1	0	0.0	0	0.0	1	1.0
+Periweissella	1	1	1	0	0.0	0	0.0	1	1.0
+Permianibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Persephonella	1	1	1	0	0.0	1	1.0	1	1.0
+Persicobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Peterkaempfera	1	1	1	1	1.0	1	1.0	1	1.0
+Petrimonas	1	1	1	0	0.0	1	1.0	1	1.0
+Petrotoga	1	1	1	0	0.0	0	0.0	1	1.0
+Phascolarctobacterium	1	1	1	0	0.0	1	1.0	1	1.0
+Phnomibacter	1	1	1	0	0.0	1	1.0	1	1.0
+Phocoenobacter	1	1	1	0	0.0	1	1.0	1	1.0
+Phormidium	1	1	0	1	1.0	0		0	
+Phycisphaera	1	1	1	1	1.0	1	1.0	1	1.0
+Phyllobacterium	1	1	1	1	1.0	1	1.0	1	1.0
+Picrophilus	1	1	0	0	0.0	0		0	
+Pikeienuella	1	1	1	1	1.0	1	1.0	1	1.0
+Pimelobacter	1	1	1	0	0.0	1	1.0	1	1.0
+Pistricoccus	1	1	1	0	0.0	1	1.0	1	1.0
+Planktomarina	1	1	1	1	1.0	1	1.0	1	1.0
+Plantibacter	1	1	1	1	1.0	0	0.0	1	1.0
+Plesiomonas	1	1	1	1	1.0	1	1.0	1	1.0
+Pleurocapsa	1	1	0	1	1.0	0		0	
+Pollutimonas	1	1	1	1	1.0	1	1.0	1	1.0
+Polymorphum	1	1	1	1	1.0	1	1.0	1	1.0
+Pontibacillus	1	1	1	1	1.0	0	0.0	1	1.0
+Pontimonas	1	1	1	0	0.0	0	0.0	1	1.0
+Poseidonibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Pradoshia	1	1	1	1	1.0	0	0.0	1	1.0
+Pragia	1	1	1	1	1.0	1	1.0	1	1.0
+Prauserella	1	1	1	1	1.0	1	1.0	1	1.0
+Prescottella	1	1	1	1	1.0	1	1.0	1	1.0
+Promethearchaeum	1	1	1	0	0.0	1	1.0	1	1.0
+Proteiniphilum	1	1	1	0	0.0	1	1.0	1	1.0
+Protofrankia	1	1	1	0	0.0	1	1.0	1	1.0
+Pseudactinotalea	1	1	1	1	1.0	0	0.0	1	1.0
+Pseudalgibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Pseudanabaena	1	1	0	1	1.0	0		0	
+Pseudanabaenococcus	1	1	0	0	0.0	0		0	
+Pseudazoarcus	1	1	1	1	1.0	1	1.0	1	1.0
+Pseudobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Pseudobdellovibrio	1	1	1	0	0.0	1	1.0	1	1.0
+Pseudobutyrivibrio	1	1	1	0	0.0	0	0.0	1	1.0
+Pseudofrankia	1	1	1	1	1.0	1	1.0	1	1.0
+Pseudogemmobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Pseudogulbenkiania	1	1	1	1	1.0	1	1.0	1	1.0
+Pseudohalocynthiibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Pseudohongiella	1	1	1	0	0.0	1	1.0	1	1.0
+Pseudoleptotrichia	1	1	1	0	0.0	1	1.0	1	1.0
+Pseudolysobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Pseudomyxococcus	1	1	1	1	1.0	1	1.0	1	1.0
+Pseudopedobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Pseudoprevotella	1	1	1	0	0.0	1	1.0	1	1.0
+Pseudorhizobium	1	1	1	1	1.0	1	1.0	1	1.0
+Pseudorhodobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Pseudorhodoplanes	1	1	1	1	1.0	1	1.0	1	1.0
+Pseudoselenomonas	1	1	1	1	1.0	1	1.0	1	1.0
+Pseudosulfitobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Pseudotamlana	1	1	1	1	1.0	1	1.0	1	1.0
+Psychroflexus	1	1	1	1	1.0	1	1.0	1	1.0
+Psychromicrobium	1	1	1	1	1.0	1	1.0	1	1.0
+Psychroserpens	1	1	1	1	1.0	1	1.0	1	1.0
+Pukyongia	1	1	1	1	1.0	1	1.0	1	1.0
+Pukyongiella	1	1	1	1	1.0	1	1.0	1	1.0
+Pulveribacter	1	1	1	1	1.0	1	1.0	1	1.0
+Pusillimonas	1	1	1	1	1.0	1	1.0	1	1.0
+Pyrodictium	1	1	0	0	0.0	0		0	
+Pyrolobus	1	1	0	0	0.0	0		0	
+Pyruvatibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Qingshengfaniella	1	1	1	1	1.0	1	1.0	1	1.0
+Qipengyuania	1	1	1	1	1.0	1	1.0	1	1.0
+Radiobacillus	1	1	1	0	0.0	0	0.0	1	1.0
+Raineyella	1	1	1	0	0.0	0	0.0	1	1.0
+Ramlibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Rasiella	1	1	1	0	0.0	1	1.0	1	1.0
+Reinekea	1	1	1	1	1.0	1	1.0	1	1.0
+Renibacterium	1	1	1	1	1.0	1	1.0	1	1.0
+Rheinheimera	1	1	1	1	1.0	1	1.0	1	1.0
+Rhizobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Rhizosphaericola	1	1	1	1	1.0	1	1.0	1	1.0
+Rhodocytophaga	1	1	1	1	1.0	1	1.0	1	1.0
+Rhodomicrobium	1	1	1	1	1.0	1	1.0	1	1.0
+Rhodophyticola	1	1	1	1	1.0	1	1.0	1	1.0
+Rhodopirellula	1	1	1	1	1.0	1	1.0	1	1.0
+Rickettsiella	1	1	1	0	0.0	1	1.0	1	1.0
+Rivularia	1	1	0	1	1.0	0		0	
+Robiginitalea	1	1	1	1	1.0	1	1.0	1	1.0
+Rodentibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Roseburia	1	1	1	0	0.0	0	0.0	1	1.0
+Roseibium	1	1	1	1	1.0	1	1.0	1	1.0
+Roseicyclus	1	1	1	1	1.0	1	1.0	1	1.0
+Roseimaritima	1	1	1	1	1.0	1	1.0	1	1.0
+Roseimicrobium	1	1	1	1	1.0	1	1.0	1	1.0
+Roseinatronobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Roseitalea	1	1	1	1	1.0	1	1.0	1	1.0
+Roseivivax	1	1	1	1	1.0	1	1.0	1	1.0
+Rubinisphaera	1	1	1	0	0.0	1	1.0	1	1.0
+Rubrivivax	1	1	1	1	1.0	1	1.0	1	1.0
+Rugositalea	1	1	1	1	1.0	1	1.0	1	1.0
+Rummeliibacillus	1	1	1	1	1.0	1	1.0	1	1.0
+Saccharibacillus	1	1	1	1	1.0	1	1.0	1	1.0
+Saccharobesus	1	1	1	1	1.0	1	1.0	1	1.0
+Saccharophagus	1	1	1	1	1.0	1	1.0	1	1.0
+Saccharopolyspora	1	1	1	1	1.0	1	1.0	1	1.0
+Sagittula	1	1	1	1	1.0	1	1.0	1	1.0
+Salarchaeum	1	1	1	0	0.0	1	1.0	1	1.0
+Salegentibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Salimicrobium	1	1	1	1	1.0	0	0.0	1	1.0
+Salinarchaeum	1	1	1	0	0.0	1	1.0	1	1.0
+Salinibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Salinicoccus	1	1	1	1	1.0	0	0.0	1	1.0
+Salinigranum	1	1	1	0	0.0	1	1.0	1	1.0
+Saliniradius	1	1	1	1	1.0	1	1.0	1	1.0
+Salinisphaera	1	1	1	1	1.0	1	1.0	1	1.0
+Salinispira	1	1	1	1	1.0	1	1.0	1	1.0
+Salinivirga	1	1	1	1	1.0	1	1.0	1	1.0
+Sandaracinus	1	1	1	1	1.0	1	1.0	1	1.0
+Sanguibacter	1	1	1	1	1.0	0	0.0	1	1.0
+Saprospira	1	1	1	0	0.0	1	1.0	1	1.0
+Scardovia	1	1	1	0	0.0	0	0.0	1	1.0
+Sebaldella	1	1	1	0	0.0	1	1.0	1	1.0
+Secundilactobacillus	1	1	1	0	0.0	0	0.0	1	1.0
+Sedimenticola	1	1	1	0	0.0	1	1.0	1	1.0
+Sediminicola	1	1	1	1	1.0	1	1.0	1	1.0
+Sediminispirochaeta	1	1	1	0	0.0	1	1.0	1	1.0
+Segniliparus	1	1	1	1	1.0	1	1.0	1	1.0
+Seonamhaeicola	1	1	1	1	1.0	1	1.0	1	1.0
+Serinicoccus	1	1	1	1	1.0	0	0.0	1	1.0
+Shimwellia	1	1	1	1	1.0	1	1.0	1	1.0
+Shinella	1	1	1	1	1.0	1	1.0	1	1.0
+Siansivirga	1	1	1	1	1.0	1	1.0	1	1.0
+Sideroxydans	1	1	1	1	1.0	1	1.0	1	1.0
+Silicimonas	1	1	1	1	1.0	1	1.0	1	1.0
+Simiduia	1	1	1	1	1.0	1	1.0	1	1.0
+Simkania	1	1	1	0	0.0	0	0.0	0	0.0
+Simonsiella	1	1	1	1	1.0	1	1.0	1	1.0
+Simplicispira	1	1	1	0	0.0	1	1.0	1	1.0
+Singulisphaera	1	1	1	1	1.0	1	1.0	1	1.0
+Sinimarinibacterium	1	1	1	1	1.0	1	1.0	1	1.0
+Sinomonas	1	1	1	1	1.0	0	0.0	1	1.0
+Slackia	1	1	1	0	0.0	0	0.0	1	1.0
+Sneathia	1	1	1	0	0.0	1	1.0	1	1.0
+Snodgrassella	1	1	1	0	0.0	1	1.0	1	1.0
+Solilutibacter	1	1	1	0	0.0	1	1.0	1	1.0
+Solimonas	1	1	1	1	1.0	1	1.0	1	1.0
+Solitalea	1	1	1	1	1.0	1	1.0	1	1.0
+Sphaerobacter	1	1	1	0	0.0	0	0.0	1	1.0
+Sphaerotilus	1	1	1	1	1.0	1	1.0	1	1.0
+Spirochaeta	1	1	1	1	1.0	0	0.0	1	1.0
+Spongiibacter	1	1	1	0	0.0	1	1.0	1	1.0
+Sporolactobacillus	1	1	1	0	0.0	0	0.0	1	1.0
+Sporomusa	1	1	1	0	0.0	1	1.0	1	1.0
+Stackebrandtia	1	1	1	1	1.0	1	1.0	1	1.0
+Stappia	1	1	1	1	1.0	1	1.0	1	1.0
+Steroidobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Stigmatella	1	1	1	1	1.0	1	1.0	1	1.0
+Streptobacillus	1	1	1	0	0.0	0	0.0	1	1.0
+Streptomonospora	1	1	1	1	1.0	1	1.0	1	1.0
+Streptosporangium	1	1	1	1	1.0	1	1.0	1	1.0
+Stygiolobus	1	1	0	0	0.0	0		0	
+Suicoccus	1	1	1	0	0.0	0	0.0	1	1.0
+Sulfodiicoccus	1	1	0	0	0.0	0		0	
+Sulfuracidifex	1	1	0	0	0.0	0		0	
+Sulfuricaulis	1	1	1	1	1.0	1	1.0	1	1.0
+Sulfuricella	1	1	1	1	1.0	1	1.0	1	1.0
+Sulfuricurvum	1	1	1	0	0.0	1	1.0	1	1.0
+Sulfurifustis	1	1	1	1	1.0	1	1.0	1	1.0
+Sulfuritalea	1	1	1	1	1.0	1	1.0	1	1.0
+Sutcliffiella	1	1	1	1	1.0	0	0.0	1	1.0
+Swingsia	1	1	1	0	0.0	1	1.0	1	1.0
+Symbiobacterium	1	1	1	1	1.0	0	0.0	1	1.0
+Syntrophobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Syntrophobotulus	1	1	1	0	0.0	0	0.0	1	1.0
+Syntrophomonas	1	1	1	0	0.0	0	0.0	1	1.0
+Syntrophothermus	1	1	1	0	0.0	0	0.0	1	1.0
+Syntrophus	1	1	1	0	0.0	1	1.0	1	1.0
+Tabrizicola	1	1	1	1	1.0	1	1.0	1	1.0
+Tardibacter	1	1	1	0	0.0	1	1.0	1	1.0
+Tateyamaria	1	1	1	1	1.0	1	1.0	1	1.0
+Tepidiforma	1	1	1	0	0.0	1	1.0	1	1.0
+Teredinibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Terribacillus	1	1	1	1	1.0	0	0.0	1	1.0
+Thalassococcus	1	1	1	1	1.0	1	1.0	1	1.0
+Thalassoporum	1	1	0	0	0.0	0		0	
+Thalassovita	1	1	1	1	1.0	1	1.0	1	1.0
+Thermacetogenium	1	1	1	0	0.0	1	1.0	1	1.0
+Thermanaerovibrio	1	1	1	0	0.0	1	1.0	1	1.0
+Thermincola	1	1	1	0	0.0	1	1.0	1	1.0
+Thermoactinomyces	1	1	1	1	1.0	0	0.0	1	1.0
+Thermobacillus	1	1	1	1	1.0	0	0.0	1	1.0
+Thermobaculum	1	1	1	0	0.0	0	0.0	1	1.0
+Thermobifida	1	1	1	1	1.0	0	0.0	1	1.0
+Thermobispora	1	1	1	1	1.0	0	0.0	1	1.0
+Thermochromatium	1	1	1	0	0.0	1	1.0	1	1.0
+Thermodesulfatator	1	1	1	0	0.0	1	1.0	1	1.0
+Thermodesulfovibrio	1	1	1	0	0.0	1	1.0	1	1.0
+Thermogladius	1	1	0	0	0.0	0		0	
+Thermogutta	1	1	1	0	0.0	1	1.0	1	1.0
+Thermomicrobium	1	1	1	0	0.0	0	0.0	1	1.0
+Thermomonas	1	1	1	1	1.0	1	1.0	1	1.0
+Thermomonospora	1	1	1	1	1.0	1	1.0	1	1.0
+Thermosediminibacter	1	1	1	0	0.0	0	0.0	1	1.0
+Thermosphaera	1	1	0	0	0.0	0		0	
+Thermostichus	1	1	0	0	0.0	0		0	
+Thermosulfidibacter	1	1	1	0	0.0	1	1.0	1	1.0
+Thermosulfurimonas	1	1	1	0	0.0	1	1.0	1	1.0
+Thermosulfuriphilus	1	1	1	0	0.0	1	1.0	1	1.0
+Thermovibrio	1	1	1	0	0.0	1	1.0	1	1.0
+Thermovirga	1	1	1	0	0.0	1	1.0	1	1.0
+Thiobacillus	1	1	1	1	1.0	1	1.0	1	1.0
+Thioclava	1	1	1	1	1.0	1	1.0	1	1.0
+Thiocystis	1	1	1	1	1.0	1	1.0	1	1.0
+Thiodictyon	1	1	1	1	1.0	1	1.0	1	1.0
+Thioflavicoccus	1	1	1	1	1.0	1	1.0	1	1.0
+Thiohalobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Thiolapillus	1	1	1	1	1.0	1	1.0	1	1.0
+Thiomicrorhabdus	1	1	1	0	0.0	1	1.0	1	1.0
+Thiomonas	1	1	1	1	1.0	1	1.0	1	1.0
+Thioploca	1	1	1	1	1.0	1	1.0	1	1.0
+Thiopseudomonas	1	1	1	0	0.0	1	1.0	1	1.0
+Thiospirochaeta	1	1	1	0	0.0	1	1.0	1	1.0
+Tistrella	1	1	1	0	0.0	1	1.0	1	1.0
+Tolumonas	1	1	1	1	1.0	1	1.0	1	1.0
+Tolypothrix	1	1	0	1	1.0	0		0	
+Tomitella	1	1	1	1	1.0	1	1.0	1	1.0
+Trichlorobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Trichodesmium	1	1	0	1	1.0	0		0	
+Tritonibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Truepera	1	1	1	1	1.0	1	1.0	1	1.0
+Tsuneonella	1	1	1	1	1.0	1	1.0	1	1.0
+Turneriella	1	1	1	1	1.0	1	1.0	1	1.0
+Urechidicola	1	1	1	1	1.0	1	1.0	1	1.0
+Variibacter	1	1	1	1	1.0	1	1.0	1	1.0
+Verminephrobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Vulgatibacter	1	1	1	0	0.0	1	1.0	1	1.0
+Waddlia	1	1	1	0	0.0	1	1.0	1	1.0
+Weeksella	1	1	1	1	1.0	1	1.0	1	1.0
+Wenyingzhuangia	1	1	1	0	0.0	1	1.0	1	1.0
+Wenzhouxiangella	1	1	1	1	1.0	1	1.0	1	1.0
+Woeseia	1	1	1	0	0.0	1	1.0	1	1.0
+Wolinella	1	1	1	1	1.0	1	1.0	1	1.0
+Xanthobacter	1	1	1	1	1.0	1	1.0	1	1.0
+Xylanibacter	1	1	1	0	0.0	1	1.0	1	1.0
+Xylophilus	1	1	1	1	1.0	1	1.0	1	1.0
+Yokenella	1	1	1	1	1.0	1	1.0	1	1.0
+Yoonia	1	1	1	1	1.0	1	1.0	1	1.0
+Zhongshania	1	1	1	1	1.0	1	1.0	1	1.0
+Zobellella	1	1	1	1	1.0	1	1.0	1	1.0
+Zobellia	1	1	1	1	1.0	1	1.0	1	1.0
+Zophobihabitans	1	1	1	1	1.0	1	1.0	1	1.0
+Zunongwangia	1	1	1	1	1.0	1	1.0	1	1.0
+Zymobacter	1	1	1	0	0.0	1	1.0	1	1.0

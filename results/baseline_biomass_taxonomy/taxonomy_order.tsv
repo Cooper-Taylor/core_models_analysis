@@ -1,0 +1,237 @@
+order	n_genomes_union	n_core	n_full	core_growers	core_grower_frac	full_gmm_growers	full_gmm_grower_frac	full_auxo_growers	full_auxo_grower_frac
+Enterobacterales	481	481	481	432	0.8981	479	0.9958	481	1.0
+Caryophanales	431	431	431	290	0.6729	244	0.5661	429	0.9954
+Lactobacillales	333	333	333	62	0.1862	5	0.015	327	0.982
+Burkholderiales	301	301	301	286	0.9502	301	1.0	301	1.0
+Hyphomicrobiales	260	260	260	231	0.8885	260	1.0	260	1.0
+Mycobacteriales	249	249	249	244	0.9799	227	0.9116	249	1.0
+Campylobacterales	174	173	174	146	0.8439	174	1.0	174	1.0
+Flavobacteriales	174	174	174	116	0.6667	173	0.9943	174	1.0
+Micrococcales	157	157	157	124	0.7898	36	0.2293	153	0.9745
+Pseudomonadales	127	127	127	121	0.9528	127	1.0	127	1.0
+Alteromonadales	110	110	110	105	0.9545	110	1.0	110	1.0
+Eubacteriales	110	110	110	9	0.0818	28	0.2545	110	1.0
+Rhodobacterales	101	101	101	96	0.9505	101	1.0	101	1.0
+Sphingomonadales	93	93	93	81	0.871	93	1.0	93	1.0
+Chlamydiales	88	88	88	0	0.0	88	1.0	88	1.0
+Lysobacterales	87	87	87	86	0.9885	85	0.977	86	0.9885
+Rickettsiales	85	85	85	1	0.0118	84	0.9882	85	1.0
+Pasteurellales	76	76	76	35	0.4605	76	1.0	76	1.0
+Kitasatosporales	72	72	72	72	1.0	72	1.0	72	1.0
+Halobacteriales	69	69	69	0	0.0	69	1.0	69	1.0
+Mycoplasmoidales	69	69	69	0	0.0	69	1.0	68	0.9855
+Vibrionales	66	66	66	61	0.9242	66	1.0	66	1.0
+Moraxellales	64	64	64	63	0.9844	64	1.0	64	1.0
+Thiotrichales	61	61	61	49	0.8033	59	0.9672	61	1.0
+Bifidobacteriales	60	60	60	1	0.0167	0	0.0	60	1.0
+Bacteroidales	54	54	54	11	0.2037	54	1.0	53	0.9815
+Neisseriales	52	52	52	37	0.7115	52	1.0	52	1.0
+Oceanospirillales	52	52	52	36	0.6923	52	1.0	52	1.0
+Cytophagales	51	51	51	35	0.6863	51	1.0	51	1.0
+Acetobacterales	50	50	50	39	0.78	50	1.0	50	1.0
+Propionibacteriales	46	46	46	16	0.3478	20	0.4348	46	1.0
+Unassigned	42	42	34	5	0.119	31	0.9118	34	1.0
+Synechococcales	41	41	0	15	0.3659	0		0	
+Entomoplasmatales	38	38	38	0	0.0	23	0.6053	38	1.0
+Pseudonocardiales	37	37	37	37	1.0	36	0.973	36	0.973
+Thermococcales	36	36	0	0	0.0	0		0	
+Chromatiales	34	34	33	27	0.7941	33	1.0	33	1.0
+Spirochaetales	34	34	34	2	0.0588	29	0.8529	34	1.0
+Legionellales	32	32	32	16	0.5	32	1.0	32	1.0
+Sulfolobales	32	32	0	0	0.0	0		0	
+Methanosarcinales	31	31	31	0	0.0	31	1.0	31	1.0
+Rhodospirillales	30	30	30	28	0.9333	30	1.0	30	1.0
+Nitrosomonadales	29	29	29	22	0.7586	28	0.9655	29	1.0
+Sphingobacteriales	27	27	27	21	0.7778	27	1.0	27	1.0
+Mycoplasmatales	26	26	26	0	0.0	20	0.7692	26	1.0
+Desulfovibrionales	25	25	25	0	0.0	25	1.0	25	1.0
+Lachnospirales	25	25	25	0	0.0	1	0.04	25	1.0
+Thermotogales	25	25	25	0	0.0	6	0.24	25	1.0
+Aeromonadales	24	24	24	23	0.9583	24	1.0	24	1.0
+Fusobacteriales	24	24	24	0	0.0	22	0.9167	24	1.0
+Nostocales	24	24	0	24	1.0	0		0	
+Methanobacteriales	23	23	23	0	0.0	23	1.0	23	1.0
+Caulobacterales	21	21	21	20	0.9524	21	1.0	21	1.0
+Chroococcales	21	21	0	19	0.9048	0		0	
+Rhodocyclales	21	21	21	21	1.0	21	1.0	21	1.0
+Cellvibrionales	20	20	20	12	0.6	20	1.0	20	1.0
+Methanococcales	20	20	20	0	0.0	20	1.0	20	1.0
+Actinomycetales	19	19	19	9	0.4737	0	0.0	18	0.9474
+Micromonosporales	19	19	19	17	0.8947	17	0.8947	19	1.0
+Peptostreptococcales	19	19	19	0	0.0	5	0.2632	19	1.0
+Chitinophagales	18	18	18	16	0.8889	18	1.0	18	1.0
+Thermoanaerobacterales	16	16	16	0	0.0	3	0.1875	16	1.0
+Chlorobiales	15	15	15	9	0.6	15	1.0	15	1.0
+Deinococcales	15	15	15	11	0.7333	1	0.0667	15	1.0
+Myxococcales	15	15	15	14	0.9333	15	1.0	15	1.0
+Thermales	15	15	15	11	0.7333	12	0.8	14	0.9333
+Dehalococcoidales	14	14	14	0	0.0	14	1.0	14	1.0
+Desulfurococcales	14	14	1	0	0.0	1	1.0	1	1.0
+Leptospirales	14	14	14	3	0.2143	14	1.0	14	1.0
+Treponematales	14	14	14	0	0.0	14	1.0	14	1.0
+Acholeplasmatales	11	11	11	0	0.0	7	0.6364	11	1.0
+Aquificales	11	11	11	0	0.0	11	1.0	11	1.0
+Erysipelotrichales	11	11	11	0	0.0	0	0.0	11	1.0
+Geobacterales	11	11	11	10	0.9091	11	1.0	11	1.0
+Methylococcales	11	11	11	6	0.5455	11	1.0	11	1.0
+Streptosporangiales	11	11	11	11	1.0	8	0.7273	11	1.0
+Thermoproteales	11	11	0	0	0.0	0		0	
+Selenomonadales	10	10	10	7	0.7	9	0.9	10	1.0
+Terriglobales	10	10	10	8	0.8	10	1.0	10	1.0
+Bdellovibrionales	9	9	9	5	0.5556	9	1.0	9	1.0
+Caldicellulosiruptorales	9	9	9	0	0.0	5	0.5556	9	1.0
+Methanomicrobiales	9	9	3	0	0.0	3	1.0	3	1.0
+Archaeoglobales	8	8	0	0	0.0	0		0	
+Brachyspirales	8	8	8	0	0.0	8	1.0	8	1.0
+Candidatus Nanopelagicales	8	8	8	0	0.0	0	0.0	7	0.875
+Desulfobacterales	8	8	8	7	0.875	8	1.0	8	1.0
+Nitrospirales	8	8	8	1	0.125	8	1.0	8	1.0
+Pirellulales	8	8	8	7	0.875	8	1.0	8	1.0
+Planctomycetales	8	8	8	3	0.375	8	1.0	8	1.0
+Acidithiobacillales	7	7	7	7	1.0	7	1.0	7	1.0
+Desulfuromonadales	7	7	7	7	1.0	7	1.0	7	1.0
+Eggerthellales	7	7	7	2	0.2857	0	0.0	7	1.0
+Halanaerobiales	7	7	7	0	0.0	2	0.2857	7	1.0
+Nitrosopumilales	7	7	0	0	0.0	0		0	
+Thermodesulfobacteriales	7	7	7	0	0.0	7	1.0	7	1.0
+Thermoplasmatales	7	7	0	0	0.0	0		0	
+Tissierellales	7	7	7	0	0.0	2	0.2857	7	1.0
+Veillonellales	7	7	7	3	0.4286	7	1.0	7	1.0
+Candidatus Johnevansiales	6	6	6	0	0.0	6	1.0	6	1.0
+Coriobacteriales	6	6	6	2	0.3333	0	0.0	6	1.0
+Polyangiales	6	6	6	6	1.0	6	1.0	6	1.0
+Chloroflexales	5	5	5	2	0.4	0	0.0	5	1.0
+Deferribacterales	5	5	5	5	1.0	5	1.0	5	1.0
+Desulfobulbales	5	5	5	2	0.4	5	1.0	5	1.0
+Frankiales	5	5	5	3	0.6	5	1.0	5	1.0
+Nautiliales	5	5	5	0	0.0	5	1.0	5	1.0
+Oscillatoriales	5	5	0	5	1.0	0		0	
+Parachlamydiales	5	5	5	1	0.2	4	0.8	4	0.8
+Synergistales	5	5	5	0	0.0	5	1.0	5	1.0
+Acaryochloridales	4	4	0	1	0.25	0		0	
+Acetivibrionales	4	4	4	0	0.0	3	0.75	4	1.0
+Anaerolineales	4	4	4	0	0.0	2	0.5	4	1.0
+Candidatus Pelagibacterales	4	4	4	0	0.0	4	1.0	4	1.0
+Isosphaerales	4	4	4	2	0.5	4	1.0	4	1.0
+Kangiellales	4	4	4	0	0.0	4	1.0	4	1.0
+Marinilabiliales	4	4	4	1	0.25	4	1.0	4	1.0
+Nitrososphaerales	4	4	0	0	0.0	0		0	
+Opitutales	4	4	4	3	0.75	4	1.0	4	1.0
+Petrotogales	4	4	4	0	0.0	3	0.75	4	1.0
+Rhodothermales	4	4	4	3	0.75	4	1.0	4	1.0
+Sedimentisphaerales	4	4	4	0	0.0	4	1.0	4	1.0
+Thermofilales	4	4	0	0	0.0	0		0	
+Acidaminococcales	3	3	3	0	0.0	3	1.0	3	1.0
+Acidiferrobacterales	3	3	3	2	0.6667	3	1.0	3	1.0
+Acidilobales	3	3	0	0	0.0	0		0	
+Bacteriovoracales	3	3	3	3	1.0	3	1.0	3	1.0
+Endomicrobiales	3	3	3	0	0.0	3	1.0	3	1.0
+Gemmatales	3	3	3	2	0.6667	3	1.0	3	1.0
+Gemmatimonadales	3	3	3	3	1.0	3	1.0	3	1.0
+Geodermatophilales	3	3	3	3	1.0	0	0.0	3	1.0
+Holosporales	3	3	3	0	0.0	3	1.0	3	1.0
+Hyphomonadales	3	3	3	3	1.0	3	1.0	3	1.0
+Kosmotogales	3	3	3	0	0.0	1	0.3333	3	1.0
+Leptolyngbyales	3	3	0	3	1.0	0		0	
+Methanocellales	3	3	3	0	0.0	3	1.0	3	1.0
+Methanomassiliicoccales	3	3	0	0	0.0	0		0	
+Methanotrichales	3	3	3	0	0.0	2	0.6667	2	0.6667
+Methylacidiphilales	3	3	3	0	0.0	3	1.0	3	1.0
+Neomoorellales	3	3	3	0	0.0	0	0.0	2	0.6667
+Nodosilineales	3	3	0	1	0.3333	0		0	
+Orbales	3	3	3	2	0.6667	3	1.0	3	1.0
+Pleurocapsales	3	3	0	3	1.0	0		0	
+Pseudanabaenales	3	3	0	1	0.3333	0		0	
+Thermosediminibacterales	3	3	3	0	0.0	0	0.0	3	1.0
+Verrucomicrobiales	3	3	3	1	0.3333	3	1.0	3	1.0
+Acidimicrobiales	2	2	2	2	1.0	0	0.0	2	1.0
+Coleofasciculales	2	2	0	2	1.0	0		0	
+Desulfurellales	2	2	2	1	0.5	2	1.0	2	1.0
+Desulfurobacteriales	2	2	2	0	0.0	2	1.0	2	1.0
+Dictyoglomales	2	2	2	0	0.0	0	0.0	2	1.0
+Fibrobacterales	2	2	2	0	0.0	2	1.0	2	1.0
+Gloeobacterales	2	2	0	1	0.5	0		0	
+Gomontiellales	2	2	0	2	1.0	0		0	
+Ignavibacteriales	2	2	2	1	0.5	2	1.0	2	1.0
+Maricaulales	2	2	2	2	1.0	2	1.0	2	1.0
+Mariprofundales	2	2	2	0	0.0	2	1.0	2	1.0
+Nakamurellales	2	2	2	1	0.5	0	0.0	2	1.0
+Nevskiales	2	2	2	2	1.0	2	1.0	2	1.0
+Rubrobacterales	2	2	2	0	0.0	0	0.0	2	1.0
+Saprospirales	2	2	2	1	0.5	2	1.0	2	1.0
+Solirubrobacterales	2	2	2	1	0.5	2	1.0	2	1.0
+Syntrophobacterales	2	2	2	1	0.5	2	1.0	2	1.0
+Thermodesulfobiales	2	2	2	0	0.0	2	1.0	2	1.0
+Winmispirales	2	2	2	0	0.0	2	1.0	2	1.0
+Acidothermales	1	1	1	1	1.0	1	1.0	1	1.0
+Actinopolysporales	1	1	1	1	1.0	1	1.0	1	1.0
+Allobogoriellales	1	1	1	1	1.0	0	0.0	1	1.0
+Balneolales	1	1	1	1	1.0	1	1.0	1	1.0
+Bradymonadales	1	1	1	0	0.0	1	1.0	1	1.0
+Bryobacterales	1	1	1	1	1.0	1	1.0	1	1.0
+Caldilineales	1	1	1	1	1.0	0	0.0	1	1.0
+Caldisericales	1	1	1	0	0.0	1	1.0	1	1.0
+Calditrichales	1	1	1	1	1.0	1	1.0	1	1.0
+Candidatus Babeliales	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Brocadiales	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Cloacimonadales	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Izemoplasmatales	1	1	1	0	0.0	0	0.0	1	1.0
+Candidatus Korarchaeales	1	1	0	0	0.0	0		0	
+Candidatus Promineifilales	1	1	1	1	1.0	0	0.0	1	1.0
+Candidatus Puniceispirillales	1	1	1	1	1.0	1	1.0	1	1.0
+Candidatus Saccharimonadales	1	1	1	0	0.0	1	1.0	1	1.0
+Candidatus Thermobaculales	1	1	1	0	0.0	0	0.0	1	1.0
+Cardiobacteriales	1	1	1	0	0.0	1	1.0	1	1.0
+Catenulisporales	1	1	1	1	1.0	1	1.0	1	1.0
+Chloracidobacteriales	1	1	1	1	1.0	1	1.0	1	1.0
+Christensenellales	1	1	1	0	0.0	0	0.0	1	1.0
+Chroococcidiopsidales	1	1	0	1	1.0	0		0	
+Chrysiogenales	1	1	1	1	1.0	1	1.0	1	1.0
+Conexivisphaerales	1	1	0	0	0.0	0		0	
+Coprothermobacterales	1	1	1	0	0.0	0	0.0	1	1.0
+Desulfarculales	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfobaccales	1	1	1	0	0.0	1	1.0	1	1.0
+Desulfomonilales	1	1	1	0	0.0	1	1.0	1	1.0
+Egibacterales	1	1	1	0	0.0	0	0.0	1	1.0
+Elusimicrobiales	1	1	1	0	0.0	1	1.0	1	1.0
+Emcibacterales	1	1	1	1	1.0	1	1.0	1	1.0
+Euzebyales	1	1	1	1	1.0	0	0.0	1	1.0
+Fervidicoccales	1	1	0	0	0.0	0		0	
+Fimbriimonadales	1	1	1	0	0.0	1	1.0	1	1.0
+Geitlerinematales	1	1	0	1	1.0	0		0	
+Geminicoccales	1	1	1	0	0.0	1	1.0	1	1.0
+Glycomycetales	1	1	1	1	1.0	1	1.0	1	1.0
+Haliangiales	1	1	1	1	1.0	1	1.0	1	1.0
+Hydrogenophilales	1	1	1	1	1.0	1	1.0	1	1.0
+Immundisolibacterales	1	1	1	0	0.0	1	1.0	1	1.0
+Kineosporiales	1	1	1	1	1.0	0	0.0	1	1.0
+Kiritimatiellales	1	1	1	0	0.0	1	1.0	1	1.0
+Ktedonobacterales	1	1	1	1	1.0	1	1.0	1	1.0
+Limnochordales	1	1	1	1	1.0	0	0.0	1	1.0
+Magnetococcales	1	1	1	0	0.0	1	1.0	1	1.0
+Mahellales	1	1	1	0	0.0	0	0.0	1	1.0
+Mesoaciditogales	1	1	1	0	0.0	1	1.0	1	1.0
+Methanopyrales	1	1	1	0	0.0	1	1.0	1	1.0
+Nanosynbacterales	1	1	1	0	0.0	1	1.0	1	1.0
+Natranaerobiales	1	1	1	0	0.0	0	0.0	1	1.0
+Nitrosotaleales	1	1	0	0	0.0	0		0	
+Parvularculales	1	1	1	0	0.0	1	1.0	1	1.0
+Phycisphaerales	1	1	1	1	1.0	1	1.0	1	1.0
+Promethearchaeales	1	1	1	0	0.0	1	1.0	1	1.0
+Puniceicoccales	1	1	1	1	1.0	1	1.0	1	1.0
+Salinisphaerales	1	1	1	1	1.0	1	1.0	1	1.0
+Silvanigrellales	1	1	1	1	1.0	1	1.0	1	1.0
+Sphaerobacterales	1	1	1	0	0.0	0	0.0	1	1.0
+Sporichthyales	1	1	1	0	0.0	1	1.0	1	1.0
+Steroidobacterales	1	1	1	1	1.0	1	1.0	1	1.0
+Syntrophales	1	1	1	0	0.0	1	1.0	1	1.0
+Tepidiformales	1	1	1	0	0.0	1	1.0	1	1.0
+Thermodesulfovibrionales	1	1	1	0	0.0	1	1.0	1	1.0
+Thermomicrobiales	1	1	1	0	0.0	0	0.0	1	1.0
+Thermostichales	1	1	0	0	0.0	0		0	
+Thermosulfidibacterales	1	1	1	0	0.0	1	1.0	1	1.0
+Thiohalobacterales	1	1	1	1	1.0	1	1.0	1	1.0
+Trueperales	1	1	1	1	1.0	1	1.0	1	1.0
+Vicinamibacterales	1	1	1	1	1.0	1	1.0	1	1.0
+Victivallales	1	1	1	0	0.0	1	1.0	1	1.0
+Woeseiales	1	1	1	0	0.0	1	1.0	1	1.0
