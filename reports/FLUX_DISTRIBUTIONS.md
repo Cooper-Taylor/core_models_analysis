@@ -118,18 +118,131 @@ figure itself.
 - FVA at `fraction_of_optimum=0.0`, so loop membership is a structural property
   of the network rather than something conditional on optimal growth.
 
+### How the loops are actually detected
+
+Both filters are built on cobrapy's `flux_variability_analysis`. **Filter B is
+not a different algorithm** — it is the same call, run on a model whose
+boundary reactions have been closed. That is the only difference between them.
+From `scripts/build_flux_distributions.py` (`analyse_one`):
+
+```python
+from cobra.flux_analysis import flux_variability_analysis, pfba
+
+# Internal = not a boundary reaction (cobra classifies exchange/demand/sink
+# itself) and not a biomass reaction.
+boundary = {r.id for r in model.boundary}
+internal = [r.id for r in model.reactions
+            if r.id not in boundary and not r.id.startswith("bio")]
+
+# --- the flux vector: parsimonious, so it is reproducible ---
+fluxes = pfba(model).fluxes
+
+# --- filter A: can it run LOOP_BOUND in BOTH directions? ---
+fva = flux_variability_analysis(model, fraction_of_optimum=0.0,
+                                processes=1)
+loop_a = set(fva.index[(fva["maximum"] >= LOOP_BOUND - LOOP_EPS)
+                       & (fva["minimum"] <= -LOOP_BOUND + LOOP_EPS)])
+
+# --- filter B: with nothing entering or leaving, what still moves? ---
+# The context manager reverts the bounds, which is far cheaper than
+# re-reading the model from disk.
+with model:
+    for rid in boundary:
+        model.reactions.get_by_id(rid).bounds = (0.0, 0.0)
+    fva_c = flux_variability_analysis(model, fraction_of_optimum=0.0,
+                                      processes=1)
+loop_b = set(fva_c.index[(fva_c["maximum"].abs() > CLOSED_TOL)
+                         | (fva_c["minimum"].abs() > CLOSED_TOL)])
+```
+
+with `LOOP_BOUND = 1000.0`, `LOOP_EPS = 1e-2`, `CLOSED_TOL = 1e-6`.
+
+Three arguments carry more weight than they look:
+
+- **`fraction_of_optimum=0.0`.** FVA defaults to `1.0`, which asks "what can
+  this reaction do *while the model still grows optimally*" and makes loop
+  membership conditional on growth. `0.0` asks the structural question
+  instead. It is also *required* for filter B, where the model cannot grow at
+  all once the exchanges are shut.
+- **`processes=1`.** cobra's FVA otherwise forks its own worker pool, which
+  deadlocks inside the 200-way `ProcessPoolExecutor` the sweep runs in.
+- **`with model:`.** cobra's context manager reverts the bound changes on
+  exit, so filter B does not need the model re-read from disk. This roughly
+  halved the sweep: a genome-scale model costs ~2.2 s just to load.
+
+`pfba` supplies the flux *values* that get medianed; the two FVA calls only
+decide which of those values to keep.
+
 ## Figures
 
-`reports/fluxDistributions/figures/flux_distributions/`
+All three live in `reports/fluxDistributions/figures/flux_distributions/` and
+are regenerated with `python3 scripts/regen_figures.py flux_distributions`.
 
-- **flux_distribution.png** — the ask: median and IQR per panel, log x axis
-  (range taken from the data, nothing clipped), loop-flagged flux drawn behind
-  in grey so the discard is visible, biomass flux marked.
-- **flux_vs_biomass.png** — the same flux ÷ that model's own biomass flux.
-  Dimensionless, so all three panels legitimately share one axis; the pooled
-  ECDF is where the core/genome-scale split is clearest.
-- **loop_accounting.png** — what each filter discards and how far it moves the
-  median; the evidence for the A-vs-B argument above.
+### 1. The distributions — the headline
+
+![internal flux distribution](fluxDistributions/figures/flux_distributions/flux_distribution.png)
+
+One panel per model set. The coloured histogram is the flux that **counts**;
+the grey histogram behind it is what filter B **discarded** as loop. The solid
+black rule is the median, the dotted rules the quartiles, and the shaded band
+the IQR. The red dashed rule is that panel's **median biomass flux**, so the
+comparison the figure exists to make is the horizontal gap between the black
+rule and the red one.
+
+The x axis is log because internal flux spans ~6 orders of magnitude; its range
+is taken from the data, so nothing is cropped — an empty stretch is genuinely
+empty. Quantiles are always computed on raw values, never on logs.
+
+Read it as: **core sits to the right of its biomass line, both genome-scale
+panels sit to the left of theirs.** The red warning under the core panel is the
+saturation caveat above — 14% of those fluxes are pinned on the ±1000 bound.
+
+### 2. Flux in units of biomass flux — the direct answer
+
+![flux relative to biomass](fluxDistributions/figures/flux_distributions/flux_vs_biomass.png)
+
+The same data divided by each model's *own* biomass flux. That removes the
+media scale, so all three panels legitimately share one axis and the dashed
+line at 1.0 means "this reaction runs exactly as fast as the biomass reaction
+it feeds".
+
+The pooled ECDF along the bottom is the clearest single view in the report: the
+blue core curve and the two genome-scale curves are separated by about two
+decades, and where they cross 1.0 gives the "% at or above biomass" column of
+the headline table — 89.6% for core against ~10% for both genome-scale panels.
+
+### 3. Loop accounting — why filter B is the default
+
+![loop accounting](fluxDistributions/figures/flux_distributions/loop_accounting.png)
+
+**Left — how much each filter throws away**, as a share of that panel's
+internal reaction fluxes. The relationship between the two bars *flips*: on
+core, A discards 3× more than B (23.1% vs 7.3%); on both genome-scale panels it
+discards about half as much (4.7% vs 8.7%). That flip is the figure's point.
+
+**Right — whether discarding changes the answer.** Each row is a panel; the
+three marks are the median under no filter (circle), A (square) and B
+(diamond), plotted as a ratio to the unfiltered median, so the circle is always
+at 1.0 and the displacement is readable directly. The absolute median is
+printed beside each mark. The italic line is the per-panel verdict: grey
+`A ⊆ B` on the genome-scale rows, red `A ⊄ B` on core.
+
+**The one counterintuitive mark** is core's B diamond, which sits to the
+*right* of 1.0 — filtering *raised* that median, 382 → 392, where every other
+mark moves left. The reason is what each filter is grabbing:
+
+| panel | median of A-flagged | median of B-flagged | panel median |
+|---|---|---|---|
+| Core | **697** (20.1% pinned at 1000) | **255** | 382 |
+| GSM · glucose minimal | 0.347 | 0.382 | 0.095 |
+| GSM · auxotrophy | 0.464 | 0.500 | 0.071 |
+
+In the genome-scale models loops behave as theory predicts — they are **fast**,
+4–7× the panel median — so removing them pulls the median down. On core that
+breaks: A is grabbing the *highest* fluxes (median 697, a fifth of them pinned
+at the bound) because on a flooded medium "runs at 1000" means saturated, not
+looping, while the genuine cycles B finds are comparatively **modest** (median
+255, below the panel median) and removing them nudges the median up.
 
 ## Related
 
