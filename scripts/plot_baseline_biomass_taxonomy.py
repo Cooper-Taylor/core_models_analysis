@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Baseline biomass distributions and genome taxonomy for the ModelSEED v2 model sets.
 
-Draws three PNGs under
+Draws four PNGs under
 ``reports/baselineBiomassTaxonomy/figures/baseline_biomass_taxonomy/``:
 
   biomass_distribution.png   per-panel histogram of biomass flux among growers,
@@ -11,6 +11,14 @@ Draws three PNGs under
                              beside the baseline grower fraction per phylum.
   biomass_by_phylum.png      per-panel median biomass flux by phylum, with the
                              interquartile range drawn as a bar.
+  biomass_distribution_shared_scale.png
+                             ALL THREE panels on one x axis -- linear on top
+                             (honest, and unreadable for the genome-scale
+                             panels), log underneath (readable). Drawn because
+                             "are these on the same scale?" is the first
+                             question biomass_distribution.png provokes, and
+                             the answer there is "the two genome-scale panels
+                             are, core is not".
 
 All numbers come from ``results/baseline_biomass_taxonomy/`` -- written by
 scripts/build_baseline_biomass_taxonomy.py, which is where the provenance of
@@ -68,6 +76,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import math
 import os
 from collections import defaultdict
 from pathlib import Path
@@ -532,6 +541,111 @@ def fig_by_phylum(summary: dict, phyla: list, per_panel_phylum: dict,
 # ---------------------------------------------------------------------------
 
 
+# ---------------------------------------------------------------------------
+# figure 4 - all THREE panels forced onto one x axis
+# ---------------------------------------------------------------------------
+
+
+def fig_shared_scale(summary: dict, flux: dict, out: Path) -> None:
+    """All three panels on one x axis -- linear on top, log underneath.
+
+    biomass_distribution.png shares an axis between the two genome-scale
+    panels only, and keeps core separate because core's fluxes are ~40x
+    larger. This figure answers the obvious next question -- what do all
+    three look like on ONE scale? -- and shows why the answer needs a log
+    axis.
+
+    Top row, shared LINEAR axis (0 to 1.04x the largest flux in any panel):
+    literally one scale for all three. It is honest and nearly unreadable
+    for the genome-scale panels, whose entire distributions fall inside the
+    first few percent of the axis; each is annotated with how little of the
+    width it occupies.
+
+    Bottom row, shared LOG axis over the same data and common bin edges:
+    the 40x separation becomes a readable offset, so all three distributions
+    can actually be compared at once. Quantiles are computed on the raw
+    values in both rows; only the axis changes.
+    """
+    lo_hi = [(min(flux[k]), max(flux[k])) for k, *_ in
+             [(p[0],) for p in PANELS]]
+    hard_max = max(hi for _lo, hi in lo_hi)
+    lin_hi = SHARED_X_PAD * hard_max
+    log_lo = math.floor(math.log10(min(lo for lo, _hi in lo_hi)))
+    log_hi = math.ceil(math.log10(hard_max))
+    lin_bins = np.linspace(0.0, lin_hi, N_BINS + 1)
+    log_bins = np.linspace(log_lo, log_hi, N_BINS + 1)
+
+    fig, axes = plt.subplots(
+        2, 3, figsize=(15.4, 8.6), facecolor=SURFACE,
+        gridspec_kw=dict(wspace=.17, hspace=.52, left=.058, right=.988,
+                         top=.80, bottom=.075))
+
+    for col, (key, _lbl, media, colour) in enumerate(PANELS):
+        vals = np.array(flux[key])
+        rec = summary["panels"][key]
+
+        # ---- top: shared linear axis ----
+        ax = axes[0, col]
+        style(ax)
+        ax.hist(vals, bins=lin_bins, color=colour, alpha=0.88,
+                edgecolor=SURFACE, linewidth=0.3)
+        ax.axvline(rec["median"], color=INK_PRIMARY, linewidth=1.7, alpha=.8)
+        ax.set_xlim(0, lin_hi)
+        ax.set_title(PANEL_TITLE[key], color=INK_PRIMARY, fontsize=11,
+                     fontweight="semibold", pad=16, loc="left")
+        share = vals.max() / lin_hi
+        ax.text(0, 1.015,
+                f"median {rec['median']:.3g}  ·  occupies the first "
+                f"{100 * share:.1f}% of this axis",
+                transform=ax.transAxes, fontsize=8.4,
+                color=INK_SECONDARY if share > 0.25 else "#b5342b",
+                fontweight="normal" if share > 0.25 else "semibold")
+        ax.set_xlabel("biomass flux (mmol gDW⁻¹ h⁻¹) — shared LINEAR axis",
+                      color=INK_SECONDARY, fontsize=8.8)
+
+        # ---- bottom: shared log axis ----
+        ax = axes[1, col]
+        style(ax)
+        ax.hist(np.log10(vals), bins=log_bins, color=colour, alpha=0.88,
+                edgecolor=SURFACE, linewidth=0.3)
+        for q, lw, ls in ((rec["q1"], 1.0, ":"), (rec["median"], 1.7, "-"),
+                          (rec["q3"], 1.0, ":")):
+            ax.axvline(np.log10(q), color=INK_PRIMARY, linewidth=lw,
+                       linestyle=ls, alpha=.8)
+        ax.set_xlim(log_lo, log_hi)
+        ax.set_xticks(list(range(log_lo, log_hi + 1)))
+        ax.set_xticklabels([f"$10^{{{t}}}$" for t in range(log_lo, log_hi + 1)])
+        ax.text(0, 1.015,
+                f"median {rec['median']:.3g}  ·  IQR {rec['q1']:.3g}–"
+                f"{rec['q3']:.3g}",
+                transform=ax.transAxes, fontsize=8.4, color=INK_SECONDARY)
+        ax.set_xlabel("biomass flux (mmol gDW⁻¹ h⁻¹) — shared LOG axis",
+                      color=INK_SECONDARY, fontsize=8.8)
+
+    axes[0, 0].set_ylabel("models", color=INK_SECONDARY, fontsize=9)
+    axes[1, 0].set_ylabel("models", color=INK_SECONDARY, fontsize=9)
+
+    fig.suptitle("All three panels on ONE x axis — why the shared-scale "
+                 "comparison needs a log axis",
+                 color=INK_PRIMARY, fontsize=14, fontweight="semibold",
+                 x=.058, ha="left", y=.975)
+    fig.text(.058, .935,
+             f"Top: a single linear axis (0–{lin_hi:.3g}) across all three. "
+             f"Both genome-scale panels collapse into the first few percent "
+             f"of it — which is why biomass_distribution.png shares an axis "
+             f"between those two only\nand leaves core on its own. Bottom: "
+             f"the same data and the same bin edges on a shared log axis, "
+             f"where the ~40× offset is readable and all three can be "
+             f"compared at once.\n"
+             f"Core is still a different model set on a different medium "
+             f"(complete, uptake −1000) — the shared axis makes the "
+             f"magnitudes visible, it does not make core a like-for-like "
+             f"comparison.",
+             color=INK_MUTED, fontsize=9, va="top", linespacing=1.45)
+    fig.savefig(out, dpi=170, facecolor=SURFACE)
+    plt.close(fig)
+
+
 def write_stats(summary: dict, phyla: list, flux: dict, out_dir: Path) -> None:
     """The numbers the figures assert, in a form prose can be rechecked against."""
     with open(out_dir / "figure_stats.tsv", "w", newline="") as fh:
@@ -573,10 +687,12 @@ def main() -> int:
     fig_taxonomy(summary, phyla, out_dir / "taxonomy_composition.png")
     fig_by_phylum(summary, phyla, per_panel_phylum,
                   out_dir / "biomass_by_phylum.png")
+    fig_shared_scale(summary, flux, out_dir / "biomass_distribution_shared_scale.png")
     write_stats(summary, phyla, flux, out_dir)
     print(f"wrote {out_dir}/biomass_distribution.png")
     print(f"wrote {out_dir}/taxonomy_composition.png")
     print(f"wrote {out_dir}/biomass_by_phylum.png")
+    print(f"wrote {out_dir}/biomass_distribution_shared_scale.png")
     print(f"wrote {out_dir}/figure_stats.tsv")
     return 0
 

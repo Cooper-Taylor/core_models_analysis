@@ -73,6 +73,26 @@ feasible solution with zero flux to biomass, never a solver failure.
 
 ![biomass distribution](baselineBiomassTaxonomy/figures/baseline_biomass_taxonomy/biomass_distribution.png)
 
+### All three on one axis
+
+The figure above shares an axis between the two genome-scale panels only. For
+the comparison that puts **all three** on one scale, see
+`biomass_distribution_shared_scale.png`:
+
+![shared scale](baselineBiomassTaxonomy/figures/baseline_biomass_taxonomy/biomass_distribution_shared_scale.png)
+
+The top row is a single linear axis (0–90.7) across all three, which is what
+"same scale" literally means and which demonstrates the problem: core occupies
+96.2% of that axis while glucose minimal occupies **1.5%** and auxotrophy
+**3.6%**, so both genome-scale distributions collapse to a spike. The bottom
+row is the same data and the same bin edges on a shared **log** axis
+(10⁻²–10²), where the ~40× offset becomes a readable displacement and all
+three distributions can be compared at once.
+
+Use the log row for any all-three comparison. Note it still does not make core
+a like-for-like case — different model set, different medium, uptake −1000 —
+it only makes the magnitudes visible together.
+
 **What the shapes say.** Normalising each panel by its own median (bottom axis
 of the figure) removes the media scale and leaves the dispersion:
 
