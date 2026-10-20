@@ -113,3 +113,9 @@ results/influence_v201/
 # expensive literature results and the queue defines the work; chunks/ is
 # just the queue re-sliced for subagents by build_strict_disagreement_queue.py)
 results/strict_disagreement_enzymes/chunks/
+
+# Internal-flux sweep (scripts/build_flux_distributions.py, ~30 min on 200
+# workers). Only the pooled flux ARRAYS are ignored -- 8 MB of binary that
+# rebuilds. summary.json and per_model.tsv stay tracked, so every number the
+# figures and reports quote can still be rechecked without re-solving.
+results/flux_distributions/*/fluxes.npz
