@@ -44,11 +44,25 @@ Flux units are mmol gDW⁻¹ h⁻¹. Every model solved to `optimal`; there are 
 infeasible or unbounded solves in any panel, so "does not grow" always means a
 feasible solution with zero flux to biomass, never a solver failure.
 
-> **The three flux columns are not comparable to each other.** The core panel
-> runs on a 347-compound complete medium with the models' own largely
-> unconstrained exchange bounds, which is why its fluxes sit ~40× above the
-> genome-scale panels. Compare the *shape* of each distribution and the grower
-> fraction across panels; compare flux values only within a panel.
+> **The two genome-scale columns ARE comparable; the core column is not.**
+> The genome-scale rows cover the same 5,420 genomes and carry a
+> stoichiometrically identical `bio1`, so their fluxes are in the same units on
+> the same objective and may be read against each other directly — the figures
+> draw them on one shared x axis (0–3.41 mmol gDW⁻¹ h⁻¹). The core panel runs
+> on a 347-compound complete medium with the models' own largely unconstrained
+> exchange bounds, which is why its fluxes sit ~40× above both; it keeps its
+> own axis and only its *shape* and grower fraction may be compared.
+
+> **They are two gap-fills, not one model set on two media.** Workspaces 155807
+> and 155808 ship a separate reconstruction per genome per medium
+> (`<acc>.RAST.GMM` and `<acc>.RAST.auxo`). Over 120 sampled matched pairs the
+> reaction sets differ by a median of 6 reactions (range −26 to +84, Jaccard
+> median 0.962, min 0.558), with the GMM reconstruction larger in 81 of 120,
+> smaller in 34 and equal in 5 — so "GMM is always the larger model" is **not**
+> true. What licenses the shared axis is that `bio1` is stoichiometrically
+> identical in **120 of 120** sampled pairs. Read any difference between the
+> two panels as *medium plus whatever the gap-filler added for that medium*,
+> never as the medium alone.
 
 > **The core grower fraction is not a ModelSEED pass rate.** ModelSEED never
 > requires a core model to carry biomass flux and never gap-fills one to do so
@@ -77,6 +91,49 @@ of the figure) removes the media scale and leaves the dispersion:
 
 Model sizes for context: core models hold 41–221 reactions (median 156);
 genome-scale models hold 330–1,911 (median 1,187).
+
+### What the shared axis exposes
+
+Putting the two genome-scale panels on one scale (2026-10-20) made a pattern
+visible that the per-panel axes had hidden: **8 of the 13 drawn phyla have a
+*lower* median biomass flux on auxotrophy media than on glucose minimal**, even
+though the pooled median rises (1.178 → 1.365) and the grower fraction rises
+from 80.2% to 99.6%. Two different mechanisms produce that, and they have to be
+told apart:
+
+- **Recruitment.** Auxotrophy media adds 1,056 genomes that do not grow on
+  glucose minimal at all, and they are weak (median 0.525). Where a phylum
+  gains many of them, its median falls even as every individual model improves.
+  **Bacillota** is the clean case: the 316 models that grow on both media go
+  *up* (1.04 → 1.46, ratio 1.41), but 677 new growers at median 0.412 drag the
+  phylum median down to 0.762.
+- **A genuine per-model drop.** Restricted to the 4,343 genomes that grow on
+  both media, 1,203 (27.7%) carry *less* flux on auxotrophy. In
+  **Chlamydiota** (0.33× paired, 0 new growers), **Spirochaetota** (0.30×),
+  **Methanobacteriota** (0.57×, 0 new) and **Mycoplasmatota** (0.45×) the drop
+  is real and not a composition effect.
+
+The cause of the genuine drops is that **auxotrophy media is not "glucose
+minimal plus supplements" — it does not contain glucose.** Diffing the two
+compound lists: `Carbon-D-Glucose.cpd` carries cpd00027 (D-glucose), cpd00244
+and cpd11574 (molybdate), none of which appear in `Auxotrophy_media.cpd`;
+auxotrophy adds 34 compounds instead, including cpd00020 (pyruvate), cpd00011
+(CO₂) and the amino acids. So the two media differ in carbon source as well as
+in supplementation, and an organism that catabolises glucose well necessarily
+loses yield when glucose is swapped for pyruvate. The amino acids only repay
+that loss for organisms that genuinely cannot make them.
+
+The pooled median still rises because **Pseudomonadota is 54% of the paired set
+and gains sharply** (1.25 → 1.86); every other phylum together is flat
+(1.01 → 0.963). Quote the pooled median only with that composition caveat.
+
+> **Caveat on every paired number above.** "Paired" means the same *genome*,
+> not the same model: each medium has its own gap-filled reconstruction, and
+> the two differ by a median of 6 reactions. A paired ratio therefore confounds
+> the medium change with the gap-fill difference, and cannot be attributed to
+> the medium alone without diffing the two reaction sets per genome. The
+> direction of the large effects (Pseudomonadota up, Chlamydiota and
+> Spirochaetota down) is robust to this; the exact ratios are not.
 
 ---
 

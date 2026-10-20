@@ -1,4 +1,7 @@
 section	key	value
+shared_axis	panels	full_gmm+full_auxo
+shared_axis	x_max	3.406
+shared_axis	pad	1.04
 panel:core	model_set	Core models (5,683)
 panel:core	media	ModelSEED complete media (KBaseMedia.cpd, 347 compounds)
 panel:core	n_models	5683

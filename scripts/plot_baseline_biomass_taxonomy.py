@@ -17,14 +17,33 @@ scripts/build_baseline_biomass_taxonomy.py, which is where the provenance of
 every input is documented. Nothing is recomputed here and no LP is solved; this
 script only draws what that build step already wrote.
 
-WHY THE THREE PANELS NEVER SHARE AN X AXIS
-Each panel is a different model set on a different media, so their absolute
-fluxes live on different scales (core medians ~52, genome-scale ~1.2). Plotting
-them against a common axis would compress two of the three into a spike and
-imply a comparison the data does not support. Each histogram therefore gets its
-own x axis, and the only cross-panel comparison drawn is the ECDF, where each
-panel's flux is divided by that panel's own median so the curves describe
-dispersion rather than magnitude.
+WHICH PANELS SHARE AN X AXIS
+The two genome-scale panels cover the SAME 5,420 genomes carrying the SAME
+biomass objective, so their fluxes are in the same units on the same reaction
+and are directly comparable. They are drawn on one shared x axis -- common
+limit and common bin edges -- in both the histogram figure and the by-phylum
+figure, and a difference in position between them is a real difference in flux.
+
+They are NOT, however, one model set solved on two media. KBase workspaces
+155807 and 155808 ship two separately gap-filled reconstructions per genome
+(``<acc>.RAST.GMM`` and ``<acc>.RAST.auxo``), and their reaction sets differ:
+over 120 sampled pairs the median difference is 6 reactions (range -26 to +84,
+Jaccard median 0.962), with the GMM reconstruction the larger one in 81 of 120
+pairs. What makes the comparison legitimate is that ``bio1`` is stoichiometri-
+cally IDENTICAL in 120 of 120 sampled pairs -- same objective, same units. Read
+a difference between the panels as "medium plus whatever the gap-filler added
+for that medium", not as the medium alone.
+
+The core panel does NOT join them. It is a different model set on a different
+medium and its fluxes are ~40x larger (median 52.3 against 1.18 and 1.37);
+putting it on the shared axis would collapse both genome-scale panels into the
+first bin. It keeps its own axis, and nothing about its position may be
+compared with the other two.
+
+Two cross-panel views sit below the histograms: a raw-flux ECDF of the two
+genome-scale panels, which is a legitimate direct comparison, and a
+median-normalised ECDF of all three, which is the only way to bring the core
+panel into the same frame and compares dispersion rather than magnitude.
 
   core        5,683 core models, ModelSEED complete media (347 compounds)
   full (GMM)  5,420 genome-scale models, glucose minimal media
@@ -79,6 +98,23 @@ PANEL_TITLE = {"core": "Core models",
 TOP_PHYLA = 14
 N_BINS = 60
 
+#: Panels drawn against ONE shared x axis, with common limits and common bin
+#: edges. These cover the same 5,420 genomes and carry a stoichiometrically
+#: identical ``bio1``, so a biomass flux in one is measured in the same units,
+#: on the same reaction, as a biomass flux in the other: the comparison is
+#: meaningful and the figure should let the reader make it by eye. (They are
+#: two separate gap-fills, not one model set -- see the module docstring.) The
+#: core panel is excluded on purpose: different models, different medium, ~40x
+#: the flux.
+SHARED_X_PANELS = ("full_gmm", "full_auxo")
+#: Headroom past the furthest-right mark on the shared axis, so nothing is
+#: drawn flush against the spine.
+SHARED_X_PAD = 1.04
+#: Where to put each shared panel's median label on the raw-flux ECDF. Now that
+#: the two curves sit on one axis their medians are 0.19 apart, which is closer
+#: than either label is wide, so they go to opposite sides of the marker.
+MEDIAN_LABEL_OFFSET = {"full_gmm": (-11, -15), "full_auxo": (11, 7)}
+
 INK_PRIMARY = "#0b0b0b"
 INK_SECONDARY = "#52514e"
 INK_MUTED = "#898781"
@@ -112,6 +148,16 @@ def load() -> tuple[dict, dict, list, dict]:
     return summary, flux, phyla, per_panel_phylum
 
 
+def shared_x_limit(flux: dict) -> float:
+    """Upper x limit common to every panel in :data:`SHARED_X_PANELS`.
+
+    Derived from the union of those panels' growers, so the genome-scale
+    histograms get one scale and one set of bin edges rather than each being
+    stretched to its own maximum.
+    """
+    return float(SHARED_X_PAD * max(max(flux[key]) for key in SHARED_X_PANELS))
+
+
 def style(ax) -> None:
     ax.set_facecolor(SURFACE)
     for side in ("top", "right"):
@@ -129,17 +175,25 @@ def style(ax) -> None:
 
 
 def fig_distribution(summary: dict, flux: dict, out: Path) -> None:
-    fig = plt.figure(figsize=(13.2, 7.4), facecolor=SURFACE)
-    gs = fig.add_gridspec(2, 3, height_ratios=[1.0, 0.92], hspace=0.50,
-                          wspace=0.24, left=.062, right=.985, top=.845, bottom=.085)
+    fig = plt.figure(figsize=(15.4, 7.8), facecolor=SURFACE)
+    # Six sub-columns: the top row takes two each, the bottom row splits in
+    # half, which a 3-column grid cannot do.
+    gs = fig.add_gridspec(2, 6, height_ratios=[1.0, 0.92], hspace=0.52,
+                          wspace=0.55, left=.055, right=.988, top=.835, bottom=.082)
+
+    shared_hi = shared_x_limit(flux)
+    shared_bins = np.linspace(0.0, shared_hi, N_BINS + 1)
 
     for col, (key, _lbl, media, colour) in enumerate(PANELS):
-        ax = fig.add_subplot(gs[0, col])
+        ax = fig.add_subplot(gs[0, 2 * col:2 * col + 2])
         style(ax)
         vals = np.array(flux[key])
         rec = summary["panels"][key]
-        ax.hist(vals, bins=N_BINS, color=colour, alpha=0.85,
-                edgecolor=SURFACE, linewidth=0.4)
+        on_shared = key in SHARED_X_PANELS
+        ax.hist(vals, bins=shared_bins if on_shared else N_BINS, color=colour,
+                alpha=0.85, edgecolor=SURFACE, linewidth=0.4)
+        if on_shared:
+            ax.set_xlim(0, shared_hi)
         for q, ls, lw in ((rec["median"], "-", 1.8), (rec["q1"], ":", 1.2),
                           (rec["q3"], ":", 1.2)):
             ax.axvline(q, color=INK_PRIMARY, linestyle=ls, linewidth=lw, alpha=.75)
@@ -149,6 +203,12 @@ def fig_distribution(summary: dict, flux: dict, out: Path) -> None:
                 f"{rec['n_growers']:,} of {rec['n_models']:,} grow "
                 f"({100 * rec['frac_growers']:.1f}%)  ·  {media}",
                 transform=ax.transAxes, color=INK_SECONDARY, fontsize=8.6)
+        # Which axis this panel is on, right-aligned so it cannot run into the
+        # left-aligned grower line or into the next panel.
+        ax.text(1.0, 1.015, "shared axis" if on_shared else "own axis",
+                transform=ax.transAxes, ha="right",
+                color=colour if on_shared else INK_MUTED, fontsize=8.6,
+                fontweight="semibold" if on_shared else "normal")
         # Direct labels satisfy the relief rule for the low-contrast slot.
         ax.text(.975, .95,
                 f"median {rec['median']:.3g}\nIQR {rec['q1']:.3g}–{rec['q3']:.3g}\n"
@@ -162,8 +222,45 @@ def fig_distribution(summary: dict, flux: dict, out: Path) -> None:
         if col == 0:
             ax.set_ylabel("models", color=INK_SECONDARY, fontsize=9)
 
-    # ---- median-normalised ECDF: the only legitimate cross-panel view ----
-    ax = fig.add_subplot(gs[1, :])
+    # ---- bottom left: the two panels that share a scale, in real units ----
+    axA = fig.add_subplot(gs[1, 0:3])
+    style(axA)
+    for key, _lbl, _media, colour in PANELS:
+        if key not in SHARED_X_PANELS:
+            continue
+        vals = np.sort(np.array(flux[key]))
+        y = np.arange(1, len(vals) + 1) / len(vals)
+        axA.plot(vals, y, color=colour, linewidth=2.2,
+                 label=f"{PANEL_TITLE[key]}  (n={len(vals):,})")
+        med = summary["panels"][key]["median"]
+        axA.plot([med], [0.5], "o", color=colour, markersize=7.5,
+                 markeredgecolor=SURFACE, markeredgewidth=1.5, zorder=4)
+        # The two medians are only 0.19 apart on this axis, so the labels are
+        # pushed to opposite sides of the 50% rule rather than stacked.
+        axA.annotate(f"median {med:.3g}", (med, 0.5),
+                     textcoords="offset points",
+                     xytext=MEDIAN_LABEL_OFFSET[key],
+                     ha="right" if MEDIAN_LABEL_OFFSET[key][0] < 0 else "left",
+                     color=colour, fontsize=8.8, fontweight="semibold")
+    axA.axhline(0.5, color=NEUTRAL, linewidth=1.0, linestyle="--", zorder=1)
+    axA.set_xlim(0, shared_hi)
+    axA.set_ylim(0, 1.06)
+    axA.set_xlabel("biomass flux (mmol gDW⁻¹ h⁻¹)  —  the same axis as the two "
+                   "genome-scale panels above", color=INK_SECONDARY, fontsize=9.5)
+    axA.set_ylabel("cumulative fraction\nof growing models",
+                   color=INK_SECONDARY, fontsize=9)
+    axA.set_title("Same 5,420 genomes, two media — compared directly, in real "
+                  "units", color=INK_PRIMARY, fontsize=11,
+                  fontweight="semibold", pad=10, loc="left")
+    leg = axA.legend(loc="lower right", frameon=True, fontsize=8.8,
+                     facecolor=SURFACE, edgecolor=GRIDLINE)
+    for text, colour in zip(leg.get_texts(),
+                            [c for k, _l, _m, c in PANELS
+                             if k in SHARED_X_PANELS]):
+        text.set_color(colour)
+
+    # ---- bottom right: median-normalised ECDF, the only view core can join -
+    ax = fig.add_subplot(gs[1, 3:6])
     style(ax)
     for key, _lbl, media, colour in PANELS:
         vals = np.sort(np.array(flux[key]))
@@ -172,13 +269,6 @@ def fig_distribution(summary: dict, flux: dict, out: Path) -> None:
         y = np.arange(1, len(x) + 1) / len(x)
         ax.plot(x, y, color=colour, linewidth=2.0,
                 label=f"{PANEL_TITLE[key]}  (n={len(x):,})")
-        # Direct-label each curve at its own right-hand end. The three curves
-        # are pinned together at the median by construction and only separate
-        # in the upper tail, so the tail is the one place labels do not collide.
-        ax.annotate(PANEL_TITLE[key], (x[-1], 1.0),
-                    textcoords="offset points", xytext=(-4, 7),
-                    ha="right", color=colour, fontsize=8.8,
-                    fontweight="semibold")
     ax.axvline(1.0, color=NEUTRAL, linewidth=1.2, linestyle="--")
     ax.text(1.0, .035, " panel median", transform=ax.get_xaxis_transform(),
             ha="left", va="bottom", fontsize=8.2, color=INK_MUTED)
@@ -189,26 +279,32 @@ def fig_distribution(summary: dict, flux: dict, out: Path) -> None:
                   color=INK_SECONDARY, fontsize=9.5)
     ax.set_ylabel("cumulative fraction\nof growing models", color=INK_SECONDARY,
                   fontsize=9)
-    ax.set_title("Shape comparison — how tightly each panel's growers cluster "
-                 "around their own median",
+    ax.set_title("Shape only — the one frame core can join",
                  color=INK_PRIMARY, fontsize=11, fontweight="semibold",
                  pad=10, loc="left")
+    # Once the panel is half-width the three end-of-curve labels overlap, so
+    # the colour key moves wholly into the legend; colouring its text is what
+    # keeps the relief rule met for the low-contrast aqua slot.
     leg = ax.legend(loc="lower right", frameon=True, fontsize=8.8,
                     facecolor=SURFACE, edgecolor=GRIDLINE)
-    for text in leg.get_texts():
-        text.set_color(INK_SECONDARY)
+    for text, (_k, _l, _m, colour) in zip(leg.get_texts(), PANELS):
+        text.set_color(colour)
 
     fig.suptitle("Baseline biomass flux — ModelSEED v2 core and genome-scale "
                  "models, as they sit on disk",
                  color=INK_PRIMARY, fontsize=14, fontweight="semibold",
-                 x=.062, ha="left", y=.975)
-    fig.text(.062, .935,
+                 x=.055, ha="left", y=.978)
+    fig.text(.055, .944,
              "No direction map, thermodynamic source, heuristic or gap-fill "
              "applied — each model's own stored bounds, its own biomass "
              "reaction, and the media it was gap-filled against.\n"
-             "The three panels sit on different media, so their flux scales "
-             "are not comparable: only the bottom axis compares across them.",
-             color=INK_MUTED, fontsize=9, va="top", linespacing=1.45)
+             "The two genome-scale panels cover the same 5,420 genomes with a "
+             "stoichiometrically identical biomass reaction, so they SHARE one "
+             "x axis and can be read against each other directly — though each "
+             "was gap-filled\n"
+             "separately for its medium. Core is a different model set on a "
+             "different medium (~40× the flux) and keeps its own axis.",
+             color=INK_MUTED, fontsize=9, va="top", linespacing=1.4)
     fig.savefig(out, dpi=170, facecolor=SURFACE)
     plt.close(fig)
 
@@ -355,12 +451,11 @@ def fig_by_phylum(summary: dict, phyla: list, per_panel_phylum: dict,
     labels = [r["phylum"] for r in rows]
     y = np.arange(len(rows))[::-1]
 
-    fig, axes = plt.subplots(
-        1, 3, figsize=(14.6, 7.2), facecolor=SURFACE,
-        gridspec_kw=dict(wspace=.14, left=.155, right=.99, top=.835, bottom=.095))
-
-    for ax, (key, _lbl, media, colour) in zip(axes, PANELS):
-        style(ax)
+    # Stats for every panel first: the shared x limit has to be wide enough for
+    # whichever genome-scale panel runs furthest right, which is not known
+    # until both have been measured.
+    stats = {}
+    for key, _lbl, _media, _colour in PANELS:
         meds, los, his, ns = [], [], [], []
         for r in rows:
             vals = np.array(per_panel_phylum.get((key, r["phylum"]), []))
@@ -371,6 +466,17 @@ def fig_by_phylum(summary: dict, phyla: list, per_panel_phylum: dict,
             meds.append(float(np.median(vals)))
             los.append(float(np.percentile(vals, 25)))
             his.append(float(np.percentile(vals, 75)))
+        stats[key] = (meds, los, his, ns)
+    shared_hi = float(SHARED_X_PAD * max(np.nanmax(stats[k][2])
+                                         for k in SHARED_X_PANELS))
+
+    fig, axes = plt.subplots(
+        1, 3, figsize=(14.6, 7.7), facecolor=SURFACE,
+        gridspec_kw=dict(wspace=.14, left=.155, right=.99, top=.815, bottom=.09))
+
+    for ax, (key, _lbl, media, colour) in zip(axes, PANELS):
+        style(ax)
+        meds, los, his, ns = stats[key]
         for yy, lo, hi, md, n in zip(y, los, his, meds, ns):
             if n == 0:
                 ax.text(0.02, yy, "no growing model", va="center", fontsize=7.6,
@@ -390,22 +496,35 @@ def fig_by_phylum(summary: dict, phyla: list, per_panel_phylum: dict,
                    linewidth=1.1, alpha=.55)
         ax.set_title(PANEL_TITLE[key], color=INK_PRIMARY, fontsize=11,
                      fontweight="semibold", pad=17, loc="left")
-        ax.text(0, 1.012, f"{media} · panel median {rec['median']:.3g} (dashed)",
+        on_shared = key in SHARED_X_PANELS
+        ax.text(0, 1.012,
+                f"{media} · panel median {rec['median']:.3g} (dashed)",
                 transform=ax.transAxes, color=INK_SECONDARY, fontsize=8.3)
+        # On the title row, not the subtitle row: the subtitle already runs
+        # most of the panel's width here.
+        ax.text(1.0, 1.048, "shared axis" if on_shared else "own axis",
+                transform=ax.transAxes, ha="right", va="baseline",
+                color=colour if on_shared else INK_MUTED, fontsize=9.2,
+                fontweight="semibold" if on_shared else "normal")
         ax.set_xlabel("biomass flux (mmol gDW⁻¹ h⁻¹)", color=INK_SECONDARY,
                       fontsize=9)
-        ax.set_xlim(left=0)
+        if on_shared:
+            ax.set_xlim(0, shared_hi)
+        else:
+            ax.set_xlim(left=0)
 
     fig.suptitle("Baseline biomass flux by phylum — median (dot) and "
                  "interquartile range (bar), growers only",
                  color=INK_PRIMARY, fontsize=14, fontweight="semibold",
-                 x=.012, ha="left", y=.955)
-    fig.text(.012, .895,
-             "Each panel keeps its own x axis: the three are different model "
-             "sets on different media and their flux scales are not "
-             "comparable. Compare the spread of phyla WITHIN a panel, never a "
-             "value ACROSS panels.",
-             color=INK_MUTED, fontsize=9)
+                 x=.012, ha="left", y=.988)
+    fig.text(.012, .945,
+             "The two genome-scale panels cover the same 5,420 genomes with an "
+             "identical biomass reaction and SHARE one x axis — a phylum's dot "
+             "moving right between them is a real increase in flux.\n"
+             "Core is a different model set on a different medium (~40× the "
+             "flux) and keeps its own axis; never compare its position with "
+             "the other two.",
+             color=INK_MUTED, fontsize=9, va="top", linespacing=1.45)
     fig.savefig(out, dpi=170, facecolor=SURFACE)
     plt.close(fig)
 
@@ -413,11 +532,14 @@ def fig_by_phylum(summary: dict, phyla: list, per_panel_phylum: dict,
 # ---------------------------------------------------------------------------
 
 
-def write_stats(summary: dict, phyla: list, out_dir: Path) -> None:
+def write_stats(summary: dict, phyla: list, flux: dict, out_dir: Path) -> None:
     """The numbers the figures assert, in a form prose can be rechecked against."""
     with open(out_dir / "figure_stats.tsv", "w", newline="") as fh:
         w = csv.writer(fh, delimiter="\t")
         w.writerow(["section", "key", "value"])
+        w.writerow(["shared_axis", "panels", "+".join(SHARED_X_PANELS)])
+        w.writerow(["shared_axis", "x_max", f"{shared_x_limit(flux):.6g}"])
+        w.writerow(["shared_axis", "pad", SHARED_X_PAD])
         for key, rec in summary["panels"].items():
             for field in ("model_set", "media", "n_models", "n_growers",
                           "frac_growers", "min", "q1", "median", "mean", "q3",
@@ -451,7 +573,7 @@ def main() -> int:
     fig_taxonomy(summary, phyla, out_dir / "taxonomy_composition.png")
     fig_by_phylum(summary, phyla, per_panel_phylum,
                   out_dir / "biomass_by_phylum.png")
-    write_stats(summary, phyla, out_dir)
+    write_stats(summary, phyla, flux, out_dir)
     print(f"wrote {out_dir}/biomass_distribution.png")
     print(f"wrote {out_dir}/taxonomy_composition.png")
     print(f"wrote {out_dir}/biomass_by_phylum.png")

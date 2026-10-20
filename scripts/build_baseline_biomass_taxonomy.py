@@ -21,13 +21,22 @@ an LP -- it reads FBA results that were already computed and cached:
             reserved label for "no direction overrides at all" (an empty map,
             so no reaction bound is touched before the media is applied).
 
-THE THREE PANELS ARE NOT ON A COMMON MEDIA, so their absolute biomass fluxes
-are not comparable and this script never pools them. The core panel runs on a
-347-compound complete media with the models' own (largely unconstrained)
-exchange bounds, which puts its fluxes two orders of magnitude above the
-genome-scale panels; those run on the defined media the manuscript gap-filled
-them against, at a -10 mmol/gDW/h default uptake. Compare the SHAPE of each
-distribution and the grower fraction across panels, not the flux values.
+THE THREE PANELS ARE NOT ON A COMMON MEDIA and this script never pools them.
+The core panel runs on a 347-compound complete media with the models' own
+(largely unconstrained) exchange bounds, which puts its fluxes two orders of
+magnitude above the genome-scale panels; those run on the defined media the
+manuscript gap-filled them against, at a -10 mmol/gDW/h default uptake.
+Nothing about the core panel's flux VALUES may be compared with the other two
+-- only its shape and its grower fraction.
+
+The two genome-scale panels, however, ARE comparable with each other: they
+cover the same 5,420 genomes and ``bio1`` is stoichiometrically identical in
+120 of 120 sampled matched pairs, so the flux is the same quantity on the same
+reaction. plot_baseline_biomass_taxonomy.py therefore draws those two on one
+shared x axis. Note they are two separately gap-filled reconstructions
+(``.RAST.GMM`` / ``.RAST.auxo``), differing by a median of 6 reactions
+(range -26 to +84), not one model set solved twice -- so a difference between
+them is "medium plus gap-fill", not the medium alone.
 
 Taxonomy is joined per genome from ``results/ncbi_taxonomy.csv``, with the 122
 suppressed RefSeq accessions and the one genome-scale-only genome recovered
