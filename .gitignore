@@ -120,3 +120,4 @@ results/strict_disagreement_enzymes/chunks/
 # figures and reports quote can still be rechecked without re-solving.
 results/flux_distributions/*/fluxes.npz
 results/tfba/
+results/direction_change_targets/per_model_records.json

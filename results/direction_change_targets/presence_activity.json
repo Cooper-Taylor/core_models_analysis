@@ -1,0 +1,1267 @@
+{
+  "targets": {
+    "rxn00011": "= -> <",
+    "rxn00020": "no change",
+    "rxn00202": "= -> <",
+    "rxn00273": "= -> <",
+    "rxn00274": "= -> <",
+    "rxn00330": "= -> <",
+    "rxn00342": "= -> >",
+    "rxn00362": "no change",
+    "rxn00441": "= -> >",
+    "rxn00456": "= -> >",
+    "rxn00566": "= -> >",
+    "rxn00600": "= -> <",
+    "rxn00606": "no change",
+    "rxn00680": "= -> <",
+    "rxn00874": "= -> <",
+    "rxn00950": "no change",
+    "rxn00985": "no change",
+    "rxn00997": "= -> <",
+    "rxn00998": "= -> <",
+    "rxn01009": "= -> >",
+    "rxn01027": "= -> <",
+    "rxn01028": "= -> <",
+    "rxn01139": "= -> >",
+    "rxn01145": "= -> >",
+    "rxn01195": "= -> >",
+    "rxn01196": "= -> >",
+    "rxn01300": "= -> >",
+    "rxn01317": "no change",
+    "rxn01408": "= -> >",
+    "rxn01456": "= -> >",
+    "rxn01464": "= -> >",
+    "rxn01630": "no change",
+    "rxn01720": "= -> >",
+    "rxn01860": "no change",
+    "rxn01961": "= -> >",
+    "rxn01969": "= -> >",
+    "rxn02150": "= -> >",
+    "rxn02275": "no change",
+    "rxn02435": "= -> >",
+    "rxn02455": "= -> >",
+    "rxn02977": "no change",
+    "rxn03090": "= -> >",
+    "rxn03273": "no change",
+    "rxn03325": "no change",
+    "rxn03367": "= -> <",
+    "rxn03479": "no change",
+    "rxn03676": "= -> >",
+    "rxn03833": "no change",
+    "rxn03877": "= -> >",
+    "rxn03909": "= -> >",
+    "rxn03919": "= -> >",
+    "rxn03970": "= -> >",
+    "rxn03971": "= -> >",
+    "rxn04361": "no change",
+    "rxn04539": "= -> >",
+    "rxn04542": "= -> >",
+    "rxn04712": "= -> >",
+    "rxn04734": "= -> >",
+    "rxn05035": "= -> >",
+    "rxn05485": "no change",
+    "rxn05567": "= -> >",
+    "rxn08571": "= -> >",
+    "rxn09431": "= -> >",
+    "rxn09433": "= -> >",
+    "rxn10878": "= -> >",
+    "rxn11859": "= -> >",
+    "rxn13012": "= -> >",
+    "rxn13774": "= -> >",
+    "rxn15001": "no change",
+    "rxn15010": "no change",
+    "rxn15166": "no change",
+    "rxn15230": "no change",
+    "rxn15494": "= -> >",
+    "rxn17641": "= -> >",
+    "rxn19345": "= -> >",
+    "rxn19905": "= -> >"
+  },
+  "panels": {
+    "core_kegg2": {
+      "set": "core_kegg2",
+      "media": "kbase_complete",
+      "n_models": 5683,
+      "n_growers": 3461,
+      "n_errors": 0,
+      "models_containing_any_target": 5618,
+      "models_with_any_target_active": 3094,
+      "targets_present_in_ge1_model": 5,
+      "targets_active_in_ge1_model": 3,
+      "targets_active_fba_ge1_model": 3,
+      "per_reaction": {
+        "rxn00011": {
+          "present": 5352,
+          "active_pfba": 2906,
+          "active_fba": 2907
+        },
+        "rxn00020": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00202": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00273": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00274": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00330": {
+          "present": 2544,
+          "active_pfba": 201,
+          "active_fba": 215
+        },
+        "rxn00342": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00362": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00441": {
+          "present": 3788,
+          "active_pfba": 714,
+          "active_fba": 807
+        },
+        "rxn00456": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00566": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00600": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00606": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00680": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00874": {
+          "present": 4110,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00950": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00985": {
+          "present": 4186,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00997": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00998": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01009": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01027": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01028": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01139": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01145": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01195": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01196": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01300": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01317": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01408": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01456": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01464": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01630": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01720": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01860": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01961": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01969": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn02150": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn02275": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn02435": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn02455": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn02977": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03090": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03273": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03325": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03367": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03479": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03676": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03833": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03877": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03909": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03919": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03970": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03971": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn04361": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn04539": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn04542": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn04712": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn04734": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn05035": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn05485": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn05567": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn08571": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn09431": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn09433": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn10878": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn11859": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn13012": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn13774": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn15001": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn15010": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn15166": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn15230": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn15494": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn17641": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn19345": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn19905": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        }
+      },
+      "seconds": 16.7
+    },
+    "ms2_gsm": {
+      "set": "ms2_gsm",
+      "media": "gsm_glucose_minimal",
+      "n_models": 5420,
+      "n_growers": 4347,
+      "n_errors": 0,
+      "models_containing_any_target": 5420,
+      "models_with_any_target_active": 4344,
+      "targets_present_in_ge1_model": 36,
+      "targets_active_in_ge1_model": 27,
+      "targets_active_fba_ge1_model": 29,
+      "per_reaction": {
+        "rxn00011": {
+          "present": 5286,
+          "active_pfba": 2921,
+          "active_fba": 2924
+        },
+        "rxn00020": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00202": {
+          "present": 708,
+          "active_pfba": 125,
+          "active_fba": 125
+        },
+        "rxn00273": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00274": {
+          "present": 2277,
+          "active_pfba": 809,
+          "active_fba": 814
+        },
+        "rxn00330": {
+          "present": 2680,
+          "active_pfba": 2237,
+          "active_fba": 2130
+        },
+        "rxn00342": {
+          "present": 3531,
+          "active_pfba": 0,
+          "active_fba": 1
+        },
+        "rxn00362": {
+          "present": 1045,
+          "active_pfba": 80,
+          "active_fba": 211
+        },
+        "rxn00441": {
+          "present": 3787,
+          "active_pfba": 1505,
+          "active_fba": 1402
+        },
+        "rxn00456": {
+          "present": 1028,
+          "active_pfba": 96,
+          "active_fba": 104
+        },
+        "rxn00566": {
+          "present": 2170,
+          "active_pfba": 121,
+          "active_fba": 131
+        },
+        "rxn00600": {
+          "present": 684,
+          "active_pfba": 498,
+          "active_fba": 498
+        },
+        "rxn00606": {
+          "present": 1392,
+          "active_pfba": 149,
+          "active_fba": 149
+        },
+        "rxn00680": {
+          "present": 155,
+          "active_pfba": 114,
+          "active_fba": 114
+        },
+        "rxn00874": {
+          "present": 4003,
+          "active_pfba": 6,
+          "active_fba": 6
+        },
+        "rxn00950": {
+          "present": 3039,
+          "active_pfba": 13,
+          "active_fba": 19
+        },
+        "rxn00985": {
+          "present": 310,
+          "active_pfba": 7,
+          "active_fba": 16
+        },
+        "rxn00997": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00998": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01009": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01027": {
+          "present": 786,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01028": {
+          "present": 6,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01139": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01145": {
+          "present": 4994,
+          "active_pfba": 99,
+          "active_fba": 99
+        },
+        "rxn01195": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01196": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01300": {
+          "present": 4558,
+          "active_pfba": 1792,
+          "active_fba": 1830
+        },
+        "rxn01317": {
+          "present": 2,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01408": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01456": {
+          "present": 1,
+          "active_pfba": 1,
+          "active_fba": 1
+        },
+        "rxn01464": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01630": {
+          "present": 435,
+          "active_pfba": 101,
+          "active_fba": 101
+        },
+        "rxn01720": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01860": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01961": {
+          "present": 5003,
+          "active_pfba": 154,
+          "active_fba": 156
+        },
+        "rxn01969": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn02150": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn02275": {
+          "present": 2738,
+          "active_pfba": 19,
+          "active_fba": 19
+        },
+        "rxn02435": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn02455": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn02977": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03090": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03273": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03325": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03367": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03479": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03676": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03833": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03877": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03909": {
+          "present": 5151,
+          "active_pfba": 4137,
+          "active_fba": 4137
+        },
+        "rxn03919": {
+          "present": 1977,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03970": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03971": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn04361": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn04539": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn04542": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn04712": {
+          "present": 23,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn04734": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn05035": {
+          "present": 126,
+          "active_pfba": 117,
+          "active_fba": 117
+        },
+        "rxn05485": {
+          "present": 3641,
+          "active_pfba": 3,
+          "active_fba": 3
+        },
+        "rxn05567": {
+          "present": 3660,
+          "active_pfba": 1,
+          "active_fba": 1
+        },
+        "rxn08571": {
+          "present": 330,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn09431": {
+          "present": 1,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn09433": {
+          "present": 6,
+          "active_pfba": 5,
+          "active_fba": 5
+        },
+        "rxn10878": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn11859": {
+          "present": 109,
+          "active_pfba": 80,
+          "active_fba": 80
+        },
+        "rxn13012": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn13774": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn15001": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn15010": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn15166": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn15230": {
+          "present": 2481,
+          "active_pfba": 0,
+          "active_fba": 9
+        },
+        "rxn15494": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn17641": {
+          "present": 157,
+          "active_pfba": 124,
+          "active_fba": 124
+        },
+        "rxn19345": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn19905": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        }
+      },
+      "seconds": 130.5
+    },
+    "ms2_gsm_auxo": {
+      "set": "ms2_gsm_auxo",
+      "media": "gsm_auxotrophy",
+      "n_models": 5420,
+      "n_growers": 5397,
+      "n_errors": 0,
+      "models_containing_any_target": 5418,
+      "models_with_any_target_active": 5298,
+      "targets_present_in_ge1_model": 35,
+      "targets_active_in_ge1_model": 27,
+      "targets_active_fba_ge1_model": 28,
+      "per_reaction": {
+        "rxn00011": {
+          "present": 5158,
+          "active_pfba": 1290,
+          "active_fba": 1293
+        },
+        "rxn00020": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00202": {
+          "present": 537,
+          "active_pfba": 89,
+          "active_fba": 89
+        },
+        "rxn00273": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00274": {
+          "present": 2180,
+          "active_pfba": 680,
+          "active_fba": 683
+        },
+        "rxn00330": {
+          "present": 2587,
+          "active_pfba": 1254,
+          "active_fba": 1261
+        },
+        "rxn00342": {
+          "present": 3533,
+          "active_pfba": 611,
+          "active_fba": 612
+        },
+        "rxn00362": {
+          "present": 1075,
+          "active_pfba": 144,
+          "active_fba": 196
+        },
+        "rxn00441": {
+          "present": 3788,
+          "active_pfba": 3214,
+          "active_fba": 3177
+        },
+        "rxn00456": {
+          "present": 1034,
+          "active_pfba": 230,
+          "active_fba": 237
+        },
+        "rxn00566": {
+          "present": 2127,
+          "active_pfba": 673,
+          "active_fba": 649
+        },
+        "rxn00600": {
+          "present": 627,
+          "active_pfba": 621,
+          "active_fba": 621
+        },
+        "rxn00606": {
+          "present": 1349,
+          "active_pfba": 226,
+          "active_fba": 226
+        },
+        "rxn00680": {
+          "present": 5,
+          "active_pfba": 5,
+          "active_fba": 5
+        },
+        "rxn00874": {
+          "present": 4003,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00950": {
+          "present": 3039,
+          "active_pfba": 43,
+          "active_fba": 115
+        },
+        "rxn00985": {
+          "present": 339,
+          "active_pfba": 66,
+          "active_fba": 100
+        },
+        "rxn00997": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn00998": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01009": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01027": {
+          "present": 786,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01028": {
+          "present": 6,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01139": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01145": {
+          "present": 4993,
+          "active_pfba": 76,
+          "active_fba": 74
+        },
+        "rxn01195": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01196": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01300": {
+          "present": 4468,
+          "active_pfba": 2496,
+          "active_fba": 2496
+        },
+        "rxn01317": {
+          "present": 4,
+          "active_pfba": 4,
+          "active_fba": 4
+        },
+        "rxn01408": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01456": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01464": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01630": {
+          "present": 371,
+          "active_pfba": 1,
+          "active_fba": 1
+        },
+        "rxn01720": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01860": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn01961": {
+          "present": 4999,
+          "active_pfba": 139,
+          "active_fba": 139
+        },
+        "rxn01969": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn02150": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn02275": {
+          "present": 2739,
+          "active_pfba": 44,
+          "active_fba": 44
+        },
+        "rxn02435": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn02455": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn02977": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03090": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03273": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03325": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03367": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03479": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03676": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03833": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03877": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03909": {
+          "present": 4557,
+          "active_pfba": 4231,
+          "active_fba": 4234
+        },
+        "rxn03919": {
+          "present": 1977,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03970": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn03971": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn04361": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn04539": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn04542": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn04712": {
+          "present": 23,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn04734": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn05035": {
+          "present": 6,
+          "active_pfba": 6,
+          "active_fba": 6
+        },
+        "rxn05485": {
+          "present": 3641,
+          "active_pfba": 1,
+          "active_fba": 1
+        },
+        "rxn05567": {
+          "present": 3661,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn08571": {
+          "present": 330,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn09431": {
+          "present": 5,
+          "active_pfba": 5,
+          "active_fba": 5
+        },
+        "rxn09433": {
+          "present": 9,
+          "active_pfba": 8,
+          "active_fba": 8
+        },
+        "rxn10878": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn11859": {
+          "present": 83,
+          "active_pfba": 64,
+          "active_fba": 64
+        },
+        "rxn13012": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn13774": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn15001": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn15010": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn15166": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn15230": {
+          "present": 2480,
+          "active_pfba": 0,
+          "active_fba": 4
+        },
+        "rxn15494": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn17641": {
+          "present": 157,
+          "active_pfba": 124,
+          "active_fba": 124
+        },
+        "rxn19345": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        },
+        "rxn19905": {
+          "present": 0,
+          "active_pfba": 0,
+          "active_fba": 0
+        }
+      },
+      "seconds": 140.7
+    }
+  }
+}
