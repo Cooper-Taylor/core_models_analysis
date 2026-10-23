@@ -121,6 +121,10 @@ def run_panel(set_name: str, targets: dict[str, str], limit: int | None,
                       f"{time.time()-t0:.0f}s", flush=True)
 
     n_present = {r: 0 for r in targets}
+    #: of the models containing the reaction, how many have non-zero biomass.
+    #: A non-grower has no flux solution at all, so this is the denominator
+    #: that `active` should really be read against.
+    n_present_growing = {r: 0 for r in targets}
     n_active_pfba = {r: 0 for r in targets}
     n_active_fba = {r: 0 for r in targets}
     growers = 0
@@ -138,6 +142,8 @@ def run_panel(set_name: str, targets: dict[str, str], limit: int | None,
             models_with_active += 1
         for r in rec["present"]:
             n_present[r] += 1
+            if rec["grows"]:
+                n_present_growing[r] += 1
         for r in rec["active_pfba"]:
             n_active_pfba[r] += 1
         for r in rec["active_fba"]:
@@ -159,6 +165,7 @@ def run_panel(set_name: str, targets: dict[str, str], limit: int | None,
         "targets_active_in_ge1_model": sum(1 for v in n_active_pfba.values() if v),
         "targets_active_fba_ge1_model": sum(1 for v in n_active_fba.values() if v),
         "per_reaction": {r: {"present": n_present[r],
+                             "present_growing": n_present_growing[r],
                              "active_pfba": n_active_pfba[r],
                              "active_fba": n_active_fba[r]} for r in targets},
         "seconds": round(time.time() - t0, 1),

@@ -92,386 +92,462 @@
       "per_reaction": {
         "rxn00011": {
           "present": 5352,
+          "present_growing": 3394,
           "active_pfba": 2906,
           "active_fba": 2907
         },
         "rxn00020": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00202": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00273": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00274": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00330": {
           "present": 2544,
+          "present_growing": 2371,
           "active_pfba": 201,
           "active_fba": 215
         },
         "rxn00342": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00362": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00441": {
           "present": 3788,
+          "present_growing": 3032,
           "active_pfba": 714,
           "active_fba": 807
         },
         "rxn00456": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00566": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00600": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00606": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00680": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00874": {
           "present": 4110,
+          "present_growing": 3050,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00950": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00985": {
           "present": 4186,
+          "present_growing": 2790,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00997": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00998": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01009": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01027": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01028": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01139": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01145": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01195": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01196": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01300": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01317": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01408": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01456": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01464": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01630": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01720": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01860": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01961": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01969": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn02150": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn02275": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn02435": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn02455": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn02977": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03090": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03273": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03325": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03367": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03479": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03676": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03833": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03877": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03909": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03919": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03970": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03971": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn04361": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn04539": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn04542": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn04712": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn04734": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn05035": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn05485": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn05567": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn08571": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn09431": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn09433": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn10878": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn11859": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn13012": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn13774": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn15001": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn15010": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn15166": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn15230": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn15494": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn17641": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn19345": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn19905": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         }
       },
-      "seconds": 16.7
+      "seconds": 15.0
     },
     "ms2_gsm": {
       "set": "ms2_gsm",
@@ -487,386 +563,462 @@
       "per_reaction": {
         "rxn00011": {
           "present": 5286,
+          "present_growing": 4261,
           "active_pfba": 2921,
           "active_fba": 2924
         },
         "rxn00020": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00202": {
           "present": 708,
+          "present_growing": 496,
           "active_pfba": 125,
           "active_fba": 125
         },
         "rxn00273": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00274": {
           "present": 2277,
+          "present_growing": 2032,
           "active_pfba": 809,
           "active_fba": 814
         },
         "rxn00330": {
           "present": 2680,
+          "present_growing": 2447,
           "active_pfba": 2237,
           "active_fba": 2130
         },
         "rxn00342": {
           "present": 3531,
+          "present_growing": 2803,
           "active_pfba": 0,
           "active_fba": 1
         },
         "rxn00362": {
           "present": 1045,
+          "present_growing": 1024,
           "active_pfba": 80,
           "active_fba": 211
         },
         "rxn00441": {
           "present": 3787,
+          "present_growing": 3424,
           "active_pfba": 1505,
           "active_fba": 1402
         },
         "rxn00456": {
           "present": 1028,
+          "present_growing": 880,
           "active_pfba": 96,
           "active_fba": 104
         },
         "rxn00566": {
           "present": 2170,
+          "present_growing": 1619,
           "active_pfba": 121,
           "active_fba": 131
         },
         "rxn00600": {
           "present": 684,
+          "present_growing": 498,
           "active_pfba": 498,
           "active_fba": 498
         },
         "rxn00606": {
           "present": 1392,
+          "present_growing": 906,
           "active_pfba": 149,
           "active_fba": 149
         },
         "rxn00680": {
           "present": 155,
+          "present_growing": 114,
           "active_pfba": 114,
           "active_fba": 114
         },
         "rxn00874": {
           "present": 4003,
+          "present_growing": 3266,
           "active_pfba": 6,
           "active_fba": 6
         },
         "rxn00950": {
           "present": 3039,
+          "present_growing": 2435,
           "active_pfba": 13,
           "active_fba": 19
         },
         "rxn00985": {
           "present": 310,
+          "present_growing": 256,
           "active_pfba": 7,
           "active_fba": 16
         },
         "rxn00997": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00998": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01009": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01027": {
           "present": 786,
+          "present_growing": 689,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01028": {
           "present": 6,
+          "present_growing": 6,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01139": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01145": {
           "present": 4994,
+          "present_growing": 4090,
           "active_pfba": 99,
           "active_fba": 99
         },
         "rxn01195": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01196": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01300": {
           "present": 4558,
+          "present_growing": 3628,
           "active_pfba": 1792,
           "active_fba": 1830
         },
         "rxn01317": {
           "present": 2,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01408": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01456": {
           "present": 1,
+          "present_growing": 1,
           "active_pfba": 1,
           "active_fba": 1
         },
         "rxn01464": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01630": {
           "present": 435,
+          "present_growing": 352,
           "active_pfba": 101,
           "active_fba": 101
         },
         "rxn01720": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01860": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01961": {
           "present": 5003,
+          "present_growing": 4093,
           "active_pfba": 154,
           "active_fba": 156
         },
         "rxn01969": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn02150": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn02275": {
           "present": 2738,
+          "present_growing": 2299,
           "active_pfba": 19,
           "active_fba": 19
         },
         "rxn02435": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn02455": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn02977": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03090": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03273": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03325": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03367": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03479": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03676": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03833": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03877": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03909": {
           "present": 5151,
+          "present_growing": 4137,
           "active_pfba": 4137,
           "active_fba": 4137
         },
         "rxn03919": {
           "present": 1977,
+          "present_growing": 1851,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03970": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03971": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn04361": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn04539": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn04542": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn04712": {
           "present": 23,
+          "present_growing": 22,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn04734": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn05035": {
           "present": 126,
+          "present_growing": 117,
           "active_pfba": 117,
           "active_fba": 117
         },
         "rxn05485": {
           "present": 3641,
+          "present_growing": 2729,
           "active_pfba": 3,
           "active_fba": 3
         },
         "rxn05567": {
           "present": 3660,
+          "present_growing": 2748,
           "active_pfba": 1,
           "active_fba": 1
         },
         "rxn08571": {
           "present": 330,
+          "present_growing": 327,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn09431": {
           "present": 1,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn09433": {
           "present": 6,
+          "present_growing": 5,
           "active_pfba": 5,
           "active_fba": 5
         },
         "rxn10878": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn11859": {
           "present": 109,
+          "present_growing": 98,
           "active_pfba": 80,
           "active_fba": 80
         },
         "rxn13012": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn13774": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn15001": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn15010": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn15166": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn15230": {
           "present": 2481,
+          "present_growing": 1800,
           "active_pfba": 0,
           "active_fba": 9
         },
         "rxn15494": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn17641": {
           "present": 157,
+          "present_growing": 155,
           "active_pfba": 124,
           "active_fba": 124
         },
         "rxn19345": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn19905": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         }
       },
-      "seconds": 130.5
+      "seconds": 128.8
     },
     "ms2_gsm_auxo": {
       "set": "ms2_gsm_auxo",
@@ -882,386 +1034,462 @@
       "per_reaction": {
         "rxn00011": {
           "present": 5158,
+          "present_growing": 5138,
           "active_pfba": 1290,
           "active_fba": 1293
         },
         "rxn00020": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00202": {
           "present": 537,
+          "present_growing": 535,
           "active_pfba": 89,
           "active_fba": 89
         },
         "rxn00273": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00274": {
           "present": 2180,
+          "present_growing": 2176,
           "active_pfba": 680,
           "active_fba": 683
         },
         "rxn00330": {
           "present": 2587,
+          "present_growing": 2579,
           "active_pfba": 1254,
           "active_fba": 1261
         },
         "rxn00342": {
           "present": 3533,
+          "present_growing": 3524,
           "active_pfba": 611,
           "active_fba": 612
         },
         "rxn00362": {
           "present": 1075,
+          "present_growing": 1074,
           "active_pfba": 144,
           "active_fba": 196
         },
         "rxn00441": {
           "present": 3788,
+          "present_growing": 3777,
           "active_pfba": 3214,
           "active_fba": 3177
         },
         "rxn00456": {
           "present": 1034,
+          "present_growing": 1029,
           "active_pfba": 230,
           "active_fba": 237
         },
         "rxn00566": {
           "present": 2127,
+          "present_growing": 2114,
           "active_pfba": 673,
           "active_fba": 649
         },
         "rxn00600": {
           "present": 627,
+          "present_growing": 621,
           "active_pfba": 621,
           "active_fba": 621
         },
         "rxn00606": {
           "present": 1349,
+          "present_growing": 1341,
           "active_pfba": 226,
           "active_fba": 226
         },
         "rxn00680": {
           "present": 5,
+          "present_growing": 5,
           "active_pfba": 5,
           "active_fba": 5
         },
         "rxn00874": {
           "present": 4003,
+          "present_growing": 3988,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00950": {
           "present": 3039,
+          "present_growing": 3026,
           "active_pfba": 43,
           "active_fba": 115
         },
         "rxn00985": {
           "present": 339,
+          "present_growing": 339,
           "active_pfba": 66,
           "active_fba": 100
         },
         "rxn00997": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn00998": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01009": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01027": {
           "present": 786,
+          "present_growing": 783,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01028": {
           "present": 6,
+          "present_growing": 6,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01139": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01145": {
           "present": 4993,
+          "present_growing": 4973,
           "active_pfba": 76,
           "active_fba": 74
         },
         "rxn01195": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01196": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01300": {
           "present": 4468,
+          "present_growing": 4449,
           "active_pfba": 2496,
           "active_fba": 2496
         },
         "rxn01317": {
           "present": 4,
+          "present_growing": 4,
           "active_pfba": 4,
           "active_fba": 4
         },
         "rxn01408": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01456": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01464": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01630": {
           "present": 371,
+          "present_growing": 370,
           "active_pfba": 1,
           "active_fba": 1
         },
         "rxn01720": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01860": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn01961": {
           "present": 4999,
+          "present_growing": 4981,
           "active_pfba": 139,
           "active_fba": 139
         },
         "rxn01969": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn02150": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn02275": {
           "present": 2739,
+          "present_growing": 2726,
           "active_pfba": 44,
           "active_fba": 44
         },
         "rxn02435": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn02455": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn02977": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03090": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03273": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03325": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03367": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03479": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03676": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03833": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03877": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03909": {
           "present": 4557,
+          "present_growing": 4543,
           "active_pfba": 4231,
           "active_fba": 4234
         },
         "rxn03919": {
           "present": 1977,
+          "present_growing": 1974,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03970": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn03971": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn04361": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn04539": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn04542": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn04712": {
           "present": 23,
+          "present_growing": 23,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn04734": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn05035": {
           "present": 6,
+          "present_growing": 6,
           "active_pfba": 6,
           "active_fba": 6
         },
         "rxn05485": {
           "present": 3641,
+          "present_growing": 3625,
           "active_pfba": 1,
           "active_fba": 1
         },
         "rxn05567": {
           "present": 3661,
+          "present_growing": 3645,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn08571": {
           "present": 330,
+          "present_growing": 330,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn09431": {
           "present": 5,
+          "present_growing": 5,
           "active_pfba": 5,
           "active_fba": 5
         },
         "rxn09433": {
           "present": 9,
+          "present_growing": 8,
           "active_pfba": 8,
           "active_fba": 8
         },
         "rxn10878": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn11859": {
           "present": 83,
+          "present_growing": 82,
           "active_pfba": 64,
           "active_fba": 64
         },
         "rxn13012": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn13774": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn15001": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn15010": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn15166": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn15230": {
           "present": 2480,
+          "present_growing": 2468,
           "active_pfba": 0,
           "active_fba": 4
         },
         "rxn15494": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn17641": {
           "present": 157,
+          "present_growing": 156,
           "active_pfba": 124,
           "active_fba": 124
         },
         "rxn19345": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         },
         "rxn19905": {
           "present": 0,
+          "present_growing": 0,
           "active_pfba": 0,
           "active_fba": 0
         }
       },
-      "seconds": 140.7
+      "seconds": 141.0
     }
   }
 }

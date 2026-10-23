@@ -46,7 +46,7 @@ from cma import paths  # noqa: E402
 DATA = paths.results("direction_change_targets") / "presence_activity.json"
 OUT_DIR = Path(os.environ.get(
     "DIRECTION_CHANGE_FIG_DIR",
-    paths.analysis_dir() / "reports" / "directionChangeTargets" / "figures"))
+    paths.results("direction_change_targets") / "figures"))
 
 # dataviz reference palette, categorical slots 1-3. Validated light mode under
 # --pairs all: CVD dE 9.2, normal-vision dE 24.0, all checks pass. Aqua carries

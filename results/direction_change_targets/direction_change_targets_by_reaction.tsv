@@ -1,77 +1,77 @@
-reaction_id	change	name	present_core	active_core	present_gsm	active_gsm	present_gsm_auxo	active_gsm_auxo	present_any	active_any	n_panels_present	n_panels_active
-rxn00011	= -> <	pyruvate:thiamin diphosphate acetaldehydetransferase (decarboxylating)	5352	2906	5286	2921	5158	1290	1	1	3	3
-rxn00020	no change	cellobiose glucohydrolase	0	0	0	0	0	0	0	0	0	0
-rxn00202	= -> <	acetyl-CoA:2-oxoglutarate C-acetyltransferase (thioester-hydrolysing, carboxymethyl forming)	0	0	708	125	537	89	1	1	2	2
-rxn00273	= -> <	Acetyl-CoA:glycine C-acetyltransferase	0	0	0	0	0	0	0	0	0	0
-rxn00274	= -> <	Acetyl-CoA:glycine C-acetyltransferase	0	0	2277	809	2180	680	1	1	2	2
-rxn00330	= -> <	acetyl-CoA:glyoxylate C-acetyltransferase (thioester-hydrolysing, carboxymethyl-forming)	2544	201	2680	2237	2587	1254	1	1	3	3
-rxn00342	= -> >	L-Asparagine amidohydrolase	0	0	3531	0	3533	611	1	1	2	1
-rxn00362	no change	Cytidine-5'-monophosphate phosphoribohydrolase	0	0	1045	80	1075	144	1	1	2	2
-rxn00441	= -> >	R00621	3788	714	3787	1505	3788	3214	1	1	3	3
-rxn00456	= -> >	L-methionine methanethiol-lyase (deaminating;2-oxobutanoate-forming)	0	0	1028	96	1034	230	1	1	2	2
-rxn00566	= -> >	L-Cysteine hydrogen-sulfide-lyase (deaminating; pyruvate-forming)	0	0	2170	121	2127	673	1	1	2	2
-rxn00600	= -> <	Succinyl-CoA:glycine C-succinyl-transferase(decarboxylating)	0	0	684	498	627	621	1	1	2	2
-rxn00606	no change	alpha,alpha-Trehalose-6-phosphate phosphoglucohydrolase	0	0	1392	149	1349	226	1	1	2	2
-rxn00680	= -> <	propanoyl-CoA:glyoxylate C-propanoyltransferase (thioester-hydrolysing, 2-carboxyethyl-forming)	0	0	155	114	5	5	1	1	2	2
-rxn00874	= -> <	butanoyl-CoA:acetyl-CoA C-butanoyltransferase	4110	0	4003	6	4003	0	1	1	3	1
-rxn00950	no change	Cystathionine L-homocysteine-lyase (deaminating)	0	0	3039	13	3039	43	1	1	2	2
-rxn00985	no change	ATP:propanoate phosphotransferase	4186	0	310	7	339	66	1	1	3	2
-rxn00997	= -> <	Phenyllactate:NAD+ oxidoreductase	0	0	0	0	0	0	0	0	0	0
-rxn00998	= -> <	Phenyllactate:NADP+ oxidoreductase	0	0	0	0	0	0	0	0	0	0
-rxn01009	= -> >	UDP-D-glucuronate carboxy-lyase (UDP-D-apiose-forming)	0	0	0	0	0	0	0	0	0	0
-rxn01027	= -> <	5,6-Dihydrothymine:NAD+ oxidoreductase	0	0	786	0	786	0	1	0	2	0
-rxn01028	= -> <	5,6-Dihydrothymine:NADP+ oxidoreductase	0	0	6	0	6	0	1	0	2	0
-rxn01139	= -> >	adenosine 3'-phosphate phosphohydrolase	0	0	0	0	0	0	0	0	0	0
-rxn01145	= -> >	Thymidylate 5'-phosphohydrolase	0	0	4994	99	4993	76	1	1	2	2
-rxn01195	= -> >	3,4-Dihydroxyphthalate carboxy-lyase (3,4-dihydroxybenzoate-forming)	0	0	0	0	0	0	0	0	0	0
-rxn01196	= -> >	4,5-Dihydroxyphthalate carboxy-lyase (3,4-dihydroxybenzoate-forming)	0	0	0	0	0	0	0	0	0	0
-rxn01300	= -> >	ATP:L-homoserine O-phosphotransferase	0	0	4558	1792	4468	2496	1	1	2	2
-rxn01317	no change	N-Acetylneuraminate 9-phosphate phosphohydrolase	0	0	2	0	4	4	1	1	2	1
-rxn01408	= -> >	L-Carnitinamide amidohydrolase	0	0	0	0	0	0	0	0	0	0
-rxn01456	= -> >	D-galacturonate:NAD+ 1-oxidoreductase	0	0	1	1	0	0	1	1	1	1
-rxn01464	= -> >	alpha-Aminobutyryl histidine hydrolase	0	0	0	0	0	0	0	0	0	0
-rxn01630	no change	5-Aminopentanamide amidohydrolase	0	0	435	101	371	1	1	1	2	2
-rxn01720	= -> >	UDPglucose:arylamine N-D-glucosyltransferase	0	0	0	0	0	0	0	0	0	0
-rxn01860	no change	(R)-Prunasin beta-D-glucohydrolase	0	0	0	0	0	0	0	0	0	0
-rxn01961	= -> >	Xanthosine 5'-phosphate phosphohydrolase	0	0	5003	154	4999	139	1	1	2	2
-rxn01969	= -> >	D-Fructose-2,6-bisphosphate 6-phosphohydrolase	0	0	0	0	0	0	0	0	0	0
-rxn02150	= -> >	chlorogenate:D-glucarate 2-O-caffeoyltransferase	0	0	0	0	0	0	0	0	0	0
-rxn02275	no change	4-Guanidinobutanamide amidohydrolase	0	0	2738	19	2739	44	1	1	2	2
-rxn02435	= -> >	D-myo-Inositol-1,4,5-trisphosphate 5-phosphohydrolase	0	0	0	0	0	0	0	0	0	0
-rxn02455	= -> >	D-myo-Inositol 1,3,4-trisphosphate 1-phosphohydrolase	0	0	0	0	0	0	0	0	0	0
-rxn02977	no change	2-alpha-L-FUcopyranosyl-beta-D-galactoside fucohydrolase	0	0	0	0	0	0	0	0	0	0
-rxn03090	= -> >	R04479	0	0	0	0	0	0	0	0	0	0
-rxn03273	no change	3-Ketolactose galactohydrolase	0	0	0	0	0	0	0	0	0	0
-rxn03325	no change	Acyl-CoA:isopenicillin N N-acyltransferase	0	0	0	0	0	0	0	0	0	0
-rxn03367	= -> <	R04918	0	0	0	0	0	0	0	0	0	0
-rxn03479	no change	R05130	0	0	0	0	0	0	0	0	0	0
-rxn03676	= -> >	4-Hydroxyphthalate carboxy-lyase	0	0	0	0	0	0	0	0	0	0
-rxn03833	no change	R05544	0	0	0	0	0	0	0	0	0	0
-rxn03877	= -> >	Benzylsuccinate fumarate-lyase	0	0	0	0	0	0	0	0	0	0
-rxn03909	= -> >	1-Deoxy-D-xylulose-5-phosphate pyruvate-lyase (carboxylating)	0	0	5151	4137	4557	4231	1	1	2	2
-rxn03919	= -> >	D-glycero-beta-D-manno-heptose 1,7-bisphosphate 7-phosphohydrolase	0	0	1977	0	1977	0	1	0	2	0
-rxn03970	= -> >	Coniferyl aldehyde:NAD oxidoreductase	0	0	0	0	0	0	0	0	0	0
-rxn03971	= -> >	Coniferyl aldehyde:NADP oxidoreductase	0	0	0	0	0	0	0	0	0	0
-rxn04361	no change	rxn04361	0	0	0	0	0	0	0	0	0	0
-rxn04539	= -> >	rxn04539	0	0	0	0	0	0	0	0	0	0
-rxn04542	= -> >	rxn04542	0	0	0	0	0	0	0	0	0	0
-rxn04712	= -> >	R06903	0	0	23	0	23	0	1	0	2	0
-rxn04734	= -> >	R06925	0	0	0	0	0	0	0	0	0	0
-rxn05035	= -> >	O-phospho-L-serine:hydrogen-sulfide 2-amino-2-carboxyethyltransferase	0	0	126	117	6	6	1	1	2	2
-rxn05485	no change	N-Acetyl-D-glucosamine transport via PEP:Pyr PTS	0	0	3641	3	3641	1	1	1	2	2
-rxn05567	= -> >	Galactitol transport via PEP:Pyr PTS	0	0	3660	1	3661	0	1	1	2	1
-rxn08571	= -> >	D-galactose 1-phosphatase	0	0	330	0	330	0	1	0	2	0
-rxn09431	= -> >	fatty-acyl-CoA synthase (n-C16:0CoA)	0	0	1	0	5	5	1	1	2	1
-rxn09433	= -> >	fatty acid synthase (n-C16:0)	0	0	6	5	9	8	1	1	2	2
-rxn10878	= -> >	Pyruvate Oxidase (2)	0	0	0	0	0	0	0	0	0	0
-rxn11859	= -> >	R08332	0	0	109	80	83	64	1	1	2	2
-rxn13012	= -> >	Inositol-pentakisphosphate 2-kinase	0	0	0	0	0	0	0	0	0	0
-rxn13774	= -> >	Isoprene synthase	0	0	0	0	0	0	0	0	0	0
-rxn15001	no change	alpha,alpha-trehalase (glc-B)	0	0	0	0	0	0	0	0	0	0
-rxn15010	no change	maltose glucohydrolase	0	0	0	0	0	0	0	0	0	0
-rxn15166	no change	L-cystathionine L-homocysteine-lyase (deaminating; pyruvate-forming)	0	0	0	0	0	0	0	0	0	0
-rxn15230	no change	Lactose galactohydrolase	0	0	2481	0	2480	0	1	0	2	0
-rxn15494	= -> >	beta-D-Fructose 1,6-bisphosphate 1-phosphohydrolase	0	0	0	0	0	0	0	0	0	0
-rxn17641	= -> >	prenyltransferase	0	0	157	124	157	124	1	1	2	2
-rxn19345	= -> >	CYSSYNMULTI-RXN.c	0	0	0	0	0	0	0	0	0	0
-rxn19905	= -> >	homoserine kinase	0	0	0	0	0	0	0	0	0	0
+reaction_id	change	name	present_core	growing_core	active_core	present_gsm	growing_gsm	active_gsm	present_gsm_auxo	growing_gsm_auxo	active_gsm_auxo	present_total	growing_total	active_total	present_any	active_any	n_panels_present	n_panels_active
+rxn00011	= -> <	pyruvate:thiamin diphosphate acetaldehydetransferase (decarboxylating)	5352	3394	2906	5286	4261	2921	5158	5138	1290	15796	12793	7117	1	1	3	3
+rxn00020	no change	cellobiose glucohydrolase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn00202	= -> <	acetyl-CoA:2-oxoglutarate C-acetyltransferase (thioester-hydrolysing, carboxymethyl forming)	0	0	0	708	496	125	537	535	89	1245	1031	214	1	1	2	2
+rxn00273	= -> <	Acetyl-CoA:glycine C-acetyltransferase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn00274	= -> <	Acetyl-CoA:glycine C-acetyltransferase	0	0	0	2277	2032	809	2180	2176	680	4457	4208	1489	1	1	2	2
+rxn00330	= -> <	acetyl-CoA:glyoxylate C-acetyltransferase (thioester-hydrolysing, carboxymethyl-forming)	2544	2371	201	2680	2447	2237	2587	2579	1254	7811	7397	3692	1	1	3	3
+rxn00342	= -> >	L-Asparagine amidohydrolase	0	0	0	3531	2803	0	3533	3524	611	7064	6327	611	1	1	2	1
+rxn00362	no change	Cytidine-5'-monophosphate phosphoribohydrolase	0	0	0	1045	1024	80	1075	1074	144	2120	2098	224	1	1	2	2
+rxn00441	= -> >	R00621	3788	3032	714	3787	3424	1505	3788	3777	3214	11363	10233	5433	1	1	3	3
+rxn00456	= -> >	L-methionine methanethiol-lyase (deaminating;2-oxobutanoate-forming)	0	0	0	1028	880	96	1034	1029	230	2062	1909	326	1	1	2	2
+rxn00566	= -> >	L-Cysteine hydrogen-sulfide-lyase (deaminating; pyruvate-forming)	0	0	0	2170	1619	121	2127	2114	673	4297	3733	794	1	1	2	2
+rxn00600	= -> <	Succinyl-CoA:glycine C-succinyl-transferase(decarboxylating)	0	0	0	684	498	498	627	621	621	1311	1119	1119	1	1	2	2
+rxn00606	no change	alpha,alpha-Trehalose-6-phosphate phosphoglucohydrolase	0	0	0	1392	906	149	1349	1341	226	2741	2247	375	1	1	2	2
+rxn00680	= -> <	propanoyl-CoA:glyoxylate C-propanoyltransferase (thioester-hydrolysing, 2-carboxyethyl-forming)	0	0	0	155	114	114	5	5	5	160	119	119	1	1	2	2
+rxn00874	= -> <	butanoyl-CoA:acetyl-CoA C-butanoyltransferase	4110	3050	0	4003	3266	6	4003	3988	0	12116	10304	6	1	1	3	1
+rxn00950	no change	Cystathionine L-homocysteine-lyase (deaminating)	0	0	0	3039	2435	13	3039	3026	43	6078	5461	56	1	1	2	2
+rxn00985	no change	ATP:propanoate phosphotransferase	4186	2790	0	310	256	7	339	339	66	4835	3385	73	1	1	3	2
+rxn00997	= -> <	Phenyllactate:NAD+ oxidoreductase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn00998	= -> <	Phenyllactate:NADP+ oxidoreductase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn01009	= -> >	UDP-D-glucuronate carboxy-lyase (UDP-D-apiose-forming)	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn01027	= -> <	5,6-Dihydrothymine:NAD+ oxidoreductase	0	0	0	786	689	0	786	783	0	1572	1472	0	1	0	2	0
+rxn01028	= -> <	5,6-Dihydrothymine:NADP+ oxidoreductase	0	0	0	6	6	0	6	6	0	12	12	0	1	0	2	0
+rxn01139	= -> >	adenosine 3'-phosphate phosphohydrolase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn01145	= -> >	Thymidylate 5'-phosphohydrolase	0	0	0	4994	4090	99	4993	4973	76	9987	9063	175	1	1	2	2
+rxn01195	= -> >	3,4-Dihydroxyphthalate carboxy-lyase (3,4-dihydroxybenzoate-forming)	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn01196	= -> >	4,5-Dihydroxyphthalate carboxy-lyase (3,4-dihydroxybenzoate-forming)	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn01300	= -> >	ATP:L-homoserine O-phosphotransferase	0	0	0	4558	3628	1792	4468	4449	2496	9026	8077	4288	1	1	2	2
+rxn01317	no change	N-Acetylneuraminate 9-phosphate phosphohydrolase	0	0	0	2	0	0	4	4	4	6	4	4	1	1	2	1
+rxn01408	= -> >	L-Carnitinamide amidohydrolase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn01456	= -> >	D-galacturonate:NAD+ 1-oxidoreductase	0	0	0	1	1	1	0	0	0	1	1	1	1	1	1	1
+rxn01464	= -> >	alpha-Aminobutyryl histidine hydrolase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn01630	no change	5-Aminopentanamide amidohydrolase	0	0	0	435	352	101	371	370	1	806	722	102	1	1	2	2
+rxn01720	= -> >	UDPglucose:arylamine N-D-glucosyltransferase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn01860	no change	(R)-Prunasin beta-D-glucohydrolase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn01961	= -> >	Xanthosine 5'-phosphate phosphohydrolase	0	0	0	5003	4093	154	4999	4981	139	10002	9074	293	1	1	2	2
+rxn01969	= -> >	D-Fructose-2,6-bisphosphate 6-phosphohydrolase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn02150	= -> >	chlorogenate:D-glucarate 2-O-caffeoyltransferase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn02275	no change	4-Guanidinobutanamide amidohydrolase	0	0	0	2738	2299	19	2739	2726	44	5477	5025	63	1	1	2	2
+rxn02435	= -> >	D-myo-Inositol-1,4,5-trisphosphate 5-phosphohydrolase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn02455	= -> >	D-myo-Inositol 1,3,4-trisphosphate 1-phosphohydrolase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn02977	no change	2-alpha-L-FUcopyranosyl-beta-D-galactoside fucohydrolase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn03090	= -> >	R04479	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn03273	no change	3-Ketolactose galactohydrolase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn03325	no change	Acyl-CoA:isopenicillin N N-acyltransferase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn03367	= -> <	R04918	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn03479	no change	R05130	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn03676	= -> >	4-Hydroxyphthalate carboxy-lyase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn03833	no change	R05544	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn03877	= -> >	Benzylsuccinate fumarate-lyase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn03909	= -> >	1-Deoxy-D-xylulose-5-phosphate pyruvate-lyase (carboxylating)	0	0	0	5151	4137	4137	4557	4543	4231	9708	8680	8368	1	1	2	2
+rxn03919	= -> >	D-glycero-beta-D-manno-heptose 1,7-bisphosphate 7-phosphohydrolase	0	0	0	1977	1851	0	1977	1974	0	3954	3825	0	1	0	2	0
+rxn03970	= -> >	Coniferyl aldehyde:NAD oxidoreductase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn03971	= -> >	Coniferyl aldehyde:NADP oxidoreductase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn04361	no change	rxn04361	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn04539	= -> >	rxn04539	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn04542	= -> >	rxn04542	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn04712	= -> >	R06903	0	0	0	23	22	0	23	23	0	46	45	0	1	0	2	0
+rxn04734	= -> >	R06925	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn05035	= -> >	O-phospho-L-serine:hydrogen-sulfide 2-amino-2-carboxyethyltransferase	0	0	0	126	117	117	6	6	6	132	123	123	1	1	2	2
+rxn05485	no change	N-Acetyl-D-glucosamine transport via PEP:Pyr PTS	0	0	0	3641	2729	3	3641	3625	1	7282	6354	4	1	1	2	2
+rxn05567	= -> >	Galactitol transport via PEP:Pyr PTS	0	0	0	3660	2748	1	3661	3645	0	7321	6393	1	1	1	2	1
+rxn08571	= -> >	D-galactose 1-phosphatase	0	0	0	330	327	0	330	330	0	660	657	0	1	0	2	0
+rxn09431	= -> >	fatty-acyl-CoA synthase (n-C16:0CoA)	0	0	0	1	0	0	5	5	5	6	5	5	1	1	2	1
+rxn09433	= -> >	fatty acid synthase (n-C16:0)	0	0	0	6	5	5	9	8	8	15	13	13	1	1	2	2
+rxn10878	= -> >	Pyruvate Oxidase (2)	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn11859	= -> >	R08332	0	0	0	109	98	80	83	82	64	192	180	144	1	1	2	2
+rxn13012	= -> >	Inositol-pentakisphosphate 2-kinase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn13774	= -> >	Isoprene synthase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn15001	no change	alpha,alpha-trehalase (glc-B)	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn15010	no change	maltose glucohydrolase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn15166	no change	L-cystathionine L-homocysteine-lyase (deaminating; pyruvate-forming)	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn15230	no change	Lactose galactohydrolase	0	0	0	2481	1800	0	2480	2468	0	4961	4268	0	1	0	2	0
+rxn15494	= -> >	beta-D-Fructose 1,6-bisphosphate 1-phosphohydrolase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn17641	= -> >	prenyltransferase	0	0	0	157	155	124	157	156	124	314	311	248	1	1	2	2
+rxn19345	= -> >	CYSSYNMULTI-RXN.c	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rxn19905	= -> >	homoserine kinase	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0

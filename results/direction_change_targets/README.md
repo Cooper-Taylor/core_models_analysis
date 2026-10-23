@@ -34,7 +34,9 @@ than 30, the extra one (rxn15230) being an alternate-optimum artefact.
 
 | file | rows | what |
 |---|---:|---|
-| `direction_change_targets_by_reaction.tsv` | 76 | one row per target reaction, per-panel present/active counts and flags |
+| `direction_change_targets_by_reaction.tsv` | 76 | one row per target reaction, per-panel present/growing/active counts and flags |
+| `figures/direction_change_funnel.png` | — | the three-stage drop, split by category |
+| `figures/direction_change_by_reaction.png` | — | per-reaction model counts, three facets |
 | `direction_change_targets_by_model.tsv` | 154,936 | one row per (panel, model, reaction) where the reaction is present, flagged for flux |
 | `presence_activity.json` | — | the raw aggregate the TSVs are built from |
 
@@ -43,15 +45,42 @@ It is gitignored; regenerate with `--dump-records`.
 
 ### `direction_change_targets_by_reaction.tsv`
 
-`reaction_id`, `change`, `name` (from MSDB), then `present_<panel>` /
-`active_<panel>` model counts for `core`, `gsm`, `gsm_auxo`, then
-`present_any`, `active_any` (0/1), `n_panels_present`, `n_panels_active`.
+`reaction_id`, `change`, `name` (from MSDB), then a
+`present_<panel>` / `growing_<panel>` / `active_<panel>` triple for each of
+`core`, `gsm`, `gsm_auxo`, then `present_total`, `growing_total`,
+`active_total` summed over panels, then `present_any`, `active_any` (0/1),
+`n_panels_present`, `n_panels_active`.
+
+The three counts nest: **active ≤ growing ≤ present**, checked on every row.
+
+* `present_<panel>` — models that contain the reaction at all.
+* `growing_<panel>` — of those, how many have non-zero biomass. A non-grower
+  has no flux solution, so this is the denominator `active` should be read
+  against, not `present`. The gap matters: rxn00011 is in 5,352 core models
+  but only 3,394 of them grow.
+* `active_<panel>` — of those, how many carry flux through it under pFBA.
 
 ### `direction_change_targets_by_model.tsv`
 
 `panel`, `model_id`, `grows`, `reaction_id`, `change`, `present`,
 `active_pfba`, `active_fba`. Only rows where the reaction is present in that
 model are emitted.
+
+## Figures
+
+Registered in `scripts/figures.tsv` under tag `direction_change`:
+
+```bash
+python3 scripts/regen_figures.py --tag direction_change
+```
+
+* `direction_change_funnel` — all 76 → present in ≥1 model (36) → active in
+  ≥1 pFBA solution (30), each stage split into the 56 explicit changes and the
+  20 labelled "no change".
+* `direction_change_by_reaction` — one row per reaction, three facets; pale bar
+  is models containing it, solid bar the subset running it.
+
+Each writes a `.tsv` of the numbers it asserts beside the image.
 
 ## Reproduce
 
