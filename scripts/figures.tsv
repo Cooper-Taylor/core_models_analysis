@@ -50,3 +50,7 @@ baseline_biomass_taxonomy	plot_baseline_biomass_taxonomy.py		bars,distribution,t
 flux_distributions	plot_flux_distributions.py		distribution,flux,loops
 direction_change_funnel	plot_direction_change_funnel.py		bars,direction_change
 direction_change_by_reaction	plot_direction_change_by_reaction.py		bars,direction_change
+direction_change_by_reaction_horizontal	plot_direction_change_by_reaction.py	--orient horizontal	bars,direction_change
+direction_change_by_reaction_horizontal_core	plot_direction_change_by_reaction.py	--orient horizontal --panel core_kegg2	bars,direction_change
+direction_change_by_reaction_horizontal_gsm	plot_direction_change_by_reaction.py	--orient horizontal --panel ms2_gsm	bars,direction_change
+direction_change_by_reaction_horizontal_gsm_auxo	plot_direction_change_by_reaction.py	--orient horizontal --panel ms2_gsm_auxo	bars,direction_change

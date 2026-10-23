@@ -1,34 +1,47 @@
 #!/usr/bin/env python3
 """Per-reaction: in how many models does each direction-change reaction exist,
-and in how many does it actually carry flux, for each of the three panels.
+in how many of those does the model grow, and in how many does it carry flux.
 
-One row per reaction, three facets (core_kegg2, ms2_gsm glucose-minimal,
-ms2_gsm_auxo). In each facet the pale bar is the number of models CONTAINING
-the reaction and the saturated bar drawn on top is the subset of those whose
-FBA solution carries flux through it. Active is a subset of present by
-construction, so the two are nested rather than grouped.
+Three nested counts per reaction per panel, drawn as nested bars of one hue:
+
+    present  >=  growing  >=  active
+
+* **present** - models containing the reaction at all (palest).
+* **growing** - of those, the ones with non-zero biomass (mid). A non-grower
+  has no flux solution, so this is the denominator ``active`` should be read
+  against, not ``present``.
+* **active**  - of those, the ones whose pFBA solution carries flux (solid).
 
 Reads results/direction_change_targets/presence_activity.json, written by
 scripts/direction_change/presence_and_activity.py.
 
+Variants (see scripts/figures.tsv)
+----------------------------------
+``--orient vertical``   reactions down the y-axis, bars running across. Tall;
+                        fits all 36 reactions comfortably. The default.
+``--orient horizontal`` reactions along the x-axis, bars running up. Wide;
+                        facets become stacked rows sharing the x-axis.
+``--panel <set>``       restrict to one model set and drop the other facets,
+                        showing only the reactions present in that set.
+
 Non-obvious choices
 -------------------
-* Only reactions present in at least one model are drawn (36 of 76); the other
-  40 would be three empty rows each and are counted in the subtitle instead.
-* Rows are sorted by total active models across panels, descending, so the
-  reactions that actually matter are at the top.
-* Counts, not fractions: the three panels are 5,683 / 5,420 / 5,420 models, so
-  raw counts stay comparable and avoid implying a precision fractions do not
-  have on reactions present in only a handful of models.
+* Only reactions present in at least one of the panels being drawn are shown;
+  the rest would be empty rows and are counted in the subtitle instead.
+* Sorted by total active models, descending, so what matters is read first.
+* Counts, not fractions: the panels are 5,683 / 5,420 / 5,420 models, so raw
+  counts stay comparable without implying precision fractions would not have
+  on reactions present in a handful of models.
 * "Active" is the **pFBA** flux vector (ACTIVE_TOL 1e-9), per
   build_flux_distributions.py; plain FBA picks an arbitrary vertex.
-* A shared x-axis across facets, so bar lengths are comparable between panels.
+* A shared count axis across facets, so bar lengths compare between panels.
 
-Data: core_models_analysis @ cc44689. Sweep run 2026-10-23 over 16,523 models,
-0 solver errors; a second run reproduced every count.
+Data: core_models_analysis @ 0a4f619. Sweep run 2026-10-23 over 16,523 models,
+0 solver errors; repeated runs reproduced every count.
 """
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import os
@@ -50,110 +63,170 @@ OUT_DIR = Path(os.environ.get(
 
 # dataviz reference palette, categorical slots 1-3. Validated light mode under
 # --pairs all: CVD dE 9.2, normal-vision dE 24.0, all checks pass. Aqua carries
-# a contrast WARN (2.74:1), relieved by the axis labels and the committed TSV.
+# a contrast WARN (2.74:1), relieved by the axis labels and the committed TSVs.
 PANELS = [
-    ("core_kegg2", "core  ·  5,683 models", "#2a78d6"),
-    ("ms2_gsm", "genome-scale  ·  glucose minimal  ·  5,420", "#eb6834"),
-    ("ms2_gsm_auxo", "genome-scale  ·  auxotrophy  ·  5,420", "#1baf7a"),
+    ("core_kegg2", "core", "core  ·  5,683 models", "#2a78d6"),
+    ("ms2_gsm", "gsm", "genome-scale  ·  glucose minimal  ·  5,420", "#eb6834"),
+    ("ms2_gsm_auxo", "gsm_auxo", "genome-scale  ·  auxotrophy  ·  5,420", "#1baf7a"),
 ]
-PRESENT_ALPHA = 0.26
+#: Nested tiers, palest to solid. One hue per panel, three lightness steps.
+TIERS = [
+    ("present", 0.22, "present in model"),
+    ("present_growing", 0.52, "…and the model grows"),
+    ("active_pfba", 1.0, "…and it carries flux (pFBA)"),
+]
+BAR_SPAN = [0.80, 0.80, 0.52]   # thickness per tier; active drawn narrower
 INK, INK2, INK3 = "#0b0b0b", "#52514e", "#898781"
 SURFACE, GRIDLINE = "#fcfcfb", "#e1e0d9"
 
 
-def main() -> None:
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+def load(panel_keys: list[str]):
     d = json.load(open(DATA))
     targets: dict[str, str] = d["targets"]
     panels: dict[str, dict] = d["panels"]
 
-    present_any = [r for r in targets
-                   if any(panels[k]["per_reaction"][r]["present"]
-                          for k, _, _ in PANELS)]
-    order = sorted(
-        present_any,
-        key=lambda r: (sum(panels[k]["per_reaction"][r]["active_pfba"]
-                           for k, _, _ in PANELS),
-                       sum(panels[k]["per_reaction"][r]["present"]
-                           for k, _, _ in PANELS)))
-    n = len(order)
-    ypos = list(range(n))
+    def tier(key, r, name):
+        return panels[key]["per_reaction"][r].get(name, 0)
 
-    fig, axes = plt.subplots(1, 3, figsize=(13.5, 0.30 * n + 2.6),
-                             sharey=True, sharex=True)
+    present_any = [r for r in targets
+                   if any(tier(k, r, "present") for k in panel_keys)]
+    order = sorted(present_any,
+                   key=lambda r: (sum(tier(k, r, "active_pfba") for k in panel_keys),
+                                  sum(tier(k, r, "present") for k in panel_keys)))
+    return targets, panels, order, tier
+
+
+def row_label(r, targets):
+    c = targets[r] if targets[r] != "no change" else "(uncert.)"
+    return f"{r}  {c}"
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--orient", choices=("vertical", "horizontal"),
+                    default="vertical")
+    ap.add_argument("--panel", default="all",
+                    choices=["all"] + [k for k, _, _, _ in PANELS])
+    ap.add_argument("--out-name", default=None)
+    a = ap.parse_args()
+
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    chosen = [p for p in PANELS if a.panel in ("all", p[0])]
+    keys = [k for k, _, _, _ in chosen]
+    targets, panels, order, tier = load(keys)
+    n = len(order)
+    short_of = {k: s for k, s, _, _ in PANELS}
+    name = a.out_name or ("direction_change_by_reaction"
+                          + ("" if a.orient == "vertical" else "_horizontal")
+                          + ("" if a.panel == "all" else "_" + short_of[a.panel]))
+
+    cmax = max(tier(k, r, "present") for k in keys for r in order)
+    pos = list(range(n))
+
+    if a.orient == "vertical":
+        fig, axes = plt.subplots(1, len(chosen),
+                                 figsize=(4.6 * len(chosen) + 0.4, 0.30 * n + 2.6),
+                                 sharey=True, sharex=True, squeeze=False)
+        axes = axes[0]
+    else:
+        fig, axes = plt.subplots(len(chosen), 1,
+                                 figsize=(max(0.40 * n + 3.4, 9.6),
+                                          3.3 * len(chosen) + 1.6),
+                                 sharex=True, sharey=True, squeeze=False)
+        axes = axes[:, 0]
     fig.patch.set_facecolor(SURFACE)
 
-    xmax = max(panels[k]["per_reaction"][r]["present"]
-               for k, _, _ in PANELS for r in order)
-
-    for ax, (key, title, color) in zip(axes, PANELS):
+    for ax, (key, _, title, color) in zip(axes, chosen):
         ax.set_facecolor(SURFACE)
-        pres = [panels[key]["per_reaction"][r]["present"] for r in order]
-        act = [panels[key]["per_reaction"][r]["active_pfba"] for r in order]
-        ax.barh(ypos, pres, color=color, alpha=PRESENT_ALPHA, height=0.74,
-                zorder=3, linewidth=0)
-        # 2px surface ring where the saturated bar overlaps the pale one
-        ax.barh(ypos, act, color=color, height=0.52, zorder=4,
-                edgecolor=SURFACE, linewidth=1.4)
+        for (field, alpha, _), span in zip(TIERS, BAR_SPAN):
+            vals = [tier(key, r, field) for r in order]
+            kw = dict(color=color, alpha=alpha, zorder=3 + alpha,
+                      edgecolor=SURFACE, linewidth=1.4 if alpha == 1.0 else 0)
+            if a.orient == "vertical":
+                ax.barh(pos, vals, height=span, **kw)
+            else:
+                ax.bar(pos, vals, width=span, **kw)
         ax.set_title(title, fontsize=10.2, color=INK, fontweight="bold",
                      loc="left", pad=9)
-        ax.grid(axis="x", color=GRIDLINE, linewidth=0.7, zorder=0)
+        ax.grid(axis="x" if a.orient == "vertical" else "y",
+                color=GRIDLINE, linewidth=0.7, zorder=0)
         ax.set_axisbelow(True)
-        for s in ("top", "right", "left"):
+        hide = ("top", "right", "left") if a.orient == "vertical" else ("top", "right")
+        for s in hide:
             ax.spines[s].set_visible(False)
         ax.spines["bottom"].set_color(GRIDLINE)
+        if a.orient == "horizontal":
+            ax.spines["left"].set_color(GRIDLINE)
         ax.tick_params(axis="both", colors=INK2, length=0, labelsize=9)
-        ax.set_xlabel("models", fontsize=10, color=INK2)
 
-    # The pale/solid distinction is the only 2-series encoding in the figure,
-    # so it gets a real legend as well as the subtitle. Demonstrated in slot-1
-    # blue; the nesting is identical in every facet. Placed low-left in the
-    # core facet, where the bottom rows are empty.
-    c = PANELS[0][2]
-    axes[0].legend(handles=[
-        plt.Rectangle((0, 0), 1, 1, color=c, alpha=PRESENT_ALPHA,
-                      label="present in model"),
-        plt.Rectangle((0, 0), 1, 1, color=c, label="carries flux (pFBA)"),
-    ], loc="lower right", frameon=False, fontsize=9, labelcolor=INK2,
-        handlelength=1.5, bbox_to_anchor=(1.0, 0.012))
+    labels = [row_label(r, targets) for r in order]
+    if a.orient == "vertical":
+        axes[0].set_ylim(-0.8, n - 0.2)
+        axes[0].set_xlim(0, cmax * 1.04)
+        axes[0].set_yticks(pos)
+        axes[0].set_yticklabels(labels, fontsize=8.4, color=INK,
+                                fontfamily="monospace")
+        for ax in axes:
+            ax.set_xlabel("models", fontsize=10, color=INK2)
+    else:
+        axes[-1].set_xlim(-0.8, n - 0.2)
+        axes[0].set_ylim(0, cmax * 1.04)
+        axes[-1].set_xticks(pos)
+        axes[-1].set_xticklabels(labels, fontsize=8.0, color=INK,
+                                 fontfamily="monospace", rotation=90)
+        for ax in axes:
+            ax.set_ylabel("models", fontsize=10, color=INK2)
 
-    axes[0].set_ylim(-0.8, n - 0.2)
-    axes[0].set_xlim(0, xmax * 1.04)
-    axes[0].set_yticks(ypos)
-    axes[0].set_yticklabels(
-        [f"{r}  {targets[r] if targets[r] != 'no change' else '(uncert.)'}"
-         for r in order], fontsize=8.4, color=INK, fontfamily="monospace")
+    c0 = chosen[0][3]
+    handles = [plt.Rectangle((0, 0), 1, 1, color=c0, alpha=al, label=lab)
+               for _, al, lab in TIERS]
 
-    fig.suptitle("Direction-change reactions: how many models contain each, "
-                 "and how many run it",
-                 fontsize=13.5, color=INK, fontweight="bold", x=0.012,
-                 ha="left", y=0.995)
-    fig.text(0.012, 0.962,
-             f"pale = models containing the reaction   ·   solid = models whose "
-             f"pFBA solution carries flux through it   ·   "
-             f"{n} of 76 reactions appear in any model; the other "
-             f"{76 - n} are shown in no row",
-             fontsize=9.3, color=INK3, ha="left")
+    title_of = {k: t for k, _, t, _ in PANELS}
+    scope = ("across all three model sets" if a.panel == "all"
+             else f"in the {title_of[a.panel].split('  ·')[0]} set")
+    # Header offsets in INCHES converted to figure fraction: the two layouts
+    # differ in height by 2x, so a fixed fraction collided the subtitle with
+    # the title on the shorter one.
+    h = fig.get_figheight()
+    # In the horizontal layout the bars are sorted ascending and fill the
+    # plot, so there is no free corner for a legend: it goes in the header
+    # band instead. The vertical layout has empty space at lower right.
+    if a.orient == "horizontal":
+        fig.legend(handles=handles, loc="upper left",
+                   bbox_to_anchor=(0.008, 1 - 0.62 / h), ncol=3, frameon=False,
+                   fontsize=9, labelcolor=INK2, handlelength=1.5,
+                   columnspacing=2.2)
+    else:
+        axes[0].legend(handles=handles, loc="lower right", frameon=False,
+                       fontsize=9, labelcolor=INK2, handlelength=1.5)
+    fig.suptitle("Direction-change reactions: models containing each, growing, "
+                 "and running it",
+                 fontsize=13.5, color=INK, fontweight="bold", x=0.008,
+                 ha="left", va="top", y=1 - 0.10 / h)
+    fig.text(0.008, 1 - 0.40 / h,
+             f"nested bars: present ≥ growing ≥ active   ·   {n} of 76 "
+             f"reactions appear {scope}; the other {76 - n} are not drawn",
+             fontsize=9.3, color=INK3, ha="left", va="top")
 
-    fig.tight_layout(rect=(0, 0, 1, 0.952))
-    # PNG only: no figure PDFs are tracked in this repo.
-    fig.savefig(OUT_DIR / "direction_change_by_reaction.png", dpi=200, facecolor=SURFACE)
+    fig.tight_layout(rect=(0, 0, 1,
+                           1 - (1.02 if a.orient == "horizontal" else 0.72) / h))
+    fig.savefig(OUT_DIR / f"{name}.png", dpi=200, facecolor=SURFACE)
     plt.close(fig)
 
-    stats = OUT_DIR / "direction_change_by_reaction.tsv"
-    with open(stats, "w", newline="") as fh:
+    with open(OUT_DIR / f"{name}.tsv", "w", newline="") as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
         head = ["reaction_id", "change"]
-        for key, _, _ in PANELS:
-            head += [f"present_{key}", f"active_{key}"]
+        for key, short, _, _ in chosen:
+            head += [f"present_{short}", f"growing_{short}", f"active_{short}"]
         w.writerow(head)
         for r in reversed(order):
             row = [r, targets[r]]
-            for key, _, _ in PANELS:
-                v = panels[key]["per_reaction"][r]
-                row += [v["present"], v["active_pfba"]]
+            for key, _, _, _ in chosen:
+                row += [tier(key, r, "present"), tier(key, r, "present_growing"),
+                        tier(key, r, "active_pfba")]
             w.writerow(row)
-    print(f"wrote {OUT_DIR}/direction_change_by_reaction.png (+tsv), {n} rows")
+    print(f"wrote {OUT_DIR}/{name}.png (+tsv), {n} reactions, "
+          f"{len(chosen)} panel(s), {a.orient}")
 
 
 if __name__ == "__main__":
