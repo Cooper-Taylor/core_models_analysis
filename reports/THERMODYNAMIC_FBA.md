@@ -18,9 +18,12 @@ version of the standard TMFA method. But:
    ModelSEED compound energies are stored in two different bookkeeping conventions mixed
    together. tFBA adds compound energies up, so the mix doesn't cancel — it produces garbage
    on about 30% of reactions.
-4. **Net effect on core models:** as shipped, nothing (a unit bug cancels the constraint out).
-   Fix the unit bug and you get a ~20% average growth loss that is *entirely an artifact* of
-   the bad compound data. Use the database's reaction-level ΔG instead and the effect is zero.
+4. **Net effect on core models:** the *per-reaction direction locks* are inert as shipped (a
+   unit bug cancels them out); fix the unit bug and you get a ~20% average growth loss that is
+   *entirely an artifact* of the bad compound data; drive it from the database's reaction-level
+   ΔG instead and the locks cost nothing. **But the full MILP is strictly stronger than those
+   locks and did not converge** — see §5 and §9. The complete tFBA effect on core flux is
+   measured only for the lock approximation, and remains open for the full formulation.
 
 ---
 
@@ -264,15 +267,22 @@ sum(s * sp.variables["potential"][m.id].primal for m, s in rxn.metabolites.items
   non-binding.** The price variable stays free over ±100,000 kJ/mol, so any reaction touching
   it can have whatever ΔG it needs. This is the most dangerous failure mode: you get a
   thermodynamically "constrained" model that quietly isn't.
-- **The MILP may simply not solve.** The default price bounds are ±100,000 kJ/mol, which makes
-  the big-M in the `thermo` constraint about 10⁶ — a hopeless LP relaxation for GLPK (the cobra
-  default here; HiGHS is in optlang's list but is not wired into this cobra build). On the
-  213-reaction E. coli core model neither run converged: **25 minutes** with the default bounds
-  and **14 minutes** with the implied bounds written onto the price variables, both still
-  running when abandoned. `model.solver.configuration.timeout` was **not honoured** by GLPK.
-  `tighten_potentials()` in `scripts/tfba/tfba_experiment.py` removes no feasible point and is
-  worth applying, but it is not sufficient on its own — plan on a commercial solver, a `filter`
-  restricting the constraint to reactions you care about, or both.
+- **The MILP may not solve to optimality.** The default price bounds are ±100,000 kJ/mol, which
+  makes the big-M in the `thermo` constraint about 10⁶ — a very poor LP relaxation for GLPK (the
+  cobra default here; HiGHS appears in `optlang.available_solvers` but is not registered in this
+  cobra build). Measured on the 213-reaction E. coli core model, stock package, legacy layout:
+
+  | run | outcome |
+  |---|---|
+  | default ±100,000 price bounds | abandoned, still running after **32 min** |
+  | implied bounds via `tighten_potentials()` | hit a **1200 s time limit** with a feasible incumbent of **growth 20.0** vs plain FBA 115.0 |
+
+  The second run returned `status='time_limit'`, so **20.0 is a feasible lower bound, not the
+  optimum** — the true tFBA growth lies somewhere in [20, 115] and the gap was never closed. A
+  time-limited MILP incumbent found under a 10⁶ big-M can be arbitrarily far from optimal, so
+  this number quantifies nothing except that feasible solutions exist below plain FBA growth.
+  Treat it as "unresolved", not as a result. Plan on a commercial solver, a `filter` restricting
+  the constraint to the reactions you care about, or both.
 
 ---
 
@@ -366,8 +376,10 @@ source, then re-optimises:
 
 Three conclusions:
 
-1. **As shipped, tFBA does nothing.** The unit bug shrinks ΔG by 17.5× so almost nothing
-   exceeds the concentration budget. The constraint is inert.
+1. **As shipped, the direction locks do nothing.** The unit bug shrinks ΔG by 17.5× so almost
+   nothing exceeds the concentration budget. Note this is a statement about the *lock
+   approximation* only — the full MILP adds a global consistency requirement the table cannot
+   capture, and on the one model where it was attempted it had not converged (§5).
 2. **Fixing the unit bug makes it worse, not better.** It unmasks the corrupted compound data:
    ~20% average growth loss and two models killed outright. All artifact.
 3. **Correct thermodynamics costs these core models nothing** at the growth level. Reaction-level
@@ -410,10 +422,13 @@ as ModelSEEDPy has it; that part is correct.
 
 ## 9. Caveats on this analysis
 
-- The 80-model sweep fixes directions **reaction by reaction**. It ignores the coupling
-  between reactions that share a metabolite price, which is where tFBA's real value lives —
-  including elimination of thermodynamically infeasible internal loops / EGCs. The full MILP
-  captures that; the sweep does not. So the sweep is a **lower bound** on the effect.
+- **The 80-model sweep fixes directions reaction by reaction, and that is weaker than real
+  tFBA.** It asks only "is this reaction's ΔG beyond rescue by concentrations?". The full MILP
+  additionally requires *one globally consistent set of metabolite prices* across every
+  reaction at once, which is what eliminates thermodynamically infeasible internal loops /
+  EGCs. The sweep is therefore a **lower bound** on the effect, and the single full-MILP run
+  attempted (§5) did not converge, so the size of the gap is unknown. Any claim in §7 that a
+  ΔG source "costs nothing" is a claim about the locks, not about tFBA as a whole.
 - The sweep omits the membrane-potential term, which matters only for the 4 transport
   reactions among the 27 locks.
 - "Hard-locked" uses the concentration + error budget described in §1. Reactions below that
