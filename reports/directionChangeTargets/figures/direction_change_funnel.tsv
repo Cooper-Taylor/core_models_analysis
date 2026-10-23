@@ -1,0 +1,4 @@
+stage	explicit_change	labelled_no_change	total
+all targets	56	20	76
+present in ≥1 model	27	9	36
+active in ≥1 FBA solution	22	8	30

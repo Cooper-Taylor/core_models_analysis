@@ -48,3 +48,5 @@ ci_only_fix_families	plot_ci_only_fix_families.py		bars
 strict_disagreement_residual_subclusters	plot_strict_disagreement_residual_subclusters.py		bars,enzymes
 baseline_biomass_taxonomy	plot_baseline_biomass_taxonomy.py		bars,distribution,taxonomy
 flux_distributions	plot_flux_distributions.py		distribution,flux,loops
+direction_change_funnel	plot_direction_change_funnel.py		bars,direction_change
+direction_change_by_reaction	plot_direction_change_by_reaction.py		bars,direction_change
