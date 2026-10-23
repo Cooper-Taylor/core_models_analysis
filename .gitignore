@@ -119,3 +119,4 @@ results/strict_disagreement_enzymes/chunks/
 # rebuilds. summary.json and per_model.tsv stay tracked, so every number the
 # figures and reports quote can still be rechecked without re-solving.
 results/flux_distributions/*/fluxes.npz
+results/tfba/
