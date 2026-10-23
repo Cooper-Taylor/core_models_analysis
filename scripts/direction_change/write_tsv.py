@@ -54,9 +54,11 @@ def main() -> None:
     path = RESULTS / "direction_change_targets_by_reaction.tsv"
     cols = ["reaction_id", "change", "name"]
     for short in PANELS.values():
-        cols += [f"present_{short}", f"growing_{short}", f"active_{short}"]
-    cols += ["present_total", "growing_total", "active_total",
-             "present_any", "active_any", "n_panels_present", "n_panels_active"]
+        cols += [f"present_{short}", f"growing_{short}",
+                 f"active_pfba_{short}", f"active_fba_{short}"]
+    cols += ["present_total", "growing_total", "active_pfba_total",
+             "active_fba_total", "present_any", "active_any",
+             "n_panels_present", "n_panels_active"]
 
     with open(path, "w", newline="") as fh:
         w = csv.writer(fh, delimiter="\t", lineterminator="\n")
@@ -65,10 +67,11 @@ def main() -> None:
             row = [rid, targets[rid], names.get(rid, "")]
             np_, na = 0, 0
             pa = aa = False
-            tot_p = tot_g = tot_a = 0
+            tot_p = tot_g = tot_a = tot_f = 0
             for key, short in PANELS.items():
                 v = panels[key]["per_reaction"][rid]
-                row += [v["present"], v.get("present_growing", ""), v["active_pfba"]]
+                row += [v["present"], v.get("present_growing", ""),
+                        v["active_pfba"], v["active_fba"]]
                 np_ += 1 if v["present"] else 0
                 na += 1 if v["active_pfba"] else 0
                 pa = pa or bool(v["present"])
@@ -76,7 +79,8 @@ def main() -> None:
                 tot_p += v["present"]
                 tot_g += v.get("present_growing", 0)
                 tot_a += v["active_pfba"]
-            row += [tot_p, tot_g, tot_a, int(pa), int(aa), np_, na]
+                tot_f += v["active_fba"]
+            row += [tot_p, tot_g, tot_a, tot_f, int(pa), int(aa), np_, na]
             w.writerow(row)
     print(f"wrote {path}  ({len(targets)} rows)")
 

@@ -24,11 +24,50 @@ flux. Split by category: explicit change 27/56 present and 22/56 active;
 
 ## Activity is measured on pFBA, not plain FBA
 
-Plain FBA picks an arbitrary vertex among alternate optima, so whether a given
-reaction carries flux in it is not reproducible. pFBA is used throughout, the
-same convention as `build_flux_distributions.py`, with `ACTIVE_TOL = 1e-9`.
-The plain-FBA answer is recorded alongside in `active_fba`: it gives 31 rather
-than 30, the extra one (rxn15230) being an alternate-optimum artefact.
+**FBA** maximises biomass subject to mass balance and flux bounds. That
+optimum is almost never a single point: typically a whole face of the feasible
+polytope achieves the same growth rate, and the solver returns one arbitrary
+vertex of it. Growth is unique; the flux vector is not. So "does rxn00441
+carry flux at the optimum?" has no single answer under plain FBA — it depends
+on which vertex the solver happened to land on, which can change with solver
+version, constraint ordering, or a numerically irrelevant perturbation.
+
+**pFBA** (parsimonious FBA, Lewis et al. 2010) resolves this with a second
+objective: among all solutions achieving optimal growth, pick the one
+minimising total absolute flux. That is unique in practice, and it has a
+biological reading — the cell does not run enzymes it does not need. It also
+suppresses thermodynamically infeasible internal loops, which carry flux in
+plain FBA at no cost to the objective because they neither consume nor produce
+anything net.
+
+This project uses pFBA throughout, the same convention as
+`build_flux_distributions.py`, with `ACTIVE_TOL = 1e-9`.
+
+### How much it matters here
+
+Measured, not assumed. Both are recorded:
+
+| | pFBA | plain FBA |
+|---|---:|---:|
+| reactions active in ≥1 model | **30** / 76 | 31 / 76 |
+| (reaction, panel) cells that differ | — | 29 of 228 |
+| reactions whose totals differ | — | 15 of 76 |
+
+The headline count barely moves, but individual reactions move a lot, in both
+directions:
+
+* `rxn00362` — 80 models under pFBA, 211 under plain FBA in the glucose-minimal
+  panel. Plain FBA runs it gratuitously; pFBA will not pay for flux it does not
+  need.
+* `rxn00330` — 2,237 under pFBA, 2,130 under plain FBA. The reverse: pFBA finds
+  it is the *cheaper* route and uses it more.
+* `rxn15230` — active in 0 models under pFBA, non-zero under plain FBA. This is
+  the one reaction that changes the 30/31 headline, and it is exactly the
+  alternate-optimum artefact pFBA exists to remove.
+
+So plain FBA would not change the conclusion, but it would change which
+reactions you name — which is why `active_fba_<panel>` ships alongside rather
+than being dropped.
 
 ## Files
 
@@ -48,9 +87,10 @@ It is gitignored; regenerate with `--dump-records`.
 ### `direction_change_targets_by_reaction.tsv`
 
 `reaction_id`, `change`, `name` (from MSDB), then a
-`present_<panel>` / `growing_<panel>` / `active_<panel>` triple for each of
-`core`, `gsm`, `gsm_auxo`, then `present_total`, `growing_total`,
-`active_total` summed over panels, then `present_any`, `active_any` (0/1),
+`present_<panel>` / `growing_<panel>` / `active_pfba_<panel>` /
+`active_fba_<panel>` quad for each of `core`, `gsm`, `gsm_auxo`, then
+`present_total`, `growing_total`, `active_pfba_total`, `active_fba_total`
+summed over panels, then `present_any`, `active_any` (0/1),
 `n_panels_present`, `n_panels_active`.
 
 The three counts nest: **active ≤ growing ≤ present**, checked on every row.
@@ -60,7 +100,9 @@ The three counts nest: **active ≤ growing ≤ present**, checked on every row.
   has no flux solution, so this is the denominator `active` should be read
   against, not `present`. The gap matters: rxn00011 is in 5,352 core models
   but only 3,394 of them grow.
-* `active_<panel>` — of those, how many carry flux through it under pFBA.
+* `active_pfba_<panel>` — of those, how many carry flux under pFBA. **This is
+  the headline number.**
+* `active_fba_<panel>` — the same under plain FBA, for comparison. See below.
 
 ### `direction_change_targets_by_model.tsv`
 
@@ -75,44 +117,44 @@ source of truth and carries all 76 reactions plus totals. Each cell is
 **present / growing / active** — models containing the reaction, of those how
 many grow, of those how many carry flux under pFBA.
 
-| reaction | change | core P/G/A | gsm P/G/A | auxo P/G/A | name |
-|---|---|---|---|---|---|
-| `rxn00011` | = -> < | 5352/3394/2906 | 5286/4261/2921 | 5158/5138/1290 | pyruvate:thiamin diphosphate acetaldehydetrans |
-| `rxn00874` | = -> < | 4110/3050/0 | 4003/3266/6 | 4003/3988/0 | butanoyl-CoA:acetyl-CoA C-butanoyltransferase |
-| `rxn00441` | = -> > | 3788/3032/714 | 3787/3424/1505 | 3788/3777/3214 | R00621 |
-| `rxn01961` | = -> > | 0/0/0 | 5003/4093/154 | 4999/4981/139 | Xanthosine 5'-phosphate phosphohydrolase |
-| `rxn01145` | = -> > | 0/0/0 | 4994/4090/99 | 4993/4973/76 | Thymidylate 5'-phosphohydrolase |
-| `rxn03909` | = -> > | 0/0/0 | 5151/4137/4137 | 4557/4543/4231 | 1-Deoxy-D-xylulose-5-phosphate pyruvate-lyase  |
-| `rxn01300` | = -> > | 0/0/0 | 4558/3628/1792 | 4468/4449/2496 | ATP:L-homoserine O-phosphotransferase |
-| `rxn00330` | = -> < | 2544/2371/201 | 2680/2447/2237 | 2587/2579/1254 | acetyl-CoA:glyoxylate C-acetyltransferase (thi |
-| `rxn05567` | = -> > | 0/0/0 | 3660/2748/1 | 3661/3645/0 | Galactitol transport via PEP:Pyr PTS |
-| `rxn05485` | *uncert.* | 0/0/0 | 3641/2729/3 | 3641/3625/1 | N-Acetyl-D-glucosamine transport via PEP:Pyr P |
-| `rxn00342` | = -> > | 0/0/0 | 3531/2803/0 | 3533/3524/611 | L-Asparagine amidohydrolase |
-| `rxn00950` | *uncert.* | 0/0/0 | 3039/2435/13 | 3039/3026/43 | Cystathionine L-homocysteine-lyase (deaminatin |
-| `rxn02275` | *uncert.* | 0/0/0 | 2738/2299/19 | 2739/2726/44 | 4-Guanidinobutanamide amidohydrolase |
-| `rxn15230` | *uncert.* | 0/0/0 | 2481/1800/0 | 2480/2468/0 | Lactose galactohydrolase |
-| `rxn00985` | *uncert.* | 4186/2790/0 | 310/256/7 | 339/339/66 | ATP:propanoate phosphotransferase |
-| `rxn00274` | = -> < | 0/0/0 | 2277/2032/809 | 2180/2176/680 | Acetyl-CoA:glycine C-acetyltransferase |
-| `rxn00566` | = -> > | 0/0/0 | 2170/1619/121 | 2127/2114/673 | L-Cysteine hydrogen-sulfide-lyase (deaminating |
-| `rxn03919` | = -> > | 0/0/0 | 1977/1851/0 | 1977/1974/0 | D-glycero-beta-D-manno-heptose 1,7-bisphosphat |
-| `rxn00606` | *uncert.* | 0/0/0 | 1392/906/149 | 1349/1341/226 | alpha,alpha-Trehalose-6-phosphate phosphogluco |
-| `rxn00362` | *uncert.* | 0/0/0 | 1045/1024/80 | 1075/1074/144 | Cytidine-5'-monophosphate phosphoribohydrolase |
-| `rxn00456` | = -> > | 0/0/0 | 1028/880/96 | 1034/1029/230 | L-methionine methanethiol-lyase (deaminating;2 |
-| `rxn01027` | = -> < | 0/0/0 | 786/689/0 | 786/783/0 | 5,6-Dihydrothymine:NAD+ oxidoreductase |
-| `rxn00600` | = -> < | 0/0/0 | 684/498/498 | 627/621/621 | Succinyl-CoA:glycine C-succinyl-transferase(de |
-| `rxn00202` | = -> < | 0/0/0 | 708/496/125 | 537/535/89 | acetyl-CoA:2-oxoglutarate C-acetyltransferase  |
-| `rxn01630` | *uncert.* | 0/0/0 | 435/352/101 | 371/370/1 | 5-Aminopentanamide amidohydrolase |
-| `rxn08571` | = -> > | 0/0/0 | 330/327/0 | 330/330/0 | D-galactose 1-phosphatase |
-| `rxn17641` | = -> > | 0/0/0 | 157/155/124 | 157/156/124 | prenyltransferase |
-| `rxn11859` | = -> > | 0/0/0 | 109/98/80 | 83/82/64 | R08332 |
-| `rxn00680` | = -> < | 0/0/0 | 155/114/114 | 5/5/5 | propanoyl-CoA:glyoxylate C-propanoyltransferas |
-| `rxn05035` | = -> > | 0/0/0 | 126/117/117 | 6/6/6 | O-phospho-L-serine:hydrogen-sulfide 2-amino-2- |
-| `rxn04712` | = -> > | 0/0/0 | 23/22/0 | 23/23/0 | R06903 |
-| `rxn09433` | = -> > | 0/0/0 | 6/5/5 | 9/8/8 | fatty acid synthase (n-C16:0) |
-| `rxn01028` | = -> < | 0/0/0 | 6/6/0 | 6/6/0 | 5,6-Dihydrothymine:NADP+ oxidoreductase |
-| `rxn01317` | *uncert.* | 0/0/0 | 2/0/0 | 4/4/4 | N-Acetylneuraminate 9-phosphate phosphohydrola |
-| `rxn09431` | = -> > | 0/0/0 | 1/0/0 | 5/5/5 | fatty-acyl-CoA synthase (n-C16:0CoA) |
-| `rxn01456` | = -> > | 0/0/0 | 1/1/1 | 0/0/0 | D-galacturonate:NAD+ 1-oxidoreductase |
+| reaction | change | core P/G/A | gsm P/G/A | auxo P/G/A | pFBA vs FBA (total) | name |
+|---|---|---|---|---|---|---|
+| `rxn00011` | = -> < | 5352/3394/2906 | 5286/4261/2921 | 5158/5138/1290 | 7117 / 7124 ⚠ | pyruvate:thiamin diphosphate acetaldehyd |
+| `rxn00874` | = -> < | 4110/3050/0 | 4003/3266/6 | 4003/3988/0 | 6 / 6 | butanoyl-CoA:acetyl-CoA C-butanoyltransf |
+| `rxn00441` | = -> > | 3788/3032/714 | 3787/3424/1505 | 3788/3777/3214 | 5433 / 5386 ⚠ | R00621 |
+| `rxn01961` | = -> > | 0/0/0 | 5003/4093/154 | 4999/4981/139 | 293 / 295 ⚠ | Xanthosine 5'-phosphate phosphohydrolase |
+| `rxn01145` | = -> > | 0/0/0 | 4994/4090/99 | 4993/4973/76 | 175 / 173 ⚠ | Thymidylate 5'-phosphohydrolase |
+| `rxn03909` | = -> > | 0/0/0 | 5151/4137/4137 | 4557/4543/4231 | 8368 / 8371 ⚠ | 1-Deoxy-D-xylulose-5-phosphate pyruvate- |
+| `rxn01300` | = -> > | 0/0/0 | 4558/3628/1792 | 4468/4449/2496 | 4288 / 4326 ⚠ | ATP:L-homoserine O-phosphotransferase |
+| `rxn00330` | = -> < | 2544/2371/201 | 2680/2447/2237 | 2587/2579/1254 | 3692 / 3606 ⚠ | acetyl-CoA:glyoxylate C-acetyltransferas |
+| `rxn05567` | = -> > | 0/0/0 | 3660/2748/1 | 3661/3645/0 | 1 / 1 | Galactitol transport via PEP:Pyr PTS |
+| `rxn05485` | *uncert.* | 0/0/0 | 3641/2729/3 | 3641/3625/1 | 4 / 4 | N-Acetyl-D-glucosamine transport via PEP |
+| `rxn00342` | = -> > | 0/0/0 | 3531/2803/0 | 3533/3524/611 | 611 / 613 ⚠ | L-Asparagine amidohydrolase |
+| `rxn00950` | *uncert.* | 0/0/0 | 3039/2435/13 | 3039/3026/43 | 56 / 134 ⚠ | Cystathionine L-homocysteine-lyase (deam |
+| `rxn02275` | *uncert.* | 0/0/0 | 2738/2299/19 | 2739/2726/44 | 63 / 63 | 4-Guanidinobutanamide amidohydrolase |
+| `rxn15230` | *uncert.* | 0/0/0 | 2481/1800/0 | 2480/2468/0 | 0 / 13 ⚠ | Lactose galactohydrolase |
+| `rxn00985` | *uncert.* | 4186/2790/0 | 310/256/7 | 339/339/66 | 73 / 116 ⚠ | ATP:propanoate phosphotransferase |
+| `rxn00274` | = -> < | 0/0/0 | 2277/2032/809 | 2180/2176/680 | 1489 / 1497 ⚠ | Acetyl-CoA:glycine C-acetyltransferase |
+| `rxn00566` | = -> > | 0/0/0 | 2170/1619/121 | 2127/2114/673 | 794 / 780 ⚠ | L-Cysteine hydrogen-sulfide-lyase (deami |
+| `rxn03919` | = -> > | 0/0/0 | 1977/1851/0 | 1977/1974/0 | 0 / 0 | D-glycero-beta-D-manno-heptose 1,7-bisph |
+| `rxn00606` | *uncert.* | 0/0/0 | 1392/906/149 | 1349/1341/226 | 375 / 375 | alpha,alpha-Trehalose-6-phosphate phosph |
+| `rxn00362` | *uncert.* | 0/0/0 | 1045/1024/80 | 1075/1074/144 | 224 / 407 ⚠ | Cytidine-5'-monophosphate phosphoribohyd |
+| `rxn00456` | = -> > | 0/0/0 | 1028/880/96 | 1034/1029/230 | 326 / 341 ⚠ | L-methionine methanethiol-lyase (deamina |
+| `rxn01027` | = -> < | 0/0/0 | 786/689/0 | 786/783/0 | 0 / 0 | 5,6-Dihydrothymine:NAD+ oxidoreductase |
+| `rxn00600` | = -> < | 0/0/0 | 684/498/498 | 627/621/621 | 1119 / 1119 | Succinyl-CoA:glycine C-succinyl-transfer |
+| `rxn00202` | = -> < | 0/0/0 | 708/496/125 | 537/535/89 | 214 / 214 | acetyl-CoA:2-oxoglutarate C-acetyltransf |
+| `rxn01630` | *uncert.* | 0/0/0 | 435/352/101 | 371/370/1 | 102 / 102 | 5-Aminopentanamide amidohydrolase |
+| `rxn08571` | = -> > | 0/0/0 | 330/327/0 | 330/330/0 | 0 / 0 | D-galactose 1-phosphatase |
+| `rxn17641` | = -> > | 0/0/0 | 157/155/124 | 157/156/124 | 248 / 248 | prenyltransferase |
+| `rxn11859` | = -> > | 0/0/0 | 109/98/80 | 83/82/64 | 144 / 144 | R08332 |
+| `rxn00680` | = -> < | 0/0/0 | 155/114/114 | 5/5/5 | 119 / 119 | propanoyl-CoA:glyoxylate C-propanoyltran |
+| `rxn05035` | = -> > | 0/0/0 | 126/117/117 | 6/6/6 | 123 / 123 | O-phospho-L-serine:hydrogen-sulfide 2-am |
+| `rxn04712` | = -> > | 0/0/0 | 23/22/0 | 23/23/0 | 0 / 0 | R06903 |
+| `rxn09433` | = -> > | 0/0/0 | 6/5/5 | 9/8/8 | 13 / 13 | fatty acid synthase (n-C16:0) |
+| `rxn01028` | = -> < | 0/0/0 | 6/6/0 | 6/6/0 | 0 / 0 | 5,6-Dihydrothymine:NADP+ oxidoreductase |
+| `rxn01317` | *uncert.* | 0/0/0 | 2/0/0 | 4/4/4 | 4 / 4 | N-Acetylneuraminate 9-phosphate phosphoh |
+| `rxn09431` | = -> > | 0/0/0 | 1/0/0 | 5/5/5 | 5 / 5 | fatty-acyl-CoA synthase (n-C16:0CoA) |
+| `rxn01456` | = -> > | 0/0/0 | 1/1/1 | 0/0/0 | 1 / 1 | D-galacturonate:NAD+ 1-oxidoreductase |
 
 ### The 40 reactions in no model at all
 
